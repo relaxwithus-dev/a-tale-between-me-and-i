@@ -27,7 +27,7 @@ Make sure you have the below requirements before starting:
 
 You can get access to Red Runner source code by using one of the following ways:
 
-- [:sparkles: Download Source Code](https://github.com/BayatGames/RedRunner/archive/master.zip)
+- :sparkles: Download Source Code
 - Clone the repository locally or via Git GIUI:
 
 ```bash
@@ -36,7 +36,7 @@ git clone https://github.com/relaxwithus-dev/a-tale-between-me-and-i.git
 
 ## Team
 
- [![Satrio](https://github.com//EchoXazsk.png?size=150)](https://github.com//EchoXazsk) | [![Jiddan](https://github.com/alfian-jiddanpng?size=150)](https://github.com/alfian-jiddan) | [![David](https://github.com/ddinhaz.png?size=150)](https://github.com/ddinhaz) | [![Irvan](https://github.com/vass123456.png?size=150)](https://github.com/vass123456) | [![Zibril](https://github.com//ea-zibrily.png?size=150)](https://github.com//ea-zibrily) | [![Restu](https://github.com//restudo.png?size=150)](https://github.com//restudo)
+ [![Satrio](https://github.com//EchoXazsk.png?size=150)](https://github.com//EchoXazsk) | [![Jiddan](https://github.com/alfian-jiddan.png?size=150)](https://github.com/alfian-jiddan) | [![David](https://github.com/ddinhaz.png?size=150)](https://github.com/ddinhaz) | [![Irvan](https://github.com/vass123456.png?size=150)](https://github.com/vass123456) | [![Zibril](https://github.com//ea-zibrily.png?size=150)](https://github.com//ea-zibrily) | [![Restu](https://github.com//restudo.png?size=150)](https://github.com//restudo)
 ----|----|----|----|----|----
 [Satrio](https://github.com/EchoXazsk) | [Jiddan](https://github.com/alfian-jiddan) | [David](https://github.com/ddinhaz) | [Irvan](https://github.com/vass123456) | [Zibril](https://github.com/ea-zibrily) | [Restu](https://github.com/restudo)
  Designer | Story Writer | Character Artist | Environment Artist | Front-End Programmer | Back-End Programmer 
