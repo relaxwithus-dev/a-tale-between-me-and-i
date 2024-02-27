@@ -39,4 +39,4 @@ git clone https://github.com/relaxwithus-dev/a-tale-between-me-and-i.git
  [![Satrio](https://github.com//EchoXazsk.png?size=150)](https://github.com//EchoXazsk) | [![Jiddan](https://github.com/alfian-jiddan.png?size=150)](https://github.com/alfian-jiddan) | [![David](https://github.com/ddinhaz.png?size=150)](https://github.com/ddinhaz) | [![Irvan](https://github.com/vass123456.png?size=150)](https://github.com/vass123456) | [![Zibril](https://github.com//ea-zibrily.png?size=150)](https://github.com//ea-zibrily) | [![Restu](https://github.com//restudo.png?size=150)](https://github.com//restudo)
 ----|----|----|----|----|----
 [Satrio](https://github.com/EchoXazsk) | [Jiddan](https://github.com/alfian-jiddan) | [David](https://github.com/ddinhaz) | [Irvan](https://github.com/vass123456) | [Zibril](https://github.com/ea-zibrily) | [Restu](https://github.com/restudo)
- Designer | Story Writer | Character Artist | Environment Artist | Front-End Programmer | Back-End Programmer 
+ Designer | Story Writer | Character Artist | Environment Artist | Mechanic Programmer | System Programmer 
