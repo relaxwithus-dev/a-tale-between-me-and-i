@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,15 +7,35 @@ namespace ATBMI.Entities.Player
 {
     public class PlayerController : MonoBehaviour
     {
+        #region Struct
+
+        [Serializable]
+        private struct SpeedStats
+        {
+            public float MoveSpeed;
+            public float Acceleration;
+            public float Decceleration;
+        }
+
+        #endregion
+
         #region Fields & Property
 
-        [Header("Data")]
+        [Header("General")]
         [SerializeField] private string playerName;
-        [SerializeField] private float moveSpeed;
         [SerializeField] private bool isRight;
+        private bool _canMove;
+
+        [Header("Movement")]
+        [SerializeField] private float moveSpeed;
+        [SerializeField] private float acceleration;
+        [SerializeField] private float decceleration;
+        
+        [SerializeField] private SpeedStats walkSpeedStats;
+        [SerializeField] private SpeedStats runSpeedStats;
+        [SerializeField] private float velPower;
 
         private Vector2 _playerDirection;
-        private bool _canMove;
 
         //-- Const Variable
         private const string IS_MOVE = "isMove";
@@ -48,7 +69,7 @@ namespace ATBMI.Entities.Player
         private void Update()
         {
             PlayerDirection();
-            // PlayerAnimation();
+            PlayerAnimation();
         }
 
         #endregion
@@ -70,7 +91,12 @@ namespace ATBMI.Entities.Player
             _playerDirection = new Vector2( _playerInputHandler.Direction.x, _playerDirection.y);
             _playerDirection.Normalize();
 
-            _playerRb.velocity = _playerDirection * moveSpeed;
+            var targetSpeed = _playerDirection * moveSpeed;
+            var speedDif = targetSpeed.x - _playerRb.velocity.x;
+            var accelRate = (Mathf.Abs(targetSpeed.x) > 0.01f) ? acceleration : decceleration;
+            var movement = Mathf.Pow(MathF.Abs(speedDif) * accelRate, velPower) * MathF.Sign(speedDif);
+            
+            _playerRb.AddForce(movement * Vector2.right);
         }
 
         private void PlayerAnimation()
@@ -94,7 +120,7 @@ namespace ATBMI.Entities.Player
         private void PlayerFlip()
         {
             isRight = !isRight;
-            transform.Rotate(0f, 90f, 0f);
+            transform.Rotate(0f, 180f, 0f);
         }
 
 
