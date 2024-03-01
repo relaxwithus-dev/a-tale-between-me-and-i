@@ -39,9 +39,14 @@ namespace ATBMI.Entities.Player
 
         #region Methods
 
-        public void OnMovementPerformed(InputAction.CallbackContext value)
+        private void OnMovementPerformed(InputAction.CallbackContext value)
         {
            Direction = value.ReadValue<Vector2>();
+        }
+
+        private void OnMovementAxisPerformed()
+        {
+            
         }
 
         private void OnMovementCanceled(InputAction.CallbackContext value)

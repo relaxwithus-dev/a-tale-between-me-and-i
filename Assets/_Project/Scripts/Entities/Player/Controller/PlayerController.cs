@@ -10,7 +10,7 @@ namespace ATBMI.Entities.Player
         #region Struct
 
         [Serializable]
-        private struct SpeedStats
+        public struct SpeedStats
         {
             public float MoveSpeed;
             public float Acceleration;
@@ -27,14 +27,13 @@ namespace ATBMI.Entities.Player
         private bool _canMove;
 
         [Header("Movement")]
-        [SerializeField] private float moveSpeed;
-        [SerializeField] private float acceleration;
-        [SerializeField] private float decceleration;
-        
         [SerializeField] private SpeedStats walkSpeedStats;
         [SerializeField] private SpeedStats runSpeedStats;
         [SerializeField] private float velPower;
 
+        private float _currentMoveSpeed;
+        private float _currentAcceleration;
+        private float _currentDecceleration;
         private Vector2 _playerDirection;
 
         //-- Const Variable
@@ -81,6 +80,10 @@ namespace ATBMI.Entities.Player
         {
             gameObject.name = playerName;
             _canMove = true;
+
+            _currentMoveSpeed = walkSpeedStats.MoveSpeed;
+            _currentAcceleration = walkSpeedStats.Acceleration;
+            _currentDecceleration = walkSpeedStats.Decceleration;
         }
 
         // !-- Core Functionality
@@ -91,10 +94,11 @@ namespace ATBMI.Entities.Player
             _playerDirection = new Vector2( _playerInputHandler.Direction.x, _playerDirection.y);
             _playerDirection.Normalize();
 
-            var targetSpeed = _playerDirection * moveSpeed;
+            var targetSpeed = _playerDirection * _currentMoveSpeed;
             var speedDif = targetSpeed.x - _playerRb.velocity.x;
-            var accelRate = (Mathf.Abs(targetSpeed.x) > 0.01f) ? acceleration : decceleration;
+            var accelRate = (Mathf.Abs(targetSpeed.x) > 0.01f) ? _currentAcceleration : _currentAcceleration;
             var movement = Mathf.Pow(MathF.Abs(speedDif) * accelRate, velPower) * MathF.Sign(speedDif);
+            Debug.Log(movement);
             
             _playerRb.AddForce(movement * Vector2.right);
         }

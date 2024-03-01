@@ -537,7 +537,7 @@ GameObject:
   - component: {fileID: 636861031}
   - component: {fileID: 636861032}
   m_Layer: 0
-  m_Name: Input
+  m_Name: InputHandler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -937,9 +937,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerName: Mosawo
   isRight: 1
-  moveSpeed: 8
-  acceleration: 7
-  decceleration: 5
+  walkSpeedStats:
+    MoveSpeed: 6
+    Acceleration: 7
+    Decceleration: 7
+  runSpeedStats:
+    MoveSpeed: 8
+    Acceleration: 6
+    Decceleration: 5
   velPower: 0.9
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
