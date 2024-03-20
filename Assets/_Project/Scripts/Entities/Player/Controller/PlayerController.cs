@@ -31,7 +31,7 @@ namespace ATBMI.Entities.Player
         [SerializeField] private SpeedStats runSpeedStats;
         [SerializeField] private float velPower;
 
-        [SerializeField] private float _movementValue;
+        private float _movementValue;
         private float _currentMoveSpeed;
         private float _currentAcceleration;
         private float _currentDecceleration;
@@ -40,11 +40,18 @@ namespace ATBMI.Entities.Player
         //-- Const Variable
         private const string IS_MOVE = "isMove";
 
+        [Header("State")]
+        private PlayerStateController _playerStateController;
+        public IdleState IdleState { get; private set; }
+        public WalkState WalkState { get; private set; }
+        public RunState RunState { get; private set; }
 
         [Header("Reference")]
         private Rigidbody2D _playerRb;
         private Animator _playerAnim;
         private PlayerInputHandler _playerInputHandler;
+
+        public Animator PlayerAnim => _playerAnim;
 
         #endregion
 
@@ -55,22 +62,35 @@ namespace ATBMI.Entities.Player
             _playerRb = GetComponent<Rigidbody2D>();
             _playerAnim = GetComponentInChildren<Animator>();
             _playerInputHandler = GetComponentInChildren<PlayerInputHandler>();
+
+            _playerStateController = new PlayerStateController();
+
+            IdleState = GetComponentInChildren<IdleState>();
+            WalkState = GetComponentInChildren<WalkState>();
+            RunState = GetComponentInChildren<RunState>();
+
+            IdleState.InitializeState(this, _playerStateController, "Idle");
+            WalkState.InitializeState(this, _playerStateController, "Walk");
+            RunState.InitializeState(this, _playerStateController, "Run");
         }
 
         private void Start()
         {
             InitializePlayer();
+            // _playerStateController.Initialize(IdleState);
         }
 
         private void FixedUpdate()
         {
             PlayerMove();
+            // _playerStateController.CurrentState.DoFixedState();
         }
 
         private void Update()
         {
             PlayerDirection();
             PlayerAnimation();
+            // _playerStateController.CurrentState.DoState();
         }
 
         #endregion

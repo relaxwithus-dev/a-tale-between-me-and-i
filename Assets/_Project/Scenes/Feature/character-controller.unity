@@ -817,7 +817,7 @@ Animator:
   m_GameObject: {fileID: 1461511524}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e4619c1729b18824c89c01ee22bed3c8, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4405f6d1632d13f44a9ca8ac3773bb89, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -950,6 +950,7 @@ MonoBehaviour:
     Acceleration: 6
     Decceleration: 5
   velPower: 0.9
+  _movementValue: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
