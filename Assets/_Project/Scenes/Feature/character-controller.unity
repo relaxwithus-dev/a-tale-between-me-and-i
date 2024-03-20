@@ -639,6 +639,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 630d6ba3-6869-4e66-aa04-7e0347e75539
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0dd25de7-ae3b-49a0-8f21-ba07d0ae57cb
+    m_ActionName: Player/Interact
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
@@ -776,7 +780,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1270034049
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: -146753084, guid: ff72be4ff78fb274d9021430307184d6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -813,7 +817,7 @@ Animator:
   m_GameObject: {fileID: 1461511524}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e4619c1729b18824c89c01ee22bed3c8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -935,7 +939,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a99771de0ab1ac45bd9315794990b91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerName: Mosawo
+  playerName: Jec
   isRight: 1
   walkSpeedStats:
     MoveSpeed: 6

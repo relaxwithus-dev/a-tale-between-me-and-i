@@ -31,6 +31,7 @@ namespace ATBMI.Entities.Player
         [SerializeField] private SpeedStats runSpeedStats;
         [SerializeField] private float velPower;
 
+        [SerializeField] private float _movementValue;
         private float _currentMoveSpeed;
         private float _currentAcceleration;
         private float _currentDecceleration;
@@ -38,6 +39,7 @@ namespace ATBMI.Entities.Player
 
         //-- Const Variable
         private const string IS_MOVE = "isMove";
+
 
         [Header("Reference")]
         private Rigidbody2D _playerRb;
@@ -97,15 +99,14 @@ namespace ATBMI.Entities.Player
             var targetSpeed = _playerDirection * _currentMoveSpeed;
             var speedDif = targetSpeed.x - _playerRb.velocity.x;
             var accelRate = (Mathf.Abs(targetSpeed.x) > 0.01f) ? _currentAcceleration : _currentAcceleration;
-            var movement = Mathf.Pow(MathF.Abs(speedDif) * accelRate, velPower) * MathF.Sign(speedDif);
-            Debug.Log(movement);
+            _movementValue = Mathf.Pow(MathF.Abs(speedDif) * accelRate, velPower) * MathF.Sign(speedDif);
             
-            _playerRb.AddForce(movement * Vector2.right);
+            _playerRb.AddForce(_movementValue * Vector2.right);
         }
 
         private void PlayerAnimation()
         {
-            var isPlayerMove = _playerDirection != Vector2.zero;
+            var isPlayerMove = _playerDirection.x != 0 || _movementValue >= 1.1f || _movementValue <= -1.1f;
             _playerAnim.SetBool(IS_MOVE, isPlayerMove);
         }
 
