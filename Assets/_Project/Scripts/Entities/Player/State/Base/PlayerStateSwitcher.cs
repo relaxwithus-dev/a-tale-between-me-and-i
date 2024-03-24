@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ATBMI.Entities.Player
 {
-    public class PlayerStateController
+    public class PlayerStateSwitcher
     {
         public PlayerStateBase CurrentState { get; private set; }
 

@@ -939,6 +939,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a99771de0ab1ac45bd9315794990b91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerData: {fileID: 11400000, guid: b65c410321df4c6469066d0c56ecc90f, type: 2}
   playerName: Jec
   isRight: 1
   walkSpeedStats:
@@ -950,7 +951,6 @@ MonoBehaviour:
     Acceleration: 6
     Decceleration: 5
   velPower: 0.9
-  _movementValue: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
