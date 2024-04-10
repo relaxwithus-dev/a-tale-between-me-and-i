@@ -9,26 +9,13 @@ namespace ATBMI.Entities.Player
 {
     public class PlayerController : MonoBehaviour
     {
-        #region Struct
-
-        [Serializable]
-        public struct SpeedStats
-        {
-            public float MoveSpeed;
-            public float Acceleration;
-            public float Decceleration;
-        }
-
-        #endregion
-
         #region Const Variable
-
         private const string IDLE_STATE = "Idle";
         private const string WALK_STATE = "Walk";
         private const string RUN_STATE = "Run";
+        private const string JUMP_STATE = "Jump";
 
         private const string IS_MOVE = "isMove";
-
         #endregion
 
         #region Fields & Property
@@ -42,13 +29,15 @@ namespace ATBMI.Entities.Player
 
         public PlayerData PlayerData => playerData;
 
-        [Header("State")]
-        private PlayerStateSwitcher _playerStateController;
-        public IdleState IdleState { get; private set; }
-        public WalkState WalkState { get; private set; }
-        public RunState RunState { get; private set; }
+        // !-- State
+        public PlayerStateSwitcher StateSwitcher { get; private set; }
 
-        [Header("Reference")]
+        public IdleState IdleState { get; private set; }
+        public MoveState WalkState { get; private set; }
+        public MoveState RunState { get; private set; }
+        public JumpState JumpState { get; private set; }
+
+        // !-- Reference
         private PlayerInputHandler _playerInputHandler;
         private Animator _playerAnimator;
         public PlayerInputHandler PlayerInputHandler => _playerInputHandler;
@@ -65,27 +54,27 @@ namespace ATBMI.Entities.Player
             _playerInputHandler = GetComponentInChildren<PlayerInputHandler>();
 
             // State
-            _playerStateController = new PlayerStateSwitcher();
-            IdleState = new IdleState(this, _playerStateController, IDLE_STATE);
-            WalkState = new WalkState(this, _playerStateController, WALK_STATE);
-            RunState = new RunState(this, _playerStateController, RUN_STATE);
+            StateSwitcher = new PlayerStateSwitcher();
+            IdleState = new IdleState(this, StateSwitcher, IDLE_STATE);
+            WalkState = new MoveState(this, StateSwitcher, WALK_STATE);
+            RunState = new MoveState(this, StateSwitcher, RUN_STATE);
         }
 
         private void Start()
         {
             InitializePlayer();
-            _playerStateController.Initialize(IdleState);
+            StateSwitcher.Initialize(IdleState);
         }
 
         private void FixedUpdate()
         {
             if (!_canMove) return;
-            _playerStateController.CurrentState.DoFixedState();
+            StateSwitcher.CurrentState.DoFixedState();
         }
 
         private void Update()
         {
-            _playerStateController.CurrentState.DoState();
+            StateSwitcher.CurrentState.DoState();
         }
 
         #endregion

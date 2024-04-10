@@ -4,16 +4,17 @@ using UnityEngine;
 
 namespace ATBMI.Entities.Player
 {
-    public class RunState : PlayerStateBase
+    public class MoveState : PlayerStateBase
     {
-         #region Internal Fields
-
+        #region Internal Fields
+        
         private float _runSpeed;
         private float _acceleration;
         private float _decceleration;
 
         #endregion
-        public RunState(PlayerController controller, PlayerStateSwitcher stateController, string animationName) : base(controller, stateController, animationName)
+
+        public MoveState(PlayerController controller, PlayerStateSwitcher stateController, string animationName) : base(controller, stateController, animationName)
         {
             // TODO: Isi data jika perlu, misal ga perlu kosongi aja
         }
@@ -40,7 +41,7 @@ namespace ATBMI.Entities.Player
         public override void DoFixedState()
         {
             base.DoFixedState();
-            PlayerMove(_runSpeed, _acceleration, _decceleration);
+            PlayerMove();
         }
         
         public override void ExitState()
@@ -48,5 +49,24 @@ namespace ATBMI.Entities.Player
             base.ExitState();
             playerController.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }
+
+        #region Methods
+
+        private void PlayerMove()
+        {
+            var playerRb = playerController.GetComponent<Rigidbody2D>();
+
+            playerDirection = new Vector2(playerController.PlayerInputHandler.Direction.x, playerDirection.y);
+            playerDirection.Normalize();
+
+            var targetSpeed = playerDirection * _runSpeed;
+            var speedDif = targetSpeed.x - playerRb.velocity.x;
+            var accelRate = (Mathf.Abs(targetSpeed.x) > 0.01f) ? _acceleration : _decceleration;
+            MovementValue = Mathf.Pow(MathF.Abs(speedDif) * accelRate, playerController.PlayerData.VelPower) * MathF.Sign(speedDif);
+            
+            playerRb.AddForce(MovementValue * Vector2.right);
+        }
+
+        #endregion
     }
 }

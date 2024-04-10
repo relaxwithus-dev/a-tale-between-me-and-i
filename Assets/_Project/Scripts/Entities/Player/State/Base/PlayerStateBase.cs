@@ -10,8 +10,8 @@ namespace ATBMI.Entities.Player
 
         // Components
         protected bool isRight = true;
-        protected float MovementValue { get; private set; }
         protected Vector2 playerDirection;
+        protected float MovementValue { get; set; }
        
         
         // Base Components
@@ -61,28 +61,12 @@ namespace ATBMI.Entities.Player
 
         #region Methods
 
-        // !-- Core Functionality
-        protected void PlayerMove(float speed, float acceleration, float decceleration)
-        {
-            var playerRb = playerController.GetComponent<Rigidbody2D>();
-
-            playerDirection = new Vector2(playerController.PlayerInputHandler.Direction.x, playerDirection.y);
-            playerDirection.Normalize();
-
-            var targetSpeed = playerDirection * speed;
-            var speedDif = targetSpeed.x - playerRb.velocity.x;
-            var accelRate = (Mathf.Abs(targetSpeed.x) > 0.01f) ? acceleration : decceleration;
-            MovementValue = Mathf.Pow(MathF.Abs(speedDif) * accelRate, playerController.PlayerData.VelPower) * MathF.Sign(speedDif);
-            
-            playerRb.AddForce(MovementValue * Vector2.right);
-        }
-
         protected void PlayerDirection()
         {
             var direction = playerDirection;
             if (direction.x > 0 && !isRight || direction.x < 0 && isRight) PlayerFlip();
         }
-
+        
         protected void PlayerFlip()
         {
             isRight = !isRight;

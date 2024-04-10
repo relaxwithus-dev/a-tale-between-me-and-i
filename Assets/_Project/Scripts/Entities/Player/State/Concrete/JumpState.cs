@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace ATBMI.Entities.Player
 {
-    public class IdleState : PlayerStateBase
+    public class JumpState : PlayerStateBase
     {
-        public IdleState(PlayerController controller, PlayerStateSwitcher stateController, string animationName) : base(controller, stateController, animationName)
+        public JumpState(PlayerController controller, PlayerStateSwitcher stateController, string animationName) : base(controller, stateController, animationName)
         {
             // TODO: Isi data jika perlu, misal ga perlu kosongi aja
         }
@@ -19,11 +19,6 @@ namespace ATBMI.Entities.Player
         public override void DoState()
         {
             base.DoState();
-            if (playerController.PlayerInputHandler.Direction != Vector2.zero)
-            {
-                playerStateController.SwitchState(playerController.WalkState);
-                Debug.Log("switch to walk");
-            }
         }
         
         public override void ExitState()
