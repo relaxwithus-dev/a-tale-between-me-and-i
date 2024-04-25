@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using ATBMI.Data;
-using KevinCastejon.MoreAttributes;
 using UnityEngine;
 
 namespace ATBMI.Entities.Player
@@ -75,6 +74,8 @@ namespace ATBMI.Entities.Player
         private void Update()
         {
             StateSwitcher.CurrentState.DoState();
+            
+            // TODO: Add interact condition below!
         }
 
         #endregion

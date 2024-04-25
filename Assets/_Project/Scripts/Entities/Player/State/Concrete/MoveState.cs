@@ -11,22 +11,24 @@ namespace ATBMI.Entities.Player
         private float _runSpeed;
         private float _acceleration;
         private float _decceleration;
+        private float _deccelerationTime;
 
         #endregion
 
         public MoveState(PlayerController controller, PlayerStateSwitcher stateController, string animationName) : base(controller, stateController, animationName)
         {
             // TODO: Isi data jika perlu, misal ga perlu kosongi aja
+
+            var runStats = playerController.PlayerData.RunStats;
+            _runSpeed = runStats.MoveSpeed;
+            _acceleration = runStats.Acceleration;
+            _decceleration = runStats.Decceleration;
+            _deccelerationTime = runStats.DeccelerationTime;
         }
 
         public override void EnterState()
         {
             base.EnterState();
-            
-            var runStats = playerController.PlayerData.RunStats;
-            _runSpeed = runStats.MoveSpeed;
-            _acceleration = runStats.Acceleration;
-            _decceleration = runStats.Decceleration;
         }
 
         public override void DoState()
@@ -61,7 +63,9 @@ namespace ATBMI.Entities.Player
 
             var targetSpeed = playerDirection * _runSpeed;
             var speedDif = targetSpeed.x - playerRb.velocity.x;
-            var accelRate = (Mathf.Abs(targetSpeed.x) > 0.01f) ? _acceleration : _decceleration;
+
+            var decelRate = Mathf.Abs(speedDif) / _deccelerationTime;
+            var accelRate = (Mathf.Abs(targetSpeed.x) > 0.01f) ? _acceleration : decelRate;
             MovementValue = Mathf.Pow(MathF.Abs(speedDif) * accelRate, playerController.PlayerData.VelPower) * MathF.Sign(speedDif);
             
             playerRb.AddForce(MovementValue * Vector2.right);

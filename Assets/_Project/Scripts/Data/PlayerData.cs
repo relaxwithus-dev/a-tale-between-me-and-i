@@ -15,6 +15,7 @@ namespace ATBMI.Data
             public float MoveSpeed;
             public float Acceleration;
             public float Decceleration;
+            public float DeccelerationTime;
         }
         #endregion
 
