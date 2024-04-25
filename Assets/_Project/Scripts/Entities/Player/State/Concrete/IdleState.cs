@@ -20,7 +20,7 @@ namespace ATBMI.Entities.Player
         {
             base.DoState();
 
-            if (playerController.PlayerInputHandler.Direction == Vector2.zero) return;
+            if (playerController.PlayerInputHandler.MoveDirection == Vector2.zero) return;
             playerStateController.SwitchState(playerController.WalkState);
         }
         
