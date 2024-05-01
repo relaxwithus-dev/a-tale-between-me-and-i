@@ -8,10 +8,9 @@ namespace ATBMI.Entities.Player
     {
         #region Internal Fields
         
-        private float _runSpeed;
-        private float _acceleration;
-        private float _decceleration;
-        private float _deccelerationTime;
+        private readonly float _runSpeed;
+        private readonly float _acceleration;
+        private readonly float _decceleration;
 
         #endregion
 
@@ -23,7 +22,6 @@ namespace ATBMI.Entities.Player
             _runSpeed = runStats.MoveSpeed;
             _acceleration = runStats.Acceleration;
             _decceleration = runStats.Decceleration;
-            _deccelerationTime = runStats.DeccelerationTime;
         }
 
         public override void EnterState()
@@ -63,9 +61,7 @@ namespace ATBMI.Entities.Player
 
             var targetSpeed = playerDirection * _runSpeed;
             var speedDif = targetSpeed.x - playerRb.velocity.x;
-
-            var decelRate = Mathf.Abs(speedDif) / _deccelerationTime;
-            var accelRate = (Mathf.Abs(targetSpeed.x) > 0.01f) ? _acceleration : decelRate;
+            var accelRate = (Mathf.Abs(targetSpeed.x) > 0.01f) ? _acceleration : _decceleration;
             MovementValue = Mathf.Pow(MathF.Abs(speedDif) * accelRate, playerController.PlayerData.VelPower) * MathF.Sign(speedDif);
             
             playerRb.AddForce(MovementValue * Vector2.right);

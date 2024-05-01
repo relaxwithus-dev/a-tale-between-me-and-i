@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace ATBMI.Data
 {
-    [CreateAssetMenu(fileName = "NewPlayerData", menuName = "ScriptableObject/Entities/New Player Data", order = 0)]
+    [CreateAssetMenu(fileName = "NewPlayerData", menuName = "Data/Entities/New Player Data", order = 0)]
     public class PlayerData : ScriptableObject
     {
         #region Struct

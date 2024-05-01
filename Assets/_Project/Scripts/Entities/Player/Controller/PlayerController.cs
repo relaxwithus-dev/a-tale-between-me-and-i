@@ -74,8 +74,6 @@ namespace ATBMI.Entities.Player
         private void Update()
         {
             StateSwitcher.CurrentState.DoState();
-            
-            // TODO: Add interact condition below!
         }
 
         #endregion

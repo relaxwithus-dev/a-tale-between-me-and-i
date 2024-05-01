@@ -42,7 +42,6 @@ namespace ATBMI.Entities.Player
             playerController.PlayerAnimator.Play(animationName);
             startTime = Time.time;
             isExitingState = false;
-            Debug.Log($"play anim {animationName}");
         }
 
         public virtual void DoState() 
