@@ -2,9 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ATBMI.Interaction;
+using ATBMI.Entities.Player;
 
-namespace ATBMI.Entities.Player
+namespace ATBMI.Interaction
 {
     public class InteractArea : MonoBehaviour
     {
@@ -16,18 +16,22 @@ namespace ATBMI.Entities.Player
         
         private bool _isAreaFilled;
 
-        public InteractionBase InteractionBase { get; private set;}
+        public InteractionBase InteractTarget { get; private set;}
         public bool IsInteracting { get; set; }
-
-        // Event
-        public event Action<InteractionBase> OnInteractTriggered; 
 
         [Header("Reference")]
         [SerializeField] private PlayerInputHandler playerInputHandler;
+        public PlayerInputHandler PlayerInputHandler => playerInputHandler;
+        public InteractEventHandler InteractEventHandler { get; private set;}
 
         #endregion
 
         #region MonoBehaviour Callbacks
+
+        private void Awake()
+        {
+            InteractEventHandler = new InteractEventHandler();
+        }
 
         private void Start()
         {
@@ -42,20 +46,17 @@ namespace ATBMI.Entities.Player
 
         private void Update()
         {
-            if (!_isAreaFilled) return;
-            if (IsInteracting) return;
-
-            if (playerInputHandler.InteractTriggered)
+            if (!_isAreaFilled || IsInteracting) return;
+            if (PlayerInputHandler.IsPressInteract())
             {
-                Debug.LogWarning("call optioin");
-                CallInteractOptions();
+                StartCoroutine(CallInteractOptionsRoutine());
             }
         }
 
         #endregion
-
+        
         #region Methods 
-
+        
         private void InteractAreaChecker()
         {
             // Alloc Overlapping
@@ -70,22 +71,23 @@ namespace ATBMI.Entities.Player
                     if (_isAreaFilled) return;
                     if (interactObject.TryGetComponent(out InteractionBase target))
                     {
-                        InteractionBase = target;
+                        InteractTarget = target;
                         _isAreaFilled = true;
                     }
                 }
                 else
                 {
-                    InteractionBase = null;
+                    InteractTarget = null;
                     _isAreaFilled = false;
                 }
             }
         }
-
-        private void CallInteractOptions()
+        
+        private IEnumerator CallInteractOptionsRoutine()
         {
-            OnInteractTriggered?.Invoke(InteractionBase);
+            yield return new WaitForSeconds(0.1f);
             IsInteracting = true;
+            InteractEventHandler.OpenInteractEvent();
         }
 
         private void OnDrawGizmos()

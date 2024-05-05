@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using ATBMI.Enum;
 
 namespace ATBMI.Entities.Player
 {
@@ -11,30 +13,36 @@ namespace ATBMI.Entities.Player
 
         [Header("Action Map Name Reference")]
         [SerializeField] private string playerMapName = "Player";
+        [SerializeField] private string uiMapName = "UI";
 
         [Header("Action Map Name Reference")]
         [SerializeField] private string move = "Move";
         [SerializeField] private string interact = "Interact";
+        [SerializeField] private string navigate = "Navigate";
 
         // Input Action References
         private InputActionAsset _playerActions;
         private InputAction _moveAction;
         private InputAction _interactAction;
+        private InputAction _navigateAction;
 
         // Action Values
         public Vector2 MoveDirection { get; private set; }
         public bool InteractTriggered { get; private set; }
+        public bool NavigateUp { get; private set; }
+        public bool NavigateDown { get; private set; }
 
         #endregion
-
+        
         #region MonoBehaviour Callbacks
-
+        
         private void Awake()
         {   
             _playerActions = GetComponent<PlayerInput>().actions;
 
             _moveAction = _playerActions.FindActionMap(playerMapName).FindAction(move);
             _interactAction = _playerActions.FindActionMap(playerMapName).FindAction(interact);
+            _navigateAction = _playerActions.FindActionMap(uiMapName).FindAction(navigate);
         }
 
         private void OnEnable()
@@ -44,8 +52,21 @@ namespace ATBMI.Entities.Player
             _moveAction.canceled += value => MoveDirection = Vector2.zero;
 
             _interactAction.Enable();
-            _interactAction.performed += value => InteractTriggered = true;
+            _interactAction.started += value => InteractTriggered = true;
             _interactAction.canceled += value => InteractTriggered = false;
+
+            _navigateAction.Enable();
+            _navigateAction.performed += value =>
+                {
+                    var navigateValue = value.ReadValue<Vector2>();
+                    NavigateUp = navigateValue.y > 0;
+                    NavigateDown = navigateValue.y < 0;
+                };
+            _navigateAction.canceled += value =>
+                {
+                    NavigateUp = false;
+                    NavigateDown = false;
+                };
         }
         
         private void OnDisable()
@@ -55,11 +76,44 @@ namespace ATBMI.Entities.Player
             _moveAction.canceled -= value => MoveDirection = Vector2.zero;
 
             _interactAction.Disable();
-            _interactAction.performed -= value => InteractTriggered = true;
-            _interactAction.canceled -= value => InteractTriggered = false;
+            _interactAction.started += value => InteractTriggered = true;
+            _interactAction.canceled += value => InteractTriggered = false;
+
+            _navigateAction.Disable();
+            _navigateAction.performed += value =>
+                {
+                    var navigateValue = value.ReadValue<Vector2>();
+                    NavigateUp = navigateValue.y > 0;
+                    NavigateDown = navigateValue.y < 0;
+                };
+            _navigateAction.canceled += value =>
+                {
+                    NavigateUp = false;
+                    NavigateDown = false;
+                };
         }
 
         #endregion
 
+        #region Methods
+
+        public bool IsPressInteract()
+        {
+            return _interactAction.WasPressedThisFrame();
+        }
+
+        public bool IsPressNavigate(NavigateState state)
+        {
+            var value = state switch
+            {
+                NavigateState.Up => NavigateUp,
+                NavigateState.Down => NavigateDown,
+                _ => throw new ArgumentOutOfRangeException(nameof(state), state, null),
+            };
+            
+            return _navigateAction.WasPressedThisFrame() && value;
+        }
+
+        #endregion
     }
 }
