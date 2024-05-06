@@ -22,7 +22,7 @@ namespace ATBMI.Interaction
         {
             base.Interact();
             // TODO: Drop method for dialogue here
-            Debug.Log("kOngCap Lai Mewe WinDow kOsLay FittiT LayYa!");
+            Debug.Log("kOngCap Lai Mewe WinDow kOsLay TiitIT LayYa!");
         }
 
         #endregion

@@ -22,6 +22,7 @@ namespace ATBMI.Entities.Player
          // Reference
         protected PlayerController playerController;
         protected PlayerStateSwitcher playerStateController;
+        protected SpriteRenderer playerSprite;
 
         #endregion
 
@@ -35,6 +36,7 @@ namespace ATBMI.Entities.Player
             this.animationName = animationName;
 
             isRight = playerController.PlayerData.IsRight;
+            playerSprite = controller.GetComponentInChildren<SpriteRenderer>();
         }
         
         public virtual void EnterState() 
@@ -69,7 +71,7 @@ namespace ATBMI.Entities.Player
         protected void PlayerFlip()
         {
             isRight = !isRight;
-            playerController.transform.Rotate(0f, 180f, 0f);
+            playerSprite.flipX = !isRight;
         }
 
         #endregion

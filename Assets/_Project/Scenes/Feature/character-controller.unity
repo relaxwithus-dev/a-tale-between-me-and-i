@@ -4216,7 +4216,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   areaCapacity: 4
   areaSize: {x: 7, y: 5}
-  playerInputHandler: {fileID: 636861032}
 --- !u!114 &702059530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4229,9 +4228,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a9edd1b284587d4eaf45a471fec31d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  optionsPanelUI: {fileID: 3252892436383885281}
   interactOptionsUI: {fileID: 3252892436116962555}
   optionInfoTextUI: {fileID: 0}
-  _optionButtons: []
   simpleScrollSnap: {fileID: 5681489237217599396}
 --- !u!1 &757196006
 GameObject:
@@ -6396,7 +6395,7 @@ GameObject:
   - component: {fileID: 3252892436383885308}
   - component: {fileID: 5681489237217599396}
   m_Layer: 0
-  m_Name: Options
+  m_Name: OptionsPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

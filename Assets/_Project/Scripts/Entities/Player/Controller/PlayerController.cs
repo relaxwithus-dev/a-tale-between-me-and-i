@@ -24,7 +24,7 @@ namespace ATBMI.Entities.Player
         [SerializeField] private string playerName;
         [SerializeField] private bool isRight;
 
-        private bool _canMove;
+        public bool CanMove { get; private set; }
 
         public PlayerData PlayerData => playerData;
 
@@ -67,7 +67,7 @@ namespace ATBMI.Entities.Player
 
         private void FixedUpdate()
         {
-            if (!_canMove) return;
+            if (!CanMove) return;
             StateSwitcher.CurrentState.DoFixedState();
         }
 
@@ -83,7 +83,19 @@ namespace ATBMI.Entities.Player
         private void InitializePlayer()
         {
             gameObject.name = playerName;
-            _canMove = true;
+            CanMove = true;
+        }
+
+        public void StartMovement()
+        {
+            CanMove = true;
+        }
+        
+        public void StopMovement()
+        {
+            CanMove = false;
+            StateSwitcher.SwitchState(IdleState);
+            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }
 
         #endregion

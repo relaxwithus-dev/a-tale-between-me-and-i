@@ -15,14 +15,16 @@ namespace ATBMI.Interaction
         #region Fields & Property
 
         [Header("UI")]
+        [SerializeField] private GameObject optionsPanelUI;
         [SerializeField] private GameObject interactOptionsUI;
         [SerializeField] private TextMeshProUGUI optionInfoTextUI;
 
-        [SerializeField] private List<Button> _optionButtons;
+        private List<Button> _optionButtons;
 
         [Header("References")]
         [SerializeField] private SimpleScrollSnap simpleScrollSnap;
         private InteractArea _interactArea;
+        private PlayerController _playerController;
         private PlayerInputHandler _playerInputHandler;
         private InteractEventHandler _interactEventHandler;
 
@@ -40,6 +42,7 @@ namespace ATBMI.Interaction
             // Inject Variables
             _playerInputHandler = _interactArea.PlayerInputHandler;
             _interactEventHandler = _interactArea.InteractEventHandler;
+            _playerController = _interactArea.PlayerController;
 
             // Event
             _interactEventHandler.OnOpenInteract += OnInteractTriggered;
@@ -53,7 +56,7 @@ namespace ATBMI.Interaction
 
         private void Start()
         {
-            interactOptionsUI.SetActive(false);
+            optionsPanelUI.SetActive(false);
         }
 
         private void Update()
@@ -72,7 +75,8 @@ namespace ATBMI.Interaction
         private void OnInteractTriggered()
         {
             InitilizeButtons();
-            interactOptionsUI.SetActive(true);
+            ListenerButtons();
+            optionsPanelUI.SetActive(true);
         }
 
         // !-- Button Fields
@@ -84,15 +88,10 @@ namespace ATBMI.Interaction
             {
                 var buttonParent = interactOptionsUI.transform.GetChild(i);
                 var optionsButton = buttonParent.GetComponentInChildren<Button>();
-                if (optionsButton != null)
-                {
-                    _optionButtons.Add(optionsButton);
-                    Debug.Log(optionsButton.name);
-                }
-                else
-                {
-                    Debug.LogError("Button tidak ditemukan pada child: " + i);
-                }
+
+                if (optionsButton == null) continue;
+                Debug.Log(optionsButton.name);
+                _optionButtons.Add(optionsButton);
             }
         }
 
@@ -105,6 +104,34 @@ namespace ATBMI.Interaction
             _optionButtons.Clear();
         }
 
+        private void ListenerButtons()
+        {
+            foreach (var button in _optionButtons)
+            {
+                if (!button.TryGetComponent(out InteractButton interactButton)) continue;
+                switch (interactButton.InteractType)
+                {
+                    case InteractType.Talks:
+                        var character = _interactArea.InteractTarget;
+                        button.onClick.AddListener(character.Interact);
+                        break;
+                    case InteractType.Item:
+                        button.onClick.AddListener(() => 
+                        {
+                            Debug.Log("interact item di inven lekku");
+                        });
+                        break;
+                    case InteractType.Static_Item:
+                        var staticItem = _interactArea.InteractTarget;
+                        button.onClick.AddListener(staticItem.Interact);
+                        break;
+                    case InteractType.Close:
+                        button.onClick.AddListener(ExitButton);
+                        break;
+                }
+            }
+        }
+        
         // !-- Controller Fields
         private void HandleNavigation()
         {
@@ -140,20 +167,14 @@ namespace ATBMI.Interaction
         }
 
         // !-- Button Methods
-        private void DialogueButton()
-        {
-
-        }
-        
-        private void ItemButton()
-        {
-
-        }
-        
         private void ExitButton()
         {
+            Debug.LogWarning("exit brow");
             _interactArea.IsInteracting = false;
-            interactOptionsUI.SetActive(false);
+            optionsPanelUI.SetActive(false);
+            _playerController.StartMovement();
+
+            simpleScrollSnap.Setup();
             ResetButtons();
         }
 

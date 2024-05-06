@@ -19,9 +19,9 @@ namespace ATBMI.Interaction
         public InteractionBase InteractTarget { get; private set;}
         public bool IsInteracting { get; set; }
 
-        [Header("Reference")]
-        [SerializeField] private PlayerInputHandler playerInputHandler;
-        public PlayerInputHandler PlayerInputHandler => playerInputHandler;
+        // Reference
+        public PlayerController PlayerController { get; private set; }
+        public PlayerInputHandler PlayerInputHandler { get; private set; }
         public InteractEventHandler InteractEventHandler { get; private set;}
 
         #endregion
@@ -30,6 +30,8 @@ namespace ATBMI.Interaction
 
         private void Awake()
         {
+            PlayerController = transform.parent.GetComponent<PlayerController>();
+            PlayerInputHandler = PlayerController.GetComponentInChildren<PlayerInputHandler>();
             InteractEventHandler = new InteractEventHandler();
         }
 
@@ -86,7 +88,9 @@ namespace ATBMI.Interaction
         private IEnumerator CallInteractOptionsRoutine()
         {
             yield return new WaitForSeconds(0.1f);
+
             IsInteracting = true;
+            PlayerController.StopMovement();
             InteractEventHandler.OpenInteractEvent();
         }
 

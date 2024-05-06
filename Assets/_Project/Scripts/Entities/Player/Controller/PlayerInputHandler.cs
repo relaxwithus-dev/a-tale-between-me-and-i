@@ -110,10 +110,10 @@ namespace ATBMI.Entities.Player
                 NavigateState.Down => NavigateDown,
                 _ => throw new ArgumentOutOfRangeException(nameof(state), state, null),
             };
-            
+
             return _navigateAction.WasPressedThisFrame() && value;
         }
-
+        
         #endregion
     }
 }
