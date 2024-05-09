@@ -4,24 +4,14 @@ using UnityEngine;
 
 namespace ATBMI.Interaction
 {
-    public class CharacterInteract : InteractionBase
+    public class CharacterInteract : BaseInteract
     {
-        #region Fields & Property
-        
-        [Header("Data")]
-        [SerializeField] private int characterId;
-        [SerializeField] private TextAsset dialogueAsset;
-
-        public int CharacterId => characterId;
-
-        #endregion
-
         #region Methods
 
+        // TODO: Drop method for dialogue here
         public override void Interact()
         {
             base.Interact();
-            // TODO: Drop method for dialogue here
             Debug.Log("kOngCap Lai Mewe WinDow kOsLay TiitIT LayYa!");
         }
 

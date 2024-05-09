@@ -16,7 +16,7 @@ namespace ATBMI.Interaction
         
         private bool _isAreaFilled;
 
-        public InteractionBase InteractTarget { get; private set;}
+        public BaseInteract InteractTarget { get; private set;}
         public bool IsInteracting { get; set; }
 
         // Reference
@@ -71,7 +71,7 @@ namespace ATBMI.Interaction
                 if (interactObject.CompareTag("Interactable"))
                 {
                     if (_isAreaFilled) return;
-                    if (interactObject.TryGetComponent(out InteractionBase target))
+                    if (interactObject.TryGetComponent(out BaseInteract target))
                     {
                         InteractTarget = target;
                         _isAreaFilled = true;

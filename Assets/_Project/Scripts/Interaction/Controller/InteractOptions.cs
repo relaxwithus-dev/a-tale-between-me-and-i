@@ -5,8 +5,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using DanielLochner.Assets.SimpleScrollSnap;
-using ATBMI.Entities.Player;
 using ATBMI.Enum;
+using ATBMI.Entities.Player;
+using ATBMI.Inventory;
 
 namespace ATBMI.Interaction
 {
@@ -20,6 +21,7 @@ namespace ATBMI.Interaction
         [SerializeField] private TextMeshProUGUI optionInfoTextUI;
 
         private List<Button> _optionButtons;
+        private int _collectibleIndex;
 
         [Header("References")]
         [SerializeField] private SimpleScrollSnap simpleScrollSnap;
@@ -27,6 +29,7 @@ namespace ATBMI.Interaction
         private PlayerController _playerController;
         private PlayerInputHandler _playerInputHandler;
         private InteractEventHandler _interactEventHandler;
+        private InventoryManager _inventoryManager;
 
         #endregion
 
@@ -35,6 +38,7 @@ namespace ATBMI.Interaction
         private void Awake()
         {
             _interactArea = GetComponent<InteractArea>();
+            _inventoryManager = GameObject.Find("Inventory").GetComponent<InventoryManager>();
         }
 
         private void OnEnable()
@@ -57,6 +61,7 @@ namespace ATBMI.Interaction
         private void Start()
         {
             optionsPanelUI.SetActive(false);
+            _collectibleIndex = 0;
         }
 
         private void Update()
@@ -74,8 +79,8 @@ namespace ATBMI.Interaction
         // !-- Core Functionality
         private void OnInteractTriggered()
         {
+            simpleScrollSnap.Setup();
             InitilizeButtons();
-            ListenerButtons();
             optionsPanelUI.SetActive(true);
         }
 
@@ -88,10 +93,12 @@ namespace ATBMI.Interaction
             {
                 var buttonParent = interactOptionsUI.transform.GetChild(i);
                 var optionsButton = buttonParent.GetComponentInChildren<Button>();
-
-                if (optionsButton == null) continue;
-                Debug.Log(optionsButton.name);
-                _optionButtons.Add(optionsButton);
+                if (optionsButton.TryGetComponent(out InteractButton interact))
+                {
+                    _optionButtons.Add(optionsButton);
+                    SetupButtonId(interact, i);
+                    SetupButtonListener(optionsButton, interact);
+                }
             }
         }
 
@@ -102,33 +109,52 @@ namespace ATBMI.Interaction
                 button.onClick.RemoveAllListeners();
             }
             _optionButtons.Clear();
+            _collectibleIndex = 0;
         }
 
-        private void ListenerButtons()
+        private void SetupButtonId(InteractButton interact, int id)
         {
-            foreach (var button in _optionButtons)
+            switch (interact.InteractType)
             {
-                if (!button.TryGetComponent(out InteractButton interactButton)) continue;
-                switch (interactButton.InteractType)
-                {
-                    case InteractType.Talks:
-                        var character = _interactArea.InteractTarget;
-                        button.onClick.AddListener(character.Interact);
-                        break;
-                    case InteractType.Item:
-                        button.onClick.AddListener(() => 
-                        {
-                            Debug.Log("interact item di inven lekku");
-                        });
-                        break;
-                    case InteractType.Static_Item:
-                        var staticItem = _interactArea.InteractTarget;
-                        button.onClick.AddListener(staticItem.Interact);
-                        break;
-                    case InteractType.Close:
-                        button.onClick.AddListener(ExitButton);
-                        break;
-                }
+                case InteractType.Talks:
+                case InteractType.Close:
+                    interact.ButtonId = id;
+                    break;
+                case InteractType.Item:
+                    var inventory = _inventoryManager.CollectibleItem;
+                    var itemId = inventory[_collectibleIndex].GetComponent<BaseInteract>().InteractId;
+                    interact.ButtonId = itemId;
+                    _collectibleIndex++;
+                    break;
+            }
+        }
+        
+        private void SetupButtonListener(Button button, InteractButton interact)
+        {
+            var target = _interactArea.InteractTarget;
+            button.onClick.AddListener(() => ExecuteInteraction(interact, target));
+        }
+
+        private void ExecuteInteraction(InteractButton interact, BaseInteract target)
+        {
+            switch (interact.InteractType)
+            {
+                case InteractType.Talks:
+                case InteractType.Static_Item:
+                    target.Interact();
+                    break;
+                case InteractType.Item:
+                    var inventory = _inventoryManager.CollectibleItem;
+                    foreach (var item in inventory)
+                    {
+                        var collectible = item.GetComponent<BaseInteract>();
+                        if (interact.ButtonId != collectible.InteractId) continue;
+                        collectible.InteractCollectible(target);
+                    }
+                    break;
+                case InteractType.Close:
+                    ExitButton();
+                    break;
             }
         }
         
@@ -158,22 +184,23 @@ namespace ATBMI.Interaction
             var selectIndex = simpleScrollSnap.SelectedPanel;
             if (_optionButtons[selectIndex].TryGetComponent(out InteractButton button))
             {
-                Debug.Log($"interact button {button.InteractType}");
                 _optionButtons[selectIndex].onClick.Invoke();
                 if (button.InteractType != InteractType.Item) return;
-                Debug.LogWarning("interact item object!");
-                // _optionButtons.RemoveAt(selectIndex);
+
+                var optionParent = _optionButtons[selectIndex].transform.parent;
+                _optionButtons.RemoveAt(selectIndex);
+                Destroy(optionParent.gameObject);
+                ExitButton();
             }
         }
 
         // !-- Button Methods
         private void ExitButton()
         {
-            Debug.LogWarning("exit brow");
-            _interactArea.IsInteracting = false;
             optionsPanelUI.SetActive(false);
-            _playerController.StartMovement();
+            _interactArea.IsInteracting = false;
 
+            _playerController.StartMovement();
             simpleScrollSnap.Setup();
             ResetButtons();
         }

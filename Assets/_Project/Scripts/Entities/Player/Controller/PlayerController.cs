@@ -93,9 +93,9 @@ namespace ATBMI.Entities.Player
         
         public void StopMovement()
         {
-            CanMove = false;
-            StateSwitcher.SwitchState(IdleState);
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            StateSwitcher.SwitchState(IdleState);
+            CanMove = false;
         }
 
         #endregion

@@ -1,18 +1,15 @@
 using System;
 using System.Collections.Generic;
-using ATBMI.Enum;
-using UnityEditor;
 using UnityEngine;
+using UnityEditor;
+using ATBMI.Enum;
 
 namespace ATBMI.Interaction
 {
-    public class CollectibleInteract : InteractionBase
+    public class CollectibleInteract : BaseInteract
     {
-        #region Fields & Property
-        
-        [Header("Data")]
-        [SerializeField] private int collectiblesId;
-        [SerializeField] private TextAsset dialogueAsset;
+        #region Internal Fields
+
         [SerializeField] private CollectibleState collectiblesState;
         [SerializeField] private int targetId;
 
@@ -22,12 +19,30 @@ namespace ATBMI.Interaction
 
         #region Methods
 
-        public override void InteractCollectible(CharacterInteract target)
+        // TODO: Drop logic untuk interaksi collectible item disini!
+
+        public override void Interact()
+        {
+            base.Interact();
+            Debug.Log("koncay wapwap collectible ya!");
+        }
+
+        public override void InteractCollectible(BaseInteract target)
         {
             base.InteractCollectible(target);
-            if (target.CharacterId != targetId) return;
-            // TODO: Drop method for dialogue here
-            Debug.Log($"Collectible interacted on {target.name}");
+            switch (CollectibleState)
+            {
+                case CollectibleState.Receive:
+                    break;
+                case CollectibleState.Assign:
+                    if (target.InteractId == targetId)
+                        Debug.Log($"wah benda {target.name} ini sangat bagus!");
+                    else
+                        Debug.Log($"sepertinya benda {target.name} tidak cocok");
+                    break;
+                case CollectibleState.None:
+                    break;
+            }
         }
 
         #endregion

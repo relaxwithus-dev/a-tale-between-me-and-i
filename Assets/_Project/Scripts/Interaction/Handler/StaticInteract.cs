@@ -4,23 +4,15 @@ using UnityEngine;
 
 namespace ATBMI.Interaction
 {
-    public class StaticInteract : InteractionBase
+    public class StaticInteract : BaseInteract
     {
-        #region Fields & Property
-        
-        [Header("Data")]
-        [SerializeField] private int itemId;
-        [SerializeField] private TextAsset dialogueAsset;
-
-        #endregion
-
         #region Methods
 
+        // TODO: Drop method for dialogue here
         public override void Interact()
         {
             base.Interact();
-            // TODO: Drop method for dialogue here
-            Debug.Log("kOngCap Lai Mewe WinDow kOsLay FittiT LayYa!");
+            Debug.Log("aku static item lekk, gabisa diambil wokwok");
         }
 
         #endregion
