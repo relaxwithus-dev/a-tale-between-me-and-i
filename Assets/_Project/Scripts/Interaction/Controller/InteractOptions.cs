@@ -6,8 +6,9 @@ using UnityEngine.UI;
 using TMPro;
 using DanielLochner.Assets.SimpleScrollSnap;
 using ATBMI.Enum;
-using ATBMI.Entities.Player;
 using ATBMI.Inventory;
+using ATBMI.Entities.Player;
+using System.Linq;
 
 namespace ATBMI.Interaction
 {
@@ -15,13 +16,24 @@ namespace ATBMI.Interaction
     {
         #region Fields & Property
 
+        /*
+         ! Note Interact Options Mechanic
+         * 1. Bikin semacem options/interact container
+         * buat nampung data interact talks, exit, dan item inventory
+         * 2. Button id bisa pake dictionary biar lebih irit dan
+         * aman buat di maintain
+         * 3. Logic init buttons perlu ditambah dan dioptimisasi
+         * 4. Bikin instantiate button jika jumlah button ga sesuai sama
+         * jumlah item inven + 2 (talks, exit)
+         */
+         
         [Header("UI")]
         [SerializeField] private GameObject optionsPanelUI;
         [SerializeField] private GameObject interactOptionsUI;
         [SerializeField] private TextMeshProUGUI optionInfoTextUI;
+        [SerializeField] private GameObject contentPrefabs;
 
-        private List<Button> _optionButtons;
-        private int _collectibleIndex;
+        private Dictionary<int, Dictionary<int, Button>> _interactContainers;
 
         [Header("References")]
         [SerializeField] private SimpleScrollSnap simpleScrollSnap;
@@ -61,7 +73,6 @@ namespace ATBMI.Interaction
         private void Start()
         {
             optionsPanelUI.SetActive(false);
-            _collectibleIndex = 0;
         }
 
         private void Update()
@@ -74,91 +85,133 @@ namespace ATBMI.Interaction
 
         #endregion
 
-        #region Methods
+        #region Button Field Methods
 
         // !-- Core Functionality
         private void OnInteractTriggered()
         {
+            InitializeContent();
             simpleScrollSnap.Setup();
-            InitilizeButtons();
+            InitializeButtons();
             optionsPanelUI.SetActive(true);
         }
 
-        // !-- Button Fields
-        private void InitilizeButtons()
+        private void InitializeContent()
+        {
+            // TODO: Drop logic buat init content disini
+            var optionsCount = interactOptionsUI.transform.childCount - 2;
+            var inventoryCount = _inventoryManager.CollectibleItem.Count;
+
+            if (optionsCount == inventoryCount) return;
+            var countGap = Mathf.Abs(inventoryCount - optionsCount);
+            var isExcessive = inventoryCount > optionsCount;
+            Debug.LogWarning(countGap);
+            
+            for (var i = 0; i < countGap; i++)
+            {
+                if (isExcessive)
+                {
+                    Instantiate(contentPrefabs, optionsPanelUI.transform, worldPositionStays: false);
+                }
+                else
+                {
+                    var interactObject = interactOptionsUI.transform.GetChild(i);
+                    Destroy(interactObject.gameObject);
+                }
+            }
+        }
+
+        private void InitializeButtons()
         {
             var optionsCount = interactOptionsUI.transform.childCount;
-            _optionButtons = new List<Button>(optionsCount);
+            _interactContainers = new Dictionary<int, Dictionary<int, Button>>();
             for (var i = 0; i < optionsCount; i++)
             {
-                var buttonParent = interactOptionsUI.transform.GetChild(i);
-                var optionsButton = buttonParent.GetComponentInChildren<Button>();
-                if (optionsButton.TryGetComponent(out InteractButton interact))
+                var interactButton = interactOptionsUI.transform.GetChild(i).GetComponentInChildren<Button>();
+                var interactKey = GetInteractKey(i);
+
+                _interactContainers[i] = new Dictionary<int, Button>
                 {
-                    _optionButtons.Add(optionsButton);
-                    SetupButtonId(interact, i);
-                    SetupButtonListener(optionsButton, interact);
-                }
+                    { interactKey, interactButton }
+                };
+                
+                SetupButtonImage(i, interactButton);
+                SetupButtonListener(i, interactKey, interactButton);
             }
         }
 
         private void ResetButtons()
         {
-            foreach (var button in _optionButtons)
+            foreach (var IndexValuePair in _interactContainers)
             {
-                button.onClick.RemoveAllListeners();
+                foreach (var KeyValuePair in IndexValuePair.Value)
+                {
+                    var button = KeyValuePair.Value;
+                    button.onClick.RemoveAllListeners();
+                }
             }
-            _optionButtons.Clear();
-            _collectibleIndex = 0;
+            _interactContainers.Clear();
         }
 
-        private void SetupButtonId(InteractButton interact, int id)
+        private void SetupButtonImage(int index, Button button)
         {
-            switch (interact.InteractType)
-            {
-                case InteractType.Talks:
-                case InteractType.Close:
-                    interact.ButtonId = id;
-                    break;
-                case InteractType.Item:
-                    var inventory = _inventoryManager.CollectibleItem;
-                    var itemId = inventory[_collectibleIndex].GetComponent<BaseInteract>().InteractId;
-                    interact.ButtonId = itemId;
-                    _collectibleIndex++;
-                    break;
-            }
+            if (index < 2) return;
+
+            var collectibleItem = _inventoryManager.CollectibleItem[index - 2];
+            var butonImage = button.transform.GetChild(0).GetComponent<Image>();
+            butonImage.sprite = collectibleItem.GetComponent<SpriteRenderer>().sprite;
         }
         
-        private void SetupButtonListener(Button button, InteractButton interact)
+        private void SetupButtonListener(int index, int key, Button button)
         {
             var target = _interactArea.InteractTarget;
-            button.onClick.AddListener(() => ExecuteInteraction(interact, target));
+            button.onClick.AddListener(() => ExecuteInteraction(target, index, key));
         }
 
-        private void ExecuteInteraction(InteractButton interact, BaseInteract target)
+        private void ExecuteInteraction(BaseInteract target, int index, int key)
         {
-            switch (interact.InteractType)
+            switch (key)
             {
-                case InteractType.Talks:
-                case InteractType.Static_Item:
+                case 0:
                     target.Interact();
                     break;
-                case InteractType.Item:
+                case 1:
+                    ExitButton();
+                    break;
+                default:
                     var inventory = _inventoryManager.CollectibleItem;
                     foreach (var item in inventory)
                     {
                         var collectible = item.GetComponent<BaseInteract>();
-                        if (interact.ButtonId != collectible.InteractId) continue;
-                        collectible.InteractCollectible(target);
+                        if (_interactContainers[index].ContainsKey(collectible.InteractId))
+                        {
+                            Debug.LogWarning($"interact collectible");
+                            collectible.InteractCollectible(target);
+                        }
                     }
-                    break;
-                case InteractType.Close:
-                    ExitButton();
                     break;
             }
         }
-        
-        // !-- Controller Fields
+
+        // !-- Helpers
+        private int GetInteractKey(int index)
+        {
+            if (index < 2)
+            {
+                return index;
+            }
+            else
+            {
+                var inventory = _inventoryManager.CollectibleItem[index - 2];
+                var item = inventory.GetComponent<BaseInteract>();
+                return item.InteractId;
+            }
+        }
+
+        #endregion
+
+        #region Interaction Controller Methods
+
         private void HandleNavigation()
         {
             if (_playerInputHandler.IsPressNavigate(NavigateState.Up))
@@ -182,19 +235,35 @@ namespace ATBMI.Interaction
         private void ExecuteInteraction()
         {
             var selectIndex = simpleScrollSnap.SelectedPanel;
-            if (_optionButtons[selectIndex].TryGetComponent(out InteractButton button))
-            {
-                _optionButtons[selectIndex].onClick.Invoke();
-                if (button.InteractType != InteractType.Item) return;
+            var container = _interactContainers[selectIndex];
 
-                var optionParent = _optionButtons[selectIndex].transform.parent;
-                _optionButtons.RemoveAt(selectIndex);
-                Destroy(optionParent.gameObject);
-                ExitButton();
+            if (selectIndex < 2)
+            {
+                container[selectIndex].onClick.Invoke();
             }
+            else
+            {
+                var optionIndex = 0;
+                var inventory = _inventoryManager.CollectibleItem;
+                foreach (var item in inventory)
+                {
+                    var collectible = item.GetComponent<BaseInteract>();
+                    if (container.ContainsKey(collectible.InteractId))
+                    {
+                        container[collectible.InteractId].onClick.Invoke();
+                        optionIndex = collectible.InteractId;
+                        inventory.Remove(item);
+                        break;
+                    }
+                }
+                var optionParent = container[optionIndex].transform.parent;
+                _interactContainers.Remove(selectIndex);
+                Destroy(optionParent.gameObject);
+            }
+            
+            ExitButton();
         }
 
-        // !-- Button Methods
         private void ExitButton()
         {
             optionsPanelUI.SetActive(false);
