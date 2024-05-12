@@ -295,7 +295,7 @@ namespace DanielLochner.Assets.SimpleScrollSnap
 
             GetVelocity();
         }
-        
+
         public void OnPointerDown(PointerEventData eventData)
         {
             isPressing = true;
@@ -411,7 +411,7 @@ namespace DanielLochner.Assets.SimpleScrollSnap
             // Starting Panel
             float xOffset = (movementType == MovementType.Free || movementAxis == MovementAxis.Horizontal) ? Viewport.rect.width  / 2f : 0f;
             float yOffset = (movementType == MovementType.Free || movementAxis == MovementAxis.Vertical)   ? Viewport.rect.height / 2f : 0f;
-            Vector2 offset = new Vector2(xOffset, yOffset);
+            Vector2 offset = new(xOffset, yOffset);
             prevAnchoredPosition = Content.anchoredPosition = -Panels[startingPanel].anchoredPosition + offset;
             SelectedPanel = CenteredPanel = startingPanel;
 
@@ -476,7 +476,7 @@ namespace DanielLochner.Assets.SimpleScrollSnap
                 }
             }
         }
-        private void HandleInfiniteScrolling(bool forceUpdate = false)
+        public void HandleInfiniteScrolling(bool forceUpdate = false)
         {
             if (useInfiniteScrolling && (Velocity.magnitude > 0 || forceUpdate))
             {
@@ -485,13 +485,12 @@ namespace DanielLochner.Assets.SimpleScrollSnap
                     case MovementAxis.Horizontal:
                         for (int i = 0; i < NumberOfPanels; i++)
                         {
-                            Vector2 offset = new Vector2(contentSize.x, 0);
+                            Vector2 offset = new(contentSize.x, 0);
                             if (GetDisplacementFromCenter(i).x > Content.rect.width /  2f)
                             {
                                 Panels[i].anchoredPosition -= offset;
                             }
-                            else
-                            if (GetDisplacementFromCenter(i).x < Content.rect.width / -2f)
+                            else if (GetDisplacementFromCenter(i).x < Content.rect.width / -2f)
                             {
                                 Panels[i].anchoredPosition += offset;
                             }
@@ -500,13 +499,12 @@ namespace DanielLochner.Assets.SimpleScrollSnap
                     case MovementAxis.Vertical:
                         for (int i = 0; i < NumberOfPanels; i++)
                         {
-                            Vector2 offset = new Vector2(0, contentSize.y);
+                            Vector2 offset = new(0, contentSize.y);
                             if (GetDisplacementFromCenter(i).y > Content.rect.height /  2f)
                             {
                                 Panels[i].anchoredPosition -= offset;
                             }
-                            else
-                            if (GetDisplacementFromCenter(i).y < Content.rect.height / -2f)
+                            else if (GetDisplacementFromCenter(i).y < Content.rect.height / -2f)
                             {
                                 Panels[i].anchoredPosition += offset;
                             }

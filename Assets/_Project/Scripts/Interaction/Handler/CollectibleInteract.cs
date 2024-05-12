@@ -14,6 +14,7 @@ namespace ATBMI.Interaction
         [SerializeField] private int targetId;
 
         public CollectibleState CollectibleState => collectiblesState;
+        public int TargetId => targetId;
 
         #endregion
 
@@ -33,6 +34,7 @@ namespace ATBMI.Interaction
             switch (CollectibleState)
             {
                 case CollectibleState.Receive:
+                    Debug.Log($"akan kuberikan benda {target.name} ini!");
                     break;
                 case CollectibleState.Assign:
                     if (target.InteractId == targetId)

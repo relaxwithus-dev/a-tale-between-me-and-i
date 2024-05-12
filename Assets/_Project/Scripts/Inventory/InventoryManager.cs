@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using ATBMI.Interaction;
 using UnityEngine;
+using ATBMI.Interaction;
 
 namespace ATBMI.Inventory
 {
