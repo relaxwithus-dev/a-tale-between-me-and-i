@@ -8,10 +8,11 @@ using DanielLochner.Assets.SimpleScrollSnap;
 using ATBMI.Enum;
 using ATBMI.Inventory;
 using ATBMI.Entities.Player;
+using Unity.VisualScripting.Dependencies.NCalc;
 
 namespace ATBMI.Interaction
 {
-    public class InteractOptions : MonoBehaviour
+    public class InteractController : MonoBehaviour
     {
         #region Fields & Property
 
@@ -32,7 +33,7 @@ namespace ATBMI.Interaction
         [SerializeField] private TextMeshProUGUI optionInfoTextUI;
         [SerializeField] private GameObject contentPrefabs;
 
-        private Dictionary<int, Dictionary<int, Button>> _interactContainers;
+        private List<InteractData> _interactContainer;
 
         [Header("References")]
         [SerializeField] private SimpleScrollSnap simpleScrollSnap;
@@ -80,6 +81,7 @@ namespace ATBMI.Interaction
 
             HandleNavigation();
             HandleInteraction();
+            HandleInteractDescription();
         }
 
         #endregion
@@ -94,6 +96,7 @@ namespace ATBMI.Interaction
             SetupScrollSnap();
             optionsPanelUI.SetActive(true);
         }
+
         private void SetupScrollSnap()
         {
             simpleScrollSnap.Setup();
@@ -119,34 +122,28 @@ namespace ATBMI.Interaction
         private void InitializeButtons()
         {
             var optionsCount = interactOptionsUI.transform.childCount;
-            _interactContainers = new Dictionary<int, Dictionary<int, Button>>(optionsCount);
+            _interactContainer = new List<InteractData>(optionsCount);
 
             for (var i = 0; i < optionsCount; i++)
             {
                 var interactButton = interactOptionsUI.transform.GetChild(i).GetComponentInChildren<Button>();
-                var interactKey = GetInteractKey(i);
-
-                _interactContainers[i] = new Dictionary<int, Button>
-                {
-                    { interactKey, interactButton }
-                };
+                var interactDataFactory = new InteractDataFactory(_inventoryManager);
+                var interactData = interactDataFactory.CreateInteractData(i, interactButton);
                 
+                _interactContainer.Add(interactData);
+
                 SetupButtonImage(i, interactButton);
-                SetupButtonListener(i, interactKey, interactButton);
+                SetupButtonListener(i, interactButton);
             }
         }
 
         private void ResetButtons()
         {
-            foreach (var IndexValuePair in _interactContainers)
+            foreach (var interact in _interactContainer)
             {
-                foreach (var KeyValuePair in IndexValuePair.Value)
-                {
-                    var button = KeyValuePair.Value;
-                    button.onClick.RemoveAllListeners();
-                }
+                interact.Button.onClick.RemoveAllListeners();
             }
-            _interactContainers.Clear();
+            _interactContainer.Clear();
         }
 
         private void SetupButtonImage(int index, Button button)
@@ -158,15 +155,15 @@ namespace ATBMI.Interaction
             butonImage.sprite = collectibleItem.GetComponent<SpriteRenderer>().sprite;
         }
         
-        private void SetupButtonListener(int index, int key, Button button)
+        private void SetupButtonListener(int index, Button button)
         {
             var target = _interactArea.InteractTarget;
-            button.onClick.AddListener(() => ExecuteInteraction(target, index, key));
+            button.onClick.AddListener(() => ExecuteInteraction(index, target));
         }
 
-        private void ExecuteInteraction(BaseInteract target, int index, int key)
+        private void ExecuteInteraction(int index, BaseInteract target)
         {
-            switch (key)
+            switch (index)
             {
                 case 0:
                     target.Interact();
@@ -175,36 +172,23 @@ namespace ATBMI.Interaction
                     ExitButton();
                     break;
                 default:
-                    var inventory = _inventoryManager.CollectibleItem;
-                    foreach (var item in inventory)
-                    {
-                        var collectible = item.GetComponent<BaseInteract>();
-                        if (_interactContainers[index].ContainsKey(collectible.InteractId))
-                        {
-                            collectible.InteractCollectible(target);
-                        }
-                    }
+                    _interactContainer[index].Interactable.InteractCollectible(target);
                     break;
             }
         }
 
-        // !-- Helpers
-        private int GetInteractKey(int index)
+        private void ExitButton()
         {
-            if (index < 2)
-            {
-                return index;
-            }
-            else
-            {
-                var inventoryItem = _inventoryManager.CollectibleItem[index - 2].GetComponent<BaseInteract>();
-                return inventoryItem.InteractId;
-            }
+            optionsPanelUI.SetActive(false);
+            _interactArea.IsInteracting = false;
+
+            _playerController.StartMovement();
+            ResetButtons();
         }
 
         #endregion
 
-        #region Interaction Controller Methods
+        #region Interaction Methods
 
         private void HandleNavigation()
         {
@@ -229,41 +213,35 @@ namespace ATBMI.Interaction
         private void ExecuteInteraction()
         {
             var selectIndex = simpleScrollSnap.SelectedPanel;
-            var container = _interactContainers[selectIndex];
+            var container = _interactContainer[selectIndex];
 
-            if (selectIndex < 2)
-            {
-                container[selectIndex].onClick.Invoke();
-            }
-            else
+            container.Button.onClick.Invoke();
+            if (selectIndex >= 2)
             {
                 var inventory = _inventoryManager.CollectibleItem;
                 foreach (var item in inventory)
                 {
                     var collectible = item.GetComponent<CollectibleInteract>();
-                    if (container.TryGetValue(collectible.InteractId, out var interactOption))
+                    if (collectible.TargetId == _interactArea.InteractTarget.InteractId)
                     {
-                        interactOption.onClick.Invoke();
-                        if (collectible.TargetId == _interactArea.InteractTarget.InteractId)
-                        {
-                            inventory.Remove(item);
-                            _interactContainers.Remove(selectIndex);
-                            Destroy(interactOption.transform.parent.gameObject);
-                        }
-                        break;
+                        Debug.Log("remove!");
+                        inventory.Remove(item);
+                        _interactContainer.RemoveAt(selectIndex);
+                        Destroy(container.Button.transform.parent.gameObject);
                     }
+                    break;
                 }
             }
             ExitButton();
         }
 
-        private void ExitButton()
+        private void HandleInteractDescription()
         {
-            optionsPanelUI.SetActive(false);
-            _interactArea.IsInteracting = false;
-
-            _playerController.StartMovement();
-            ResetButtons();
+            if (!_interactArea.IsInteracting) return;
+        
+            var index = simpleScrollSnap.SelectedPanel;
+            var optionInfo = _interactContainer[index].Description;
+            optionInfoTextUI.text = optionInfo;
         }
 
         #endregion

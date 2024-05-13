@@ -55,7 +55,7 @@ namespace ATBMI.Entities.Player
         private void PlayerMove()
         {
             var playerRb = playerController.GetComponent<Rigidbody2D>();
-
+            
             playerDirection = new Vector2(playerController.PlayerInputHandler.MoveDirection.x, playerDirection.y);
             playerDirection.Normalize();
 
