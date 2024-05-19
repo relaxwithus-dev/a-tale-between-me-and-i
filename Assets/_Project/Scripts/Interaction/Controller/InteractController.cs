@@ -21,8 +21,8 @@ namespace ATBMI.Interaction
         [SerializeField] private TextMeshProUGUI optionInfoTextUI;
         [SerializeField] private GameObject contentPrefabs;
 
-        [SerializeField] private List<InteractData> _interactContainer;
-        [field: SerializeField] public List<BaseInteract> TargetContainer { get; set;}
+        private List<InteractData> _interactContainer;
+        public List<BaseInteract> TargetContainer { get; set;}
         public bool IsInteracting { get; set;}
 
         [Header("References")]
