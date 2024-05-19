@@ -7,13 +7,13 @@ namespace ATBMI.Interaction
     public class InteractEventHandler
     {
         public delegate void OpenInteract();
-        public event OpenInteract OnOpenInteract;
+        public static event OpenInteract OnOpenInteract;
 
         public delegate void CloseInteract();
-        public event OpenInteract OnCloseInteract;
+        public static event OpenInteract OnCloseInteract;
 
-        public void OpenInteractEvent() => OnOpenInteract?.Invoke();
-        public void CloseInteractEvent() => OnCloseInteract?.Invoke();
+        public static void OpenInteractEvent() => OnOpenInteract?.Invoke();
+        public static void CloseInteractEvent() => OnCloseInteract?.Invoke();
 
 
     }

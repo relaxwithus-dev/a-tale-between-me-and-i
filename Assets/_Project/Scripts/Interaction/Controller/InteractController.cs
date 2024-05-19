@@ -8,7 +8,6 @@ using DanielLochner.Assets.SimpleScrollSnap;
 using ATBMI.Enum;
 using ATBMI.Inventory;
 using ATBMI.Entities.Player;
-using Unity.VisualScripting.Dependencies.NCalc;
 
 namespace ATBMI.Interaction
 {
@@ -16,31 +15,21 @@ namespace ATBMI.Interaction
     {
         #region Fields & Property
 
-        /*
-         ! Note Interact Options Mechanic
-         * 1. Bikin semacem options/interact container
-         * buat nampung data interact talks, exit, dan item inventory
-         * 2. Button id bisa pake dictionary biar lebih irit dan
-         * aman buat di maintain
-         * 3. Logic init buttons perlu ditambah dan dioptimisasi
-         * 4. Bikin instantiate button jika jumlah button ga sesuai sama
-         * jumlah item inven + 2 (talks, exit)
-         */
-         
         [Header("UI")]
         [SerializeField] private GameObject optionsPanelUI;
         [SerializeField] private GameObject interactOptionsUI;
         [SerializeField] private TextMeshProUGUI optionInfoTextUI;
         [SerializeField] private GameObject contentPrefabs;
 
-        private List<InteractData> _interactContainer;
+        [SerializeField] private List<InteractData> _interactContainer;
+        [field: SerializeField] public List<BaseInteract> TargetContainer { get; set;}
+        public bool IsInteracting { get; set;}
 
         [Header("References")]
         [SerializeField] private SimpleScrollSnap simpleScrollSnap;
-        private InteractArea _interactArea;
+
         private PlayerController _playerController;
         private PlayerInputHandler _playerInputHandler;
-        private InteractEventHandler _interactEventHandler;
         private InventoryManager _inventoryManager;
 
         #endregion
@@ -49,35 +38,31 @@ namespace ATBMI.Interaction
 
         private void Awake()
         {
-            _interactArea = GetComponent<InteractArea>();
+            var player = GameObject.FindGameObjectWithTag("Player");
+            _playerController = player.GetComponent<PlayerController>();
+            _playerInputHandler = player.GetComponentInChildren<PlayerInputHandler>();
             _inventoryManager = GameObject.Find("Inventory").GetComponent<InventoryManager>();
         }
 
         private void OnEnable()
         {
-            // Inject Variables
-            _playerInputHandler = _interactArea.PlayerInputHandler;
-            _interactEventHandler = _interactArea.InteractEventHandler;
-            _playerController = _interactArea.PlayerController;
-
-            // Event
-            _interactEventHandler.OnOpenInteract += OnInteractTriggered;
+            InteractEventHandler.OnOpenInteract += OnInteractTriggered;
         }
         
         private void OnDisable()
         {
-            // Event
-            _interactEventHandler.OnOpenInteract -= OnInteractTriggered;
+            InteractEventHandler.OnOpenInteract -= OnInteractTriggered;
         }
 
         private void Start()
         {
             optionsPanelUI.SetActive(false);
+            TargetContainer = new List<BaseInteract>();
         }
 
         private void Update()
         {
-            if (!_interactArea.IsInteracting) return;
+            if (!IsInteracting) return;
 
             HandleNavigation();
             HandleInteraction();
@@ -157,7 +142,8 @@ namespace ATBMI.Interaction
         
         private void SetupButtonListener(int index, Button button)
         {
-            var target = _interactArea.InteractTarget;
+            // Ambil target pertama
+            var target = TargetContainer[0];
             button.onClick.AddListener(() => ExecuteInteraction(index, target));
         }
 
@@ -180,7 +166,7 @@ namespace ATBMI.Interaction
         private void ExitButton()
         {
             optionsPanelUI.SetActive(false);
-            _interactArea.IsInteracting = false;
+            IsInteracting = false;
 
             _playerController.StartMovement();
             ResetButtons();
@@ -222,9 +208,8 @@ namespace ATBMI.Interaction
                 foreach (var item in inventory)
                 {
                     var collectible = item.GetComponent<CollectibleInteract>();
-                    if (collectible.TargetId == _interactArea.InteractTarget.InteractId)
+                    if (collectible.TargetId == TargetContainer[0].InteractId)
                     {
-                        Debug.Log("remove!");
                         inventory.Remove(item);
                         _interactContainer.RemoveAt(selectIndex);
                         Destroy(container.Button.transform.parent.gameObject);
@@ -237,7 +222,7 @@ namespace ATBMI.Interaction
 
         private void HandleInteractDescription()
         {
-            if (!_interactArea.IsInteracting) return;
+            if (!IsInteracting) return;
         
             var index = simpleScrollSnap.SelectedPanel;
             var optionInfo = _interactContainer[index].Description;
