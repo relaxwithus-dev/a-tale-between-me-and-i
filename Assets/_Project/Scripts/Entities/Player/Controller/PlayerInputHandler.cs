@@ -25,13 +25,13 @@ namespace ATBMI.Entities.Player
         private InputAction _moveAction;
         private InputAction _interactAction;
         private InputAction _navigateAction;
-
+        
         // Action Values
         public Vector2 MoveDirection { get; private set; }
         public bool InteractTriggered { get; private set; }
         public bool NavigateUp { get; private set; }
         public bool NavigateDown { get; private set; }
-
+        
         #endregion
         
         #region MonoBehaviour Callbacks
@@ -59,8 +59,8 @@ namespace ATBMI.Entities.Player
             _navigateAction.performed += value =>
                 {
                     var navigateValue = value.ReadValue<Vector2>();
-                    NavigateUp = navigateValue.y > 0;
-                    NavigateDown = navigateValue.y < 0;
+                    NavigateUp = navigateValue.x > 0;
+                    NavigateDown = navigateValue.x < 0;
                 };
             _navigateAction.canceled += value =>
                 {
@@ -83,8 +83,8 @@ namespace ATBMI.Entities.Player
             _navigateAction.performed += value =>
                 {
                     var navigateValue = value.ReadValue<Vector2>();
-                    NavigateUp = navigateValue.y > 0;
-                    NavigateDown = navigateValue.y < 0;
+                    NavigateUp = navigateValue.x > 0;
+                    NavigateDown = navigateValue.x < 0;
                 };
             _navigateAction.canceled += value =>
                 {

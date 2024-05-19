@@ -10,9 +10,11 @@ namespace ATBMI.Interaction
     {
         #region Internal Fields
 
+        [SerializeField] private string collectibleName;
         [SerializeField] private CollectibleState collectiblesState;
         [SerializeField] private int targetId;
 
+        public string CollectibleName => collectibleName;
         public CollectibleState CollectibleState => collectiblesState;
         public int TargetId => targetId;
 

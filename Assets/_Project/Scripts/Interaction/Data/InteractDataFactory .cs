@@ -38,8 +38,11 @@ namespace ATBMI.Interaction
                     break;
                 default:
                     var item = _inventoryManager.CollectibleItem[index - 2];
-                    data.Interactable = item.GetComponent<BaseInteract>();
-                    data.Description = item.name;
+                    if (item.TryGetComponent<CollectibleInteract>(out var collectible))
+                    {
+                        data.Interactable = collectible;
+                        data.Description = collectible.CollectibleName;
+                    }
                     break;
             }
 
@@ -55,7 +58,7 @@ namespace ATBMI.Interaction
             }
             else
             {
-                var inventoryItem = _inventoryManager.CollectibleItem[index - 2].GetComponent<BaseInteract>();
+                var inventoryItem = _inventoryManager.CollectibleItem[index - 2].GetComponent<CollectibleInteract>();
                 return inventoryItem.InteractId;
             }
         }
