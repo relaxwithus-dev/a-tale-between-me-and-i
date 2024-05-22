@@ -12,6 +12,8 @@ namespace ATBMI.Interaction
         [Header("UI")]
         [SerializeField] private GameObject markerObject;
 
+        private bool _isOnArea;
+
         // Reference
         private InteractController _interactController;
         private PlayerController _playerController;
@@ -28,7 +30,7 @@ namespace ATBMI.Interaction
             _playerController = player.GetComponentInChildren<PlayerController>();
             _playerInputHandler = player.GetComponentInChildren<PlayerInputHandler>();
         }
-
+        
         private void Start()
         {
             markerObject.SetActive(false);
@@ -39,7 +41,7 @@ namespace ATBMI.Interaction
             if (!markerObject.activeSelf || _interactController.IsInteracting) return;
             if (_playerInputHandler.IsPressInteract())
             {
-                StartCoroutine(CallInteractOptionsRoutine());
+                CallInteractOption();
             }
         }
 
@@ -61,11 +63,8 @@ namespace ATBMI.Interaction
 
         #region Methods
 
-        private IEnumerator CallInteractOptionsRoutine()
+        private void CallInteractOption()
         {
-            yield return new WaitForSeconds(0.1f);
-
-            Debug.Log("go interact!");
             _interactController.IsInteracting = true;
             _playerController.StopMovement();
             InteractEventHandler.OpenInteractEvent();

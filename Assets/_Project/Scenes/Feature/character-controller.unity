@@ -3860,8 +3860,6 @@ MonoBehaviour:
   interactOptionsUI: {fileID: 3252892436116962555}
   optionInfoTextUI: {fileID: 1817180692}
   contentPrefabs: {fileID: 2589060695538627907, guid: 09b5d3e7366813c4ea47f7ca4cf43075, type: 3}
-  _interactContainer: []
-  <TargetContainer>k__BackingField: []
   simpleScrollSnap: {fileID: 5681489237217599396}
 --- !u!1 &814452560
 GameObject:
@@ -6203,7 +6201,7 @@ MonoBehaviour:
   pagination: {fileID: 0}
   useToggleNavigation: 1
   snapTarget: 2
-  snapSpeed: 15
+  snapSpeed: 10
   thresholdSpeedToSnap: -1
   useHardSnapping: 1
   useUnscaledTime: 0

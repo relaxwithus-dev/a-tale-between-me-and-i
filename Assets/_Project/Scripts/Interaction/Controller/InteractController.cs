@@ -29,8 +29,8 @@ namespace ATBMI.Interaction
         [SerializeField] private SimpleScrollSnap simpleScrollSnap;
 
         private PlayerController _playerController;
-        private PlayerInputHandler _playerInputHandler;
         private InventoryManager _inventoryManager;
+        public PlayerInputHandler PlayerInputHandler { get; private set;}
 
         #endregion
 
@@ -40,7 +40,7 @@ namespace ATBMI.Interaction
         {
             var player = GameObject.FindGameObjectWithTag("Player");
             _playerController = player.GetComponent<PlayerController>();
-            _playerInputHandler = player.GetComponentInChildren<PlayerInputHandler>();
+            PlayerInputHandler = player.GetComponentInChildren<PlayerInputHandler>();
             _inventoryManager = GameObject.Find("Inventory").GetComponent<InventoryManager>();
         }
 
@@ -163,13 +163,16 @@ namespace ATBMI.Interaction
             }
         }
 
-        private void ExitButton()
+        private void ExitButton() => StartCoroutine(ExitButtonRoutine());
+
+        private IEnumerator ExitButtonRoutine()
         {
             optionsPanelUI.SetActive(false);
-            IsInteracting = false;
-
             _playerController.StartMovement();
             ResetButtons();
+
+            yield return new WaitForSeconds(0.1f);
+            IsInteracting = false;
         }
 
         #endregion
@@ -178,19 +181,19 @@ namespace ATBMI.Interaction
 
         private void HandleNavigation()
         {
-            if (_playerInputHandler.IsPressNavigate(NavigateState.Up))
+            if (PlayerInputHandler.IsPressNavigate(NavigateState.Up))
             {
                 simpleScrollSnap.GoToNextPanel();
             }
-            else if (_playerInputHandler.IsPressNavigate(NavigateState.Down))
+            else if (PlayerInputHandler.IsPressNavigate(NavigateState.Down))
             {
                 simpleScrollSnap.GoToPreviousPanel();
             }
         }
-
+        
         private void HandleInteraction()
         {
-            if (_playerInputHandler.IsPressInteract())
+            if (PlayerInputHandler.IsPressInteract())
             {
                 ExecuteInteraction();
             }
@@ -202,19 +205,15 @@ namespace ATBMI.Interaction
             var container = _interactContainer[selectIndex];
 
             container.Button.onClick.Invoke();
-            if (selectIndex >= 2)
+            if (selectIndex > 1)
             {
-                var inventory = _inventoryManager.CollectibleItem;
-                foreach (var item in inventory)
+                var collectible = container.Interactable as CollectibleInteract;
+                
+                if (collectible.TargetId == TargetContainer[0].InteractId)
                 {
-                    var collectible = item.GetComponent<CollectibleInteract>();
-                    if (collectible.TargetId == TargetContainer[0].InteractId)
-                    {
-                        inventory.Remove(item);
-                        _interactContainer.RemoveAt(selectIndex);
-                        Destroy(container.Button.transform.parent.gameObject);
-                    }
-                    break;
+                     _inventoryManager.CollectibleItem.Remove(collectible.gameObject);
+                    _interactContainer.RemoveAt(selectIndex);
+                    Destroy(container.Button.transform.parent.gameObject);
                 }
             }
             ExitButton();
@@ -222,11 +221,10 @@ namespace ATBMI.Interaction
 
         private void HandleInteractDescription()
         {
-            if (!IsInteracting) return;
-        
             var index = simpleScrollSnap.SelectedPanel;
-            var optionInfo = _interactContainer[index].Description;
-            optionInfoTextUI.text = optionInfo;
+
+            if (index > _interactContainer.Count - 1) return;
+            optionInfoTextUI.text = _interactContainer[index].Description;
         }
 
         #endregion
