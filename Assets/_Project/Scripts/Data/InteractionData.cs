@@ -7,7 +7,7 @@ using ATBMI.Enum;
 
 namespace ATBMI.Data
 {
-    [CreateAssetMenu(fileName = "NewInteractionData", menuName = "Data/Interact/New Interaction Data", order = 0)]
+    [CreateAssetMenu(fileName = "NewInteractionData", menuName = "Data/Interaction Data", order = 0)]
     public class InteractionData : ScriptableObject
     {
         [Header("Data")]

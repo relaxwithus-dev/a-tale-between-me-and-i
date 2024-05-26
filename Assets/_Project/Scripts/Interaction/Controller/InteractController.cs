@@ -43,7 +43,7 @@ namespace ATBMI.Interaction
             PlayerInputHandler = player.GetComponentInChildren<PlayerInputHandler>();
             _inventoryManager = GameObject.Find("Inventory").GetComponent<InventoryManager>();
         }
-
+        
         private void OnEnable()
         {
             InteractEventHandler.OnOpenInteract += OnInteractTriggered;
