@@ -37,6 +37,7 @@ namespace ATBMI.Entities.Player
         public JumpState JumpState { get; private set; }
 
         // !-- Reference
+        private TextAsset INKJson;
         private PlayerInputHandler _playerInputHandler;
         private Animator _playerAnimator;
         public PlayerInputHandler PlayerInputHandler => _playerInputHandler;
@@ -79,7 +80,82 @@ namespace ATBMI.Entities.Player
         #endregion
 
         #region Methods
-        
+
+        private IEnumerator Move(float newPositionX, bool isNpcFacingRight)
+        {
+            Vector3 initialPosition = transform.position;
+            Vector3 targetPosition = new Vector3(newPositionX, initialPosition.y, initialPosition.z);
+
+            // Calculate the distance manually
+            float distance = Mathf.Abs(targetPosition.x - initialPosition.x);
+            float speed = (playerData.RunStats.MoveSpeed / 2) / distance; // Speed is inversely proportional to distance
+
+            float progress = 0f;
+
+            while (progress <= 1f)
+            {
+                progress += Time.deltaTime * speed;
+                transform.position = Vector3.Lerp(initialPosition, targetPosition, progress);
+                yield return null;
+            }
+
+            // Ensure the final position is exactly newPosition
+            transform.position = targetPosition;
+
+            if (FlipPlayerWhenDialogue(newPositionX, isNpcFacingRight))
+            {
+                yield return new WaitForSeconds(0.2f);
+            }
+
+            EventHandler.CallEnterDialogueEvent(INKJson);
+            INKJson = null;
+        }
+
+        private bool FlipPlayerWhenDialogue(float newPositionX, bool isNpcFacingRight)
+        {
+            if (transform.position.x < newPositionX)
+            {
+                if (!playerData.IsRight && !isNpcFacingRight)
+                {
+                    StateSwitcher.CurrentState.PlayerFlip();
+                    return true;
+                }
+                else if (!playerData.IsRight && isNpcFacingRight)
+                {
+                    StateSwitcher.CurrentState.PlayerFlip();
+                    return true;
+                }
+            }
+            else if (transform.position.x > newPositionX)
+            {
+                if (playerData.IsRight && !isNpcFacingRight)
+                {
+                    StateSwitcher.CurrentState.PlayerFlip();
+                    return true;
+                }
+                else if (playerData.IsRight && isNpcFacingRight)
+                {
+                    StateSwitcher.CurrentState.PlayerFlip();
+                    return true;
+                }
+            }
+            else if (transform.position.x == newPositionX)
+            {
+                if (!playerData.IsRight && !isNpcFacingRight)
+                {
+                    StateSwitcher.CurrentState.PlayerFlip();
+                    return true;
+                }
+                else if (playerData.IsRight && isNpcFacingRight)
+                {
+                    StateSwitcher.CurrentState.PlayerFlip();
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         private void InitializePlayer()
         {
             gameObject.name = playerName;
@@ -90,12 +166,22 @@ namespace ATBMI.Entities.Player
         {
             CanMove = true;
         }
-        
+
         public void StopMovement()
         {
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             StateSwitcher.SwitchState(IdleState);
             CanMove = false;
+        }
+
+        public void MoveToDialogueEntryPoint(TextAsset INKJson, float newPositionX, bool isNpcFacingRight)
+        {
+            this.INKJson = INKJson;
+
+            FlipPlayerWhenDialogue(newPositionX, isNpcFacingRight);
+
+            // TODO: change to dotween?
+            StartCoroutine(Move(newPositionX, isNpcFacingRight));
         }
 
         #endregion

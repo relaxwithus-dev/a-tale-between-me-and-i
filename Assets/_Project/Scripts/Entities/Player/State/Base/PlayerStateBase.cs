@@ -68,7 +68,7 @@ namespace ATBMI.Entities.Player
             if (direction.x > 0 && !isRight || direction.x < 0 && isRight) PlayerFlip();
         }
         
-        protected void PlayerFlip()
+        public virtual void PlayerFlip()
         {
             isRight = !isRight;
             playerSprite.flipX = !isRight;
