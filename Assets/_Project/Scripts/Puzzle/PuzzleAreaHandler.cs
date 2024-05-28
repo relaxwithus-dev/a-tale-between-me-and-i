@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using ATBMI.Stress;
 using UnityEngine;
 
 namespace ATBMI.Puzzle
@@ -10,7 +11,8 @@ namespace ATBMI.Puzzle
         {
             if (other.CompareTag("Player"))
             {
-                
+                Debug.Log("increased stress");
+                StressEventHandler.StressOvertimeEvent();
             }
         }
     }

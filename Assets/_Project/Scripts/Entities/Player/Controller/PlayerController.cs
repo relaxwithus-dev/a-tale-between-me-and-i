@@ -21,9 +21,14 @@ namespace ATBMI.Entities.Player
 
         [Header("Data")]
         [SerializeField] private PlayerData playerData;
-        [SerializeField] private string playerName;
+        [SerializeField] private Vector2 movementDirection;
         [SerializeField] private bool isRight;
 
+        public Vector2 MovementDirection
+        {
+            get => movementDirection;
+            set => movementDirection = value;
+        }
         public bool CanMove { get; private set; }
 
         public PlayerData PlayerData => playerData;
@@ -36,11 +41,9 @@ namespace ATBMI.Entities.Player
         public MoveState RunState { get; private set; }
         public JumpState JumpState { get; private set; }
 
-        // !-- Reference
-        private PlayerInputHandler _playerInputHandler;
-        private Animator _playerAnimator;
-        public PlayerInputHandler PlayerInputHandler => _playerInputHandler;
-        public Animator PlayerAnimator => _playerAnimator;
+        // Reference
+        public PlayerInputHandler InputHandler { get; private set; }
+        public Animator PlayerAnimator { get; private set; }
 
         #endregion
 
@@ -49,8 +52,8 @@ namespace ATBMI.Entities.Player
         private void Awake()
         {
             // Component
-            _playerAnimator = GetComponentInChildren<Animator>();
-            _playerInputHandler = GetComponentInChildren<PlayerInputHandler>();
+            PlayerAnimator = GetComponentInChildren<Animator>();
+            InputHandler = GetComponentInChildren<PlayerInputHandler>();
 
             // State
             StateSwitcher = new PlayerStateSwitcher();
@@ -82,7 +85,7 @@ namespace ATBMI.Entities.Player
         
         private void InitializePlayer()
         {
-            gameObject.name = playerName;
+            gameObject.name = playerData.PlayerName;
             CanMove = true;
         }
 

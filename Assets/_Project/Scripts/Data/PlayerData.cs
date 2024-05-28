@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace ATBMI.Data
 {
-    [CreateAssetMenu(fileName = "NewPlayerData", menuName = "Data/Entities/New Player Data", order = 0)]
+    [CreateAssetMenu(fileName = "NewPlayerData", menuName = "Data/Entities/Player Data", order = 0)]
     public class PlayerData : ScriptableObject
     {
         #region Struct
@@ -15,7 +15,6 @@ namespace ATBMI.Data
             public float MoveSpeed;
             public float Acceleration;
             public float Decceleration;
-            public float DeccelerationTime;
         }
         #endregion
 

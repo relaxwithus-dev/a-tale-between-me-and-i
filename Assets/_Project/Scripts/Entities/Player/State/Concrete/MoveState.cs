@@ -11,17 +11,21 @@ namespace ATBMI.Entities.Player
         private readonly float _runSpeed;
         private readonly float _acceleration;
         private readonly float _decceleration;
+        private readonly float _velPower;
+
+        private readonly Rigidbody2D _playerRb;
 
         #endregion
 
         public MoveState(PlayerController controller, PlayerStateSwitcher stateController, string animationName) : base(controller, stateController, animationName)
         {
-            // TODO: Isi data jika perlu, misal ga perlu kosongi aja
+            var data = playerController.PlayerData;
+            _runSpeed = data.RunStats.MoveSpeed;
+            _acceleration = data.RunStats.Acceleration;
+            _decceleration = data.RunStats.Decceleration;
+            _velPower = data.VelPower;
 
-            var runStats = playerController.PlayerData.RunStats;
-            _runSpeed = runStats.MoveSpeed;
-            _acceleration = runStats.Acceleration;
-            _decceleration = runStats.Decceleration;
+            _playerRb = controller.GetComponent<Rigidbody2D>();
         }
 
         public override void EnterState()
@@ -33,7 +37,7 @@ namespace ATBMI.Entities.Player
         {
             base.DoState();
             
-            var isPlayerMove = playerDirection.x != 0 || MovementValue >= 1.3f || MovementValue <= -1.3f;
+            var isPlayerMove = playerController.MovementDirection.x != 0 || MovementValue >= 1.3f || MovementValue <= -1.3f;
             if (isPlayerMove) return;
             playerStateController.SwitchState(playerController.IdleState);
         }
@@ -47,24 +51,24 @@ namespace ATBMI.Entities.Player
         public override void ExitState()
         {
             base.ExitState();
-            playerController.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            _playerRb.velocity = Vector2.zero;
         }
 
         #region Methods
 
         private void PlayerMove()
-        {
-            var playerRb = playerController.GetComponent<Rigidbody2D>();
-            
-            playerDirection = new Vector2(playerController.PlayerInputHandler.MoveDirection.x, playerDirection.y);
-            playerDirection.Normalize();
+        {            
+            var direction = playerController.InputHandler.MoveDirection;
 
-            var targetSpeed = playerDirection * _runSpeed;
-            var speedDif = targetSpeed.x - playerRb.velocity.x;
+            playerController.MovementDirection = new Vector2(direction.x, playerController.MovementDirection.y);
+            playerController.MovementDirection.Normalize();
+
+            var targetSpeed = playerController.MovementDirection * _runSpeed;
+            var speedDif = targetSpeed.x - _playerRb.velocity.x;
             var accelRate = (Mathf.Abs(targetSpeed.x) > 0.01f) ? _acceleration : _decceleration;
-            MovementValue = Mathf.Pow(MathF.Abs(speedDif) * accelRate, playerController.PlayerData.VelPower) * MathF.Sign(speedDif);
+            MovementValue = Mathf.Pow(MathF.Abs(speedDif) * accelRate, _velPower) * MathF.Sign(speedDif);
             
-            playerRb.AddForce(MovementValue * Vector2.right);
+            _playerRb.AddForce(MovementValue * Vector2.right);
         }
 
         #endregion

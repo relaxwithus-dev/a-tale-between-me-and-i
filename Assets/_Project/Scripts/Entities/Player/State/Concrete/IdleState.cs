@@ -8,25 +8,15 @@ namespace ATBMI.Entities.Player
     {
         public IdleState(PlayerController controller, PlayerStateSwitcher stateController, string animationName) : base(controller, stateController, animationName)
         {
-            // TODO: Isi data jika perlu, misal ga perlu kosongi aja
-        }
-        
-        public override void EnterState()
-        {
-            base.EnterState();
+
         }
         
         public override void DoState()
         {
             base.DoState();
 
-            if (playerController.PlayerInputHandler.MoveDirection == Vector2.zero) return;
+            if (playerController.InputHandler.MoveDirection == Vector2.zero) return;
             playerStateController.SwitchState(playerController.WalkState);
-        }
-        
-        public override void ExitState()
-        {
-            base.ExitState();
         }
     }
 }

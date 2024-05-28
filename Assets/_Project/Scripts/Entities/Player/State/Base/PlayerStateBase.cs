@@ -10,7 +10,7 @@ namespace ATBMI.Entities.Player
 
         // Components
         protected bool isRight = true;
-        protected Vector2 playerDirection;
+        // protected Vector2 playerDirection;
         protected float MovementValue { get; set; }
        
         
@@ -64,7 +64,7 @@ namespace ATBMI.Entities.Player
 
         protected void PlayerDirection()
         {
-            var direction = playerDirection;
+            var direction = playerController.MovementDirection;
             if (direction.x > 0 && !isRight || direction.x < 0 && isRight) PlayerFlip();
         }
         

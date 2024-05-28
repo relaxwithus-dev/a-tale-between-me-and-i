@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using ATBMI.Data;
 using ATBMI.Entities.Player;
+using ATMBI.Gameplay.EventHandler;
 using UnityEngine;
 
 namespace ATBMI.Stress
@@ -35,6 +36,25 @@ namespace ATBMI.Stress
             // Status
             ProductivityStatus = new Productivity(productivityData, _playerController);
             DepressionStatus = new Depression(depressionData, _playerController, _stressAnimator);
+        }
+        
+        private void OnEnable()
+        {
+            PlayerEventHandler.OnStress += HandleStatus;
+        }
+
+        private void OnDisable()
+        {
+            PlayerEventHandler.OnStress -= HandleStatus;
+        }
+
+        #endregion
+
+        #region Methods
+
+        private void HandleStatus()
+        {
+
         }
 
         #endregion
