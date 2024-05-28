@@ -40,19 +40,26 @@ namespace ATBMI.Stress
         
         private void OnEnable()
         {
-            PlayerEventHandler.OnStress += HandleStatus;
+            PlayerEventHandler.OnStressActivate += HandleActiveStatus;
+            PlayerEventHandler.OnStressInactivate += HandleInactiveStatus;
         }
 
         private void OnDisable()
         {
-            PlayerEventHandler.OnStress -= HandleStatus;
+            PlayerEventHandler.OnStressActivate -= HandleActiveStatus;
+            PlayerEventHandler.OnStressInactivate -= HandleInactiveStatus;
         }
 
         #endregion
 
         #region Methods
 
-        private void HandleStatus()
+        private void HandleActiveStatus()
+        {
+
+        }
+
+        private void HandleInactiveStatus()
         {
 
         }

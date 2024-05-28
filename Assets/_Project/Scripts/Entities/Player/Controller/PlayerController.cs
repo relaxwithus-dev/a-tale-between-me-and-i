@@ -24,13 +24,13 @@ namespace ATBMI.Entities.Player
         [SerializeField] private Vector2 movementDirection;
         [SerializeField] private bool isRight;
 
+        public float CurrentSpeed { get; set; }
         public Vector2 MovementDirection
         {
             get => movementDirection;
             set => movementDirection = value;
         }
         public bool CanMove { get; private set; }
-
         public PlayerData PlayerData => playerData;
 
         // !-- State
