@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 using ATBMI.Data;
 using ATBMI.Entities.Player;
-using UnityEngine;
 
 namespace ATBMI.Stress
 {
@@ -13,10 +13,13 @@ namespace ATBMI.Stress
             
         }
 
+        // TODO: Drop logic buat productivity status disini
         public override void PerformStatus()
         {
             base.PerformStatus();
-            
+            Debug.Log("perform productivity");
+            var buffPercentage = CalculatePercentage(playerController.CurrentSpeed, speedPercentage);
+            playerController.CurrentSpeed += buffPercentage;
         }
     }
 }

@@ -14,7 +14,7 @@ namespace ATBMI.Entities.Player
         public override void DoState()
         {
             base.DoState();
-
+            
             if (playerController.InputHandler.MoveDirection == Vector2.zero) return;
             playerStateController.SwitchState(playerController.WalkState);
         }

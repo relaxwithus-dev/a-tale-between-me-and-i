@@ -8,7 +8,7 @@ namespace ATBMI.Entities.Player
     {
         #region Internal Fields
         
-        private readonly float _runSpeed;
+        private readonly float _moveSpeed;
         private readonly float _acceleration;
         private readonly float _decceleration;
         private readonly float _velPower;
@@ -20,7 +20,7 @@ namespace ATBMI.Entities.Player
         public MoveState(PlayerController controller, PlayerStateSwitcher stateController, string animationName) : base(controller, stateController, animationName)
         {
             var data = playerController.PlayerData;
-            _runSpeed = data.RunStats.MoveSpeed;
+            _moveSpeed = data.RunStats.MoveSpeed;
             _acceleration = data.RunStats.Acceleration;
             _decceleration = data.RunStats.Decceleration;
             _velPower = data.VelPower;
@@ -31,13 +31,16 @@ namespace ATBMI.Entities.Player
         public override void EnterState()
         {
             base.EnterState();
+            playerController.LatestSpeed = _moveSpeed;
         }
 
         public override void DoState()
         {
             base.DoState();
-            
-            var isPlayerMove = playerController.MovementDirection.x != 0 || MovementValue >= 1.3f || MovementValue <= -1.3f;
+            playerController.CurrentSpeed = _moveSpeed;
+            var isPlayerMove = playerController.MovementDirection.x != 0 
+                    || MovementValue >= 1.3f || MovementValue <= -1.3f;
+
             if (isPlayerMove) return;
             playerStateController.SwitchState(playerController.IdleState);
         }
@@ -63,7 +66,7 @@ namespace ATBMI.Entities.Player
             playerController.MovementDirection = new Vector2(direction.x, playerController.MovementDirection.y);
             playerController.MovementDirection.Normalize();
 
-            var targetSpeed = playerController.MovementDirection * _runSpeed;
+            var targetSpeed = playerController.MovementDirection * _moveSpeed;
             var speedDif = targetSpeed.x - _playerRb.velocity.x;
             var accelRate = (Mathf.Abs(targetSpeed.x) > 0.01f) ? _acceleration : _decceleration;
             MovementValue = Mathf.Pow(MathF.Abs(speedDif) * accelRate, _velPower) * MathF.Sign(speedDif);

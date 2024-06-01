@@ -8,6 +8,7 @@ using DanielLochner.Assets.SimpleScrollSnap;
 using ATBMI.Enum;
 using ATBMI.Inventory;
 using ATBMI.Entities.Player;
+using ATMBI.Gameplay.EventHandler;
 
 namespace ATBMI.Interaction
 {
@@ -45,12 +46,12 @@ namespace ATBMI.Interaction
         
         private void OnEnable()
         {
-            InteractEventHandler.OnOpenInteract += OnInteractTriggered;
+            PlayerEventHandler.OnInteract += OnInteractTriggered;
         }
         
         private void OnDisable()
         {
-            InteractEventHandler.OnOpenInteract -= OnInteractTriggered;
+            PlayerEventHandler.OnInteract -= OnInteractTriggered;
         }
 
         private void Start()
@@ -141,7 +142,6 @@ namespace ATBMI.Interaction
         
         private void SetupButtonListener(int index, Button button)
         {
-            // Ambil target pertama
             var target = TargetContainer[0];
             button.onClick.AddListener(() => ExecuteInteraction(index, target));
         }

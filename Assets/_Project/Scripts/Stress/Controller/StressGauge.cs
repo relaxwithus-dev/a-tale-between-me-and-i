@@ -1,9 +1,8 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using ATMBI.Gameplay.EventHandler;
 using UnityEngine;
 using UnityEngine.UI;
+using ATMBI.Gameplay.EventHandler;
 
 namespace ATBMI.Stress
 {
@@ -14,12 +13,12 @@ namespace ATBMI.Stress
         [Header("Gauge")]
         [SerializeField] private Slider sliderUI;
         [SerializeField] private float maxStressValue;
-        [SerializeField] [Range(0.5f, 5f)] private float increasedGapTime = 1f;
+        [SerializeField] [Range(0.5f, 5f)] private float increasedInterval = 1f;
         [SerializeField] private float statusDuration = 30f;
         
         private float _increasedValue;
-
         private float CurrentStressValue { get; set; }
+
         private const float MAX_SLIDER_VALUE = 1f;
         private const float MIN_SLIDER_VALUE = 0f;
 
@@ -39,14 +38,19 @@ namespace ATBMI.Stress
 
         private void Start()
         {
-            sliderUI.value = MIN_SLIDER_VALUE;
-            CurrentStressValue = sliderUI.value;
+            InitializeGauge();
             _increasedValue = CalculatePercentage(maxStressValue, 2f);
         }
 
         #endregion
 
         #region Methods
+
+        private void InitializeGauge()
+        {
+            sliderUI.value = MIN_SLIDER_VALUE;
+            CurrentStressValue = sliderUI.value;
+        }
 
         private void HandleStressOvertime()
         {
@@ -57,7 +61,7 @@ namespace ATBMI.Stress
         {
             while (CurrentStressValue < maxStressValue)
             {
-                yield return new WaitForSeconds(increasedGapTime);
+                yield return new WaitForSeconds(increasedInterval);
                 CurrentStressValue += _increasedValue;
                 yield return IncreaseSliderRoutine();
 
@@ -81,6 +85,7 @@ namespace ATBMI.Stress
                 sliderUI.value += Time.deltaTime;
                 yield return null;
             }
+
             sliderUI.value = value;
         }
 
@@ -94,7 +99,7 @@ namespace ATBMI.Stress
                 yield return null;
             }
 
-            sliderUI.value = MIN_SLIDER_VALUE;
+            InitializeGauge();
             PlayerEventHandler.StressInactiveEvent();
         }
 

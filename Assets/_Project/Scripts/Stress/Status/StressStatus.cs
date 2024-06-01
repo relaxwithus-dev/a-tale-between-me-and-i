@@ -10,7 +10,7 @@ namespace ATBMI.Stress
     {
         #region Global Fields
         
-        protected float speedRate;
+        protected float speedPercentage;
         protected AudioClip stressAuido;
         protected TextAsset dialougeAsset;
         protected Animator stressAnimator;
@@ -20,9 +20,10 @@ namespace ATBMI.Stress
 
         #region Methods
 
+        // Constructor
         public StressStatus(StressData data, PlayerController player)
         {
-            speedRate = data.StressSpeedRate;
+            speedPercentage = data.SpeedPercentage;
             stressAuido = data.StressAudio;
             dialougeAsset = data.DialogueAsset;
             playerController = player;
@@ -30,7 +31,7 @@ namespace ATBMI.Stress
 
         public StressStatus(StressData data, PlayerController player, Animator animator)
         {
-            speedRate = data.StressSpeedRate;
+            speedPercentage = data.SpeedPercentage;
             stressAuido = data.StressAudio;
             dialougeAsset = data.DialogueAsset;
             
@@ -38,7 +39,13 @@ namespace ATBMI.Stress
             stressAnimator = animator;
         }
 
+        // Methods
         public virtual void PerformStatus() { }
+
+        protected float CalculatePercentage(float value, float percentage)
+        {
+            return value * (percentage / 100f);
+        }
         
         #endregion
     }

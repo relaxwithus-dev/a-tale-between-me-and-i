@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using ATBMI.Entities.Player;
+using ATMBI.Gameplay.EventHandler;
 using UnityEngine;
 
 namespace ATBMI.Interaction
@@ -11,9 +12,7 @@ namespace ATBMI.Interaction
 
         [Header("UI")]
         [SerializeField] private GameObject markerObject;
-
-        private bool _isOnArea;
-
+        
         // Reference
         private InteractController _interactController;
         private PlayerController _playerController;
@@ -67,7 +66,7 @@ namespace ATBMI.Interaction
         {
             _interactController.IsInteracting = true;
             _playerController.StopMovement();
-            InteractEventHandler.OpenInteractEvent();
+            PlayerEventHandler.InteractEvent();
         }
 
         private void HandleTrigger(Collider2D other, bool shouldEnter)

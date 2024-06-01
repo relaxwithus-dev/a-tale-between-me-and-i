@@ -1,9 +1,8 @@
-using System;
 using System.Collections.Generic;
+using UnityEngine;
 using ATBMI.Data;
 using ATBMI.Entities.Player;
 using ATMBI.Gameplay.EventHandler;
-using UnityEngine;
 
 namespace ATBMI.Stress
 {
@@ -56,13 +55,18 @@ namespace ATBMI.Stress
 
         private void HandleActiveStatus()
         {
-
+            var isProductivity = GetRandomValue();
+            _currentStatus = isProductivity ? ProductivityStatus :  DepressionStatus;
+            _currentStatus.PerformStatus();
         }
 
         private void HandleInactiveStatus()
         {
-
+            _currentStatus = null;
+            _playerController.CurrentSpeed = _playerController.LatestSpeed;
         }
+
+        private bool GetRandomValue() => Random.value > 0.5f;
 
         #endregion
 

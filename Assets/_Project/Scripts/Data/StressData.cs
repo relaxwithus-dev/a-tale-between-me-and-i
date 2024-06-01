@@ -9,11 +9,11 @@ namespace ATBMI.Data
     public class StressData : ScriptableObject
     {
         [Header("General")]
-        [SerializeField] [Range(0, 100)] private float stressSpeedRate;
+        [SerializeField] [Range(0, 100)] private float speedPercentage;
         [SerializeField] private AudioClip stressAudio;
         [SerializeField] private TextAsset dialogueAsset;
 
-        public float StressSpeedRate => stressSpeedRate;
+        public float SpeedPercentage => speedPercentage;
         public AudioClip StressAudio => stressAudio;
         public TextAsset DialogueAsset => dialogueAsset;
     }

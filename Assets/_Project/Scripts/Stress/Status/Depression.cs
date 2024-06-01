@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 using ATBMI.Data;
 using ATBMI.Entities.Player;
-using UnityEngine;
 
 namespace ATBMI.Stress
 {
@@ -13,9 +13,13 @@ namespace ATBMI.Stress
             
         }
 
+        // TODO: Drop logic buat depression status disini
         public override void PerformStatus()
         {
             base.PerformStatus();
+            Debug.Log("perform depression");
+            var debuffPercentage = CalculatePercentage(playerController.CurrentSpeed, speedPercentage);
+            playerController.CurrentSpeed += debuffPercentage;
         }
 
     }

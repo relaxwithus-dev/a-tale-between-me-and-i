@@ -25,6 +25,7 @@ namespace ATBMI.Entities.Player
         [SerializeField] private bool isRight;
 
         public float CurrentSpeed { get; set; }
+        public float LatestSpeed { get; set; }
         public Vector2 MovementDirection
         {
             get => movementDirection;
