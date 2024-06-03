@@ -14,6 +14,7 @@ namespace ATBMI.Entities.Player
         public override void EnterState()
         {
             base.EnterState();
+            playerController.CurrentSpeed = latestSpeed;
         }
         
         public override void DoState()

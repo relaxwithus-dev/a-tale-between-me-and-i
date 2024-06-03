@@ -41,6 +41,7 @@ namespace ATBMI.Stress
 
         // Methods
         public virtual void PerformStatus() { }
+        public virtual void AvoidStatus() { }
 
         protected float CalculatePercentage(float value, float percentage)
         {

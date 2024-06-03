@@ -5949,7 +5949,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sliderUI: {fileID: 408208678}
   maxStressValue: 100
-  increasedGapTime: 1
+  increasedInterval: 0.2
   statusDuration: 30
 --- !u!1 &1333926290
 GameObject:
@@ -7031,9 +7031,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a99771de0ab1ac45bd9315794990b91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerData: {fileID: 11400000, guid: b65c410321df4c6469066d0c56ecc90f, type: 2}
+  playerName: "\uAC00\uC744"
+  playerData:
+  - {fileID: 11400000, guid: 26c0843b59b2d4245ad93127f6775431, type: 2}
+  - {fileID: 11400000, guid: b65c410321df4c6469066d0c56ecc90f, type: 2}
   movementDirection: {x: 0, y: 0}
   isRight: 1
+  <CurrentSpeed>k__BackingField: 0
 --- !u!114 &2145453894
 MonoBehaviour:
   m_ObjectHideFlags: 0

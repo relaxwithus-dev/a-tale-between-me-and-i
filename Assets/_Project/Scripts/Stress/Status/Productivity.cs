@@ -8,6 +8,8 @@ namespace ATBMI.Stress
 {
     public class Productivity : StressStatus
     {
+        private float _finalSpeed;
+
         public Productivity(StressData data, PlayerController player) : base(data, player)
         {
             
@@ -18,8 +20,23 @@ namespace ATBMI.Stress
         {
             base.PerformStatus();
             Debug.Log("perform productivity");
-            var buffPercentage = CalculatePercentage(playerController.CurrentSpeed, speedPercentage);
-            playerController.CurrentSpeed += buffPercentage;
+
+            if (playerController.CurrentSpeed != _finalSpeed)
+            {
+                var debuffPercentage = CalculatePercentage(playerController.CurrentSpeed, speedPercentage);
+                _finalSpeed = playerController.CurrentSpeed + debuffPercentage;
+                playerController.CurrentSpeed = _finalSpeed;   
+            }
+        }
+
+        public override void AvoidStatus()
+        {
+            base.AvoidStatus();
+            Debug.Log("avoid productivity");
+            var currentData = playerController.StateSwitcher.CurrentState.CurrentData;
+
+            _finalSpeed = 0f;
+            playerController.CurrentSpeed = currentData.MoveSpeed;
         }
     }
 }

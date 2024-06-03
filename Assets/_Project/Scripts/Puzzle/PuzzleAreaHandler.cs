@@ -11,7 +11,15 @@ namespace ATBMI.Puzzle
         {
             if (other.CompareTag("Player"))
             {
-                StressEventHandler.StressOvertimeEvent();
+                StressEventHandler.StressOvertimeEvent(true);
+            }
+        }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (other.CompareTag("Player"))
+            {
+                StressEventHandler.StressOvertimeEvent(false);
             }
         }
     }

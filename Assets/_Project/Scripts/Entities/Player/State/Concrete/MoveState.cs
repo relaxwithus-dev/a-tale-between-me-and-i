@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using ATBMI.Data;
 using UnityEngine;
 
 namespace ATBMI.Entities.Player
@@ -16,13 +17,12 @@ namespace ATBMI.Entities.Player
         private readonly Rigidbody2D _playerRb;
 
         #endregion
-
-        public MoveState(PlayerController controller, PlayerStateSwitcher stateController, string animationName) : base(controller, stateController, animationName)
+    
+        public MoveState(PlayerController controller, PlayerData data, PlayerStateSwitcher state, string animationName) : base(controller, data, state, animationName)
         {
-            var data = playerController.PlayerData;
-            _moveSpeed = data.RunStats.MoveSpeed;
-            _acceleration = data.RunStats.Acceleration;
-            _decceleration = data.RunStats.Decceleration;
+            _moveSpeed = data.MoveSpeed;
+            _acceleration = data.Acceleration;
+            _decceleration = data.Decceleration;
             _velPower = data.VelPower;
 
             _playerRb = controller.GetComponent<Rigidbody2D>();
@@ -31,13 +31,13 @@ namespace ATBMI.Entities.Player
         public override void EnterState()
         {
             base.EnterState();
-            playerController.LatestSpeed = _moveSpeed;
+            currentData = playerData;
+            playerController.CurrentSpeed = _moveSpeed;
         }
 
         public override void DoState()
         {
             base.DoState();
-            playerController.CurrentSpeed = _moveSpeed;
             var isPlayerMove = playerController.MovementDirection.x != 0 
                     || MovementValue >= 1.3f || MovementValue <= -1.3f;
 
@@ -62,11 +62,12 @@ namespace ATBMI.Entities.Player
         private void PlayerMove()
         {            
             var direction = playerController.InputHandler.MoveDirection;
+            var speed = playerController.CurrentSpeed;
 
             playerController.MovementDirection = new Vector2(direction.x, playerController.MovementDirection.y);
             playerController.MovementDirection.Normalize();
 
-            var targetSpeed = playerController.MovementDirection * _moveSpeed;
+            var targetSpeed = playerController.MovementDirection * speed;
             var speedDif = targetSpeed.x - _playerRb.velocity.x;
             var accelRate = (Mathf.Abs(targetSpeed.x) > 0.01f) ? _acceleration : _decceleration;
             MovementValue = Mathf.Pow(MathF.Abs(speedDif) * accelRate, _velPower) * MathF.Sign(speedDif);

@@ -10,16 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28d3d0a0e6b88a5458897e8ebb3271cd, type: 3}
-  m_Name: PlayerData
+  m_Name: RunData
   m_EditorClassIdentifier: 
-  playerName: "\uAC00\uC744\uAC00\uC744"
-  isRight: 1
-  walkStats:
-    MoveSpeed: 6
-    Acceleration: 7
-    Decceleration: 7
-  runStats:
-    MoveSpeed: 8
-    Acceleration: 6
-    Decceleration: 5
+  moveSpeed: 8
+  acceleration: 6
+  decceleration: 5
   velPower: 0.9

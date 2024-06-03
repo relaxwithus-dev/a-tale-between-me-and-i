@@ -1,16 +1,23 @@
 using System;
 using System.Collections.Generic;
+using ATBMI.Data;
 using UnityEngine;
 
 namespace ATBMI.Entities.Player
 {
     public class IdleState : PlayerStateBase
     {
-        public IdleState(PlayerController controller, PlayerStateSwitcher stateController, string animationName) : base(controller, stateController, animationName)
+        public IdleState(PlayerController controller, PlayerStateSwitcher state, string animationName) : base(controller, state, animationName)
         {
 
         }
-        
+
+        public override void EnterState()
+        {
+            base.EnterState();
+            currentData = playerController.PlayerData[0];
+        }
+
         public override void DoState()
         {
             base.DoState();

@@ -6,12 +6,12 @@ namespace ATMBI.Gameplay.EventHandler
     public class PlayerEventHandler
     {
         public static event Action OnInteract;
-        public static event Action OnStressActivate;
-        public static event Action OnStressInactivate;
+        public static event Action OnStressActive;
+        public static event Action OnStressInactive;
 
 
         public static void InteractEvent() => OnInteract?.Invoke();
-        public static void StressActiveEvent() => OnStressActivate?.Invoke();
-        public static void StressInactiveEvent() => OnStressInactivate?.Invoke();
+        public static void StressActiveEvent() => OnStressActive?.Invoke();
+        public static void StressInactiveEvent() => OnStressInactive?.Invoke();
     }
 }

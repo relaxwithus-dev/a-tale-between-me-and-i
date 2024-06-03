@@ -8,30 +8,15 @@ namespace ATBMI.Data
     [CreateAssetMenu(fileName = "NewPlayerData", menuName = "Data/Entities/Player Data", order = 0)]
     public class PlayerData : ScriptableObject
     {
-        #region Struct
-        [Serializable]
-        public struct SpeedStats
-        {
-            public float MoveSpeed;
-            public float Acceleration;
-            public float Decceleration;
-        }
-        #endregion
-
-        [Header("General")]
-        [SerializeField] private string playerName;
-        [SerializeField] private bool isRight;
-
-        public string PlayerName => playerName;
-        public bool IsRight => isRight;
-
         [Header("Movement")]
-        [SerializeField] private SpeedStats walkStats;
-        [SerializeField] private SpeedStats runStats;
+        [SerializeField] private float moveSpeed;
+        [SerializeField] private float acceleration;
+        [SerializeField] private float decceleration;
         [SerializeField] private float velPower;
 
-        public SpeedStats WalkStats => walkStats;
-        public SpeedStats RunStats => runStats;
+        public float MoveSpeed => moveSpeed;
+        public float Acceleration => acceleration;
+        public float Decceleration => decceleration;
         public float VelPower => velPower;
 
     }

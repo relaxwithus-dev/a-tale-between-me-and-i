@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using ATBMI.Data;
 using UnityEngine;
 
 namespace ATBMI.Entities.Player
@@ -10,9 +11,10 @@ namespace ATBMI.Entities.Player
 
         // Components
         protected bool isRight = true;
-        // protected Vector2 playerDirection;
+        protected float latestSpeed;
+        protected PlayerData currentData;
         protected float MovementValue { get; set; }
-       
+        public PlayerData CurrentData => currentData;
         
         // Base Components
         protected float startTime;
@@ -21,24 +23,36 @@ namespace ATBMI.Entities.Player
 
          // Reference
         protected PlayerController playerController;
+        protected PlayerData playerData;
         protected PlayerStateSwitcher playerStateController;
         protected SpriteRenderer playerSprite;
 
         #endregion
 
         #region Base Methods
-        
-        // Constructor
-        public PlayerStateBase(PlayerController controller, PlayerStateSwitcher stateController, string animationName)
-        {
-            this.playerController = controller;
-            this.playerStateController = stateController;
-            this.animationName = animationName;
 
-            isRight = playerController.PlayerData.IsRight;
+        // Constructor
+        public PlayerStateBase(PlayerController controller, PlayerData data, PlayerStateSwitcher state, string animationName)
+        {
+            this.playerData = data;
+            this.playerController = controller;
+            this.playerStateController = state;
+            this.animationName = animationName;
+            
+            isRight = controller.IsRight;
             playerSprite = controller.GetComponentInChildren<SpriteRenderer>();
         }
-        
+
+        public PlayerStateBase(PlayerController controller, PlayerStateSwitcher state, string animationName)
+        {
+            this.playerController = controller;
+            this.playerStateController = state;
+            this.animationName = animationName;
+            
+            isRight = controller.IsRight;
+            playerSprite = controller.GetComponentInChildren<SpriteRenderer>();
+        }
+
         public virtual void EnterState() 
         {
             playerController.PlayerAnimator.Play(animationName);

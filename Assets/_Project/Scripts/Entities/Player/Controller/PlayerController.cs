@@ -20,19 +20,20 @@ namespace ATBMI.Entities.Player
         #region Fields & Property
 
         [Header("Data")]
-        [SerializeField] private PlayerData playerData;
+        [SerializeField] private string playerName;
+        [SerializeField] private PlayerData[] playerData;
         [SerializeField] private Vector2 movementDirection;
         [SerializeField] private bool isRight;
 
-        public float CurrentSpeed { get; set; }
-        public float LatestSpeed { get; set; }
+        public bool IsRight => isRight;
+        [field: SerializeField] public float CurrentSpeed { get; set; }
         public Vector2 MovementDirection
         {
             get => movementDirection;
             set => movementDirection = value;
         }
         public bool CanMove { get; private set; }
-        public PlayerData PlayerData => playerData;
+        public PlayerData[] PlayerData => playerData;
 
         // !-- State
         public PlayerStateSwitcher StateSwitcher { get; private set; }
@@ -59,13 +60,14 @@ namespace ATBMI.Entities.Player
             // State
             StateSwitcher = new PlayerStateSwitcher();
             IdleState = new IdleState(this, StateSwitcher, IDLE_STATE);
-            WalkState = new MoveState(this, StateSwitcher, WALK_STATE);
-            RunState = new MoveState(this, StateSwitcher, RUN_STATE);
+            WalkState = new MoveState(this, playerData[0], StateSwitcher, WALK_STATE);
+            RunState = new MoveState(this, playerData[1], StateSwitcher, RUN_STATE);
         }
 
         private void Start()
         {
             InitializePlayer();
+            CurrentSpeed = playerData[0].MoveSpeed;
             StateSwitcher.Initialize(IdleState);
         }
 
@@ -86,7 +88,7 @@ namespace ATBMI.Entities.Player
         
         private void InitializePlayer()
         {
-            gameObject.name = playerData.PlayerName;
+            gameObject.name = playerName;
             CanMove = true;
         }
 
