@@ -90,7 +90,6 @@ namespace ATBMI.Interaction
 
         private void InitializeContent()
         {
-            // TODO: Drop logic buat init content disini
             var optionsCount = interactOptionsUI.transform.childCount - 2;
             var inventoryCount = _inventoryManager.CollectibleItem.Count;
 
@@ -143,10 +142,10 @@ namespace ATBMI.Interaction
         private void SetupButtonListener(int index, Button button)
         {
             var target = TargetContainer[0];
-            button.onClick.AddListener(() => ExecuteInteraction(index, target));
+            button.onClick.AddListener(() => SubsInteraction(index, target));
         }
-
-        private void ExecuteInteraction(int index, BaseInteract target)
+        
+        private void SubsInteraction(int index, BaseInteract target)
         {
             switch (index)
             {
@@ -162,16 +161,13 @@ namespace ATBMI.Interaction
             }
         }
 
-        private void ExitButton() => StartCoroutine(ExitButtonRoutine());
-
-        private IEnumerator ExitButtonRoutine()
+        private void ExitButton()
         {
+            IsInteracting = false;
             optionsPanelUI.SetActive(false);
             _playerController.StartMovement();
+            optionInfoTextUI.text = _interactContainer[0].Description;
             ResetButtons();
-
-            yield return new WaitForSeconds(0.1f);
-            IsInteracting = false;
         }
 
         #endregion
@@ -192,7 +188,7 @@ namespace ATBMI.Interaction
         
         private void HandleInteraction()
         {
-            if (InputHandler.IsPressInteract())
+            if (InputHandler.IsPressInteract() && IsInteracting)
             {
                 ExecuteInteraction();
             }
@@ -203,19 +199,22 @@ namespace ATBMI.Interaction
             var selectIndex = simpleScrollSnap.SelectedPanel;
             var container = _interactContainer[selectIndex];
 
-            container.Button.onClick.Invoke();
+            // Removed inventory
             if (selectIndex > 1)
             {
                 var collectible = container.Interactable as CollectibleInteract;
                 
                 if (collectible.TargetId == TargetContainer[0].InteractId)
                 {
-                     _inventoryManager.CollectibleItem.Remove(collectible.gameObject);
+                    _inventoryManager.CollectibleItem.Remove(collectible.gameObject);
                     _interactContainer.RemoveAt(selectIndex);
                     Destroy(container.Button.transform.parent.gameObject);
                 }
             }
-            ExitButton();
+
+            // Execute button
+            container.Button.onClick.Invoke();
+            if (selectIndex != 1) ExitButton();
         }
 
         private void HandleInteractDescription()

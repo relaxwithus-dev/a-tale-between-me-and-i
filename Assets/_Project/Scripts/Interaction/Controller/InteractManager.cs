@@ -40,7 +40,7 @@ namespace ATBMI.Interaction
             if (!markerObject.activeSelf || _interactController.IsInteracting) return;
             if (_playerInputHandler.IsPressInteract())
             {
-                CallInteractOption();
+                StartCoroutine(CallInteractOption());
             }
         }
 
@@ -61,12 +61,14 @@ namespace ATBMI.Interaction
         #endregion
 
         #region Methods
-
-        private void CallInteractOption()
+        
+        private IEnumerator CallInteractOption()
         {
-            _interactController.IsInteracting = true;
             _playerController.StopMovement();
             PlayerEventHandler.InteractEvent();
+
+            yield return new WaitForSeconds(0.1f);
+            _interactController.IsInteracting = true;
         }
 
         private void HandleTrigger(Collider2D other, bool shouldEnter)
