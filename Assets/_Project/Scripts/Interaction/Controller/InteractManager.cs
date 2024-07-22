@@ -38,6 +38,7 @@ namespace ATBMI.Interaction
         private void Update()
         {
             if (!markerObject.activeSelf || _interactController.IsInteracting) return;
+            // if(_interactController.IsInteracting) return;
             if (_playerInputHandler.IsPressInteract())
             {
                 StartCoroutine(CallInteractOption());
