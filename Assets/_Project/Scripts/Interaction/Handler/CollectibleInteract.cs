@@ -23,7 +23,6 @@ namespace ATBMI.Interaction
         #region Methods
 
         // TODO: Drop logic untuk interaksi collectible item disini!
-
         public override void Interact()
         {
             base.Interact();

@@ -45,11 +45,11 @@ namespace ATBMI.Interaction
                     }
                     break;
             }
-
+            
             return data;
         }
 
-        // !-- Helpers
+        // !- Helpers
         private int GetInteractKey(int index)
         {
             if (index < 2)

@@ -21,7 +21,7 @@ namespace ATBMI.Interaction
         [SerializeField] private GameObject interactOptionsUI;
         [SerializeField] private TextMeshProUGUI optionInfoTextUI;
         [SerializeField] private GameObject contentPrefabs;
-
+        
         private List<InteractData> _interactContainer;
         public List<BaseInteract> TargetContainer { get; set;}
         public bool IsInteracting { get; set;}
@@ -73,7 +73,7 @@ namespace ATBMI.Interaction
 
         #region Button Field Methods
 
-        // !-- Core Functionality
+        // !- Core
         private void OnInteractTriggered()
         {
             InitializeContent();
