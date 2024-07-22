@@ -1,8 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
-using ATBMI.Entities.Player;
-using ATMBI.Gameplay.EventHandler;
 using UnityEngine;
+using ATMBI.Gameplay.Event;
+using ATBMI.Entities.Player;
 
 namespace ATBMI.Interaction
 {
@@ -25,9 +24,9 @@ namespace ATBMI.Interaction
         private void Awake()
         {
             var player = GameObject.FindGameObjectWithTag("Player");
-            _interactController = player.GetComponentInChildren<InteractController>();
             _playerController = player.GetComponentInChildren<PlayerController>();
             _playerInputHandler = player.GetComponentInChildren<PlayerInputHandler>();
+            _interactController = player.GetComponentInChildren<InteractController>();
         }
         
         private void Start()
@@ -38,7 +37,6 @@ namespace ATBMI.Interaction
         private void Update()
         {
             if (!markerObject.activeSelf || _interactController.IsInteracting) return;
-            // if(_interactController.IsInteracting) return;
             if (_playerInputHandler.IsPressInteract())
             {
                 StartCoroutine(CallInteractOption());

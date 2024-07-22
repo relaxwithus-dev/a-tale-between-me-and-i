@@ -1,3 +1,4 @@
+using ATBMI.Gameplay.Event;
 using UnityEngine;
 
 public class DialogueExpressionController : MonoBehaviour
@@ -9,14 +10,14 @@ public class DialogueExpressionController : MonoBehaviour
 
     private void OnEnable()
     {
-        EventHandler.PlayDialogueAnim += PlayDialogueAnim;
-        EventHandler.StopDialogueAnim += StopDialogueAnim;
+        DialogEventHandler.PlayDialogueAnim += PlayDialogueAnim;
+        DialogEventHandler.StopDialogueAnim += StopDialogueAnim;
     }
 
     private void OnDisable()
     {
-        EventHandler.PlayDialogueAnim -= PlayDialogueAnim;
-        EventHandler.StopDialogueAnim -= StopDialogueAnim;
+        DialogEventHandler.PlayDialogueAnim -= PlayDialogueAnim;
+        DialogEventHandler.StopDialogueAnim -= StopDialogueAnim;
     }
 
     private void PlayDialogueAnim(string expressionValue)

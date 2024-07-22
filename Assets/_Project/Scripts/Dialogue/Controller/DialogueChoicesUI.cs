@@ -1,3 +1,4 @@
+using ATBMI.Gameplay.Event;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,14 +23,14 @@ public class DialogueChoicesUI : MonoBehaviour
 
     private void OnEnable()
     {
-        EventHandler.UpdateDialogueChoicesUIPos += UpdateDialogueChoicesUIPos;
-        EventHandler.AdjustDialogueChoicesUISize += AdjustDialogueChoicesUISize;
+        DialogEventHandler.UpdateDialogueChoicesUIPos += UpdateDialogueChoicesUIPos;
+        DialogEventHandler.AdjustDialogueChoicesUISize += AdjustDialogueChoicesUISize;
     }
 
     private void OnDisable()
     {
-        EventHandler.UpdateDialogueChoicesUIPos -= UpdateDialogueChoicesUIPos;
-        EventHandler.AdjustDialogueChoicesUISize -= AdjustDialogueChoicesUISize;
+        DialogEventHandler.UpdateDialogueChoicesUIPos -= UpdateDialogueChoicesUIPos;
+        DialogEventHandler.AdjustDialogueChoicesUISize -= AdjustDialogueChoicesUISize;
     }
 
     private void Start()

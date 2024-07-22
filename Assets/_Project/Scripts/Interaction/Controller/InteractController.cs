@@ -7,8 +7,8 @@ using TMPro;
 using DanielLochner.Assets.SimpleScrollSnap;
 using ATBMI.Enum;
 using ATBMI.Inventory;
+using ATMBI.Gameplay.Event;
 using ATBMI.Entities.Player;
-using ATMBI.Gameplay.EventHandler;
 
 namespace ATBMI.Interaction
 {
@@ -188,7 +188,7 @@ namespace ATBMI.Interaction
         
         private void HandleInteraction()
         {
-            if (InputHandler.IsPressInteract() && IsInteracting)
+            if (InputHandler.IsPressSelect() && IsInteracting)
             {
                 ExecuteInteraction();
             }

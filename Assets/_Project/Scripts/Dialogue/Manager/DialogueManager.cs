@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using ATBMI.Entities.Player;
+using ATBMI.Gameplay.Event;
 using Ink.Runtime;
 using TMPro;
 using UnityEngine;
@@ -133,7 +134,7 @@ public class DialogueManager : MonoBehaviour
         continuePin.SetActive(false);
         HideChoices();
 
-        EventHandler.CallAdjustDialogueUISizeEvent(line.Length);
+        DialogEventHandler.AdjustDialogueUISizeEvent(line.Length);
 
         // set the dialogue text to full line, but set the visible character to 0
         dialogueText.text = line;
@@ -210,8 +211,8 @@ public class DialogueManager : MonoBehaviour
         dialoguePin.SetActive(false);
         dialogueChoicesContainer.transform.parent.gameObject.SetActive(true);
 
-        EventHandler.CallUpdateDialogueChoicesUIPosEvent("Player");
-        EventHandler.CallStopDialogueAnimEvent();
+        DialogEventHandler.UpdateDialogueChoicesUIPosEvent("Player");
+        DialogEventHandler.StopDialogueAnimEvent();
 
         int index = 0;
         int maxLength = 0;
@@ -230,7 +231,7 @@ public class DialogueManager : MonoBehaviour
             index++;
         }
 
-        EventHandler.CallAdjustDialogueChoicesUISizeEvent(maxLength);
+        DialogEventHandler.AdjustDialogueChoicesUISizeEvent(maxLength);
 
         for (int i = index; i < choices.Length; i++)
         {
@@ -270,18 +271,18 @@ public class DialogueManager : MonoBehaviour
                     if (dialogueName.text != tagValue)
                     {
                         // Stop animation between speaker
-                        EventHandler.CallStopDialogueAnimEvent();
+                        DialogEventHandler.StopDialogueAnimEvent();
                     }
 
                     // TODO: change to other method
                     dialogueName.text = tagValue == "Player" ? "Atma" : tagValue;
 
                     // update dialogue bubble position
-                    EventHandler.CallUpdateDialogueUIPosEvent(tagValue);
+                    DialogEventHandler.UpdateDialogueUIPosEvent(tagValue);
                     break;
                 case EXPRESSION_TAG:
                     // update animation
-                    EventHandler.CallPlayDialogueAnimEvent(tagValue);
+                    DialogEventHandler.PlayDialogueAnimEvent(tagValue);
                     break;
                 default:
                     Debug.LogWarning("Tag came in but is not currently being handled: " + tag);
@@ -299,7 +300,7 @@ public class DialogueManager : MonoBehaviour
         dialogueName.text = "";
         dialogueText.text = "";
 
-        EventHandler.CallStopDialogueAnimEvent();
+        DialogEventHandler.StopDialogueAnimEvent();
     }
 
     public void MakeChoice(int choiceIndex)

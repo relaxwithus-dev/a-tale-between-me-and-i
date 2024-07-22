@@ -1,4 +1,5 @@
 using ATBMI.Entities.Player;
+using ATBMI.Gameplay.Event;
 using UnityEngine;
 
 public class RE_Security_01 : MonoBehaviour
@@ -80,12 +81,12 @@ public class RE_Security_01 : MonoBehaviour
 
     private void OnEnable()
     {
-        EventHandler.EnterDialogue += EnterDialogue;
+        DialogEventHandler.EnterDialogue += EnterDialogue;
     }
 
     private void OnDisable()
     {
-        EventHandler.EnterDialogue -= EnterDialogue;
+        DialogEventHandler.EnterDialogue -= EnterDialogue;
     }
 
     private void Start()

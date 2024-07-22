@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using ATBMI.Data;
+using ATMBI.Gameplay.Event;
 using ATBMI.Entities.Player;
-using ATMBI.Gameplay.EventHandler;
 
 namespace ATBMI.Stress
 {
