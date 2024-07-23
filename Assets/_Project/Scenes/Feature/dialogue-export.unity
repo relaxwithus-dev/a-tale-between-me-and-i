@@ -4947,6 +4947,7 @@ MonoBehaviour:
   uiMapName: UI
   move: Move
   interact: Interact
+  select: Select
   navigate: Navigate
 --- !u!1 &697609091
 GameObject:
@@ -8608,8 +8609,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a99771de0ab1ac45bd9315794990b91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerData: {fileID: 11400000, guid: b65c410321df4c6469066d0c56ecc90f, type: 2}
   playerName: Jec
+  playerData:
+  - {fileID: 11400000, guid: 26c0843b59b2d4245ad93127f6775431, type: 2}
+  - {fileID: 11400000, guid: b65c410321df4c6469066d0c56ecc90f, type: 2}
+  movementDirection: {x: 0, y: 0}
   isRight: 1
 --- !u!114 &3252892435527454418
 MonoBehaviour:
@@ -8913,8 +8917,8 @@ SceneRoots:
   - {fileID: 862741762}
   - {fileID: 1016760589}
   - {fileID: 2145453890}
-  - {fileID: 389672619}
   - {fileID: 1038775474}
+  - {fileID: 389672619}
   - {fileID: 1034945950}
   - {fileID: 1627293093}
   - {fileID: 2060056028}

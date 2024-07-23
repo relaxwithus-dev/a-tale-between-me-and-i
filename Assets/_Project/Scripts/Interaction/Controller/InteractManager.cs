@@ -2,6 +2,8 @@ using System.Collections;
 using UnityEngine;
 using ATMBI.Gameplay.Event;
 using ATBMI.Entities.Player;
+using ATBMI.Gameplay.Event;
+using System.Threading;
 
 namespace ATBMI.Interaction
 {
@@ -11,11 +13,13 @@ namespace ATBMI.Interaction
 
         [Header("UI")]
         [SerializeField] private GameObject markerObject;
-        
+
         // Reference
         private InteractController _interactController;
         private PlayerController _playerController;
         private PlayerInputHandler _playerInputHandler;
+
+        private bool isDialogueAboutToStart;
 
         #endregion
 
@@ -28,7 +32,7 @@ namespace ATBMI.Interaction
             _playerInputHandler = player.GetComponentInChildren<PlayerInputHandler>();
             _interactController = player.GetComponentInChildren<InteractController>();
         }
-        
+
         private void Start()
         {
             markerObject.SetActive(false);
@@ -37,7 +41,7 @@ namespace ATBMI.Interaction
         private void Update()
         {
             if (!markerObject.activeSelf || _interactController.IsInteracting) return;
-            if (_playerInputHandler.IsPressInteract())
+            if (_playerInputHandler.IsPressInteract() && !DialogueManager.Instance.isDialoguePlaying)
             {
                 StartCoroutine(CallInteractOption());
             }
@@ -60,7 +64,7 @@ namespace ATBMI.Interaction
         #endregion
 
         #region Methods
-        
+
         private IEnumerator CallInteractOption()
         {
             _playerController.StopMovement();
@@ -90,6 +94,6 @@ namespace ATBMI.Interaction
         }
 
         #endregion
-        
+
     }
 }

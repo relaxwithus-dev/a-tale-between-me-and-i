@@ -1,10 +1,13 @@
 using ATBMI.Entities.Player;
 using ATBMI.Gameplay.Event;
+using ATBMI.Interaction;
+using ATMBI.Gameplay.Event;
 using UnityEngine;
 
 public class RE_Security_01 : MonoBehaviour
 {
     [Header("Params")]
+    [SerializeField] private PlayerController playerController;
     [SerializeField] private Transform playerEntryPoint;
     private VisualCue visualCue;
     public bool isDialogueAboutToStart;
@@ -12,6 +15,7 @@ public class RE_Security_01 : MonoBehaviour
     private bool isPlayerInRange;
     private NPC npc;
     private PlayerInputHandler playerInputHandler;
+    private InteractManager interactManager;
 
     [Space(20)]
     [Header("Dialogue Rules")]
@@ -74,6 +78,7 @@ public class RE_Security_01 : MonoBehaviour
     {
         // TODO: change the method of getting this script
         playerInputHandler = FindObjectOfType<PlayerInputHandler>();
+        interactManager = GetComponent<InteractManager>();
 
         visualCue = GetComponentInChildren<VisualCue>();
         npc = transform.parent.gameObject.GetComponent<NPC>();
@@ -107,119 +112,119 @@ public class RE_Security_01 : MonoBehaviour
         visitedCount = 0;
     }
 
-    private void Update()
-    {
-        if (isPlayerInRange && !DialogueManager.Instance.isDialoguePlaying)
-        {
-            if (isVisualCueExists)
-            {
-                visualCue.ActivateVisualCue();
-            }
+    // private void Update()
+    // {
+    //     if (isPlayerInRange && !DialogueManager.Instance.isDialoguePlaying)
+    //     {
+    //         if (isVisualCueExists)
+    //         {
+    //             visualCue.ActivateVisualCue();
+    //         }
 
-            // if (playerInputHandler.IsPressInteract() && !isDialogueAboutToStart)
-            // {
-            //     bool isRuleMatch = false;
+    //         if (playerInputHandler.IsPressInteract() && !isDialogueAboutToStart)
+    //         {
+    //             bool isRuleMatch = false;
 
-            //     if (isAfterExplosion && isRunning)
-            //     {
-            //         visitedCount++;
+    //             if (isAfterExplosion && isRunning)
+    //             {
+    //                 visitedCount++;
 
-            //         if (visitedCount == 1 && !isOnce02)
-            //         {
-            //             // CharacterController2D.Instance.MoveToDialogueEntryPoint(onTalk_AfterExplosion_WithRunning_Visited_01, playerEntryPoint.position.x, npc.isFacingRight);
+    //                 if (visitedCount == 1 && !isOnce02)
+    //                 {
+    //                     PlayerEventHandler.MoveToPlayerEvent(onTalk_AfterExplosion_WithRunning_Visited_01, playerEntryPoint.position.x, npc.isFacingRight);
 
-            //             isRuleMatch = true;
+    //                     isRuleMatch = true;
 
-            //             if (isOnce_AfterExplosion_WithRunning_Visited_01)
-            //             {
-            //                 isOnce02 = true;
-            //             }
-            //         }
-            //         else if (visitedCount == 2 && !isOnce03)
-            //         {
-            //             // CharacterController2D.Instance.MoveToDialogueEntryPoint(onTalk_AfterExplosion_WithRunning_Visited_02, playerEntryPoint.position.x, npc.isFacingRight);
+    //                     if (isOnce_AfterExplosion_WithRunning_Visited_01)
+    //                     {
+    //                         isOnce02 = true;
+    //                     }
+    //                 }
+    //                 else if (visitedCount == 2 && !isOnce03)
+    //                 {
+    //                     PlayerEventHandler.MoveToPlayerEvent(onTalk_AfterExplosion_WithRunning_Visited_02, playerEntryPoint.position.x, npc.isFacingRight);
 
-            //             isRuleMatch = true;
+    //                     isRuleMatch = true;
 
-            //             if (isOnce_AfterExplosion_WithRunning_Visited_02)
-            //             {
-            //                 isOnce03 = true;
-            //             }
-            //         }
-            //         else if (visitedCount == 3 && !isOnce04)
-            //         {
-            //             // CharacterController2D.Instance.MoveToDialogueEntryPoint(onTalk_AfterExplosion_WithRunning_Visited_03, playerEntryPoint.position.x, npc.isFacingRight);
+    //                     if (isOnce_AfterExplosion_WithRunning_Visited_02)
+    //                     {
+    //                         isOnce03 = true;
+    //                     }
+    //                 }
+    //                 else if (visitedCount == 3 && !isOnce04)
+    //                 {
+    //                     PlayerEventHandler.MoveToPlayerEvent(onTalk_AfterExplosion_WithRunning_Visited_03, playerEntryPoint.position.x, npc.isFacingRight);
 
-            //             isRuleMatch = true;
+    //                     isRuleMatch = true;
 
-            //             if (isOnce_AfterExplosion_WithRunning_Visited_03)
-            //             {
-            //                 isOnce04 = true;
-            //             }
-            //         }
-            //     }
+    //                     if (isOnce_AfterExplosion_WithRunning_Visited_03)
+    //                     {
+    //                         isOnce04 = true;
+    //                     }
+    //                 }
+    //             }
 
-            //     if (isAfterExplosion && !isRunning)
-            //     {
-            //         visitedCount++;
+    //             if (isAfterExplosion && !isRunning)
+    //             {
+    //                 visitedCount++;
 
-            //         if (visitedCount == 1 && !isOnce05)
-            //         {
-            //             // CharacterController2D.Instance.MoveToDialogueEntryPoint(onTalk_AfterExplosion_WithWalking_Visited_01, playerEntryPoint.position.x, npc.isFacingRight);
+    //                 if (visitedCount == 1 && !isOnce05)
+    //                 {
+    //                     PlayerEventHandler.MoveToPlayerEvent(onTalk_AfterExplosion_WithWalking_Visited_01, playerEntryPoint.position.x, npc.isFacingRight);
 
-            //             isRuleMatch = true;
+    //                     isRuleMatch = true;
 
-            //             if (isOnce_AfterExplosion_WithWalking_Visited_01)
-            //             {
-            //                 isOnce05 = true;
-            //             }
-            //         }
-            //         else if (visitedCount == 2 && !isOnce06)
-            //         {
-            //             // CharacterController2D.Instance.MoveToDialogueEntryPoint(onTalk_AfterExplosion_WithWalking_Visited_02, playerEntryPoint.position.x, npc.isFacingRight);
+    //                     if (isOnce_AfterExplosion_WithWalking_Visited_01)
+    //                     {
+    //                         isOnce05 = true;
+    //                     }
+    //                 }
+    //                 else if (visitedCount == 2 && !isOnce06)
+    //                 {
+    //                     PlayerEventHandler.MoveToPlayerEvent(onTalk_AfterExplosion_WithWalking_Visited_02, playerEntryPoint.position.x, npc.isFacingRight);
 
-            //             isRuleMatch = true;
+    //                     isRuleMatch = true;
 
-            //             if (isOnce_AfterExplosion_WithWalking_Visited_02)
-            //             {
-            //                 isOnce06 = true;
-            //             }
-            //         }
-            //     }
+    //                     if (isOnce_AfterExplosion_WithWalking_Visited_02)
+    //                     {
+    //                         isOnce06 = true;
+    //                     }
+    //                 }
+    //             }
 
-            //     // if (isAfterGettingItem)
-            //     // {
-            //     //     // TODO: make inventory manager
+    //             // if (isAfterGettingItem)
+    //             // {
+    //             //     // TODO: make inventory manager
 
-            //     //     // if (InventoryManager.Instance.LastItem.itemName == "Key")
-            //     //     // {
-            //     //     //     DialogueManager.Instance.EnterDialogueMode(onTalkAfterGettingAKey);
-            //     //     // }
-            //     //     // else if(InventoryManager.Instance.LastItem.itemName == "Rock")
-            //     //     // {
-            //     //     //     DialogueManager.Instance.EnterDialogueMode(onTalkAfterGettingARock);
-            //     //     // }
-            //     //     Debug.Log("Getting Item");
+    //             //     // if (InventoryManager.Instance.LastItem.itemName == "Key")
+    //             //     // {
+    //             //     //     DialogueManager.Instance.EnterDialogueMode(onTalkAfterGettingAKey);
+    //             //     // }
+    //             //     // else if(InventoryManager.Instance.LastItem.itemName == "Rock")
+    //             //     // {
+    //             //     //     DialogueManager.Instance.EnterDialogueMode(onTalkAfterGettingARock);
+    //             //     // }
+    //             //     Debug.Log("Getting Item");
 
-            //     //     isRuleMatch = true;
-            //     // }
+    //             //     isRuleMatch = true;
+    //             // }
 
-            //     if (!isRuleMatch)
-            //     {
-            //         // CharacterController2D.Instance.MoveToDialogueEntryPoint(onTalk, playerEntryPoint.position.x, npc.isFacingRight);
-            //     }
+    //             if (!isRuleMatch)
+    //             {
+    //                 PlayerEventHandler.MoveToPlayerEvent(onTalk, playerEntryPoint.position.x, npc.isFacingRight);
+    //             }
 
-            //     isDialogueAboutToStart = true;
-            // }
-        }
-        else
-        {
-            if (isVisualCueExists)
-            {
-                visualCue.DeactivateVisualCue();
-            }
-        }
-    }
+    //             isDialogueAboutToStart = true;
+    //         }
+    //     }
+    //     else
+    //     {
+    //         if (isVisualCueExists)
+    //         {
+    //             visualCue.DeactivateVisualCue();
+    //         }
+    //     }
+    // }
 
     // if dialogue trigger after player entering object/npc area
     private void OnTriggerEnter2D(Collider2D other)
@@ -264,7 +269,104 @@ public class RE_Security_01 : MonoBehaviour
         DialogueManager.Instance.EnterDialogueMode(InkJson);
 
         isDialogueAboutToStart = false;
+    }
 
-        Debug.Log(InkJson.name);
+    public void TestRE()
+    {
+        if (!isDialogueAboutToStart)
+        {
+            bool isRuleMatch = false;
+
+            if (isAfterExplosion && isRunning)
+            {
+                visitedCount++;
+
+                if (visitedCount == 1 && !isOnce02)
+                {
+                    PlayerEventHandler.MoveToPlayerEvent(onTalk_AfterExplosion_WithRunning_Visited_01, playerEntryPoint.position.x, npc.isFacingRight);
+
+                    isRuleMatch = true;
+
+                    if (isOnce_AfterExplosion_WithRunning_Visited_01)
+                    {
+                        isOnce02 = true;
+                    }
+                }
+                else if (visitedCount == 2 && !isOnce03)
+                {
+                    PlayerEventHandler.MoveToPlayerEvent(onTalk_AfterExplosion_WithRunning_Visited_02, playerEntryPoint.position.x, npc.isFacingRight);
+
+                    isRuleMatch = true;
+
+                    if (isOnce_AfterExplosion_WithRunning_Visited_02)
+                    {
+                        isOnce03 = true;
+                    }
+                }
+                else if (visitedCount == 3 && !isOnce04)
+                {
+                    PlayerEventHandler.MoveToPlayerEvent(onTalk_AfterExplosion_WithRunning_Visited_03, playerEntryPoint.position.x, npc.isFacingRight);
+
+                    isRuleMatch = true;
+
+                    if (isOnce_AfterExplosion_WithRunning_Visited_03)
+                    {
+                        isOnce04 = true;
+                    }
+                }
+            }
+
+            if (isAfterExplosion && !isRunning)
+            {
+                visitedCount++;
+
+                if (visitedCount == 1 && !isOnce05)
+                {
+                    PlayerEventHandler.MoveToPlayerEvent(onTalk_AfterExplosion_WithWalking_Visited_01, playerEntryPoint.position.x, npc.isFacingRight);
+
+                    isRuleMatch = true;
+
+                    if (isOnce_AfterExplosion_WithWalking_Visited_01)
+                    {
+                        isOnce05 = true;
+                    }
+                }
+                else if (visitedCount == 2 && !isOnce06)
+                {
+                    PlayerEventHandler.MoveToPlayerEvent(onTalk_AfterExplosion_WithWalking_Visited_02, playerEntryPoint.position.x, npc.isFacingRight);
+
+                    isRuleMatch = true;
+
+                    if (isOnce_AfterExplosion_WithWalking_Visited_02)
+                    {
+                        isOnce06 = true;
+                    }
+                }
+            }
+
+            // if (isAfterGettingItem)
+            // {
+            //     // TODO: make inventory manager
+
+            //     // if (InventoryManager.Instance.LastItem.itemName == "Key")
+            //     // {
+            //     //     DialogueManager.Instance.EnterDialogueMode(onTalkAfterGettingAKey);
+            //     // }
+            //     // else if(InventoryManager.Instance.LastItem.itemName == "Rock")
+            //     // {
+            //     //     DialogueManager.Instance.EnterDialogueMode(onTalkAfterGettingARock);
+            //     // }
+            //     Debug.Log("Getting Item");
+
+            //     isRuleMatch = true;
+            // }
+
+            if (!isRuleMatch)
+            {
+                PlayerEventHandler.MoveToPlayerEvent(onTalk, playerEntryPoint.position.x, npc.isFacingRight);
+            }
+
+            isDialogueAboutToStart = true;
+        }
     }
 }

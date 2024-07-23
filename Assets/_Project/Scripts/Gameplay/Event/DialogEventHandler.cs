@@ -6,7 +6,6 @@ namespace ATBMI.Gameplay.Event
     public static class DialogEventHandler
     {
         // Main Event
-        public static event Action TickAction;
         public static event Action<TextAsset> EnterDialogue;
         public static event Action<string> PlayDialogueAnim;
         public static event Action StopDialogueAnim;
@@ -18,7 +17,6 @@ namespace ATBMI.Gameplay.Event
         public static event Action<int> AdjustDialogueChoicesUISize;
 
         // Main Event - Caller
-        public static void TickActionEvent() => TickAction?.Invoke();
         public static void EnterDialogueEvent(TextAsset inkJson) => EnterDialogue?.Invoke(inkJson);
         public static void PlayDialogueAnimEvent(string tag) => PlayDialogueAnim?.Invoke(tag);
         public static void StopDialogueAnimEvent() => StopDialogueAnim?.Invoke();

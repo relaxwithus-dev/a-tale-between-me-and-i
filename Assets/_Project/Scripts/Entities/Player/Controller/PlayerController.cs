@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using ATBMI.Data;
 using ATBMI.Gameplay.Event;
+using ATMBI.Gameplay.Event;
 using UnityEngine;
 
 namespace ATBMI.Entities.Player
@@ -64,6 +65,16 @@ namespace ATBMI.Entities.Player
             IdleState = new IdleState(this, StateSwitcher, IDLE_STATE);
             WalkState = new MoveState(this, playerData[0], StateSwitcher, WALK_STATE);
             RunState = new MoveState(this, playerData[1], StateSwitcher, RUN_STATE);
+        }
+
+        private void OnEnable()
+        {
+            PlayerEventHandler.OnMoveToPlayer += MoveToDialogueEntryPoint;
+        }
+
+        private void OnDisable()
+        {
+            PlayerEventHandler.OnMoveToPlayer -= MoveToDialogueEntryPoint;
         }
 
         private void Start()
@@ -183,7 +194,6 @@ namespace ATBMI.Entities.Player
 
         public void MoveToDialogueEntryPoint(TextAsset INKJson, float newPositionX, bool isNpcFacingRight)
         {
-
             playerInkJson = INKJson;
             FlipPlayerWhenDialogue(newPositionX, isNpcFacingRight);
 

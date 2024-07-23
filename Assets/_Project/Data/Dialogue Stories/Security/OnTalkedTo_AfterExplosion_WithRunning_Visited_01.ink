@@ -1,4 +1,4 @@
-PS: Apa? Kenapa kau berlari?
-R: Bapak dengar sesuatu?
-PS: Selain suara sepatumu? Tidak!
-PS: Sekarang pergilah dari sini
+Apa? Kenapa kau berlari? #speaker:Pak Satpam
+Bapak dengar sesuatu? #speaker:Player
+Selain suara sepatumu? Tidak! #speaker:Pak Satpam #expression:A_PakSatpam_Speak
+Sekarang pergilah dari sini #speaker:Pak Satpam #expression:A_PakSatpam_Speak
