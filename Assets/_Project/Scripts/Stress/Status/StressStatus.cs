@@ -14,14 +14,14 @@ namespace ATBMI.Stress
         protected AudioClip stressAuido;
         protected TextAsset dialougeAsset;
         protected Animator stressAnimator;
-        protected PlayerController playerController;
+        protected PlayerControllers playerController;
 
         #endregion
 
         #region Methods
 
         // Constructor
-        public StressStatus(StressData data, PlayerController player)
+        public StressStatus(StressData data, PlayerControllers player)
         {
             speedPercentage = data.SpeedPercentage;
             stressAuido = data.StressAudio;
@@ -29,7 +29,7 @@ namespace ATBMI.Stress
             playerController = player;
         }
 
-        public StressStatus(StressData data, PlayerController player, Animator animator)
+        public StressStatus(StressData data, PlayerControllers player, Animator animator)
         {
             speedPercentage = data.SpeedPercentage;
             stressAuido = data.StressAudio;

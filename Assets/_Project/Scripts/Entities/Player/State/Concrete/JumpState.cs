@@ -6,7 +6,7 @@ namespace ATBMI.Entities.Player
 {
     public class JumpState : PlayerStateBase
     {
-        public JumpState(PlayerController controller, PlayerStateSwitcher stateController, string animationName) : base(controller, stateController, animationName)
+        public JumpState(PlayerControllers controller, PlayerStateSwitcher stateController, string animationName) : base(controller, stateController, animationName)
         {
             // TODO: Isi data jika perlu, misal ga perlu kosongi aja
         }

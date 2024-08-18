@@ -7,7 +7,7 @@ using UnityEngine;
 public class RE_Security_01 : MonoBehaviour
 {
     [Header("Params")]
-    [SerializeField] private PlayerController playerController;
+    [SerializeField] private PlayerControllers playerController;
     [SerializeField] private Transform playerEntryPoint;
     private VisualCue visualCue;
     public bool isDialogueAboutToStart;

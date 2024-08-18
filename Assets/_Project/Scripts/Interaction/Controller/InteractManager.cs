@@ -16,7 +16,7 @@ namespace ATBMI.Interaction
 
         // Reference
         private InteractController _interactController;
-        private PlayerController _playerController;
+        private PlayerControllers _playerController;
         private PlayerInputHandler _playerInputHandler;
 
         private bool isDialogueAboutToStart;
@@ -28,7 +28,7 @@ namespace ATBMI.Interaction
         private void Awake()
         {
             var player = GameObject.FindGameObjectWithTag("Player");
-            _playerController = player.GetComponentInChildren<PlayerController>();
+            _playerController = player.GetComponentInChildren<PlayerControllers>();
             _playerInputHandler = player.GetComponentInChildren<PlayerInputHandler>();
             _interactController = player.GetComponentInChildren<InteractController>();
         }

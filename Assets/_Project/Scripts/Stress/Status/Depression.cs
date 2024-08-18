@@ -10,7 +10,7 @@ namespace ATBMI.Stress
     {
         private float _finalSpeed;
 
-        public Depression(StressData data, PlayerController player, Animator animator) : base(data, player, animator)
+        public Depression(StressData data, PlayerControllers player, Animator animator) : base(data, player, animator)
         {
             
         }

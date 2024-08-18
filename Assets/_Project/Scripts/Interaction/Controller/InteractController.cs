@@ -29,7 +29,7 @@ namespace ATBMI.Interaction
         [Header("References")]
         [SerializeField] private SimpleScrollSnap simpleScrollSnap;
 
-        private PlayerController _playerController;
+        private PlayerControllers _playerController;
         private InventoryManager _inventoryManager;
         public PlayerInputHandler InputHandler { get; private set;}
 
@@ -39,7 +39,7 @@ namespace ATBMI.Interaction
 
         private void Awake()
         {
-            _playerController = GetComponent<PlayerController>();
+            _playerController = GetComponent<PlayerControllers>();
             InputHandler = GetComponentInChildren<PlayerInputHandler>();
             _inventoryManager = GameObject.Find("Inventory").GetComponent<InventoryManager>();
         }

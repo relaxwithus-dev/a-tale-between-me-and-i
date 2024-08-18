@@ -7,7 +7,7 @@ namespace ATBMI.Entities.Player
 {
     public class IdleState : PlayerStateBase
     {
-        public IdleState(PlayerController controller, PlayerStateSwitcher state, string animationName) : base(controller, state, animationName)
+        public IdleState(PlayerControllers controller, PlayerStateSwitcher state, string animationName) : base(controller, state, animationName)
         {
 
         }

@@ -20,7 +20,7 @@ namespace ATBMI.Stress
 
         // Reference
         private Animator _stressAnimator;
-        private PlayerController _playerController;
+        private PlayerControllers _playerController;
 
         #endregion
 
@@ -30,7 +30,7 @@ namespace ATBMI.Stress
         {
             // Component
             _stressAnimator = GetComponentInChildren<Animator>();
-            _playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+            _playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControllers>();
         
             // Status
             ProductivityStatus = new Productivity(productivityData, _playerController);

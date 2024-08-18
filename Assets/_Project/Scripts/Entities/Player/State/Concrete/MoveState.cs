@@ -18,7 +18,7 @@ namespace ATBMI.Entities.Player
 
         #endregion
     
-        public MoveState(PlayerController controller, PlayerData data, PlayerStateSwitcher state, string animationName) : base(controller, data, state, animationName)
+        public MoveState(PlayerControllers controller, PlayerDataOld data, PlayerStateSwitcher state, string animationName) : base(controller, data, state, animationName)
         {
             _moveSpeed = data.MoveSpeed;
             _acceleration = data.Acceleration;

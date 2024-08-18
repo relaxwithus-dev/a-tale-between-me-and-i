@@ -17,13 +17,13 @@ public class DialogueTrigger : MonoBehaviour
 
     private NPC npc;
     private PlayerInputHandler playerInputHandler;
-    private PlayerController playerController;
+    private PlayerControllers playerController;
 
     private void Awake()
     {
         // TODO: change the method of getting this script
         playerInputHandler = FindObjectOfType<PlayerInputHandler>();
-        playerController = FindObjectOfType<PlayerController>();
+        playerController = FindObjectOfType<PlayerControllers>();
 
         visualCue = GetComponentInChildren<VisualCue>();
         npc = transform.parent.gameObject.GetComponent<NPC>();

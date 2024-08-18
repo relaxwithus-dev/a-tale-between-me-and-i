@@ -31,6 +31,7 @@ namespace ATBMI.Entities.Player
         
         // Action Values
         public Vector2 MoveDirection { get; private set; }
+        public bool SprintTriggered { get; private set; }
         public bool InteractTriggered { get; private set; }
         public bool SelectTriggered { get; private set; }
         public bool NavigateUp { get; private set; }

@@ -12,9 +12,9 @@ namespace ATBMI.Entities.Player
         // Components
         protected bool isRight = true;
         protected float latestSpeed;
-        protected PlayerData currentData;
+        protected PlayerDataOld currentData;
         protected float MovementValue { get; set; }
-        public PlayerData CurrentData => currentData;
+        public PlayerDataOld CurrentData => currentData;
         
         // Base Components
         protected float startTime;
@@ -22,8 +22,8 @@ namespace ATBMI.Entities.Player
         protected bool isExitingState;
 
          // Reference
-        protected PlayerController playerController;
-        protected PlayerData playerData;
+        protected PlayerControllers playerController;
+        protected PlayerDataOld playerData;
         protected PlayerStateSwitcher playerStateController;
         protected SpriteRenderer playerSprite;
 
@@ -32,7 +32,7 @@ namespace ATBMI.Entities.Player
         #region Base Methods
 
         // Constructor
-        public PlayerStateBase(PlayerController controller, PlayerData data, PlayerStateSwitcher state, string animationName)
+        public PlayerStateBase(PlayerControllers controller, PlayerDataOld data, PlayerStateSwitcher state, string animationName)
         {
             this.playerData = data;
             this.playerController = controller;
@@ -43,7 +43,7 @@ namespace ATBMI.Entities.Player
             playerSprite = controller.GetComponentInChildren<SpriteRenderer>();
         }
 
-        public PlayerStateBase(PlayerController controller, PlayerStateSwitcher state, string animationName)
+        public PlayerStateBase(PlayerControllers controller, PlayerStateSwitcher state, string animationName)
         {
             this.playerController = controller;
             this.playerStateController = state;
