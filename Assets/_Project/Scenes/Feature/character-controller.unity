@@ -4820,6 +4820,7 @@ MonoBehaviour:
   uiMapName: UI
   move: Move
   interact: Interact
+  select: Select
   navigate: Navigate
 --- !u!1 &697609091
 GameObject:
@@ -5755,6 +5756,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactId: 101
   dialogueAsset: {fileID: 0}
+  ruleEntry: {fileID: 0}
 --- !u!61 &1130050733
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7037,7 +7039,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b65c410321df4c6469066d0c56ecc90f, type: 2}
   movementDirection: {x: 0, y: 0}
   isRight: 1
-  <CurrentSpeed>k__BackingField: 0
 --- !u!114 &2145453894
 MonoBehaviour:
   m_ObjectHideFlags: 0
