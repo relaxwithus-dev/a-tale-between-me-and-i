@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-using ATMBI.Gameplay.Event;
+using ATBMI.Gameplay.Event;
 
 namespace ATBMI.Stress
 {

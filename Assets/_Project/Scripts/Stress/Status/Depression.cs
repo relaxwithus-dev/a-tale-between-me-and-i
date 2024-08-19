@@ -1,8 +1,6 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 using ATBMI.Data;
-using ATBMI.Entities.Player;
+using ATBMI.Player;
 
 namespace ATBMI.Stress
 {
@@ -10,7 +8,7 @@ namespace ATBMI.Stress
     {
         private float _finalSpeed;
 
-        public Depression(StressData data, PlayerControllers player, Animator animator) : base(data, player, animator)
+        public Depression(StressData data, PlayerController player, Animator animator) : base(data, player, animator)
         {
             
         }
@@ -33,10 +31,8 @@ namespace ATBMI.Stress
         {
             base.AvoidStatus();
             Debug.Log("avoid depression");
-            var currentData = playerController.StateSwitcher.CurrentState.CurrentData;
-
             _finalSpeed = 0f;
-            playerController.CurrentSpeed = currentData.MoveSpeed;   
+            playerController.CurrentSpeed = playerController.CurrentData.MoveSpeed;  
         }
 
     }

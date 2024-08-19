@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 using ATBMI.Gameplay.Event;
-using ATMBI.Gameplay.Event;
 
 namespace ATBMI.Player
 {

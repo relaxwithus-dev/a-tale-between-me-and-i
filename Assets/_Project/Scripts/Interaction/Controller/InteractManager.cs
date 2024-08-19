@@ -1,10 +1,8 @@
 using System.Collections;
 using UnityEngine;
-using ATMBI.Gameplay.Event;
-using ATBMI.Entities.Player;
-using ATBMI.Gameplay.Event;
-using System.Threading;
+using ATBMI.Player;
 using ATBMI.Gameplay.Handler;
+using ATBMI.Gameplay.Event;
 
 namespace ATBMI.Interaction
 {
@@ -17,7 +15,7 @@ namespace ATBMI.Interaction
 
         // Reference
         private InteractController _interactController;
-        private PlayerControllers _playerController;
+        private PlayerController _playerController;
 
         private bool isDialogueAboutToStart;
 
@@ -28,7 +26,7 @@ namespace ATBMI.Interaction
         private void Awake()
         {
             var player = GameObject.FindGameObjectWithTag("Player");
-            _playerController = player.GetComponentInChildren<PlayerControllers>();
+            _playerController = player.GetComponent<PlayerController>();
             _interactController = player.GetComponentInChildren<InteractController>();
         }
 

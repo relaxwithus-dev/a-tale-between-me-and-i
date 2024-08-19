@@ -1,14 +1,11 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using DanielLochner.Assets.SimpleScrollSnap;
-using ATBMI.Enum;
+using ATBMI.Player;
 using ATBMI.Inventory;
-using ATMBI.Gameplay.Event;
-using ATBMI.Entities.Player;
+using ATBMI.Gameplay.Event;
 using ATBMI.Gameplay.Handler;
 
 namespace ATBMI.Interaction
@@ -30,7 +27,7 @@ namespace ATBMI.Interaction
         [Header("References")]
         [SerializeField] private SimpleScrollSnap simpleScrollSnap;
 
-        private PlayerControllers _playerController;
+        private PlayerController _playerController;
         private InventoryManager _inventoryManager;
 
         #endregion
@@ -39,7 +36,7 @@ namespace ATBMI.Interaction
 
         private void Awake()
         {
-            _playerController = GetComponent<PlayerControllers>();
+            _playerController = GetComponent<PlayerController>();
             _inventoryManager = GameObject.Find("Inventory").GetComponent<InventoryManager>();
         }
         

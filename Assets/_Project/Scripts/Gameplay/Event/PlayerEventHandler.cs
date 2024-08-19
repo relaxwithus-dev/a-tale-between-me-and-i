@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace ATMBI.Gameplay.Event
+namespace ATBMI.Gameplay.Event
 {
     public class PlayerEventHandler
     {

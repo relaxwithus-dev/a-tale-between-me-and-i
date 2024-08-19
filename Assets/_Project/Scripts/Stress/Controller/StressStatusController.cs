@@ -1,8 +1,7 @@
-using System.Collections.Generic;
 using UnityEngine;
 using ATBMI.Data;
-using ATMBI.Gameplay.Event;
-using ATBMI.Entities.Player;
+using ATBMI.Player;
+using ATBMI.Gameplay.Event;
 
 namespace ATBMI.Stress
 {
@@ -20,7 +19,7 @@ namespace ATBMI.Stress
 
         // Reference
         private Animator _stressAnimator;
-        private PlayerControllers _playerController;
+        private PlayerController _playerController;
 
         #endregion
 
@@ -30,7 +29,7 @@ namespace ATBMI.Stress
         {
             // Component
             _stressAnimator = GetComponentInChildren<Animator>();
-            _playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControllers>();
+            _playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         
             // Status
             ProductivityStatus = new Productivity(productivityData, _playerController);

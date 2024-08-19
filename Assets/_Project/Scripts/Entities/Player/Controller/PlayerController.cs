@@ -29,13 +29,14 @@ namespace ATBMI.Player
         [SerializeField] private bool isRight;
         [SerializeField] private bool canMove = true;
 
-        private PlayerData _currentData;
         private Vector2 _latestDirection;
         private float _currentDecelTime;
 
         public bool IsRight => isRight;
         public bool CanMove => canMove;
         public Vector2 MoveDirection => moveDirection;
+        
+        public PlayerData CurrentData { get; private set; }
         public float CurrentSpeed { get; set; }
 
         // Reference
@@ -77,9 +78,9 @@ namespace ATBMI.Player
         private void InitPlayer()
         {
             canMove = true;
-            _currentData = playerDatas[0];
-            CurrentSpeed = _currentData.MoveSpeed;
-            gameObject.name = _currentData.PlayerName;
+            CurrentData = playerDatas[0];
+            CurrentSpeed = CurrentData.MoveSpeed;
+            gameObject.name = CurrentData.PlayerName;
         }
         
         // !- Core
@@ -91,7 +92,7 @@ namespace ATBMI.Player
 
             if (moveDirection.sqrMagnitude > 0f)
             {
-                _playerRb.velocity = moveDirection * _currentData.MoveSpeed;
+                _playerRb.velocity = moveDirection * CurrentData.MoveSpeed;
                 _latestDirection = moveDirection;
                 _currentDecelTime = 0f;
             }
@@ -104,7 +105,7 @@ namespace ATBMI.Player
 
         private IEnumerator DeceleratePlayer()
         {
-            var data = _currentData;
+            var data = CurrentData;
 
             _currentDecelTime = data.Deceleration;
             while (_currentDecelTime > 0f)
@@ -158,8 +159,8 @@ namespace ATBMI.Player
 
             if (playerState == state) return;
             playerState = state;
-            _currentData = GetCurrentData(state);
-            CurrentSpeed = _currentData.MoveSpeed;
+            CurrentData = GetCurrentData(state);
+            CurrentSpeed = CurrentData.MoveSpeed;
         }
 
         private PlayerState GetState()
@@ -169,14 +170,13 @@ namespace ATBMI.Player
             if (direction != Vector2.zero && GameInputHandler.Instance.IsPressRun) return PlayerState.Run;
             if (direction != Vector2.zero && !GameInputHandler.Instance.IsPressRun) return PlayerState.Walk;
             return PlayerState.Idle;
-            // return direction != Vector2.zero ? PlayerState.Walk : PlayerState.Idle;
         }
         
         private PlayerData GetCurrentData(PlayerState playerState)
         {
             return playerState switch
             {
-                PlayerState.Idle => _currentData,
+                PlayerState.Idle => CurrentData,
                 PlayerState.Walk => playerDatas[0],
                 PlayerState.Run => playerDatas[1],
                 _ => throw new ArgumentOutOfRangeException(nameof(playerState), playerState, null)

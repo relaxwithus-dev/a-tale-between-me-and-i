@@ -1,13 +1,12 @@
-using ATBMI.Entities.Player;
-using ATBMI.Gameplay.Event;
-using ATBMI.Interaction;
-using ATMBI.Gameplay.Event;
 using UnityEngine;
+using ATBMI.Player;
+using ATBMI.Interaction;
+using ATBMI.Gameplay.Event;
 
 public class RE_Security_01 : MonoBehaviour
 {
     [Header("Params")]
-    [SerializeField] private PlayerControllers playerController;
+    [SerializeField] private PlayerController playerController;
     [SerializeField] private Transform playerEntryPoint;
     private VisualCue visualCue;
     public bool isDialogueAboutToStart;
