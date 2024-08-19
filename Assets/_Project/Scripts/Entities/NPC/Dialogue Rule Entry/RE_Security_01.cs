@@ -14,7 +14,6 @@ public class RE_Security_01 : MonoBehaviour
     private bool isVisualCueExists;
     private bool isPlayerInRange;
     private NPC npc;
-    private PlayerInputHandler playerInputHandler;
     private InteractManager interactManager;
 
     [Space(20)]
@@ -77,7 +76,6 @@ public class RE_Security_01 : MonoBehaviour
     private void Awake()
     {
         // TODO: change the method of getting this script
-        playerInputHandler = FindObjectOfType<PlayerInputHandler>();
         interactManager = GetComponent<InteractManager>();
 
         visualCue = GetComponentInChildren<VisualCue>();

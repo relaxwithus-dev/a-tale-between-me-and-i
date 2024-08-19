@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using ATBMI.Gameplay.Event;
+using ATMBI.Gameplay.Event;
 
 namespace ATBMI.Player
 {
@@ -18,6 +19,16 @@ namespace ATBMI.Player
         private void Awake()
         {
             _playerController = GetComponent<PlayerController>();
+        }
+
+        private void OnEnable()
+        {
+            PlayerEventHandler.OnMoveToPlayer += MoveToDialogueEntryPoint;
+        }
+
+        private void OnDisable()
+        {
+            PlayerEventHandler.OnMoveToPlayer -= MoveToDialogueEntryPoint;
         }
 
         #endregion

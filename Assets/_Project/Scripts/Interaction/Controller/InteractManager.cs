@@ -4,6 +4,7 @@ using ATMBI.Gameplay.Event;
 using ATBMI.Entities.Player;
 using ATBMI.Gameplay.Event;
 using System.Threading;
+using ATBMI.Gameplay.Handler;
 
 namespace ATBMI.Interaction
 {
@@ -17,7 +18,6 @@ namespace ATBMI.Interaction
         // Reference
         private InteractController _interactController;
         private PlayerControllers _playerController;
-        private PlayerInputHandler _playerInputHandler;
 
         private bool isDialogueAboutToStart;
 
@@ -29,7 +29,6 @@ namespace ATBMI.Interaction
         {
             var player = GameObject.FindGameObjectWithTag("Player");
             _playerController = player.GetComponentInChildren<PlayerControllers>();
-            _playerInputHandler = player.GetComponentInChildren<PlayerInputHandler>();
             _interactController = player.GetComponentInChildren<InteractController>();
         }
 
@@ -41,7 +40,7 @@ namespace ATBMI.Interaction
         private void Update()
         {
             if (!markerObject.activeSelf || _interactController.IsInteracting) return;
-            if (_playerInputHandler.IsPressInteract() && !DialogueManager.Instance.isDialoguePlaying)
+            if (GameInputHandler.Instance.IsTapInteract && !DialogueManager.Instance.isDialoguePlaying)
             {
                 StartCoroutine(CallInteractOption());
             }

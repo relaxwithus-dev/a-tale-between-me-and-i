@@ -9,6 +9,7 @@ using ATBMI.Enum;
 using ATBMI.Inventory;
 using ATMBI.Gameplay.Event;
 using ATBMI.Entities.Player;
+using ATBMI.Gameplay.Handler;
 
 namespace ATBMI.Interaction
 {
@@ -31,7 +32,6 @@ namespace ATBMI.Interaction
 
         private PlayerControllers _playerController;
         private InventoryManager _inventoryManager;
-        public PlayerInputHandler InputHandler { get; private set;}
 
         #endregion
 
@@ -40,7 +40,6 @@ namespace ATBMI.Interaction
         private void Awake()
         {
             _playerController = GetComponent<PlayerControllers>();
-            InputHandler = GetComponentInChildren<PlayerInputHandler>();
             _inventoryManager = GameObject.Find("Inventory").GetComponent<InventoryManager>();
         }
         
@@ -176,11 +175,11 @@ namespace ATBMI.Interaction
 
         private void HandleNavigation()
         {
-            if (InputHandler.IsPressNavigate(NavigateState.Up))
+            if (GameInputHandler.Instance.IsNavigateUp)
             {
                 simpleScrollSnap.GoToNextPanel();
             }
-            else if (InputHandler.IsPressNavigate(NavigateState.Down))
+            else if (GameInputHandler.Instance.IsNavigateDown)
             {
                 simpleScrollSnap.GoToPreviousPanel();
             }
@@ -188,7 +187,7 @@ namespace ATBMI.Interaction
         
         private void HandleInteraction()
         {
-            if (InputHandler.IsPressSelect() && IsInteracting)
+            if (GameInputHandler.Instance.IsTapInteract && IsInteracting)
             {
                 ExecuteInteraction();
             }

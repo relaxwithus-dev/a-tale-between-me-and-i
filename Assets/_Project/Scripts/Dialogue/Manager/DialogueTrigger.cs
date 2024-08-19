@@ -1,5 +1,6 @@
 using ATBMI.Entities.Player;
 using ATBMI.Gameplay.Event;
+using ATBMI.Gameplay.Handler;
 using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
@@ -16,13 +17,13 @@ public class DialogueTrigger : MonoBehaviour
     private bool isPlayerInRange;
 
     private NPC npc;
-    private PlayerInputHandler playerInputHandler;
+    private GameInputHandler playerInputHandler;
     private PlayerControllers playerController;
 
     private void Awake()
     {
         // TODO: change the method of getting this script
-        playerInputHandler = FindObjectOfType<PlayerInputHandler>();
+        playerInputHandler = FindObjectOfType<GameInputHandler>();
         playerController = FindObjectOfType<PlayerControllers>();
 
         visualCue = GetComponentInChildren<VisualCue>();
@@ -61,11 +62,10 @@ public class DialogueTrigger : MonoBehaviour
                 visualCue.ActivateVisualCue();
             }
 
-            if (playerInputHandler.IsPressInteract() && !isDialogueAboutToStart)
+            if (GameInputHandler.Instance.IsTapInteract && !isDialogueAboutToStart)
             {
                 playerController.MoveToDialogueEntryPoint(inkJSON, playerEntryPoint.position.x, npc.isFacingRight);
                 isDialogueAboutToStart = true;
-
                 Debug.Log(inkJSON.text);
 
                 // DialogueManager.Instance.EnterDialogueMode(inkJSON, GameObject.FindGameObjectWithTag("Player").transform, transform.parent);

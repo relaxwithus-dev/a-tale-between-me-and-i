@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using ATBMI.Data;
 using ATBMI.Enum;
-using ATBMI.Entities.Player;
+using ATBMI.Gameplay.Handler;
 
 namespace ATBMI.Player
 {
@@ -41,7 +41,6 @@ namespace ATBMI.Player
         // Reference
         private Rigidbody2D _playerRb;
         private SpriteRenderer _playerSr;
-        private PlayerInputHandler _inputHandler;
 
         #endregion
 
@@ -51,7 +50,6 @@ namespace ATBMI.Player
         {
             _playerRb = GetComponent<Rigidbody2D>();
             _playerSr = GetComponentInChildren<SpriteRenderer>();
-            _inputHandler = GetComponentInChildren<PlayerInputHandler>();
         }
 
         private void Start()
@@ -66,7 +64,7 @@ namespace ATBMI.Player
         }
 
         private void Update()
-        {
+        {            
             HandleState();
             PlayerDirection();
         }
@@ -90,7 +88,7 @@ namespace ATBMI.Player
         {
             var direction = MoveDirection;
 
-            if (direction != Vector2.zero && _inputHandler.SprintTriggered) return PlayerState.Run;
+            if (direction != Vector2.zero && GameInputHandler.Instance.IsPressRun) return PlayerState.Run;
             return direction != Vector2.zero ? PlayerState.Walk : PlayerState.Idle;
         }
         
@@ -116,11 +114,11 @@ namespace ATBMI.Player
             _currentData = playerDatas[0];
             gameObject.name = _currentData.PlayerName;
         }
-
+        
         // !- Core
         private void PlayerMove()
         {
-            var direction = _inputHandler.MoveDirection;
+            var direction = GameInputHandler.Instance.MoveDirection;
             moveDirection = new(direction.x, moveDirection.y);
             moveDirection.Normalize();
 

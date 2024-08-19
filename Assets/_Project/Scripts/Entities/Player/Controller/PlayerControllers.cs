@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using ATBMI.Data;
 using ATBMI.Gameplay.Event;
+using ATBMI.Gameplay.Handler;
 using ATMBI.Gameplay.Event;
 using UnityEngine;
 
@@ -47,7 +48,7 @@ namespace ATBMI.Entities.Player
 
         // Reference
         private TextAsset playerInkJson;
-        public PlayerInputHandler InputHandler { get; private set; }
+        public GameInputHandler InputHandler { get; private set; }
         public Animator PlayerAnimator { get; private set; }
 
         #endregion
@@ -58,7 +59,7 @@ namespace ATBMI.Entities.Player
         {
             // Component
             PlayerAnimator = GetComponentInChildren<Animator>();
-            InputHandler = GetComponentInChildren<PlayerInputHandler>();
+            InputHandler = GetComponentInChildren<GameInputHandler>();
 
             // State
             StateSwitcher = new PlayerStateSwitcher();

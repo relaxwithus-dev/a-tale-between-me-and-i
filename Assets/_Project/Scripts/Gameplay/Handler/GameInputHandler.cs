@@ -1,0 +1,194 @@
+using UnityEngine;
+using UnityEngine.InputSystem;
+using ATMBI.Singleton;
+
+namespace ATBMI.Gameplay.Handler
+{
+    /// <summary>
+    /// GameInputHandler buat handle semua input mapping,
+    /// mulai dari player sampe UI.
+    /// </summary>
+    public class GameInputHandler : MonoSingleton<GameInputHandler>
+    {
+        #region Fields & Property
+
+        [Header("Action Maps Reference")]
+        [SerializeField] private string playerMapName = "Player";
+        [SerializeField] private string uiMapName = "UI";
+
+        [Header("Player Actions Reference")]
+        [SerializeField] private string move = "Move";
+        [SerializeField] private string run = "Run";
+        [SerializeField] private string interact = "Interact";
+        [SerializeField] private string phone = "Phone";
+
+        // Input action
+        private InputActionAsset _playerActions;
+        private InputAction _moveAction;
+        private InputAction _runAction;
+        private InputAction _interactAction;
+        private InputAction _phoneAction;
+
+        // Action values
+        public Vector2 MoveDirection { get; private set; }
+        public bool IsPressRun { get; private set; }
+        public bool IsTapInteract { get; private set; }
+        public bool IsTapPhone { get; private set; }
+
+        [Header("UI Actions Reference")]
+        [SerializeField] private string navigate = "Navigate";
+        [SerializeField] private string select = "Select";
+        [SerializeField] private string back = "Back";
+
+        // Input action
+        private InputAction _navigateAction;
+        private InputAction _selectAction;
+        private InputAction _backAction;
+        
+        // Action values
+        public bool IsNavigateUp { get; private set; }
+        public bool IsNavigateDown { get; private set; }
+        public bool IsTapSelect { get; private set; }
+        public bool IsTapBack { get; private set; }
+        
+        #endregion
+        
+        #region MonoBehaviour Callbacks
+        
+        protected override void Awake()
+        {
+            _playerActions = GetComponent<PlayerInput>().actions;
+
+            // Player
+            _moveAction = _playerActions.FindActionMap(playerMapName).FindAction(move);
+            _runAction = _playerActions.FindActionMap(playerMapName).FindAction(run);
+            _interactAction = _playerActions.FindActionMap(playerMapName).FindAction(interact);
+            _phoneAction = _playerActions.FindActionMap(playerMapName).FindAction(phone);
+
+            // UI
+            _navigateAction = _playerActions.FindActionMap(uiMapName).FindAction(navigate);
+            _selectAction = _playerActions.FindActionMap(uiMapName).FindAction(select);
+            _backAction = _playerActions.FindActionMap(uiMapName).FindAction(back);
+        }
+
+        private void OnEnable()
+        {
+            SubsPlayerAction();
+            SubsUIAction();
+        }
+        
+        private void OnDisable()
+        {
+            UnsubsPlayerAction();
+            UnsubsUIAction();
+        }
+
+        #endregion
+
+        #region Methods
+
+        // !- Subscribe
+        private void SubsPlayerAction()
+        {
+            // Movement
+            _moveAction.Enable();
+            _moveAction.performed += value => MoveDirection = value.ReadValue<Vector2>();
+            _moveAction.canceled += value => MoveDirection = Vector2.zero;
+
+            // Run
+            _runAction.Enable();
+            _runAction.performed += value => IsPressRun = true;
+            _runAction.canceled += value => IsPressRun = false;
+            
+            // Interact
+            _interactAction.Enable();
+            _interactAction.started += value => IsTapInteract = true;
+            _interactAction.canceled += value => IsTapInteract = false;
+
+            // Phone
+            _phoneAction.Enable();
+            _phoneAction.started += value => IsTapPhone = true;
+            _phoneAction.canceled += value => IsTapPhone = false;
+        }
+
+        private void SubsUIAction()
+        {
+            // Navigation
+            _navigateAction.Enable();
+            _navigateAction.performed += value =>
+                {
+                    var navigateValue = value.ReadValue<Vector2>();
+                    IsNavigateUp = navigateValue.x > 0;
+                    IsNavigateDown = navigateValue.x < 0;
+                };
+            _navigateAction.canceled += value =>
+                {
+                    IsNavigateUp = false;
+                    IsNavigateDown = false;
+                };
+            
+            // Select
+            _selectAction.Enable();
+            _selectAction.started += value => IsTapSelect = true;
+            _selectAction.canceled += value => IsTapSelect = false;
+
+            // Back
+            _backAction.Enable();
+            _backAction.started += value => IsTapBack = true;
+            _backAction.canceled += value => IsTapBack = false;
+        }
+
+        // !- Unsubscribe
+        private void UnsubsPlayerAction()
+        {
+            // Movement
+            _moveAction.Disable();
+            _moveAction.performed -= value => MoveDirection = value.ReadValue<Vector2>();
+            _moveAction.canceled -= value => MoveDirection = Vector2.zero;
+
+            // Run
+            _runAction.Disable();
+            _runAction.performed -= value => IsPressRun = true;
+            _runAction.canceled -= value => IsPressRun = false;
+            
+            // Interact
+            _interactAction.Disable();
+            _interactAction.started -= value => IsTapInteract = true;
+            _interactAction.canceled -= value => IsTapInteract = false;
+
+            // Phone
+            _phoneAction.Disable();
+            _phoneAction.started -= value => IsTapPhone = true;
+            _phoneAction.canceled -= value => IsTapPhone = false;
+        }
+
+        private void UnsubsUIAction()
+        {
+            // Navigation
+            _navigateAction.Disable();
+            _navigateAction.performed -= value =>
+                {
+                    var navigateValue = value.ReadValue<Vector2>();
+                    IsNavigateUp = navigateValue.x > 0;
+                    IsNavigateDown = navigateValue.x < 0;
+                };
+            _navigateAction.canceled -= value =>
+                {
+                    IsNavigateUp = false;
+                    IsNavigateDown = false;
+                };
+
+            // Select
+            _selectAction.Disable();
+            _selectAction.started -= value => IsTapSelect = true;
+            _selectAction.canceled -= value => IsTapSelect = false;
+
+            // Back
+            _backAction.Disable();
+            _backAction.started -= value => IsTapBack = true;
+            _backAction.canceled -= value => IsTapBack = false;
+        }
+
+        #endregion
+    }
+}

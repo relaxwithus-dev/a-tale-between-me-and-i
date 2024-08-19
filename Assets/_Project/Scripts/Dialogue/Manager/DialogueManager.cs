@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using ATBMI.Entities.Player;
 using ATBMI.Gameplay.Event;
+using ATBMI.Gameplay.Handler;
 using Ink.Runtime;
 using TMPro;
 using UnityEngine;
@@ -10,7 +11,6 @@ using UnityEngine.EventSystems;
 public class DialogueManager : MonoBehaviour
 {
     [Header("Params")]
-    [SerializeField] private PlayerInputHandler playerInputHandler;
     [SerializeField] private float typingSpeed;
 
     [Header("Dialogue UI")]
@@ -82,8 +82,7 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        if (canContinueToNextLine &&
-            playerInputHandler.IsPressInteract())
+        if (canContinueToNextLine && GameInputHandler.Instance.IsTapInteract)
         {
             if (currentStory.currentChoices.Count == 0 && !isAnyChoices)
             {
@@ -147,7 +146,7 @@ public class DialogueManager : MonoBehaviour
         foreach (char letter in line.ToCharArray())
         {
             // if player pressed submit button the line display immediately
-            if (playerInputHandler.IsPressInteract())
+            if (GameInputHandler.Instance.IsTapInteract)
             {
                 dialogueText.maxVisibleCharacters = line.Length;
                 break;
