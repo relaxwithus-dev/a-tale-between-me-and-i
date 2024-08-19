@@ -35,7 +35,8 @@ namespace ATBMI.Player
         public bool IsRight => isRight;
         public bool CanMove => canMove;
         public Vector2 MoveDirection => moveDirection;
-        
+        public PlayerState PlayerState => playerState;
+
         public PlayerData CurrentData { get; private set; }
         public float CurrentSpeed { get; set; }
 
@@ -166,9 +167,10 @@ namespace ATBMI.Player
         private PlayerState GetState()
         {
             var direction = MoveDirection;
+            var isRunning = GameInputHandler.Instance.IsPressRun;
 
-            if (direction != Vector2.zero && GameInputHandler.Instance.IsPressRun) return PlayerState.Run;
-            if (direction != Vector2.zero && !GameInputHandler.Instance.IsPressRun) return PlayerState.Walk;
+            if (direction != Vector2.zero && isRunning) return PlayerState.Run;
+            if (direction != Vector2.zero && !isRunning) return PlayerState.Walk;
             return PlayerState.Idle;
         }
         
