@@ -17,13 +17,13 @@ namespace ATBMI.Player
         #region Fields & Properties
 
         /// <Note>
-        /// Fixed move value.
+        /// Early move value.
         /// Walk: speed (2.3), decel (0.18)
         /// Run: speed (3.16), decel (0.235)
         /// </Note>
 
         [Header("Stats")]
-        [SerializeField] private PlayerState playerState;
+        [SerializeField] private PlayerState playerState = PlayerState.Idle;
         [SerializeField] private PlayerData[] playerDatas;
         [SerializeField] private Vector2 moveDirection;
         [SerializeField] private bool isRight;
@@ -71,40 +71,6 @@ namespace ATBMI.Player
 
         #endregion
 
-        #region State
-
-        private void HandleState()
-        {
-            var state = GetState();
-
-            if (playerState == state) return;
-            playerState = state;
-            _currentData = GetCurrentData(state);
-            CurrentSpeed = _currentData.MoveSpeed;
-        }
-        
-        // TODO: Cek get state ini, sesuaiken sama mapping controll sprint
-        private PlayerState GetState()
-        {
-            var direction = MoveDirection;
-
-            if (direction != Vector2.zero && GameInputHandler.Instance.IsPressRun) return PlayerState.Run;
-            return direction != Vector2.zero ? PlayerState.Walk : PlayerState.Idle;
-        }
-        
-        private PlayerData GetCurrentData(PlayerState playerState)
-        {
-            return playerState switch
-            {
-                PlayerState.Idle => _currentData,
-                PlayerState.Walk => playerDatas[0],
-                PlayerState.Run => playerDatas[1],
-                _ => throw new ArgumentOutOfRangeException(nameof(playerState), playerState, null)
-            };
-        }
-
-        #endregion
-
         #region Methods
         
         // !- Initialize
@@ -112,6 +78,7 @@ namespace ATBMI.Player
         {
             canMove = true;
             _currentData = playerDatas[0];
+            CurrentSpeed = _currentData.MoveSpeed;
             gameObject.name = _currentData.PlayerName;
         }
         
@@ -179,6 +146,41 @@ namespace ATBMI.Player
             moveDirection = Vector2.zero;
             _latestDirection = Vector2.zero;
             _playerRb.velocity = Vector2.zero;
+        }
+
+        #endregion
+
+        #region State
+
+        private void HandleState()
+        {
+            var state = GetState();
+
+            if (playerState == state) return;
+            playerState = state;
+            _currentData = GetCurrentData(state);
+            CurrentSpeed = _currentData.MoveSpeed;
+        }
+
+        private PlayerState GetState()
+        {
+            var direction = MoveDirection;
+
+            if (direction != Vector2.zero && GameInputHandler.Instance.IsPressRun) return PlayerState.Run;
+            if (direction != Vector2.zero && !GameInputHandler.Instance.IsPressRun) return PlayerState.Walk;
+            return PlayerState.Idle;
+            // return direction != Vector2.zero ? PlayerState.Walk : PlayerState.Idle;
+        }
+        
+        private PlayerData GetCurrentData(PlayerState playerState)
+        {
+            return playerState switch
+            {
+                PlayerState.Idle => _currentData,
+                PlayerState.Walk => playerDatas[0],
+                PlayerState.Run => playerDatas[1],
+                _ => throw new ArgumentOutOfRangeException(nameof(playerState), playerState, null)
+            };
         }
 
         #endregion
