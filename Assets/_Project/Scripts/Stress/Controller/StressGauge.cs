@@ -111,12 +111,12 @@ namespace ATBMI.Stress
             {
                 elapsedTime += Time.deltaTime;
                 sliderUI.value = Mathf.Lerp(MAX_SLIDER_VALUE, MIN_SLIDER_VALUE, elapsedTime/statusDuration);
-                PlayerEventHandler.StressActiveEvent();
+                PlayerEvents.StressActiveEvent();
                 yield return null;
             }
 
             InitializeGauge();
-            PlayerEventHandler.StressInactiveEvent();
+            PlayerEvents.StressInactiveEvent();
         }
 
         private float CalculatePercentage(float value, float percentage)

@@ -4,6 +4,10 @@ using ATBMI.Gameplay.Event;
 
 namespace ATBMI.Player
 {
+    /// <summary>
+    /// PlayerDialogHandler buat handle dialog
+    /// karakter player.
+    /// </summary>
     public class PlayerDialogHandler : MonoBehaviour
     {
         #region Fields & Properties
@@ -22,12 +26,12 @@ namespace ATBMI.Player
 
         private void OnEnable()
         {
-            PlayerEventHandler.OnMoveToPlayer += MoveToDialogueEntryPoint;
+            PlayerEvents.OnMoveToPlayer += MoveToDialogueEntryPoint;
         }
 
         private void OnDisable()
         {
-            PlayerEventHandler.OnMoveToPlayer -= MoveToDialogueEntryPoint;
+            PlayerEvents.OnMoveToPlayer -= MoveToDialogueEntryPoint;
         }
 
         #endregion
@@ -68,7 +72,7 @@ namespace ATBMI.Player
                 yield return new WaitForSeconds(0.2f);
             }
 
-            DialogEventHandler.EnterDialogueEvent(_playerInkJson);
+            DialogEvents.EnterDialogueEvent(_playerInkJson);
             _playerInkJson = null;
         }
 

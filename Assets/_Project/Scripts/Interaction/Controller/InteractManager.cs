@@ -65,7 +65,7 @@ namespace ATBMI.Interaction
         private IEnumerator CallInteractOption()
         {
             _playerController.StopMovement();
-            PlayerEventHandler.InteractEvent();
+            PlayerEvents.InteractEvent();
 
             yield return new WaitForSeconds(0.1f);
             _interactController.IsInteracting = true;

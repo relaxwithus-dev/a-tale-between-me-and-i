@@ -83,12 +83,12 @@ public class RE_Security_01 : MonoBehaviour
 
     private void OnEnable()
     {
-        DialogEventHandler.EnterDialogue += EnterDialogue;
+        DialogEvents.EnterDialogue += EnterDialogue;
     }
 
     private void OnDisable()
     {
-        DialogEventHandler.EnterDialogue -= EnterDialogue;
+        DialogEvents.EnterDialogue -= EnterDialogue;
     }
 
     private void Start()
@@ -280,7 +280,7 @@ public class RE_Security_01 : MonoBehaviour
 
                 if (visitedCount == 1 && !isOnce02)
                 {
-                    PlayerEventHandler.MoveToPlayerEvent(onTalk_AfterExplosion_WithRunning_Visited_01, playerEntryPoint.position.x, npc.isFacingRight);
+                    PlayerEvents.MoveToPlayerEvent(onTalk_AfterExplosion_WithRunning_Visited_01, playerEntryPoint.position.x, npc.isFacingRight);
 
                     isRuleMatch = true;
 
@@ -291,7 +291,7 @@ public class RE_Security_01 : MonoBehaviour
                 }
                 else if (visitedCount == 2 && !isOnce03)
                 {
-                    PlayerEventHandler.MoveToPlayerEvent(onTalk_AfterExplosion_WithRunning_Visited_02, playerEntryPoint.position.x, npc.isFacingRight);
+                    PlayerEvents.MoveToPlayerEvent(onTalk_AfterExplosion_WithRunning_Visited_02, playerEntryPoint.position.x, npc.isFacingRight);
 
                     isRuleMatch = true;
 
@@ -302,7 +302,7 @@ public class RE_Security_01 : MonoBehaviour
                 }
                 else if (visitedCount == 3 && !isOnce04)
                 {
-                    PlayerEventHandler.MoveToPlayerEvent(onTalk_AfterExplosion_WithRunning_Visited_03, playerEntryPoint.position.x, npc.isFacingRight);
+                    PlayerEvents.MoveToPlayerEvent(onTalk_AfterExplosion_WithRunning_Visited_03, playerEntryPoint.position.x, npc.isFacingRight);
 
                     isRuleMatch = true;
 
@@ -319,7 +319,7 @@ public class RE_Security_01 : MonoBehaviour
 
                 if (visitedCount == 1 && !isOnce05)
                 {
-                    PlayerEventHandler.MoveToPlayerEvent(onTalk_AfterExplosion_WithWalking_Visited_01, playerEntryPoint.position.x, npc.isFacingRight);
+                    PlayerEvents.MoveToPlayerEvent(onTalk_AfterExplosion_WithWalking_Visited_01, playerEntryPoint.position.x, npc.isFacingRight);
 
                     isRuleMatch = true;
 
@@ -330,7 +330,7 @@ public class RE_Security_01 : MonoBehaviour
                 }
                 else if (visitedCount == 2 && !isOnce06)
                 {
-                    PlayerEventHandler.MoveToPlayerEvent(onTalk_AfterExplosion_WithWalking_Visited_02, playerEntryPoint.position.x, npc.isFacingRight);
+                    PlayerEvents.MoveToPlayerEvent(onTalk_AfterExplosion_WithWalking_Visited_02, playerEntryPoint.position.x, npc.isFacingRight);
 
                     isRuleMatch = true;
 
@@ -360,7 +360,7 @@ public class RE_Security_01 : MonoBehaviour
 
             if (!isRuleMatch)
             {
-                PlayerEventHandler.MoveToPlayerEvent(onTalk, playerEntryPoint.position.x, npc.isFacingRight);
+                PlayerEvents.MoveToPlayerEvent(onTalk, playerEntryPoint.position.x, npc.isFacingRight);
             }
 
             isDialogueAboutToStart = true;

@@ -4,6 +4,10 @@ using ATBMI.Enum;
 
 namespace ATBMI.Player
 {
+    /// <summary>
+    /// PlayerController buat handle animasi
+    /// karakter player sesuai dengan statenya.
+    /// </summary>
     public class PlayerAnimation : MonoBehaviour
     {
         #region Fields & Properties

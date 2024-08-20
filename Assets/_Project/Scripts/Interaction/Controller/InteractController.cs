@@ -42,12 +42,12 @@ namespace ATBMI.Interaction
         
         private void OnEnable()
         {
-            PlayerEventHandler.OnInteract += OnInteractTriggered;
+            PlayerEvents.OnInteract += OnInteractTriggered;
         }
         
         private void OnDisable()
         {
-            PlayerEventHandler.OnInteract -= OnInteractTriggered;
+            PlayerEvents.OnInteract -= OnInteractTriggered;
         }
 
         private void Start()

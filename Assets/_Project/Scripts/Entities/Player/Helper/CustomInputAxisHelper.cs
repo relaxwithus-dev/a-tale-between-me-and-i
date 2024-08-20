@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-namespace ATBMI.Entities.Player
+namespace ATBMI.Player
 {
     public class CustomInputAxisHelper
     {

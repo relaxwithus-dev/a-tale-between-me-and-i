@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ATBMI.Gameplay.Event
 {
-    public static class DialogEventHandler
+    public static class DialogEvents
     {
         // Main Event
         public static event Action<TextAsset> EnterDialogue;

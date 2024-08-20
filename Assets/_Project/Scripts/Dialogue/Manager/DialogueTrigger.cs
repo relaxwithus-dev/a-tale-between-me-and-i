@@ -43,12 +43,12 @@ public class DialogueTrigger : MonoBehaviour
 
     private void OnEnable()
     {
-        DialogEventHandler.EnterDialogue += EnterDialogue;
+        DialogEvents.EnterDialogue += EnterDialogue;
     }
 
     private void OnDisable()
     {
-        DialogEventHandler.EnterDialogue -= EnterDialogue;
+        DialogEvents.EnterDialogue -= EnterDialogue;
     }
 
     private void Update()
