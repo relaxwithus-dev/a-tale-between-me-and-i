@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using ATBMI.Entities.Player;
-using ATBMI.Gameplay.Event;
-using ATBMI.Gameplay.Handler;
-using Ink.Runtime;
-using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using TMPro;
+using Ink.Runtime;
+using ATBMI.Gameplay.Event;
+using ATBMI.Gameplay.Handler;
 
 public class DialogueManager : MonoBehaviour
 {
