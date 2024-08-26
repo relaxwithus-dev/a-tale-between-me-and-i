@@ -17,9 +17,9 @@ namespace ATBMI.Player
         #region Fields & Properties
 
         /// <Note>
-        /// Early move value.
-        /// Walk: speed (2.3), decel (0.18)
-        /// Run: speed (3.16), decel (0.235)
+        /// Latest move value.
+        /// Walk: speed (2.62), decel (0.185)
+        /// Run: speed (3.5), decel (0.37)
         /// </Note>
 
         [Header("Stats")]
@@ -169,9 +169,8 @@ namespace ATBMI.Player
             var direction = MoveDirection;
             var isRunning = GameInputHandler.Instance.IsPressRun;
 
-            if (direction != Vector2.zero && isRunning) return PlayerState.Run;
-            if (direction != Vector2.zero && !isRunning) return PlayerState.Walk;
-            return PlayerState.Idle;
+            if (direction == Vector2.zero) return PlayerState.Idle;
+            return isRunning ? PlayerState.Run : PlayerState.Walk;
         }
         
         private PlayerData GetCurrentData(PlayerState playerState)

@@ -6,7 +6,7 @@ using ATBMI.Gameplay.Event;
 
 namespace ATBMI.Interaction
 {
-    public class InteractManager : MonoBehaviour
+    public class InteractzManager : MonoBehaviour
     {
         #region Fields & Property
 

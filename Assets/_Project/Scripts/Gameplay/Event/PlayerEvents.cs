@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ATBMI.Gameplay.Event
 {
-    public class PlayerEvents
+    public static class PlayerEvents
     {
         // Event
         public static event Action OnInteract;

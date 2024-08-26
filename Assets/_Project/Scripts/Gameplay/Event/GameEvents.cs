@@ -1,11 +1,15 @@
 using System;
-using System.Collections.Generic;
-using UnityEngine;
 
 namespace ATBMI.Gameplay.Event
 {
-    public class GameEvents
+    public static class GameEvents
     {
+        // Events
+        public static event Action OnGameStart;
+        public static event Action OnGamePause;
         
+        // Caller
+        public static void GameStartEvent() => OnGameStart?.Invoke();
+        public static void GamePauseEvent() => OnGamePause?.Invoke();
     }
 }

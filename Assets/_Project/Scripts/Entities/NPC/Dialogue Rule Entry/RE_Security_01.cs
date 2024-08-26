@@ -13,7 +13,7 @@ public class RE_Security_01 : MonoBehaviour
     private bool isVisualCueExists;
     private bool isPlayerInRange;
     private NPC npc;
-    private InteractManager interactManager;
+    private InteractzManager interactManager;
 
     [Space(20)]
     [Header("Dialogue Rules")]
@@ -75,7 +75,7 @@ public class RE_Security_01 : MonoBehaviour
     private void Awake()
     {
         // TODO: change the method of getting this script
-        interactManager = GetComponent<InteractManager>();
+        interactManager = GetComponent<InteractzManager>();
 
         visualCue = GetComponentInChildren<VisualCue>();
         npc = transform.parent.gameObject.GetComponent<NPC>();
