@@ -4317,7 +4317,7 @@ Transform:
   m_GameObject: {fileID: 261121163}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -3.82, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9310,6 +9310,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2055277716}
   m_CullTransparentMesh: 1
+--- !u!114 &2059375033 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6174047115531061045, guid: 81bd08af6fffcf34db8b1223c5f6e701, type: 3}
+  m_PrefabInstance: {fileID: 2138781715}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4f6bc96e9735f8429dc5cb2bac303b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2060056027
 GameObject:
   m_ObjectHideFlags: 0
@@ -9501,9 +9512,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a342d506aaf1be4ead129347f1a9f7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 0}
+  npc: {fileID: 2059375033}
   playerEntryPoint: {fileID: 1530447104}
-  isDialogueAboutToStart: 0
   isAfterExplosion: 0
   isRunning: 0
   visitedCount: 0
@@ -9527,6 +9537,15 @@ MonoBehaviour:
   isOnce_AfterGettingKey: 0
   onTalk_AfterGettingARock: {fileID: 4900000, guid: d3d13b71c204ec0488d4e4db3032b53f, type: 3}
   isOnce_AfterGettingRock: 0
+  isOnce01: 0
+  isOnce02: 0
+  isOnce03: 0
+  isOnce04: 0
+  isOnce05: 0
+  isOnce06: 0
+  isOnce07: 0
+  isOnce08: 0
+  isOnce09: 0
 --- !u!1 &2145453889
 GameObject:
   m_ObjectHideFlags: 0
@@ -9556,7 +9575,7 @@ Transform:
   m_GameObject: {fileID: 2145453889}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -3.82, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:

@@ -6,7 +6,7 @@ namespace ATBMI.Interaction
 {
     public class CharacterInteract : BaseInteract
     {
-        public RE_Security_01 ruleEntry;
+        public RuleEntry ruleEntry;
 
         #region Methods
 
@@ -14,7 +14,7 @@ namespace ATBMI.Interaction
         public override void Interact()
         {
             base.Interact();
-            ruleEntry.TestRE();
+            ruleEntry.EnterDialogue();
             Debug.Log("kOngCap Lai Mewe WinDow kOsLay TiitIT LayYa!");
         }
 
