@@ -19,7 +19,7 @@ namespace ATBMI.Interaction
         public InteractData CreateInteractData(int index, Button button)
         {
             var key = GetInteractKey(index);
-            var type = GetInteractType(index);
+            var type = GetInteractStatus(index);
 
             InteractData data = new()
             {
@@ -63,13 +63,13 @@ namespace ATBMI.Interaction
             }
         }
 
-        private InteractType GetInteractType(int index)
+        private InteractStatus GetInteractStatus(int index)
         {
             return index switch
             {
-                0 => InteractType.Talks,
-                1 => InteractType.Close,
-                _ => InteractType.Item
+                0 => InteractStatus.Talks,
+                1 => InteractStatus.Close,
+                _ => InteractStatus.Take_Item
             };
         }
     }

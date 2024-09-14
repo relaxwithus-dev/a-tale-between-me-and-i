@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using ATBMI.Enum;
@@ -11,11 +9,11 @@ namespace ATBMI.Interaction
         #region Internal Fields
 
         [SerializeField] private string collectibleName;
-        [SerializeField] private CollectibleState collectiblesState;
+        [SerializeField] private ItemAccess collectiblesState;
         [SerializeField] private int targetId;
 
         public string CollectibleName => collectibleName;
-        public CollectibleState CollectibleState => collectiblesState;
+        public ItemAccess ItemAccess => collectiblesState;
         public int TargetId => targetId;
 
         #endregion
@@ -33,18 +31,18 @@ namespace ATBMI.Interaction
         public override void InteractCollectible(BaseInteract target)
         {
             base.InteractCollectible(target);
-            switch (CollectibleState)
+            switch (ItemAccess)
             {
-                case CollectibleState.Receive:
+                case ItemAccess.Receive:
                     Debug.Log($"akan kuberikan benda {target.name} ini!");
                     break;
-                case CollectibleState.Assign:
+                case ItemAccess.Give:
                     if (target.InteractId == targetId)
                         Debug.Log($"wah benda {target.name} ini sangat bagus!");
                     else
                         Debug.Log($"sepertinya benda {target.name} tidak cocok");
                     break;
-                case CollectibleState.None:
+                case ItemAccess.None:
                     break;
             }
         }
@@ -61,7 +59,7 @@ namespace ATBMI.Interaction
             var data = (CollectibleInteract)target;
             serializedObject.Update();
 
-            if (data.CollectibleState == CollectibleState.Assign)
+            if (data.ItemAccess == ItemAccess.Give)
                 DrawDefaultInspector();
             else 
                 DrawPropertiesExcluding(serializedObject,"targetId");

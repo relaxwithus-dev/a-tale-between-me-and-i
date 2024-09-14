@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using ATBMI.Enum;
 using UnityEngine;
 
 namespace ATBMI.Interaction
@@ -10,15 +11,14 @@ namespace ATBMI.Interaction
 
         [Header("Stats")]
         [SerializeField] private string itemName;
-        
+
         #endregion
 
         #region Methods
 
-        public override void Interact(InteractManager manager)
+        public override void Interact(InteractManager manager, InteractStatus status)
         {
-            base.Interact(manager);
-            throw new NotImplementedException();
+            base.Interact(manager, status);
         }
 
         #endregion

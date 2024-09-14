@@ -11,7 +11,7 @@ namespace ATBMI.Interaction
     {
         public int Id;
         public string Description;
-        public InteractType Type;
+        public InteractStatus Type;
         public Button Button;
         public BaseInteract Interactable;
     }

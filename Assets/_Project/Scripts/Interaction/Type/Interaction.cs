@@ -1,4 +1,5 @@
 using System;
+using ATBMI.Enum;
 using UnityEngine;
 
 namespace ATBMI.Interaction
@@ -11,6 +12,21 @@ namespace ATBMI.Interaction
 
         #region MonoBehaviour Callbacks
 
+        private void Awake()
+        {
+            InitOnAwake();
+        }
+
+        private void Start()
+        {
+            InitOnStart();
+        }
+
+        private void Update()
+        {
+            HandleUpdate();
+        }
+
         #endregion
 
         #region Methods
@@ -19,10 +35,7 @@ namespace ATBMI.Interaction
         protected virtual void InitOnStart() { }
         protected virtual void HandleUpdate() { }
 
-        public virtual void Interact(InteractManager manager)
-        {
-            throw new NotImplementedException();
-        }
+        public virtual void Interact(InteractManager manager, InteractStatus status) { }
 
         #endregion
     }
