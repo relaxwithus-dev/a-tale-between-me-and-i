@@ -81,7 +81,7 @@ namespace ATBMI.Interaction
                         ActivateSignAt(nearestTransform);
 
                         // Interact
-                        if (GameInputHandler.Instance.IsTapInteract )
+                        if (GameInputHandler.Instance.IsTapInteract)
                         {
                             var target = nearest.GetComponent<IInteractable>();
                             if (target != null)

@@ -32,8 +32,8 @@ namespace ATBMI.Gameplay.Handler
         // Action values
         public Vector2 MoveDirection { get; private set; }
         public bool IsPressRun { get; private set; }
-        public bool IsTapInteract { get; private set; }
-        public bool IsTapPhone { get; private set; }
+        public bool IsTapInteract => _interactAction.WasPressedThisFrame();
+        public bool IsTapPhone => _phoneAction.WasPressedThisFrame();
 
         [Header("UI Actions Reference")]
         [SerializeField] private string navigate = "Navigate";
@@ -48,9 +48,9 @@ namespace ATBMI.Gameplay.Handler
         // Action values
         public bool IsNavigateUp { get; private set; }
         public bool IsNavigateDown { get; private set; }
-        public bool IsTapSelect { get; private set; }
-        public bool IsTapBack { get; private set; }
-        
+        public bool IsTapSelect => _selectAction.WasPressedThisFrame();
+        public bool IsTapBack => _backAction.WasPressedThisFrame();
+    
         #endregion
         
         #region MonoBehaviour Callbacks
@@ -73,22 +73,20 @@ namespace ATBMI.Gameplay.Handler
 
         private void OnEnable()
         {
-            SubsPlayerAction();
-            SubsUIAction();
+            SubscribeAction();
         }
         
         private void OnDisable()
         {
-            UnsubsPlayerAction();
-            UnsubsUIAction();
+            UnsubscribeAction();
         }
 
         #endregion
 
         #region Methods
 
-        // !- Subscribe
-        private void SubsPlayerAction()
+        // !- Initialize
+        private void SubscribeAction()
         {
             // Movement
             _moveAction.Enable();
@@ -99,20 +97,7 @@ namespace ATBMI.Gameplay.Handler
             _runAction.Enable();
             _runAction.performed += value => IsPressRun = true;
             _runAction.canceled += value => IsPressRun = false;
-            
-            // Interact
-            _interactAction.Enable();
-            _interactAction.started += value => IsTapInteract = true;
-            _interactAction.canceled += value => IsTapInteract = false;
 
-            // Phone
-            _phoneAction.Enable();
-            _phoneAction.started += value => IsTapPhone = true;
-            _phoneAction.canceled += value => IsTapPhone = false;
-        }
-
-        private void SubsUIAction()
-        {
             // Navigation
             _navigateAction.Enable();
             _navigateAction.performed += value =>
@@ -126,20 +111,9 @@ namespace ATBMI.Gameplay.Handler
                     IsNavigateUp = false;
                     IsNavigateDown = false;
                 };
-            
-            // Select
-            _selectAction.Enable();
-            _selectAction.started += value => IsTapSelect = true;
-            _selectAction.canceled += value => IsTapSelect = false;
-
-            // Back
-            _backAction.Enable();
-            _backAction.started += value => IsTapBack = true;
-            _backAction.canceled += value => IsTapBack = false;
         }
 
-        // !- Unsubscribe
-        private void UnsubsPlayerAction()
+        private void UnsubscribeAction()
         {
             // Movement
             _moveAction.Disable();
@@ -150,20 +124,7 @@ namespace ATBMI.Gameplay.Handler
             _runAction.Disable();
             _runAction.performed -= value => IsPressRun = true;
             _runAction.canceled -= value => IsPressRun = false;
-            
-            // Interact
-            _interactAction.Disable();
-            _interactAction.started -= value => IsTapInteract = true;
-            _interactAction.canceled -= value => IsTapInteract = false;
 
-            // Phone
-            _phoneAction.Disable();
-            _phoneAction.started -= value => IsTapPhone = true;
-            _phoneAction.canceled -= value => IsTapPhone = false;
-        }
-
-        private void UnsubsUIAction()
-        {
             // Navigation
             _navigateAction.Disable();
             _navigateAction.performed -= value =>
@@ -177,16 +138,6 @@ namespace ATBMI.Gameplay.Handler
                     IsNavigateUp = false;
                     IsNavigateDown = false;
                 };
-
-            // Select
-            _selectAction.Disable();
-            _selectAction.started -= value => IsTapSelect = true;
-            _selectAction.canceled -= value => IsTapSelect = false;
-
-            // Back
-            _backAction.Disable();
-            _backAction.started -= value => IsTapBack = true;
-            _backAction.canceled -= value => IsTapBack = false;
         }
 
         #endregion
