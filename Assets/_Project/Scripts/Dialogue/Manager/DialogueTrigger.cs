@@ -103,7 +103,7 @@ public class DialogueTrigger : MonoBehaviour
 
     public void EnterDialogue(TextAsset InkJson)
     {
-        DialogueManager.Instance.EnterDialogueMode(InkJson);
+        // DialogueManager.Instance.EnterDialogueMode(InkJson);
 
         isDialogueAboutToStart = false;
     }

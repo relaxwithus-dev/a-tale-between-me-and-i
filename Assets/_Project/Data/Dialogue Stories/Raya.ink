@@ -1,6 +1,9 @@
+EXTERNAL PlayEmote(emoteName)
+
 -> Smile
 
 === Smile ===
+~PlayEmote("A_Emoji_Happy")
 We smiled at each other again across the coffee shop. #speaker:Raya #expression:A_Raya_Speak
 I had seen her coming in at this same time for over a week now. 
 We had spoken a couple of times, but I could not bring myself to talk to her more.
@@ -13,6 +16,7 @@ As I looked back down at my coffee, I needed to decide. #speaker:Raya #expressio
     -> Forgive
 
 === Forgive ===
+~PlayEmote("A_Emoji_Exclamation")
 Should I really forgive her again? #speaker:Raya #expression:A_Raya_Speak
 I thought about the options in front of me as I considered what she told me. #speaker:Raya #expression:A_Raya_Sad
 * I forgive her.

@@ -8,6 +8,7 @@ namespace ATBMI
         [Header("Params")]
         public NPC npc;
         public Transform playerEntryPoint;
+        public Animator emoteAnimator;
         public bool isPlayerInRange;
         public bool isDialogueAboutToStart;
 
@@ -17,7 +18,7 @@ namespace ATBMI
 
         public virtual void EnterDialogueWithInkJson(TextAsset InkJson)
         {
-            DialogueManager.Instance.EnterDialogueMode(InkJson);
+            DialogueManager.Instance.EnterDialogueMode(InkJson, emoteAnimator);
 
             isDialogueAboutToStart = false;
         }

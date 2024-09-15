@@ -11,7 +11,7 @@ namespace ATBMI
 
         public void Execute(RE_Security_01 context)
         {
-            DialogueManager.Instance.EnterDialogueMode(context.onTalkedTo_AfterExplosion_WithRunning);
+            DialogueManager.Instance.EnterDialogueMode(context.onTalkedTo_AfterExplosion_WithRunning, context.emoteAnimator);
             if (context.isOnce_AfterExplosion_WithRunning)
             {
                 context.isOnce01 = true;

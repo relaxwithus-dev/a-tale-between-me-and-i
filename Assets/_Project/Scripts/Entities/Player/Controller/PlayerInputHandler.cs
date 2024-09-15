@@ -28,20 +28,20 @@ namespace ATBMI.Entities.Player
         private InputAction _interactAction;
         private InputAction _selectAction;
         private InputAction _navigateAction;
-        
+
         // Action Values
         public Vector2 MoveDirection { get; private set; }
         public bool InteractTriggered { get; private set; }
         public bool SelectTriggered { get; private set; }
         public bool NavigateUp { get; private set; }
         public bool NavigateDown { get; private set; }
-        
+
         #endregion
-        
+
         #region MonoBehaviour Callbacks
-        
+
         private void Awake()
-        {   
+        {
             _playerActions = GetComponent<PlayerInput>().actions;
 
             _moveAction = _playerActions.FindActionMap(playerMapName).FindAction(move);
@@ -77,7 +77,7 @@ namespace ATBMI.Entities.Player
                     NavigateDown = false;
                 };
         }
-        
+
         private void OnDisable()
         {
             _moveAction.Disable();
@@ -114,7 +114,7 @@ namespace ATBMI.Entities.Player
         {
             return _interactAction.WasPressedThisFrame();
         }
-        
+
         public bool IsPressSelect()
         {
             return _selectAction.WasPressedThisFrame();
@@ -131,7 +131,7 @@ namespace ATBMI.Entities.Player
 
             return _navigateAction.WasPressedThisFrame() && value;
         }
-        
+
         #endregion
     }
 }

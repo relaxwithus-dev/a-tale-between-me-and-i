@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using ATBMI;
 using ATBMI.Entities.Player;
 using ATBMI.Gameplay.Event;
 using Ink.Runtime;
@@ -34,6 +35,7 @@ public class DialogueManager : MonoBehaviour
     private const string SPEAKER_TAG = "speaker";
     private const string EXPRESSION_TAG = "expression";
 
+    private InkExternalFunctions inkExternalFunctions;
 
     public static DialogueManager Instance;
 
@@ -47,6 +49,8 @@ public class DialogueManager : MonoBehaviour
         {
             Instance = this;
         }
+
+        inkExternalFunctions = new InkExternalFunctions();
     }
 
     private void Start()
@@ -83,7 +87,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         if (canContinueToNextLine &&
-            playerInputHandler.IsPressInteract())
+            playerInputHandler.IsPressSelect())
         {
             if (currentStory.currentChoices.Count == 0 && !isAnyChoices)
             {
@@ -96,13 +100,15 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void EnterDialogueMode(TextAsset inkJSON)
+    public void EnterDialogueMode(TextAsset inkJSON, Animator emoteAnimator)
     {
         Debug.Log(inkJSON.name);
 
         currentStory = new Story(inkJSON.text);
         isDialoguePlaying = true;
         dialoguePin.SetActive(true);
+
+        inkExternalFunctions.Bind(currentStory, emoteAnimator);
 
         ContinueStory();
     }
@@ -116,9 +122,19 @@ public class DialogueManager : MonoBehaviour
                 StopCoroutine(displayLineCoroutine);
             }
 
-            displayLineCoroutine = StartCoroutine(DisplayLine(currentStory.Continue()));
+            string nextLine = currentStory.Continue();
 
-            HandleTags(currentStory.currentTags);
+            // if the last line is empty string, exit
+            if (nextLine.Equals("") && !currentStory.canContinue)
+            {
+                StartCoroutine(ExitDialogueMode());
+            }
+            else
+            {
+                HandleTags(currentStory.currentTags);
+                displayLineCoroutine = StartCoroutine(DisplayLine(nextLine));
+            }
+
         }
         else
         {
@@ -147,8 +163,10 @@ public class DialogueManager : MonoBehaviour
         foreach (char letter in line.ToCharArray())
         {
             // if player pressed submit button the line display immediately
-            if (playerInputHandler.IsPressInteract())
+            if (playerInputHandler.IsPressSelect())
             {
+                Debug.LogWarning("submit button pressed,  the line display immediately!");
+
                 dialogueText.maxVisibleCharacters = line.Length;
                 break;
             }
@@ -294,6 +312,8 @@ public class DialogueManager : MonoBehaviour
     private IEnumerator ExitDialogueMode()
     {
         yield return new WaitForSeconds(0.2f);
+
+        inkExternalFunctions.Unbind(currentStory);
 
         isDialoguePlaying = false;
         dialoguePin.SetActive(false);
