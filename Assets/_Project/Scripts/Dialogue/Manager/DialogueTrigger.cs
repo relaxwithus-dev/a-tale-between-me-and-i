@@ -1,3 +1,8 @@
+/// will delete later, still in use for reference
+/// will delete later, still in use for reference
+/// will delete later, still in use for reference
+/// will delete later, still in use for reference
+
 using ATBMI.Entities.Player;
 using ATBMI.Gameplay.Event;
 using UnityEngine;
@@ -63,7 +68,7 @@ public class DialogueTrigger : MonoBehaviour
 
             if (playerInputHandler.IsPressInteract() && !isDialogueAboutToStart)
             {
-                playerController.MoveToDialogueEntryPoint(inkJSON, playerEntryPoint.position.x, npc.isFacingRight);
+                // playerController.MoveToDialogueEntryPoint(inkJSON, playerEntryPoint.position.x, npc.isFacingRight);
                 isDialogueAboutToStart = true;
 
                 Debug.Log(inkJSON.text);

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using ATBMI.Data;
 using ATBMI.Gameplay.Event;
 using ATMBI.Gameplay.Event;
@@ -99,7 +100,7 @@ namespace ATBMI.Entities.Player
 
         #region Methods
 
-        private IEnumerator Move(float newPositionX, bool isNpcFacingRight)
+        private IEnumerator Move(RuleEntry ruleEntry, float newPositionX, bool isNpcFacingRight)
         {
             Vector3 initialPosition = transform.position;
             Vector3 targetPosition = new Vector3(newPositionX, initialPosition.y, initialPosition.z);
@@ -125,7 +126,7 @@ namespace ATBMI.Entities.Player
                 yield return new WaitForSeconds(0.2f);
             }
 
-            DialogEventHandler.EnterDialogueEvent(playerInkJson);
+            ruleEntry.EnterDialogueWithInkJson(playerInkJson);
             playerInkJson = null;
         }
 
@@ -192,13 +193,13 @@ namespace ATBMI.Entities.Player
             CanMove = false;
         }
 
-        public void MoveToDialogueEntryPoint(TextAsset INKJson, float newPositionX, bool isNpcFacingRight)
+        public void MoveToDialogueEntryPoint(RuleEntry ruleEntry, TextAsset INKJson, float newPositionX, bool isNpcFacingRight)
         {
             playerInkJson = INKJson;
             FlipPlayerWhenDialogue(newPositionX, isNpcFacingRight);
 
             // TODO: change to dotween?
-            StartCoroutine(Move(newPositionX, isNpcFacingRight));
+            StartCoroutine(Move(ruleEntry, newPositionX, isNpcFacingRight));
         }
 
         #endregion

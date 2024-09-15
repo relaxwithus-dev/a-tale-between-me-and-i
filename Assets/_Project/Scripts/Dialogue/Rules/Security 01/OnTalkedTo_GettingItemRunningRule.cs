@@ -6,7 +6,7 @@ namespace ATBMI
 
         public bool Evaluate(RE_Security_01 context)
         {
-            return context.IsPlayerInRange && context.IsAfterGettingItem && context.IsRunning && !context.isOnce07;
+            return context.isPlayerInRange && context.IsAfterGettingItem && context.IsRunning && !context.isOnce07;
         }
 
         public void Execute(RE_Security_01 context)

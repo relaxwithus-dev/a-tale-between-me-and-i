@@ -1,14 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 namespace ATBMI
 {
-    public class RuleEntry : MonoBehaviour
+    public abstract class RuleEntry : MonoBehaviour
     {
-        public virtual void EnterDialogue()
+        [Header("Params")]
+        public NPC npc;
+        public Transform playerEntryPoint;
+        public bool isPlayerInRange;
+        public bool isDialogueAboutToStart;
+
+        public abstract void OnTriggerEnter2D(Collider2D other);
+        public abstract void OnTriggerExit2D(Collider2D other);
+        public abstract void EnterDialogue();
+
+        public virtual void EnterDialogueWithInkJson(TextAsset InkJson)
         {
-            // TODO: add something
+            DialogueManager.Instance.EnterDialogueMode(InkJson);
+
+            isDialogueAboutToStart = false;
         }
     }
 }

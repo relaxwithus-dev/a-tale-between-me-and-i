@@ -10,23 +10,6 @@ namespace ATBMI
 {
     public class RE_Security_01 : RuleEntry
     {
-        [Header("Params")]
-        public NPC npc;
-        public Transform playerEntryPoint;
-        // [SerializeField] private PlayerController playerController;
-        private bool isVisualCueExists;
-        private bool isPlayerInRange;
-        private bool isDialogueAboutToStart;
-        public bool IsDialogueAboutToStart
-        {
-            get => isDialogueAboutToStart;
-            set => isDialogueAboutToStart = value;
-        }
-        public bool IsPlayerInRange => isPlayerInRange;
-        private VisualCue visualCue;
-        private PlayerInputHandler playerInputHandler;
-        private InteractManager interactManager;
-
         #region Dialogue Rules Parameters
         [Space(20)]
         [Header("Dialogue Rules")]
@@ -102,11 +85,11 @@ namespace ATBMI
         private void Awake()
         {
             // TODO: change the method of getting this script
-            playerInputHandler = FindObjectOfType<PlayerInputHandler>();
-            interactManager = GetComponent<InteractManager>();
+            // playerInputHandler = FindObjectOfType<PlayerInputHandler>();
+            // interactManager = GetComponent<InteractManager>();
 
-            visualCue = GetComponentInChildren<VisualCue>();
-            npc = transform.parent.gameObject.GetComponent<NPC>();
+            // visualCue = GetComponentInChildren<VisualCue>();
+            // npc = transform.parent.gameObject.GetComponent<NPC>();
 
             InitializeRules();
         }
@@ -131,27 +114,17 @@ namespace ATBMI
             triggerRules = triggerRules.OrderBy(rule => rule.RulePriority).ToList();
         }
 
-        private void OnEnable()
-        {
-            DialogEventHandler.EnterDialogue += EnterDialogue;
-        }
-
-        private void OnDisable()
-        {
-            DialogEventHandler.EnterDialogue -= EnterDialogue;
-        }
-
         private void Start()
         {
-            if (visualCue != null)
-            {
-                isVisualCueExists = true;
-                visualCue.DeactivateVisualCue();
-            }
-            else
-            {
-                isVisualCueExists = false;
-            }
+            // if (visualCue != null)
+            // {
+            //     isVisualCueExists = true;
+            //     visualCue.DeactivateVisualCue();
+            // }
+            // else
+            // {
+            //     isVisualCueExists = false;
+            // }
 
             isPlayerInRange = false;
             isDialogueAboutToStart = false;
@@ -160,7 +133,7 @@ namespace ATBMI
         }
 
         // if dialogue trigger after player entering object/npc area
-        private void OnTriggerEnter2D(Collider2D other)
+        public override void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag("Player"))
             {
@@ -178,19 +151,12 @@ namespace ATBMI
         }
 
         // if dialogue trigger after player exiting object/npc area
-        private void OnTriggerExit2D(Collider2D other)
+        public override void OnTriggerExit2D(Collider2D other)
         {
             if (other.CompareTag("Player"))
             {
                 isPlayerInRange = false;
             }
-        }
-
-        public void EnterDialogue(TextAsset InkJson)
-        {
-            DialogueManager.Instance.EnterDialogueMode(InkJson);
-
-            isDialogueAboutToStart = false;
         }
 
         public override void EnterDialogue()
@@ -209,9 +175,14 @@ namespace ATBMI
                 if (!isDialogueAboutToStart)
                 {
                     isDialogueAboutToStart = true;
-                    PlayerEventHandler.MoveToPlayerEvent(onTalk, playerEntryPoint.position.x, npc.isFacingRight);
+                    PlayerEventHandler.MoveToPlayerEvent(this, onTalk, playerEntryPoint.position.x, npc.isFacingRight);
                 }
             }
+        }
+
+        public override void EnterDialogueWithInkJson(TextAsset InkJson)
+        {
+            base.EnterDialogueWithInkJson(InkJson);
         }
     }
 }
