@@ -1,12 +1,17 @@
-using System;
-using ATBMI.Enum;
 using UnityEngine;
+using Sirenix.OdinInspector;
+using ATBMI.Enum;
 
 namespace ATBMI.Interaction
 {
     public class Interaction : MonoBehaviour, IInteractable
     {
         #region Fields & Properties
+
+        [Header("General")]
+        [SerializeField] private string objectName;
+        [SerializeField] [EnumToggleButtons] protected InteractStatus interactStatus;
+        protected bool statusSucces;
 
         #endregion
 
@@ -35,7 +40,15 @@ namespace ATBMI.Interaction
         protected virtual void InitOnStart() { }
         protected virtual void HandleUpdate() { }
 
-        public virtual void Interact(InteractManager manager, InteractStatus status) { }
+        public virtual void Interact(InteractManager manager, int itemId = 0)
+        {
+            statusSucces = false;
+        }
+
+        public virtual bool Status() 
+        { 
+            return statusSucces; 
+        }
 
         #endregion
     }

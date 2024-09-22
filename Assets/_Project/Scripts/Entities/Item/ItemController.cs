@@ -9,20 +9,11 @@ namespace ATBMI.Item
         #region Fields & Properties
 
         [Header("Data")]
-        [SerializeField] private string itemName;
         [SerializeField] private int itemId;
+        [SerializeField] private string itemName;
         
         // Reference
-        private SpriteRenderer _itemSr;
-
-        #endregion
-
-        #region MonoBehaviour Callbacks
-
-        private void Awake()
-        {
-            _itemSr = GetComponentInChildren<SpriteRenderer>();
-        }
+        [SerializeField] private SpriteRenderer itemSr;
 
         #endregion
 
@@ -32,13 +23,13 @@ namespace ATBMI.Item
         public (string name, int id, Sprite sprite) GetItemData()
         {
             (string name, int id, Sprite sprite) tempData;
-            if (itemName != null || itemId != 0 || _itemSr.sprite != null)
+            if (itemName != null || itemId != 0 || itemSr.sprite != null)
             {
-                tempData = (itemName, itemId, _itemSr.sprite);
+                tempData = (itemName, itemId, itemSr.sprite);
                 return tempData;
             }
 
-            tempData = ("null name", 0, null);
+            tempData = (itemName, itemId, itemSr.sprite);
             return tempData;
         }
 

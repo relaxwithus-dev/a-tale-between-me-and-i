@@ -9,6 +9,13 @@ namespace ATBMI.Enum
         Close
     }
 
+    public enum InteractFlagStatus
+    {
+        Interaction,
+        Item,
+        Close
+    }
+
     // Item
     public enum ItemAccess
     {

@@ -1,6 +1,7 @@
 using UnityEngine;
 using ATBMI.Enum;
 using Sirenix.OdinInspector;
+using UnityEngine.UI;
 
 namespace ATBMI.Interaction
 {
@@ -8,29 +9,38 @@ namespace ATBMI.Interaction
     {
         #region Fields & Properties
 
-        [Header("Flags")]
         [SerializeField] private int flagId;
         [SerializeField] private string flagName;
-        [SerializeField] private InteractStatus flagStatus;
-        [SerializeField] [ShowIf("flagStatus", InteractStatus.Give_Item)] private int itemId;
+        [SerializeField] private InteractFlagStatus flagStatus;
+        [SerializeField] [ShowIf("flagStatus", InteractFlagStatus.Item)] private int itemId;
+
+        [Space]
+        [SerializeField] private Image flagIcon;
+        [SerializeField] private Button flagButton;
+
+        // Getter
+        public int FlagId => flagId;
+        public string FlagName => flagName;
+        public Image FlagIcon => flagIcon;
+        public Button FlagButton => flagButton;
 
         #endregion
 
         #region Methods
 
-        public void SetFlags(int id, string name, InteractStatus status, int item = 0)
+        public void SetFlags(int flag, string name, InteractFlagStatus status, int item = 0)
         {
-            flagId = id;
+            flagId = flag;
+            itemId = item;
             flagName = name;
             flagStatus = status;
-            itemId = item;
         }
 
-        public (int id, string name, InteractStatus status, int itemId) GetFlags()
+        public (InteractFlagStatus status, int itemId) GetItemFlags()
         {
-            return (flagId, flagName, flagStatus, itemId);
+            return (flagStatus, itemId);
         }
-
+        
         #endregion
     }
 }

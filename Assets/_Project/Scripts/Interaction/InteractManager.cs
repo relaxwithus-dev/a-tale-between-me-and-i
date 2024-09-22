@@ -17,8 +17,7 @@ namespace ATBMI.Interaction
         [SerializeField] private GameObject interactSign;
 
         private readonly float signYMultiplier = 1f;
-
-        public int ItemId { get; private set; }
+        
         public bool IsInteracted
         {
             get => isInteracted;
@@ -83,14 +82,21 @@ namespace ATBMI.Interaction
                         // Interact
                         if (GameInputHandler.Instance.IsTapInteract)
                         {
-                            var target = nearest.GetComponent<IInteractable>();
+                            var target = nearest.GetComponent<Interaction>();
                             if (target != null)
                             {
                                 IsInteracted = true;
-                                interactSign.SetActive(false);
-                                interactHandler.OpenInteractOption(target);
-                                
-                                Debug.Log($"interact {nearest.name}");
+                                DeactivateSign();
+
+                                if (target as ItemInteraction)
+                                {
+                                    isInteracted = false;
+                                    target.Interact(this);
+                                }
+                                else
+                                {
+                                    interactHandler.OpenInteractOption(target);
+                                }
                             }
                         }
                     }
@@ -123,6 +129,7 @@ namespace ATBMI.Interaction
 
             var targetPos = target.position;
             interactSign.transform.position = new Vector3(targetPos.x, targetPos.y + signYMultiplier, targetPos.z);
+            interactSign.transform.parent = target;
             interactSign.SetActive(true);
         }
 
@@ -131,6 +138,7 @@ namespace ATBMI.Interaction
             if (!interactSign.activeSelf) return;
 
             interactSign.transform.position = Vector3.zero;
+            interactSign.transform.parent = transform;
             interactSign.SetActive(false);
         }
 

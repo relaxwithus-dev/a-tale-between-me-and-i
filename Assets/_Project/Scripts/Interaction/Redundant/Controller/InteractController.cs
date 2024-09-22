@@ -87,7 +87,7 @@ namespace ATBMI.Interaction
         private void InitializeContent()
         {
             var optionsCount = interactOptionsUI.transform.childCount - 2;
-            var inventoryCount = _inventoryManager.CollectibleItem.Count;
+            var inventoryCount = _inventoryManager.Item.Count;
 
             if (inventoryCount > optionsCount)
             {
@@ -130,7 +130,7 @@ namespace ATBMI.Interaction
         {
             if (index < 2) return;
 
-            var collectibleItem = _inventoryManager.CollectibleItem[index - 2];
+            var collectibleItem = _inventoryManager.Item[index - 2];
             var butonImage = button.transform.GetChild(0).GetComponent<Image>();
             butonImage.sprite = collectibleItem.GetComponent<SpriteRenderer>().sprite;
         }
@@ -202,7 +202,7 @@ namespace ATBMI.Interaction
                 
                 if (collectible.TargetId == TargetContainer[0].InteractId)
                 {
-                    _inventoryManager.CollectibleItem.Remove(collectible.gameObject);
+                    // _inventoryManager.Item.Remove(collectible.gameObject);
                     _interactContainer.RemoveAt(selectIndex);
                     Destroy(container.Button.transform.parent.gameObject);
                 }

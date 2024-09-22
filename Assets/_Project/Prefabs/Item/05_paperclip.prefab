@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 816554157568805731}
   - component: {fileID: 7854797886736048110}
-  - component: {fileID: 1279315208967311855}
+  - component: {fileID: 5108054736007926224}
+  - component: {fileID: -4918434118097748256}
   m_Layer: 0
   m_Name: 05_paperclip
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 2520688117959394879}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.017381, y: 3.2773972, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -85,7 +86,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1279315208967311855
+--- !u!114 &5108054736007926224
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,11 +95,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 2520688117959394879}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37e47e5e839617c47b8b8d4d12e17c3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 79bbf880959ecef48a251cd9cbcbd49d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactId: 205
-  dialogueAsset: {fileID: 0}
-  collectibleName: Clip
-  collectiblesState: 1
-  targetId: 102
+  itemId: 105
+  itemName: Clip
+  itemSr: {fileID: 7854797886736048110}
+--- !u!114 &-4918434118097748256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2520688117959394879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 298dea4fe38aa1f4087fb4ec85e7fbe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectName: Clip
+  interactStatus: 0
+  itemId: 105

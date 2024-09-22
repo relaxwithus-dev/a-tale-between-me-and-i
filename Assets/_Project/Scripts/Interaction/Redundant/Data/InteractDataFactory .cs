@@ -37,7 +37,7 @@ namespace ATBMI.Interaction
                     data.Description = "Keluar";
                     break;
                 default:
-                    var item = _inventoryManager.CollectibleItem[index - 2];
+                    var item = _inventoryManager.Item[index - 2];
                     if (item.TryGetComponent<CollectibleInteract>(out var collectible))
                     {
                         data.Interactable = collectible;
@@ -58,7 +58,7 @@ namespace ATBMI.Interaction
             }
             else
             {
-                var inventoryItem = _inventoryManager.CollectibleItem[index - 2].GetComponent<CollectibleInteract>();
+                var inventoryItem = _inventoryManager.Item[index - 2].GetComponent<CollectibleInteract>();
                 return inventoryItem.InteractId;
             }
         }

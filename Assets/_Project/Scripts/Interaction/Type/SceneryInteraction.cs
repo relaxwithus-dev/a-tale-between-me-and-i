@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using ATBMI.Enum;
 using UnityEngine;
 
@@ -9,16 +7,26 @@ namespace ATBMI.Interaction
     {
         #region Fields & Properties
 
-        [Header("Stats")]
-        [SerializeField] private string itemName;
+        [Header("Scenery")]
+        [SerializeField] private TextAsset dialogueAsset;
 
         #endregion
 
         #region Methods
 
-        public override void Interact(InteractManager manager, InteractStatus status)
+        public override void Interact(InteractManager manager, int itemId)
         {
-            base.Interact(manager, status);
+            base.Interact(manager, itemId);
+            statusSucces = interactStatus == InteractStatus.Talks;
+            if (statusSucces)
+            {
+                statusSucces = true;
+                Debug.Log("hi bro, jangan lupa #timnasday");
+            }
+            else
+            {
+                Debug.Log("tidak terjadi apa-apa");
+            }
         }
 
         #endregion
