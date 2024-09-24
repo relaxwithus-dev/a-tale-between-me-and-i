@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6751549891115336112}
   - component: {fileID: 1804751178264374312}
-  - component: {fileID: 3963666291860754028}
+  - component: {fileID: -3437929883429250994}
+  - component: {fileID: 2538325428176057997}
   m_Layer: 0
   m_Name: 04_font
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 7919421054120924167}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.7690945, y: 0.7079265, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -85,7 +86,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3963666291860754028
+--- !u!114 &-3437929883429250994
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,11 +95,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 7919421054120924167}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37e47e5e839617c47b8b8d4d12e17c3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 79bbf880959ecef48a251cd9cbcbd49d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactId: 204
-  dialogueAsset: {fileID: 0}
-  collectibleName: Font
-  collectiblesState: 1
-  targetId: 101
+  itemId: 104
+  itemName: Font
+  itemSr: {fileID: 1804751178264374312}
+--- !u!114 &2538325428176057997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7919421054120924167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 298dea4fe38aa1f4087fb4ec85e7fbe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectName: Font
+  interactStatus: 0
+  itemId: 104

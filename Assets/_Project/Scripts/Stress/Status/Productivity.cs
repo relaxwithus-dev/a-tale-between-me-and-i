@@ -1,8 +1,6 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 using ATBMI.Data;
-using ATBMI.Entities.Player;
+using ATBMI.Player;
 
 namespace ATBMI.Stress
 {
@@ -20,7 +18,6 @@ namespace ATBMI.Stress
         {
             base.PerformStatus();
             Debug.Log("perform productivity");
-
             if (playerController.CurrentSpeed != _finalSpeed)
             {
                 var debuffPercentage = CalculatePercentage(playerController.CurrentSpeed, speedPercentage);
@@ -33,10 +30,8 @@ namespace ATBMI.Stress
         {
             base.AvoidStatus();
             Debug.Log("avoid productivity");
-            var currentData = playerController.StateSwitcher.CurrentState.CurrentData;
-
             _finalSpeed = 0f;
-            playerController.CurrentSpeed = currentData.MoveSpeed;
+            playerController.CurrentSpeed = playerController.CurrentData.MoveSpeed;
         }
     }
 }

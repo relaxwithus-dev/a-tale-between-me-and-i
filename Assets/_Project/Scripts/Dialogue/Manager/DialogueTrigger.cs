@@ -1,12 +1,11 @@
-/// will delete later, still in use for reference
-/// will delete later, still in use for reference
-/// will delete later, still in use for reference
-/// will delete later, still in use for reference
 
-using ATBMI.Entities.Player;
-using ATBMI.Gameplay.Event;
+
 using UnityEngine;
+using ATBMI.Player;
+using ATBMI.Gameplay.Event;
+using ATBMI.Gameplay.Handler;
 
+/// will delete later, still in use for reference
 public class DialogueTrigger : MonoBehaviour
 {
     [Header("Params")]
@@ -21,14 +20,12 @@ public class DialogueTrigger : MonoBehaviour
     private bool isPlayerInRange;
 
     private NPC npc;
-    private PlayerInputHandler playerInputHandler;
-    private PlayerController playerController;
+    private PlayerDialogHandler _playerDialogHandler;
 
     private void Awake()
     {
         // TODO: change the method of getting this script
-        playerInputHandler = FindObjectOfType<PlayerInputHandler>();
-        playerController = FindObjectOfType<PlayerController>();
+        _playerDialogHandler = FindObjectOfType<PlayerDialogHandler>();
 
         visualCue = GetComponentInChildren<VisualCue>();
         npc = transform.parent.gameObject.GetComponent<NPC>();
@@ -49,12 +46,12 @@ public class DialogueTrigger : MonoBehaviour
 
     private void OnEnable()
     {
-        DialogEventHandler.EnterDialogue += EnterDialogue;
+        DialogEvents.EnterDialogue += EnterDialogue;
     }
 
     private void OnDisable()
     {
-        DialogEventHandler.EnterDialogue -= EnterDialogue;
+        DialogEvents.EnterDialogue -= EnterDialogue;
     }
 
     private void Update()
@@ -66,11 +63,10 @@ public class DialogueTrigger : MonoBehaviour
                 visualCue.ActivateVisualCue();
             }
 
-            if (playerInputHandler.IsPressInteract() && !isDialogueAboutToStart)
+            if (GameInputHandler.Instance.IsTapInteract && !isDialogueAboutToStart)
             {
                 // playerController.MoveToDialogueEntryPoint(inkJSON, playerEntryPoint.position.x, npc.isFacingRight);
                 isDialogueAboutToStart = true;
-
                 Debug.Log(inkJSON.text);
 
                 // DialogueManager.Instance.EnterDialogueMode(inkJSON, GameObject.FindGameObjectWithTag("Player").transform, transform.parent);

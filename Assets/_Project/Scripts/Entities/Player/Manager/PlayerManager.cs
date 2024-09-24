@@ -1,21 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace ATBMI.Entities.Player
+namespace ATBMI.Player
 {
+    /// <summary>
+    /// PlayerManager buat mengelola semua
+    /// behavior dari karakter player.
+    /// </summary>
+    [RequireComponent(typeof(CapsuleCollider2D))]
     public class PlayerManager : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
-        {
-        
-        }
+        #region Fields & Properties
 
-        // Update is called once per frame
-        void Update()
-        {
-        
-        }
+        #endregion
+
+        #region MonoBehaviour Callbacks
+
+        #endregion
+
+        #region Methods
+
+        #endregion
     }
 }

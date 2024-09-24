@@ -1,17 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
-using ATBMI;
-using ATBMI.Entities.Player;
-using ATBMI.Gameplay.Event;
-using Ink.Runtime;
-using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using TMPro;
+using Ink.Runtime;
+using ATBMI.Gameplay.Event;
+using ATBMI.Gameplay.Handler;
 
 public class DialogueManager : MonoBehaviour
 {
     [Header("Params")]
-    [SerializeField] private PlayerInputHandler playerInputHandler;
     [SerializeField] private float typingSpeed;
 
     [Header("Dialogue UI")]
@@ -86,8 +84,7 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        if (canContinueToNextLine &&
-            playerInputHandler.IsPressSelect())
+        if (canContinueToNextLine && GameInputHandler.Instance.IsTapInteract)
         {
             if (currentStory.currentChoices.Count == 0 && !isAnyChoices)
             {
@@ -150,7 +147,7 @@ public class DialogueManager : MonoBehaviour
         continuePin.SetActive(false);
         HideChoices();
 
-        DialogEventHandler.AdjustDialogueUISizeEvent(line.Length);
+        DialogEvents.AdjustDialogueUISizeEvent(line.Length);
 
         // set the dialogue text to full line, but set the visible character to 0
         dialogueText.text = line;
@@ -163,7 +160,7 @@ public class DialogueManager : MonoBehaviour
         foreach (char letter in line.ToCharArray())
         {
             // if player pressed submit button the line display immediately
-            if (playerInputHandler.IsPressSelect())
+            if (GameInputHandler.Instance.IsTapInteract)
             {
                 Debug.LogWarning("submit button pressed,  the line display immediately!");
 
@@ -229,8 +226,8 @@ public class DialogueManager : MonoBehaviour
         dialoguePin.SetActive(false);
         dialogueChoicesContainer.transform.parent.gameObject.SetActive(true);
 
-        DialogEventHandler.UpdateDialogueChoicesUIPosEvent("Player");
-        DialogEventHandler.StopDialogueAnimEvent();
+        DialogEvents.UpdateDialogueChoicesUIPosEvent("Player");
+        DialogEvents.StopDialogueAnimEvent();
 
         int index = 0;
         int maxLength = 0;
@@ -249,7 +246,7 @@ public class DialogueManager : MonoBehaviour
             index++;
         }
 
-        DialogEventHandler.AdjustDialogueChoicesUISizeEvent(maxLength);
+        DialogEvents.AdjustDialogueChoicesUISizeEvent(maxLength);
 
         for (int i = index; i < choices.Length; i++)
         {
@@ -289,18 +286,18 @@ public class DialogueManager : MonoBehaviour
                     if (dialogueName.text != tagValue)
                     {
                         // Stop animation between speaker
-                        DialogEventHandler.StopDialogueAnimEvent();
+                        DialogEvents.StopDialogueAnimEvent();
                     }
 
                     // TODO: change to other method
                     dialogueName.text = tagValue == "Player" ? "Atma" : tagValue;
 
                     // update dialogue bubble position
-                    DialogEventHandler.UpdateDialogueUIPosEvent(tagValue);
+                    DialogEvents.UpdateDialogueUIPosEvent(tagValue);
                     break;
                 case EXPRESSION_TAG:
                     // update animation
-                    DialogEventHandler.PlayDialogueAnimEvent(tagValue);
+                    DialogEvents.PlayDialogueAnimEvent(tagValue);
                     break;
                 default:
                     Debug.LogWarning("Tag came in but is not currently being handled: " + tag);
@@ -320,7 +317,7 @@ public class DialogueManager : MonoBehaviour
         dialogueName.text = "";
         dialogueText.text = "";
 
-        DialogEventHandler.StopDialogueAnimEvent();
+        DialogEvents.StopDialogueAnimEvent();
     }
 
     public void MakeChoice(int choiceIndex)
