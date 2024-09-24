@@ -1,51 +1,48 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using ATBMI.Data;
 using UnityEngine;
+using ATBMI.Data;
+using ATBMI.Enum;
+using ATBMI.Gameplay.Handler;
 
-namespace ATBMI.Entities.Player
+namespace ATBMI.Player
 {
+    /// <summary>
+    /// PlayerController buat handle controlling
+    /// karakter player, termasuk navigasi, movement,
+    /// dan lainnya.
+    /// </summary>
     public class PlayerController : MonoBehaviour
     {
-        #region Const Variable
-        private const string IDLE_STATE = "Idle";
-        private const string WALK_STATE = "Walk";
-        private const string RUN_STATE = "Run";
-        private const string JUMP_STATE = "Jump";
+        #region Fields & Properties
 
-        private const string IS_MOVE = "isMove";
-        #endregion
+        /// <Note>
+        /// Latest move value.
+        /// Walk: speed (2.62), decel (0.185)
+        /// Run: speed (3.5), decel (0.37)
+        /// </Note>
 
-        #region Fields & Property
-
-        [Header("Data")]
-        [SerializeField] private string playerName;
-        [SerializeField] private PlayerData[] playerData;
-        [SerializeField] private Vector2 movementDirection;
+        [Header("Stats")]
+        [SerializeField] private PlayerState playerState = PlayerState.Idle;
+        [SerializeField] private PlayerData[] playerDatas;
+        [SerializeField] private Vector2 moveDirection;
         [SerializeField] private bool isRight;
+        [SerializeField] private bool canMove = true;
+
+        private Vector2 _latestDirection;
+        private float _currentDecelTime;
 
         public bool IsRight => isRight;
-        [field: SerializeField] public float CurrentSpeed { get; set; }
-        public Vector2 MovementDirection
-        {
-            get => movementDirection;
-            set => movementDirection = value;
-        }
-        public bool CanMove { get; private set; }
-        public PlayerData[] PlayerData => playerData;
+        public bool CanMove => canMove;
+        public Vector2 MoveDirection => moveDirection;
+        public PlayerState PlayerState => playerState;
 
-        // !-- State
-        public PlayerStateSwitcher StateSwitcher { get; private set; }
-
-        public IdleState IdleState { get; private set; }
-        public MoveState WalkState { get; private set; }
-        public MoveState RunState { get; private set; }
-        public JumpState JumpState { get; private set; }
+        public PlayerData CurrentData { get; private set; }
+        public float CurrentSpeed { get; set; }
 
         // Reference
-        public PlayerInputHandler InputHandler { get; private set; }
-        public Animator PlayerAnimator { get; private set; }
+        private Rigidbody2D _playerRb;
+        private SpriteRenderer _playerSr;
 
         #endregion
 
@@ -53,55 +50,138 @@ namespace ATBMI.Entities.Player
 
         private void Awake()
         {
-            // Component
-            PlayerAnimator = GetComponentInChildren<Animator>();
-            InputHandler = GetComponentInChildren<PlayerInputHandler>();
-
-            // State
-            StateSwitcher = new PlayerStateSwitcher();
-            IdleState = new IdleState(this, StateSwitcher, IDLE_STATE);
-            WalkState = new MoveState(this, playerData[0], StateSwitcher, WALK_STATE);
-            RunState = new MoveState(this, playerData[1], StateSwitcher, RUN_STATE);
+            _playerRb = GetComponent<Rigidbody2D>();
+            _playerSr = GetComponentInChildren<SpriteRenderer>();
         }
 
         private void Start()
         {
-            InitializePlayer();
-            CurrentSpeed = playerData[0].MoveSpeed;
-            StateSwitcher.Initialize(IdleState);
+            InitPlayer();
         }
 
         private void FixedUpdate()
         {
             if (!CanMove) return;
-            StateSwitcher.CurrentState.DoFixedState();
+            PlayerMove();
         }
 
         private void Update()
-        {
-            StateSwitcher.CurrentState.DoState();
+        {            
+            HandleState();
+            PlayerDirection();
         }
 
         #endregion
 
         #region Methods
         
-        private void InitializePlayer()
+        // !- Initialize
+        private void InitPlayer()
         {
-            gameObject.name = playerName;
-            CanMove = true;
-        }
-
-        public void StartMovement()
-        {
-            CanMove = true;
+            canMove = true;
+            CurrentData = playerDatas[0];
+            CurrentSpeed = CurrentData.MoveSpeed;
+            gameObject.name = CurrentData.PlayerName;
         }
         
+        // !- Core
+        private void PlayerMove()
+        {
+            var direction = GameInputHandler.Instance.MoveDirection;
+            moveDirection = new(direction.x, moveDirection.y);
+            moveDirection.Normalize();
+
+            if (moveDirection.sqrMagnitude > 0f)
+            {
+                _playerRb.velocity = moveDirection * CurrentData.MoveSpeed;
+                _latestDirection = moveDirection;
+                _currentDecelTime = 0f;
+            }
+            else
+            {
+                if (_currentDecelTime == 0)
+                    StartCoroutine(DeceleratePlayer());
+            }
+        }
+
+        private IEnumerator DeceleratePlayer()
+        {
+            var data = CurrentData;
+
+            _currentDecelTime = data.Deceleration;
+            while (_currentDecelTime > 0f)
+            {
+                var deccelSpeed = Mathf.Lerp(data.MoveSpeed, 0f, 1f - (_currentDecelTime / data.Deceleration));
+                _playerRb.velocity = _latestDirection * deccelSpeed;
+                _currentDecelTime -= Time.deltaTime;
+                yield return null;
+            }
+
+            _playerRb.velocity = Vector2.zero; 
+            _latestDirection = Vector2.zero;
+        }
+
+        private void PlayerDirection()
+        {
+            var direction = moveDirection;
+            if (direction.x > 0 && !isRight || direction.x < 0 && isRight)
+                PlayerFlip();
+        }
+
+        // TODO: Uncomment flip dan drop rotate misal sprite aman
+        public void PlayerFlip()
+        {
+            isRight = !isRight;
+            // _playerSr.flipX = isRight;
+            _playerSr.transform.Rotate(0f, 180f, 0f);
+        }
+
+        // !- Helpers
+        public void StartMovement()
+        {
+            canMove = true;
+        }
+
         public void StopMovement()
         {
-            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            StateSwitcher.SwitchState(IdleState);
-            CanMove = false;
+            canMove = false;
+            moveDirection = Vector2.zero;
+            _latestDirection = Vector2.zero;
+            _playerRb.velocity = Vector2.zero;
+        }
+
+        #endregion
+
+        #region State
+
+        private void HandleState()
+        {
+            var state = GetState();
+
+            if (playerState == state) return;
+            playerState = state;
+            CurrentData = GetCurrentData(state);
+            CurrentSpeed = CurrentData.MoveSpeed;
+        }
+
+        private PlayerState GetState()
+        {
+            var direction = MoveDirection;
+            var isRunning = GameInputHandler.Instance.IsPressRun;
+
+            if (direction == Vector2.zero) return PlayerState.Idle;
+            return isRunning ? PlayerState.Run : PlayerState.Walk;
+        }
+        
+        private PlayerData GetCurrentData(PlayerState playerState)
+        {
+            return playerState switch
+            {
+                PlayerState.Idle => CurrentData,
+                PlayerState.Walk => playerDatas[0],
+                PlayerState.Run => playerDatas[1],
+                _ => throw new ArgumentOutOfRangeException(nameof(playerState), playerState, null)
+            };
         }
 
         #endregion

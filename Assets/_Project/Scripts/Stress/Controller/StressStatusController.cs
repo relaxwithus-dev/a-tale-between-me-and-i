@@ -1,8 +1,7 @@
-using System.Collections.Generic;
 using UnityEngine;
 using ATBMI.Data;
-using ATBMI.Entities.Player;
-using ATMBI.Gameplay.EventHandler;
+using ATBMI.Player;
+using ATBMI.Gameplay.Event;
 
 namespace ATBMI.Stress
 {
@@ -39,14 +38,14 @@ namespace ATBMI.Stress
         
         private void OnEnable()
         {
-            PlayerEventHandler.OnStressActive += HandleActiveStatus;
-            PlayerEventHandler.OnStressInactive += HandleInactiveStatus;
+            PlayerEvents.OnStressActive += HandleActiveStatus;
+            PlayerEvents.OnStressInactive += HandleInactiveStatus;
         }
 
         private void OnDisable()
         {
-            PlayerEventHandler.OnStressActive -= HandleActiveStatus;
-            PlayerEventHandler.OnStressInactive -= HandleInactiveStatus;
+            PlayerEvents.OnStressActive -= HandleActiveStatus;
+            PlayerEvents.OnStressInactive -= HandleInactiveStatus;
         }
 
         #endregion

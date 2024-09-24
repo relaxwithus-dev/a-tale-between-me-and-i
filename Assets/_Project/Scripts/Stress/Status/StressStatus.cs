@@ -1,8 +1,6 @@
-using System;
-using System.Collections.Generic;
-using ATBMI.Data;
-using ATBMI.Entities.Player;
 using UnityEngine;
+using ATBMI.Data;
+using ATBMI.Player;
 
 namespace ATBMI.Stress
 {

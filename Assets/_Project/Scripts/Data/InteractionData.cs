@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using ATBMI.Enum;
@@ -11,12 +8,12 @@ namespace ATBMI.Data
     public class InteractionData : ScriptableObject
     {
         [Header("Data")]
-        [SerializeField] private CollectibleState interactionAction;
+        [SerializeField] private ItemAccess interactionAction;
         [SerializeField] private TextAsset dialogueAsset;
         [SerializeField] private bool hasItem;
         [SerializeField] private GameObject itemObject;
 
-        public CollectibleState InteractionAction => interactionAction;
+        public ItemAccess InteractionAction => interactionAction;
         public TextAsset DialogueAsset => dialogueAsset;
         public bool HasItem => hasItem;
         public GameObject ItemObject => itemObject;

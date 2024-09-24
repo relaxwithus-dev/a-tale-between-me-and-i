@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6745930559375761162}
   - component: {fileID: 3783885332658757084}
-  - component: {fileID: 3188125461930084021}
+  - component: {fileID: -2077586761162272739}
+  - component: {fileID: -3588748538112611966}
   m_Layer: 0
   m_Name: 01_folder
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 9963792207318842}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.7326493, y: 1.9926617, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -85,7 +86,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3188125461930084021
+--- !u!114 &-2077586761162272739
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,11 +95,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 9963792207318842}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37e47e5e839617c47b8b8d4d12e17c3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 79bbf880959ecef48a251cd9cbcbd49d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactId: 201
-  dialogueAsset: {fileID: 0}
-  collectibleName: Folder
-  collectiblesState: 1
-  targetId: 101
+  itemId: 101
+  itemName: Folder
+  itemSr: {fileID: 3783885332658757084}
+--- !u!114 &-3588748538112611966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9963792207318842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 298dea4fe38aa1f4087fb4ec85e7fbe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectName: Folder
+  interactStatus: 0
+  itemId: 101
