@@ -1,4 +1,4 @@
-namespace ATBMI
+namespace ATBMI.Dialogue
 {
     public class OnTalkedTo_GettingItemRunningRule : IDialogueRule<RE_Security_01>
     {

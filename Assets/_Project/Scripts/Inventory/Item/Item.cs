@@ -1,4 +1,4 @@
-using ATBMI.Entities.Player;
+using ATBMI.Gameplay.Handler;
 using UnityEngine;
 
 namespace ATBMI.Inventory
@@ -8,12 +8,10 @@ namespace ATBMI.Inventory
         public int itemId; // This ID should correspond to the inventory item ID
 
         private bool isPlayerInRange;
-        private PlayerInputHandler playerInputHandler;
 
         private void Awake()
         {
             // TODO: Change the method
-            playerInputHandler = FindObjectOfType<PlayerInputHandler>();
 
             isPlayerInRange = false;
         }
@@ -21,7 +19,7 @@ namespace ATBMI.Inventory
         private void Update()
         {
             // Check if player presses interact button to pick up the item
-            if (isPlayerInRange && playerInputHandler.IsPressInteract())
+            if (isPlayerInRange && GameInputHandler.Instance.IsTapInteract)
             {
                 PickupItem();
             }
@@ -51,7 +49,7 @@ namespace ATBMI.Inventory
 
         private void PickupItem()
         {
-            NewInventoryManager.Instance.AddItemToInventory(this, itemId);
+            InventoryManager.Instance.AddItemToInventory(this, itemId);
         }
     }
 }

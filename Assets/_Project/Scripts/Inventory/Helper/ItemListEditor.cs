@@ -1,9 +1,10 @@
 using UnityEngine;
 using UnityEditor;
+using ATBMI.Data;
 
 namespace ATBMI.Inventory
 {
-    [CustomEditor(typeof(SO_ItemList))]
+    [CustomEditor(typeof(ItemList))]
     public class ItemListEditor : Editor
     {
         public override void OnInspectorGUI()
@@ -12,7 +13,7 @@ namespace ATBMI.Inventory
             DrawDefaultInspector();
 
             // Get a reference to the target object (ItemList ScriptableObject)
-            SO_ItemList itemList = (SO_ItemList)target;
+            ItemList itemList = (ItemList)target;
 
             // Add a button that will trigger the SortItemList() method
             if (GUILayout.Button("Sort Item List By Item ID"))

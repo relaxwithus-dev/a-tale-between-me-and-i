@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace ATBMI
+namespace ATBMI.Dialogue
 {
     public abstract class RuleEntry : MonoBehaviour
     {

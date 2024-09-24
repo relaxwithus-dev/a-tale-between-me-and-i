@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using ATBMI;
+using ATBMI.Dialogue;
 using ATBMI.Inventory;
 
 namespace ATBMI.Gameplay.Event

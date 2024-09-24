@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using ATBMI.Dialogue;
 using ATBMI.Gameplay.Event;
 
 namespace ATBMI.Player
@@ -38,16 +39,16 @@ namespace ATBMI.Player
 
         #region Methods
         
-        public void MoveToDialogueEntryPoint(TextAsset INKJson, float newPositionX, bool isNpcFacingRight)
+        public void MoveToDialogueEntryPoint(RuleEntry rule, TextAsset INKJson, float newPositionX, bool isNpcFacingRight)
         {
             _playerInkJson = INKJson;
             FlipPlayerWhenDialogue(newPositionX, isNpcFacingRight);
 
             // TODO: change to dotween?
-            StartCoroutine(MoveToPointRoutine(newPositionX, isNpcFacingRight));
+            StartCoroutine(MoveToPointRoutine(rule, newPositionX, isNpcFacingRight));
         }
         
-        private IEnumerator MoveToPointRoutine(float newPositionX, bool isNpcFacingRight)
+        private IEnumerator MoveToPointRoutine(RuleEntry rule, float newPositionX, bool isNpcFacingRight)
         {
             var initialPosition = transform.position;
             var targetPosition = new Vector3(newPositionX, initialPosition.y, initialPosition.z);
@@ -72,7 +73,7 @@ namespace ATBMI.Player
                 yield return new WaitForSeconds(0.2f);
             }
 
-            DialogEvents.EnterDialogueEvent(_playerInkJson);
+            rule.EnterDialogueWithInkJson(_playerInkJson);
             _playerInkJson = null;
         }
 

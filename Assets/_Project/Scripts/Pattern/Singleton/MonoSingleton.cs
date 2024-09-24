@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ATMBI.Singleton
+namespace ATBMI.Singleton
 {
     //Singleton Save Object Reference When Move Scene
     public class MonoSingleton<T> : MonoBehaviour where T : Component

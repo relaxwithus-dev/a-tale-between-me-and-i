@@ -1,11 +1,8 @@
 using System;
-using System.Data;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using ATBMI.Data;
 using ATBMI.Enum;
-using ATMBI.Gameplay.Event;
 using ATBMI.Gameplay.Handler;
 
 namespace ATBMI.Player

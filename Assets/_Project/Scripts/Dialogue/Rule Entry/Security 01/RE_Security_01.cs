@@ -1,12 +1,9 @@
-using System.Collections.Generic;
 using System.Linq;
-using ATBMI;
-using ATBMI.Entities.Player;
-using ATBMI.Gameplay.Event;
-using ATBMI.Interaction;
-using ATMBI.Gameplay.Event;
+using System.Collections.Generic;
 using UnityEngine;
-namespace ATBMI
+using ATBMI.Gameplay.Event;
+
+namespace ATBMI.Dialogue
 {
     public class RE_Security_01 : RuleEntry
     {
@@ -175,7 +172,7 @@ namespace ATBMI
                 if (!isDialogueAboutToStart)
                 {
                     isDialogueAboutToStart = true;
-                    PlayerEventHandler.MoveToPlayerEvent(this, onTalk, playerEntryPoint.position.x, npc.isFacingRight);
+                    PlayerEvents.MoveToPlayerEvent(this, onTalk, playerEntryPoint.position.x, npc.isFacingRight);
                 }
             }
         }

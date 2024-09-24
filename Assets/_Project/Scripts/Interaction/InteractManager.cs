@@ -1,5 +1,6 @@
 using UnityEngine;
 using Sirenix.OdinInspector;
+using ATBMI.Utilities;
 using ATBMI.Gameplay.Handler;
 
 namespace ATBMI.Interaction
@@ -34,10 +35,6 @@ namespace ATBMI.Interaction
         [Header("Reference")]
         [SerializeField] private InteractHandler interactHandler;
 
-        // Cached Tag
-        private const string NPC_TAG = "NPC";
-        private const string ITEM_TAG = "Item";
-
         #endregion
 
         #region MonoBehaviour Callbacks
@@ -70,7 +67,7 @@ namespace ATBMI.Interaction
             for (var i = 0; i < numOfHits; i++)
             {
                 var hits = hitsNonAlloc[i];
-                if (hits.CompareTag(NPC_TAG) || hits.CompareTag(ITEM_TAG))
+                if (hits.CompareTag(GameConstant.NPC_TAG) || hits.CompareTag(GameConstant.NPC_TAG))
                 {
                     var nearest = FindNearestObjectAt(transform.position, numOfHits, hitsNonAlloc);
                     if (nearest != null)

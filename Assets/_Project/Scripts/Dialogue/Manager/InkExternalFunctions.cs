@@ -1,7 +1,7 @@
 using UnityEngine;
 using Ink.Runtime;
 
-namespace ATBMI
+namespace ATBMI.Dialogue
 {
     public class InkExternalFunctions
     {

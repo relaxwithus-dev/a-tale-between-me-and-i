@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ATBMI
+namespace ATBMI.Dialogue
 {
     public class OnTalk_GettingItemRule : IDialogueRule<RE_Security_01>
     {

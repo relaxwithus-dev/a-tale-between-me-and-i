@@ -1,6 +1,6 @@
-using ATMBI.Gameplay.Event;
+using ATBMI.Gameplay.Event;
 
-namespace ATBMI
+namespace ATBMI.Dialogue
 {
     public class OnTalk_ExplosionWalkingRule : IDialogueRule<RE_Security_01>
     {
@@ -18,7 +18,7 @@ namespace ATBMI
             if (context.VisitedCount == 1 && !context.isOnce05)
             {
                 context.isDialogueAboutToStart = true;
-                PlayerEventHandler.MoveToPlayerEvent(context, context.onTalk_AfterExplosion_WithWalking_Visited_01, context.playerEntryPoint.position.x, context.npc.isFacingRight);
+                PlayerEvents.MoveToPlayerEvent(context, context.onTalk_AfterExplosion_WithWalking_Visited_01, context.playerEntryPoint.position.x, context.npc.isFacingRight);
                 if (context.isOnce_AfterExplosion_WithWalking_Visited_01)
                 {
                     context.isOnce05 = true;
@@ -27,7 +27,7 @@ namespace ATBMI
             else if (context.VisitedCount == 2 && !context.isOnce06)
             {
                 context.isDialogueAboutToStart = true;
-                PlayerEventHandler.MoveToPlayerEvent(context, context.onTalk_AfterExplosion_WithWalking_Visited_02, context.playerEntryPoint.position.x, context.npc.isFacingRight);
+                PlayerEvents.MoveToPlayerEvent(context, context.onTalk_AfterExplosion_WithWalking_Visited_02, context.playerEntryPoint.position.x, context.npc.isFacingRight);
                 if (context.isOnce_AfterExplosion_WithWalking_Visited_02)
                 {
                     context.isOnce06 = true;

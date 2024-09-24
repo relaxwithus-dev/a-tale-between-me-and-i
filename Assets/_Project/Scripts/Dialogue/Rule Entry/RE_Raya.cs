@@ -1,13 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using ATMBI.Gameplay.Event;
 using UnityEngine;
+using ATBMI.Gameplay.Event;
 
-namespace ATBMI
+namespace ATBMI.Dialogue
 {
     public class RE_Raya : RuleEntry
     {
         #region Dialogue Rules Parameters
+
         [Space(20)]
         [Header("Dialogue Rules")]
         [SerializeField] private int visitedCount;
@@ -16,6 +15,7 @@ namespace ATBMI
         [Space(20)]
         [Header("Dialogue Text Assets")]
         public TextAsset onTalk;
+
         #endregion
 
         // Start is called before the first frame update
@@ -48,7 +48,7 @@ namespace ATBMI
             if (!isDialogueAboutToStart)
             {
                 isDialogueAboutToStart = true;
-                PlayerEventHandler.MoveToPlayerEvent(this, onTalk, playerEntryPoint.position.x, npc.isFacingRight);
+                PlayerEvents.MoveToPlayerEvent(this, onTalk, playerEntryPoint.position.x, npc.isFacingRight);
             }
         }
 

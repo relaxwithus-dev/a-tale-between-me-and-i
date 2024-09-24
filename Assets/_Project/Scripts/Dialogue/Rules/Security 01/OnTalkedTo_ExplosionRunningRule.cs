@@ -1,4 +1,4 @@
-namespace ATBMI
+namespace ATBMI.Dialogue
 {
     public class OnTalkedTo_ExplosionRunningRule : IDialogueRule<RE_Security_01>
     {

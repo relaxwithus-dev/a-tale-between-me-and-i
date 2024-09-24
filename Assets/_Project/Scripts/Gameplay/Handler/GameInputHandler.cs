@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using ATMBI.Singleton;
+using ATBMI.Singleton;
 
 namespace ATBMI.Gameplay.Handler
 {

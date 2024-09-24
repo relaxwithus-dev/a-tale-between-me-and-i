@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ATMBI.Singleton
+namespace ATBMI.Singleton
 {
     public class MonoDDOL<T> : MonoBehaviour where T: MonoBehaviour
     {

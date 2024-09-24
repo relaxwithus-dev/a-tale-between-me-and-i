@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using ATBMI.Enum;
-using ATBMI.Inventory;
-using ATMBI.Gameplay.Event;
 using UnityEngine;
+using ATBMI.Data;
+using ATBMI.Enum;
+using ATBMI.Gameplay.Event;
 
 namespace ATBMI.Inventory
 {
@@ -11,17 +11,17 @@ namespace ATBMI.Inventory
         public InventoryLocation inventoryLocation;
         public GameObject playerInventorySlotPrefab;
         public GameObject uiInventorySlotPrefab;
-        private List<T> inventorySlots = new List<T>();
+        private readonly List<T> inventorySlots = new();
         private IInventorySlotFactory<T> inventorySlotFactory;
 
         private void OnEnable()
         {
-            PlayerEventHandler.OnUpdateInventory += UpdateInventory;
+            PlayerEvents.OnUpdateInventory += UpdateInventory;
         }
 
         private void OnDisable()
         {
-            PlayerEventHandler.OnUpdateInventory -= UpdateInventory;
+            PlayerEvents.OnUpdateInventory -= UpdateInventory;
         }
 
         private void Start()
@@ -38,7 +38,7 @@ namespace ATBMI.Inventory
             }
 
             // Initialize inventory slots
-            int initialInventorySize = NewInventoryManager.Instance.GetStartingItemCount();
+            int initialInventorySize = InventoryManager.Instance.GetStartingItemCount();
             for (int i = 0; i < initialInventorySize; i++)
             {
                 CreateInventorySlot();
@@ -70,21 +70,21 @@ namespace ATBMI.Inventory
             {
                 if (i < inventoryList.Count)
                 {
-                    SO_ItemDetails itemDetails = NewInventoryManager.Instance.GetItemDetails(inventoryList[i].itemId);
+                    ItemData itemDetails = InventoryManager.Instance.GetItemDetails(inventoryList[i].itemId);
                     if (itemDetails != null)
                     {
                         if (inventorySlots[i] is UiPlayerInventorySlot playerSlot)
                         {
                             playerSlot.itemDetails = itemDetails;
-                            playerSlot.image.sprite = itemDetails.itemSprite;
-                            playerSlot.itemName = itemDetails.itemName;
+                            playerSlot.image.sprite = itemDetails.ItemSprite;
+                            playerSlot.itemName = itemDetails.ItemName;
                         }
                         else if (inventorySlots[i] is UiInventorySlot uiSlot)
                         {
                             uiSlot.itemDetails = itemDetails;
-                            uiSlot.image.sprite = itemDetails.itemSprite;
-                            uiSlot.itemName = itemDetails.itemName;
-                            uiSlot.itemDescription = itemDetails.itemDescription;
+                            uiSlot.image.sprite = itemDetails.ItemSprite;
+                            uiSlot.itemName = itemDetails.ItemName;
+                            uiSlot.itemDescription = itemDetails.ItemDescription;
                         }
                     }
                 }

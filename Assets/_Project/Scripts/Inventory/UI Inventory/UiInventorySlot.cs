@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using ATBMI.Data;
 
 namespace ATBMI.Inventory
 {
@@ -9,7 +10,7 @@ namespace ATBMI.Inventory
         public string itemName;
         public string itemDescription;
 
-        public SO_ItemDetails itemDetails;
+        public ItemData itemDetails;
 
         private void Start()
         {
