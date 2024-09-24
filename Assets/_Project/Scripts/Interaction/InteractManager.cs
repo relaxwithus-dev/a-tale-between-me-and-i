@@ -23,7 +23,7 @@ namespace ATBMI.Interaction
             get => isInteracted;
             set => isInteracted = value;
         }
-
+        
         [Header("Area")]
         [SerializeField] [MaxValue(3)] private int detectionLimit;
         [SerializeField] private Vector2 boxSize;
@@ -103,7 +103,7 @@ namespace ATBMI.Interaction
                 }
             }
         }
-
+        
         private Collider2D FindNearestObjectAt(Vector3 origin, int hitNums, Collider2D[] collider2Ds)
         {
             float closestSqrDist = Mathf.Infinity;

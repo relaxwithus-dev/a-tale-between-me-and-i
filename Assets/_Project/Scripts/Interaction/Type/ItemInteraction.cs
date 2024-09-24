@@ -6,8 +6,8 @@ namespace ATBMI.Interaction
 {
     public class ItemInteraction : Interaction
     {
-         #region Fields & Properties
-
+        #region Fields & Properties
+        
         [Header("Item")]
         [SerializeField] private TextAsset dialogueAsset;
         [SerializeField] private ItemController itemPrefabs;
@@ -16,7 +16,7 @@ namespace ATBMI.Interaction
         #endregion
 
         #region Methods
-
+        
         public override void Interact(InteractManager manager, int status)
         {
             base.Interact(manager, status);

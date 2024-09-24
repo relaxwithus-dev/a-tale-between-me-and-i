@@ -132,8 +132,8 @@ namespace ATBMI.Player
         public void PlayerFlip()
         {
             isRight = !isRight;
-            _playerSr.flipX = isRight;
-            // transform.Rotate(0f, 180f, 0f);
+            // _playerSr.flipX = isRight;
+            _playerSr.transform.Rotate(0f, 180f, 0f);
         }
 
         // !- Helpers

@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,7 +8,6 @@ using ATBMI.Enum;
 using ATBMI.Player;
 using ATBMI.Inventory;
 using ATBMI.Gameplay.Handler;
-using System.Collections;
 
 namespace ATBMI.Interaction
 {
@@ -79,6 +79,7 @@ namespace ATBMI.Interaction
             }
         }
 
+        // TODO: Drop instantiate flag, diganti sama UpdateInventory method
         private void InitItemButtons()
         {
             var itemButtonCount = itemFlags.Count;
@@ -159,6 +160,7 @@ namespace ATBMI.Interaction
             Interactable.Interact(interactManager);
         }
 
+        // TODO: Drop status, diganti sama UpdateInventory method
         private void Execute(InteractFlag flag, int itemId)
         {
             Interactable.Interact(interactManager, itemId);
@@ -169,7 +171,6 @@ namespace ATBMI.Interaction
                 else
                     SetButtonData(flag, noneSprite, interactable: false);
                 
-                // TODO: Drop logic ini, ganti pake Interaction Inventory
                 inventoryManager.Item.RemoveAt(flag.FlagId);
             }
         }

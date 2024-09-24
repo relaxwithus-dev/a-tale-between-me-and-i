@@ -46,8 +46,11 @@ namespace ATBMI.Gameplay.Handler
         private InputAction _backAction;
         
         // Action values
-        public bool IsNavigateUp { get; private set; }
-        public bool IsNavigateDown { get; private set; }
+        private bool _isNavigateUp;
+        private bool _isNavigateDown;
+        
+        public bool IsNavigateUp => _isNavigateUp && _navigateAction.WasPressedThisFrame();
+        public bool IsNavigateDown => _isNavigateDown && _navigateAction.WasPressedThisFrame();
         public bool IsTapSelect => _selectAction.WasPressedThisFrame();
         public bool IsTapBack => _backAction.WasPressedThisFrame();
     
@@ -103,13 +106,13 @@ namespace ATBMI.Gameplay.Handler
             _navigateAction.performed += value =>
                 {
                     var navigateValue = value.ReadValue<Vector2>();
-                    IsNavigateUp = navigateValue.x > 0;
-                    IsNavigateDown = navigateValue.x < 0;
+                    _isNavigateUp = navigateValue.x > 0;
+                    _isNavigateDown = navigateValue.x < 0;
                 };
             _navigateAction.canceled += value =>
                 {
-                    IsNavigateUp = false;
-                    IsNavigateDown = false;
+                    _isNavigateUp = false;
+                    _isNavigateDown = false;
                 };
         }
 
@@ -130,13 +133,13 @@ namespace ATBMI.Gameplay.Handler
             _navigateAction.performed -= value =>
                 {
                     var navigateValue = value.ReadValue<Vector2>();
-                    IsNavigateUp = navigateValue.x > 0;
-                    IsNavigateDown = navigateValue.x < 0;
+                    _isNavigateUp = navigateValue.x > 0;
+                    _isNavigateDown = navigateValue.x < 0;
                 };
             _navigateAction.canceled -= value =>
                 {
-                    IsNavigateUp = false;
-                    IsNavigateDown = false;
+                    _isNavigateUp = false;
+                    _isNavigateDown = false;
                 };
         }
 
