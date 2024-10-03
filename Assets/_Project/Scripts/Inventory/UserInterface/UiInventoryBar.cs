@@ -38,13 +38,13 @@ namespace ATBMI.Inventory
             }
 
             // Initialize inventory slots
-            int initialInventorySize = InventoryManager.Instance.GetStartingItemCount();
+            var initialInventorySize = InventoryManager.Instance.GetStartingItemCount();
             for (int i = 0; i < initialInventorySize; i++)
             {
                 CreateInventorySlot();
             }
         }
-
+        
         private void UpdateInventory(List<InventoryItem> inventoryList)
         {
             // Clear existing inventory slots
@@ -70,7 +70,7 @@ namespace ATBMI.Inventory
             {
                 if (i < inventoryList.Count)
                 {
-                    ItemData itemDetails = InventoryManager.Instance.GetItemDetails(inventoryList[i].itemId);
+                    ItemData itemDetails = InventoryManager.Instance.GetItemData(inventoryList[i].ItemId);
                     if (itemDetails != null)
                     {
                         if (inventorySlots[i] is UiPlayerInventorySlot playerSlot)
@@ -89,7 +89,7 @@ namespace ATBMI.Inventory
                     }
                 }
             }
-
+            
             // Create or destroy inventory slots as needed
             if (inventoryList.Count > inventorySlots.Count)
             {

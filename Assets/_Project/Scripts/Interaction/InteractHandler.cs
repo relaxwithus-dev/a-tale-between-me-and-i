@@ -47,12 +47,14 @@ namespace ATBMI.Interaction
         {
             InitBasicButtons();
             InitScrollSnap();
+
             optionPanelUI.SetActive(false);
         }
         
         private void Update()
         {
             if (Interactable == null) return;
+
             HandleNavigation();
             HandleDescription();
         }
@@ -109,7 +111,7 @@ namespace ATBMI.Interaction
                     // Setup listener
                     button.onClick.RemoveAllListeners(); 
                     button.onClick.AddListener(() => OnButtonClicked(flags));
-
+                    
                     SetButtonFlags(flags, flagId: i, itemData.name, itemData.id);
                     SetButtonData(flags, itemData.sprite, interactable: true);
                 }

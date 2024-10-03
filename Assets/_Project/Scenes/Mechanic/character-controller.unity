@@ -627,7 +627,7 @@ MonoBehaviour:
   dialogueAsset: {fileID: 0}
   itemTargetId: 101
   itemPrefabs: {fileID: 0}
-  inventory: {fileID: 1210282834}
+  inventory: {fileID: 0}
 --- !u!1 &384364295
 GameObject:
   m_ObjectHideFlags: 0
@@ -842,7 +842,7 @@ MonoBehaviour:
   noneSprite: {fileID: 21300000, guid: b6e58d653b8dd3146935f687b8c39672, type: 3}
   scrollSnap: {fileID: 1864020663}
   interactManager: {fileID: 1692892791}
-  inventoryManager: {fileID: 1210282834}
+  inventoryManager: {fileID: 0}
   playerController: {fileID: 2071358487}
 --- !u!1 &449672037
 GameObject:
@@ -2224,7 +2224,7 @@ MonoBehaviour:
   dialogueAsset: {fileID: 0}
   itemTargetId: 0
   itemPrefabs: {fileID: 5108054736007926224, guid: 95f84affb8b09674cab658c65fd8e7bb, type: 3}
-  inventory: {fileID: 1210282834}
+  inventory: {fileID: 0}
 --- !u!1 &1114324183
 GameObject:
   m_ObjectHideFlags: 0
@@ -2921,13 +2921,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1210282832}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f7dbe5ff810aae44aaf1f2297e9c775, type: 3}
+  m_Script: {fileID: 11500000, guid: 8c1bed621da3983478e89ebbcb12c0ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-  - {fileID: -2077586761162272739, guid: f1e31bf8f02332e4383c2261c1d8ebe9, type: 3}
-  - {fileID: 405548456216326626, guid: eb8f6ddabd613b14a998838355bc2e21, type: 3}
-  - {fileID: -3541518894569572508, guid: 01df39b246b51ab49acc8a607fc13e38, type: 3}
+  items: []
+  itemList: {fileID: 11400000, guid: 60b31787e8e82424ca1b36fd8110db30, type: 2}
 --- !u!1 &1240865768
 GameObject:
   m_ObjectHideFlags: 0
@@ -4944,8 +4942,7 @@ MonoBehaviour:
   interactStatus: 0
   dialogueAsset: {fileID: 0}
   itemPrefabs: {fileID: -3437929883429250994, guid: 076ee5320575b6e4aa2328ee28f65812, type: 3}
-  inventory: {fileID: 1210282834}
-  interactManager: {fileID: 1692892791}
+  inventory: {fileID: 0}
 --- !u!1 &1864020661
 GameObject:
   m_ObjectHideFlags: 0

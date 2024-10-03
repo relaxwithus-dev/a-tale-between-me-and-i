@@ -9,6 +9,7 @@ namespace ATBMI.Interaction
     {
         #region Fields & Properties
 
+        [Header("Flags")]
         [SerializeField] private int flagId;
         [SerializeField] private string flagName;
         [SerializeField] private InteractFlagStatus flagStatus;

@@ -14,94 +14,74 @@ namespace ATBMI.Inventory
 
         public ItemList itemList;
         private readonly List<InventoryItem> inventoryList = new();
-        private readonly Dictionary<int, ItemData> itemDetailsDictionary = new();
+        private readonly Dictionary<int, ItemData> itemDetailsDict = new();
 
         public static InventoryManager Instance;
+
         private void Awake()
         {
             if (Instance == null)
             {
                 Instance = this;
-                DontDestroyOnLoad(gameObject); // Keep this instance alive across scenes
+                DontDestroyOnLoad(gameObject);
             }
             else
             {
-                Destroy(gameObject); // Destroy duplicate instance
+                Destroy(gameObject);
             }
 
-            PopulateItemDetailsDictionary();
-            CheckForStartingItems();
+            PopulateItemDict();
         }
 
-        private void PopulateItemDetailsDictionary()
+        private void PopulateItemDict()
         {
             foreach (ItemData item in itemList.itemList)
             {
-                itemDetailsDictionary.Add(item.ItemId, item);
+                itemDetailsDict.Add(item.ItemId, item);
             }
         }
 
-        private void CheckForStartingItems()
+        public ItemData GetItemData(int itemId)
         {
-            foreach (ItemData item in itemList.itemList)
-            {
-                if (item.IsStartingItem)
-                {
-                    AddItemToInventory(item.ItemId);
-                }
-            }
-        }
-
-        public ItemData GetItemDetails(int itemId)
-        {
-            if (itemDetailsDictionary.TryGetValue(itemId, out ItemData itemDetails))
+            if (itemDetailsDict.TryGetValue(itemId, out ItemData itemDetails))
             {
                 return itemDetails;
             }
-
             return null;
         }
 
         public void AddItemToInventory(Item item, int itemId)
         {
-            if (AddItemToInventory(itemId))
+            if (itemDetailsDict.TryGetValue(itemId, out ItemData data))
             {
-                // Destroy the item in the scene after pickup
-                Destroy(item.gameObject);
-            }
-        }
-
-        public bool AddItemToInventory(int itemId)
-        {
-            if (itemDetailsDictionary.TryGetValue(itemId, out ItemData itemDetails))
-            {
+                // Add item to inventory
                 inventoryList.Add(new InventoryItem(itemId));
                 PlayerEvents.UpdateInventoryEvent(inventoryList);
-                Debug.Log("Item with the ID of: " + itemId + " added to the inventory list");
+                Debug.Log($"add item {data.ItemName} ({data.ItemId}) to inventory");
+
+                // Destroy item
+                Destroy(item.gameObject);
             }
             else
             {
-                Debug.LogWarning("There is no such item with the item ID of: " + itemId + " in the ITEM LIST. CHECK!!");
+                Debug.LogError($"failed to acquire item with id {itemId}");
             }
-
-            return itemDetails;
         }
 
         public void RemoveItemFromInventory(int itemId)
         {
-            // seacrh the item inside the inventory list. If match with item id return default, if not return null
-            InventoryItem itemToRemove = inventoryList.FirstOrDefault(x => x.itemId == itemId);
+            // Search avail item id before remove
+            InventoryItem itemToRemove = inventoryList.FirstOrDefault(x => x.ItemId == itemId);
+
             if (itemToRemove != null)
             {
                 inventoryList.Remove(itemToRemove);
-
                 PlayerEvents.UpdateInventoryEvent(inventoryList);
-
-                Debug.Log("Item with the ID of: " + itemId + " removed from the inventory list");
+                Debug.Log($"remove item with id {itemId} from inventory");
             }
             else
             {
-                Debug.LogWarning("There is no such item with the item ID of: " + itemId + " in the ITEM LIST. CHECK!!");
+                Debug.LogError($"failed to remove item with id {itemId}");
             }
         }
 

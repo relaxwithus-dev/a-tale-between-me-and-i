@@ -2,10 +2,10 @@ namespace ATBMI.Inventory
 {
     public class InventoryItem
     {
-        public int itemId;
+        public readonly int ItemId;
         public InventoryItem(int itemId)
         {
-            this.itemId = itemId;
+            this.ItemId = itemId;
         }
     }
 }
