@@ -13,23 +13,28 @@ namespace ATBMI.Item
         [SerializeField] private string itemName;
         
         // Reference
-        [SerializeField] private SpriteRenderer itemSr;
+        private SpriteRenderer _itemSr;
 
         #endregion
 
         #region Methods
 
+        private void Awake()
+        {
+            _itemSr = GetComponentInChildren<SpriteRenderer>();
+        }
+
         // Getter
         public (string name, int id, Sprite sprite) GetItemData()
         {
             (string name, int id, Sprite sprite) tempData;
-            if (itemName != null || itemId != 0 || itemSr.sprite != null)
+            if (itemName != null || itemId != 0 || _itemSr.sprite != null)
             {
-                tempData = (itemName, itemId, itemSr.sprite);
+                tempData = (itemName, itemId, _itemSr.sprite);
                 return tempData;
             }
 
-            tempData = (itemName, itemId, itemSr.sprite);
+            tempData = (itemName, itemId, _itemSr.sprite);
             return tempData;
         }
 

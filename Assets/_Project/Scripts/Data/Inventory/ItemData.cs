@@ -9,14 +9,12 @@ namespace ATBMI.Data
         [SerializeField] private int itemId;
         [SerializeField] private string itemName;
         [SerializeField] [TextArea] private string itemDescription;
-        [SerializeField] private bool isStartingItem;
         [SerializeField] private Sprite itemSprite;
 
         // Getter
         public int ItemId => itemId;
         public string ItemName => itemName;
         public string ItemDescription => itemDescription;
-        public bool IsStartingItem => isStartingItem;
         public Sprite ItemSprite => itemSprite;
     }
 }

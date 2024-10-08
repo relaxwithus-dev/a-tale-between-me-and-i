@@ -1,5 +1,5 @@
+using ATBMI.Data;
 using ATBMI.Inventory;
-using ATBMI.Item;
 using UnityEngine;
 
 namespace ATBMI.Interaction
@@ -9,21 +9,19 @@ namespace ATBMI.Interaction
         #region Fields & Properties
         
         [Header("Item")]
+        [SerializeField] private ItemData itemData;
         [SerializeField] private TextAsset dialogueAsset;
-        [SerializeField] private ItemController itemPrefabs;
-        [SerializeField] private InventoryManager inventory;
 
         #endregion
 
         #region Methods
-        
-        public override void Interact(InteractManager manager, int status)
+
+        // TODO: Drop method call dialogue
+        public override void Interact(InteractManager manager, int itemId = 0)
         {
-            base.Interact(manager, status);
-            statusSucces = true;
-            Debug.Log("bagus jg ni barang");
-            inventory.Item.Add(itemPrefabs);
-            Destroy(gameObject);
+            base.Interact(manager, itemId);
+            Debug.Log($"take item {itemData.ItemName}");
+            InventoryManager.Instance.AddItemToInventory(itemId, this);
         }
 
         #endregion

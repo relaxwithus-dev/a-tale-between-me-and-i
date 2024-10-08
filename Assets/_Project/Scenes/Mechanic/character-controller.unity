@@ -624,10 +624,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: Watari
   interactStatus: 1
-  dialogueAsset: {fileID: 0}
-  itemTargetId: 101
-  itemPrefabs: {fileID: 0}
-  inventory: {fileID: 0}
+  dialogueAssets: []
+  targetId: 105
+  itemData: {fileID: 0}
 --- !u!1 &384364295
 GameObject:
   m_ObjectHideFlags: 0
@@ -788,7 +787,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 406035004}
-  - component: {fileID: 406035005}
+  - component: {fileID: 406035007}
+  - component: {fileID: 406035006}
   m_Layer: 5
   m_Name: Interact
   m_TagString: Untagged
@@ -816,7 +816,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 4, y: 4}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &406035005
+--- !u!114 &406035006
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -825,25 +825,36 @@ MonoBehaviour:
   m_GameObject: {fileID: 406035003}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5441aaa35277cde4e85c0c279f3959bf, type: 3}
+  m_Script: {fileID: 11500000, guid: 0182f8c1fd5f3c4429213943cddaac92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   optionPanelUI: {fileID: 684962386}
-  optionContentUI: {fileID: 849121992}
   descriptionTextUI: {fileID: 497747614}
   basicFlags:
   - {fileID: 1918282521}
   - {fileID: 449672039}
-  itemFlags:
-  - {fileID: 1606549694}
-  - {fileID: 2033717114}
-  - {fileID: 1139774973}
-  contentPrefabs: {fileID: 8291009535574812682, guid: c2c248af68230bb4d92838587531fbcf, type: 3}
   noneSprite: {fileID: 21300000, guid: b6e58d653b8dd3146935f687b8c39672, type: 3}
   scrollSnap: {fileID: 1864020663}
   interactManager: {fileID: 1692892791}
-  inventoryManager: {fileID: 0}
   playerController: {fileID: 2071358487}
+--- !u!114 &406035007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406035003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adcce0b2c3fc54b45b47c840eaf70bb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryPrefab: {fileID: 34095577210733295, guid: c2c248af68230bb4d92838587531fbcf, type: 3}
+  inventoryParent: {fileID: 849121993}
+  inventoryFlags:
+  - {fileID: 1606549694}
+  - {fileID: 2033717114}
+  - {fileID: 1139774973}
 --- !u!1 &449672037
 GameObject:
   m_ObjectHideFlags: 0
@@ -896,7 +907,7 @@ MonoBehaviour:
   flagId: 1
   flagName: Tutup
   flagStatus: 2
-  itemId: 0
+  itemData: {fileID: 0}
   flagIcon: {fileID: 1954107200}
   flagButton: {fileID: 260956003}
 --- !u!1 &497747612
@@ -2221,10 +2232,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: Kira
   interactStatus: 2
-  dialogueAsset: {fileID: 0}
-  itemTargetId: 0
-  itemPrefabs: {fileID: 5108054736007926224, guid: 95f84affb8b09674cab658c65fd8e7bb, type: 3}
-  inventory: {fileID: 0}
+  dialogueAssets: []
+  targetId: 0
+  itemData: {fileID: 11400000, guid: 7ec7021fc9ee250478da883d27e86d58, type: 2}
 --- !u!1 &1114324183
 GameObject:
   m_ObjectHideFlags: 0
@@ -2619,7 +2629,7 @@ MonoBehaviour:
   flagId: 2
   flagName: 
   flagStatus: 1
-  itemId: 0
+  itemData: {fileID: 0}
   flagIcon: {fileID: 2017165470}
   flagButton: {fileID: 764207690}
 --- !u!1 &1160672012
@@ -2924,8 +2934,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c1bed621da3983478e89ebbcb12c0ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  items: []
-  itemList: {fileID: 11400000, guid: 60b31787e8e82424ca1b36fd8110db30, type: 2}
+  itemList: {fileID: 11400000, guid: ecd511338be204c4f93720e86a66a9fa, type: 2}
 --- !u!1 &1240865768
 GameObject:
   m_ObjectHideFlags: 0
@@ -4434,7 +4443,7 @@ MonoBehaviour:
   flagId: 0
   flagName: 
   flagStatus: 1
-  itemId: 0
+  itemData: {fileID: 0}
   flagIcon: {fileID: 43678388}
   flagButton: {fileID: 1114324185}
 --- !u!1 &1667435176
@@ -4675,7 +4684,7 @@ MonoBehaviour:
   targetMask:
     serializedVersion: 2
     m_Bits: 128
-  interactHandler: {fileID: 406035005}
+  interactHandler: {fileID: 406035006}
 --- !u!1 &1757129215
 GameObject:
   m_ObjectHideFlags: 0
@@ -4939,10 +4948,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: Font
-  interactStatus: 0
+  interactStatus: 2
+  itemData: {fileID: 11400000, guid: c5d406d1915649845afc5caae7db8c16, type: 2}
   dialogueAsset: {fileID: 0}
-  itemPrefabs: {fileID: -3437929883429250994, guid: 076ee5320575b6e4aa2328ee28f65812, type: 3}
-  inventory: {fileID: 0}
 --- !u!1 &1864020661
 GameObject:
   m_ObjectHideFlags: 0
@@ -5116,7 +5124,7 @@ MonoBehaviour:
   flagId: 0
   flagName: Interaksi
   flagStatus: 0
-  itemId: 0
+  itemData: {fileID: 0}
   flagIcon: {fileID: 1308034179}
   flagButton: {fileID: 604082495}
 --- !u!1 &1951175253
@@ -5165,10 +5173,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: 
   interactStatus: 0
-  dialogueAsset: {fileID: 0}
-  itemTargetId: 0
-  itemPrefabs: {fileID: 0}
-  inventory: {fileID: 0}
+  dialogueAssets: []
+  targetId: 0
+  itemData: {fileID: 0}
 --- !u!1 &1954107198
 GameObject:
   m_ObjectHideFlags: 0
@@ -5606,7 +5613,7 @@ MonoBehaviour:
   flagId: 1
   flagName: 
   flagStatus: 1
-  itemId: 0
+  itemData: {fileID: 0}
   flagIcon: {fileID: 402090223}
   flagButton: {fileID: 871114225}
 --- !u!1 &2071358480

@@ -1,9 +1,10 @@
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 using DanielLochner.Assets.SimpleScrollSnap;
+using ATBMI.Data;
 using ATBMI.Enum;
 using ATBMI.Player;
 using ATBMI.Inventory;
@@ -11,37 +12,33 @@ using ATBMI.Gameplay.Handler;
 
 namespace ATBMI.Interaction
 {
-    /// <summary>
-    /// InteractHandler buat handle interact option
-    /// karakter player, tergantung dengan tipe
-    /// object yang di-interact.
-    /// </summary>
+    [RequireComponent(typeof(InteractCreator))]
     public class InteractHandler : MonoBehaviour
     {
         #region Fields & Properties
 
         [Header("UI")]
         [SerializeField] private GameObject optionPanelUI;
-        [SerializeField] private GameObject optionContentUI;
         [SerializeField] private TextMeshProUGUI descriptionTextUI;
         [SerializeField] private List<InteractFlag> basicFlags;
-        [SerializeField] private List<InteractFlag> itemFlags;
-
-        public IInteractable Interactable { get; private set; }
-
-        [Header("Assets")]
-        [SerializeField] private InteractFlag contentPrefabs;
         [SerializeField] private Sprite noneSprite;
+        
+        private InteractCreator _interactCreator;
+        public IInteractable Interactable { get; private set; }
 
         [Header("Reference")]
         [SerializeField] private SimpleScrollSnap scrollSnap;
         [SerializeField] private InteractManager interactManager;
-        [SerializeField] private InventoryManager inventoryManager;
         [SerializeField] private PlayerController playerController;
 
         #endregion
 
         #region MonoBehaviour Callbacks
+
+        private void Awake()
+        {
+            _interactCreator = GetComponent<InteractCreator>();
+        }
 
         private void Start()
         {
@@ -76,49 +73,36 @@ namespace ATBMI.Interaction
             for (var i = 0; i < basicCount; i++)
             {
                 var flags = basicFlags[i];
-                var button = flags.FlagButton;
-                button.onClick.AddListener(() => OnButtonClicked(flags));
+                flags.FlagButton.onClick.AddListener(() => OnButtonClicked(flags));
             }
         }
-
-        // TODO: Drop instantiate flag, diganti sama UpdateInventory method
+        
         private void InitItemButtons()
         {
-            var itemButtonCount = itemFlags.Count;
-            var inventoryCount = inventoryManager.Item.Count;
-            int maxCount = Mathf.Max(itemButtonCount, inventoryCount);
+            var flagCount = _interactCreator.InventoryFlags.Count;
+            var inventoryCount = InventoryManager.Instance.InventoryList.Count;
+            int maxCount = Mathf.Max(flagCount, inventoryCount);
 
             for (int i = 0; i < maxCount; i++)
             {
-                Button button;
-                if (i > itemButtonCount - 1)
-                {
-                    // Instantiate new button
-                    var newBtn = Instantiate(contentPrefabs, optionContentUI.transform, worldPositionStays: false);
-                    button = newBtn.FlagButton;
-                    itemFlags.Add(newBtn);
-                }
-                else
-                {
-                    button = itemFlags[i].FlagButton;
-                }
+                var flags = _interactCreator.InventoryFlags[i] as InteractFlag;
+                var button = flags.FlagButton;
 
-                var flags = itemFlags[i];
                 if (i < inventoryCount)
                 {
-                    var itemData = inventoryManager.Item[i].GetItemData();
+                    var itemData = InventoryManager.Instance.GetItemData(i);
 
                     // Setup listener
                     button.onClick.RemoveAllListeners(); 
                     button.onClick.AddListener(() => OnButtonClicked(flags));
                     
-                    SetButtonFlags(flags, flagId: i, itemData.name, itemData.id);
-                    SetButtonData(flags, itemData.sprite, interactable: true);
+                    SetButtonFlags(flags, flagId: i, itemData.name, itemData);
+                    SetButtonData(flags, itemData.ItemSprite, interactable: true);
                 }
                 else
                 {
                     button.onClick.RemoveAllListeners();
-                    SetButtonFlags(flags, 0, "", 0);
+                    SetButtonFlags(flags, 0, "");
                     SetButtonData(flags, noneSprite, interactable: false);
                 }
             }
@@ -130,51 +114,25 @@ namespace ATBMI.Interaction
             flag.FlagIcon.sprite = sprite;
         }
 
-        private void SetButtonFlags(InteractFlag flag, int flagId, string flagName, int itemId)
+        private void SetButtonFlags(InteractFlag flag, int flagId, string flagName, ItemData data = null)
         {
-            flag.SetFlags(flagId, flagName, InteractFlagStatus.Item, itemId);
-        }
-
-        private void RemoveButton(InteractFlag flag)
-        {
-            itemFlags.Remove(flag);
-            Destroy(flag.gameObject);
+            flag.SetFlags(flagId, flagName, InteractFlagStatus.Item, data);
         }
 
         private void OnButtonClicked(InteractFlag flag)
         {
-            var (status, itemId) = flag.GetItemFlags();
+            var (status, data) = flag.GetItemFlags();
             switch (status)
             {
                 case InteractFlagStatus.Interaction:
-                    Execute();
+                    Interactable.Interact(interactManager);
                     break;
                 case InteractFlagStatus.Item:
-                    Execute(flag, itemId);
+                    Interactable.Interact(interactManager, data.ItemId);
                     break;
             }
 
             StartCoroutine(CloseInteractOption());
-        }
-
-        private void Execute()
-        {
-            Interactable.Interact(interactManager);
-        }
-
-        // TODO: Drop status, diganti sama UpdateInventory method
-        private void Execute(InteractFlag flag, int itemId)
-        {
-            Interactable.Interact(interactManager, itemId);
-            if (Interactable.Status())
-            {
-                if (itemFlags.Count > 3)
-                    RemoveButton(flag);
-                else
-                    SetButtonData(flag, noneSprite, interactable: false);
-                
-                inventoryManager.Item.RemoveAt(flag.FlagId);
-            }
         }
 
         // !- Core
@@ -233,7 +191,10 @@ namespace ATBMI.Interaction
         // !- Utilities
         private List<InteractFlag> GetFlags(int index)
         {
-            return index < basicFlags.Count ? basicFlags : itemFlags;
+            return index < basicFlags.Count ? 
+                basicFlags : _interactCreator.InventoryFlags
+                                .OfType<InteractFlag>()
+                                .ToList();
         }
 
         private int GetAdjustedIndex(int index)

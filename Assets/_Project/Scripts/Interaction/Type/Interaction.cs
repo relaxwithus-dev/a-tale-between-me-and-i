@@ -11,8 +11,7 @@ namespace ATBMI.Interaction
         [Header("General")]
         [SerializeField] private string objectName;
         [SerializeField] [EnumToggleButtons] protected InteractStatus interactStatus;
-        protected bool statusSucces;
-
+        
         #endregion
 
         #region MonoBehaviour Callbacks
@@ -39,16 +38,7 @@ namespace ATBMI.Interaction
         protected virtual void InitOnAwake() { }
         protected virtual void InitOnStart() { }
         protected virtual void HandleUpdate() { }
-
-        public virtual void Interact(InteractManager manager, int itemId = 0)
-        {
-            statusSucces = false;
-        }
-
-        public virtual bool Status() 
-        { 
-            return statusSucces; 
-        }
+        public virtual void Interact(InteractManager manager, int itemId = 0) { }
 
         #endregion
     }
