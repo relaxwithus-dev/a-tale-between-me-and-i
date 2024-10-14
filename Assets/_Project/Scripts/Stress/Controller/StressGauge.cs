@@ -10,20 +10,23 @@ namespace ATBMI.Stress
     {
         #region Fields & Property
 
-        [Header("Gauge")]
-        [SerializeField] private Slider sliderUI;
-        [SerializeField] private float maxStressValue;
-        [SerializeField] [Range(0.1f, 5f)] private float increasedInterval = 1f;
-        [SerializeField] private float statusDuration = 30f;
-        
-        private bool _isStatusActive;
-        private float _increasedValue;
-        private Coroutine _overtimeRoutine;
+        [Header("Stats")]
+        [SerializeField] private float stressValue = 100f;
+        [SerializeField] private float statusDuration;
+        [SerializeField] private float slideDuration;
+        [SerializeField] private float increasedPercent;
+        [SerializeField] [Range(0.1f, 1f)] private float increasedInterval;
 
-        private float CurrentStressValue { get; set; }
+        private float _currentStressValue;
+        private float _increasedValue;
+        private bool _isStatusActive;
+        private Coroutine _overtimeRoutine;
 
         private const float MAX_SLIDER_VALUE = 1f;
         private const float MIN_SLIDER_VALUE = 0f;
+
+        [Header("UI")]
+        [SerializeField] private Slider sliderUI;
 
         #endregion
 
@@ -31,41 +34,66 @@ namespace ATBMI.Stress
 
         private void OnEnable()
         {
-            StressEventHandler.OnStressOvertimeEnter += HandleStressOvertime;
+            StressEvents.OnStressOnce += StressOnce;
+            StressEvents.OnStressOvertime += StressOvertime;
         }
 
         private void OnDisable()
         {
-            StressEventHandler.OnStressOvertimeEnter -= HandleStressOvertime;
+            StressEvents.OnStressOnce -= StressOnce;
+            StressEvents.OnStressOvertime -= StressOvertime;
         }
 
         private void Start()
         {
-            InitializeGauge();
-            _increasedValue = CalculatePercentage(maxStressValue, 2f);
+            InitGauge();
+            _increasedValue = stressValue * (increasedPercent / 100f);
+        }
+
+        private void Update()
+        {
+            if (_isStatusActive) return;
+
+            var value = _currentStressValue / stressValue;
+
+            sliderUI.value = Mathf.Lerp(value, MAX_SLIDER_VALUE, slideDuration);
+            if (sliderUI.value > MAX_SLIDER_VALUE)
+            {
+                sliderUI.value = MAX_SLIDER_VALUE;
+                StartCoroutine(DecreaseSliderRoutine());
+            }
         }
 
         #endregion
 
         #region Methods
 
-        private void InitializeGauge()
+        // !- Initialize
+        private void InitGauge()
         {
-            sliderUI.value = MIN_SLIDER_VALUE;
-            CurrentStressValue = sliderUI.value;
             _isStatusActive = false;
+            _currentStressValue = MIN_SLIDER_VALUE;
+            sliderUI.value = MIN_SLIDER_VALUE;
         }
-
-        private void HandleStressOvertime(bool condition)
+        
+        // !- Core
+        private void StressOnce(bool condition, float value)
         {
-            if (condition)
+            _isStatusActive = false;
+
+            if (!condition)
+                value *= -1f;
+            _currentStressValue += value;
+        }
+        
+        private void StressOvertime(bool condition)
+        {
+            if (condition && _overtimeRoutine == null)
             {
-                if (_isStatusActive || _overtimeRoutine != null) return;
                 _overtimeRoutine = StartCoroutine(StressOvertimeRoutine());
             }
-            else
+            else if (!condition && _overtimeRoutine != null)
             {
-                if (_isStatusActive || _overtimeRoutine == null) return;
                 StopCoroutine(_overtimeRoutine);
                 _overtimeRoutine = null;
             }
@@ -74,54 +102,31 @@ namespace ATBMI.Stress
         private IEnumerator StressOvertimeRoutine()
         {
             _isStatusActive = false;
-            while (CurrentStressValue < maxStressValue)
+            while (_currentStressValue < stressValue)
             {
+                _currentStressValue += _increasedValue;
                 yield return new WaitForSeconds(increasedInterval);
-                CurrentStressValue += _increasedValue;
-                yield return IncreaseSliderRoutine();
-
-                if (CurrentStressValue >= maxStressValue)
-                {
-                    CurrentStressValue = maxStressValue;
-                    sliderUI.value = MAX_SLIDER_VALUE;
-                }
-                yield return null;
             }
-
-            yield return DecreaseSliderRoutine();
-        }
-
-        private IEnumerator IncreaseSliderRoutine()
-        {
-            var value = CurrentStressValue / maxStressValue;
-            while (sliderUI.value < value)
-            {
-                sliderUI.value += Time.deltaTime;
-                yield return null;
-            }
-
-            sliderUI.value = value;
+            
+            _currentStressValue = stressValue;
         }
 
         private IEnumerator DecreaseSliderRoutine()
         {
             var elapsedTime = 0f;
             _isStatusActive = true;
+            PlayerEvents.StressActiveEvent();
+
             while (elapsedTime < statusDuration)
             {
+                var time = elapsedTime / statusDuration;
+                sliderUI.value = Mathf.Lerp(MAX_SLIDER_VALUE, MIN_SLIDER_VALUE, time);
                 elapsedTime += Time.deltaTime;
-                sliderUI.value = Mathf.Lerp(MAX_SLIDER_VALUE, MIN_SLIDER_VALUE, elapsedTime/statusDuration);
-                PlayerEvents.StressActiveEvent();
                 yield return null;
             }
 
-            InitializeGauge();
+            InitGauge();
             PlayerEvents.StressInactiveEvent();
-        }
-
-        private float CalculatePercentage(float value, float percentage)
-        {
-            return value * (percentage / 100f);
         }
 
         #endregion

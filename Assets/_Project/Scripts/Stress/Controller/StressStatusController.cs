@@ -38,38 +38,32 @@ namespace ATBMI.Stress
         
         private void OnEnable()
         {
-            PlayerEvents.OnStressActive += HandleActiveStatus;
-            PlayerEvents.OnStressInactive += HandleInactiveStatus;
+            PlayerEvents.OnStressActive += ActivateStatus;
+            PlayerEvents.OnStressInactive += InactiveStatus;
         }
 
         private void OnDisable()
         {
-            PlayerEvents.OnStressActive -= HandleActiveStatus;
-            PlayerEvents.OnStressInactive -= HandleInactiveStatus;
+            PlayerEvents.OnStressActive -= ActivateStatus;
+            PlayerEvents.OnStressInactive -= InactiveStatus;
         }
 
         #endregion
         
         #region Methods
 
-        private void HandleActiveStatus()
+        private void ActivateStatus()
         {
-            if (_currentStatus == null)
-            {
-                var isProductivity = GetRandomValue();
-                _currentStatus = isProductivity ? ProductivityStatus :  DepressionStatus;
-            }
+            _currentStatus = Random.value > 0.5f ? ProductivityStatus :  DepressionStatus;
             _currentStatus.PerformStatus();
         }
 
-        private void HandleInactiveStatus()
+        private void InactiveStatus()
         {
-            _currentStatus.AvoidStatus();
+            _currentStatus.ResetStatus();
             _currentStatus = null;
         }
-
-        private bool GetRandomValue() => Random.value > 0.5f;
-
+        
         #endregion
 
     }
