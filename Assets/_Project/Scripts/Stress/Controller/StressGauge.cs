@@ -21,7 +21,7 @@ namespace ATBMI.Stress
         private float _increasedValue;
         private bool _isStatusActive;
         private Coroutine _overtimeRoutine;
-
+        
         private const float MAX_SLIDER_VALUE = 1f;
         private const float MIN_SLIDER_VALUE = 0f;
 
@@ -46,7 +46,7 @@ namespace ATBMI.Stress
 
         private void Start()
         {
-            InitGauge();
+            InitStressGauge();
             _increasedValue = stressValue * (increasedPercent / 100f);
         }
 
@@ -54,9 +54,8 @@ namespace ATBMI.Stress
         {
             if (_isStatusActive) return;
 
-            var value = _currentStressValue / stressValue;
-
-            sliderUI.value = Mathf.Lerp(value, MAX_SLIDER_VALUE, slideDuration);
+            var currentValue = _currentStressValue / stressValue;
+            sliderUI.value = Mathf.Lerp(currentValue, MAX_SLIDER_VALUE, slideDuration);
             if (sliderUI.value > MAX_SLIDER_VALUE)
             {
                 sliderUI.value = MAX_SLIDER_VALUE;
@@ -69,7 +68,7 @@ namespace ATBMI.Stress
         #region Methods
 
         // !- Initialize
-        private void InitGauge()
+        private void InitStressGauge()
         {
             _isStatusActive = false;
             _currentStressValue = MIN_SLIDER_VALUE;
@@ -125,7 +124,7 @@ namespace ATBMI.Stress
                 yield return null;
             }
 
-            InitGauge();
+            InitStressGauge();
             PlayerEvents.StressInactiveEvent();
         }
 

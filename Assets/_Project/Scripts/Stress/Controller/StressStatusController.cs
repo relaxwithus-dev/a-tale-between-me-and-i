@@ -29,7 +29,7 @@ namespace ATBMI.Stress
         {
             // Component
             _stressAnimator = GetComponentInChildren<Animator>();
-            _playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+            _playerController = GetComponentInParent<PlayerController>();
         
             // Status
             ProductivityStatus = new Productivity(productivityData, _playerController);
