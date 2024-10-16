@@ -14,7 +14,7 @@ namespace ATBMI.Gameplay.Event
         public static event Action OnStressInactive;
         public static event Action<List<InventoryItem>> OnUpdateInventory;
         public static event Action<RuleEntry, TextAsset, float, bool> OnMoveToPlayer;
-
+        
         // Caller
         public static void InteractEvent() => OnInteract?.Invoke();
         public static void StressActiveEvent() => OnStressActive?.Invoke();

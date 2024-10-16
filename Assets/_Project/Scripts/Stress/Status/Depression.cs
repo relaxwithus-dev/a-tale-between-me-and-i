@@ -13,27 +13,22 @@ namespace ATBMI.Stress
             
         }
 
-        // TODO: Drop logic buat depression status disini
+         // TODO: Drop logic productivity lainnya disini
         public override void PerformStatus()
         {
             base.PerformStatus();
-            Debug.Log("perform depression");
 
-            if (playerController.CurrentSpeed != _finalSpeed)
-            {
-                var debuffPercentage = CalculatePercentage(playerController.CurrentSpeed, speedPercentage);
-                _finalSpeed = playerController.CurrentSpeed - debuffPercentage;
-                playerController.CurrentSpeed = _finalSpeed;   
-            }
+            // Debuff speed
+            var speedDebuff = CalculatePercentage(playerController.CurrentSpeed, speedPercentage);
+            _finalSpeed = playerController.CurrentSpeed - speedDebuff;
+            playerController.CurrentSpeed = _finalSpeed;   
         }
-
-        public override void AvoidStatus()
+        
+        public override void ResetStatus()
         {
-            base.AvoidStatus();
-            Debug.Log("avoid depression");
+            base.ResetStatus();
             _finalSpeed = 0f;
             playerController.CurrentSpeed = playerController.CurrentData.MoveSpeed;  
         }
-
     }
 }
