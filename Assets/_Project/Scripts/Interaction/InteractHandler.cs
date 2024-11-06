@@ -82,7 +82,7 @@ namespace ATBMI.Interaction
             var flagCount = _interactCreator.InventoryFlags.Count;
             var inventoryCount = InventoryManager.Instance.InventoryList.Count;
             int maxCount = Mathf.Max(flagCount, inventoryCount);
-
+            
             for (int i = 0; i < maxCount; i++)
             {
                 var flags = _interactCreator.InventoryFlags[i] as InteractFlag;
@@ -90,7 +90,8 @@ namespace ATBMI.Interaction
 
                 if (i < inventoryCount)
                 {
-                    var itemData = InventoryManager.Instance.GetItemData(i);
+                    var item = InventoryManager.Instance.InventoryList[i];
+                    var itemData = InventoryManager.Instance.GetItemData(item.ItemId);
 
                     // Setup listener
                     button.onClick.RemoveAllListeners(); 

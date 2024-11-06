@@ -12,12 +12,12 @@ namespace ATBMI.Inventory
         #region Fields & Properties
         
         [SerializeField] private ItemList itemList;
-
+        
         public List<InventoryItem> InventoryList { get; set; } = new();
         private readonly Dictionary<int, ItemData> itemDatasDict = new();
-
+        
         public static InventoryManager Instance;
-
+        
         #endregion
 
         private void Awake()
@@ -42,7 +42,7 @@ namespace ATBMI.Inventory
                 itemDatasDict.Add(item.ItemId, item);
             }
         }
-
+        
         public ItemData GetItemData(int itemId)
         {
             if (itemDatasDict.TryGetValue(itemId, out ItemData itemData))

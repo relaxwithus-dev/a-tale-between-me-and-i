@@ -52,7 +52,7 @@ namespace ATBMI.Interaction
         }
         
         #endregion
-
+        
         #region Methods
         
         // !- Core
