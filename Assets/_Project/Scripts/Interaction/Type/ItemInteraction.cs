@@ -23,7 +23,7 @@ namespace ATBMI.Interaction
             Debug.Log($"take item {itemData.ItemName}");
             InventoryManager.Instance.AddItemToInventory(itemId, this);
         }
-
+        
         #endregion
     }
 }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace ATBMI.Inventory
 {
@@ -35,7 +36,7 @@ namespace ATBMI.Inventory
                 }
             }
         }
-
+        
         #endregion
     }
 }
