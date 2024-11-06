@@ -28,23 +28,25 @@ namespace ATBMI
         private void OnEnable()
         {
             QuestEvents.QuestStateChange += QuestStateChange;
+            QuestEvents.QuestInteract += QuestInteract;
         }
 
         private void OnDisable()
         {
             QuestEvents.QuestStateChange -= QuestStateChange;
+            QuestEvents.QuestInteract -= QuestInteract;
         }
 
-        private void Update()
-        {
-            // TODO: change with interaction manager
-            if (GameInputHandler.Instance.IsTapInteract)
-            {
-                Interact();
-            }
-        }
+        // private void Update()
+        // {
+        //     // TODO: change with interaction manager
+        //     if (GameInputHandler.Instance.IsTapInteract)
+        //     {
+        //         Interact();
+        //     }
+        // }
 
-        private void Interact()
+        private void QuestInteract(string questState)
         {
             if (!playerIsNear)
             {
@@ -52,11 +54,11 @@ namespace ATBMI
             }
 
             // start or finish a quest
-            if (currentQuestState.Equals(QuestStateEnum.Can_Start) && startPoint)
+            if (currentQuestState.Equals(questState) && startPoint)
             {
                 QuestEvents.StartQuestEvent(questId);
             }
-            else if (currentQuestState.Equals(QuestStateEnum.Can_Finish) && finishPoint)
+            else if (currentQuestState.Equals(questState) && finishPoint)
             {
                 QuestEvents.FinishQuestEvent(questId);
             }

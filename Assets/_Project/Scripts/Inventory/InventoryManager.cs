@@ -10,7 +10,7 @@ namespace ATBMI.Inventory
     public class InventoryManager : MonoBehaviour
     {
         #region Fields & Properties
-        
+
         [SerializeField] private ItemList itemList;
 
         public List<InventoryItem> InventoryList { get; set; } = new();
@@ -35,11 +35,27 @@ namespace ATBMI.Inventory
             PopulateItemDict();
         }
 
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.T))
+            {
+                AddItemToInventory(103);
+            }
+        }
+
         private void PopulateItemDict()
         {
             foreach (ItemData item in itemList.itemList)
             {
-                itemDatasDict.Add(item.ItemId, item);
+                if (itemDatasDict.ContainsKey(item.ItemId))
+                {
+                    Debug.LogWarning("Duplicate ID found when creating item data dictionary: " + item.ItemId);
+                }
+                else
+                {
+                    itemDatasDict.Add(item.ItemId, item);
+                }
+
             }
         }
 
