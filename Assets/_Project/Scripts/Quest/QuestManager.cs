@@ -55,7 +55,6 @@ namespace ATBMI
 
         private void Start()
         {
-
             foreach (Quest quest in questDataDict.Values)
             {
                 // initialize any loaded quest steps
@@ -115,6 +114,17 @@ namespace ATBMI
 
         private void Update()
         {
+            if(Input.GetKeyDown(KeyCode.G))
+            {
+                QuestEvents.QuestInteractEvent(QuestStateEnum.Can_Start);
+
+            }
+
+            if(Input.GetKeyDown(KeyCode.H))
+            {
+                QuestEvents.QuestInteractEvent(QuestStateEnum.Can_Finish);
+            }
+
             // // loop through ALL quests
             // foreach (Quest quest in questMap.Values)
             // {
@@ -131,6 +141,8 @@ namespace ATBMI
             Quest quest = GetQuestById(id);
             quest.InstantiateCurrentQuestStep(this.transform);
             ChangeQuestState(quest.info.QuestId, QuestStateEnum.In_Progress);
+
+            Debug.Log("Quest " + quest.info.displayName + " Started");
         }
 
         private void AdvanceQuest(int id)
@@ -174,7 +186,7 @@ namespace ATBMI
             ChangeQuestState(id, quest.state);
         }
 
-        private Quest GetQuestById(int id)
+        public Quest GetQuestById(int id)
         {
             Quest quest = questDataDict[id];
             if (quest == null)

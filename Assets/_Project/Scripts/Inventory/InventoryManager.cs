@@ -35,14 +35,6 @@ namespace ATBMI.Inventory
             PopulateItemDict();
         }
 
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.T))
-            {
-                AddItemToInventory(103);
-            }
-        }
-
         private void PopulateItemDict()
         {
             foreach (ItemData item in itemList.itemList)
@@ -75,7 +67,7 @@ namespace ATBMI.Inventory
                 // Add item to inventory
                 InventoryList.Add(new InventoryItem(itemId));
                 PlayerEvents.UpdateInventoryEvent(InventoryList);
-                Debug.Log($"add item {data.ItemName} ({data.ItemId}) to inventory");
+                Debug.Log("add item " + data.ItemName + " " + data.ItemId + " to inventory");
 
                 // Destroy item
                 if (item != null)
@@ -83,7 +75,7 @@ namespace ATBMI.Inventory
             }
             else
             {
-                Debug.LogError($"failed to acquire item with id {itemId}");
+                Debug.LogError("failed to acquire item with id " + itemId);
             }
         }
 
@@ -96,11 +88,11 @@ namespace ATBMI.Inventory
             {
                 InventoryList.Remove(itemToRemove);
                 PlayerEvents.UpdateInventoryEvent(InventoryList);
-                Debug.Log($"remove item with id {itemId} from inventory");
+                Debug.Log("remove item with id " + itemId + " from inventory");
             }
             else
             {
-                Debug.LogError($"failed to remove item with id {itemId}");
+                Debug.LogError("failed to remove item with id " + itemId);
             }
         }
     }

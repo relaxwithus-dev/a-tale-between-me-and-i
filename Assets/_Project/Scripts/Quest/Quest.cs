@@ -17,7 +17,7 @@ namespace ATBMI
         public Quest(QuestInfoSO questInfo)
         {
             this.info = questInfo;
-            this.state = QuestStateEnum.Requirements_Not_Met;
+            this.state = QuestStateEnum.Can_Start;
             this.currentQuestStepIndex = 0;
             this.questStepStates = new QuestStepState[info.questStepPrefabs.Length];
             for (int i = 0; i < questStepStates.Length; i++)
@@ -103,11 +103,7 @@ namespace ATBMI
         {
             string fullStatus = "";
 
-            if (state == QuestStateEnum.Requirements_Not_Met)
-            {
-                fullStatus = "Requirements are not yet met to start this quest.";
-            }
-            else if (state == QuestStateEnum.Can_Start)
+            if (state == QuestStateEnum.Can_Start)
             {
                 fullStatus = "This quest can be started!";
             }

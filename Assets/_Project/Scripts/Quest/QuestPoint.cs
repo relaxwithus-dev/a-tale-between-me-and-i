@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using ATBMI.Gameplay.Event;
 using UnityEngine.InputSystem;
 using UnityEngine;
@@ -16,7 +14,7 @@ namespace ATBMI
         [SerializeField] private bool startPoint = true;
         [SerializeField] private bool finishPoint = true;
 
-        private bool playerIsNear = false;
+        public bool playerIsNear = false;
         private int questId;
         private QuestStateEnum currentQuestState;
 
@@ -46,7 +44,7 @@ namespace ATBMI
         //     }
         // }
 
-        private void QuestInteract(string questState)
+        private void QuestInteract(QuestStateEnum questState)
         {
             if (!playerIsNear)
             {
@@ -54,11 +52,11 @@ namespace ATBMI
             }
 
             // start or finish a quest
-            if (currentQuestState.Equals(questState) && startPoint)
+            if (questState.Equals(QuestStateEnum.Can_Start) && currentQuestState.Equals(QuestStateEnum.Can_Start) && startPoint)
             {
                 QuestEvents.StartQuestEvent(questId);
             }
-            else if (currentQuestState.Equals(questState) && finishPoint)
+            else if (questState.Equals(QuestStateEnum.Can_Finish) && currentQuestState.Equals(QuestStateEnum.Can_Finish) && finishPoint)
             {
                 QuestEvents.FinishQuestEvent(questId);
             }
@@ -69,21 +67,23 @@ namespace ATBMI
             // only update the quest state if this point has the corresponding quest
             if (quest.info.QuestId.Equals(questId))
             {
+                Debug.Log("Current Quest State of " + quest.info.displayName + " is " + quest.state);
+
                 currentQuestState = quest.state;
             }
         }
 
-        private void OnTriggerEnter2D(Collider2D otherCollider)
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            if (otherCollider.CompareTag("Player"))
+            if (other.CompareTag("Player"))
             {
                 playerIsNear = true;
             }
         }
 
-        private void OnTriggerExit2D(Collider2D otherCollider)
+        private void OnTriggerExit2D(Collider2D other)
         {
-            if (otherCollider.CompareTag("Player"))
+            if (other.CompareTag("Player"))
             {
                 playerIsNear = false;
             }

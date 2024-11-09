@@ -5,8 +5,8 @@ namespace ATBMI
 {
     public abstract class QuestStep : MonoBehaviour
     {
+        protected int questId;
         private bool isFinished = false;
-        private int questId;
         private int stepIndex;
 
         public void InitializeQuestStep(int questId, int stepIndex, string questStepState)

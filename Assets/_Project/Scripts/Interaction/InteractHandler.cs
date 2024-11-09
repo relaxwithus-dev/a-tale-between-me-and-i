@@ -90,7 +90,8 @@ namespace ATBMI.Interaction
 
                 if (i < inventoryCount)
                 {
-                    var itemData = InventoryManager.Instance.GetItemData(i);
+                    var item = InventoryManager.Instance.InventoryList[i];
+                    var itemData = InventoryManager.Instance.GetItemData(item.ItemId);
 
                     // Setup listener
                     button.onClick.RemoveAllListeners(); 

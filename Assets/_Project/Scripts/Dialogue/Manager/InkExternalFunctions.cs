@@ -1,8 +1,8 @@
 using UnityEngine;
 using Ink.Runtime;
 using ATBMI.Gameplay.Event;
-using Unity.VisualScripting;
 using ATBMI.Inventory;
+using ATBMI.Enum;
 
 namespace ATBMI.Dialogue
 {
@@ -39,7 +39,36 @@ namespace ATBMI.Dialogue
 
         public void QuestInteract(string questState)
         {
-            QuestEvents.QuestInteractEvent(questState);
+            // Try to parse the string to the enum
+            if (System.Enum.TryParse(questState, out QuestStateEnum questStateChecker))
+            {
+                QuestStateEnum questStateEnum = QuestStateEnum.Can_Start;
+
+                // Use switch statement on the enum
+                switch (questStateChecker)
+                {
+                    case QuestStateEnum.Can_Start:
+                        questStateEnum = QuestStateEnum.Can_Start;
+                        break;
+                    case QuestStateEnum.Can_Finish:
+                        questStateEnum = QuestStateEnum.Can_Finish;
+                        break;
+                    default:
+                        questStateEnum = QuestStateEnum.Null;
+                        Debug.Log("InvalidState " + questState);
+                        break;
+                }
+
+                if (questStateEnum != QuestStateEnum.Null)
+                {
+                    QuestEvents.QuestInteractEvent(questStateEnum);
+                }
+            }
+            else
+            {
+                Debug.Log("InvalidState " + questState);
+            }
+
         }
 
         public void AddItem(string itemId)
