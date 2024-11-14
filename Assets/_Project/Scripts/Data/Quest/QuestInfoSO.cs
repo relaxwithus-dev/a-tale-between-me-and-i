@@ -9,6 +9,7 @@ namespace ATBMI
         [field: SerializeField] public int QuestId { get; private set; }
         [Header("General")]
         public string displayName;
+        public bool shoulBeFinishManually;
 
         [Header("Requirements")]
         public QuestInfoSO[] questPrerequisites;

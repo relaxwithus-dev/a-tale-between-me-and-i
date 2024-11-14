@@ -36,6 +36,7 @@ namespace ATBMI
             QuestEvents.QuestStepStateChangeEvent(questId, stepIndex, new QuestStepState(newState, newStatus));
         }
 
+        // to set after loading quest step
         protected abstract void SetQuestStepState(string state);
     }
 }

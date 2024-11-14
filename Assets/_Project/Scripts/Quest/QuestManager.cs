@@ -62,8 +62,6 @@ namespace ATBMI
                 {
                     quest.InstantiateCurrentQuestStep(this.transform);
                 }
-                // broadcast the initial state of all quests on startup
-                QuestEvents.QuestStateChangeEvent(quest);
             }
         }
 
@@ -86,9 +84,9 @@ namespace ATBMI
         {
             Quest quest = GetQuestById(id);
             quest.state = state;
-            QuestEvents.QuestStateChangeEvent(quest);
         }
 
+        // if any
         // private bool CheckRequirementsMet(Quest quest)
         // {
         //     // start true and prove to be false
@@ -114,18 +112,18 @@ namespace ATBMI
 
         private void Update()
         {
-            if(Input.GetKeyDown(KeyCode.G))
+            // Test
+            if (Input.GetKeyDown(KeyCode.G))
             {
-                QuestEvents.QuestInteractEvent(QuestStateEnum.Can_Start);
-
+                StartQuest(1); // go to market quest id
             }
 
-            if(Input.GetKeyDown(KeyCode.H))
-            {
-                QuestEvents.QuestInteractEvent(QuestStateEnum.Can_Finish);
-            }
+            // if (Input.GetKeyDown(KeyCode.H))
+            // {
+            //     FinishQuest(1);
+            // }
 
-            // // loop through ALL quests
+            // loop through ALL quests
             // foreach (Quest quest in questMap.Values)
             // {
             //     // if we're now meeting the requirements, switch over to the CAN_START state
@@ -139,10 +137,18 @@ namespace ATBMI
         private void StartQuest(int id)
         {
             Quest quest = GetQuestById(id);
-            quest.InstantiateCurrentQuestStep(this.transform);
-            ChangeQuestState(quest.info.QuestId, QuestStateEnum.In_Progress);
 
-            Debug.Log("Quest " + quest.info.displayName + " Started");
+            if (quest != null && quest.state.Equals(QuestStateEnum.Can_Start))
+            {
+                quest.InstantiateCurrentQuestStep(this.transform);
+                ChangeQuestState(quest.info.QuestId, QuestStateEnum.In_Progress);
+
+                Debug.Log("Quest " + quest.info.displayName + " Started");
+            }
+            else
+            {
+                Debug.Log("Quest " + quest.info.displayName + " Can't be started because its state is " + quest.state + ", it should be " + QuestStateEnum.Can_Start.ToString());
+            }
         }
 
         private void AdvanceQuest(int id)
@@ -161,14 +167,29 @@ namespace ATBMI
             else
             {
                 ChangeQuestState(quest.info.QuestId, QuestStateEnum.Can_Finish);
+
+                if (!quest.info.shoulBeFinishManually)
+                {
+                    FinishQuest(id);
+                }
             }
         }
 
         private void FinishQuest(int id)
         {
             Quest quest = GetQuestById(id);
-            ClaimRewards(quest);
-            ChangeQuestState(quest.info.QuestId, QuestStateEnum.Finished);
+
+            if (quest != null && quest.state.Equals(QuestStateEnum.Can_Finish))
+            {
+                ClaimRewards(quest);
+                ChangeQuestState(quest.info.QuestId, QuestStateEnum.Finished);
+
+                Debug.Log("Quest " + quest.info.displayName + " already finished");
+            }
+            else
+            {
+                Debug.Log("Quest " + quest.info.displayName + " Can't be finished because its state is " + quest.state + ", it should be " + QuestStateEnum.Can_Finish.ToString());
+            }
         }
 
         private void ClaimRewards(Quest quest)
@@ -194,6 +215,22 @@ namespace ATBMI
                 Debug.LogError("ID not found in the Quest Data Dictionary: " + id);
             }
             return quest;
+        }
+
+        private void OnApplicationQuit()
+        {
+            foreach (Quest quest in questDataDict.Values)
+            {
+                QuestData questData = quest.GetQuestData();
+                Debug.Log(quest.info.QuestId + " " + quest.info.displayName);
+                Debug.Log("State = " + questData.state);
+                Debug.Log("Index = " + questData.questStepIndex);
+                foreach (QuestStepState stepState in questData.questStepStates)
+                {
+                    Debug.Log("Step State = " + stepState.state);
+                }
+
+            }
         }
     }
 }

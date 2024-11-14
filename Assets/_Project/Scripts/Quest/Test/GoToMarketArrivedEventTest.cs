@@ -11,9 +11,6 @@ namespace ATBMI
             {
                 // arrived
                 QuestEvents.ArrivedAtMarketEvent();
-
-                // interact event
-                QuestEvents.QuestInteractEvent(QuestStateEnum.Can_Finish);
             }
         }
     }

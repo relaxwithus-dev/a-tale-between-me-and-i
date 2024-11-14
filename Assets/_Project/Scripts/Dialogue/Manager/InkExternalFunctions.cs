@@ -3,6 +3,7 @@ using Ink.Runtime;
 using ATBMI.Gameplay.Event;
 using ATBMI.Inventory;
 using ATBMI.Enum;
+using System;
 
 namespace ATBMI.Dialogue
 {
@@ -11,17 +12,19 @@ namespace ATBMI.Dialogue
         public void Bind(Story story, Animator emoteAnimator)
         {
             story.BindExternalFunction("PlayEmote", (string emoteName) => PlayEmote(emoteName, emoteAnimator));
-            story.BindExternalFunction("QuestInteract", (string questState) => QuestInteract(questState));
             story.BindExternalFunction("AddItem", (string itemId) => AddItem(itemId));
             story.BindExternalFunction("RemoveItem", (string itemId) => RemoveItem(itemId));
+            story.BindExternalFunction("StartQuest", (string questId) => StartQuest(questId));
+            story.BindExternalFunction("FinishQuest", (string questId) => FinishQuest(questId));
         }
 
         public void Unbind(Story story)
         {
             story.UnbindExternalFunction("PlayEmote");
-            story.UnbindExternalFunction("QuestInteract");
             story.UnbindExternalFunction("AddItem");
             story.UnbindExternalFunction("RemoveItem");
+            story.UnbindExternalFunction("StartQuest");
+            story.UnbindExternalFunction("FinishQuest");
         }
 
         public void PlayEmote(string emoteName, Animator emoteAnimator)
@@ -37,64 +40,24 @@ namespace ATBMI.Dialogue
             }
         }
 
-        public void QuestInteract(string questState)
-        {
-            // Try to parse the string to the enum
-            if (System.Enum.TryParse(questState, out QuestStateEnum questStateChecker))
-            {
-                QuestStateEnum questStateEnum = QuestStateEnum.Can_Start;
-
-                // Use switch statement on the enum
-                switch (questStateChecker)
-                {
-                    case QuestStateEnum.Can_Start:
-                        questStateEnum = QuestStateEnum.Can_Start;
-                        break;
-                    case QuestStateEnum.Can_Finish:
-                        questStateEnum = QuestStateEnum.Can_Finish;
-                        break;
-                    default:
-                        questStateEnum = QuestStateEnum.Null;
-                        Debug.Log("InvalidState " + questState);
-                        break;
-                }
-
-                if (questStateEnum != QuestStateEnum.Null)
-                {
-                    QuestEvents.QuestInteractEvent(questStateEnum);
-                }
-            }
-            else
-            {
-                Debug.Log("InvalidState " + questState);
-            }
-
-        }
-
         public void AddItem(string itemId)
         {
-            int id;
-            if (int.TryParse(itemId, out id))
-            {
-                InventoryManager.Instance.AddItemToInventory(id);
-            }
-            else
-            {
-                Debug.LogError("Invalid item ID: " + itemId);
-            }
+            InventoryManager.Instance.AddItemToInventory(int.Parse(itemId));
         }
 
         public void RemoveItem(string itemId)
         {
-            int id;
-            if (int.TryParse(itemId, out id))
-            {
-                InventoryManager.Instance.RemoveItemFromInventory(id);
-            }
-            else
-            {
-                Debug.LogError("Invalid item ID: " + itemId);
-            }
+            InventoryManager.Instance.RemoveItemFromInventory(int.Parse(itemId));
+        }
+
+        public void StartQuest(string questId)
+        {
+            QuestEvents.StartQuestEvent(int.Parse(questId));
+        }
+
+        public void FinishQuest(string questId)
+        {
+            QuestEvents.FinishQuestEvent(int.Parse(questId));
         }
     }
 }

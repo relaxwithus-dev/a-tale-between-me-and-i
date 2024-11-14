@@ -94,11 +94,12 @@ namespace ATBMI
             }
         }
 
-        // public QuestData GetQuestData()
-        // {
-        //     return new QuestData(state, currentQuestStepIndex, questStepStates);
-        // }
+        public QuestData GetQuestData()
+        {
+            return new QuestData(state, currentQuestStepIndex, questStepStates);
+        }
 
+        // TODO: use it as quest log
         public string GetFullStatusText()
         {
             string fullStatus = "";

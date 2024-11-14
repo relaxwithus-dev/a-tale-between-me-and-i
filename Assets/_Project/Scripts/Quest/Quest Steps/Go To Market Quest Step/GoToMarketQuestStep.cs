@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using ATBMI.Gameplay.Event;
 using UnityEngine;
+using System;
 
 namespace ATBMI
 {
@@ -25,16 +26,23 @@ namespace ATBMI
             {
                 hasArrivedAtMarket = true;
 
+                UpdateStepState();
+
                 Quest quest = QuestManager.Instance.GetQuestById(questId);
                 FinishQuestStep();
-
-                Debug.Log(quest.GetFullStatusText());
             }
+        }
+
+        private void UpdateStepState()
+        {
+            ChangeState(hasArrivedAtMarket.ToString(), hasArrivedAtMarket.ToString()); // TODO: change to new status
         }
 
         protected override void SetQuestStepState(string state)
         {
+            this.hasArrivedAtMarket = Convert.ToBoolean(state);
 
+            UpdateStepState();
         }
     }
 }

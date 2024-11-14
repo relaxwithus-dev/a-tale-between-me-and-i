@@ -2382,7 +2382,7 @@ GameObject:
   - component: {fileID: 921594392}
   - component: {fileID: 921594391}
   - component: {fileID: 921594390}
-  - component: {fileID: 921594389}
+  - component: {fileID: 921594393}
   m_Layer: 7
   m_Name: Quest Point Test - Finish
   m_TagString: NPC
@@ -2390,22 +2390,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &921594389
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 921594388}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e57bb22e7d472e4a866fb2c4d572b08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  questInfoForPoint: {fileID: 11400000, guid: 646bb3a1530cd064192debc93bcdfcc7, type: 2}
-  startPoint: 0
-  finishPoint: 1
-  playerIsNear: 0
 --- !u!61 &921594390
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2518,6 +2502,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &921594393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 921594388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 994d456f97bce81499c44e08e9fdfbf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &936930016
 GameObject:
   m_ObjectHideFlags: 0
@@ -2529,7 +2525,6 @@ GameObject:
   - component: {fileID: 936930020}
   - component: {fileID: 936930019}
   - component: {fileID: 936930018}
-  - component: {fileID: 936930017}
   m_Layer: 7
   m_Name: Quest Point Test - Start
   m_TagString: NPC
@@ -2537,22 +2532,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &936930017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 936930016}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e57bb22e7d472e4a866fb2c4d572b08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  questInfoForPoint: {fileID: 11400000, guid: 646bb3a1530cd064192debc93bcdfcc7, type: 2}
-  startPoint: 1
-  finishPoint: 0
-  playerIsNear: 0
 --- !u!61 &936930018
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6694,8 +6673,8 @@ SceneRoots:
   - {fileID: 1547652510}
   - {fileID: 303271791}
   - {fileID: 1010699750}
+  - {fileID: 1817794410}
   - {fileID: 936930020}
   - {fileID: 921594392}
-  - {fileID: 1817794410}
   - {fileID: 408243203}
   - {fileID: 1850214895}
