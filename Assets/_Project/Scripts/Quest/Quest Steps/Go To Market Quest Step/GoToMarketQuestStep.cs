@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using ATBMI.Gameplay.Event;
 using UnityEngine;
 using System;
 
@@ -9,16 +6,6 @@ namespace ATBMI
     public class GoToMarketQuestStep : QuestStep
     {
         private bool hasArrivedAtMarket;
-
-        private void OnEnable()
-        {
-            QuestEvents.ArrivedAtMarket += ArrivedAtMarket;
-        }
-
-        private void OnDisable()
-        {
-            QuestEvents.ArrivedAtMarket -= ArrivedAtMarket;
-        }
 
         private void ArrivedAtMarket()
         {
@@ -43,6 +30,15 @@ namespace ATBMI
             this.hasArrivedAtMarket = Convert.ToBoolean(state);
 
             UpdateStepState();
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.CompareTag("Player"))
+            {
+                // arrived
+                ArrivedAtMarket();
+            }
         }
     }
 }

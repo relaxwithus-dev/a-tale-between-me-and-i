@@ -12,7 +12,7 @@ namespace ATBMI.Gameplay.Event
         public static event Action<int, int, QuestStepState> QuestStepStateChange;
 
         // Quest Step Event
-        public static event Action ArrivedAtMarket;
+        // TODO: put quest step event here
 
         // Main Caller
         public static void StartQuestEvent(int id) => StartQuest?.Invoke(id);
@@ -21,6 +21,6 @@ namespace ATBMI.Gameplay.Event
         public static void QuestStepStateChangeEvent(int id, int stepIndex, QuestStepState questStepState) => QuestStepStateChange?.Invoke(id, stepIndex, questStepState);
 
         // Quest Step Caller
-        public static void ArrivedAtMarketEvent() => ArrivedAtMarket?.Invoke();
+        
     }
 }
