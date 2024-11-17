@@ -1,17 +1,19 @@
+using UnityEngine;
 using ATBMI.Gameplay.Event;
 
 namespace ATBMI.Dialogue
 {
-    public class OnTalk_ExplosionWalkingRule : IDialogueRule<RE_Security_01>
+    [CreateAssetMenu(fileName = "OnTalk_ExplosionWalkingRule", menuName = "Data/Dialogue Rules/Security_01/OnTalk_ExplosionWalkingRule")]
+    public class OnTalk_ExplosionWalkingRule : DialogueRuleBase<RE_Security_01>
     {
-        public int RulePriority => (int)RulePrioritySecurity_01.OnTalk_ExplosionWalkingRule;
+        // public int RulePriority => (int)RulePrioritySecurity_01.OnTalk_ExplosionWalkingRule;
 
-        public bool Evaluate(RE_Security_01 context)
+        public override bool Evaluate(RE_Security_01 context)
         {
             return context.IsAfterExplosion && !context.IsRunning;
         }
 
-        public void Execute(RE_Security_01 context)
+        public override void Execute(RE_Security_01 context)
         {
             context.VisitedCount++;
 

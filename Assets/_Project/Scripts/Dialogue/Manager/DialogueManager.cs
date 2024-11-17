@@ -101,7 +101,7 @@ namespace ATBMI.Dialogue
 
         public void EnterDialogueMode(TextAsset inkJSON, Animator emoteAnimator)
         {
-            Debug.Log(inkJSON.name);
+            Debug.Log("Dialogue asset = " + inkJSON.name);
 
             currentStory = new Story(inkJSON.text);
             IsDialoguePlaying = true;
@@ -295,6 +295,7 @@ namespace ATBMI.Dialogue
                         dialogueName.text = tagValue == "Player" ? "Atma" : tagValue;
 
                         // update dialogue bubble position
+                        Debug.Log("Speaker = " + tagValue);
                         DialogEvents.UpdateDialogueUIPosEvent(tagValue);
                         break;
                     case EXPRESSION_TAG:

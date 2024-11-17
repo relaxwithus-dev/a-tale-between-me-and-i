@@ -46,8 +46,6 @@ public class DialogueUI : MonoBehaviour
         Transform pinPosition = SearchPinPlaceholder(targetPos);
         Vector3 screenPosition = Camera.main.WorldToScreenPoint(pinPosition.position);
 
-        Debug.Log(tagValue);
-
         if (screenPosition != null)
         {
             parentRectTransform.position = new Vector2(screenPosition.x, screenPosition.y);
