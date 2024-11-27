@@ -6,11 +6,15 @@ using TMPro;
 using Ink.Runtime;
 using ATBMI.Gameplay.Event;
 using ATBMI.Gameplay.Handler;
+using ATBMI.Player;
 
 namespace ATBMI.Dialogue
 {
     public class DialogueManager : MonoBehaviour
     {
+        [Header("Dependencies")]
+        [SerializeField] private PlayerController playerController;
+
         [Header("Params")]
         [SerializeField] private float typingSpeed;
 
@@ -101,6 +105,8 @@ namespace ATBMI.Dialogue
 
         public void EnterDialogueMode(TextAsset inkJSON, Animator emoteAnimator)
         {
+            playerController.StopMovement();
+
             Debug.Log("Dialogue asset = " + inkJSON.name);
 
             currentStory = new Story(inkJSON.text);
@@ -157,12 +163,13 @@ namespace ATBMI.Dialogue
 
             canContinueToNextLine = false;
             bool isAddingRichTextTag = false;
+            bool canSkip = false;
 
             // display char in a line 1 by 1
             foreach (char letter in line.ToCharArray())
             {
-                // if player pressed submit button the line display immediately
-                if (GameInputHandler.Instance.IsTapInteract)
+                // if player pressed submit button displayed the line immediately
+                if (canSkip && GameInputHandler.Instance.IsTapInteract)
                 {
                     Debug.LogWarning("submit button pressed,  the line display immediately!");
 
@@ -186,6 +193,7 @@ namespace ATBMI.Dialogue
                     dialogueText.maxVisibleCharacters++;
                     // dialogueText.text += letter;
                     yield return new WaitForSeconds(typingSpeed);
+                    canSkip = true;
                 }
             }
 
@@ -321,6 +329,8 @@ namespace ATBMI.Dialogue
             dialogueText.text = "";
 
             DialogEvents.StopDialogueAnimEvent();
+
+            playerController.StartMovement();
         }
 
         public void MakeChoice(int choiceIndex)

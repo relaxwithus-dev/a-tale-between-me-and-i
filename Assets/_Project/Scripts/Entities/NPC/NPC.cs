@@ -6,6 +6,6 @@ public class NPC : MonoBehaviour
 
     private void Start()
     {
-        isFacingRight = true;
+        isFacingRight = false;
     }
 }

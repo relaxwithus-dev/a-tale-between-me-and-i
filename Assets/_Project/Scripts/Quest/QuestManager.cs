@@ -86,13 +86,13 @@ namespace ATBMI
             quest.state = state;
         }
 
-        // if any
+        // if any requirements
         // private bool CheckRequirementsMet(Quest quest)
         // {
         //     // start true and prove to be false
         //     bool meetsRequirements = true;
 
-        //     // check player level requirements
+        //     // check player level requirements (e.g player requirement)
         //     if (currentPlayerLevel < quest.info.levelRequirement)
         //     {
         //         meetsRequirements = false;
@@ -110,6 +110,7 @@ namespace ATBMI
         //     return meetsRequirements;
         // }
 
+        // Test
         private void Update()
         {
             // Test

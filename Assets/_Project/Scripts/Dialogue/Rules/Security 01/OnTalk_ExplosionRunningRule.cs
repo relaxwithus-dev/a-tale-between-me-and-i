@@ -21,7 +21,7 @@ namespace ATBMI.Dialogue
             if (context.VisitedCount == 1 && !context.isOnce02)
             {
                 context.isDialogueAboutToStart = true;
-                PlayerEvents.MoveToPlayerEvent(context, context.onTalkedTo_AfterExplosion_WithRunning_Visited_01, context.playerEntryPoint.position.x, context.npc.isFacingRight);
+                PlayerEvents.MoveToPlayerEvent(context, context.onTalkedTo_AfterExplosion_WithRunning_Visited_01, context.playerEntryPoint.position.x, context.transform.position.x, context.npc.isFacingRight);
                 if (context.isOnce_AfterExplosion_WithRunning_Visited_01)
                 {
                     context.isOnce02 = true;
@@ -30,7 +30,7 @@ namespace ATBMI.Dialogue
             else if (context.VisitedCount == 2 && !context.isOnce03)
             {
                 context.isDialogueAboutToStart = true;
-                PlayerEvents.MoveToPlayerEvent(context, context.onTalkedTo_AfterExplosion_WithRunning_Visited_02, context.playerEntryPoint.position.x, context.npc.isFacingRight);
+                PlayerEvents.MoveToPlayerEvent(context, context.onTalkedTo_AfterExplosion_WithRunning_Visited_02, context.playerEntryPoint.position.x, context.transform.position.x, context.npc.isFacingRight);
                 if (context.isOnce_AfterExplosion_WithRunning_Visited_02)
                 {
                     context.isOnce03 = true;
@@ -39,7 +39,7 @@ namespace ATBMI.Dialogue
             else if (context.VisitedCount == 3 && !context.isOnce04)
             {
                 context.isDialogueAboutToStart = true;
-                PlayerEvents.MoveToPlayerEvent(context, context.onTalkedTo_AfterExplosion_WithRunning_Visited_03, context.playerEntryPoint.position.x, context.npc.isFacingRight);
+                PlayerEvents.MoveToPlayerEvent(context, context.onTalkedTo_AfterExplosion_WithRunning_Visited_03, context.playerEntryPoint.position.x, context.transform.position.x, context.npc.isFacingRight);
                 if (context.isOnce_AfterExplosion_WithRunning_Visited_03)
                 {
                     context.isOnce04 = true;

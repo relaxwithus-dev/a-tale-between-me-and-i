@@ -35,6 +35,16 @@ namespace ATBMI.Inventory
             PopulateItemDict();
         }
 
+        private void Update()
+        {
+            if(Input.GetKeyDown(KeyCode.C))
+            {
+                AddItemToInventory(101);
+                AddItemToInventory(102);
+                AddItemToInventory(103);
+            }
+        }
+
         private void PopulateItemDict()
         {
             foreach (ItemData item in itemList.itemList)

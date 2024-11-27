@@ -43,6 +43,8 @@ namespace ATBMI.Player
         // Reference
         private Rigidbody2D _playerRb;
         private SpriteRenderer _playerSr;
+        private Vector2 _temporaryDirection = Vector2.zero;
+
 
         #endregion
 
@@ -66,7 +68,7 @@ namespace ATBMI.Player
         }
 
         private void Update()
-        {            
+        {
             HandleState();
             PlayerDirection();
         }
@@ -74,7 +76,7 @@ namespace ATBMI.Player
         #endregion
 
         #region Methods
-        
+
         // !- Initialize
         private void InitPlayer()
         {
@@ -83,11 +85,14 @@ namespace ATBMI.Player
             CurrentSpeed = CurrentData.MoveSpeed;
             gameObject.name = CurrentData.PlayerName;
         }
-        
+
         // !- Core
         private void PlayerMove()
         {
-            var direction = GameInputHandler.Instance.MoveDirection;
+            var direction = _temporaryDirection == Vector2.zero
+                ? GameInputHandler.Instance.MoveDirection
+                : _temporaryDirection;
+
             moveDirection = new(direction.x, moveDirection.y);
             moveDirection.Normalize();
 
@@ -117,7 +122,7 @@ namespace ATBMI.Player
                 yield return null;
             }
 
-            _playerRb.velocity = Vector2.zero; 
+            _playerRb.velocity = Vector2.zero;
             _latestDirection = Vector2.zero;
         }
 
@@ -150,6 +155,11 @@ namespace ATBMI.Player
             _playerRb.velocity = Vector2.zero;
         }
 
+        public void SetTemporaryDirection(Vector2 direction)
+        {
+            _temporaryDirection = direction;
+        }
+
         #endregion
 
         #region State
@@ -172,7 +182,7 @@ namespace ATBMI.Player
             if (direction == Vector2.zero) return PlayerState.Idle;
             return isRunning ? PlayerState.Run : PlayerState.Walk;
         }
-        
+
         private PlayerData GetCurrentData(PlayerState playerState)
         {
             return playerState switch
