@@ -134,11 +134,6 @@ namespace ATBMI.Inventory
             // Update index with wrapping
             selectedIndex = (selectedIndex + direction + _inventoryCreator.InventoryFlags.Count) % _inventoryCreator.InventoryFlags.Count;
 
-            // Set the selected game object for UI navigation
-            // EventSystem.current.SetSelectedGameObject(_inventoryCreator.InventoryFlags[selectedIndex].gameObject);
-
-            Debug.Log(selectedIndex);
-
             // Update description
             SetDescription();
         }
