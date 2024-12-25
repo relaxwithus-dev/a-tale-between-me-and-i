@@ -19,7 +19,7 @@ namespace ATBMI.Dialogue
         private bool isDialogueAboutToStart;
         private bool isPlayerInRange;
 
-        private NPC npc;
+        private CharacterAI npc;
         private PlayerDialogHandler _playerDialogHandler;
 
         private void Awake()
@@ -28,7 +28,7 @@ namespace ATBMI.Dialogue
             _playerDialogHandler = FindObjectOfType<PlayerDialogHandler>();
 
             visualCue = GetComponentInChildren<VisualCue>();
-            npc = transform.parent.gameObject.GetComponent<NPC>();
+            npc = transform.parent.gameObject.GetComponent<CharacterAI>();
 
             if (visualCue != null)
             {
