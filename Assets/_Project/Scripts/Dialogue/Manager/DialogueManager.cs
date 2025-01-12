@@ -120,35 +120,41 @@ namespace ATBMI.Dialogue
 
         private void ContinueStory()
         {
-            if (currentStory.canContinue)
+            while (currentStory.canContinue)
             {
-                if (displayLineCoroutine != null)
-                {
-                    StopCoroutine(displayLineCoroutine);
-                }
-
                 string nextLine = currentStory.Continue();
 
-                // if the last line is empty string, exit
-                if (nextLine.Equals("") && !currentStory.canContinue)
+                // Skip processing if the next line is an empty string
+                if (!string.IsNullOrWhiteSpace(nextLine))
                 {
-                    StartCoroutine(ExitDialogueMode());
-                }
-                else
-                {
-                    HandleTags(currentStory.currentTags);
-                    displayLineCoroutine = StartCoroutine(DisplayLine(nextLine));
-                }
+                    if (displayLineCoroutine != null)
+                    {
+                        StopCoroutine(displayLineCoroutine);
+                    }
 
+                    displayLineCoroutine = StartCoroutine(DisplayLine(nextLine));
+                    return;
+                }
             }
-            else
+
+            if (!currentStory.canContinue && currentStory.currentChoices.Count == 0)
             {
                 StartCoroutine(ExitDialogueMode());
             }
+            else
+            {
+                DisplayChoices();
+            }
         }
+
 
         private IEnumerator DisplayLine(string line)
         {
+            // if (string.IsNullOrWhiteSpace(line))
+            // {
+            //     yield break; // Skip displaying the line
+            // }
+
             dialogueChoicesContainer.transform.parent.gameObject.SetActive(false);
             dialoguePin.SetActive(true);
 
@@ -164,6 +170,9 @@ namespace ATBMI.Dialogue
             canContinueToNextLine = false;
             bool isAddingRichTextTag = false;
             bool canSkip = false;
+
+            // Process tags before displaying the line
+                    HandleTags(currentStory.currentTags);
 
             // display char in a line 1 by 1
             foreach (char letter in line.ToCharArray())

@@ -46,6 +46,8 @@ public class DialogueUI : MonoBehaviour
 
     private void UpdateDialogueUIPos(string tagValue)
     {
+        Debug.Log(tagValue);
+
         targetPos = GameObject.FindGameObjectWithTag(tagValue).transform;
         pinPosition = SearchPinPlaceholder(targetPos);
         screenPosition = Camera.main.WorldToScreenPoint(pinPosition.position);

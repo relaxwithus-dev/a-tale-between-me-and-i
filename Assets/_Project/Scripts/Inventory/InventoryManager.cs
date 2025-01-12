@@ -4,6 +4,7 @@ using UnityEngine;
 using ATBMI.Data;
 using ATBMI.Gameplay.Event;
 using ATBMI.Interaction;
+using System.Collections;
 
 namespace ATBMI.Inventory
 {
@@ -12,6 +13,8 @@ namespace ATBMI.Inventory
         #region Fields & Properties
 
         [SerializeField] private ItemList itemList;
+
+        [SerializeField] private GameObject uiGetItemPanel;
 
         public List<InventoryItem> InventoryList { get; set; } = new();
         private readonly Dictionary<int, ItemData> itemDatasDict = new();
@@ -33,6 +36,8 @@ namespace ATBMI.Inventory
             }
 
             PopulateItemDict();
+
+            uiGetItemPanel.SetActive(false);
         }
 
         private void Update()
@@ -61,6 +66,15 @@ namespace ATBMI.Inventory
             }
         }
 
+        private IEnumerator AnimateUIGetItemPanel()
+        {
+            uiGetItemPanel.SetActive(true);
+
+            yield return new WaitForSeconds(2f);
+
+            uiGetItemPanel.SetActive(false);
+        }
+
         public ItemData GetItemData(int itemId)
         {
             if (itemDatasDict.TryGetValue(itemId, out ItemData itemData))
@@ -78,6 +92,9 @@ namespace ATBMI.Inventory
                 InventoryList.Add(new InventoryItem(itemId));
                 PlayerEvents.UpdateInventoryEvent(InventoryList);
                 Debug.Log("add item " + data.ItemName + " " + data.ItemId + " to inventory");
+
+                // TODO: change this method to UI manager
+                StartCoroutine(AnimateUIGetItemPanel());
 
                 // Destroy item
                 if (item != null)

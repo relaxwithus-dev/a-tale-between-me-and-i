@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using ATBMI.Gameplay.Event;
 using ATBMI.Inventory;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,6 +13,8 @@ namespace ATBMI
         // [Header("Config")]
         // [SerializeField] private bool loadQuestState = true;
         [SerializeField] private QuestInfoListSO questInfoList;
+        [SerializeField] private GameObject uiQuestPanel;
+        [SerializeField] private TextMeshProUGUI uiQuestDisplay;
 
         private Dictionary<int, Quest> questDataDict = new();
 
@@ -33,6 +36,8 @@ namespace ATBMI
             }
 
             PopulateQuestDataDict();
+
+            uiQuestPanel.SetActive(false);
         }
 
         private void OnEnable()
@@ -145,6 +150,9 @@ namespace ATBMI
                 ChangeQuestState(quest.info.QuestId, QuestStateEnum.In_Progress);
 
                 Debug.Log("Quest " + quest.info.displayName + " Started");
+
+                // TODO: change this method to UI manager
+                StartCoroutine(AnimateUIQuestPanel(quest, false));
             }
             else
             {
@@ -186,6 +194,9 @@ namespace ATBMI
                 ChangeQuestState(quest.info.QuestId, QuestStateEnum.Finished);
 
                 Debug.Log("Quest " + quest.info.displayName + " already finished");
+
+                // TODO: change this method to UI manager
+                StartCoroutine(AnimateUIQuestPanel(quest, true));
             }
             else
             {
@@ -199,6 +210,24 @@ namespace ATBMI
             {
                 InventoryManager.Instance.AddItemToInventory(reward.ItemId);
             }
+        }
+
+        private IEnumerator AnimateUIQuestPanel(Quest quest, bool isFinished)
+        {
+            uiQuestPanel.SetActive(true);
+
+            if (isFinished)
+            {
+                uiQuestDisplay.text = quest.info.displayName + " Selesai";
+            }
+            else
+            {
+                uiQuestDisplay.text = quest.info.displayName + " Dimulai";
+            }
+
+            yield return new WaitForSeconds(2f);
+
+            uiQuestPanel.SetActive(false);
         }
 
         private void QuestStepStateChange(int id, int stepIndex, QuestStepState questStepState)
