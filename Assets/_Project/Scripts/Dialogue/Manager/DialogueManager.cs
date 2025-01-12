@@ -168,6 +168,8 @@ namespace ATBMI.Dialogue
             // display char in a line 1 by 1
             foreach (char letter in line.ToCharArray())
             {
+                yield return null;
+
                 // if player pressed submit button displayed the line immediately
                 if (canSkip && GameInputHandler.Instance.IsTapInteract)
                 {

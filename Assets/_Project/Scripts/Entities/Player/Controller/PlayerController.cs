@@ -4,6 +4,7 @@ using UnityEngine;
 using ATBMI.Data;
 using ATBMI.Enum;
 using ATBMI.Gameplay.Handler;
+using ATBMI.Dialogue;
 
 namespace ATBMI.Player
 {
@@ -63,7 +64,7 @@ namespace ATBMI.Player
 
         private void FixedUpdate()
         {
-            if (!CanMove) return;
+            if (!CanMove || DialogueManager.Instance.IsDialoguePlaying) return;
             PlayerMove();
         }
 
