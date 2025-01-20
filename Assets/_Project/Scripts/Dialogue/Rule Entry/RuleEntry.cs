@@ -1,4 +1,4 @@
-using System;
+using ATBMI.Entities.NPCs;
 using UnityEngine;
 
 namespace ATBMI.Dialogue

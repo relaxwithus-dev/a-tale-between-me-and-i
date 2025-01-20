@@ -1,3 +1,4 @@
+using ATBMI.Entities.NPCs;
 using UnityEngine;
 using ATBMI.Player;
 using ATBMI.Gameplay.Event;

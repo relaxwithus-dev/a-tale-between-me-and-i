@@ -1,7 +1,7 @@
 using UnityEngine;
 using ATBMI.Data;
 
-namespace ATBMI
+namespace ATBMI.Entities.NPCs
 {
     public class CharacterAI : MonoBehaviour
     {
@@ -10,7 +10,7 @@ namespace ATBMI
         [Header("General")]
         [SerializeField] protected NPCData npcData;
         [SerializeField] private bool isFacingRight;
-
+        
         public bool IsFacingRight => isFacingRight;
 
         #endregion

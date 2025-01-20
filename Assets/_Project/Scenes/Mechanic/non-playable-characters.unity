@@ -283,7 +283,7 @@ GameObject:
   m_Component:
   - component: {fileID: 532311219}
   - component: {fileID: 532311218}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Security
   m_TagString: NPCs
   m_Icon: {fileID: 0}
@@ -393,7 +393,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 3.375
+    OrthographicSize: 4.21875
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -1455,8 +1455,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AssetsPPU: 32
-  m_RefResolutionX: 360
-  m_RefResolutionY: 180
+  m_RefResolutionX: 480
+  m_RefResolutionY: 270
   m_UpscaleRT: 0
   m_PixelSnapping: 0
   m_CropFrameX: 0
@@ -1539,7 +1539,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3.375
+  orthographic size: 4.21875
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

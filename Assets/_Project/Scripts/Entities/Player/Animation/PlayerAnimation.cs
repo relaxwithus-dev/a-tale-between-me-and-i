@@ -51,7 +51,7 @@ namespace ATBMI.Player
             _playerAnim.CrossFade(state, 0, 0);
             _currentState = state;
         }
-
+        
         private int GetState()
         {
             var playerState = _playerController.PlayerState;

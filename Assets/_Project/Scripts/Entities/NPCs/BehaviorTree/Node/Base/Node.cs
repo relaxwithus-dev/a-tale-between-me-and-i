@@ -1,38 +1,56 @@
-using System;
 using System.Collections.Generic;
 
-namespace ATBMI.NPCs
+namespace ATBMI.Entities.NPCs
 {
-    [Serializable]
-    public abstract class Node
+    public class Node
     {
-        protected Node parentNode;
-        public Node ParentNode => parentNode;
+        #region Base Fields
+
+        public Node parentNode;
         
-        protected NodeState currentState;
-        protected List<Node> childrenNode = new();
+        protected readonly string nodeName;
+        protected readonly List<Node> childNodes = new();
+        protected int currentChild;
         
         private readonly Dictionary<string, object> _dataContext = new();
 
+        #endregion
 
-        // !- Constructor
+        #region Methods
+
         public Node()
         {
             parentNode = null;
         }
         
-        public Node(List<Node> children)
+        public Node(string nodeName)
         {
-            foreach (Node child in children)
+            this.nodeName = nodeName;
+        }
+        
+        public Node(string nodeName, List<Node> childNodes)
+        {
+            this.nodeName = nodeName;
+            foreach (var node in childNodes)
             {
-                child.parentNode = this;
-                childrenNode.Add(child);
+                this.childNodes.Add(node);
+                node.parentNode = this;
             }
         }
-
-        // !- Core
-        public abstract NodeState Evaluate();
         
+        public virtual NodeStatus Evaluate()
+        {
+            return NodeStatus.Failure;
+        }
+        
+        protected virtual void Reset()
+        {
+            currentChild = 0;
+            foreach (var child in childNodes)
+                child.Reset();
+        }
+
+        // Data context
         public void SetData(string key, object value)
         {
             _dataContext[key] = value;
@@ -40,7 +58,7 @@ namespace ATBMI.NPCs
         
         public object GetData(string key)
         {
-            if (_dataContext.TryGetValue(key, out object value))
+            if (_dataContext.TryGetValue(key, out var value))
                 return value;
 
             var node = parentNode;
@@ -49,10 +67,8 @@ namespace ATBMI.NPCs
                 value = node.GetData(key);
                 if (value != null)
                     return value;
-
                 node = node.parentNode;
             }
-
             return null;
         }
 
@@ -67,14 +83,15 @@ namespace ATBMI.NPCs
             var node = parentNode;
             while (node != null)
             {
-                var cleared = node.ClearData(key);
+                bool cleared = node.ClearData(key);
                 if (cleared)
                     return true;
-                
                 node = node.parentNode;
             }
-
             return false;
         }
+        
+        #endregion
+        
     }
 }

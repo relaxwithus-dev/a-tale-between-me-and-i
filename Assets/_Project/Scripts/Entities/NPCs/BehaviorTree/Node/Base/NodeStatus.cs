@@ -1,6 +1,6 @@
-namespace ATBMI.NPCs
+namespace ATBMI.Entities.NPCs
 {
-    public enum NodeState
+    public enum NodeStatus
     {
         Running,
         Success,
