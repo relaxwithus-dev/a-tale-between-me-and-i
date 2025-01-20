@@ -1,4 +1,4 @@
-namespace ATBMI.Enum
+namespace ATBMI.Entities.Player
 {
     public enum PlayerState
     {

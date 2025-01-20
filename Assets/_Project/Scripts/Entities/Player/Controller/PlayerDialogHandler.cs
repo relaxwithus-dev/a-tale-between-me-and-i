@@ -3,7 +3,7 @@ using UnityEngine;
 using ATBMI.Dialogue;
 using ATBMI.Gameplay.Event;
 
-namespace ATBMI.Player
+namespace ATBMI.Entities.Player
 {
     /// <summary>
     /// PlayerDialogHandler buat handle dialog

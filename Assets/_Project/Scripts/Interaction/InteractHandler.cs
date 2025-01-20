@@ -6,7 +6,7 @@ using TMPro;
 using DanielLochner.Assets.SimpleScrollSnap;
 using ATBMI.Data;
 using ATBMI.Enum;
-using ATBMI.Player;
+using ATBMI.Entities.Player;
 using ATBMI.Inventory;
 using ATBMI.Gameplay.Handler;
 

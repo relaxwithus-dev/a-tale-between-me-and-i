@@ -1,6 +1,6 @@
 using ATBMI.Entities.NPCs;
 using UnityEngine;
-using ATBMI.Player;
+using ATBMI.Entities.Player;
 using ATBMI.Gameplay.Event;
 using ATBMI.Gameplay.Handler;
 

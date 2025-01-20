@@ -15,9 +15,9 @@ namespace ATBMI.Entities.NPCs
         private readonly Dictionary<string, object> _dataContext = new();
 
         #endregion
-
+        
         #region Methods
-
+        
         public Node()
         {
             parentNode = null;
@@ -71,7 +71,7 @@ namespace ATBMI.Entities.NPCs
             }
             return null;
         }
-
+        
         public bool ClearData(string key)
         {
             if (_dataContext.ContainsKey(key))

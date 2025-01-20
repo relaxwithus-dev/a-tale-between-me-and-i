@@ -2,16 +2,10 @@ using System;
 using System.Collections;
 using UnityEngine;
 using ATBMI.Data;
-using ATBMI.Enum;
 using ATBMI.Gameplay.Handler;
 
-namespace ATBMI.Player
+namespace ATBMI.Entities.Player
 {
-    /// <summary>
-    /// PlayerController buat handle controlling
-    /// karakter player, termasuk navigasi, movement,
-    /// dan lainnya.
-    /// </summary>
     public class PlayerController : MonoBehaviour
     {
         #region Fields & Properties
@@ -75,7 +69,7 @@ namespace ATBMI.Player
 
         #region Methods
         
-        // !- Initialize
+        // Initialize
         private void InitPlayer()
         {
             canMove = true;
@@ -84,7 +78,7 @@ namespace ATBMI.Player
             gameObject.name = CurrentData.PlayerName;
         }
         
-        // !- Core
+        // Core
         private void PlayerMove()
         {
             var direction = GameInputHandler.Instance.MoveDirection;
@@ -136,7 +130,6 @@ namespace ATBMI.Player
             _playerSr.transform.Rotate(0f, 180f, 0f);
         }
 
-        // !- Helpers
         public void StartMovement()
         {
             canMove = true;
@@ -173,14 +166,14 @@ namespace ATBMI.Player
             return isRunning ? PlayerState.Run : PlayerState.Walk;
         }
         
-        private PlayerData GetCurrentData(PlayerState playerState)
+        private PlayerData GetCurrentData(PlayerState state)
         {
-            return playerState switch
+            return state switch
             {
                 PlayerState.Idle => CurrentData,
                 PlayerState.Walk => playerDatas[0],
                 PlayerState.Run => playerDatas[1],
-                _ => throw new ArgumentOutOfRangeException(nameof(playerState), playerState, null)
+                _ => throw new ArgumentOutOfRangeException(nameof(state), state, null)
             };
         }
 

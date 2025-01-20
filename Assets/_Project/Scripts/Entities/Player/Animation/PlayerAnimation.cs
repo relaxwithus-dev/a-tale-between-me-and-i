@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using ATBMI.Enum;
 
-namespace ATBMI.Player
+namespace ATBMI.Entities.Player
 {
     /// <summary>
     /// PlayerController buat handle animasi
