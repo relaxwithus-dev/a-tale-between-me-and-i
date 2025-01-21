@@ -1,3 +1,4 @@
+using ATBMI.Core;
 using UnityEngine;
 
 namespace ATBMI.Entities.NPCs
@@ -8,7 +9,6 @@ namespace ATBMI.Entities.NPCs
         private readonly Transform centerPoint;
         private readonly LayerMask targetLayer;
         private readonly float areaPriority;
-        
 
         public CheckTargetInZone(Transform centerPoint, float radius, LayerMask targetLayer)
         {
@@ -22,11 +22,11 @@ namespace ATBMI.Entities.NPCs
             Collider2D targetPhys = Physics2D.OverlapCircle(centerPoint.position, radius, targetLayer);
             if (targetPhys != null)
             {
-                if (!targetPhys.CompareTag("Player")) 
+                if (!targetPhys.CompareTag(GameTag.ITEM_TAG))
                     return NodeStatus.Failure;
                 
-                parentNode.SetData("Target", targetPhys.transform);
-                parentNode.SetData("Origin", centerPoint.position);
+                parentNode.SetData(TARGET_KEY, targetPhys.transform);
+                parentNode.SetData(ORIGIN_KEY, centerPoint.position);
                 return NodeStatus.Success;
             }
             

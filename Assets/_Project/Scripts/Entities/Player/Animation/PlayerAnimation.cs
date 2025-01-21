@@ -1,13 +1,9 @@
 using System;
 using UnityEngine;
-using ATBMI.Enum;
 
 namespace ATBMI.Entities.Player
 {
-    /// <summary>
-    /// PlayerController buat handle animasi
-    /// karakter player sesuai dengan statenya.
-    /// </summary>
+    [RequireComponent(typeof(Animator))]
     public class PlayerAnimation : MonoBehaviour
     {
         #region Fields & Properties
@@ -25,14 +21,14 @@ namespace ATBMI.Entities.Player
 
         #endregion
 
-        #region MonoBehaviour Callbacks
-
+        #region Unity Methods
+        
         private void Awake()
         {
-            _playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-            _playerAnim = GetComponentInChildren<Animator>();
+            _playerController = GetComponentInParent<PlayerController>();
+            _playerAnim = GetComponent<Animator>();
         }
-
+        
         private void Update()
         {
             AnimationStateHandler();

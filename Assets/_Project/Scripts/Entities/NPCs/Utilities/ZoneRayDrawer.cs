@@ -2,15 +2,15 @@ using UnityEngine;
 
 namespace ATBMI.Entities.NPCs
 { 
-    [RequireComponent(typeof(SatpamBT))] 
+    [RequireComponent(typeof(EmoTrees))] 
     public class ZoneRayDrawer : MonoBehaviour
     {
         // Reference
-        private SatpamBT _characterBT;
+        private EmoTrees _characterBT;
         
         private void Awake()
         {
-            _characterBT = GetComponent<SatpamBT>();
+            _characterBT = GetComponent<EmoTrees>();
         }
         
         private void OnDrawGizmos()

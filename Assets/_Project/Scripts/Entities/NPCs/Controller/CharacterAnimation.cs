@@ -3,17 +3,19 @@ using UnityEngine;
 
 namespace ATBMI.Entities.NPCs
 {
+    [RequireComponent(typeof(Animator))]
     public class CharacterAnimation : MonoBehaviour
     {
         #region Fields & Properties
-
+        
         private int _currentState;
-
+        
         // Cached properties
         private static readonly int Idle = Animator.StringToHash("Idle");
         private static readonly int Walk = Animator.StringToHash("Walk");
         private static readonly int Run = Animator.StringToHash("Run");
-
+        private static readonly int Dialogue = Animator.StringToHash("Dialogue");
+        
         // Reference
         private CharacterAI _characterAI;
         private Animator _characterAnim;
@@ -53,6 +55,7 @@ namespace ATBMI.Entities.NPCs
                 CharacterState.Idle => Idle,
                 CharacterState.Walk => Walk,
                 CharacterState.Run => Run,
+                CharacterState.Dialogue => Dialogue,
                 _ => throw new InvalidOperationException("Invalid NPCs State!")
             };
         }

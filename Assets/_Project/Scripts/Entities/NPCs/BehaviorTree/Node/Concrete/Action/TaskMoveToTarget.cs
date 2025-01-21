@@ -9,14 +9,17 @@ namespace ATBMI.Entities.NPCs
         private readonly CharacterData data;
         private readonly float moveDelay;
         private readonly bool isOrigin;
+        private readonly bool isWalk;
 
+        private CharacterState _targetState;
         private Vector3 _targetPosition;
         private float _currentTime;
         
-        public TaskMoveToTarget(CharacterAI character, CharacterData data, bool isOrigin, float moveDelay = 3f)
+        public TaskMoveToTarget(CharacterAI character, CharacterData data, bool isWalk, bool isOrigin, float moveDelay = 3f)
         {
             this.character = character;
             this.data = data;
+            this.isWalk = isWalk;
             this.isOrigin = isOrigin;
             this.moveDelay = moveDelay;
         }
@@ -41,6 +44,7 @@ namespace ATBMI.Entities.NPCs
             base.Reset();
             _currentTime = 0f;
             _targetPosition = Vector3.zero;
+            _targetState = CharacterState.None;
         }
         
         private bool TrySetupTarget()
@@ -50,7 +54,7 @@ namespace ATBMI.Entities.NPCs
             
             if (isOrigin)
             {
-                var originPoint = (Vector3)GetData("Origin");
+                var originPoint = (Vector3)GetData(ORIGIN_KEY);
                 if (originPoint == Vector3.zero)
                     return false;
             
@@ -58,7 +62,7 @@ namespace ATBMI.Entities.NPCs
             }
             else
             {
-                var targetPoint = (Transform)GetData("Target");
+                var targetPoint = (Transform)GetData(TARGET_KEY);
                 if (!targetPoint)
                     return false;
             
@@ -82,7 +86,10 @@ namespace ATBMI.Entities.NPCs
         
         private NodeStatus MoveToTarget()
         {
-            character.ChangeState(CharacterState.Walk);
+            if (_targetState == CharacterState.None)
+                SetupState();
+                
+            character.ChangeState(_targetState);
             character.transform.position = Vector2.MoveTowards(character.transform.position,
                 _targetPosition, data.MoveSpeed * Time.deltaTime);
 
@@ -95,6 +102,13 @@ namespace ATBMI.Entities.NPCs
             _currentTime = 0f;
             _targetPosition = Vector3.zero;
             return NodeStatus.Success;
+        }
+
+        private void SetupState()
+        {
+            _targetState = isWalk 
+                ? CharacterState.Walk 
+                : CharacterState.Run;
         }
     }
 }

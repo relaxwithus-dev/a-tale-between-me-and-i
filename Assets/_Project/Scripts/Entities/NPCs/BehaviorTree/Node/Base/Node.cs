@@ -5,14 +5,17 @@ namespace ATBMI.Entities.NPCs
     public class Node
     {
         #region Base Fields
-
-        public Node parentNode;
         
+        protected Node parentNode;
         protected readonly string nodeName;
         protected readonly List<Node> childNodes = new();
         protected int currentChild;
         
         private readonly Dictionary<string, object> _dataContext = new();
+        
+        // Cached properties
+        protected const string TARGET_KEY = "Target";
+        protected const string ORIGIN_KEY = "Origin";
 
         #endregion
         
@@ -49,7 +52,7 @@ namespace ATBMI.Entities.NPCs
             foreach (var child in childNodes)
                 child.Reset();
         }
-
+        
         // Data context
         public void SetData(string key, object value)
         {

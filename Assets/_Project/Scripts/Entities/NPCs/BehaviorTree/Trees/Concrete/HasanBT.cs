@@ -1,0 +1,60 @@
+using System.Collections.Generic;
+
+namespace ATBMI.Entities.NPCs
+{
+    public class HasanBT : EmoTrees
+    {
+        protected override Node SetupTree()
+        {
+            // Behavior - A
+            Selector itemTree = new Selector(rootName, new List<Node>
+            {
+                new Sequence("Task Item", new List<Node>
+                {
+                    new CheckTargetInZone(transform, zoneDetails[1].Radius, layerMask),
+                    new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true, isOrigin: false),
+                    new TaskGetItem(),
+                    new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true, isOrigin: true)
+                })
+            });
+            
+            // Behavior - B
+            Selector dialogueTree = new Selector(rootName, new List<Node>
+            {
+                new Sequence("Task Dialogue", new List<Node>
+                {
+                    new CheckTargetInZone(transform, zoneDetails[1].Radius, layerMask),
+                    new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true, isOrigin: false),
+                    new Selector("Task", new List<Node>
+                    {
+                        new TaskGetItem(),
+                        new TaskDialogue(characterAI, "Yah itemnya tidak cocok :(")
+                    }),
+                    new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true, isOrigin: true)
+                }),
+                new TaskIdle(characterAI)
+            });
+            
+            // Zone Selector Behavior
+            Selector zoneTree = new Selector(rootName, new List<Node>
+            {
+                new ZoneSelector("Zone", new List<Node>
+                {
+                    new Sequence(zoneDetails[0].Type.ToString(), new List<Node>
+                    {
+                        new CheckTargetInZone(transform, zoneDetails[0].Radius, layerMask),
+                        new TaskDialogue(characterAI,"masuk intimate")
+                    }),
+                    new Sequence(zoneDetails[1].Type.ToString(), new List<Node>
+                    {
+                        new CheckTargetInZone(transform, zoneDetails[1].Radius, layerMask),
+                        new TaskDialogue(characterAI,"masuk personal")
+                    }),
+                }),
+                new TaskIdle(characterAI)
+            });
+            
+            return itemTree;
+        }
+    }
+}

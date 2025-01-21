@@ -40,8 +40,8 @@ namespace ATBMI.Entities.Player
 
         #endregion
 
-        #region MonoBehaviour Callbacks
-
+        #region Unity Methods
+        
         private void Awake()
         {
             _playerRb = GetComponent<Rigidbody2D>();
@@ -156,7 +156,7 @@ namespace ATBMI.Entities.Player
             CurrentData = GetCurrentData(state);
             CurrentSpeed = CurrentData.MoveSpeed;
         }
-
+        
         private PlayerState GetState()
         {
             var direction = MoveDirection;

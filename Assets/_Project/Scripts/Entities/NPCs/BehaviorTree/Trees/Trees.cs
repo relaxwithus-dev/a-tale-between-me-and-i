@@ -2,29 +2,39 @@ using UnityEngine;
 
 namespace ATBMI.Entities.NPCs
 {
+    [RequireComponent(typeof(CharacterAI))]
     public abstract class Trees : MonoBehaviour
     {
-        protected Node rootNode;
-
+        private Node _rootNode;
+        protected string rootName;
+        protected CharacterAI characterAI;
+        
         private void Awake()
         {
             InitOnAwake();
         }
-
+        
         private void Start()
         {
             InitOnStart();
-            rootNode = SetupTree();
         }
 
         private void Update()
         {
-            if (rootNode != null)
-                rootNode.Evaluate();
+            if (_rootNode != null)
+                _rootNode.Evaluate();
         }
         
-        protected virtual void InitOnAwake() { }
-        protected virtual void InitOnStart() { }
         protected abstract Node SetupTree();
+        protected virtual void InitOnAwake()
+        {
+            characterAI = GetComponent<CharacterAI>();
+        }
+
+        protected virtual void InitOnStart()
+        {
+            _rootNode = SetupTree();
+            rootName = characterAI.Data.CharacterName;
+        }
     }
 }

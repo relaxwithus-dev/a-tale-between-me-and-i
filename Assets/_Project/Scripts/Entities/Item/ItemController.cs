@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,6 +23,11 @@ namespace ATBMI.Item
         private void Awake()
         {
             _itemSr = GetComponentInChildren<SpriteRenderer>();
+        }
+
+        private void Start()
+        {
+            gameObject.name = itemName;
         }
 
         // Getter
