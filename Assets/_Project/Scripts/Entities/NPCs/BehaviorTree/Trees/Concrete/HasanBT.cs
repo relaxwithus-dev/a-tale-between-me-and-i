@@ -29,8 +29,7 @@ namespace ATBMI.Entities.NPCs
                     {
                         new TaskGetItem(),
                         new TaskDialogue(characterAI, "Yah itemnya tidak cocok :(")
-                    }),
-                    new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true, isOrigin: true)
+                    })
                 }),
                 new TaskIdle(characterAI)
             });
@@ -54,7 +53,7 @@ namespace ATBMI.Entities.NPCs
                 new TaskIdle(characterAI)
             });
             
-            return itemTree;
+            return dialogueTree;
         }
     }
 }

@@ -7,7 +7,7 @@ namespace ATBMI.Entities.NPCs
         #region Base Fields
         
         protected Node parentNode;
-        protected readonly string nodeName;
+        public readonly string nodeName;
         protected readonly List<Node> childNodes = new();
         protected int currentChild;
         

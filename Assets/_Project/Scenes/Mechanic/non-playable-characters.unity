@@ -741,11 +741,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zoneDetails:
   - Type: 0
-    Radius: 0.75
+    Radius: 1.5
   - Type: 1
-    Radius: 1.75
-  - Type: 2
     Radius: 3
+  - Type: 2
+    Radius: 5
   layerMask:
     serializedVersion: 2
     m_Bits: 256
@@ -762,7 +762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterData: {fileID: 11400000, guid: 6a0b2bcc0a714ec479fd5a7a524f7a1e, type: 2}
-  characterState: 0
+  characterState: 1
   characterDirection: {x: 0, y: 0}
   isFacingRight: 1
 --- !u!70 &915226467
