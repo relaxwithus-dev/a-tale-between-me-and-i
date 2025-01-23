@@ -10,47 +10,47 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 225562555324070475, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_Name
-      value: Hasan
+      value: Wafa_Child
       objectReference: {fileID: 0}
     - target: {fileID: 1177493690341274544, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: characterData
       value: 
-      objectReference: {fileID: 11400000, guid: 6a0b2bcc0a714ec479fd5a7a524f7a1e, type: 2}
+      objectReference: {fileID: 11400000, guid: b5f5dc250c27a7e41889bd393871fdce, type: 2}
     - target: {fileID: 1177493690341274544, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: isFacingRight
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3609649175966335719, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_Size.x
-      value: 0.46216488
+      value: 0.3843252
       objectReference: {fileID: 0}
     - target: {fileID: 3609649175966335719, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_Size.y
-      value: 2.7275372
+      value: 1.923492
       objectReference: {fileID: 0}
     - target: {fileID: 3609649175966335719, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_Offset.x
-      value: 0.026123524
+      value: -0.0060083866
       objectReference: {fileID: 0}
     - target: {fileID: 3609649175966335719, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_Offset.y
-      value: 1.3492823
+      value: 0.9563241
       objectReference: {fileID: 0}
     - target: {fileID: 4403454399528855645, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 97e8fd3fe6ab9d648b87d59bc95bb014, type: 2}
+      objectReference: {fileID: 9100000, guid: 20ec9cac68661684b80e11dbf5c70d71, type: 2}
     - target: {fileID: 4878722094123776488, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1381219808, guid: 835b7880576517844ad1c967135acec0, type: 3}
+      objectReference: {fileID: 1855899333, guid: 4497461fa2197ab41b81ea84b517864d, type: 3}
     - target: {fileID: 4878722094123776488, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7858659317861269129, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.274
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7858659317861269129, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -94,7 +94,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 225562555324070475, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1876800041421531637}
+      addedObject: {fileID: 3006688077740305267}
     - targetCorrespondingSourceObject: {fileID: 225562555324070475, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3577941365462192393}
@@ -104,7 +104,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 225562555324070475, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
   m_PrefabInstance: {fileID: 6241895453110703803}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1876800041421531637
+--- !u!114 &3006688077740305267
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6178640880139922672}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8aef6c32b7944279915c7a9366d9efda, type: 3}
+  m_Script: {fileID: 11500000, guid: 28f2a8da6bf16304891677b806c71a42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   zoneDetails:
@@ -121,8 +121,6 @@ MonoBehaviour:
     Radius: 1.5
   - Type: 1
     Radius: 3
-  - Type: 2
-    Radius: 5
   layerMask:
     serializedVersion: 2
     m_Bits: 64
