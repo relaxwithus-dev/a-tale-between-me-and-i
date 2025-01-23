@@ -6,7 +6,7 @@ namespace ATBMI.Entities.NPCs
         Idle,
         Walk,
         Run,
-        Dialogue,
+        Talk,
         Joy,
         Trust,
         Fear,

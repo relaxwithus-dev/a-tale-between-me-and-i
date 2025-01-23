@@ -55,7 +55,7 @@ namespace ATBMI.Entities.NPCs
                 CharacterState.Idle => Idle,
                 CharacterState.Walk => Walk,
                 CharacterState.Run => Run,
-                CharacterState.Dialogue => Dialogue,
+                CharacterState.Talk => Dialogue,
                 _ => throw new InvalidOperationException("Invalid NPCs State!")
             };
         }

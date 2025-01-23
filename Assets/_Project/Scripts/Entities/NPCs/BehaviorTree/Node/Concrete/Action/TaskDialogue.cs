@@ -21,7 +21,7 @@ namespace ATBMI.Entities.NPCs
                 return NodeStatus.Success;
             }
             
-            characterAI.ChangeState(CharacterState.Dialogue);
+            characterAI.ChangeState(CharacterState.Talk);
             Debug.Log("press space to continue");
             return NodeStatus.Running;
         }

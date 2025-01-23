@@ -15,7 +15,8 @@ namespace ATBMI.Entities.NPCs
                     new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true, isOrigin: false),
                     new TaskGetItem(),
                     new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true, isOrigin: true)
-                })
+                }),
+                new TaskIdle(characterAI)
             });
             
             // Behavior - B
@@ -23,13 +24,14 @@ namespace ATBMI.Entities.NPCs
             {
                 new Sequence("Task Dialogue", new List<Node>
                 {
-                    new CheckTargetInZone(transform, zoneDetails[1].Radius, layerMask),
+                    new CheckTargetInZone(transform, zoneDetails[2].Radius, layerMask),
                     new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true, isOrigin: false),
                     new Selector("Task", new List<Node>
                     {
                         new TaskGetItem(),
                         new TaskDialogue(characterAI, "Yah itemnya tidak cocok :(")
-                    })
+                    }),
+                    new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true, isOrigin: true)
                 }),
                 new TaskIdle(characterAI)
             });
