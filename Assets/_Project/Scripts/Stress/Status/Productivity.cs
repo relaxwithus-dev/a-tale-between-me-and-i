@@ -13,7 +13,6 @@ namespace ATBMI.Stress
             
         }
         
-        // TODO: Drop logic productivity lainnya disini
         public override void PerformStatus()
         {
             base.PerformStatus();
@@ -28,7 +27,7 @@ namespace ATBMI.Stress
         {
             base.ResetStatus();
             _finalSpeed = 0f;
-            playerController.CurrentSpeed = playerController.CurrentData.MoveSpeed;
+            playerController.CurrentSpeed = playerController.CurrentStat.Speed;
         }
     }
 }

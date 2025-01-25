@@ -3,7 +3,7 @@ namespace ATBMI.Entities.Player
     public enum PlayerState
     {
         Idle,
-        Run,
-        Walk
+        Walk,
+        Run
     }
 }

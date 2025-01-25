@@ -15,10 +15,10 @@ namespace ATBMI.Entities.Player
         /// Walk: speed (2.62), decel (0.185)
         /// Run: speed (3.5), decel (0.37)
         /// </Note>
-
+        
         [Header("Stats")]
         [SerializeField] private PlayerState playerState = PlayerState.Idle;
-        [SerializeField] private PlayerData[] playerDatas;
+        [SerializeField] private PlayerData playerData;
         [SerializeField] private Vector2 moveDirection;
         [SerializeField] private bool isRight;
         [SerializeField] private bool canMove = true;
@@ -31,7 +31,7 @@ namespace ATBMI.Entities.Player
         public Vector2 MoveDirection => moveDirection;
         public PlayerState PlayerState => playerState;
 
-        public PlayerData CurrentData { get; private set; }
+        public PlayerData.MoveStat CurrentStat { get; private set; }
         public float CurrentSpeed { get; set; }
 
         // Reference
@@ -73,9 +73,9 @@ namespace ATBMI.Entities.Player
         private void InitPlayer()
         {
             canMove = true;
-            CurrentData = playerDatas[0];
-            CurrentSpeed = CurrentData.MoveSpeed;
-            gameObject.name = CurrentData.PlayerName;
+            gameObject.name = playerData.PlayerName;
+            CurrentStat = playerData.MoveStats[0];
+            CurrentSpeed = CurrentStat.Speed;
         }
         
         // Core
@@ -87,7 +87,7 @@ namespace ATBMI.Entities.Player
 
             if (moveDirection.sqrMagnitude > 0f)
             {
-                _playerRb.velocity = moveDirection * CurrentData.MoveSpeed;
+                _playerRb.velocity = moveDirection * CurrentStat.Speed;
                 _latestDirection = moveDirection;
                 _currentDecelTime = 0f;
             }
@@ -100,13 +100,13 @@ namespace ATBMI.Entities.Player
 
         private IEnumerator DeceleratePlayer()
         {
-            var data = CurrentData;
+            var data = CurrentStat;
 
             _currentDecelTime = data.Deceleration;
             while (_currentDecelTime > 0f)
             {
-                var deccelSpeed = Mathf.Lerp(data.MoveSpeed, 0f, 1f - (_currentDecelTime / data.Deceleration));
-                _playerRb.velocity = _latestDirection * deccelSpeed;
+                var decelSpeed = Mathf.Lerp(data.Speed, 0f, 1f - (_currentDecelTime / data.Deceleration));
+                _playerRb.velocity = _latestDirection * decelSpeed;
                 _currentDecelTime -= Time.deltaTime;
                 yield return null;
             }
@@ -153,8 +153,8 @@ namespace ATBMI.Entities.Player
 
             if (playerState == state) return;
             playerState = state;
-            CurrentData = GetCurrentData(state);
-            CurrentSpeed = CurrentData.MoveSpeed;
+            CurrentStat = GetMoveStats(state);
+            CurrentSpeed = CurrentStat.Speed;
         }
         
         private PlayerState GetState()
@@ -166,15 +166,12 @@ namespace ATBMI.Entities.Player
             return isRunning ? PlayerState.Run : PlayerState.Walk;
         }
         
-        private PlayerData GetCurrentData(PlayerState state)
+        private PlayerData.MoveStat GetMoveStats(PlayerState state)
         {
-            return state switch
-            {
-                PlayerState.Idle => CurrentData,
-                PlayerState.Walk => playerDatas[0],
-                PlayerState.Run => playerDatas[1],
-                _ => throw new ArgumentOutOfRangeException(nameof(state), state, null)
-            };
+            if (state == PlayerState.Idle)
+                return CurrentStat;
+            
+            return Array.Find(playerData.MoveStats, stat => stat.State == state);
         }
 
         #endregion
