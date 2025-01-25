@@ -1,4 +1,4 @@
-using System;
+using ATBMI.Entities.NPCs;
 using UnityEngine;
 
 namespace ATBMI.Dialogue
@@ -6,7 +6,7 @@ namespace ATBMI.Dialogue
     public abstract class RuleEntry : MonoBehaviour
     {
         [Header("Params")]
-        public NPC npc;
+        public CharacterAI npc;
         public Transform playerEntryPoint;
         public Animator emoteAnimator;
         public bool isPlayerInRange;

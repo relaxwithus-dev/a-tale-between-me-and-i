@@ -3,12 +3,8 @@ using UnityEngine;
 using ATBMI.Dialogue;
 using ATBMI.Gameplay.Event;
 
-namespace ATBMI.Player
+namespace ATBMI.Entities.Player
 {
-    /// <summary>
-    /// PlayerDialogHandler buat handle dialog
-    /// karakter player.
-    /// </summary>
     public class PlayerDialogHandler : MonoBehaviour
     {
         #region Fields & Properties
@@ -18,7 +14,7 @@ namespace ATBMI.Player
         
         #endregion
 
-        #region MonoBehaviour Callbacks
+        #region Unity Methods
 
         private void Awake()
         {

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ATBMI.Player
+namespace ATBMI.Entities.Player
 {
     /// <summary>
     /// PlayerHelpers buat handle helper

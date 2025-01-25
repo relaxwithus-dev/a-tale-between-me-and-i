@@ -9,7 +9,7 @@ namespace ATBMI.Data
         [SerializeField] private string playerName;
         [SerializeField] private float moveSpeed;
         [SerializeField] private float deceleration;
-
+        
         // Getter
         public string PlayerName => playerName;
         public float MoveSpeed => moveSpeed;
