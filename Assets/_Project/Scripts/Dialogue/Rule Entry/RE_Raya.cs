@@ -48,7 +48,7 @@ namespace ATBMI.Dialogue
             if (!isDialogueAboutToStart)
             {
                 isDialogueAboutToStart = true;
-                PlayerEvents.MoveToPlayerEvent(this, onTalk, playerEntryPoint.position.x, npc.IsFacingRight);
+                PlayerEvents.MoveToPlayerEvent(this, onTalk, playerEntryPoint.position.x, transform.position.x, npc.isFacingRight);
             }
         }
 

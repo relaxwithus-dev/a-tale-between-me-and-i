@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2b450a47a515ba40b7e732579b2c69b, type: 3}
+  m_Name: QI_GoToTheMarket
+  m_EditorClassIdentifier: 
+  <QuestId>k__BackingField: 1
+  displayName: Pergi ke pasar!!
+  shoulBeFinishManually: 0
+  questPrerequisites: []
+  questStepPrefabs:
+  - {fileID: 2246666567235768889, guid: f548e09b6ba06cd40a4944197a4d684a, type: 3}
+  rewardItem:
+  - {fileID: 11400000, guid: 7ec7021fc9ee250478da883d27e86d58, type: 2}

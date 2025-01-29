@@ -2,6 +2,7 @@ using UnityEngine;
 using Sirenix.OdinInspector;
 using ATBMI.Enum;
 using ATBMI.Data;
+using ATBMI.Gameplay.Event;
 
 namespace ATBMI.Interaction
 {
@@ -39,6 +40,9 @@ namespace ATBMI.Interaction
                     Debug.Log("ini kuberikan item padamu");
                     break;
             }
+            
+            // TODO: change this
+            DialogEvents.EnterDialogueEvent();
         }
         
         // TODO: Pake ini buat change status di InkExternal

@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using ATBMI.Dialogue;
 using ATBMI.Gameplay.Event;
+using ATBMI.Gameplay.Handler;
 
 namespace ATBMI.Entities.Player
 {
@@ -11,7 +12,7 @@ namespace ATBMI.Entities.Player
 
         private TextAsset _playerInkJson;
         private PlayerController _playerController;
-        
+
         #endregion
 
         #region Unity Methods
@@ -34,88 +35,97 @@ namespace ATBMI.Entities.Player
         #endregion
 
         #region Methods
-        
-        public void MoveToDialogueEntryPoint(RuleEntry rule, TextAsset INKJson, float newPositionX, bool isNpcFacingRight)
+
+        public void MoveToDialogueEntryPoint(RuleEntry rule, TextAsset INKJson, float newPositionX, float npcPosX, bool isNpcFacingRight)
         {
             _playerInkJson = INKJson;
-            FlipPlayerWhenDialogue(newPositionX, isNpcFacingRight);
+            if (ShouldFlipPlayerWhenDialogue(newPositionX, npcPosX, isNpcFacingRight))
+            {
+                _playerController.PlayerFlip();
+            }
 
             // TODO: change to dotween?
-            StartCoroutine(MoveToPointRoutine(rule, newPositionX, isNpcFacingRight));
+            StartCoroutine(MoveToPointRoutine(rule, newPositionX, npcPosX, isNpcFacingRight));
         }
-        
-        private IEnumerator MoveToPointRoutine(RuleEntry rule, float newPositionX, bool isNpcFacingRight)
+
+        private IEnumerator MoveToPointRoutine(RuleEntry rule, float newPositionX, float npcPosX, bool isNpcFacingRight)
         {
+            _playerController.StopMovement();
+
             var initialPosition = transform.position;
             var targetPosition = new Vector3(newPositionX, initialPosition.y, initialPosition.z);
 
-            // Calculate the distance manually
-            float distance = Mathf.Abs(targetPosition.x - initialPosition.x);
-            float speed = _playerController.CurrentSpeed / 2 / distance; 
-
-            var progress = 0f;
-            while (progress <= 1f)
+            // Loop until the player reaches the target position
+            while (Vector3.Distance(transform.position, targetPosition) > 0.1f)
             {
-                progress += Time.deltaTime * speed;
-                transform.position = Vector3.Lerp(initialPosition, targetPosition, progress);
-                yield return null;
+                // Calculate the direction to the target
+                var directionToTarget = (targetPosition - transform.position).normalized;
+
+                // Simulate input for the PlayerMove method
+                _playerController.SetTemporaryDirection(new Vector2(directionToTarget.x, 0));
+
+                // Wait for FixedUpdate to process the movement
+                yield return new WaitForFixedUpdate();
             }
 
-            // Ensure the final position is exactly newPosition
+            // Stop movement once the target is reached
+            _playerController.SetTemporaryDirection(Vector2.zero);
+            yield return new WaitForFixedUpdate();
+
+            // Ensure the final position is exactly the target position
             transform.position = targetPosition;
 
-            if (FlipPlayerWhenDialogue(newPositionX, isNpcFacingRight))
+            if (ShouldFlipPlayerWhenDialogue(newPositionX, npcPosX, isNpcFacingRight))
             {
-                yield return new WaitForSeconds(0.2f);
+                yield return new WaitForSeconds(0.05f);
+                _playerController.PlayerFlip();
             }
 
             rule.EnterDialogueWithInkJson(_playerInkJson);
             _playerInkJson = null;
+
+            _playerController.StartMovement();
         }
 
-        private bool FlipPlayerWhenDialogue(float newPositionX, bool isNpcFacingRight)
+
+        private bool ShouldFlipPlayerWhenDialogue(float newPlayerPosX, float npcPosX, bool isNpcFacingRight)
         {
-            if (transform.position.x < newPositionX)
+            // Determine if the player is currently on the left or right of the NPC
+            bool playerOnLeftOfNpc = transform.position.x < npcPosX;
+
+            // Check if the player's new position is stationary
+            bool isPlayerStationary = Mathf.Approximately(transform.position.x, newPlayerPosX);
+
+            // Determine if the player is moving to the left or right of their new position
+            bool playerMovingLeft = newPlayerPosX < transform.position.x;
+            bool playerMovingRight = newPlayerPosX > transform.position.x;
+
+            // Determine if the NPC should flip
+            bool shouldFlip = false;
+
+            if (isPlayerStationary)
             {
-                if (_playerController.IsRight && !isNpcFacingRight)
-                {
-                    _playerController.PlayerFlip();
-                    return true;
-                }
-                else if (_playerController.IsRight && isNpcFacingRight)
-                {
-                    _playerController.PlayerFlip();
-                    return true;
-                }
+                // If the player is stationary, the NPC should face the player
+                shouldFlip = playerOnLeftOfNpc != isNpcFacingRight;
             }
-            else if (transform.position.x > newPositionX)
+            else
             {
-                if (_playerController.IsRight && !isNpcFacingRight)
+                // Check movement scenarios
+                if (playerMovingRight)
                 {
-                    _playerController.PlayerFlip();
-                    return true;
+                    // Player moving right
+                    shouldFlip = (!_playerController.IsRight && isNpcFacingRight) // Player facing left, NPC faces right
+                                || (playerOnLeftOfNpc && !isNpcFacingRight);      // Player on left, NPC facing left
                 }
-                else if (_playerController.IsRight && isNpcFacingRight)
+                else if (playerMovingLeft)
                 {
-                    _playerController.PlayerFlip();
-                    return true;
-                }
-            }
-            else if (transform.position.x == newPositionX)
-            {
-                if (_playerController.IsRight && !isNpcFacingRight)
-                {
-                    _playerController.PlayerFlip();
-                    return true;
-                }
-                else if (_playerController.IsRight && isNpcFacingRight)
-                {
-                    _playerController.PlayerFlip();
-                    return true;
+                    // Player moving left
+                    shouldFlip = (_playerController.IsRight && !isNpcFacingRight) // Player facing right, NPC faces left
+                                || (!playerOnLeftOfNpc && isNpcFacingRight);      // Player on right, NPC facing right
                 }
             }
 
-            return false;
+            return shouldFlip;
         }
 
         #endregion

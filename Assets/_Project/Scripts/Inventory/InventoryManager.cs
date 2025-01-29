@@ -4,15 +4,18 @@ using UnityEngine;
 using ATBMI.Data;
 using ATBMI.Gameplay.Event;
 using ATBMI.Interaction;
+using System.Collections;
 
 namespace ATBMI.Inventory
 {
     public class InventoryManager : MonoBehaviour
     {
         #region Fields & Properties
-        
+
         [SerializeField] private ItemList itemList;
-        
+
+        [SerializeField] private GameObject uiGetItemPanel;
+
         public List<InventoryItem> InventoryList { get; set; } = new();
         private readonly Dictionary<int, ItemData> itemDatasDict = new();
         
@@ -33,16 +36,45 @@ namespace ATBMI.Inventory
             }
 
             PopulateItemDict();
+
+            uiGetItemPanel.SetActive(false);
+        }
+
+        private void Update()
+        {
+            if(Input.GetKeyDown(KeyCode.C))
+            {
+                AddItemToInventory(101);
+                AddItemToInventory(102);
+                AddItemToInventory(103);
+            }
         }
 
         private void PopulateItemDict()
         {
             foreach (ItemData item in itemList.itemList)
             {
-                itemDatasDict.Add(item.ItemId, item);
+                if (itemDatasDict.ContainsKey(item.ItemId))
+                {
+                    Debug.LogWarning("Duplicate ID found when creating item data dictionary: " + item.ItemId);
+                }
+                else
+                {
+                    itemDatasDict.Add(item.ItemId, item);
+                }
+
             }
         }
-        
+
+        private IEnumerator AnimateUIGetItemPanel()
+        {
+            uiGetItemPanel.SetActive(true);
+
+            yield return new WaitForSeconds(2f);
+
+            uiGetItemPanel.SetActive(false);
+        }
+
         public ItemData GetItemData(int itemId)
         {
             if (itemDatasDict.TryGetValue(itemId, out ItemData itemData))
@@ -59,7 +91,10 @@ namespace ATBMI.Inventory
                 // Add item to inventory
                 InventoryList.Add(new InventoryItem(itemId));
                 PlayerEvents.UpdateInventoryEvent(InventoryList);
-                Debug.Log($"add item {data.ItemName} ({data.ItemId}) to inventory");
+                Debug.Log("add item " + data.ItemName + " " + data.ItemId + " to inventory");
+
+                // TODO: change this method to UI manager
+                StartCoroutine(AnimateUIGetItemPanel());
 
                 // Destroy item
                 if (item != null)
@@ -67,7 +102,7 @@ namespace ATBMI.Inventory
             }
             else
             {
-                Debug.LogError($"failed to acquire item with id {itemId}");
+                Debug.LogError("failed to acquire item with id " + itemId);
             }
         }
 
@@ -80,11 +115,11 @@ namespace ATBMI.Inventory
             {
                 InventoryList.Remove(itemToRemove);
                 PlayerEvents.UpdateInventoryEvent(InventoryList);
-                Debug.Log($"remove item with id {itemId} from inventory");
+                Debug.Log("remove item with id " + itemId + " from inventory");
             }
             else
             {
-                Debug.LogError($"failed to remove item with id {itemId}");
+                Debug.LogError("failed to remove item with id " + itemId);
             }
         }
     }

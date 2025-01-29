@@ -98,7 +98,7 @@ namespace ATBMI.Dialogue
             }
         }
 
-        public void EnterDialogue(TextAsset InkJson)
+        public void EnterDialogue()
         {
             // DialogueManager.Instance.EnterDialogueMode(InkJson);
             isDialogueAboutToStart = false;

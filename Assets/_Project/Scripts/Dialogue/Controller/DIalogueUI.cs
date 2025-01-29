@@ -10,6 +10,10 @@ public class DialogueUI : MonoBehaviour
     private LayoutElement layoutElement;
     private RectTransform rectTransform;
 
+    private Transform targetPos;
+    private Transform pinPosition;
+    private Vector3 screenPosition;
+
     private Vector3[] corners;
     private float difference;
 
@@ -42,15 +46,15 @@ public class DialogueUI : MonoBehaviour
 
     private void UpdateDialogueUIPos(string tagValue)
     {
-        Transform targetPos = GameObject.FindGameObjectWithTag(tagValue).transform;
-        Transform pinPosition = SearchPinPlaceholder(targetPos);
-        Vector3 screenPosition = Camera.main.WorldToScreenPoint(pinPosition.position);
-
         Debug.Log(tagValue);
+
+        targetPos = GameObject.FindGameObjectWithTag(tagValue).transform;
+        pinPosition = SearchPinPlaceholder(targetPos);
+        screenPosition = Camera.main.WorldToScreenPoint(pinPosition.position);
 
         if (screenPosition != null)
         {
-            parentRectTransform.position = new Vector2(screenPosition.x, screenPosition.y);
+            parentRectTransform.position = screenPosition;
         }
         else
         {
@@ -83,6 +87,11 @@ public class DialogueUI : MonoBehaviour
 
     private void Update()
     {
+        if (screenPosition != null)
+        {
+            parentRectTransform.position = Camera.main.WorldToScreenPoint(pinPosition.position);
+        }
+
         if (updateCounter <= 0)
         {
             return;

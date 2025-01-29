@@ -2,16 +2,17 @@ using UnityEngine;
 
 namespace ATBMI.Dialogue
 {
-    public class OnTalk_GettingItemRule : IDialogueRule<RE_Security_01>
+    [CreateAssetMenu(fileName = "OnTalk_GettingItemRule", menuName = "Data/Dialogue Rules/Security_01/OnTalk_GettingItemRule")]
+    public class OnTalk_GettingItemRule : DialogueRuleBase<RE_Security_01>
     {
-        public int RulePriority => (int)RulePrioritySecurity_01.OnTalk_GettingItemRule;
+        // public int RulePriority => (int)RulePrioritySecurity_01.OnTalk_GettingItemRule;
 
-        public bool Evaluate(RE_Security_01 context)
+        public override bool Evaluate(RE_Security_01 context)
         {
             return context.IsAfterGettingItem;
         }
 
-        public void Execute(RE_Security_01 context)
+        public override void Execute(RE_Security_01 context)
         {
             // if (InventoryManager.Instance.LastItem.itemName == "Key")
             // {

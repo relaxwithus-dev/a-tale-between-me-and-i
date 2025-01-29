@@ -1,4 +1,3 @@
-using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using ATBMI.Gameplay.Event;
@@ -34,32 +33,29 @@ namespace ATBMI.Dialogue
         public bool isOnce_AfterExplosion_WithRunning;
 
         [Space(10)]
-        public TextAsset onTalk_AfterExplosion_WithRunning_Visited_01;
+        public TextAsset onTalkedTo_AfterExplosion_WithRunning_Visited_01;
         public bool isOnce_AfterExplosion_WithRunning_Visited_01;
 
-        [Space(10)]
-        public TextAsset onTalk_AfterExplosion_WithRunning_Visited_02;
+        public TextAsset onTalkedTo_AfterExplosion_WithRunning_Visited_02;
         public bool isOnce_AfterExplosion_WithRunning_Visited_02;
 
-        public TextAsset onTalk_AfterExplosion_WithRunning_Visited_03;
+        public TextAsset onTalkedTo_AfterExplosion_WithRunning_Visited_03;
         public bool isOnce_AfterExplosion_WithRunning_Visited_03;
 
         [Space(10)]
         public TextAsset onTalk_AfterExplosion_WithWalking_Visited_01;
         public bool isOnce_AfterExplosion_WithWalking_Visited_01;
 
-        [Space(10)]
         public TextAsset onTalk_AfterExplosion_WithWalking_Visited_02;
         public bool isOnce_AfterExplosion_WithWalking_Visited_02;
 
+        [Space(10)]
         public TextAsset onTalkedTo_AfterGettingAnItem;
         public bool isOnce_AfterGettingItem;
 
-        [Space(10)]
         public TextAsset onTalk_AfterGettingAKey;
         public bool isOnce_AfterGettingKey;
 
-        [Space(10)]
         public TextAsset onTalk_AfterGettingARock;
         public bool isOnce_AfterGettingRock;
         #endregion
@@ -76,9 +72,6 @@ namespace ATBMI.Dialogue
         [HideInInspector] public bool isOnce09;
         #endregion
 
-        private List<IDialogueRule<RE_Security_01>> dialogueRules;
-        private List<IDialogueRule<RE_Security_01>> triggerRules;
-
         private void Awake()
         {
             // TODO: change the method of getting this script
@@ -93,22 +86,22 @@ namespace ATBMI.Dialogue
 
         private void InitializeRules()
         {
-            dialogueRules = new List<IDialogueRule<RE_Security_01>>
-            {
-                new OnTalk_ExplosionRunningRule(),
-                new OnTalk_ExplosionWalkingRule(),
-                new OnTalk_GettingItemRule()
-            };
+            // dialogueRules = new List<IDialogueRule<RE_Security_01>>
+            // {
+            //     new OnTalk_ExplosionRunningRule(),
+            //     new OnTalk_ExplosionWalkingRule(),
+            //     new OnTalk_GettingItemRule()
+            // };
 
-            triggerRules = new List<IDialogueRule<RE_Security_01>>
-            {
-                new OnTalkedTo_ExplosionRunningRule(),
-                new OnTalkedTo_GettingItemRunningRule()
-            };
+            // triggerRules = new List<IDialogueRule<RE_Security_01>>
+            // {
+            //     new OnTalkedTo_ExplosionRunningRule(),
+            //     new OnTalkedTo_GettingItemRunningRule()
+            // };
 
             // Sort rules by priority
-            dialogueRules = dialogueRules.OrderBy(rule => rule.RulePriority).ToList();
-            triggerRules = triggerRules.OrderBy(rule => rule.RulePriority).ToList();
+            // dialogueRules = dialogueRules.OrderBy(rule => rule.RulePriority).ToList();
+            // triggerRules = triggerRules.OrderBy(rule => rule.RulePriority).ToList();
         }
 
         private void Start()
@@ -136,7 +129,7 @@ namespace ATBMI.Dialogue
             {
                 isPlayerInRange = true;
 
-                foreach (var rule in triggerRules)
+                foreach (var rule in autoTriggerRules)
                 {
                     if (rule.Evaluate(this))
                     {
@@ -158,9 +151,9 @@ namespace ATBMI.Dialogue
 
         public override void EnterDialogue()
         {
-            if (!isDialogueAboutToStart)
+            if (!isDialogueAboutToStart && isPlayerInRange)
             {
-                foreach (var rule in dialogueRules)
+                foreach (var rule in manualTriggerRules)
                 {
                     if (rule.Evaluate(this))
                     {
@@ -172,7 +165,7 @@ namespace ATBMI.Dialogue
                 if (!isDialogueAboutToStart)
                 {
                     isDialogueAboutToStart = true;
-                    PlayerEvents.MoveToPlayerEvent(this, onTalk, playerEntryPoint.position.x, npc.IsFacingRight);
+                    PlayerEvents.MoveToPlayerEvent(this, onTalk, playerEntryPoint.position.x, transform.position.x, npc.isFacingRight);
                 }
             }
         }

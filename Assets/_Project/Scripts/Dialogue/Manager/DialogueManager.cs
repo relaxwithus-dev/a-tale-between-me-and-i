@@ -6,11 +6,15 @@ using TMPro;
 using Ink.Runtime;
 using ATBMI.Gameplay.Event;
 using ATBMI.Gameplay.Handler;
+using ATBMI.Player;
 
 namespace ATBMI.Dialogue
 {
     public class DialogueManager : MonoBehaviour
     {
+        [Header("Dependencies")]
+        [SerializeField] private PlayerController playerController;
+
         [Header("Params")]
         [SerializeField] private float typingSpeed;
 
@@ -101,7 +105,9 @@ namespace ATBMI.Dialogue
 
         public void EnterDialogueMode(TextAsset inkJSON, Animator emoteAnimator)
         {
-            Debug.Log(inkJSON.name);
+            playerController.StopMovement();
+
+            Debug.Log("Dialogue asset = " + inkJSON.name);
 
             currentStory = new Story(inkJSON.text);
             IsDialoguePlaying = true;
@@ -114,35 +120,41 @@ namespace ATBMI.Dialogue
 
         private void ContinueStory()
         {
-            if (currentStory.canContinue)
+            while (currentStory.canContinue)
             {
-                if (displayLineCoroutine != null)
-                {
-                    StopCoroutine(displayLineCoroutine);
-                }
-
                 string nextLine = currentStory.Continue();
 
-                // if the last line is empty string, exit
-                if (nextLine.Equals("") && !currentStory.canContinue)
+                // Skip processing if the next line is an empty string
+                if (!string.IsNullOrWhiteSpace(nextLine))
                 {
-                    StartCoroutine(ExitDialogueMode());
-                }
-                else
-                {
-                    HandleTags(currentStory.currentTags);
-                    displayLineCoroutine = StartCoroutine(DisplayLine(nextLine));
-                }
+                    if (displayLineCoroutine != null)
+                    {
+                        StopCoroutine(displayLineCoroutine);
+                    }
 
+                    displayLineCoroutine = StartCoroutine(DisplayLine(nextLine));
+                    return;
+                }
             }
-            else
+
+            if (!currentStory.canContinue && currentStory.currentChoices.Count == 0)
             {
                 StartCoroutine(ExitDialogueMode());
             }
+            else
+            {
+                DisplayChoices();
+            }
         }
+
 
         private IEnumerator DisplayLine(string line)
         {
+            // if (string.IsNullOrWhiteSpace(line))
+            // {
+            //     yield break; // Skip displaying the line
+            // }
+
             dialogueChoicesContainer.transform.parent.gameObject.SetActive(false);
             dialoguePin.SetActive(true);
 
@@ -157,12 +169,18 @@ namespace ATBMI.Dialogue
 
             canContinueToNextLine = false;
             bool isAddingRichTextTag = false;
+            bool canSkip = false;
+
+            // Process tags before displaying the line
+                    HandleTags(currentStory.currentTags);
 
             // display char in a line 1 by 1
             foreach (char letter in line.ToCharArray())
             {
-                // if player pressed submit button the line display immediately
-                if (GameInputHandler.Instance.IsTapInteract)
+                yield return null;
+
+                // if player pressed submit button displayed the line immediately
+                if (canSkip && GameInputHandler.Instance.IsTapInteract)
                 {
                     Debug.LogWarning("submit button pressed,  the line display immediately!");
 
@@ -186,6 +204,7 @@ namespace ATBMI.Dialogue
                     dialogueText.maxVisibleCharacters++;
                     // dialogueText.text += letter;
                     yield return new WaitForSeconds(typingSpeed);
+                    canSkip = true;
                 }
             }
 
@@ -295,6 +314,7 @@ namespace ATBMI.Dialogue
                         dialogueName.text = tagValue == "Player" ? "Atma" : tagValue;
 
                         // update dialogue bubble position
+                        Debug.Log("Speaker = " + tagValue);
                         DialogEvents.UpdateDialogueUIPosEvent(tagValue);
                         break;
                     case EXPRESSION_TAG:
@@ -320,6 +340,8 @@ namespace ATBMI.Dialogue
             dialogueText.text = "";
 
             DialogEvents.StopDialogueAnimEvent();
+
+            playerController.StartMovement();
         }
 
         public void MakeChoice(int choiceIndex)

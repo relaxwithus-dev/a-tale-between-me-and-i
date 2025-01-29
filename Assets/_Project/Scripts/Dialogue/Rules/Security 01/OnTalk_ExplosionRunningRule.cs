@@ -3,24 +3,25 @@ using ATBMI.Gameplay.Event;
 
 namespace ATBMI.Dialogue
 {
-    public class OnTalk_ExplosionRunningRule : IDialogueRule<RE_Security_01>
+    [CreateAssetMenu(fileName = "OnTalk_ExplosionRunningRule", menuName = "Data/Dialogue Rules/Security_01/OnTalk_ExplosionRunningRule")]
+    public class OnTalk_ExplosionRunningRule : DialogueRuleBase<RE_Security_01>
     {
-        public int RulePriority => (int)RulePrioritySecurity_01.OnTalk_ExplosionRunningRule;
+        // public int RulePriority => (int)RulePrioritySecurity_01.OnTalk_ExplosionRunningRule;
 
-        public bool Evaluate(RE_Security_01 context)
+        public override bool Evaluate(RE_Security_01 context)
         {
-            Debug.Log(context.IsAfterExplosion && context.IsRunning);
+            Debug.Log("OnTalk_ExplosionRunningRule" + (context.IsAfterExplosion && context.IsRunning));
             return context.IsAfterExplosion && context.IsRunning;
         }
 
-        public void Execute(RE_Security_01 context)
+        public override void Execute(RE_Security_01 context)
         {
             context.VisitedCount++;
 
             if (context.VisitedCount == 1 && !context.isOnce02)
             {
                 context.isDialogueAboutToStart = true;
-                PlayerEvents.MoveToPlayerEvent(context, context.onTalk_AfterExplosion_WithRunning_Visited_01, context.playerEntryPoint.position.x, context.npc.IsFacingRight);
+                PlayerEvents.MoveToPlayerEvent(context, context.onTalkedTo_AfterExplosion_WithRunning_Visited_01, context.playerEntryPoint.position.x, context.transform.position.x, context.npc.isFacingRight);
                 if (context.isOnce_AfterExplosion_WithRunning_Visited_01)
                 {
                     context.isOnce02 = true;
@@ -29,7 +30,7 @@ namespace ATBMI.Dialogue
             else if (context.VisitedCount == 2 && !context.isOnce03)
             {
                 context.isDialogueAboutToStart = true;
-                PlayerEvents.MoveToPlayerEvent(context, context.onTalk_AfterExplosion_WithRunning_Visited_02, context.playerEntryPoint.position.x, context.npc.IsFacingRight);
+                PlayerEvents.MoveToPlayerEvent(context, context.onTalkedTo_AfterExplosion_WithRunning_Visited_02, context.playerEntryPoint.position.x, context.transform.position.x, context.npc.isFacingRight);
                 if (context.isOnce_AfterExplosion_WithRunning_Visited_02)
                 {
                     context.isOnce03 = true;
@@ -38,7 +39,7 @@ namespace ATBMI.Dialogue
             else if (context.VisitedCount == 3 && !context.isOnce04)
             {
                 context.isDialogueAboutToStart = true;
-                PlayerEvents.MoveToPlayerEvent(context, context.onTalk_AfterExplosion_WithRunning_Visited_03, context.playerEntryPoint.position.x, context.npc.IsFacingRight);
+                PlayerEvents.MoveToPlayerEvent(context, context.onTalkedTo_AfterExplosion_WithRunning_Visited_03, context.playerEntryPoint.position.x, context.transform.position.x, context.npc.isFacingRight);
                 if (context.isOnce_AfterExplosion_WithRunning_Visited_03)
                 {
                     context.isOnce04 = true;

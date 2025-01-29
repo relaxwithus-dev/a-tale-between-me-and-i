@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using ATBMI.Data;
 using ATBMI.Gameplay.Handler;
+using ATBMI.Dialogue;
 
 namespace ATBMI.Entities.Player
 {
@@ -37,6 +38,8 @@ namespace ATBMI.Entities.Player
         // Reference
         private Rigidbody2D _playerRb;
         private SpriteRenderer _playerSr;
+        private Vector2 _temporaryDirection = Vector2.zero;
+
 
         #endregion
 
@@ -55,12 +58,12 @@ namespace ATBMI.Entities.Player
 
         private void FixedUpdate()
         {
-            if (!CanMove) return;
+            if (!CanMove || DialogueManager.Instance.IsDialoguePlaying) return;
             PlayerMove();
         }
 
         private void Update()
-        {            
+        {
             HandleState();
             PlayerDirection();
         }
@@ -81,7 +84,10 @@ namespace ATBMI.Entities.Player
         // Core
         private void PlayerMove()
         {
-            var direction = GameInputHandler.Instance.MoveDirection;
+            var direction = _temporaryDirection == Vector2.zero
+                ? GameInputHandler.Instance.MoveDirection
+                : _temporaryDirection;
+
             moveDirection = new(direction.x, moveDirection.y);
             moveDirection.Normalize();
 
@@ -111,7 +117,7 @@ namespace ATBMI.Entities.Player
                 yield return null;
             }
 
-            _playerRb.velocity = Vector2.zero; 
+            _playerRb.velocity = Vector2.zero;
             _latestDirection = Vector2.zero;
         }
 
@@ -141,6 +147,11 @@ namespace ATBMI.Entities.Player
             moveDirection = Vector2.zero;
             _latestDirection = Vector2.zero;
             _playerRb.velocity = Vector2.zero;
+        }
+
+        public void SetTemporaryDirection(Vector2 direction)
+        {
+            _temporaryDirection = direction;
         }
 
         #endregion

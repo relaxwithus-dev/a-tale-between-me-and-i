@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using ATBMI.Data;
+using TMPro;
 
 namespace ATBMI.Inventory
 {
@@ -11,11 +12,16 @@ namespace ATBMI.Inventory
         // Inventory
         [SerializeField] protected ItemData itemData;
 
+
         [Space]
+        [SerializeField] private Button flagButton;
         [SerializeField] private Image flagImage;
+        [SerializeField] private TextMeshProUGUI flagNameText;
 
         public ItemData ItemData => itemData;
+        public Button FlagButton => flagButton;
         public Image FlagImage => flagImage;
+        public TextMeshProUGUI FlagNameText => flagNameText;
 
         #endregion
 

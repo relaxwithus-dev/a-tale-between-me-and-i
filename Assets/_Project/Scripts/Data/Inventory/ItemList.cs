@@ -9,9 +9,12 @@ namespace ATBMI.Data
     {
         public List<ItemData> itemList = new();
 
-        public void SortItemList()
+        private void OnValidate()
         {
+            #if UNITY_EDITOR
             itemList = itemList.OrderBy(x => x.ItemId).ToList();
+            UnityEditor.EditorUtility.SetDirty(this);
+            #endif
         }
     }
 }

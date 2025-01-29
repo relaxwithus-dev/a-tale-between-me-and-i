@@ -4,7 +4,7 @@ using ATBMI.Gameplay.Event;
 
 namespace ATBMI.Inventory
 {
-    public class InventoryBarCreator: MonoBehaviour
+    public class InventoryBarCreator : MonoBehaviour
     {
         #region Global Fields
 
@@ -36,14 +36,14 @@ namespace ATBMI.Inventory
         }
 
         #endregion
-        
+
         #region Methods
 
         // !- Initialize
         protected virtual void InitOnStart() { }
 
         // !- Core
-        protected virtual void ModifyInventory(List<InventoryItem> inventoryList) { }
+        protected virtual void ModifyInventory(List<InventoryItem> inventoryList) {}
 
         protected void CreateInventorySlot()
         {

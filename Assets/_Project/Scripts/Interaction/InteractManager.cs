@@ -2,6 +2,7 @@ using UnityEngine;
 using Sirenix.OdinInspector;
 using ATBMI.Utilities;
 using ATBMI.Gameplay.Handler;
+using ATBMI.Dialogue;
 
 namespace ATBMI.Interaction
 {
@@ -17,16 +18,16 @@ namespace ATBMI.Interaction
         [SerializeField] private bool isInteracted;
         [SerializeField] private GameObject interactSign;
 
-        private readonly float signYMultiplier = 1f;
-        
+        private readonly float signYMultiplier = 2f;
+
         public bool IsInteracted
         {
             get => isInteracted;
             set => isInteracted = value;
         }
-        
+
         [Header("Area")]
-        [SerializeField] [MaxValue(3)] private int detectionLimit;
+        [SerializeField][MaxValue(3)] private int detectionLimit;
         [SerializeField] private Vector2 boxSize;
         [SerializeField] private LayerMask targetMask;
 
@@ -50,24 +51,31 @@ namespace ATBMI.Interaction
             if (IsInteracted) return;
             HandleInteractArea();
         }
-        
+
         #endregion
         
         #region Methods
-        
+
         // !- Core
         private void HandleInteractArea()
         {
+            if (DialogueManager.Instance.IsDialoguePlaying)
+            {
+                DeactivateSign();
+                return;
+            }
+
             // Alloc intersection
             var numOfHits = Physics2D.OverlapBoxNonAlloc(transform.position, boxSize, 0f, hitsNonAlloc, targetMask);
-            
+
             if (numOfHits == 0)
                 DeactivateSign();
 
             for (var i = 0; i < numOfHits; i++)
             {
                 var hits = hitsNonAlloc[i];
-                if (hits.CompareTag(GameConstant.NPC_TAG) || hits.CompareTag(GameConstant.NPC_TAG))
+                int npcLayer = LayerMask.NameToLayer("Object");
+                if (hits.gameObject.layer == npcLayer)
                 {
                     var nearest = FindNearestObjectAt(transform.position, numOfHits, hitsNonAlloc);
                     if (nearest != null)
@@ -100,7 +108,7 @@ namespace ATBMI.Interaction
                 }
             }
         }
-        
+
         private Collider2D FindNearestObjectAt(Vector3 origin, int hitNums, Collider2D[] collider2Ds)
         {
             float closestSqrDist = Mathf.Infinity;
@@ -116,13 +124,13 @@ namespace ATBMI.Interaction
                     closestSqrDist = sqrDist;
                 }
             }
-            
+
             return closest;
         }
 
         private void ActivateSignAt(Transform target)
         {
-            if (interactSign.activeSelf) return;
+            if (interactSign.activeSelf || DialogueManager.Instance.IsDialoguePlaying) return;
 
             var targetPos = target.position;
             interactSign.transform.position = new Vector3(targetPos.x, targetPos.y + signYMultiplier, targetPos.z);
