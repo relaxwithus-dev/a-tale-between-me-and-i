@@ -6,7 +6,7 @@ using TMPro;
 using Ink.Runtime;
 using ATBMI.Gameplay.Event;
 using ATBMI.Gameplay.Handler;
-using ATBMI.Player;
+using ATBMI.Entities.Player;
 
 namespace ATBMI.Dialogue
 {
