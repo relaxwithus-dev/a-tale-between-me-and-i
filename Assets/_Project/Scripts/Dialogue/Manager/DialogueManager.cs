@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using TMPro;
 using Ink.Runtime;
+using ATBMI.Interaction;
 using ATBMI.Gameplay.Event;
 using ATBMI.Gameplay.Handler;
 using ATBMI.Entities.Player;
@@ -110,16 +111,15 @@ namespace ATBMI.Dialogue
 
         public void EnterDialogueMode(TextAsset inkJSON, Animator emoteAnimator)
         {
-            playerController.StopMovement();
-
             Debug.Log("Dialogue asset = " + inkJSON.name);
-
-            currentStory = new Story(inkJSON.text);
+            
             IsDialoguePlaying = true;
             dialoguePin.SetActive(true);
-
+            playerController.StopMovement();
+            
+            currentStory = new Story(inkJSON.text);
             inkExternalFunctions.Bind(currentStory, emoteAnimator);
-
+            
             ContinueStory();
         }
 
@@ -166,7 +166,7 @@ namespace ATBMI.Dialogue
             continuePin.SetActive(false);
             HideChoices();
 
-            DialogEvents.AdjustDialogueUISizeEvent(line.Length);
+            DialogueEvents.AdjustDialogueUISizeEvent(line.Length);
 
             // set the dialogue text to full line, but set the visible character to 0
             dialogueText.text = line;
@@ -251,8 +251,8 @@ namespace ATBMI.Dialogue
             dialoguePin.SetActive(false);
             dialogueChoicesContainer.transform.parent.gameObject.SetActive(true);
 
-            DialogEvents.UpdateDialogueChoicesUIPosEvent("Player");
-            DialogEvents.StopDialogueAnimEvent();
+            DialogueEvents.UpdateDialogueChoicesUIPosEvent("Player");
+            DialogueEvents.StopDialogueAnimEvent();
 
             int index = 0;
             int maxLength = 0;
@@ -271,7 +271,7 @@ namespace ATBMI.Dialogue
                 index++;
             }
 
-            DialogEvents.AdjustDialogueChoicesUISizeEvent(maxLength);
+            DialogueEvents.AdjustDialogueChoicesUISizeEvent(maxLength);
 
             for (int i = index; i < choices.Length; i++)
             {
@@ -311,7 +311,7 @@ namespace ATBMI.Dialogue
                         if (dialogueName.text != tagValue)
                         {
                             // Stop animation between speaker
-                            DialogEvents.StopDialogueAnimEvent();
+                            DialogueEvents.StopDialogueAnimEvent();
                         }
 
                         // TODO: change to other method
@@ -319,11 +319,11 @@ namespace ATBMI.Dialogue
 
                         // update dialogue bubble position
                         Debug.Log("Speaker = " + tagValue);
-                        DialogEvents.UpdateDialogueUIPosEvent(tagValue);
+                        DialogueEvents.UpdateDialogueUIPosEvent(tagValue);
                         break;
                     case EXPRESSION_TAG:
                         // update animation
-                        DialogEvents.PlayDialogueAnimEvent(tagValue);
+                        DialogueEvents.PlayDialogueAnimEvent(tagValue);
                         break;
                     default:
                         Debug.LogWarning("Tag came in but is not currently being handled: " + tag);
@@ -335,7 +335,6 @@ namespace ATBMI.Dialogue
         private IEnumerator ExitDialogueMode()
         {
             yield return new WaitForSeconds(0.2f);
-
             inkExternalFunctions.Unbind(currentStory);
 
             IsDialoguePlaying = false;
@@ -343,9 +342,9 @@ namespace ATBMI.Dialogue
             dialogueName.text = "";
             dialogueText.text = "";
 
-            DialogEvents.StopDialogueAnimEvent();
-
             playerController.StartMovement();
+            DialogueEvents.StopDialogueAnimEvent();
+            CharacterInteract.InteractingEvent(isBegin: false);
         }
 
         public void MakeChoice(int choiceIndex)

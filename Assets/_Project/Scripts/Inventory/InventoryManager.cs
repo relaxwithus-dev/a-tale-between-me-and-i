@@ -84,7 +84,7 @@ namespace ATBMI.Inventory
             return null;
         }
 
-        public void AddItemToInventory(int itemId, ItemInteraction item = null)
+        public void AddItemToInventory(int itemId, ItemInteract item = null)
         {
             if (itemDatasDict.TryGetValue(itemId, out ItemData data))
             {

@@ -23,14 +23,14 @@ public class DialogueChoicesUI : MonoBehaviour
 
     private void OnEnable()
     {
-        DialogEvents.UpdateDialogueChoicesUIPos += UpdateDialogueChoicesUIPos;
-        DialogEvents.AdjustDialogueChoicesUISize += AdjustDialogueChoicesUISize;
+        DialogueEvents.UpdateDialogueChoicesUIPos += UpdateDialogueChoicesUIPos;
+        DialogueEvents.AdjustDialogueChoicesUISize += AdjustDialogueChoicesUISize;
     }
 
     private void OnDisable()
     {
-        DialogEvents.UpdateDialogueChoicesUIPos -= UpdateDialogueChoicesUIPos;
-        DialogEvents.AdjustDialogueChoicesUISize -= AdjustDialogueChoicesUISize;
+        DialogueEvents.UpdateDialogueChoicesUIPos -= UpdateDialogueChoicesUIPos;
+        DialogueEvents.AdjustDialogueChoicesUISize -= AdjustDialogueChoicesUISize;
     }
 
     private void Start()

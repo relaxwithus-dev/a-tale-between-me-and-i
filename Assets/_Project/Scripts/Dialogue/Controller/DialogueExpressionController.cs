@@ -10,14 +10,14 @@ public class DialogueExpressionController : MonoBehaviour
 
     private void OnEnable()
     {
-        DialogEvents.PlayDialogueAnim += PlayDialogueAnim;
-        DialogEvents.StopDialogueAnim += StopDialogueAnim;
+        DialogueEvents.PlayDialogueAnim += PlayDialogueAnim;
+        DialogueEvents.StopDialogueAnim += StopDialogueAnim;
     }
 
     private void OnDisable()
     {
-        DialogEvents.PlayDialogueAnim -= PlayDialogueAnim;
-        DialogEvents.StopDialogueAnim -= StopDialogueAnim;
+        DialogueEvents.PlayDialogueAnim -= PlayDialogueAnim;
+        DialogueEvents.StopDialogueAnim -= StopDialogueAnim;
     }
 
     private void PlayDialogueAnim(string expressionValue)

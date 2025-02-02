@@ -7,8 +7,8 @@ using TMPro;
 using DanielLochner.Assets.SimpleScrollSnap;
 using ATBMI.Data;
 using ATBMI.Enum;
-using ATBMI.Entities.Player;
 using ATBMI.Inventory;
+using ATBMI.Entities.Player;
 using ATBMI.Gameplay.Handler;
 
 namespace ATBMI.Interaction
@@ -24,8 +24,8 @@ namespace ATBMI.Interaction
         [SerializeField] private List<InteractFlag> basicFlags;
         [SerializeField] private Sprite noneSprite;
         
+        private IInteractable _interactable;
         private InteractCreator _interactCreator;
-        public IInteractable Interactable { get; private set; }
 
         [Header("Reference")]
         [SerializeField] private SimpleScrollSnap scrollSnap;
@@ -51,7 +51,7 @@ namespace ATBMI.Interaction
         
         private void Update()
         {
-            if (Interactable == null) return;
+            if (_interactable == null) return;
 
             HandleNavigation();
             HandleDescription();
@@ -127,10 +127,10 @@ namespace ATBMI.Interaction
             switch (status)
             {
                 case InteractFlagStatus.Interaction:
-                    Interactable.Interact(interactManager);
+                    _interactable.Interact(interactManager);
                     break;
                 case InteractFlagStatus.Item:
-                    Interactable.Interact(interactManager, data.ItemId);
+                    _interactable.Interact(interactManager, data.ItemId);
                     break;
                 case InteractFlagStatus.Close:
                 default:
@@ -146,14 +146,14 @@ namespace ATBMI.Interaction
             InitItemButtons();
             InitScrollSnap();
             
-            Interactable = interactable;
+            _interactable = interactable;
             playerController.StopMovement();
             optionPanelUI.SetActive(true);
         }
 
         private IEnumerator CloseInteractOption()
         {
-            Interactable = null;
+            _interactable = null;
             optionPanelUI.SetActive(false);
             playerController.StartMovement();
 

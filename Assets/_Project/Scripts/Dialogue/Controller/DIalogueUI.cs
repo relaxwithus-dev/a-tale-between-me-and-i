@@ -27,14 +27,14 @@ public class DialogueUI : MonoBehaviour
 
     private void OnEnable()
     {
-        DialogEvents.UpdateDialogueUIPos += UpdateDialogueUIPos;
-        DialogEvents.AdjustDialogueUISize += AdjustDialogueUISize;
+        DialogueEvents.UpdateDialogueUIPos += UpdateDialogueUIPos;
+        DialogueEvents.AdjustDialogueUISize += AdjustDialogueUISize;
     }
 
     private void OnDisable()
     {
-        DialogEvents.UpdateDialogueUIPos -= UpdateDialogueUIPos;
-        DialogEvents.AdjustDialogueUISize -= AdjustDialogueUISize;
+        DialogueEvents.UpdateDialogueUIPos -= UpdateDialogueUIPos;
+        DialogueEvents.AdjustDialogueUISize -= AdjustDialogueUISize;
     }
 
     private void Start()

@@ -62,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7858659317861269129, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.86
+      value: -5.35
       objectReference: {fileID: 0}
     - target: {fileID: 7858659317861269129, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -163,8 +163,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90926fb261ccf3440b3010858b0f1c49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectName: 
-  interactStatus: 0
-  dialogueAssets: []
+  isInteracting: 0
+  interactSelect: 0
   targetId: 0
-  itemData: {fileID: 0}

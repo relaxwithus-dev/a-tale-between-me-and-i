@@ -43,7 +43,7 @@ namespace ATBMI.Dialogue
             }
         }
 
-        public override void EnterDialogue()
+        public override void OnEnterDialogue()
         {
             if (!isDialogueAboutToStart)
             {

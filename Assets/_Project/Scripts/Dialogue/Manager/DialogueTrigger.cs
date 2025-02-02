@@ -1,7 +1,7 @@
-using ATBMI.Entities.NPCs;
 using UnityEngine;
-using ATBMI.Entities.Player;
+using ATBMI.Entities.NPCs;
 using ATBMI.Gameplay.Event;
+using ATBMI.Entities.Player;
 using ATBMI.Gameplay.Handler;
 
 namespace ATBMI.Dialogue
@@ -21,12 +21,12 @@ namespace ATBMI.Dialogue
         private bool isPlayerInRange;
 
         private CharacterAI npc;
-        private PlayerDialogHandler _playerDialogHandler;
+        private PlayerDialogueHandler _playerDialogueHandler;
 
         private void Awake()
         {
             // TODO: change the method of getting this script
-            _playerDialogHandler = FindObjectOfType<PlayerDialogHandler>();
+            _playerDialogueHandler = FindObjectOfType<PlayerDialogueHandler>();
 
             visualCue = GetComponentInChildren<VisualCue>();
             npc = transform.parent.gameObject.GetComponent<CharacterAI>();
@@ -44,17 +44,17 @@ namespace ATBMI.Dialogue
             isPlayerInRange = false;
             isDialogueAboutToStart = false;
         }
-
+        
         private void OnEnable()
         {
-            DialogEvents.EnterDialogue += EnterDialogue;
+            DialogueEvents.OnEnterDialogue += OnEnterDialogue;
         }
-
+        
         private void OnDisable()
         {
-            DialogEvents.EnterDialogue -= EnterDialogue;
+            DialogueEvents.OnEnterDialogue -= OnEnterDialogue;
         }
-
+        
         private void Update()
         {
             if (isPlayerInRange && !DialogueManager.Instance.IsDialoguePlaying)
@@ -98,7 +98,7 @@ namespace ATBMI.Dialogue
             }
         }
 
-        public void EnterDialogue()
+        public void OnEnterDialogue()
         {
             // DialogueManager.Instance.EnterDialogueMode(InkJson);
             isDialogueAboutToStart = false;

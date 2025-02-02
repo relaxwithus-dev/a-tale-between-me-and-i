@@ -67,8 +67,7 @@ namespace ATBMI.Interaction
             for (var i = 0; i < numOfHits; i++)
             {
                 var nearest = FindNearestObjectAt(transform.position, numOfHits, _hitsNonAlloc);
-                if (nearest == null) 
-                    continue;
+                if (!nearest) continue;
                 
                 // Sign
                 var nearestTransform = nearest.transform;
@@ -77,14 +76,16 @@ namespace ATBMI.Interaction
                 // Interact
                 if (GameInputHandler.Instance.IsTapInteract)
                 {
-                    var target = nearest.GetComponent<Interaction>();
+                    var target = nearest.GetComponent<IInteractable>();
                     if (target != null)
                     {
-                        IsInteracted = true;
                         DeactivateSign();
+                        IsInteracted = true;
+                        CharacterInteract.InteractingEvent(isBegin: true);
                         
-                        if (target as ItemInteraction)
+                        if (target as ItemInteract)
                         {
+                            if (!target.Validate()) continue;
                             isInteracted = false;
                             target.Interact(this);
                         }

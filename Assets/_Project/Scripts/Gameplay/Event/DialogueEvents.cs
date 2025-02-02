@@ -1,12 +1,11 @@
 using System;
-using UnityEngine;
 
 namespace ATBMI.Gameplay.Event
 {
-    public static class DialogEvents
+    public static class DialogueEvents
     {
         // Main Event
-        public static event Action EnterDialogue;
+        public static event Action OnEnterDialogue;
         public static event Action<string> PlayDialogueAnim;
         public static event Action StopDialogueAnim;
 
@@ -17,7 +16,7 @@ namespace ATBMI.Gameplay.Event
         public static event Action<int> AdjustDialogueChoicesUISize;
 
         // Main Event - Caller
-        public static void EnterDialogueEvent() => EnterDialogue?.Invoke();
+        public static void EnterDialogueEvent() => OnEnterDialogue?.Invoke();
         public static void PlayDialogueAnimEvent(string tag) => PlayDialogueAnim?.Invoke(tag);
         public static void StopDialogueAnimEvent() => StopDialogueAnim?.Invoke();
         

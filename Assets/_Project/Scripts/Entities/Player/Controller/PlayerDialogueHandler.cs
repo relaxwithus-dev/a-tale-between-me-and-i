@@ -6,7 +6,7 @@ using ATBMI.Gameplay.Handler;
 
 namespace ATBMI.Entities.Player
 {
-    public class PlayerDialogHandler : MonoBehaviour
+    public class PlayerDialogueHandler : MonoBehaviour
     {
         #region Fields & Properties
 
