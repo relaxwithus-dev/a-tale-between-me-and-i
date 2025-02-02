@@ -2,8 +2,8 @@ using System;
 using System.Collections;
 using UnityEngine;
 using ATBMI.Data;
-using ATBMI.Gameplay.Handler;
 using ATBMI.Dialogue;
+using ATBMI.Gameplay.Handler;
 
 namespace ATBMI.Entities.Player
 {
@@ -128,12 +128,10 @@ namespace ATBMI.Entities.Player
                 PlayerFlip();
         }
 
-        // TODO: Uncomment flip dan drop rotate misal sprite aman
         public void PlayerFlip()
         {
             isRight = !isRight;
-            // _playerSr.flipX = isRight;
-            _playerSr.transform.Rotate(0f, 180f, 0f);
+            _playerSr.flipX = isRight;
         }
 
         public void StartMovement()

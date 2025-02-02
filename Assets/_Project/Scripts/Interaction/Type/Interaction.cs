@@ -7,39 +7,38 @@ namespace ATBMI.Interaction
     public class Interaction : MonoBehaviour, IInteractable
     {
         #region Fields & Properties
-
+        
         [Header("General")]
-        [SerializeField] private string objectName;
-        [SerializeField] [EnumToggleButtons] protected InteractStatus interactStatus;
+        [SerializeField] protected bool isInteracting;
+        
+        public bool IsInteracting
+        {
+            get => isInteracting; 
+            set => isInteracting = value;
+        }
         
         #endregion
-
+        
         #region MonoBehaviour Callbacks
-
-        private void Awake()
-        {
-            InitOnAwake();
-        }
 
         private void Start()
         {
             InitOnStart();
         }
 
-        private void Update()
-        {
-            HandleUpdate();
-        }
-
         #endregion
-
+        
         #region Methods
-
-        protected virtual void InitOnAwake() { }
+        
         protected virtual void InitOnStart() { }
-        protected virtual void HandleUpdate() { }
-        public virtual void Interact(InteractManager manager, int itemId = 0) { }
-
+        public virtual void Interact(InteractManager manager, int itemId = 0)
+        {
+            StartInteract();
+        }
+        
+        public void StartInteract() => isInteracting = true;
+        public void StopInteract() => isInteracting = false;
+        
         #endregion
     }
 }

@@ -12,7 +12,7 @@ namespace ATBMI.Item
         [Header("Data")]
         [SerializeField] private int itemId;
         [SerializeField] private string itemName;
-        
+                
         // Reference
         private SpriteRenderer _itemSr;
 

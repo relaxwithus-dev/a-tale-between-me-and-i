@@ -1,31 +1,24 @@
 using ATBMI.Enum;
+using ATBMI.Gameplay.Event;
 using UnityEngine;
 
 namespace ATBMI.Interaction
 {
     public class SceneryInteraction : Interaction
     {
-        #region Fields & Properties
-
-        [Header("Scenery")]
-        [SerializeField] private TextAsset[] dialogueAssets;
-
-        #endregion
-
-        #region Methods
-
-        // TODO: Drop method call dialogue
         public override void Interact(InteractManager manager, int itemId = 0)
         {
             base.Interact(manager, itemId);
-            var isTalks = interactStatus == InteractStatus.Talks;
-            
-            if (isTalks)
-                Debug.Log("hi bro, jangan lupa #timnasday");
-            else
-                Debug.Log("tidak terjadi apa-apa");
-        }
 
-        #endregion
+            if (itemId == 0)
+            {
+                DialogEvents.EnterDialogueEvent();
+            }
+            else
+            {
+                // TODO: Apply dialogue, tidak terjadi apa2
+                // DialogEvents.EnterDialogueEvent();
+            }
+        }
     }
 }

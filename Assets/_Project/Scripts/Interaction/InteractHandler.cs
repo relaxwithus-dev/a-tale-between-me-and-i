@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
@@ -119,7 +120,7 @@ namespace ATBMI.Interaction
         {
             flag.SetFlags(flagId, flagName, InteractFlagStatus.Item, data);
         }
-
+        
         private void OnButtonClicked(InteractFlag flag)
         {
             var (status, data) = flag.GetItemFlags();
@@ -131,19 +132,20 @@ namespace ATBMI.Interaction
                 case InteractFlagStatus.Item:
                     Interactable.Interact(interactManager, data.ItemId);
                     break;
+                case InteractFlagStatus.Close:
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
-
+            
             StartCoroutine(CloseInteractOption());
         }
-
+        
         // !- Core
         public void OpenInteractOption(IInteractable interactable)
         {
-            // Setup
             InitItemButtons();
             InitScrollSnap();
-
-            // Neccesary
+            
             Interactable = interactable;
             playerController.StopMovement();
             optionPanelUI.SetActive(true);
@@ -178,15 +180,13 @@ namespace ATBMI.Interaction
         private void InvokeInteract()
         {
             var index = scrollSnap.SelectedPanel;
-            var button = GetFlags(index)[GetAdjustedIndex(index)].FlagButton;
-            button.onClick.Invoke();
+            GetFlags(index)[GetAdjustedIndex(index)].FlagButton.onClick.Invoke();
         }
         
         private void HandleDescription()
         {
             var index = scrollSnap.SelectedPanel;
-            var description = GetFlags(index)[GetAdjustedIndex(index)].FlagName;
-            descriptionTextUI.text = description;
+            descriptionTextUI.text = GetFlags(index)[GetAdjustedIndex(index)].FlagName;
         }
 
         // !- Utilities
@@ -197,7 +197,7 @@ namespace ATBMI.Interaction
                                 .OfType<InteractFlag>()
                                 .ToList();
         }
-
+        
         private int GetAdjustedIndex(int index)
         {
             return index < basicFlags.Count ? index : index - basicFlags.Count;

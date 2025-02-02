@@ -139,7 +139,7 @@ namespace ATBMI.Dialogue
                 }
             }
         }
-
+        
         // if dialogue trigger after player exiting object/npc area
         public override void OnTriggerExit2D(Collider2D other)
         {
@@ -148,7 +148,7 @@ namespace ATBMI.Dialogue
                 isPlayerInRange = false;
             }
         }
-
+        
         public override void EnterDialogue()
         {
             if (!isDialogueAboutToStart && isPlayerInRange)
@@ -161,7 +161,7 @@ namespace ATBMI.Dialogue
                         break; // Execute only the first valid rule
                     }
                 }
-
+                
                 if (!isDialogueAboutToStart)
                 {
                     isDialogueAboutToStart = true;
@@ -169,7 +169,7 @@ namespace ATBMI.Dialogue
                 }
             }
         }
-
+        
         public override void EnterDialogueWithInkJson(TextAsset InkJson)
         {
             base.EnterDialogueWithInkJson(InkJson);

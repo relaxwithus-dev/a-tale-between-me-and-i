@@ -1,12 +1,11 @@
 namespace ATBMI.Enum
 {
-    // Global
-    public enum InteractStatus
+    // General
+    public enum InteractSelect
     {
-        Talks,
-        Take_Item,
-        Give_Item,
-        Close
+        Take,
+        Give,
+        None
     }
 
     public enum InteractFlagStatus

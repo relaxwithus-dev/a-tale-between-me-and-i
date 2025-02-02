@@ -99,8 +99,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.026123524, y: 1.3492823}
-  m_Size: {x: 0.46216488, y: 2.7275372}
+  m_Offset: {x: 0.047120385, y: 1.5865239}
+  m_Size: {x: 0.5041586, y: 2.695905}
   m_Direction: 0
 --- !u!114 &555915339248991424
 MonoBehaviour:
@@ -604,7 +604,7 @@ Transform:
   m_GameObject: {fileID: 2463418516275793587}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -625,11 +625,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isInteracted: 0
   interactSign: {fileID: 6492219101915990370}
+  signYMultiplier: 2
   detectionLimit: 2
-  boxSize: {x: 2, y: 2}
+  boxSize: {x: 3.5, y: 3.5}
   targetMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 384
   interactHandler: {fileID: 299278026580656940}
 --- !u!1 &3333314401853807461
 GameObject:
@@ -1704,12 +1705,12 @@ SpriteRenderer:
   m_SortingLayerID: 1270034049
   m_SortingLayer: 1
   m_SortingOrder: 3
-  m_Sprite: {fileID: -313676192, guid: c51f3e29b2644cd4ca88289deb66c751, type: 3}
+  m_Sprite: {fileID: -2028797120, guid: c340c9bcba3365a4db333ee75770f15c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.5, y: 1.9419643}
+  m_Size: {x: 3.125, y: 3.125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1725,7 +1726,7 @@ Animator:
   m_GameObject: {fileID: 7309970272582802729}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6d3d753b50a9d24449065cd484257f6f, type: 2}
+  m_Controller: {fileID: 9100000, guid: 74beb960e39ba1f44b8f7b4f8a0a397e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1813,8 +1814,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.026123524, y: 1.3492823}
-  m_Size: {x: 0.46216488, y: 2.7275372}
+  m_Offset: {x: 0.047120385, y: 1.5865239}
+  m_Size: {x: 0.5041586, y: 2.695905}
   m_Direction: 0
 --- !u!114 &3048624206553920349
 MonoBehaviour:

@@ -1,37 +1,31 @@
 using UnityEngine;
 using Sirenix.OdinInspector;
-using ATBMI.Utilities;
-using ATBMI.Gameplay.Handler;
 using ATBMI.Dialogue;
+using ATBMI.Gameplay.Handler;
 
 namespace ATBMI.Interaction
 {
-    /// <summary>
-    /// InteractManager buat handle interaksi
-    /// karakter player dengan object in-game.
-    /// </summary>
     public class InteractManager : MonoBehaviour
     {
         #region Fields & Properties
 
-        [Header("Neccesary")]
+        [Header("Properties")]
         [SerializeField] private bool isInteracted;
         [SerializeField] private GameObject interactSign;
-
-        private readonly float signYMultiplier = 2f;
-
+        [SerializeField] private float signYMultiplier = 2f;
+        
         public bool IsInteracted
         {
             get => isInteracted;
             set => isInteracted = value;
         }
-
+        
         [Header("Area")]
         [SerializeField][MaxValue(3)] private int detectionLimit;
         [SerializeField] private Vector2 boxSize;
         [SerializeField] private LayerMask targetMask;
 
-        private Collider2D[] hitsNonAlloc;
+        private Collider2D[] _hitsNonAlloc;
 
         [Header("Reference")]
         [SerializeField] private InteractHandler interactHandler;
@@ -42,7 +36,7 @@ namespace ATBMI.Interaction
 
         private void Start()
         {
-            hitsNonAlloc = new Collider2D[detectionLimit];
+            _hitsNonAlloc = new Collider2D[detectionLimit];
             interactSign.SetActive(false);
         }
 
@@ -66,49 +60,43 @@ namespace ATBMI.Interaction
             }
 
             // Alloc intersection
-            var numOfHits = Physics2D.OverlapBoxNonAlloc(transform.position, boxSize, 0f, hitsNonAlloc, targetMask);
-
+            var numOfHits = Physics2D.OverlapBoxNonAlloc(transform.position, boxSize, 0f, _hitsNonAlloc, targetMask);
             if (numOfHits == 0)
                 DeactivateSign();
 
             for (var i = 0; i < numOfHits; i++)
             {
-                var hits = hitsNonAlloc[i];
-                int npcLayer = LayerMask.NameToLayer("Object");
-                if (hits.gameObject.layer == npcLayer)
+                var nearest = FindNearestObjectAt(transform.position, numOfHits, _hitsNonAlloc);
+                if (nearest == null) 
+                    continue;
+                
+                // Sign
+                var nearestTransform = nearest.transform;
+                ActivateSignAt(nearestTransform);
+                
+                // Interact
+                if (GameInputHandler.Instance.IsTapInteract)
                 {
-                    var nearest = FindNearestObjectAt(transform.position, numOfHits, hitsNonAlloc);
-                    if (nearest != null)
+                    var target = nearest.GetComponent<Interaction>();
+                    if (target != null)
                     {
-                        // Sign
-                        var nearestTransform = nearest.transform;
-                        ActivateSignAt(nearestTransform);
-
-                        // Interact
-                        if (GameInputHandler.Instance.IsTapInteract)
+                        IsInteracted = true;
+                        DeactivateSign();
+                        
+                        if (target as ItemInteraction)
                         {
-                            var target = nearest.GetComponent<Interaction>();
-                            if (target != null)
-                            {
-                                IsInteracted = true;
-                                DeactivateSign();
-
-                                if (target as ItemInteraction)
-                                {
-                                    isInteracted = false;
-                                    target.Interact(this);
-                                }
-                                else
-                                {
-                                    interactHandler.OpenInteractOption(target);
-                                }
-                            }
+                            isInteracted = false;
+                            target.Interact(this);
+                        }
+                        else
+                        {
+                            interactHandler.OpenInteractOption(target);
                         }
                     }
                 }
             }
         }
-
+        
         private Collider2D FindNearestObjectAt(Vector3 origin, int hitNums, Collider2D[] collider2Ds)
         {
             float closestSqrDist = Mathf.Infinity;
@@ -124,10 +112,10 @@ namespace ATBMI.Interaction
                     closestSqrDist = sqrDist;
                 }
             }
-
+            
             return closest;
         }
-
+        
         private void ActivateSignAt(Transform target)
         {
             if (interactSign.activeSelf || DialogueManager.Instance.IsDialoguePlaying) return;
@@ -137,7 +125,7 @@ namespace ATBMI.Interaction
             interactSign.transform.parent = target;
             interactSign.SetActive(true);
         }
-
+        
         private void DeactivateSign()
         {
             if (!interactSign.activeSelf) return;
@@ -146,11 +134,10 @@ namespace ATBMI.Interaction
             interactSign.transform.parent = transform;
             interactSign.SetActive(false);
         }
-
-        // !- Helpers
+        
         private void OnDrawGizmos()
         {
-            Gizmos.color = Color.red;
+            Gizmos.color = Color.green;
             Gizmos.DrawWireCube(transform.position, boxSize);
         }
 
