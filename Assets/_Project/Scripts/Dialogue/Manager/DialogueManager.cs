@@ -36,6 +36,8 @@ namespace ATBMI.Dialogue
         private List<Choice> currentChoices;
         private bool canContinueToNextLine;
         private bool isAnyChoices;
+        private bool _isSkippedDialogue;
+        
         private const string SPEAKER_TAG = "speaker";
         private const string EXPRESSION_TAG = "expression";
 
@@ -85,20 +87,23 @@ namespace ATBMI.Dialogue
 
         private void Update()
         {
-            if (!IsDialoguePlaying)
-            {
-                return;
-            }
+            if (!IsDialoguePlaying) return;
 
-            if (canContinueToNextLine && GameInputHandler.Instance.IsTapInteract)
+            if (GameInputHandler.Instance.IsTapInteract)
             {
-                if (currentStory.currentChoices.Count == 0 && !isAnyChoices)
+                if (_isSkippedDialogue)
+                    _isSkippedDialogue = false;
+                
+                if (canContinueToNextLine)
                 {
-                    ContinueStory();
-                }
-                else if (isAnyChoices)
-                {
-                    DisplayChoicesWithInput();
+                    if (currentStory.currentChoices.Count == 0 && !isAnyChoices)
+                    {
+                        ContinueStory();
+                    }
+                    else if (isAnyChoices)
+                    {
+                        DisplayChoicesWithInput();
+                    }
                 }
             }
         }
@@ -180,10 +185,9 @@ namespace ATBMI.Dialogue
                 yield return null;
 
                 // if player pressed submit button displayed the line immediately
-                if (canSkip && GameInputHandler.Instance.IsTapInteract)
+                if (canSkip && _isSkippedDialogue)
                 {
                     Debug.LogWarning("submit button pressed,  the line display immediately!");
-
                     dialogueText.maxVisibleCharacters = line.Length;
                     break;
                 }
@@ -221,7 +225,7 @@ namespace ATBMI.Dialogue
                 choice.SetActive(false);
             }
         }
-
+        
         private void DisplayChoices()
         {
             currentChoices.Clear();

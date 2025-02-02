@@ -34,7 +34,7 @@ namespace ATBMI.Gameplay.Handler
         public bool IsPressRun { get; private set; }
         public bool IsTapInteract => _interactAction.WasPressedThisFrame();
         public bool IsTapPhone => _phoneAction.WasPressedThisFrame();
-
+        
         [Header("UI Actions Reference")]
         [SerializeField] private string navigate = "Navigate";
         [SerializeField] private string select = "Select";
