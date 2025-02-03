@@ -20,7 +20,7 @@ namespace ATBMI.Entities.NPCs
         private float[] _currentInfluence;
         
         #endregion
-
+        
         #region Methods
         
         public void InfluenceTraits(InteractTypes types)

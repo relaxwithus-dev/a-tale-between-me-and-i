@@ -11,7 +11,7 @@ namespace ATBMI.Entities.NPCs
             {
                 new Sequence("Task Item", new List<Node>
                 {
-                    new CheckTargetInZone(transform, zoneDetails[1].Radius, layerMask),
+                    new CheckTargetInZone(centerPoint, zoneDetails[1].Radius, layerMask),
                     new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true, isOrigin: false),
                     new TaskGetItem(),
                     new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true, isOrigin: true)
@@ -24,7 +24,7 @@ namespace ATBMI.Entities.NPCs
             {
                 new Sequence("Task Dialogue", new List<Node>
                 {
-                    new CheckTargetInZone(transform, zoneDetails[2].Radius, layerMask),
+                    new CheckTargetInZone(centerPoint, zoneDetails[2].Radius, layerMask),
                     new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true, isOrigin: false),
                     new Selector("Task", new List<Node>
                     {
@@ -43,12 +43,12 @@ namespace ATBMI.Entities.NPCs
                 {
                     new Sequence(zoneDetails[0].Type.ToString(), new List<Node>
                     {
-                        new CheckTargetInZone(transform, zoneDetails[0].Radius, layerMask),
+                        new CheckTargetInZone(centerPoint, zoneDetails[0].Radius, layerMask),
                         new TaskDialogue(characterAI,"masuk intimate")
                     }),
                     new Sequence(zoneDetails[1].Type.ToString(), new List<Node>
                     {
-                        new CheckTargetInZone(transform, zoneDetails[1].Radius, layerMask),
+                        new CheckTargetInZone(centerPoint, zoneDetails[1].Radius, layerMask),
                         new TaskDialogue(characterAI,"masuk personal")
                     }),
                 }),

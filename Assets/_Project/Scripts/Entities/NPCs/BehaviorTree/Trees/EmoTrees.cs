@@ -4,7 +4,8 @@ namespace ATBMI.Entities.NPCs
 {
     public class EmoTrees : Trees
     {
-        [Header("Zone")]
+        [Header("Zone")] 
+        [SerializeField] protected Transform centerPoint;
         [SerializeField] protected ZoneDetail[] zoneDetails;
         [SerializeField] protected LayerMask layerMask;
         
