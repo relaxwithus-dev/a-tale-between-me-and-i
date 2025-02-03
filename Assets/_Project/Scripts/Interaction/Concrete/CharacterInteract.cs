@@ -3,6 +3,7 @@ using UnityEngine;
 using Sirenix.OdinInspector;
 using ATBMI.Enum;
 using ATBMI.Gameplay.Event;
+using UnityEngine.Serialization;
 
 namespace ATBMI.Interaction
 {
@@ -12,7 +13,7 @@ namespace ATBMI.Interaction
         
         [Header("Properties")]
         [SerializeField] private bool isInteracting;
-        [SerializeField] private InteractSelect interactSelect;
+        [FormerlySerializedAs("interactSelect")] [SerializeField] private InteractTypes interactTypes;
         [ShowIf("@this.interactSelect != InteractSelect.None")]
         [SerializeField] private int targetId;
         
@@ -46,12 +47,12 @@ namespace ATBMI.Interaction
         }
         
         // TODO: Pake ini buat change status di InkExternal
-        public void ChangeStatus(InteractSelect status)
+        public void ChangeStatus(InteractTypes status)
         {
-            if (interactSelect == status)
+            if (interactTypes == status)
                 return;
             
-            interactSelect = status;
+            interactTypes = status;
         }
         
         // TODO: Pake ini buat check match id di InkExternal

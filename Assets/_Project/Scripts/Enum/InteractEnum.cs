@@ -1,10 +1,13 @@
 namespace ATBMI.Enum
 {
     // General
-    public enum InteractSelect
+    public enum InteractTypes
     {
+        Talks,
         Take,
         Give,
+        RunPast,
+        WalkPast,
         None
     }
 

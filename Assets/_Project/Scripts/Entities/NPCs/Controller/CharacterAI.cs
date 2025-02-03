@@ -23,29 +23,15 @@ namespace ATBMI.Entities.NPCs
         
         #endregion
 
-        #region Unity Methods
-
-        private void Awake()
-        {
-            InitOnAwake();
-        }
-        
-        private void Start()
-        {
-            InitOnStart();
-        }
-
-        #endregion
-
         #region Methods
-
-        // Initialize
-        protected virtual void InitOnAwake()
+        
+        // Unity Callbacks
+        private void Awake()
         {
             _characterSr = GetComponentInChildren<SpriteRenderer>();
         }
-
-        protected virtual void InitOnStart()
+        
+        private void Start()
         {
             gameObject.name = Data.CharacterName;
         }
