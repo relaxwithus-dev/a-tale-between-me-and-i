@@ -13,7 +13,7 @@ namespace ATBMI.Interaction
         
         [Header("Properties")]
         [SerializeField] private bool isInteracting;
-        [FormerlySerializedAs("interactSelect")] [SerializeField] private InteractTypes interactTypes;
+        [FormerlySerializedAs("interactTypes")] [FormerlySerializedAs("interactSelect")] [SerializeField] private InteractAction interactAction;
         [ShowIf("@this.interactSelect != InteractSelect.None")]
         [SerializeField] private int targetId;
         
@@ -47,12 +47,12 @@ namespace ATBMI.Interaction
         }
         
         // TODO: Pake ini buat change status di InkExternal
-        public void ChangeStatus(InteractTypes status)
+        public void ChangeStatus(InteractAction status)
         {
-            if (interactTypes == status)
+            if (interactAction == status)
                 return;
             
-            interactTypes = status;
+            interactAction = status;
         }
         
         // TODO: Pake ini buat check match id di InkExternal

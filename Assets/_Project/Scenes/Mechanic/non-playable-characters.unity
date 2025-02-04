@@ -450,6 +450,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1715361327984731227, guid: bb83f269e648f8c44b131c976daf764b, type: 3}
+      propertyPath: acumalak.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1715361327984731227, guid: bb83f269e648f8c44b131c976daf764b, type: 3}
+      propertyPath: emotions.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1715361327984731227, guid: bb83f269e648f8c44b131c976daf764b, type: 3}
+      propertyPath: personality.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4291996230028175410, guid: bb83f269e648f8c44b131c976daf764b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.79
