@@ -1,6 +1,6 @@
 namespace ATBMI.Entities.NPCs
 {
-    public class TaskIdle : Node
+    public class TaskIdle : Leaf
     {
         private readonly CharacterAI characterAI;
         

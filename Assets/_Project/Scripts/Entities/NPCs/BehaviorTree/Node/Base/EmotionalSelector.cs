@@ -8,10 +8,5 @@ namespace ATBMI.Entities.NPCs
         {
             
         }
-        
-        public override NodeStatus Evaluate()
-        {
-            return base.Evaluate();
-        }
     }
 }

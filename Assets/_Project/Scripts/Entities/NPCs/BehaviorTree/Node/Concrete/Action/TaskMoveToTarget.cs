@@ -3,7 +3,7 @@ using ATBMI.Data;
 
 namespace ATBMI.Entities.NPCs
 {
-    public class TaskMoveToTarget : Node
+    public class TaskMoveToTarget : Leaf
     {
         private readonly CharacterAI character;
         private readonly CharacterData data;

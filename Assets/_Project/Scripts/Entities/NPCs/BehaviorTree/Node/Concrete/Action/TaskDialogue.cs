@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace ATBMI.Entities.NPCs
 {
-    public class TaskDialogue : Node
+    public class TaskDialogue : Leaf
     {
         private readonly string dialogueText;
         private readonly CharacterAI characterAI;

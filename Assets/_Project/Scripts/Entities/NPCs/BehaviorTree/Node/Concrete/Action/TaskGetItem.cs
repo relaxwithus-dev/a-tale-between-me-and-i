@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ATBMI.Entities.NPCs
 {
-    public class TaskGetItem : Node
+    public class TaskGetItem : Leaf
     {
         public override NodeStatus Evaluate()
         {
