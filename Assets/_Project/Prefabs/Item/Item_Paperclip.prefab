@@ -26,12 +26,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9963792207318842, guid: 9c825fe288627734da9b37ce25a86a30, type: 3}
       propertyPath: m_Name
-      value: 05_paperclip
+      value: Item_Paperclip
       objectReference: {fileID: 0}
     - target: {fileID: 5990382483038224749, guid: 9c825fe288627734da9b37ce25a86a30, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 11b45b72b594ce74d8dea6f77126681f, type: 3}
+    - target: {fileID: 6514606088093201361, guid: 9c825fe288627734da9b37ce25a86a30, type: 3}
+      propertyPath: itemData
+      value: 
+      objectReference: {fileID: 11400000, guid: c8e688292e2ee024db814c4b194239b8, type: 2}
     - target: {fileID: 6745930559375761162, guid: 9c825fe288627734da9b37ce25a86a30, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6745930559375761162}
   - component: {fileID: 6926832232926475594}
-  - component: {fileID: -3588748538112611966}
+  - component: {fileID: 6514606088093201361}
   m_Layer: 0
   m_Name: Item
   m_TagString: Item
@@ -79,7 +79,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &-3588748538112611966
+--- !u!114 &6514606088093201361
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -88,13 +88,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 9963792207318842}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 298dea4fe38aa1f4087fb4ec85e7fbe7, type: 3}
+  m_Script: {fileID: 11500000, guid: 25daf7856a69407a80f9ab1228ace606, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectName: 
-  interactStatus: 2
   itemData: {fileID: 0}
-  dialogueAsset: {fileID: 0}
+  itemType: 0
 --- !u!1 &5973698398217540330
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,8 +163,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1270034049
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
