@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace ATBMI.Entities.NPCs
 {
+    [RequireComponent(typeof(CharacterTraits))]
     public class EmoTrees : Trees
     {
         [Header("Zone")] 
@@ -10,6 +11,15 @@ namespace ATBMI.Entities.NPCs
         [SerializeField] protected LayerMask layerMask;
         
         public ZoneDetail[] ZoneDetails => zoneDetails;
+        
+        // Reference
+        protected CharacterTraits characterTraits;
+        
+        protected override void InitOnAwake()
+        {
+            base.InitOnAwake();
+            characterTraits = GetComponent<CharacterTraits>();
+        }
         
         protected override Node SetupTree()
         {

@@ -11,11 +11,11 @@ namespace ATBMI.Entities.NPCs
         [Header("Config")]
         [SerializeField] private InfluenceConfiguration influenceConfig;
         [SerializeField] private PersonalityConfiguration personalityConfig;
-
+        
         [Header("Traits")] 
         [SerializeField] [Range(-1, 1)] [ReadOnly] private float[] emotions = new float[4];
         [SerializeField] [Range(-1, 1)] private float[] personality = new float[5];
-                
+        
         private float[] _currentInfluence;
         
         #endregion

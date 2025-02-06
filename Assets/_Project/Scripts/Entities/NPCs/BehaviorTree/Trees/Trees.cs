@@ -1,14 +1,21 @@
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace ATBMI.Entities.NPCs
 {
-    [RequireComponent(typeof(CharacterAI))]
     public abstract class Trees : MonoBehaviour
     {
+        #region Fields & Properties
+        
         private Node _rootNode;
         protected string rootName;
         protected CharacterAI characterAI;
+
+        #endregion
+
+        #region Methods
         
+        // Unity Callbacks
         private void Awake()
         {
             InitOnAwake();
@@ -25,16 +32,19 @@ namespace ATBMI.Entities.NPCs
                 _rootNode.Evaluate();
         }
         
+        // Core
         protected abstract Node SetupTree();
         protected virtual void InitOnAwake()
         {
-            characterAI = GetComponent<CharacterAI>();
+            characterAI = GetComponentInParent<CharacterAI>();
         }
-
+        
         protected virtual void InitOnStart()
         {
             _rootNode = SetupTree();
             rootName = characterAI.Data.CharacterName;
         }
+
+        #endregion
     }
 }

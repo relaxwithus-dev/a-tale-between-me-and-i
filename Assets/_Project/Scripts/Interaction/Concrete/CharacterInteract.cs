@@ -3,7 +3,6 @@ using UnityEngine;
 using Sirenix.OdinInspector;
 using ATBMI.Enum;
 using ATBMI.Gameplay.Event;
-using UnityEngine.Serialization;
 
 namespace ATBMI.Interaction
 {
@@ -13,8 +12,8 @@ namespace ATBMI.Interaction
         
         [Header("Properties")]
         [SerializeField] private bool isInteracting;
-        [FormerlySerializedAs("interactTypes")] [FormerlySerializedAs("interactSelect")] [SerializeField] private InteractAction interactAction;
-        [ShowIf("@this.interactSelect != InteractSelect.None")]
+        [SerializeField] private InteractAction interactAction;
+        [ShowIf("@this.interactAction == InteractAction.Give || this.interactAction == InteractAction.Take")]
         [SerializeField] private int targetId;
         
         private int _interactId;
