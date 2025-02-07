@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 02efe5f34a227664da4dd819fcd57f46
+guid: a7edf26871d3e6c408268a1c71164dc0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -72,19 +72,6 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -95,19 +82,6 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: 24
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -123,7 +97,7 @@ TextureImporter:
     buildTarget: Windows Store Apps
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 24
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -149,7 +123,28 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Satpam_Spritesheet_0
+      name: Satpam_Sprite_Sheet 1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 500
+        width: 100
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c89577760a3796c40b42d5e26291017e
+      internalID: 917773354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Satpam_Sprite_Sheet 1_1
       rect:
         serializedVersion: 2
         x: 100
@@ -163,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 407a9742bbb0387428ba8af673ec53c9
-      internalID: 1661994746
+      spriteID: 1462ad21f69348442aeb9e0b614be79f
+      internalID: -1913414738
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Satpam_Spritesheet_1
+      name: Satpam_Sprite_Sheet 1_2
       rect:
         serializedVersion: 2
         x: 200
@@ -184,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d5b9bc38def05674b83cf75b3edae61c
-      internalID: 1768801376
+      spriteID: b948b97af76dcac40932342451432a8d
+      internalID: 1275360869
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Satpam_Spritesheet_2
+      name: Satpam_Sprite_Sheet 1_3
       rect:
         serializedVersion: 2
         x: 300
@@ -205,35 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fdfdf9de48fc0944f94f4a9890b87bcd
-      internalID: 1224856557
+      spriteID: d0f77857183226e46890340f8f653bb1
+      internalID: 600990798
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Satpam_Spritesheet_3
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 500
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 590c0b26da6045b458c4a4e90a66a92e
-      internalID: 1106878293
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Satpam_Spritesheet_4
+      name: Satpam_Sprite_Sheet 1_4
       rect:
         serializedVersion: 2
         x: 500
@@ -247,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60c93274fb85b5f4eb6d4ee8690b4305
-      internalID: -144311247
+      spriteID: 648ab84fa43da474b8f7371229fea45e
+      internalID: -1937573279
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Satpam_Spritesheet_5
+      name: Satpam_Sprite_Sheet 1_5
       rect:
         serializedVersion: 2
         x: 0
@@ -268,14 +242,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7a0c11b0d989b048b95dcc6b70e57ef
-      internalID: 1269598984
+      spriteID: 0f82b7957d6f52046aef201f075cea9b
+      internalID: 258167817
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Satpam_Spritesheet_6
+      name: Satpam_Sprite_Sheet 1_6
       rect:
         serializedVersion: 2
         x: 100
@@ -289,14 +263,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff388f9f8a36a104d86611bae7077134
-      internalID: -427603564
+      spriteID: b05770f6efc26824b8e4a75f83adf8bf
+      internalID: 326946438
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Satpam_Spritesheet_7
+      name: Satpam_Sprite_Sheet 1_7
       rect:
         serializedVersion: 2
         x: 200
@@ -310,14 +284,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b06e0a41047a2e24e9881ff0eb28d1d1
-      internalID: 1552522311
+      spriteID: c57b86f5ed1aa724a9840817d0a4dd5d
+      internalID: 109458973
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Satpam_Spritesheet_8
+      name: Satpam_Sprite_Sheet 1_8
       rect:
         serializedVersion: 2
         x: 300
@@ -331,14 +305,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0bad232785d857d4fab418e7d771602e
-      internalID: 1292857094
+      spriteID: bad6f8a22288ccb46a8bad8f3fd0397b
+      internalID: 1439477296
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Satpam_Spritesheet_9
+      name: Satpam_Sprite_Sheet 1_9
       rect:
         serializedVersion: 2
         x: 400
@@ -352,14 +326,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9bd3b39098967f3419574d9c5581b34c
-      internalID: 2070495196
+      spriteID: d606cd358abaf0142a29279827aa1e36
+      internalID: 509210161
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Satpam_Spritesheet_10
+      name: Satpam_Sprite_Sheet 1_10
       rect:
         serializedVersion: 2
         x: 500
@@ -373,14 +347,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 63ba84bf340103440863e00fb7f60717
-      internalID: 1466379262
+      spriteID: c9d281237ecb9d54e8532084a12d93c4
+      internalID: 516618263
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Satpam_Spritesheet_11
+      name: Satpam_Sprite_Sheet 1_11
       rect:
         serializedVersion: 2
         x: 0
@@ -394,14 +368,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6bcb5075b24200e4699f2dc65be38b80
-      internalID: 797429614
+      spriteID: 5218ef0e7c37dc14fbd1f7aec49ab254
+      internalID: -16740783
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Satpam_Spritesheet_12
+      name: Satpam_Sprite_Sheet 1_12
       rect:
         serializedVersion: 2
         x: 100
@@ -415,14 +389,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1ef87718550652b48a98496156c0b823
-      internalID: -752044715
+      spriteID: fdb8ef594b1b73b439eaeb7df31bd24a
+      internalID: 1609658679
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Satpam_Spritesheet_13
+      name: Satpam_Sprite_Sheet 1_13
       rect:
         serializedVersion: 2
         x: 200
@@ -436,14 +410,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19863ceb0dedb2a4088b29163b6ef964
-      internalID: -826487130
+      spriteID: e2e9375d3f0c8fc4d95d440bfcfffb2d
+      internalID: -1216452989
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Satpam_Spritesheet_14
+      name: Satpam_Sprite_Sheet 1_14
       rect:
         serializedVersion: 2
         x: 300
@@ -457,14 +431,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a859dc1cd4cf10489edd1c7c89a046b
-      internalID: -1574627071
+      spriteID: 3c4db85f515dbaf4e8ac933d71fa5b8e
+      internalID: 739506531
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Satpam_Spritesheet_15
+      name: Satpam_Sprite_Sheet 1_15
       rect:
         serializedVersion: 2
         x: 400
@@ -478,14 +452,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ec986cdec9a1544c9a9422a9de74c34
-      internalID: 1972054299
+      spriteID: facfb74a29212614a897ba5a07c2903c
+      internalID: -1478090693
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Satpam_Spritesheet_16
+      name: Satpam_Sprite_Sheet 1_16
       rect:
         serializedVersion: 2
         x: 500
@@ -499,14 +473,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9eb68ab5845a73f4d9580319dd32fe6e
-      internalID: -824198967
+      spriteID: abbae16c3747ce94698f474a3f215b32
+      internalID: 1682199340
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Satpam_Spritesheet_17
+      name: Satpam_Sprite_Sheet 1_17
       rect:
         serializedVersion: 2
         x: 0
@@ -520,14 +494,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 467d035bc31498f4b83ef82f99618467
-      internalID: -1399379010
+      spriteID: 3211d07a501e5ff49b472e0fc74abc25
+      internalID: -463966085
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Satpam_Spritesheet_18
+      name: Satpam_Sprite_Sheet 1_18
       rect:
         serializedVersion: 2
         x: 100
@@ -541,14 +515,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72e1535e9381f2c428dc0fb819c0f5af
-      internalID: 926741353
+      spriteID: 97f6fae692f1c0d4398160bb14a498fa
+      internalID: -499431038
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Satpam_Spritesheet_19
+      name: Satpam_Sprite_Sheet 1_19
       rect:
         serializedVersion: 2
         x: 200
@@ -562,14 +536,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3e1562e88368a441a6f67ec400805be
-      internalID: 1395535304
+      spriteID: ca78bddecff91e145af42e97636e6d48
+      internalID: -2120477929
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Satpam_Spritesheet_20
+      name: Satpam_Sprite_Sheet 1_20
       rect:
         serializedVersion: 2
         x: 300
@@ -583,14 +557,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 28ab41e5495bce2429d859f439d2bb5e
-      internalID: -1948489657
+      spriteID: cac4df2817f1fa34eb78109ec0de1f77
+      internalID: 212617959
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Satpam_Spritesheet_21
+      name: Satpam_Sprite_Sheet 1_21
       rect:
         serializedVersion: 2
         x: 400
@@ -604,14 +578,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98e8d85ea430daf4f8a8c9928e1b576d
-      internalID: -1292420892
+      spriteID: 351da96d6ad7f7e43b7371619cd7876e
+      internalID: 546023391
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Satpam_Spritesheet_22
+      name: Satpam_Sprite_Sheet 1_22
       rect:
         serializedVersion: 2
         x: 500
@@ -625,14 +599,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3b0a9720b77b22428de60690f0568c2
-      internalID: -255465402
+      spriteID: 6c97211cfd6aaf14d91a6cdee8cc31d6
+      internalID: 559683854
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Satpam_Spritesheet_23
+      name: Satpam_Sprite_Sheet 1_23
       rect:
         serializedVersion: 2
         x: 0
@@ -646,14 +620,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be2d0870efa8d444f84dc94c9f32e630
-      internalID: -503081773
+      spriteID: b76093b670ca92b4181184b4103ae4dc
+      internalID: 1443245956
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Satpam_Spritesheet_24
+      name: Satpam_Sprite_Sheet 1_24
       rect:
         serializedVersion: 2
         x: 100
@@ -667,14 +641,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dbb2432f752c90d43aa1300f0ae997b4
-      internalID: -752811663
+      spriteID: ef991b13841d5f046b8cb842124f6f3a
+      internalID: -234706751
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Satpam_Spritesheet_25
+      name: Satpam_Sprite_Sheet 1_25
       rect:
         serializedVersion: 2
         x: 200
@@ -688,14 +662,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd4e34c95a8b91049ba85bf7f685c82d
-      internalID: -138328770
+      spriteID: 0c96b59cc80d53249a08f0decd9ccbe5
+      internalID: -1542271571
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Satpam_Spritesheet_26
+      name: Satpam_Sprite_Sheet 1_26
       rect:
         serializedVersion: 2
         x: 300
@@ -709,14 +683,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 060b7d258f5be1240a9c715f2ceedf61
-      internalID: 1693955194
+      spriteID: 0bef26d8e95f0f24da7d6601673b9ca1
+      internalID: -1084581367
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Satpam_Spritesheet_27
+      name: Satpam_Sprite_Sheet 1_27
       rect:
         serializedVersion: 2
         x: 400
@@ -730,14 +704,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5778f7e8e55324b42b73b703dce9a2d2
-      internalID: 498212176
+      spriteID: 91f5baaad1711444b96d0f3184ff237e
+      internalID: -382018353
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Satpam_Spritesheet_28
+      name: Satpam_Sprite_Sheet 1_28
       rect:
         serializedVersion: 2
         x: 500
@@ -751,14 +725,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a0eef568a976d08449331e88cc8df9cb
-      internalID: -1833484688
+      spriteID: 3fa742d2d0f0e464b8412364008606c2
+      internalID: 1462763589
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Satpam_Spritesheet_29
+      name: Satpam_Sprite_Sheet 1_29
       rect:
         serializedVersion: 2
         x: 0
@@ -772,14 +746,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aeb3d27d60fbaaa41a07ed82ffc7cb20
-      internalID: 516958670
+      spriteID: e5a7f59e2dadc7949a157cf4ec93b5a1
+      internalID: -1612610425
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Satpam_Spritesheet_30
+      name: Satpam_Sprite_Sheet 1_30
       rect:
         serializedVersion: 2
         x: 100
@@ -793,14 +767,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df1a5c4f338d28540ab61a502a4b447e
-      internalID: -46395784
+      spriteID: df6df903f70a67c4ca4df15b8feb91ae
+      internalID: -479073118
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Satpam_Spritesheet_31
+      name: Satpam_Sprite_Sheet 1_31
       rect:
         serializedVersion: 2
         x: 200
@@ -814,8 +788,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6fb45877eded1864b87c4b2c44f16e2f
-      internalID: 462910827
+      spriteID: 07894ce207fa530408c086bd00bf9409
+      internalID: 1794041152
       vertices: []
       indices: 
       edges: []
@@ -831,38 +805,38 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Satpam_Spritesheet_0: 1661994746
-      Satpam_Spritesheet_1: 1768801376
-      Satpam_Spritesheet_10: 1466379262
-      Satpam_Spritesheet_11: 797429614
-      Satpam_Spritesheet_12: -752044715
-      Satpam_Spritesheet_13: -826487130
-      Satpam_Spritesheet_14: -1574627071
-      Satpam_Spritesheet_15: 1972054299
-      Satpam_Spritesheet_16: -824198967
-      Satpam_Spritesheet_17: -1399379010
-      Satpam_Spritesheet_18: 926741353
-      Satpam_Spritesheet_19: 1395535304
-      Satpam_Spritesheet_2: 1224856557
-      Satpam_Spritesheet_20: -1948489657
-      Satpam_Spritesheet_21: -1292420892
-      Satpam_Spritesheet_22: -255465402
-      Satpam_Spritesheet_23: -503081773
-      Satpam_Spritesheet_24: -752811663
-      Satpam_Spritesheet_25: -138328770
-      Satpam_Spritesheet_26: 1693955194
-      Satpam_Spritesheet_27: 498212176
-      Satpam_Spritesheet_28: -1833484688
-      Satpam_Spritesheet_29: 516958670
-      Satpam_Spritesheet_3: 1106878293
-      Satpam_Spritesheet_30: -46395784
-      Satpam_Spritesheet_31: 462910827
-      Satpam_Spritesheet_4: -144311247
-      Satpam_Spritesheet_5: 1269598984
-      Satpam_Spritesheet_6: -427603564
-      Satpam_Spritesheet_7: 1552522311
-      Satpam_Spritesheet_8: 1292857094
-      Satpam_Spritesheet_9: 2070495196
+      Satpam_Sprite_Sheet 1_0: 917773354
+      Satpam_Sprite_Sheet 1_1: -1913414738
+      Satpam_Sprite_Sheet 1_10: 516618263
+      Satpam_Sprite_Sheet 1_11: -16740783
+      Satpam_Sprite_Sheet 1_12: 1609658679
+      Satpam_Sprite_Sheet 1_13: -1216452989
+      Satpam_Sprite_Sheet 1_14: 739506531
+      Satpam_Sprite_Sheet 1_15: -1478090693
+      Satpam_Sprite_Sheet 1_16: 1682199340
+      Satpam_Sprite_Sheet 1_17: -463966085
+      Satpam_Sprite_Sheet 1_18: -499431038
+      Satpam_Sprite_Sheet 1_19: -2120477929
+      Satpam_Sprite_Sheet 1_2: 1275360869
+      Satpam_Sprite_Sheet 1_20: 212617959
+      Satpam_Sprite_Sheet 1_21: 546023391
+      Satpam_Sprite_Sheet 1_22: 559683854
+      Satpam_Sprite_Sheet 1_23: 1443245956
+      Satpam_Sprite_Sheet 1_24: -234706751
+      Satpam_Sprite_Sheet 1_25: -1542271571
+      Satpam_Sprite_Sheet 1_26: -1084581367
+      Satpam_Sprite_Sheet 1_27: -382018353
+      Satpam_Sprite_Sheet 1_28: 1462763589
+      Satpam_Sprite_Sheet 1_29: -1612610425
+      Satpam_Sprite_Sheet 1_3: 600990798
+      Satpam_Sprite_Sheet 1_30: -479073118
+      Satpam_Sprite_Sheet 1_31: 1794041152
+      Satpam_Sprite_Sheet 1_4: -1937573279
+      Satpam_Sprite_Sheet 1_5: 258167817
+      Satpam_Sprite_Sheet 1_6: 326946438
+      Satpam_Sprite_Sheet 1_7: 109458973
+      Satpam_Sprite_Sheet 1_8: 1439477296
+      Satpam_Sprite_Sheet 1_9: 509210161
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
