@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using Sirenix.OdinInspector;
 using ATBMI.Enum;
+using ATBMI.Entities.NPCs;
 using ATBMI.Gameplay.Event;
 
 namespace ATBMI.Interaction
@@ -17,7 +18,11 @@ namespace ATBMI.Interaction
         [SerializeField] private int targetId;
         
         private int _interactId;
-        public static event Action<bool> OnInteracting; 
+        public bool IsInteracting => isInteracting;
+        public static event Action<bool> OnInteracting;
+        
+        [Header("Reference")] 
+        [SerializeField] private CharacterTraits characterTraits;
         
         #endregion
         
@@ -29,7 +34,7 @@ namespace ATBMI.Interaction
         }
         
         public static void InteractingEvent(bool isBegin) => OnInteracting?.Invoke(isBegin);
-
+        
         // TODO: Adjust isi method dibawah sesuai dgn jenis interaksi
         public void Interact(InteractManager manager, int itemId = 0)
         {
@@ -46,15 +51,19 @@ namespace ATBMI.Interaction
         }
         
         // TODO: Pake ini buat change status di InkExternal
-        public void ChangeStatus(InteractAction status)
+        // NOTE: Pake method waktu diawal interaksi, sesuaiken dgn jenis interaksinya,
+        // Semua Ink Dialogue NPCs yang punya emosi, harus pake method ini
+        public void ChangeStatus(string action)
         {
-            if (interactAction == status)
-                return;
+            var changedAction = GetAction(action);
+            characterTraits.InfluenceTraits(changedAction);
             
-            interactAction = status;
+            if (interactAction == changedAction)
+                return;
+            interactAction = changedAction;
         }
         
-        // TODO: Pake ini buat check match id di InkExternal
+        // TODO: Pake ini buat check match id di (Kalo jenis interaksi give/take)
         public bool IsMatchId()
         {
             var isMatch = _interactId == targetId;
@@ -64,6 +73,22 @@ namespace ATBMI.Interaction
                 return true;
             }
             return false;
+        }
+        
+        private InteractAction GetAction(string action)
+        {
+            if (System.Enum.TryParse<InteractAction>(action, out var parsedAction))
+            {
+                var allActions = System.Enum.GetValues(typeof(InteractAction));
+                foreach (InteractAction enumAction in allActions)
+                {
+                    if (enumAction == parsedAction)
+                    {
+                        return enumAction;
+                    }
+                }
+            }
+            return InteractAction.Talks;
         }
         
         #endregion
