@@ -1349,11 +1349,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90926fb261ccf3440b3010858b0f1c49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectName: Watari
-  interactStatus: 1
-  dialogueAssets: []
+  isInteracting: 0
+  interactSelect: 0
   targetId: 105
-  itemData: {fileID: 0}
 --- !u!1 &355723885
 GameObject:
   m_ObjectHideFlags: 0
@@ -3185,7 +3183,7 @@ MonoBehaviour:
   m_SoftZoneWidth: 0.8
   m_SoftZoneHeight: 0.8
   m_BiasX: 0
-  m_BiasY: 0
+  m_BiasY: 0.087
   m_CenterOnActivate: 1
   m_GroupFramingMode: 2
   m_AdjustmentMode: 0
@@ -4583,11 +4581,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90926fb261ccf3440b3010858b0f1c49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectName: Kira
-  interactStatus: 2
-  dialogueAssets: []
+  isInteracting: 0
+  interactSelect: 0
   targetId: 0
-  itemData: {fileID: 11400000, guid: 7ec7021fc9ee250478da883d27e86d58, type: 2}
 --- !u!224 &1086811352 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3528084042998731456, guid: 9fa0729f245937b4385767ade2060286, type: 3}
@@ -6327,6 +6323,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1279231836}
   m_CullTransparentMesh: 1
+--- !u!1001 &1282749070
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4291996230028175410, guid: 78ee4d4f810a1af4d9da26e5577423b6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291996230028175410, guid: 78ee4d4f810a1af4d9da26e5577423b6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291996230028175410, guid: 78ee4d4f810a1af4d9da26e5577423b6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291996230028175410, guid: 78ee4d4f810a1af4d9da26e5577423b6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291996230028175410, guid: 78ee4d4f810a1af4d9da26e5577423b6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291996230028175410, guid: 78ee4d4f810a1af4d9da26e5577423b6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291996230028175410, guid: 78ee4d4f810a1af4d9da26e5577423b6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291996230028175410, guid: 78ee4d4f810a1af4d9da26e5577423b6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291996230028175410, guid: 78ee4d4f810a1af4d9da26e5577423b6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291996230028175410, guid: 78ee4d4f810a1af4d9da26e5577423b6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6178640880139922672, guid: 78ee4d4f810a1af4d9da26e5577423b6, type: 3}
+      propertyPath: m_Name
+      value: NPC_Security
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 78ee4d4f810a1af4d9da26e5577423b6, type: 3}
 --- !u!1 &1308034177
 GameObject:
   m_ObjectHideFlags: 0
@@ -9020,6 +9073,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isInteracted: 0
   interactSign: {fileID: 1561839215}
+  signYMultiplier: 2
   detectionLimit: 2
   boxSize: {x: 2, y: 2}
   targetMask:
@@ -10437,11 +10491,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90926fb261ccf3440b3010858b0f1c49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectName: 
-  interactStatus: 0
-  dialogueAssets: []
+  isInteracting: 0
+  interactSelect: 0
   targetId: 0
-  itemData: {fileID: 0}
 --- !u!1 &1954107198
 GameObject:
   m_ObjectHideFlags: 0
@@ -11132,11 +11184,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90926fb261ccf3440b3010858b0f1c49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectName: Satpam
-  interactStatus: 3
-  dialogueAssets: []
+  isInteracting: 0
+  interactSelect: 0
   targetId: 105
-  itemData: {fileID: 0}
 --- !u!4 &2059375043 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8449697497486586027, guid: 81bd08af6fffcf34db8b1223c5f6e701, type: 3}
@@ -11651,6 +11701,7 @@ SceneRoots:
   - {fileID: 2071358486}
   - {fileID: 1951175254}
   - {fileID: 2015710632}
+  - {fileID: 1282749070}
   - {fileID: 2138781715}
   - {fileID: 1756626619}
   - {fileID: 303271791}
