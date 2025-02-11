@@ -55,7 +55,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 6200000, guid: 242f1956102bda64fb51ac30eaef01fd, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerState: 0
-  playerData: {fileID: 11400000, guid: 750684180928b5545a7d83632c01e4de, type: 2}
+  playerData: {fileID: 11400000, guid: 51ed34dd20df0bb43adc8149779c5e25, type: 2}
   moveDirection: {x: 0, y: 0}
   isRight: 1
   canMove: 1
