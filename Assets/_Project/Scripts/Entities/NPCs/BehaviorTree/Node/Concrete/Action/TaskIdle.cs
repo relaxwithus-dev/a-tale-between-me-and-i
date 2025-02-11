@@ -1,12 +1,13 @@
 namespace ATBMI.Entities.NPCs
 {
-    public class TaskIdle : Leaf
+    public class TaskIdle : LeafWeight
     {
         private readonly CharacterAI characterAI;
-        
+
         public TaskIdle(CharacterAI characterAI)
         {
             this.characterAI = characterAI;
+            InitFactors(planning: 1f, risk: 0f, timeRange: (0, 0));
         }
         
         public override NodeStatus Evaluate()

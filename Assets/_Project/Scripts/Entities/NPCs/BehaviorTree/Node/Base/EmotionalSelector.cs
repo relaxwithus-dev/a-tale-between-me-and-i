@@ -23,7 +23,7 @@ namespace ATBMI.Entities.NPCs
         private readonly float beta = 1.0f;   // Importance of time
         private readonly float gamma = 1.0f;  // Importance of planning
         
-        public EmotionalSelector(string nodeName, List<Node> childNodes, CharacterTraits traits) : base(nodeName, childNodes)
+        public EmotionalSelector(string nodeName, CharacterTraits traits, List<Node> childNodes) : base(nodeName, childNodes)
         {
             this.traits = traits;
         }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace ATBMI.Entities.NPCs
 {
-    public class TaskDialogue : Leaf
+    public class TaskDialogue : LeafWeight
     {
         private readonly string dialogueText;
         private readonly CharacterAI characterAI;
@@ -11,19 +11,14 @@ namespace ATBMI.Entities.NPCs
         {
             this.characterAI = characterAI;
             this.dialogueText = dialogueText;
+            
+            InitFactors(planning: 1f, risk: 0f, timeRange: (1, 2.5f));
         }
         
         public override NodeStatus Evaluate()
         {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                Debug.Log(dialogueText);
-                return NodeStatus.Success;
-            }
-            
-            characterAI.ChangeState(CharacterState.Talk);
-            Debug.Log("press space to continue");
-            return NodeStatus.Running;
+            Debug.Log($"Execute: TaskDialogue({dialogueText})");
+            return NodeStatus.Success;
         }
     }
 }

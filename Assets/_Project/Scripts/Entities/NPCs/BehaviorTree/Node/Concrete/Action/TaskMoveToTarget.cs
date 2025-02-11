@@ -3,14 +3,14 @@ using ATBMI.Data;
 
 namespace ATBMI.Entities.NPCs
 {
-    public class TaskMoveToTarget : Leaf
+    public class TaskMoveToTarget : LeafWeight
     {
         private readonly CharacterAI character;
         private readonly CharacterData data;
         private readonly float moveDelay;
         private readonly bool isOrigin;
         private readonly bool isWalk;
-
+        
         private CharacterState _targetState;
         private Vector3 _targetPosition;
         private float _currentTime;
@@ -22,22 +22,30 @@ namespace ATBMI.Entities.NPCs
             this.isWalk = isWalk;
             this.isOrigin = isOrigin;
             this.moveDelay = moveDelay;
+            
+            InitFactors(planning: 1f, risk: 0.4f, timeRange: (5, 10));
         }
         
         public override NodeStatus Evaluate()
         {
-            if (!TrySetupTarget())
-                return NodeStatus.Failure;
-            
-            if (_currentTime < moveDelay)
-            {
-                _currentTime += Time.deltaTime;
-                ChangeDirectionToTarget();
-                return NodeStatus.Running;
-            }
-            
-            return MoveToTarget();
+            Debug.Log($"Execute: TaskMoveToTarget");
+            return NodeStatus.Success;
         }
+        
+        // public override NodeStatus Evaluate()
+        // {
+        //     if (!TrySetupTarget())
+        //         return NodeStatus.Failure;
+        //     
+        //     if (_currentTime < moveDelay)
+        //     {
+        //         _currentTime += Time.deltaTime;
+        //         ChangeDirectionToTarget();
+        //         return NodeStatus.Running;
+        //     }
+        //     
+        //     return MoveToTarget();
+        // }
         
         protected override void Reset()
         {
@@ -103,7 +111,7 @@ namespace ATBMI.Entities.NPCs
             _targetPosition = Vector3.zero;
             return NodeStatus.Success;
         }
-
+        
         private void SetupState()
         {
             _targetState = isWalk 
