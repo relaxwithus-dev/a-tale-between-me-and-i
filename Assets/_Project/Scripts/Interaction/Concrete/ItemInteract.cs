@@ -11,14 +11,13 @@ namespace ATBMI.Interaction
         [Header("Properties")]
         [SerializeField] private ItemData itemData;
         [SerializeField] private ItemType itemType;
+        [SerializeField] private Transform signTransform;
         
         private enum ItemType { Collectible, Scenery }
         
-        public bool Validate()
-        {
-            return itemType == ItemType.Scenery;
-        }
-        
+        public bool Validate() => itemType == ItemType.Scenery;
+        public Transform GetSignTransform() => signTransform;
+
         public void Interact(InteractManager manager, int itemId = 0)
         {
             switch (itemType)

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8600351667431493300}
   - component: {fileID: 3967388343132030727}
   - component: {fileID: 3252258821666273236}
-  - component: {fileID: 555915339248991424}
   - component: {fileID: 9150364219335177498}
   m_Layer: 6
   m_Name: Ratna
@@ -102,23 +101,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0.047120385, y: 1.5865239}
   m_Size: {x: 0.5041586, y: 2.695905}
   m_Direction: 0
---- !u!114 &555915339248991424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 255170651677356394}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f6ab7a762aedc24885b87d96371289a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerState: 0
-  playerData: {fileID: 11400000, guid: 750684180928b5545a7d83632c01e4de, type: 2}
-  moveDirection: {x: 0, y: 0}
-  isRight: 1
-  canMove: 1
 --- !u!114 &9150364219335177498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -625,9 +607,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isInteracted: 0
   interactSign: {fileID: 6492219101915990370}
-  signYMultiplier: 2
   detectionLimit: 2
-  boxSize: {x: 3.5, y: 3.5}
+  detectionRadius: 0
   targetMask:
     serializedVersion: 2
     m_Bits: 384
@@ -923,7 +904,7 @@ MonoBehaviour:
   noneSprite: {fileID: 21300000, guid: b6e58d653b8dd3146935f687b8c39672, type: 3}
   scrollSnap: {fileID: 3728885697625637800}
   interactManager: {fileID: 5033899531839166058}
-  playerController: {fileID: 555915339248991424}
+  playerController: {fileID: 0}
 --- !u!114 &1217342992852544004
 MonoBehaviour:
   m_ObjectHideFlags: 0
