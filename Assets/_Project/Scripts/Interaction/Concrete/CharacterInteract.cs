@@ -16,6 +16,7 @@ namespace ATBMI.Interaction
         [SerializeField] private InteractAction interactAction;
         [ShowIf("@this.interactAction == InteractAction.Give || this.interactAction == InteractAction.Take")]
         [SerializeField] private int targetId;
+        [SerializeField] private Transform signTransform;
         
         private int _interactId;
         public bool IsInteracting => isInteracting;
@@ -34,7 +35,9 @@ namespace ATBMI.Interaction
         }
         
         public static void InteractingEvent(bool isBegin) => OnInteracting?.Invoke(isBegin);
-        
+
+        public Transform GetSignTransform() => signTransform;
+
         // TODO: Adjust isi method dibawah sesuai dgn jenis interaksi
         public void Interact(InteractManager manager, int itemId = 0)
         {

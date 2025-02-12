@@ -28,6 +28,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Item_Clock
       objectReference: {fileID: 0}
+    - target: {fileID: 5402001432475095814, guid: 9c825fe288627734da9b37ce25a86a30, type: 3}
+      propertyPath: itemData
+      value: 
+      objectReference: {fileID: 11400000, guid: 29793004d20bbdd49a6c73dccb437d03, type: 2}
     - target: {fileID: 5990382483038224749, guid: 9c825fe288627734da9b37ce25a86a30, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -76,7 +80,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -3588748538112611966, guid: 9c825fe288627734da9b37ce25a86a30, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

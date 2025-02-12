@@ -55,7 +55,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 6200000, guid: 242f1956102bda64fb51ac30eaef01fd, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerState: 0
-  playerData: {fileID: 11400000, guid: 750684180928b5545a7d83632c01e4de, type: 2}
+  playerData: {fileID: 11400000, guid: 51ed34dd20df0bb43adc8149779c5e25, type: 2}
   moveDirection: {x: 0, y: 0}
   isRight: 1
   canMove: 1
@@ -625,9 +625,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isInteracted: 0
   interactSign: {fileID: 6492219101915990370}
-  signYMultiplier: 2
   detectionLimit: 2
-  boxSize: {x: 3.5, y: 3.5}
+  detectionRadius: 2
   targetMask:
     serializedVersion: 2
     m_Bits: 384
@@ -732,8 +731,8 @@ RectTransform:
   m_GameObject: {fileID: 3399556489064227511}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3536880479539490275}
   - {fileID: 318311107868952044}
@@ -901,7 +900,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 3, y: 3}
+  m_SizeDelta: {x: 4, y: 4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &299278026580656940
 MonoBehaviour:
@@ -936,7 +935,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adcce0b2c3fc54b45b47c840eaf70bb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryPrefab: {fileID: 34095577210733295, guid: c2c248af68230bb4d92838587531fbcf, type: 3}
+  inventoryPrefab: {fileID: 0}
   inventoryParent: {fileID: 3200480368544856678}
   inventoryFlags:
   - {fileID: 1105032712858574245}
@@ -1351,7 +1350,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1786580504075818229
 Transform:
   m_ObjectHideFlags: 0
@@ -1361,9 +1360,9 @@ Transform:
   m_GameObject: {fileID: 6492219101915990370}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3394695952374681271}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1705,7 +1704,7 @@ SpriteRenderer:
   m_SortingLayerID: 1270034049
   m_SortingLayer: 1
   m_SortingOrder: 3
-  m_Sprite: {fileID: -2028797120, guid: c340c9bcba3365a4db333ee75770f15c, type: 3}
+  m_Sprite: {fileID: 1147685309, guid: e994e4d214307654fa59ac216c9b37be, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2399,7 +2398,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 2.5}
+  m_AnchoredPosition: {x: 0.1, y: 2.5}
   m_SizeDelta: {x: 4, y: 4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &113697320560367387

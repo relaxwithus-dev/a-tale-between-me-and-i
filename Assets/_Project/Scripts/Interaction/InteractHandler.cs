@@ -132,9 +132,6 @@ namespace ATBMI.Interaction
                 case InteractFlagStatus.Item:
                     _interactable.Interact(interactManager, data.ItemId);
                     break;
-                case InteractFlagStatus.Close:
-                default:
-                    throw new ArgumentOutOfRangeException();
             }
             
             StartCoroutine(CloseInteractOption());
@@ -176,7 +173,7 @@ namespace ATBMI.Interaction
                 InvokeInteract();
             }
         }
-
+        
         private void InvokeInteract()
         {
             var index = scrollSnap.SelectedPanel;
@@ -188,7 +185,7 @@ namespace ATBMI.Interaction
             var index = scrollSnap.SelectedPanel;
             descriptionTextUI.text = GetFlags(index)[GetAdjustedIndex(index)].FlagName;
         }
-
+        
         // !- Utilities
         private List<InteractFlag> GetFlags(int index)
         {

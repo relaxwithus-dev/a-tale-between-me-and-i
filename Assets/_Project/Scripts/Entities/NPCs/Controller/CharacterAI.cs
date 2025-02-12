@@ -18,19 +18,11 @@ namespace ATBMI.Entities.NPCs
         public Vector2 Direction => characterDirection;
         public bool IsFacingRight => isFacingRight;
         
-        // Reference
-        private SpriteRenderer _characterSr;
-        
         #endregion
 
         #region Methods
         
         // Unity Callbacks
-        private void Awake()
-        {
-            _characterSr = GetComponentInChildren<SpriteRenderer>();
-        }
-        
         private void Start()
         {
             gameObject.name = Data.CharacterName;
@@ -62,7 +54,7 @@ namespace ATBMI.Entities.NPCs
         private void Flip()
         {
             isFacingRight = !isFacingRight;
-            _characterSr.flipX = !_characterSr.flipX;
+            transform.Rotate(0f, 180f, 0f);
         }
 
         #endregion

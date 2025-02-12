@@ -13,12 +13,10 @@ MonoBehaviour:
   m_Name: Dewa
   m_EditorClassIdentifier: 
   playerName: Dewa
-  moveSpeed: 1.73
-  deceleration: 0.167
   moveStats:
-  - State: 2
-    Speed: 1.73
-    Deceleration: 167
   - State: 1
-    Speed: 2.63
-    Deceleration: 0.352
+    Speed: 2.1
+    Deceleration: 0.13
+  - State: 2
+    Speed: 4.3
+    Deceleration: 0.1

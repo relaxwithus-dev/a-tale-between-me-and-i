@@ -8,11 +8,10 @@ namespace ATBMI.Interaction
     public class InteractManager : MonoBehaviour
     {
         #region Fields & Properties
-
+        
         [Header("Properties")]
         [SerializeField] private bool isInteracted;
         [SerializeField] private GameObject interactSign;
-        [SerializeField] private float signYMultiplier = 2f;
         
         public bool IsInteracted
         {
@@ -22,7 +21,7 @@ namespace ATBMI.Interaction
         
         [Header("Area")]
         [SerializeField][MaxValue(3)] private int detectionLimit;
-        [SerializeField] private Vector2 boxSize;
+        [SerializeField] private float detectionRadius;
         [SerializeField] private LayerMask targetMask;
 
         private Collider2D[] _hitsNonAlloc;
@@ -58,9 +57,10 @@ namespace ATBMI.Interaction
                 DeactivateSign();
                 return;
             }
-
+            
             // Alloc intersection
-            var numOfHits = Physics2D.OverlapBoxNonAlloc(transform.position, boxSize, 0f, _hitsNonAlloc, targetMask);
+            var numOfHits = Physics2D.OverlapCircleNonAlloc(transform.position, detectionRadius, _hitsNonAlloc, targetMask);
+            
             if (numOfHits == 0)
                 DeactivateSign();
 
@@ -121,25 +121,33 @@ namespace ATBMI.Interaction
         {
             if (interactSign.activeSelf || DialogueManager.Instance.IsDialoguePlaying) return;
 
-            var targetPos = target.position;
-            interactSign.transform.position = new Vector3(targetPos.x, targetPos.y + signYMultiplier, targetPos.z);
-            interactSign.transform.parent = target;
-            interactSign.SetActive(true);
+            if (target.TryGetComponent<IInteractable>(out var targetInteract))
+            {
+                var signPosTrans = targetInteract.GetSignTransform();
+                var signTransform = interactSign.transform;
+                
+                if (signPosTrans == null) return;
+                
+                // Activate sign
+                signTransform.parent = signPosTrans;
+                signTransform.localPosition = Vector3.zero;
+                interactSign.SetActive(true);
+            }
         }
         
         private void DeactivateSign()
         {
             if (!interactSign.activeSelf) return;
-
-            interactSign.transform.position = Vector3.zero;
+            
             interactSign.transform.parent = transform;
+            interactSign.transform.position = Vector3.zero;
             interactSign.SetActive(false);
         }
         
         private void OnDrawGizmos()
         {
-            Gizmos.color = Color.green;
-            Gizmos.DrawWireCube(transform.position, boxSize);
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, detectionRadius);
         }
 
         #endregion
