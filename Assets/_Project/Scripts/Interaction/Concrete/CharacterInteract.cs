@@ -35,16 +35,18 @@ namespace ATBMI.Interaction
         }
         
         public static void InteractingEvent(bool isBegin) => OnInteracting?.Invoke(isBegin);
-
+        
         public Transform GetSignTransform() => signTransform;
-
+        
         // TODO: Adjust isi method dibawah sesuai dgn jenis interaksi
         public void Interact(InteractManager manager, int itemId = 0)
         {
             _interactId = itemId;
             if (_interactId == 0)
             {
-                DialogueEvents.EnterDialogueEvent();
+                // DialogueEvents.EnterDialogueEvent();
+                Debug.Log("apa masalahmu ha!!??");
+                characterTraits.InfluenceTraits(InteractAction.Talks);
             }
             else
             {

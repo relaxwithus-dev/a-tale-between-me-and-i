@@ -11,6 +11,7 @@ namespace ATBMI.Entities.NPCs
         [SerializeField] protected LayerMask layerMask;
         
         public ZoneDetail[] ZoneDetails => zoneDetails;
+        public int InteractCount { get; set; }
         
         // Reference
         protected CharacterTraits characterTraits;
@@ -20,7 +21,13 @@ namespace ATBMI.Entities.NPCs
             base.InitOnAwake();
             characterTraits = GetComponent<CharacterTraits>();
         }
-        
+
+        protected override void InitOnStart()
+        {
+            base.InitOnStart();
+            InteractCount = 1;
+        }
+
         protected override Node SetupTree()
         {
             throw new System.NotImplementedException();

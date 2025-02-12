@@ -82,7 +82,7 @@ namespace ATBMI.Entities.NPCs
                     emotions[i] = 0f;
                 }
             }
-
+            
             // Round values according to rules
             var nonZeroCount = 0;
             for (var i = 0; i < emotions.Length; i++)
