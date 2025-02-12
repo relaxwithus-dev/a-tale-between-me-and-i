@@ -626,7 +626,7 @@ MonoBehaviour:
   isInteracted: 0
   interactSign: {fileID: 6492219101915990370}
   detectionLimit: 2
-  detectionRadius: 3
+  detectionRadius: 2
   targetMask:
     serializedVersion: 2
     m_Bits: 384
@@ -731,8 +731,8 @@ RectTransform:
   m_GameObject: {fileID: 3399556489064227511}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3536880479539490275}
   - {fileID: 318311107868952044}
@@ -900,7 +900,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 3, y: 3}
+  m_SizeDelta: {x: 4, y: 4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &299278026580656940
 MonoBehaviour:
@@ -935,7 +935,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adcce0b2c3fc54b45b47c840eaf70bb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryPrefab: {fileID: 34095577210733295, guid: c2c248af68230bb4d92838587531fbcf, type: 3}
+  inventoryPrefab: {fileID: 0}
   inventoryParent: {fileID: 3200480368544856678}
   inventoryFlags:
   - {fileID: 1105032712858574245}
@@ -2398,7 +2398,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 2.5}
+  m_AnchoredPosition: {x: 0.1, y: 2.5}
   m_SizeDelta: {x: 4, y: 4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &113697320560367387

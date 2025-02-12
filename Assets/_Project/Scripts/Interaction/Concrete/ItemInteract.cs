@@ -17,7 +17,7 @@ namespace ATBMI.Interaction
         
         public bool Validate() => itemType == ItemType.Scenery;
         public Transform GetSignTransform() => signTransform;
-
+        
         public void Interact(InteractManager manager, int itemId = 0)
         {
             switch (itemType)
@@ -32,7 +32,7 @@ namespace ATBMI.Interaction
                     throw new ArgumentOutOfRangeException();
             }
         }
-                
+        
         private void ExecuteCollectible(int itemId)
         {
             Debug.Log($"take item {itemData.ItemName}");
