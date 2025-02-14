@@ -4,8 +4,8 @@ EXTERNAL FinishQuest(questId)
 
 Si Dewa ke mana sihh? #speaker:Ratna #expression:A_Ratna_Marah
 Kutelfon daritadi masih aja ga diangkat #speaker:Ratna #expression:A_Ratna_Marah
-..... #speaker:Ratna #expression:A_Ratna_Default
-Huffth... Ke mana aja sih tu anak #speaker:Ratna #expression:A_Ratna_Default
+..... #speaker:Ratna #expression:A_Ratna_Speak
+Huffth... Ke mana aja sih tu anak #speaker:Ratna #expression:A_Ratna_Speak
 
 // SFX: Ledakan pertama
 
