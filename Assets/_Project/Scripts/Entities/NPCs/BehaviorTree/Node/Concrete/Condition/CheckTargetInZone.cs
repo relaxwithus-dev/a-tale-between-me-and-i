@@ -5,8 +5,8 @@ namespace ATBMI.Entities.NPCs
 {
     public class CheckTargetInZone : LeafWeight
     {
-        private readonly float radius;
         private readonly Transform centerPoint;
+        private readonly float radius;
         private readonly LayerMask targetLayer;
         private readonly float areaPriority;
         
@@ -27,7 +27,7 @@ namespace ATBMI.Entities.NPCs
                 if (!targetPhys.CompareTag(GameTag.PLAYER_TAG))
                     return NodeStatus.Failure;
                 
-                Debug.Log("Execute: CheckTargetInZone");
+                Debug.Log("Execute: Check Target In Zone");
                 parentNode.SetData(TARGET_KEY, targetPhys.transform);
                 parentNode.SetData(ORIGIN_KEY, centerPoint.position);
                 return NodeStatus.Success;

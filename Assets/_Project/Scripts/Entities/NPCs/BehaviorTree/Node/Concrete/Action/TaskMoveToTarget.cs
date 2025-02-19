@@ -37,6 +37,7 @@ namespace ATBMI.Entities.NPCs
         //     if (!TrySetupTarget())
         //         return NodeStatus.Failure;
         //     
+        //     Debug.Log($"Execute: Task Move To Target");
         //     if (_currentTime < moveDelay)
         //     {
         //         _currentTime += Time.deltaTime;

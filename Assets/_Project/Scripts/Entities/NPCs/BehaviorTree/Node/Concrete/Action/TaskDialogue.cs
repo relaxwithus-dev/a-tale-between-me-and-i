@@ -17,7 +17,7 @@ namespace ATBMI.Entities.NPCs
         
         public override NodeStatus Evaluate()
         {
-            Debug.Log($"Execute: TaskDialogue({dialogueText})");
+            Debug.Log($"Execute: Task Dialogue( {dialogueText} )");
             return NodeStatus.Success;
         }
     }

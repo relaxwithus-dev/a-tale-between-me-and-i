@@ -6,6 +6,7 @@ namespace ATBMI.Entities.NPCs
     public class ZoneRayDrawer : MonoBehaviour
     {
         // Reference
+        [SerializeField] private Transform centerPoint;
         private EmoTrees _characterBT;
         
         private void Awake()
@@ -20,7 +21,7 @@ namespace ATBMI.Entities.NPCs
             {
                 var targetColor = GetColor(space.Type);
                 Gizmos.color = targetColor;
-                Gizmos.DrawWireSphere(transform.position, space.Radius);
+                Gizmos.DrawWireSphere(centerPoint.position, space.Radius);
             }
         }
         

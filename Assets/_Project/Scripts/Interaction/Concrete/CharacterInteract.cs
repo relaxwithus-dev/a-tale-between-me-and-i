@@ -45,8 +45,7 @@ namespace ATBMI.Interaction
             if (_interactId == 0)
             {
                 // DialogueEvents.EnterDialogueEvent();
-                Debug.Log("apa masalahmu ha!!??");
-                characterTraits.InfluenceTraits(InteractAction.Talks);
+                characterTraits.InfluenceTraits(InteractAction.Run);
             }
             else
             {

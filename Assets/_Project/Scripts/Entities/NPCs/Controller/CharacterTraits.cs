@@ -26,7 +26,7 @@ namespace ATBMI.Entities.NPCs
         public void InfluenceTraits(InteractAction action)
         { 
             var influence = influenceConfig.GetInfluenceValues(action);
-           
+                       
            // Validate
            if (!ValidateEmotion(influence))
                return;
@@ -63,6 +63,8 @@ namespace ATBMI.Entities.NPCs
             }
             
             ExtractDominantEmotion();
+            (EmotionType emo, float ints) dominantEmo = GetDominantEmotion();
+            Debug.Log($"New Emotion: {dominantEmo.emo}");
         }
         
         private void ExtractDominantEmotion()

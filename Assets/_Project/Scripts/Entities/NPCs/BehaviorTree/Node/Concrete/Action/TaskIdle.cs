@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace ATBMI.Entities.NPCs
 {
     public class TaskIdle : LeafWeight
@@ -13,7 +15,10 @@ namespace ATBMI.Entities.NPCs
         public override NodeStatus Evaluate()
         {
             if (characterAI.State == CharacterState.Idle)
+            {
+                // Debug.Log("Execute: Task Idle");
                 return NodeStatus.Success;
+            }
             
             characterAI.ChangeState(CharacterState.Idle);
             return NodeStatus.Running;
