@@ -1,61 +1,41 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace ATBMI.Entities.NPCs
 {
     public class HasanBT : EmoTrees
     {
+        [Header("Properties")]
+        [SerializeField] private Transform[] targetPoints;
+        [SerializeField] private CharacterManager characterManager;
+        
         protected override Node SetupTree()
         {
-            // Behavior - A
-            Selector itemTree = new Selector(rootName, new List<Node>
-            {
-                new Sequence("Task Item", new List<Node>
-                {
-                    new CheckTargetInZone(centerPoint, zoneDetails[2].Radius, layerMask),
-                    new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true, isOrigin: false),
-                    new TaskGetItem(),
-                    new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true, isOrigin: true)
-                }),
-                new TaskIdle(characterAI)
-            });
-            
-            // Behavior - B
-            Selector dialogueTree = new Selector(rootName, new List<Node>
-            {
-                new Sequence("Task Dialogue", new List<Node>
-                {
-                    new CheckTargetInZone(transform, zoneDetails[2].Radius, layerMask),
-                    new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true, isOrigin: false),
-                    new Selector("Task", new List<Node>
-                    {
-                        new TaskGetItem(),
-                        new TaskDialogue(characterAI, "Yah itemnya tidak cocok :(")
-                    }),
-                    new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true, isOrigin: true)
-                }),
-                new TaskIdle(characterAI)
-            });
-            
-            // Zone Selector Behavior
-            Selector zoneTree = new Selector(rootName, new List<Node>
-            {
-                new ZoneSelector("Zone", new List<Node>
-                {
-                    new Sequence(zoneDetails[0].Type.ToString(), new List<Node>
-                    {
-                        new CheckTargetInZone(centerPoint, zoneDetails[0].Radius, layerMask),
-                        new TaskDialogue(characterAI,"masuk intimate")
-                    }),
-                    new Sequence(zoneDetails[1].Type.ToString(), new List<Node>
-                    {
-                        new CheckTargetInZone(centerPoint, zoneDetails[1].Radius, layerMask),
-                        new TaskDialogue(characterAI,"masuk personal")
-                    }),
-                }),
-                new TaskIdle(characterAI)
-            });
-            
-            return dialogueTree;
+           // Move Target Behavior
+           Selector moveTree = new Selector("Move Trere", new List<Node>
+           {
+               new Sequence("Move", new List<Node>
+               {
+                   new CheckTargetAvailable(targetPoints[0]),
+                   new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true, targetPoints[0]),
+                   new TaskIdle(characterAI)
+               }),
+               new TaskIdle(characterAI)
+           });
+           
+           // Patrol 
+           Selector patrolTree = new Selector("Patrol Tree", new List<Node>
+           {
+               new Sequence("Patrol", new List<Node>
+               {
+                   new CheckIsFatigue(characterManager),
+                   new TaskPatrol(characterAI, characterManager, characterAI.Data, targetPoints)
+               }),
+               new TaskIdle(characterAI)
+           });
+           
+           
+           return patrolTree;
         }
     }
 }

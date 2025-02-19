@@ -10,7 +10,6 @@ namespace ATBMI.Entities.NPCs
         [SerializeField] protected ZoneDetail[] zoneDetails;
         [SerializeField] protected LayerMask layerMask;
         
-        
         public ZoneDetail[] ZoneDetails => zoneDetails;
         public int InteractCount { get; set; }
         

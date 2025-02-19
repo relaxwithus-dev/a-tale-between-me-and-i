@@ -18,7 +18,7 @@ namespace ATBMI.Entities.NPCs
                     {
                         new Sequence("Behavior A", new List<Node>
                         {
-                            new CheckInteractCount(this, 1),
+                            // new CheckInteractCount(this, 1),
                             new TaskDialogue(characterAI, dialogueText: "Aku Antisipasi!")
                         }),
                         new TaskIdle(characterAI)
@@ -32,17 +32,17 @@ namespace ATBMI.Entities.NPCs
                     {
                         new Sequence("Behavior A", new List<Node>
                         {
-                            new CheckInteractCount(this, 1),
+                            // new CheckInteractCount(this, 1),
                             new TaskDialogue(characterAI, dialogueText: "Aku Marah!")
                         }),
                         new Sequence("Behavior B", new List<Node>
                         {
-                            new CheckInteractCount(this, 2),
+                            // new CheckInteractCount(this, 2),
                             new Sequence("Push", new List<Node>
                             {
-                                new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true, isOrigin: false),
+                                new TaskMoveToTargets(characterAI, characterAI.Data, isWalk: true, isOrigin: false),
                                 new TaskPush(),
-                                new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true, isOrigin: true)
+                                new TaskMoveToTargets(characterAI, characterAI.Data, isWalk: true, isOrigin: true)
                             }),
                             new TaskDialogue(characterAI, dialogueText: "Aku Marah Lo!")
                         }),
@@ -63,7 +63,7 @@ namespace ATBMI.Entities.NPCs
                             {
                                 new SequenceWeight("Behavior A", new List<Node>
                                 {
-                                    new CheckInteractCount(this, 1),
+                                    // new CheckInteractCount(this, 1),
                                     new TaskDialogue(characterAI, dialogueText: "Aku Antisipasi!")
                                 }),
                                 new TaskIdle(characterAI)
@@ -79,17 +79,17 @@ namespace ATBMI.Entities.NPCs
                             {
                                 new SequenceWeight("Behavior A", new List<Node>
                                 {
-                                    new CheckInteractCount(this, 1),
+                                    // new CheckInteractCount(this, 1),
                                     new TaskDialogue(characterAI, dialogueText: "Aku Marah!")
                                 }),
                                 new SequenceWeight("Behavior B", new List<Node>
                                 {
-                                    new CheckInteractCount(this, 2),
+                                    // new CheckInteractCount(this, 2),
                                     new SequenceWeight("Push", new List<Node>
                                     {
-                                        new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true, isOrigin: false),
+                                        new TaskMoveToTargets(characterAI, characterAI.Data, isWalk: true, isOrigin: false),
                                         new TaskPush(),
-                                        new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true, isOrigin: true)
+                                        new TaskMoveToTargets(characterAI, characterAI.Data, isWalk: true, isOrigin: true)
                                     }),
                                     new TaskDialogue(characterAI, dialogueText: "Aku Marah Lo!")
                                 }),

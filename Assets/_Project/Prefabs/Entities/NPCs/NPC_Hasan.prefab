@@ -28,6 +28,10 @@ PrefabInstance:
       propertyPath: isFacingRight
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1177493690341274544, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+      propertyPath: characterState
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3609649175966335719, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_Size.x
       value: 0.48911405
@@ -181,11 +185,10 @@ MonoBehaviour:
     Radius: 1.5
   - Type: 1
     Radius: 3
-  - Type: 2
-    Radius: 5
   layerMask:
     serializedVersion: 2
     m_Bits: 320
+  targetTransform: {fileID: 0}
 --- !u!114 &910726476470356813
 MonoBehaviour:
   m_ObjectHideFlags: 0
