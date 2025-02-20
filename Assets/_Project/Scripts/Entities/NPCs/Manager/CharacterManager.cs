@@ -6,7 +6,7 @@ namespace ATBMI.Entities.NPCs
     {
         [Header("Properties")] 
         [SerializeField] private float characterEnergy;
-        [SerializeField] private float _currentEnergy;
+        private float _currentEnergy;
         private bool _canDecreaseEnergy;
         
         private void Start()

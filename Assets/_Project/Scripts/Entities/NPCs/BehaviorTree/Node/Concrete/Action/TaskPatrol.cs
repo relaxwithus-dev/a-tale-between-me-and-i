@@ -37,7 +37,7 @@ namespace ATBMI.Entities.NPCs
         // Core
         public override NodeStatus Evaluate()
         {
-            if (!Validate() && _isValidated)
+            if (!Validate() && !_isValidated)
                 return NodeStatus.Failure;
 
             if (_currentIndex >= wayPoints.Count)
@@ -96,10 +96,12 @@ namespace ATBMI.Entities.NPCs
             if (wayPoints.Count < minWayPoints)
             {
                 Debug.LogWarning("Execute Failure: TaskPatrol");
+                _isValidated = true;
                 return false;
             }
             
             Debug.Log("Execute Success: TaskPatrol");
+            _isValidated = true;
             return true;
         }
     }

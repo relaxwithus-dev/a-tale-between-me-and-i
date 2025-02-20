@@ -12,7 +12,7 @@ namespace ATBMI.Entities.NPCs
         protected override Node SetupTree()
         {
            // Move Target Behavior
-           Selector moveTree = new Selector("Move Trere", new List<Node>
+           Selector moveTree = new Selector("Move Tree", new List<Node>
            {
                new Sequence("Move", new List<Node>
                {
