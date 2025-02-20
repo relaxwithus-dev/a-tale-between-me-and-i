@@ -40,9 +40,9 @@ namespace ATBMI.Entities.NPCs
                             // new CheckInteractCount(this, 2),
                             new Sequence("Push", new List<Node>
                             {
-                                new TaskMoveToTargets(characterAI, characterAI.Data, isWalk: true, isOrigin: false),
+                                new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true, isAway: false),
                                 new TaskPush(),
-                                new TaskMoveToTargets(characterAI, characterAI.Data, isWalk: true, isOrigin: true)
+                                new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true, isAway: true)
                             }),
                             new TaskDialogue(characterAI, dialogueText: "Aku Marah Lo!")
                         }),
@@ -56,7 +56,7 @@ namespace ATBMI.Entities.NPCs
                 {
                     new Sequence(zoneDetails[0].Type.ToString(), new List<Node>
                     {
-                        new CheckTargetInZone(centerPoint, zoneDetails[0].Radius, layerMask),
+                        // new CheckTargetInZone(centerPoint, zoneDetails[0].Radius, layerMask),
                          new EmotionalSelector("Intimate Emo", characterTraits, new List<Node> 
                          {
                             new SelectorWeight("Anticipation", new List<Node>
@@ -72,7 +72,7 @@ namespace ATBMI.Entities.NPCs
                     }),
                     new Sequence(zoneDetails[1].Type.ToString(), new List<Node>
                     {
-                        new CheckTargetInZone(centerPoint, zoneDetails[1].Radius, layerMask),
+                        // new CheckTargetInZone(centerPoint, zoneDetails[1].Radius, layerMask),
                         new EmotionalSelector("Personal Emo", characterTraits, new List<Node>
                         {
                             new SelectorWeight("Anger", new List<Node>
@@ -87,9 +87,9 @@ namespace ATBMI.Entities.NPCs
                                     // new CheckInteractCount(this, 2),
                                     new SequenceWeight("Push", new List<Node>
                                     {
-                                        new TaskMoveToTargets(characterAI, characterAI.Data, isWalk: true, isOrigin: false),
+                                        new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true, isAway: false),
                                         new TaskPush(),
-                                        new TaskMoveToTargets(characterAI, characterAI.Data, isWalk: true, isOrigin: true)
+                                        new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true, isAway: true)
                                     }),
                                     new TaskDialogue(characterAI, dialogueText: "Aku Marah Lo!")
                                 }),

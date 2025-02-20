@@ -16,7 +16,6 @@ namespace ATBMI.Entities.NPCs
             if (_targetPoint)
             {
                 Debug.Log("Execute Success: CheckTargetAvailable");
-                parentNode.SetData(TARGET_KEY, _targetPoint);
                 _targetPoint = null;
                 return NodeStatus.Success;
             }

@@ -12,8 +12,8 @@ namespace ATBMI.Entities.NPCs
         
         public CheckTargetInZone(Transform centerPoint, float radius, LayerMask targetLayer)
         {
-            this.radius = radius;
             this.centerPoint = centerPoint;
+            this.radius = radius;
             this.targetLayer = targetLayer;
             
             InitFactors(planning: 0f, risk: 0.3f, timeRange: (0, 0));
@@ -24,7 +24,7 @@ namespace ATBMI.Entities.NPCs
             Collider2D targetPhys = Physics2D.OverlapCircle(centerPoint.position, radius, targetLayer);
             if (targetPhys != null)
             {
-                if (!targetPhys.CompareTag(GameTag.PLAYER_TAG))
+                if (!targetPhys.CompareTag(GameTag.ITEM_TAG))
                     return NodeStatus.Failure;
                 
                 Debug.Log("Execute: Check Target In Zone");

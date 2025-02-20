@@ -23,6 +23,19 @@ namespace ATBMI.Entities.NPCs
                new TaskIdle(characterAI)
            });
            
+           Selector moveAndBackTree = new Selector("Move and Back Tree", new List<Node>
+           {
+               new Sequence("Move and Back", new List<Node>
+               {
+                   new CheckTargetInZone(centerPoint, zoneDetails[1].Radius, layerMask),
+                   new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true, isAway: true),
+                   new TaskDialogue(characterAI, "Hi"),
+                   new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true, isAway: false),
+                   new TaskIdle(characterAI)
+               }),
+               new TaskIdle(characterAI)
+           });
+           
            // Patrol 
            Selector patrolTree = new Selector("Patrol Tree", new List<Node>
            {
@@ -35,7 +48,7 @@ namespace ATBMI.Entities.NPCs
            });
            
            
-           return patrolTree;
+           return moveAndBackTree;
         }
     }
 }
