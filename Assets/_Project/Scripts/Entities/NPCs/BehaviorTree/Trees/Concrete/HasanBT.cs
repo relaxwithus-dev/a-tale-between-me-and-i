@@ -28,9 +28,9 @@ namespace ATBMI.Entities.NPCs
                new Sequence("Move and Back", new List<Node>
                {
                    new CheckTargetInZone(centerPoint, zoneDetails[1].Radius, layerMask),
-                   new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true, isAway: true),
+                   new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true),
                    new TaskDialogue(characterAI, "Hi"),
-                   new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true, isAway: false),
+                   new TaskMoveToOrigin(characterAI, characterAI.Data, isWalk: true),
                    new TaskIdle(characterAI)
                }),
                new TaskIdle(characterAI)

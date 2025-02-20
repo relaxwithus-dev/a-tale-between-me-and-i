@@ -36,19 +36,12 @@ namespace ATBMI.Entities.NPCs
             
             characterState = state;
         }
-
+        
         public void LookAt(Vector2 direction)
         {
-            var directionX = characterDirection.x;
             characterDirection = direction;
-
-            switch (directionX)
-            {
-                case > 0 when !isFacingRight:
-                case < 0 when isFacingRight:
-                    Flip();
-                    break;
-            }
+            if (direction.x > 0 && !isFacingRight || direction.x < 0 && isFacingRight)
+                Flip();
         }
         
         private void Flip()

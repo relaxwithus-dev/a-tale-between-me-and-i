@@ -27,7 +27,7 @@ namespace ATBMI.Entities.NPCs
                 if (!targetPhys.CompareTag(GameTag.ITEM_TAG))
                     return NodeStatus.Failure;
                 
-                Debug.Log("Execute: Check Target In Zone");
+                Debug.Log("Execute Success: Check Target In Zone");
                 parentNode.SetData(TARGET_KEY, targetPhys.transform);
                 parentNode.SetData(ORIGIN_KEY, centerPoint.position);
                 return NodeStatus.Success;

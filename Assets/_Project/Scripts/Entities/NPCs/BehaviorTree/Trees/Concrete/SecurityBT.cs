@@ -40,9 +40,9 @@ namespace ATBMI.Entities.NPCs
                             // new CheckInteractCount(this, 2),
                             new Sequence("Push", new List<Node>
                             {
-                                new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true, isAway: false),
+                                new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true),
                                 new TaskPush(),
-                                new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true, isAway: true)
+                                new TaskMoveToOrigin(characterAI, characterAI.Data, isWalk: true)
                             }),
                             new TaskDialogue(characterAI, dialogueText: "Aku Marah Lo!")
                         }),
@@ -87,9 +87,9 @@ namespace ATBMI.Entities.NPCs
                                     // new CheckInteractCount(this, 2),
                                     new SequenceWeight("Push", new List<Node>
                                     {
-                                        new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true, isAway: false),
+                                        new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true),
                                         new TaskPush(),
-                                        new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true, isAway: true)
+                                        new TaskMoveToOrigin(characterAI, characterAI.Data, isWalk: true)
                                     }),
                                     new TaskDialogue(characterAI, dialogueText: "Aku Marah Lo!")
                                 }),
