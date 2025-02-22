@@ -13,14 +13,14 @@ namespace ATBMI.Entities.NPCs
         
         public override NodeStatus Evaluate()
         {
-            if (manager.IsEnergyEmpty())
+            if (!manager.IsEnergyEmpty())
             {
-                Debug.LogWarning("Execute Failure: CheckIsFatigue");
-                return NodeStatus.Failure;
+                Debug.Log("Execute Success: CheckIsFatigue");
+                return NodeStatus.Success;
             }
-            
-            Debug.Log("Execute Success: CheckIsFatigue");
-            return NodeStatus.Success;
+                          
+            Debug.LogWarning("Execute Failure: CheckIsFatigue");
+            return NodeStatus.Failure;
         }
     }
 }

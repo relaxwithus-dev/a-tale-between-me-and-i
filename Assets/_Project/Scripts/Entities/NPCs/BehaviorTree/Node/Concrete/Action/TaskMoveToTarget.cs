@@ -32,7 +32,7 @@ namespace ATBMI.Entities.NPCs
             targetPosition = GetPositionFromTransform(target);
             return true;
         }
-
+        
         private Vector3 GetPositionFromTransform(Transform transform)
         {
             return new Vector3(
@@ -42,5 +42,10 @@ namespace ATBMI.Entities.NPCs
             );
         }
         
+        protected override void WhenReachTarget()
+        {
+            base.WhenReachTarget();
+            parentNode.ClearData(TARGET_KEY);
+        }
     }
 }

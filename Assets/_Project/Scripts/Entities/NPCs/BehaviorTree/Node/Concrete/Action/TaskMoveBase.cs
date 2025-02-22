@@ -21,7 +21,7 @@ namespace ATBMI.Entities.NPCs
             this.data = data;
             this.isWalk = isWalk;
             
-            InitFactors(planning: 1f, risk: 0.4f, timeRange: (5, 10));
+            InitFactors(planning: 1f, risk: 0.4f, timeRange: (4, 8));
         }
         
         // Core

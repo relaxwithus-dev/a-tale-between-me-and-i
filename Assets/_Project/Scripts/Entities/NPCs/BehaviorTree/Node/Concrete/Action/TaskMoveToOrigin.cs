@@ -25,8 +25,11 @@ namespace ATBMI.Entities.NPCs
         
         protected override void WhenReachTarget()
         {
-            var direction = new Vector2(character.Direction.x * -1f, character.Direction.y);
+            base.WhenReachTarget();
+            
+            var direction = character.Direction * -1f;
             character.LookAt(direction);
+            parentNode.ClearData(ORIGIN_KEY);
         }
     }
 }

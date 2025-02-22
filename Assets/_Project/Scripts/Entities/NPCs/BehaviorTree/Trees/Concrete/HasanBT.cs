@@ -16,7 +16,7 @@ namespace ATBMI.Entities.NPCs
            {
                new Sequence("Move", new List<Node>
                {
-                   new CheckTargetAvailable(targetPoints[0]),
+                   new CheckReachTarget(characterAI, targetPoints[0]),
                    new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true, targetPoints[0]),
                    new TaskIdle(characterAI)
                }),
@@ -47,8 +47,19 @@ namespace ATBMI.Entities.NPCs
                new TaskIdle(characterAI)
            });
            
+           // Run Away
+           Selector runAwayTree = new Selector("Run Away Tree", new List<Node>
+           {
+               new Sequence("Run Away", new List<Node>
+               {
+                   new CheckTargetInZone(centerPoint, zoneDetails[1].Radius, layerMask),
+                   new TaskRunAway(characterAI, characterAI.Data, 3f),
+                   new TaskIdle(characterAI)
+               }),
+               new TaskIdle(characterAI)
+           });
            
-           return moveAndBackTree;
+           return runAwayTree;
         }
     }
 }
