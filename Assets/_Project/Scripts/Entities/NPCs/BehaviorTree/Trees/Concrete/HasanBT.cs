@@ -59,6 +59,18 @@ namespace ATBMI.Entities.NPCs
                new TaskIdle(characterAI)
            });
            
+           // Follow
+           Selector followTree = new Selector("Follow Tree", new List<Node>
+           {
+               new Sequence("Follow", new List<Node>
+               {
+                   new CheckTargetInZone(centerPoint, zoneDetails[2].Radius, layerMask),
+                   new TaskFollow(characterAI, characterAI.Data, 6f),
+                   new TaskIdle(characterAI)
+               }),
+               new TaskIdle(characterAI)
+           });
+           
            return runAwayTree;
         }
     }
