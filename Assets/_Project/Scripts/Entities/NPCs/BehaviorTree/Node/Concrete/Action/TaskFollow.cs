@@ -8,9 +8,12 @@ namespace ATBMI.Entities.NPCs
         private readonly CharacterAI character;
         private readonly CharacterData data;
         private readonly float followTime;
-        private readonly float followDelayTime = 0.5f;
-        private readonly Vector3 followDistance = new(0f, 3f, 0f);
+        private readonly float followDelayTime = 1f;
         
+        private readonly Vector3 rightDistance= new(2f, 0f, 0f);
+        private readonly Vector3 leftDistance = new(-2f, 0f, 0f);
+
+        private Transform _currentTarget;
         private Vector3 _targetPosition;
         private float _currentFollowTime;
         private float _currentFollowDelayTime;
@@ -41,20 +44,25 @@ namespace ATBMI.Entities.NPCs
         
         private bool TrySetupTarget()
         {
-            if (_targetPosition != Vector3.zero)
-                return true;
+            if (!_currentTarget)
+            {
+                Debug.Log("Execute Success: TaskFollow");
+                _currentTarget = (Transform)GetData(TARGET_KEY);
+                if (!_currentTarget)
+                {
+                    Debug.LogWarning("Execute Failure: TaskFollow");
+                    return false;
+                }
+            }
             
-            var target = (Transform)GetData(TARGET_KEY);
-            if (!target)
-                return false;
-            
-            _targetPosition = target.position + followDistance;
+            _targetPosition = GetDistancePosition(_currentTarget.position);
             return true;
         }
         
         private NodeStatus FollowTarget()
         {
             _currentFollowTime += Time.deltaTime;
+            character.ChangeState(CharacterState.Walk);
             character.transform.position = Vector2.MoveTowards(character.transform.position, 
                 _targetPosition, data.MoveSpeed * Time.deltaTime);
             
@@ -65,6 +73,14 @@ namespace ATBMI.Entities.NPCs
             }
             
             return NodeStatus.Running;
+        }
+        
+        private Vector3 GetDistancePosition(Vector3 target)
+        {
+            var opposite = target.x < character.transform.position.x ? rightDistance : leftDistance;
+            return new Vector3((target + opposite).x,
+                character.transform.position.y,
+                character.transform.position.z);
         }
         
     }

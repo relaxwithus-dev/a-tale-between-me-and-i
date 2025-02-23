@@ -86,7 +86,8 @@ namespace ATBMI.Entities.NPCs
         private void ChangeDirectionToTarget(Vector3 target)
         {
             if (!(_currentTime >= moveDelayTime / 2f)) return;
-            var direction = (target - character.transform.position).normalized;
+            var direction = target - character.transform.position;
+            direction.Normalize();
             character.LookAt(direction);
         }
 

@@ -5,31 +5,31 @@ namespace ATBMI.Entities.NPCs
 {
     public class TaskMoveToTarget : TaskMoveBase
     {
-        private readonly Transform targetPoint;
+        private Transform _targetPoint;
+        private bool _isInitialPoint = true;
 
         public TaskMoveToTarget(CharacterAI character, CharacterData data, bool isWalk) : base(character, data, isWalk) { }
         public TaskMoveToTarget(CharacterAI character, CharacterData data, bool isWalk, Transform targetPoint) 
             : base(character, data, isWalk)
         {
-            this.targetPoint = targetPoint;
+            _targetPoint = targetPoint;
         }
         
         protected override bool TrySetupTarget()
         {
-            if (targetPosition != Vector3.zero)
+            if (!_isInitialPoint)
                 return true;
-
-            if (targetPoint != null)
+            
+            if (!_targetPoint)
             {
-                targetPosition = GetPositionFromTransform(targetPoint);
-                return true;
+                _targetPoint = (Transform)GetData(TARGET_KEY);
+                if (_targetPoint)
+                    _isInitialPoint = false;
+                else
+                    return false;
             }
             
-            var target = (Transform)GetData(TARGET_KEY);
-            if (!target)
-                return false;
-            
-            targetPosition = GetPositionFromTransform(target);
+            targetPosition = GetPositionFromTransform(_targetPoint);
             return true;
         }
         
@@ -46,6 +46,12 @@ namespace ATBMI.Entities.NPCs
         {
             base.WhenReachTarget();
             parentNode.ClearData(TARGET_KEY);
+        }
+
+        protected override void Reset()
+        {
+            base.Reset();
+            _isInitialPoint = true;
         }
     }
 }
