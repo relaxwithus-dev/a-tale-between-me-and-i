@@ -1,5 +1,5 @@
-using ATBMI.Core;
 using UnityEngine;
+using ATBMI.Core;
 
 namespace ATBMI.Entities.NPCs
 {
@@ -8,7 +8,6 @@ namespace ATBMI.Entities.NPCs
         private readonly Transform centerPoint;
         private readonly float radius;
         private readonly LayerMask targetLayer;
-        private readonly float areaPriority;
         
         public CheckTargetInZone(Transform centerPoint, float radius, LayerMask targetLayer)
         {

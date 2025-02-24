@@ -78,7 +78,7 @@ namespace ATBMI.Entities.NPCs
                {
                    new CheckTargetInZone(centerPoint, zoneDetails[1].Radius, layerMask),
                    new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true),
-                   new TaskPush(characterAI, pushForce: 6f, pushDelay: 0.15f),
+                   new TaskPush(characterAI, force: 6f, delay: 0.15f),
                    new TaskMoveToOrigin(characterAI, characterAI.Data, isWalk: true),
                    new TaskIdle(characterAI)
                }),
@@ -92,7 +92,7 @@ namespace ATBMI.Entities.NPCs
                {
                    new CheckTargetInZone(centerPoint, zoneDetails[1].Radius, layerMask),
                    new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true),
-                   new TaskPull(characterAI, pullForce: 2f, pullDelay: 0.15f),
+                   new TaskPull(characterAI, force: 2f, delay: 0.15f),
                    new TaskMoveToOrigin(characterAI, characterAI.Data, isWalk: true),
                    new TaskIdle(characterAI)
                }),

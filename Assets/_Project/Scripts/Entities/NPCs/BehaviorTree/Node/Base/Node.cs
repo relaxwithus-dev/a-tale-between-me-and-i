@@ -22,17 +22,17 @@ namespace ATBMI.Entities.NPCs
         
         #region Methods
         
-        public Node()
+        protected Node()
         {
             parentNode = null;
         }
         
-        public Node(string nodeName)
+        protected Node(string nodeName)
         {
             this.nodeName = nodeName;
         }
         
-        public Node(string nodeName, List<Node> childNodes)
+        protected Node(string nodeName, List<Node> childNodes)
         {
             this.nodeName = nodeName;
             foreach (var node in childNodes)

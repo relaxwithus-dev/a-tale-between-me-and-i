@@ -15,7 +15,7 @@ namespace ATBMI.Entities.NPCs
         private float _currentTime;
         
         // Constructor
-        public TaskMoveBase(CharacterAI character, CharacterData data, bool isWalk)
+        protected TaskMoveBase(CharacterAI character, CharacterData data, bool isWalk)
         {
             this.character = character;
             this.data = data;

@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using ATBMI.Data;
 using UnityEngine;
+using ATBMI.Data;
 
 namespace ATBMI.Entities.NPCs
 {

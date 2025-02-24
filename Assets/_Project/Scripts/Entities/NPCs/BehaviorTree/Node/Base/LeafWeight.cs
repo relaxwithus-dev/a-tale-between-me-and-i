@@ -7,10 +7,11 @@ namespace ATBMI.Entities.NPCs
         private float planning;
         private (float, float) timeRange;
         
-        // Methods
-        public LeafWeight() : base() { }
+        // Constructor
+        protected LeafWeight() : base() { }
         public LeafWeight(string nodeName) : base(nodeName) { }
-
+        
+        // Core
         protected void InitFactors(float planning, float risk, (float, float) timeRange)
         {
             this.risk = risk;
