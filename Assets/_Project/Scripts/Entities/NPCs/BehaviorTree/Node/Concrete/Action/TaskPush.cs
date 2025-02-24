@@ -42,7 +42,7 @@ namespace ATBMI.Entities.NPCs
             if (_player != null)
                 return true;
             
-            var target = (Transform)GetData(TARGET_KEY);
+            var target = (Transform)GetData(PHYSIC_KEY);
             if (!target)
             {
                 Debug.LogWarning("Execute Failure: TaskPush");
@@ -59,6 +59,8 @@ namespace ATBMI.Entities.NPCs
             yield return new WaitForSeconds(pushDelay);
             _player.PlayerRb.velocity = Vector2.zero;
             _player.StartMovement();
+            
+            parentNode.ClearData(PHYSIC_KEY);
         }
     }
 }

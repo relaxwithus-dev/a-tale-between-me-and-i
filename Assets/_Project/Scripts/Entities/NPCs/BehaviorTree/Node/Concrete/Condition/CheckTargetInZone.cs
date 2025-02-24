@@ -28,6 +28,7 @@ namespace ATBMI.Entities.NPCs
                     return NodeStatus.Failure;
                 
                 Debug.Log("Execute Success: Check Target In Zone");
+                parentNode.SetData(PHYSIC_KEY, targetPhys);
                 parentNode.SetData(TARGET_KEY, targetPhys.transform);
                 parentNode.SetData(ORIGIN_KEY, centerPoint.position);
                 return NodeStatus.Success;

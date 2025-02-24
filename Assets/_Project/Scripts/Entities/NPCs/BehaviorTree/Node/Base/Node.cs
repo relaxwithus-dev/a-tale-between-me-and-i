@@ -16,6 +16,7 @@ namespace ATBMI.Entities.NPCs
         // Cached properties
         protected const string TARGET_KEY = "Target";
         protected const string ORIGIN_KEY = "Origin";
+        protected const string PHYSIC_KEY = "Physics";
 
         #endregion
         
