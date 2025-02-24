@@ -28,11 +28,11 @@ namespace ATBMI.Entities.NPCs
             if (!TrySetupTarget())
                 return NodeStatus.Failure;
             
-            Vector2 direction = (character.transform.position - _player.transform.position).normalized;
+            Vector2 direction = (_player.transform.position - character.transform.position).normalized;
             
             _player.StopMovement();
             _player.PlayerRb.AddForce(direction * pushForce, ForceMode2D.Impulse);
-            _player.StartCoroutine(OnDonePushingRoutine());
+            _player.StartCoroutine(DonePushRoutine());
             
             return NodeStatus.Success;
         }
@@ -42,7 +42,7 @@ namespace ATBMI.Entities.NPCs
             if (_player != null)
                 return true;
             
-            var target = (Transform)GetData(PHYSIC_KEY);
+            var target = (Collider2D)GetData(PHYSIC_KEY);
             if (!target)
             {
                 Debug.LogWarning("Execute Failure: TaskPush");
@@ -54,7 +54,7 @@ namespace ATBMI.Entities.NPCs
             return true;
         }
         
-        private IEnumerator OnDonePushingRoutine()
+        private IEnumerator DonePushRoutine()
         {
             yield return new WaitForSeconds(pushDelay);
             _player.PlayerRb.velocity = Vector2.zero;

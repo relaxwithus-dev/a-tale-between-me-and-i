@@ -38,7 +38,15 @@ namespace ATBMI.Entities.NPCs
             
             return RunAway();
         }
-        
+
+        protected override void Reset()
+        {
+            base.Reset();
+            _currentMoveTime = 0f;
+            _currentDelayTime = 0f;
+            _targetDirection = Vector3.zero;
+        }
+
         // TODO: Ganti state ke-Run
         private NodeStatus RunAway()
         {

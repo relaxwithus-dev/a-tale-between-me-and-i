@@ -45,7 +45,16 @@ namespace ATBMI.Entities.NPCs
             
             return FollowTarget();
         }
-        
+
+        protected override void Reset()
+        {
+            base.Reset();
+            _currentTarget = null;
+            _currentFollowTime = 0f;
+            _currentFollowDelayTime = 0f;
+            _targetPosition = Vector3.zero;
+        }
+
         private bool TrySetupTarget()
         {
             if (!_currentTarget)

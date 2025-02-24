@@ -90,7 +90,7 @@ namespace ATBMI.Entities.NPCs
             direction.Normalize();
             character.LookAt(direction);
         }
-
+        
         // Helpers
         private bool Validate()
         {

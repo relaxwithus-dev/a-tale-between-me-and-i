@@ -78,14 +78,28 @@ namespace ATBMI.Entities.NPCs
                {
                    new CheckTargetInZone(centerPoint, zoneDetails[1].Radius, layerMask),
                    new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true),
-                   new TaskPush(characterAI, pushForce: 8f, pushDelay: 0.15f),
+                   new TaskPush(characterAI, pushForce: 6f, pushDelay: 0.15f),
                    new TaskMoveToOrigin(characterAI, characterAI.Data, isWalk: true),
                    new TaskIdle(characterAI)
                }),
                new TaskIdle(characterAI)
            });
            
-           return pushTree;
+           // Push
+           Selector pullTree = new Selector("Pull Tree", new List<Node>
+           {
+               new Sequence("Pull", new List<Node>
+               {
+                   new CheckTargetInZone(centerPoint, zoneDetails[1].Radius, layerMask),
+                   new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true),
+                   new TaskPull(characterAI, pullForce: 2f, pullDelay: 0.15f),
+                   new TaskMoveToOrigin(characterAI, characterAI.Data, isWalk: true),
+                   new TaskIdle(characterAI)
+               }),
+               new TaskIdle(characterAI)
+           });
+           
+           return pullTree;
         }
     }
 }
