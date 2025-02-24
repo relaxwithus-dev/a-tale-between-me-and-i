@@ -31,8 +31,8 @@ namespace ATBMI.Entities.Player
         public float CurrentSpeed { get; set; }
 
         // Reference
-        private Rigidbody2D _playerRb;
         private SpriteRenderer _playerSr;
+        public Rigidbody2D PlayerRb { get; private set; }
 
         #endregion
 
@@ -41,7 +41,7 @@ namespace ATBMI.Entities.Player
         // Unity Callbacks
         private void Awake()
         {
-            _playerRb = GetComponent<Rigidbody2D>();
+            PlayerRb = GetComponent<Rigidbody2D>();
             _playerSr = GetComponentInChildren<SpriteRenderer>();
         }
 
@@ -82,7 +82,7 @@ namespace ATBMI.Entities.Player
 
             if (moveDirection.sqrMagnitude > 0f)
             {
-                _playerRb.velocity = moveDirection * CurrentStat.Speed;
+                PlayerRb.velocity = moveDirection * CurrentStat.Speed;
                 _latestDirection = moveDirection;
                 _currentDeceleration = 0f;
             }
@@ -101,12 +101,12 @@ namespace ATBMI.Entities.Player
             while (_currentDeceleration > 0f)
             {
                 var decelSpeed = Mathf.Lerp(data.Speed, 0f, 1f - (_currentDeceleration / data.Deceleration));
-                _playerRb.velocity = _latestDirection * decelSpeed;
+                PlayerRb.velocity = _latestDirection * decelSpeed;
                 _currentDeceleration -= Time.deltaTime;
                 yield return null;
             }
 
-            _playerRb.velocity = Vector2.zero;
+            PlayerRb.velocity = Vector2.zero;
             _latestDirection = Vector2.zero;
         }
 
@@ -134,7 +134,7 @@ namespace ATBMI.Entities.Player
             canMove = false;
             moveDirection = Vector2.zero;
             _latestDirection = Vector2.zero;
-            _playerRb.velocity = Vector2.zero;
+            PlayerRb.velocity = Vector2.zero;
         }
         
         public void SetTemporaryDirection(Vector2 direction)

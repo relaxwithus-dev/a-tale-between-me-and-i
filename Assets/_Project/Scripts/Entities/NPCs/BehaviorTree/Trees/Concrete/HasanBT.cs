@@ -71,7 +71,21 @@ namespace ATBMI.Entities.NPCs
                new TaskIdle(characterAI)
            });
            
-           return followTree;
+           // Push
+           Selector pushTree = new Selector("Push Tree", new List<Node>
+           {
+               new Sequence("Push", new List<Node>
+               {
+                   new CheckTargetInZone(centerPoint, zoneDetails[1].Radius, layerMask),
+                   new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true),
+                   new TaskPush(characterAI, pushForce: 8f, pushDelay: 0.15f),
+                   new TaskMoveToOrigin(characterAI, characterAI.Data, isWalk: true),
+                   new TaskIdle(characterAI)
+               }),
+               new TaskIdle(characterAI)
+           });
+           
+           return pushTree;
         }
     }
 }

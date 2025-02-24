@@ -1,18 +1,64 @@
+using System.Collections;
 using UnityEngine;
+using ATBMI.Entities.Player;
 
 namespace ATBMI.Entities.NPCs
 {
     public class TaskPush : LeafWeight
     {
-        public TaskPush()
+        private readonly CharacterAI character;
+        private readonly float pushForce;
+        private readonly float pushDelay;
+        
+        private PlayerController _player;
+        
+        // Constructor
+        public TaskPush(CharacterAI character, float pushForce, float pushDelay)
         {
+            this.character = character;
+            this.pushForce = pushForce;
+            this.pushDelay = pushDelay;
+            
             InitFactors(planning: 1, risk: 0.7f, timeRange: (0.3f, 1f));
         }
         
+        // Core
         public override NodeStatus Evaluate()
         {
-            Debug.Log("Execute: TaskPush");
-            return base.Evaluate();
+            if (!TrySetupTarget())
+                return NodeStatus.Failure;
+            
+            Vector2 direction = (character.transform.position - _player.transform.position).normalized;
+            
+            _player.StopMovement();
+            _player.PlayerRb.AddForce(direction * pushForce, ForceMode2D.Impulse);
+            _player.StartCoroutine(OnDonePushingRoutine());
+            
+            return NodeStatus.Success;
+        }
+
+        private bool TrySetupTarget()
+        {
+            if (_player != null)
+                return true;
+            
+            var target = (Transform)GetData(TARGET_KEY);
+            if (!target)
+            {
+                Debug.LogWarning("Execute Failure: TaskPush");
+                return false;
+            }
+            
+            Debug.Log("Execute Success: TaskPush");
+            _player = target.GetComponent<PlayerController>();
+            return true;
+        }
+        
+        private IEnumerator OnDonePushingRoutine()
+        {
+            yield return new WaitForSeconds(pushDelay);
+            _player.PlayerRb.velocity = Vector2.zero;
+            _player.StartMovement();
         }
     }
 }

@@ -5,53 +5,59 @@ namespace ATBMI.Entities.NPCs
 {
     public class TaskMoveToTarget : TaskMoveBase
     {
-        private Transform _targetPoint;
-        private bool _isInitialPoint = true;
+        private readonly Transform initialPoint;
+        private readonly Vector3 rightDistance = new(1f, 0f, 0f);
+        private readonly Vector3 leftDistance = new(-1f, 0f, 0f);
 
+        private Transform _targetPoint;
+
+        // Constructor
         public TaskMoveToTarget(CharacterAI character, CharacterData data, bool isWalk) : base(character, data, isWalk) { }
-        public TaskMoveToTarget(CharacterAI character, CharacterData data, bool isWalk, Transform targetPoint) 
+        public TaskMoveToTarget(CharacterAI character, CharacterData data, bool isWalk, Transform initialPoint) 
             : base(character, data, isWalk)
         {
-            _targetPoint = targetPoint;
+            this.initialPoint = initialPoint;
         }
         
+        // Core
         protected override bool TrySetupTarget()
         {
-            if (!_isInitialPoint)
-                return true;
-            
-            if (!_targetPoint)
+            if (initialPoint != null)
             {
-                _targetPoint = (Transform)GetData(TARGET_KEY);
-                if (_targetPoint)
-                    _isInitialPoint = false;
-                else
-                    return false;
+                if (targetPosition == Vector3.zero)
+                    targetPosition = GetPosition(initialPoint);
+                
+                return true;
             }
             
-            targetPosition = GetPositionFromTransform(_targetPoint);
+            _targetPoint = (Transform)GetData(TARGET_KEY);
+            if (!_targetPoint)
+                return false;
+            
+            targetPosition = GetPositionWithDistance(_targetPoint.position);
             return true;
         }
         
-        private Vector3 GetPositionFromTransform(Transform transform)
+        private Vector3 GetPosition(Transform target)
         {
-            return new Vector3(
-                transform.position.x,
+            return new Vector3(target.position.x,
                 character.transform.position.y,
                 character.transform.position.z
             );
+        }
+        
+        private Vector3 GetPositionWithDistance(Vector3 target)
+        {
+            var opposite = target.x < character.transform.position.x ? rightDistance : leftDistance;
+            return new Vector3((target + opposite).x,
+                character.transform.position.y,
+                character.transform.position.z);
         }
         
         protected override void WhenReachTarget()
         {
             base.WhenReachTarget();
             parentNode.ClearData(TARGET_KEY);
-        }
-
-        protected override void Reset()
-        {
-            base.Reset();
-            _isInitialPoint = true;
         }
     }
 }

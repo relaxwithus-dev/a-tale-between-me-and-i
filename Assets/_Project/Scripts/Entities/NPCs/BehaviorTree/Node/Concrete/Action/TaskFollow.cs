@@ -10,7 +10,7 @@ namespace ATBMI.Entities.NPCs
         private readonly float followTime;
         private readonly float followDelayTime = 1f;
         
-        private readonly Vector3 rightDistance= new(2f, 0f, 0f);
+        private readonly Vector3 rightDistance = new(2f, 0f, 0f);
         private readonly Vector3 leftDistance = new(-2f, 0f, 0f);
 
         private Transform _currentTarget;
@@ -18,13 +18,17 @@ namespace ATBMI.Entities.NPCs
         private float _currentFollowTime;
         private float _currentFollowDelayTime;
 
+        // Constructor
         public TaskFollow(CharacterAI character, CharacterData data, float followTime)
         {
             this.character = character;
             this.data = data;
             this.followTime = followTime;
+            
+            InitFactors(planning: 1f, risk: 0.5f, timeRange: (6f, 12f));
         }
 
+        // Core
         public override NodeStatus Evaluate()
         {
             if (!TrySetupTarget())

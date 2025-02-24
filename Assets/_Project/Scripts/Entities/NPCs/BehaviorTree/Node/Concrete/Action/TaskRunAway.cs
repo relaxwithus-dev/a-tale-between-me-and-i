@@ -14,6 +14,7 @@ namespace ATBMI.Entities.NPCs
         private float _currentMoveTime;
         private Vector3 _targetDirection;
         
+        // Constructor
         public TaskRunAway(CharacterAI character, CharacterData data, float moveTime)
         {
             this.character = character;
@@ -23,6 +24,7 @@ namespace ATBMI.Entities.NPCs
             InitFactors(planning: 1f, risk: 0.7f, timeRange: (3f, 8f));
         }
         
+        // Core
         public override NodeStatus Evaluate()
         {
             if (!TrySetupDirection())

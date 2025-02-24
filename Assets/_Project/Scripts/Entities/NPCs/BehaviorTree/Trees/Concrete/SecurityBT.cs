@@ -41,7 +41,7 @@ namespace ATBMI.Entities.NPCs
                             new Sequence("Push", new List<Node>
                             {
                                 new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true),
-                                new TaskPush(),
+                                // new TaskPush(),
                                 new TaskMoveToOrigin(characterAI, characterAI.Data, isWalk: true)
                             }),
                             new TaskDialogue(characterAI, dialogueText: "Aku Marah Lo!")
@@ -88,7 +88,7 @@ namespace ATBMI.Entities.NPCs
                                     new SequenceWeight("Push", new List<Node>
                                     {
                                         new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true),
-                                        new TaskPush(),
+                                        // new TaskPush(),
                                         new TaskMoveToOrigin(characterAI, characterAI.Data, isWalk: true)
                                     }),
                                     new TaskDialogue(characterAI, dialogueText: "Aku Marah Lo!")
