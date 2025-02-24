@@ -23,7 +23,7 @@ namespace ATBMI.Entities.NPCs
             Collider2D targetPhys = Physics2D.OverlapCircle(centerPoint.position, radius, targetLayer);
             if (targetPhys != null)
             {
-                if (!targetPhys.CompareTag(GameTag.PLAYER_TAG))
+                if (!targetPhys.CompareTag(GameTag.ITEM_TAG))
                     return NodeStatus.Failure;
                 
                 Debug.Log("Execute Success: Check Target In Zone");

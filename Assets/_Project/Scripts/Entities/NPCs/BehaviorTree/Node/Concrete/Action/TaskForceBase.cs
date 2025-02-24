@@ -37,11 +37,11 @@ namespace ATBMI.Entities.NPCs
             var target = (Collider2D)GetData(PHYSIC_KEY);
             if (!target)
             {
-                Debug.LogWarning("Execute Failure: TaskPush");
+                Debug.LogWarning("Execute Failure: TaskForce");
                 return false;
             }
             
-            Debug.Log("Execute Success: TaskPush");
+            Debug.Log("Execute Success: TaskForce");
             player = target.GetComponent<PlayerController>();
             return true;
         }

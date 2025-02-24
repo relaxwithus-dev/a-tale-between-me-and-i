@@ -47,7 +47,6 @@ namespace ATBMI.Entities.NPCs
 
         private void HoldTarget()
         {
-            Debug.LogWarning("Attempting to hold target");
             Vector2 direction = (player.transform.position - character.transform.position).normalized;
             
             _isHolding = true;

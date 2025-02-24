@@ -39,7 +39,8 @@ namespace ATBMI.Entities.NPCs
         
         public void LookAt(Vector2 direction)
         {
-            characterDirection = direction;
+            Debug.LogWarning(direction);
+            characterDirection = direction.normalized;
             if (direction.x > 0 && !isFacingRight || direction.x < 0 && isFacingRight)
                 Flip();
         }

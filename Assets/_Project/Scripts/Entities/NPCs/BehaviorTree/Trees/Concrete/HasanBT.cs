@@ -99,7 +99,20 @@ namespace ATBMI.Entities.NPCs
                new TaskIdle(characterAI)
            });
            
-           return pullTree;
+           // Jump Back
+           Selector jumpTree = new Selector("Jump Tree", new List<Node>
+           {
+               new Sequence("Jump", new List<Node>
+               {
+                   new CheckTargetInZone(centerPoint, zoneDetails[0].Radius, layerMask),
+                   new CheckSameDirection(characterAI),
+                   new TaskJumpBack(characterAI, 0.3f, 0.15f),
+                   new TaskIdle(characterAI)
+               }),
+               new TaskIdle(characterAI)
+           });
+           
+           return followTree;
         }
     }
 }
