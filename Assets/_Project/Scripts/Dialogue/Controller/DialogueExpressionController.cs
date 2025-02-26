@@ -13,7 +13,7 @@ public class DialogueExpressionController : MonoBehaviour
         DialogueEvents.PlayDialogueAnim += PlayDialogueAnim;
         DialogueEvents.StopDialogueAnim += StopDialogueAnim;
     }
-
+    
     private void OnDisable()
     {
         DialogueEvents.PlayDialogueAnim -= PlayDialogueAnim;

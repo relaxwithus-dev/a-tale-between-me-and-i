@@ -25,8 +25,11 @@ namespace ATBMI.Entities.NPCs
         public override NodeStatus Evaluate()
         {
             if (_selectedZone == null)
+            {
                 _selectedZone = TrySelectZone();
-
+                Debug.Log($"Execute Zone: {_selectedZone.nodeName}");
+            }
+            
             switch (_selectedZone.Evaluate())
             {
                 case NodeStatus.Running:

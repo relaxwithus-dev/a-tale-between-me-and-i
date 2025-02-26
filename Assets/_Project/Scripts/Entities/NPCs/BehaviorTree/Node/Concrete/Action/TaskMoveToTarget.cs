@@ -1,114 +1,63 @@
-using UnityEngine;
 using ATBMI.Data;
+using UnityEngine;
 
 namespace ATBMI.Entities.NPCs
 {
-    public class TaskMoveToTarget : Node
+    public class TaskMoveToTarget : TaskMoveBase
     {
-        private readonly CharacterAI character;
-        private readonly CharacterData data;
-        private readonly float moveDelay;
-        private readonly bool isOrigin;
-        private readonly bool isWalk;
+        private readonly Transform initialPoint;
+        private readonly Vector3 rightDistance = new(1f, 0f, 0f);
+        private readonly Vector3 leftDistance = new(-1f, 0f, 0f);
 
-        private CharacterState _targetState;
-        private Vector3 _targetPosition;
-        private float _currentTime;
-        
-        public TaskMoveToTarget(CharacterAI character, CharacterData data, bool isWalk, bool isOrigin, float moveDelay = 3f)
+        private Transform _targetPoint;
+
+        // Constructor
+        public TaskMoveToTarget(CharacterAI character, CharacterData data, bool isWalk) : base(character, data, isWalk) { }
+        public TaskMoveToTarget(CharacterAI character, CharacterData data, bool isWalk, Transform initialPoint) 
+            : base(character, data, isWalk)
         {
-            this.character = character;
-            this.data = data;
-            this.isWalk = isWalk;
-            this.isOrigin = isOrigin;
-            this.moveDelay = moveDelay;
+            this.initialPoint = initialPoint;
         }
         
-        public override NodeStatus Evaluate()
+        // Core
+        protected override bool TrySetupTarget()
         {
-            if (!TrySetupTarget())
-                return NodeStatus.Failure;
-            
-            if (_currentTime < moveDelay)
+            if (initialPoint != null)
             {
-                _currentTime += Time.deltaTime;
-                ChangeDirectionToTarget();
-                return NodeStatus.Running;
-            }
-            
-            return MoveToTarget();
-        }
-        
-        protected override void Reset()
-        {
-            base.Reset();
-            _currentTime = 0f;
-            _targetPosition = Vector3.zero;
-            _targetState = CharacterState.None;
-        }
-        
-        private bool TrySetupTarget()
-        {
-            if (_targetPosition != Vector3.zero)
+                if (targetPosition == Vector3.zero)
+                    targetPosition = GetPosition(initialPoint);
+                
                 return true;
-            
-            if (isOrigin)
-            {
-                var originPoint = (Vector3)GetData(ORIGIN_KEY);
-                if (originPoint == Vector3.zero)
-                    return false;
-            
-                _targetPosition = originPoint;
             }
-            else
-            {
-                var targetPoint = (Transform)GetData(TARGET_KEY);
-                if (!targetPoint)
-                    return false;
             
-                _targetPosition = new Vector3(
-                    targetPoint.position.x,
-                    character.transform.position.y,
-                    targetPoint.position.z);
-            }
-
+            _targetPoint = (Transform)GetData(TARGET_KEY);
+            if (!_targetPoint)
+                return false;
+            
+            targetPosition = GetPositionWithDistance(_targetPoint.position);
             return true;
         }
         
-        private void ChangeDirectionToTarget()
+        private Vector3 GetPosition(Transform target)
         {
-            if (_currentTime >= moveDelay / 2f)
-            {
-                var direction = (_targetPosition - character.transform.position).normalized;
-                character.LookAt(direction);
-            }
+            return new Vector3(target.position.x,
+                character.transform.position.y,
+                character.transform.position.z
+            );
         }
         
-        private NodeStatus MoveToTarget()
+        private Vector3 GetPositionWithDistance(Vector3 target)
         {
-            if (_targetState == CharacterState.None)
-                SetupState();
-                
-            character.ChangeState(_targetState);
-            character.transform.position = Vector2.MoveTowards(character.transform.position,
-                _targetPosition, data.MoveSpeed * Time.deltaTime);
-
-            if (!(Vector2.Distance(character.transform.position, _targetPosition) <= 0.01f)) 
-                return NodeStatus.Running;
-            
-            character.transform.position = _targetPosition;
-            character.ChangeState(CharacterState.Idle);
-            
-            _currentTime = 0f;
-            _targetPosition = Vector3.zero;
-            return NodeStatus.Success;
+            var opposite = target.x < character.transform.position.x ? rightDistance : leftDistance;
+            return new Vector3((target + opposite).x,
+                character.transform.position.y,
+                character.transform.position.z);
         }
-
-        private void SetupState()
+        
+        protected override void WhenReachTarget()
         {
-            _targetState = isWalk 
-                ? CharacterState.Walk 
-                : CharacterState.Run;
+            base.WhenReachTarget();
+            parentNode.ClearData(TARGET_KEY);
         }
     }
 }

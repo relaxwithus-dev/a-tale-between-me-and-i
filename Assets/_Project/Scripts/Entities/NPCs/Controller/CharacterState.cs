@@ -2,7 +2,6 @@ namespace ATBMI.Entities.NPCs
 {
     public enum CharacterState
     {
-        None,
         Idle,
         Walk,
         Run,

@@ -16,22 +16,23 @@ namespace ATBMI.Entities.NPCs
         // Cached properties
         protected const string TARGET_KEY = "Target";
         protected const string ORIGIN_KEY = "Origin";
+        protected const string PHYSIC_KEY = "Physics";
 
         #endregion
         
         #region Methods
         
-        public Node()
+        protected Node()
         {
             parentNode = null;
         }
         
-        public Node(string nodeName)
+        protected Node(string nodeName)
         {
             this.nodeName = nodeName;
         }
         
-        public Node(string nodeName, List<Node> childNodes)
+        protected Node(string nodeName, List<Node> childNodes)
         {
             this.nodeName = nodeName;
             foreach (var node in childNodes)

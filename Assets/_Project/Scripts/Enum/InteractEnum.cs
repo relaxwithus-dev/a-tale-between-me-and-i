@@ -1,25 +1,15 @@
 namespace ATBMI.Enum
 {
-    // General
-    public enum InteractSelect
+    public enum InteractAction
     {
-        Take,
-        Give,
-        None
+        Talks, Run, Walk,
+        Give, Take
     }
-
+    
     public enum InteractFlagStatus
     {
         Interaction,
         Item,
         Close
-    }
-
-    // Item
-    public enum ItemAccess
-    {
-        Receive,
-        Give,
-        None
     }
 }
