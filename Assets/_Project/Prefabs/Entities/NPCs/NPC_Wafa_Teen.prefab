@@ -12,6 +12,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC_Wafa_Teen
       objectReference: {fileID: 0}
+    - target: {fileID: 819465445805292157, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 819465445805292157, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1177493690341274544, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: characterData
       value: 
@@ -19,6 +27,14 @@ PrefabInstance:
     - target: {fileID: 1177493690341274544, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: isFacingRight
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2969078484764688885, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2969078484764688885, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 3609649175966335719, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_Size.x
@@ -36,10 +52,18 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 1.2344196
       objectReference: {fileID: 0}
+    - target: {fileID: 3754992802670437494, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4403454399528855645, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 522a78492898ade479c09b410db0fbe8, type: 2}
+    - target: {fileID: 4536252543316230107, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+      propertyPath: signTransform
+      value: 
+      objectReference: {fileID: 4557523409864915204}
     - target: {fileID: 4878722094123776488, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_Size.x
       value: 3.125
@@ -56,13 +80,37 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5381523416003278821, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+      propertyPath: m_Size.x
+      value: 0.625442
+      objectReference: {fileID: 0}
+    - target: {fileID: 5381523416003278821, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+      propertyPath: m_Size.y
+      value: 0.15658164
+      objectReference: {fileID: 0}
+    - target: {fileID: 5381523416003278821, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.09286404
+      objectReference: {fileID: 0}
+    - target: {fileID: 5381523416003278821, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.16994202
+      objectReference: {fileID: 0}
+    - target: {fileID: 7611146811407626175, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 7611146811407626175, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7858659317861269129, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.15352523
+      value: 3.4307508
       objectReference: {fileID: 0}
     - target: {fileID: 7858659317861269129, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.0919492
+      value: -2.462697
       objectReference: {fileID: 0}
     - target: {fileID: 7858659317861269129, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -101,3 +149,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+--- !u!4 &4557523409864915204 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7611146811407626175, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+  m_PrefabInstance: {fileID: 6241895453110703803}
+  m_PrefabAsset: {fileID: 0}

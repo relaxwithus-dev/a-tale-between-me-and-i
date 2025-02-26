@@ -130,7 +130,6 @@ GameObject:
   - component: {fileID: 7858659317861269129}
   - component: {fileID: 5381523416003278821}
   - component: {fileID: 1177493690341274544}
-  - component: {fileID: 2342491209972259797}
   - component: {fileID: 4536252543316230107}
   m_Layer: 7
   m_Name: NPC
@@ -216,21 +215,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterData: {fileID: 0}
-  characterState: 1
+  characterState: 0
   characterDirection: {x: 0, y: 0}
   isFacingRight: 0
---- !u!114 &2342491209972259797
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 225562555324070475}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6a86d9e3f0035042bec9a0b1cbd87bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4536252543316230107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,7 +233,7 @@ MonoBehaviour:
   isInteracting: 0
   interactAction: 0
   targetId: 0
-  signTransform: {fileID: 0}
+  signTransform: {fileID: 7611146811407626175}
   characterTraits: {fileID: 0}
 --- !u!1 &1695725748540461339
 GameObject:
@@ -512,11 +499,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3762035005948477387, guid: ceaa9e0053049bc42a89b488a2e4fbe7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.877
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 3762035005948477387, guid: ceaa9e0053049bc42a89b488a2e4fbe7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.945
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3762035005948477387, guid: ceaa9e0053049bc42a89b488a2e4fbe7, type: 3}
       propertyPath: m_LocalPosition.z
