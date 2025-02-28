@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: Anjing
   m_EditorClassIdentifier: 
   characterName: Anjing
-  moveSpeed: 1
+  isIdling: 0
+  moveSpeeds:
+  - Type: Walk
+    Speed: 1.3

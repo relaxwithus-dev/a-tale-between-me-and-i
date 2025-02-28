@@ -6,21 +6,21 @@ namespace ATBMI.Entities.NPCs
     public class TaskMoveBase : LeafWeight
     {
         protected readonly CharacterAI character;
-        private readonly CharacterData data;
         private readonly bool isWalk;
         private readonly float moveDelayTime = 3f;
         
         protected Vector3 targetPosition;
-        private CharacterState _targetState;
+        private float _moveSpeed;
         private float _currentTime;
+        private CharacterState _targetState;
         
         // Constructor
         protected TaskMoveBase(CharacterAI character, CharacterData data, bool isWalk)
         {
             this.character = character;
-            this.data = data;
             this.isWalk = isWalk;
             
+            _moveSpeed = data.GetSpeedByType(isWalk ? "Walk" : "Run");
             InitFactors(planning: 1f, risk: 0.4f, timeRange: (4, 8));
         }
         
@@ -54,12 +54,12 @@ namespace ATBMI.Entities.NPCs
             if (_targetState == CharacterState.Idle)
             {
                 Debug.Log("Execute Success: TaskMove");
-                TrySetupState();
+                TrySetupStats();
             }
             
             character.ChangeState(_targetState);
             character.transform.position = Vector2.MoveTowards(character.transform.position,
-                targetPosition, data.MoveSpeed * Time.deltaTime);
+                targetPosition, _moveSpeed * Time.deltaTime);
 
             if (!(Vector2.Distance(character.transform.position, targetPosition) <= 0.01f)) 
                 return NodeStatus.Running;
@@ -85,7 +85,7 @@ namespace ATBMI.Entities.NPCs
             character.ChangeState(CharacterState.Idle);
         }
         
-        private void TrySetupState()
+        private void TrySetupStats()
         {
             _targetState = isWalk 
                 ? CharacterState.Walk 
@@ -95,8 +95,10 @@ namespace ATBMI.Entities.NPCs
         // Helpers
         private void ResetFields()
         {
-            _currentTime = 0f;
             targetPosition = Vector3.zero;
+            
+            _moveSpeed = 0f;
+            _currentTime = 0f;
             _targetState = CharacterState.Idle;
         }
     }

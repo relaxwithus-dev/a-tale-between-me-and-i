@@ -13,4 +13,9 @@ MonoBehaviour:
   m_Name: Baba
   m_EditorClassIdentifier: 
   characterName: Baba
-  moveSpeed: 1.3
+  isIdling: 0
+  moveSpeeds:
+  - Type: Walk
+    Speed: 1.3
+  - Type: Run
+    Speed: 2.7

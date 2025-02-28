@@ -15,7 +15,7 @@ PrefabInstance:
     - target: {fileID: 1177493690341274544, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: characterData
       value: 
-      objectReference: {fileID: 11400000, guid: 89df7c50692ccf041ab87e4f94ad53c9, type: 2}
+      objectReference: {fileID: 11400000, guid: d4fabf6038aa44b43b4c851f69a2cf08, type: 2}
     - target: {fileID: 1177493690341274544, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: isFacingRight
       value: 1
@@ -110,6 +110,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 3736038964476778030}
   m_SourcePrefab: {fileID: 100100000, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+--- !u!4 &4557523409864915204 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7611146811407626175, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+  m_PrefabInstance: {fileID: 6241895453110703803}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6178640880139922672 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 225562555324070475, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
@@ -130,5 +135,5 @@ MonoBehaviour:
   isInteracting: 0
   interactAction: 0
   targetId: 0
-  signTransform: {fileID: 0}
+  signTransform: {fileID: 4557523409864915204}
   characterTraits: {fileID: 0}

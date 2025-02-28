@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: Pemabuk
   m_EditorClassIdentifier: 
   characterName: Pemabuk
-  moveSpeed: 1
+  isIdling: 0
+  moveSpeeds:
+  - Type: Walk
+    Speed: 1.3
