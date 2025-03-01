@@ -3602,6 +3602,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1010676697
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1010676698}
+  m_Layer: 0
+  m_Name: --- Daerah Bali ---
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1010676698
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010676697}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.1424413, y: 0.50983804, z: 0.32496136}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1016435603
 GameObject:
   m_ObjectHideFlags: 0
@@ -5164,6 +5195,37 @@ Transform:
   - {fileID: 846433901}
   - {fileID: 1249481659}
   - {fileID: 2040522746}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1386992136
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1386992137}
+  m_Layer: 0
+  m_Name: --- Daerah Surabaya ---
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1386992137
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386992136}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.1424413, y: 0.50983804, z: 0.32496136}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1408790948
@@ -7712,6 +7774,7 @@ SceneRoots:
   - {fileID: 261121165}
   - {fileID: 1016760589}
   - {fileID: 2145453890}
+  - {fileID: 1010676698}
   - {fileID: 1142010866}
   - {fileID: 639545604}
   - {fileID: 766707}
@@ -7719,7 +7782,9 @@ SceneRoots:
   - {fileID: 1969682177}
   - {fileID: 964223814}
   - {fileID: 1208188776}
+  - {fileID: 1386992137}
   - {fileID: 1824591845}
+  - {fileID: 181036604}
   - {fileID: 1268878638}
   - {fileID: 356797658}
   - {fileID: 965272128}
@@ -7729,4 +7794,3 @@ SceneRoots:
   - {fileID: 78566733}
   - {fileID: 970780244}
   - {fileID: 1361480986}
-  - {fileID: 181036604}

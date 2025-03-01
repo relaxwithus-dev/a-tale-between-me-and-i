@@ -1910,7 +1910,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5100580093370311947, guid: 78ee4d4f810a1af4d9da26e5577423b6, type: 3}
   m_PrefabInstance: {fileID: 803750060}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 803750061}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eacf663ecdb8b3544bec3ecaa174e2ff, type: 3}
@@ -2001,7 +2001,7 @@ GameObject:
   - component: {fileID: 822469137}
   - component: {fileID: 822469136}
   m_Layer: 0
-  m_Name: gudang fore
+  m_Name: Background-ObjekGudang
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2152,9 +2152,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInteracting: 0
-  interactSelect: 0
+  interactAction: 0
   targetId: 0
   signTransform: {fileID: 0}
+  characterTraits: {fileID: 0}
 --- !u!4 &826836043 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4291996230028175410, guid: bb83f269e648f8c44b131c976daf764b, type: 3}
@@ -4676,7 +4677,7 @@ GameObject:
   - component: {fileID: 1460405532}
   - component: {fileID: 1460405531}
   m_Layer: 0
-  m_Name: gudang
+  m_Name: Background-Gudang
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6616,7 +6617,7 @@ GameObject:
   - component: {fileID: 2094256259}
   - component: {fileID: 2094256258}
   m_Layer: 0
-  m_Name: gudang shadow
+  m_Name: Background-ShadowGudang
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

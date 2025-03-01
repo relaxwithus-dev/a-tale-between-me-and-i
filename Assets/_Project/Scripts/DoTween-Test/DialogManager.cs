@@ -1,45 +1,73 @@
+using System.Collections;
 using UnityEngine;
 using TMPro;
 using DG.Tweening;
 
 public class DialogManager : MonoBehaviour
 {
-    public GameObject dialogBox; // Dialog Box UI
-    public TextMeshProUGUI dialogText; // Text di dalam DialogBox
-    public CanvasGroup dialogCanvasGroup; // Canvas Group untuk animasi fade
+    public GameObject dialogBox; // UI DialogBox
+    public TextMeshProUGUI dialogText; // Text dialog
+    public CanvasGroup dialogCanvasGroup; // Untuk animasi fade-in/out
+
     private bool isDialogActive = false;
 
     void Start()
     {
-        dialogBox.SetActive(false); // Pastikan DialogBox tersembunyi saat game dimulai
+        if (dialogBox == null || dialogText == null || dialogCanvasGroup == null)
+        {
+            Debug.LogError("DialogManager: Ada komponen yang belum diassign! Pastikan dialogBox, dialogText, dan dialogCanvasGroup sudah diatur di Inspector.");
+            return;
+        }
+
+        dialogBox.SetActive(false); // Pastikan dialogBox tidak muncul saat game dimulai
     }
 
     public void ShowDialog(string message)
-{
-    if (dialogBox == null || dialogText == null || dialogCanvasGroup == null)
     {
-        Debug.LogError("ShowDialog() gagal: Pastikan semua reference sudah diassign!");
-        return;
-    }
+        if (dialogBox == null || dialogText == null || dialogCanvasGroup == null)
+        {
+            Debug.LogError("ShowDialog() gagal: Pastikan semua reference sudah diassign!");
+            return;
+        }
 
-    Debug.Log("Menampilkan DialogBox...");
-    
-    isDialogActive = true;
-    dialogBox.SetActive(true); // Pastikan dialogBox aktif
-    dialogText.text = message; // Masukkan teks ke dialog
-    
-    dialogCanvasGroup.alpha = 0;
-    dialogCanvasGroup.DOFade(1, 0.5f);
-}
+        isDialogActive = true;
+        dialogBox.SetActive(true); // Aktifkan dialogBox
+        dialogText.text = ""; // Kosongkan teks sebelum animasi mengetik
+
+        dialogCanvasGroup.alpha = 0;
+        dialogCanvasGroup.DOFade(1, 0.5f).OnComplete(() =>
+        {
+            StartCoroutine(TypeDialog(message)); // Mulai efek mengetik
+        });
+    }
 
     public void HideDialog()
     {
-        isDialogActive = false;
+        if (dialogCanvasGroup == null)
+        {
+            Debug.LogError("HideDialog() gagal: CanvasGroup tidak diassign!");
+            return;
+        }
 
-        // Animasi fade-out, lalu sembunyikan dialog box
+        isDialogActive = false;
         dialogCanvasGroup.DOFade(0, 0.5f).OnComplete(() =>
         {
-            dialogBox.SetActive(false);
+            dialogBox.SetActive(false); // Nonaktifkan setelah fade-out selesai
         });
+    }
+
+    IEnumerator TypeDialog(string message)
+    {
+        dialogText.text = "";
+        foreach (char letter in message.ToCharArray())
+        {
+            dialogText.text += letter;
+            yield return new WaitForSeconds(0.05f); // Efek mengetik
+        }
+    }
+
+    public bool IsDialogActive()
+    {
+        return isDialogActive;
     }
 }
