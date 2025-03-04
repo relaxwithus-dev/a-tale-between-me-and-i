@@ -6,94 +6,123 @@ public class CutsceneManager : MonoBehaviour
 {
     public Transform player;
     public Transform cameraTransform;
-    public DialogManager dialogManager; // Pastikan ini sudah dihubungkan di Inspector!
-    private Animator PlayerAnimation;
+    public DialogManager dialogManager;
+    private Animator playerAnimator;
+    private PlayerController playerController;
 
     void Start()
     {
-        PlayerAnimation = player.GetComponent<Animator>(); // Ambil Animator dari karakter
+        playerAnimator = player?.GetComponent<Animator>(); 
+        playerController = player?.GetComponent<PlayerController>();
 
-        if (PlayerAnimation == null)
+        if (playerAnimator == null)
         {
-            Debug.LogError("Animator tidak ditemukan pada karakter pemain!");
+            Debug.LogError("❌ ERROR: Animator tidak ditemukan pada karakter pemain!");
+        }
+        if (playerController == null)
+        {
+            Debug.LogError("❌ ERROR: PlayerController tidak ditemukan pada karakter pemain!");
+        }
+        if (dialogManager == null)
+        {
+            Debug.LogError("❌ ERROR: DialogManager tidak diassign di Inspector!");
         }
     }
 
     public void PlayCutscene()
     {
-        // Nonaktifkan kontrol pemain
-        player.GetComponent<PlayerController>().enabled = false;
+        if (playerController != null)
+        {
+            playerController.enabled = false;
+        }
 
         Sequence cutscene = DOTween.Sequence();
 
-        // 🔹 Ubah arah sebelum bergerak ke kanan
-        cutscene.AppendCallback(() => UpdateDirection(player.position.x + 5f));
-
-        // Pemain berjalan ke kanan dan kamera mengikuti
-        cutscene.AppendCallback(() => PlayerAnimation.SetBool("isWalking", true));
+        // 🔹 Pemain berjalan ke kanan
+        cutscene.AppendCallback(() => SafeUpdateDirection(1));
+        cutscene.AppendCallback(() => SafeSetAnimation("isWalking", true));
         cutscene.Append(player.DOMoveX(player.position.x + 5f, 3f).SetEase(Ease.Linear));
         cutscene.Join(cameraTransform.DOMoveX(cameraTransform.position.x + 5f, 3f).SetEase(Ease.InOutSine));
+        cutscene.AppendCallback(() => SafeSetAnimation("isWalking", false));
 
-        // 🔹 Tambahkan dialog pertama
-        cutscene.AppendCallback(() => PlayerAnimation.SetBool("isWalking", false));
-        cutscene.AppendCallback(() => {
-            Debug.Log("Memulai dialog pertama...");
-            ShowDialog("Aku merasa ada sesuatu yang aneh di depan...");
-        });
+        // 🔹 Dialog pertama
+        cutscene.AppendCallback(() => SafeShowDialog("Aku merasa ada sesuatu yang aneh di depan...", "Dewa"));
         cutscene.AppendInterval(3f);
-        cutscene.AppendCallback(() => HideDialog());
+        cutscene.AppendCallback(() => SafeHideDialog());
 
-        // 🔹 Ubah arah sebelum bergerak ke kiri
-        cutscene.AppendCallback(() => UpdateDirection(player.position.x - 5f));
-
-        // Pemain berjalan ke kiri
-        cutscene.AppendCallback(() => PlayerAnimation.SetBool("isWalking", true));
-        cutscene.AppendInterval(1f);
+        // 🔹 Pemain berjalan ke kiri
+        cutscene.AppendCallback(() => SafeUpdateDirection(-1));
+        cutscene.AppendCallback(() => SafeSetAnimation("isWalking", true));
         cutscene.Append(player.DOMoveX(player.position.x - 5f, 2f).SetEase(Ease.Linear));
         cutscene.Join(cameraTransform.DOMoveX(cameraTransform.position.x - 5f, 2f).SetEase(Ease.InOutSine));
-        cutscene.AppendCallback(() => PlayerAnimation.SetBool("isWalking", false));
+        cutscene.AppendCallback(() => SafeSetAnimation("isWalking", false));
 
-        // 🔹 Tambahkan dialog kedua
-        cutscene.AppendCallback(() => {
-            Debug.Log("Memulai dialog kedua...");
-            ShowDialog("Apa itu? Sepertinya ada seseorang di sana.");
-        });
+        // 🔹 Dialog kedua
+        cutscene.AppendCallback(() => SafeShowDialog("Apa itu? Sepertinya ada seseorang di sana.", "Dewa"));
         cutscene.AppendInterval(3f);
-        cutscene.AppendCallback(() => HideDialog());
+        cutscene.AppendCallback(() => SafeHideDialog());
 
-        // Tunggu sebentar sebelum cutscene selesai
+        // 🔹 Cutscene selesai
         cutscene.AppendInterval(2f);
         cutscene.AppendCallback(() => EndCutscene());
     }
 
-    void ShowDialog(string message)
+    void SafeShowDialog(string message, string speakerName)
     {
-        dialogManager.dialogBox.SetActive(true);
-        dialogManager.dialogText.text = message;
-        dialogManager.ShowDialog(message);
+        if (dialogManager != null)
+        {
+            dialogManager.dialogBox.SetActive(true);
+            dialogManager.dialogText.text = message;
+            dialogManager.dialogNameText.text = speakerName;
+            dialogManager.ShowDialog(message, speakerName);
+        }
+        else
+        {
+            Debug.LogError("❌ ERROR: DialogManager tidak diassign di Inspector!");
+        }
     }
 
-    void HideDialog()
+    void SafeHideDialog()
     {
-        dialogManager.HideDialog();
+        if (dialogManager != null)
+        {
+            dialogManager.HideDialog();
+        }
+    }
+
+    void SafeSetAnimation(string parameter, bool value)
+    {
+        if (playerAnimator != null)
+        {
+            playerAnimator.SetBool(parameter, value);
+        }
+        else
+        {
+            Debug.LogError("❌ ERROR: Animator tidak ditemukan pada karakter!");
+        }
+    }
+
+    void SafeUpdateDirection(int direction)
+    {
+        if (player != null)
+        {
+            player.localScale = new Vector3(direction, 1, 1);
+        }
+        else
+        {
+            Debug.LogError("❌ ERROR: Transform pemain tidak ditemukan!");
+        }
     }
 
     void EndCutscene()
     {
-        // Aktifkan kembali kontrol pemain
-        player.GetComponent<PlayerController>().enabled = true;
-    }
-
-    // 🔹 **Fungsi untuk mengubah arah karakter**
-    void UpdateDirection(float targetX)
-    {
-        if (targetX > player.position.x)
+        if (playerController != null)
         {
-            player.localScale = new Vector3(1, 1, 1); // Menghadap kanan
+            playerController.enabled = true;
         }
         else
         {
-            player.localScale = new Vector3(-1, 1, 1); // Menghadap kiri
+            Debug.LogError("❌ ERROR: PlayerController tidak ditemukan!");
         }
     }
 }
