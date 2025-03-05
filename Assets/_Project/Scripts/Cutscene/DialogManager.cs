@@ -13,6 +13,7 @@ public class DialogManager : MonoBehaviour
     void Start()
     {
         dialogBox.SetActive(false); // Pastikan dialog tidak aktif saat game dimulai
+        dialogCanvasGroup.alpha = 0; // Pastikan alpha awal 0
     }
 
     public void ShowDialog(string message, string speakerName)
@@ -22,14 +23,16 @@ public class DialogManager : MonoBehaviour
         dialogNameText.text = speakerName; // Set nama pembicara
         dialogText.text = message; // Set teks dialog
 
-        // Animasi fade-in
-        dialogCanvasGroup.alpha = 0;
-        dialogCanvasGroup.DOFade(1, 0.5f);
+        // Pastikan dialog langsung terlihat dengan alpha 1
+        dialogCanvasGroup.DOKill(); // Hentikan animasi sebelumnya
+        dialogCanvasGroup.alpha = 1;
+        dialogCanvasGroup.DOFade(1, 0.5f); // Animasi fade-in
     }
 
     public void HideDialog()
     {
         isDialogActive = false;
+        dialogCanvasGroup.DOKill(); // Hentikan animasi sebelumnya
         dialogCanvasGroup.DOFade(0, 0.5f).OnComplete(() =>
         {
             dialogBox.SetActive(false); // Nonaktifkan setelah fade-out selesai
