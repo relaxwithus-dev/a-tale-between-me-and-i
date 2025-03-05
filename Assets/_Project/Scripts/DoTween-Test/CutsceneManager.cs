@@ -1,5 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
+using System.Collections;
+using System.Collections.Generic;
 using ATBMI.Entities.Player;
 
 public class CutsceneManager : MonoBehaviour
@@ -7,111 +9,86 @@ public class CutsceneManager : MonoBehaviour
     public Transform player;
     public Transform cameraTransform;
     public DialogManager dialogManager;
+    public CanvasGroup blackScreen;
+    public CutsceneData cutsceneData; // Cutscene yang akan dimainkan
+
     private Animator playerAnimator;
     private PlayerController playerController;
 
     void Start()
     {
-        playerAnimator = player?.GetComponent<Animator>(); 
+        StartCoroutine(FadeScreen(1, 2f)); // Fade ke hitam dalam 2 detik
+        StartCoroutine(FadeScreen(0, 2f)); // Fade ke transparan dalam 2 detik
+
+
+        playerAnimator = player?.GetComponent<Animator>();
         playerController = player?.GetComponent<PlayerController>();
 
-        if (playerAnimator == null)
+        if (cutsceneData == null)
         {
-            Debug.LogError("❌ ERROR: Animator tidak ditemukan pada karakter pemain!");
+            Debug.LogError("❌ ERROR: Tidak ada cutscene yang diassign!");
+            return;
         }
-        if (playerController == null)
+
+        if (blackScreen == null)
         {
-            Debug.LogError("❌ ERROR: PlayerController tidak ditemukan pada karakter pemain!");
+            Debug.LogError("❌ ERROR: BlackScreen (CanvasGroup) belum diassign!");
         }
-        if (dialogManager == null)
+        else
         {
-            Debug.LogError("❌ ERROR: DialogManager tidak diassign di Inspector!");
+            blackScreen.alpha = 0; // Pastikan layar transparan di awal
         }
     }
 
-    public void PlayCutscene()
+    public void StartCutscene() // Metode baru agar bisa dipanggil dari luar
+    {
+        StartCoroutine(PlayCutscene());
+    }
+
+    public IEnumerator PlayCutscene()
     {
         if (playerController != null)
         {
             playerController.enabled = false;
         }
 
-        Sequence cutscene = DOTween.Sequence();
-
-        // 🔹 Pemain berjalan ke kanan
-        cutscene.AppendCallback(() => SafeUpdateDirection(1));
-        cutscene.AppendCallback(() => SafeSetAnimation("isWalking", true));
-        cutscene.Append(player.DOMoveX(player.position.x + 5f, 3f).SetEase(Ease.Linear));
-        cutscene.Join(cameraTransform.DOMoveX(cameraTransform.position.x + 5f, 3f).SetEase(Ease.InOutSine));
-        cutscene.AppendCallback(() => SafeSetAnimation("isWalking", false));
-
-        // 🔹 Dialog pertama
-        cutscene.AppendCallback(() => SafeShowDialog("Aku merasa ada sesuatu yang aneh di depan...", "Dewa"));
-        cutscene.AppendInterval(3f);
-        cutscene.AppendCallback(() => SafeHideDialog());
-
-        // 🔹 Pemain berjalan ke kiri
-        cutscene.AppendCallback(() => SafeUpdateDirection(-1));
-        cutscene.AppendCallback(() => SafeSetAnimation("isWalking", true));
-        cutscene.Append(player.DOMoveX(player.position.x - 5f, 2f).SetEase(Ease.Linear));
-        cutscene.Join(cameraTransform.DOMoveX(cameraTransform.position.x - 5f, 2f).SetEase(Ease.InOutSine));
-        cutscene.AppendCallback(() => SafeSetAnimation("isWalking", false));
-
-        // 🔹 Dialog kedua
-        cutscene.AppendCallback(() => SafeShowDialog("Apa itu? Sepertinya ada seseorang di sana.", "Dewa"));
-        cutscene.AppendInterval(3f);
-        cutscene.AppendCallback(() => SafeHideDialog());
-
-        // 🔹 Cutscene selesai
-        cutscene.AppendInterval(2f);
-        cutscene.AppendCallback(() => EndCutscene());
-    }
-
-    void SafeShowDialog(string message, string speakerName)
-    {
-        if (dialogManager != null)
+        foreach (CutsceneEvent cutsceneEvent in cutsceneData.events)
         {
-            dialogManager.dialogBox.SetActive(true);
-            dialogManager.dialogText.text = message;
-            dialogManager.dialogNameText.text = speakerName;
-            dialogManager.ShowDialog(message, speakerName);
-        }
-        else
-        {
-            Debug.LogError("❌ ERROR: DialogManager tidak diassign di Inspector!");
-        }
-    }
+            switch (cutsceneEvent.type)
+            {
+                case CutsceneType.ShowDialog:
+                    dialogManager.ShowDialog(cutsceneEvent.dialog, cutsceneEvent.speaker);
+                    yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space)); // Pencet tombol untuk lanjut
+                    dialogManager.HideDialog();
+                    break;
 
-    void SafeHideDialog()
-    {
-        if (dialogManager != null)
-        {
-            dialogManager.HideDialog();
-        }
-    }
+                case CutsceneType.MovePlayer:
+                    if (playerAnimator != null)
+                    {
+                        playerAnimator.SetBool("isWalking", true);
+                    }
+                    yield return player.DOMoveX(player.position.x + cutsceneEvent.moveDistance, cutsceneEvent.moveTime)
+                        .SetEase(Ease.Linear)
+                        .WaitForCompletion();
+                    if (playerAnimator != null)
+                    {
+                        playerAnimator.SetBool("isWalking", false);
+                    }
+                    break;
 
-    void SafeSetAnimation(string parameter, bool value)
-    {
-        if (playerAnimator != null)
-        {
-            playerAnimator.SetBool(parameter, value);
-        }
-        else
-        {
-            Debug.LogError("❌ ERROR: Animator tidak ditemukan pada karakter!");
-        }
-    }
+                case CutsceneType.MoveCamera:
+                    yield return cameraTransform.DOMoveX(cameraTransform.position.x + cutsceneEvent.moveDistance, cutsceneEvent.moveTime)
+                        .SetEase(Ease.InOutSine)
+                        .WaitForCompletion();
+                    break;
 
-    void SafeUpdateDirection(int direction)
-    {
-        if (player != null)
-        {
-            player.localScale = new Vector3(direction, 1, 1);
+                case CutsceneType.FadeScreen:
+                    yield return StartCoroutine(FadeScreen(cutsceneEvent.moveDistance, cutsceneEvent.moveTime));
+                    break;
+            }
         }
-        else
-        {
-            Debug.LogError("❌ ERROR: Transform pemain tidak ditemukan!");
-        }
+
+        EndCutscene();
     }
 
     void EndCutscene()
@@ -120,9 +97,26 @@ public class CutsceneManager : MonoBehaviour
         {
             playerController.enabled = true;
         }
-        else
+    }
+
+    private IEnumerator FadeScreen(float targetAlpha, float duration)
+    {
+        if (blackScreen == null)
         {
-            Debug.LogError("❌ ERROR: PlayerController tidak ditemukan!");
+            Debug.LogError("❌ ERROR: BlackScreen (CanvasGroup) tidak ditemukan!");
+            yield break;
         }
+
+        float startAlpha = blackScreen.alpha;
+        float time = 0;
+
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+            blackScreen.alpha = Mathf.Lerp(startAlpha, targetAlpha, time / duration);
+            yield return null;
+        }
+
+        blackScreen.alpha = targetAlpha;
     }
 }
