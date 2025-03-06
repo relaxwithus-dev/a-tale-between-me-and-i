@@ -21,7 +21,7 @@ namespace ATBMI.Entities.NPCs
             this.isWalk = isWalk;
             
             _moveSpeed = data.GetSpeedByType(isWalk ? "Walk" : "Run");
-            InitFactors(planning: 1f, risk: 0.4f, timeRange: (4, 8));
+            InitFactors(plan: 1f, risk: 0.4f, timeRange: (4, 8));
         }
         
         // Core

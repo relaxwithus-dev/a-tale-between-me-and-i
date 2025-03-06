@@ -9,7 +9,7 @@ namespace ATBMI.Entities.NPCs
         public TaskIdle(CharacterAI character)
         {
             this.character = character;
-            InitFactors(planning: 1f, risk: 0f, timeRange: (0, 0));
+            InitFactors(plan: 1f, risk: 0f, timeRange: (0, 0));
         }
         
         public override NodeStatus Evaluate()

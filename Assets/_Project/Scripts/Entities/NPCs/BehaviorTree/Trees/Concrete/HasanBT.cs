@@ -41,7 +41,7 @@ namespace ATBMI.Entities.NPCs
            {
                new Sequence("Patrol", new List<Node>
                {
-                   new CheckIsFatigue(characterManager),
+                   new CheckFatigue(characterManager),
                    new TaskPatrol(characterAI, characterManager, characterAI.Data, targetPoints)
                }),
                new TaskIdle(characterAI)

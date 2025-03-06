@@ -14,7 +14,7 @@ namespace ATBMI.Entities.NPCs
                 character.transform.position.y,
                 character.transform.position.z);
             
-            InitFactors(planning: 0f, risk: 0f, timeRange: (0, 0));
+            InitFactors(plan: 0f, risk: 0f, timeRange: (0, 0));
         }
         
         public override NodeStatus Evaluate()

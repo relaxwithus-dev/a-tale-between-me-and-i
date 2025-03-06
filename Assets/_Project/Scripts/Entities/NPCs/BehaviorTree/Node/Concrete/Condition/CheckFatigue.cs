@@ -2,11 +2,11 @@ using UnityEngine;
 
 namespace ATBMI.Entities.NPCs
 {
-    public class CheckIsFatigue : Leaf
+    public class CheckFatigue : Leaf
     {
         private readonly CharacterManager manager;
         
-        public CheckIsFatigue(CharacterManager manager)
+        public CheckFatigue(CharacterManager manager)
         {
             this.manager = manager;
         }

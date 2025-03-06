@@ -12,7 +12,7 @@ namespace ATBMI.Entities.NPCs
             this.characterAI = characterAI;
             this.dialogueText = dialogueText;
             
-            InitFactors(planning: 1f, risk: 0f, timeRange: (1, 2.5f));
+            InitFactors(plan: 1f, risk: 0f, timeRange: (1, 2.5f));
         }
         
         public override NodeStatus Evaluate()

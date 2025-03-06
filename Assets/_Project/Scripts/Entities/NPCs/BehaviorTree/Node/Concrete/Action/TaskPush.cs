@@ -7,7 +7,7 @@ namespace ATBMI.Entities.NPCs
         // Constructor
         public TaskPush(CharacterAI character, float force, float delay) : base(character, force, delay)
         {
-            InitFactors(planning: 1, risk: 0.7f, timeRange: (0.3f, 1f));
+            InitFactors(plan: 1, risk: 0.7f, timeRange: (0.3f, 1f));
         }
         
         // Core

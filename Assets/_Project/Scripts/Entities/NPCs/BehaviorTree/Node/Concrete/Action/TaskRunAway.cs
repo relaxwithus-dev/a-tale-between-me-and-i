@@ -21,7 +21,7 @@ namespace ATBMI.Entities.NPCs
             this.moveTime = moveTime;
             
             moveSpeed = data.GetSpeedByType("Run");
-            InitFactors(planning: 1f, risk: 0.7f, timeRange: (3f, 8f));
+            InitFactors(plan: 1f, risk: 0.7f, timeRange: (3f, 8f));
         }
         
         // Core
@@ -62,7 +62,7 @@ namespace ATBMI.Entities.NPCs
             
             _currentMoveTime += Time.deltaTime;
             character.LookAt(_targetDirection);
-            character.ChangeState(CharacterState.Walk);
+            character.ChangeState(CharacterState.Run);
             character.transform.Translate(Vector3.right * (moveSpeed * Time.deltaTime));
             return NodeStatus.Running;
         }

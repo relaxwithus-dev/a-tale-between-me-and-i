@@ -18,7 +18,7 @@ namespace ATBMI.Entities.NPCs
             this.power = power;
             this.duration = duration;
             
-            InitFactors(planning: 1, risk: 0.6f, timeRange: (0.4f, 0.8f));
+            InitFactors(plan: 1, risk: 0.6f, timeRange: (0.4f, 0.8f));
         }
         
         public override NodeStatus Evaluate()
