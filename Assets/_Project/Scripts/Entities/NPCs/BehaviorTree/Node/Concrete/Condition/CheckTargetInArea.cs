@@ -3,13 +3,13 @@ using ATBMI.Core;
 
 namespace ATBMI.Entities.NPCs
 {
-    public class CheckTargetInZone : LeafWeight
+    public class CheckTargetInArea : LeafWeight
     {
-        private readonly Transform centerPoint;
+        protected readonly Transform centerPoint;
         private readonly float radius;
         private readonly LayerMask targetLayer;
         
-        public CheckTargetInZone(Transform centerPoint, float radius, LayerMask targetLayer)
+        public CheckTargetInArea(Transform centerPoint, float radius, LayerMask targetLayer)
         {
             this.centerPoint = centerPoint;
             this.radius = radius;
@@ -27,13 +27,13 @@ namespace ATBMI.Entities.NPCs
                     return NodeStatus.Failure;
                 
                 Debug.Log("Execute Success: Check Target In Zone");
-                parentNode.SetData(PHYSIC_KEY, targetPhys);
-                parentNode.SetData(TARGET_KEY, targetPhys.transform);
-                parentNode.SetData(ORIGIN_KEY, centerPoint.position);
+                OnTargetEnter(targetPhys);
                 return NodeStatus.Success;
             }
             
             return NodeStatus.Failure;
         }
+        
+        protected virtual void OnTargetEnter(Collider2D targetPhys) { }
     }
 }
