@@ -42,7 +42,7 @@ namespace ATBMI.Entities.NPCs
         private void AnimationStateHandler()
         {
             var state = GetState();
-
+            
             if (state == _currentState) return;
             _characterAnim.CrossFade(state, 0, 0);
             _currentState = state;
