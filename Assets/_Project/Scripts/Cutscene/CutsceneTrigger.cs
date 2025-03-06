@@ -10,7 +10,7 @@ public class CutsceneTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player")) // Pastikan pemain memiliki tag "Player"
         {
-            cutsceneManager.PlayCutscene(); // Panggil cutscene
+            cutsceneManager.StartCutscene(); // Menggunakan metode baru yang sudah diperbaiki
             gameObject.SetActive(false); // Nonaktifkan trigger setelah dipakai
         }
     }
