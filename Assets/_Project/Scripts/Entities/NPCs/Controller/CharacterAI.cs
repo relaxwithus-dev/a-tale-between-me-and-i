@@ -45,7 +45,7 @@ namespace ATBMI.Entities.NPCs
                 return;
             
             characterState = state;
-            _characterAnim.SetupAnimationState(state.ToString());
+            _characterAnim.TrySetAnimationState(state.ToString());
         }
         
         public void LookAt(Vector2 direction)

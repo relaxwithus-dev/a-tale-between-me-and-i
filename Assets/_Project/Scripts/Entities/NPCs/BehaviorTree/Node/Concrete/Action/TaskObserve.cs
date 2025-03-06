@@ -19,7 +19,7 @@ namespace ATBMI.Entities.NPCs
             
             InitFactors(plan: 1, risk: 0.3f, timeRange: (3f, 9f));
         }
-
+        
         public override NodeStatus Evaluate()
         {
             if (!TrySetupTarget())
@@ -31,7 +31,7 @@ namespace ATBMI.Entities.NPCs
             _targetPosition = _currentTarget.transform.position - character.transform.position;
             _targetPosition.Normalize();
             character.LookAt(_targetPosition);
-            animation.SetupAnimationState("Observe");
+            animation.TrySetAnimationState("Observe");
             
             return NodeStatus.Running;
         }

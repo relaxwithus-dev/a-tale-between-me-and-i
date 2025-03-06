@@ -22,13 +22,20 @@ namespace ATBMI.Entities.NPCs
         }
         
         // Core
-        public void SetupAnimationState(string state)
+        public bool TrySetAnimationState(string state)
         {
-            if (!IsAnimationExists(state)) return;
+            if (IsAnimationExists(state))
+            {
+                Debug.LogWarning("Animation isn't exists");
+                return false;
+            }
             
             _currentState = Animator.StringToHash(state);
             _characterAnim.CrossFade(_currentState, 0, 0);
+            return true;
         }
+        
+        public float GetAnimationTime() => _characterAnim.GetCurrentAnimatorClipInfo(0).Length;
         
         private bool IsAnimationExists(string state)
         {
