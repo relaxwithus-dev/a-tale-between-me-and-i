@@ -50,7 +50,8 @@ public class CutsceneManager : MonoBehaviour
             {
                 case CutsceneType.ShowDialog:
                     dialogManager.ShowDialog(cutsceneEvent.dialog, cutsceneEvent.speaker);
-                    yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space)); // Tekan tombol untuk lanjut
+                    yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space)); // Tunggu input
+                    yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.Space)); // Pastikan tombol dilepas
                     dialogManager.HideDialog();
                     break;
 
@@ -63,7 +64,7 @@ public class CutsceneManager : MonoBehaviour
                     if (playerAnimator != null)
                     {
                         playerAnimator.SetBool("isWalking", false);
-                        playerAnimator.Play("Idle"); // Pastikan Idle setelah jalan
+                        playerAnimator.Play("Idle");
                     }
                     break;
 
@@ -79,6 +80,7 @@ public class CutsceneManager : MonoBehaviour
 
         EndCutscene();
     }
+
 
     private void EndCutscene()
     {
