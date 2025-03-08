@@ -3,7 +3,6 @@ using UnityEngine;
 using Sirenix.OdinInspector;
 using ATBMI.Enum;
 using ATBMI.Entities.NPCs;
-using ATBMI.Gameplay.Event;
 
 namespace ATBMI.Interaction
 {
@@ -35,7 +34,6 @@ namespace ATBMI.Interaction
         }
         
         public static void InteractingEvent(bool isBegin) => OnInteracting?.Invoke(isBegin);
-        
         public Transform GetSignTransform() => signTransform;
         
         // TODO: Adjust isi method dibawah sesuai dgn jenis interaksi
@@ -62,8 +60,7 @@ namespace ATBMI.Interaction
             var changedAction = GetAction(action);
             characterTraits.InfluenceTraits(changedAction);
             
-            if (interactAction == changedAction)
-                return;
+            if (interactAction == changedAction) return;
             interactAction = changedAction;
         }
         
