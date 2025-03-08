@@ -25,7 +25,7 @@ Jadi Meme tenang dogén, ulian nyak lakar dadi suba rajin pesan dini… (Jadi Ma
 
 Ragane keto to ngelantur ulian ibi… (Kamu ini ngelantur apa dari tadi…) #speaker:IbuDewa #expression:A_IbuDewa_Speak
 Demi tusing ada pepatah ngorahang keto! (Dan juga gaada pepatah yang pernah bilang begitu…) #speaker:IbuDewa #expression:A_IbuDewa_Speak
-Ragane suba packing barang atau tusing? Kkamu belum packing barang bawaanmu juga kan?) #speaker:IbuDewa #expression:A_IbuDewa_Speak
+Ragane suba packing barang atau tusing? Kamu belum packing barang bawaanmu juga kan?) #speaker:IbuDewa #expression:A_IbuDewa_Speak
 Cepetan siapang awak dogén, terus ngajeng dadong ngajah! (Jadi cepat persiapkan dirimu lalu makan sarapan sebelum berangkat…) #speaker:IbuDewa #expression:A_IbuDewa_Speak
 
 SIAP, NYONYA!!! (SIAP, NYONYA!!!) #speaker:Dewa #expression:A_Dewa_Speak
