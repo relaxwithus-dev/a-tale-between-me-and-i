@@ -40,7 +40,7 @@ namespace ATBMI.Entities.NPCs
             _isDialogueEnded = true;
             return NodeStatus.Running;
         }
-
+        
         protected override void Reset()
         {
             base.Reset();

@@ -1,4 +1,5 @@
 using ATBMI.Interaction;
+using UnityEngine;
 
 namespace ATBMI.Entities.NPCs
 {
@@ -13,9 +14,14 @@ namespace ATBMI.Entities.NPCs
         
         public override NodeStatus Evaluate()
         {
-            return interact.IsInteracting ?
-                NodeStatus.Success :
-                NodeStatus.Failure;
+            if (interact.IsInteracting)
+            {
+                Debug.Log("Execute Success: CheckInteracted");
+                return NodeStatus.Success;
+            }
+            
+            Debug.LogWarning("Execute Failure: CheckInteracted");
+            return NodeStatus.Failure;
         }
     }
 }

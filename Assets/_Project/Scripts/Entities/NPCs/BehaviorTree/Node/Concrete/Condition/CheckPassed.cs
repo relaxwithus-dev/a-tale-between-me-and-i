@@ -10,7 +10,6 @@ namespace ATBMI.Entities.NPCs
         private const float OFFSET = 2f;
         
         private Transform _currentTarget;
-        private Vector3 _targetPosition;
         private Vector3 _passedPosition;
         
         public CheckPassed(CharacterAI character, float offRange)
@@ -32,6 +31,13 @@ namespace ATBMI.Entities.NPCs
                 : NodeStatus.Running;
         }
         
+        protected override void Reset()
+        {
+            base.Reset();
+            _currentTarget = null;
+            _passedPosition = Vector3.zero;
+        }
+
         private bool TrySetupTarget()
         {
             if (_currentTarget != null)

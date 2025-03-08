@@ -35,6 +35,13 @@ namespace ATBMI.Entities.NPCs
             
             return NodeStatus.Running;
         }
+        
+        protected override void Reset()
+        {
+            base.Reset();
+            _currentTarget = null;
+            _targetPosition = Vector3.zero;
+        }
 
         private bool TrySetupTarget()
         {

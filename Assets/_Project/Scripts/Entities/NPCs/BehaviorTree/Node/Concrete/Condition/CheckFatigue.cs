@@ -15,11 +15,11 @@ namespace ATBMI.Entities.NPCs
         {
             if (!manager.IsEnergyEmpty())
             {
-                Debug.Log("Execute Success: CheckIsFatigue");
+                Debug.Log("Execute Success: CheckFatigue");
                 return NodeStatus.Success;
             }
                           
-            Debug.LogWarning("Execute Failure: CheckIsFatigue");
+            Debug.LogWarning("Execute Failure: CheckFatigue");
             return NodeStatus.Failure;
         }
     }

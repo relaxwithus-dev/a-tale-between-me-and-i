@@ -46,6 +46,7 @@ namespace ATBMI.Entities.NPCs
                         new EmotionalSelector("Anticipation", characterTraits, new List<Node>
                         {
                             new TaskObserve(characterAI, characterAnimation, zoneDetails[1].Radius),
+                            new TaskAnimate(characterAnimation, "Anticipation"),
                             new TaskIdle(characterAI)
                         })
                     })
