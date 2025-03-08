@@ -6,16 +6,16 @@ namespace ATBMI.Entities.NPCs
     {
         private readonly CharacterAI character;
         private readonly CharacterAnimation animation;
-        private readonly float outRange;
+        private readonly float offRange;
         
         private Transform _currentTarget;
         private Vector3 _targetPosition;
 
-        public TaskObserve(CharacterAI character, CharacterAnimation animation, float outRange)
+        public TaskObserve(CharacterAI character, CharacterAnimation animation, float offRange)
         {
             this.character = character;
             this.animation = animation;
-            this.outRange = outRange;
+            this.offRange = offRange;
             
             InitFactors(plan: 1, risk: 0.3f, timeRange: (3f, 9f));
         }
@@ -24,9 +24,9 @@ namespace ATBMI.Entities.NPCs
         {
             if (!TrySetupTarget())
                 return NodeStatus.Failure;
-            
-            if (Vector3.Distance(character.transform.position, _currentTarget.transform.position) >= outRange)
-                return NodeStatus.Success;
+
+            if (!CheckOnRange())
+                return NodeStatus.Failure;
             
             _targetPosition = _currentTarget.transform.position - character.transform.position;
             _targetPosition.Normalize();
@@ -51,6 +51,14 @@ namespace ATBMI.Entities.NPCs
             Debug.Log("Execute Success: TaskObserve");
             _currentTarget = target;
             return true;
+        }
+
+        private bool CheckOnRange()
+        {
+            var characterX = character.transform.position.x;
+            var targetX = _currentTarget.transform.position.x;
+
+            return targetX < characterX - offRange || targetX > characterX + offRange;
         }
     }
 }
