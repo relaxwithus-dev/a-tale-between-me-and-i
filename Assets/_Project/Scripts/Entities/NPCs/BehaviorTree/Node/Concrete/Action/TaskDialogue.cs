@@ -4,21 +4,47 @@ namespace ATBMI.Entities.NPCs
 {
     public class TaskDialogue : LeafWeight
     {
+        private readonly CharacterAI character;
+        private readonly CharacterState state;
         private readonly string dialogueText;
-        private readonly CharacterAI characterAI;
         
-        public TaskDialogue(CharacterAI characterAI, string dialogueText)
+        private bool _isDialogueEnded;
+        
+        public TaskDialogue(CharacterAI character, string dialogueText)
         {
-            this.characterAI = characterAI;
+            this.character = character;
             this.dialogueText = dialogueText;
             
             InitFactors(plan: 1f, risk: 0f, timeRange: (1, 2.5f));
         }
         
+        public TaskDialogue(CharacterAI character, CharacterState state, string dialogueText)
+        {
+            this.character = character;
+            this.dialogueText = dialogueText;
+            this.state = state;
+            
+            InitFactors(plan: 1f, risk: 0f, timeRange: (1, 2.5f));
+        } 
+        
         public override NodeStatus Evaluate()
         {
-            Debug.Log($"Execute: Task Dialogue( {dialogueText} )");
-            return NodeStatus.Success;
+            if (Input.GetKeyDown(KeyCode.Space) && _isDialogueEnded)
+            {
+                return NodeStatus.Success;
+            }
+            
+            Debug.Log($"Execute: TaskDialogue( {dialogueText} )");
+            var targetState = state is CharacterState.Idle ? CharacterState.Talk : state;
+            character.ChangeState(targetState);
+            _isDialogueEnded = true;
+            return NodeStatus.Running;
+        }
+
+        protected override void Reset()
+        {
+            base.Reset();
+            _isDialogueEnded = false;
         }
     }
 }

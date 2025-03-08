@@ -35,7 +35,7 @@ namespace ATBMI.Entities.NPCs
             
             return NodeStatus.Running;
         }
-        
+
         private bool TrySetupTarget()
         {
             if (_currentTarget != null)
