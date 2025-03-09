@@ -1,0 +1,1 @@
+Benda apa ini!? #speaker:Security

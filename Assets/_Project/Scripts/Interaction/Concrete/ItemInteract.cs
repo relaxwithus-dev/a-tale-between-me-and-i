@@ -12,6 +12,8 @@ namespace ATBMI.Interaction
         [SerializeField] private ItemData itemData;
         [SerializeField] private ItemType itemType;
         [SerializeField] private Transform signTransform;
+        [SerializeField] private TextAsset defaultDialogue;
+        [SerializeField] private TextAsset defaultItemDialogue;
         
         private enum ItemType { Collectible, Scenery }
         
@@ -43,12 +45,12 @@ namespace ATBMI.Interaction
         {
             if (itemId == 0)
             {
-                DialogueEvents.EnterDialogueEvent();
+                DialogueEvents.EnterDialogueEvent(defaultDialogue);
             }
             else
             {
                 // TODO: Apply dialogue, tidak terjadi apa2
-                DialogueEvents.EnterDialogueEvent();
+                DialogueEvents.EnterDialogueEvent(defaultItemDialogue);
             }
         }
     }

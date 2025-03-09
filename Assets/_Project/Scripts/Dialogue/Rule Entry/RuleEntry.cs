@@ -30,16 +30,14 @@ namespace ATBMI.Dialogue
         private void OnEnable()
         {
             DialogueEvents.OnEnterDialogue += OnEnterDialogue;
+            DialogueEvents.OnEnterItemDialogue += OnEnterItemDialogue;
         }
 
         private void OnDisable()
         {
             DialogueEvents.OnEnterDialogue -= OnEnterDialogue;
+            DialogueEvents.OnEnterItemDialogue -= OnEnterItemDialogue;
         }
-
-        public abstract void OnTriggerEnter2D(Collider2D other);
-        public abstract void OnTriggerExit2D(Collider2D other);
-        public abstract void OnEnterDialogue();
         
         public virtual void EnterDialogueWithInkJson(TextAsset InkJson)
         {
@@ -47,5 +45,19 @@ namespace ATBMI.Dialogue
 
             isDialogueAboutToStart = false;
         }
+
+        public virtual void EnterDialogue(RuleEntry ruleEntry, TextAsset dialogue)
+        {
+            if (!isDialogueAboutToStart)
+            {
+                isDialogueAboutToStart = true;
+                PlayerEvents.MoveToPlayerEvent(ruleEntry, dialogue, ruleEntry.playerEntryPoint.position.x, ruleEntry.transform.position.x, ruleEntry.npc.IsFacingRight);
+            }
+        }
+
+        public abstract void OnTriggerEnter2D(Collider2D other);
+        public abstract void OnTriggerExit2D(Collider2D other);
+        public abstract void OnEnterDialogue(TextAsset defaultDialogue);
+        public abstract void OnEnterItemDialogue(TextAsset itemDialogue);
     }
 }

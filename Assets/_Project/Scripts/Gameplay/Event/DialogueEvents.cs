@@ -6,7 +6,8 @@ namespace ATBMI.Gameplay.Event
     public static class DialogueEvents
     {
         // Main Event
-        public static event Action OnEnterDialogue;
+        public static event Action<TextAsset> OnEnterDialogue;
+        public static event Action<TextAsset> OnEnterItemDialogue;
         public static event Action<string> PlayDialogueAnim;
         public static event Action StopDialogueAnim;
         public static event Action<string, Transform> RegisterNPCTipTarget;
@@ -18,7 +19,8 @@ namespace ATBMI.Gameplay.Event
         public static event Action<int> AdjustDialogueChoicesUISize;
 
         // Main Event - Caller
-        public static void EnterDialogueEvent() => OnEnterDialogue?.Invoke();
+        public static void EnterDialogueEvent(TextAsset defaultDialogue) => OnEnterDialogue?.Invoke(defaultDialogue);
+        public static void EnterItemDialogueEvent(TextAsset itemDialogue) => OnEnterItemDialogue?.Invoke(itemDialogue);
         public static void PlayDialogueAnimEvent(string tag) => PlayDialogueAnim?.Invoke(tag);
         public static void StopDialogueAnimEvent() => StopDialogueAnim?.Invoke();
         public static void RegisterNPCTipTargetEvent(string npcName, Transform tipTarget) => RegisterNPCTipTarget?.Invoke(npcName, tipTarget);

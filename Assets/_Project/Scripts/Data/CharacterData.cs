@@ -26,10 +26,18 @@ namespace ATBMI.Data
         public List<ItemDialogue> ItemDialogues => itemDialogues;
         public ItemList ItemList => itemListSO;
 
+        #region Method
+        public TextAsset GetItemDialogue(ItemData item)
+        {
+            var entry = itemDialogues.Find(d => d.item == item);
+            return entry != null ? entry.dialogue : defaultDialogue;
+        }
+        #endregion
+
         #region OnValidate Item-Specific Dialogue
         // Automatically call the method when there is a changes in itemlistSO
         // NOTE: still need to assign the item-spesific dialogue on changes
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         private void OnValidate()
         {
             if (itemListSO != null)
@@ -59,7 +67,7 @@ namespace ATBMI.Data
 
             UnityEditor.EditorUtility.SetDirty(this);
         }
-        #endif
+#endif
         #endregion
     }
 }

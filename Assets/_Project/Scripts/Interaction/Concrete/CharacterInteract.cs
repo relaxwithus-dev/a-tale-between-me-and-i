@@ -4,6 +4,8 @@ using Sirenix.OdinInspector;
 using ATBMI.Enum;
 using ATBMI.Entities.NPCs;
 using ATBMI.Gameplay.Event;
+using ATBMI.Inventory;
+using ATBMI.Data;
 
 namespace ATBMI.Interaction
 {
@@ -57,13 +59,15 @@ namespace ATBMI.Interaction
             _interactId = itemId;
             if (_interactId == 0)
             {
-                DialogueEvents.EnterDialogueEvent();
+                DialogueEvents.EnterDialogueEvent(characterAI.Data.DefaultDialogue);
                 characterTraits.InfluenceTraits(InteractAction.Run);
             }
             else
             {
                 // TODO: Saran lur, method baru bisa nge-pass 2 parameter, item id yg dipilih & target item id 
-                // DialogueEvents.EnterDialogueEvent(_interactId, targetItemId);
+                ItemData itemData = InventoryManager.Instance.GetItemData(_interactId);
+                TextAsset itemDialogue = characterAI.Data.GetItemDialogue(itemData);
+                DialogueEvents.EnterItemDialogueEvent(itemDialogue);
             }
         }
 

@@ -1,0 +1,1 @@
+Sepertinya aku membutuhkan alarm jika ingin bangun pagi huhuu #speaker:Security
