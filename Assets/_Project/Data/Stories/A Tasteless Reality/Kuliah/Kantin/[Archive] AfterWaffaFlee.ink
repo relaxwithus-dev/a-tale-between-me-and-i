@@ -41,7 +41,7 @@ ahahahahaha…. #speaker:Luna #expression:A_Luna_Speak
 Kalian lucu juga #speaker:Luna #expression:A_Luna_Speak
 Baru kenal tapi sudah seakrab ini… #speaker:Luna #expression:A_Luna_Speak
 
-Dewa: Siapa juga yang mau akrab dengannya… #speaker:Dewa #expression:A_Dewa_Speak
+Siapa juga yang mau akrab dengannya… #speaker:Dewa #expression:A_Dewa_Speak
 
 Okelah aku pergi dulu ya #speaker:Luna #expression:A_Luna_Speak
 Gedungku lumayan jauh dari sini #speaker:Luna #expression:A_Luna_Speak
