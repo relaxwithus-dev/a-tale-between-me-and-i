@@ -4,11 +4,15 @@ using UnityEngine.UI;
 
 public class DialogueChoicesUI : MonoBehaviour
 {
+    [SerializeField] private Transform playerSignTransform;
     [SerializeField] private RectTransform parentRectTransform;
     [SerializeField] private int characterLimit;
 
     private LayoutElement layoutElement;
     private RectTransform rectTransform;
+
+    private Transform pinPosition;
+    private Vector3 screenPosition;
 
     private Vector3[] corners;
     private float difference;
@@ -40,34 +44,12 @@ public class DialogueChoicesUI : MonoBehaviour
         updateCounter = 0;
     }
 
-    private void UpdateDialogueChoicesUIPos(string tagValue)
+    private void UpdateDialogueChoicesUIPos()
     {
-        Transform targetPos = GameObject.FindGameObjectWithTag(tagValue).transform;
-        Transform pinPosition = SearchPinPlaceholder(targetPos);
-        Vector3 screenPosition = Camera.main.WorldToScreenPoint(pinPosition.position);
+        pinPosition = playerSignTransform;
+        screenPosition = Camera.main.WorldToScreenPoint(pinPosition.position);
 
-        if (screenPosition != null)
-        {
-            parentRectTransform.position = new Vector2(screenPosition.x, screenPosition.y);
-        }
-        else
-        {
-            Debug.LogError("Dialogue pin placeholder is missing!!");
-        }
-    }
-
-    private Transform SearchPinPlaceholder(Transform targetPos)
-    {
-        foreach (Transform child in targetPos.transform)
-        {
-            if (child.CompareTag("DialoguePinPlaceholder"))
-            {
-                // If the child has the specific tag, add it to the list
-                return child.transform;
-            }
-        }
-
-        return null;
+        parentRectTransform.position = screenPosition;
     }
 
     // TODO change method, so the background can detect the edge of screen, edge of image cannot surpass the edge of screen
@@ -81,6 +63,11 @@ public class DialogueChoicesUI : MonoBehaviour
 
     private void Update()
     {
+        if (screenPosition != null)
+        {
+            parentRectTransform.position = Camera.main.WorldToScreenPoint(pinPosition.position);
+        }
+
         if (updateCounter <= 0)
         {
             return;

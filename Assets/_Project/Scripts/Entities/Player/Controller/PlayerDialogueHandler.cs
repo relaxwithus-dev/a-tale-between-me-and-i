@@ -3,12 +3,16 @@ using UnityEngine;
 using ATBMI.Dialogue;
 using ATBMI.Gameplay.Event;
 using ATBMI.Gameplay.Handler;
+using ATBMI.Data;
 
 namespace ATBMI.Entities.Player
 {
     public class PlayerDialogueHandler : MonoBehaviour
     {
         #region Fields & Properties
+
+        [Header("Reference")]
+        [SerializeField] private Transform signTransform;
 
         private TextAsset _playerInkJson;
         private PlayerController _playerController;
@@ -20,6 +24,11 @@ namespace ATBMI.Entities.Player
         private void Awake()
         {
             _playerController = GetComponent<PlayerController>();
+        }
+
+        private void Start()
+        {
+            DialogueEvents.RegisterNPCTipTargetEvent(_playerController.Data.name, signTransform);
         }
 
         private void OnEnable()

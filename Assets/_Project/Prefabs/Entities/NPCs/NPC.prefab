@@ -236,6 +236,7 @@ MonoBehaviour:
   targetId: 0
   signTransform: {fileID: 7611146811407626175}
   characterTraits: {fileID: 0}
+  characterAI: {fileID: 1177493690341274544}
 --- !u!50 &3686778759607658557
 Rigidbody2D:
   serializedVersion: 4
@@ -288,7 +289,7 @@ Transform:
   m_GameObject: {fileID: 1695725748540461339}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2, y: 1.7, z: 0}
+  m_LocalPosition: {x: 2.26, y: 1.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

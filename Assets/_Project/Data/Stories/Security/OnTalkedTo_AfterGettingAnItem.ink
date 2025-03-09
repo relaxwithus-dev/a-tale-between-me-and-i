@@ -1,2 +1,2 @@
-Hei! #speaker:Pak Satpam
-Jangan lari-larian di koridor! #speaker:Pak Satpam #expression:A_PakSatpam_Speak
+Hei! #speaker:Security
+Jangan lari-larian di koridor! #speaker:Security #expression:A_PakSatpam_Speak

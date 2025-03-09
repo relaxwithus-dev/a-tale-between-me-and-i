@@ -37,8 +37,9 @@ namespace ATBMI.Dialogue
         private List<Choice> currentChoices;
         private bool canContinueToNextLine;
         private bool isAnyChoices;
-        private bool _isSkippedDialogue;
-        
+        private bool isSkippedDialogue;
+        private bool isDialogueDisplaying;
+
         private const string SPEAKER_TAG = "speaker";
         private const string EXPRESSION_TAG = "expression";
 
@@ -84,27 +85,47 @@ namespace ATBMI.Dialogue
 
             canContinueToNextLine = false;
             isAnyChoices = false;
+            isSkippedDialogue = false;
+            isDialogueDisplaying = false;
         }
+
+        // private void Update()
+        // {
+        //     if (!IsDialoguePlaying) return;
+
+        //     if (GameInputHandler.Instance.IsTapSubmit)
+        //     {
+        //         // if (_isSkippedDialogue)
+        //         //     _isSkippedDialogue = false;
+
+        //         if (canContinueToNextLine)
+        //         {
+        //             if (currentStory.currentChoices.Count == 0 && !isAnyChoices)
+        //             {
+        //                 ContinueStory();
+        //             }
+        //             else if (isAnyChoices)
+        //             {
+        //                 DisplayChoicesWithInput();
+        //             }
+        //         }
+        //     }
+        // }
 
         private void Update()
         {
             if (!IsDialoguePlaying) return;
 
-            if (GameInputHandler.Instance.IsTapInteract)
+            if (GameInputHandler.Instance.IsTapSubmit)
             {
-                if (_isSkippedDialogue)
-                    _isSkippedDialogue = false;
-                
+                if(isDialogueDisplaying)
+                {
+                    isSkippedDialogue = true;
+                }
+
                 if (canContinueToNextLine)
                 {
-                    if (currentStory.currentChoices.Count == 0 && !isAnyChoices)
-                    {
-                        ContinueStory();
-                    }
-                    else if (isAnyChoices)
-                    {
-                        DisplayChoicesWithInput();
-                    }
+                    ContinueStory();
                 }
             }
         }
@@ -112,14 +133,14 @@ namespace ATBMI.Dialogue
         public void EnterDialogueMode(TextAsset inkJSON, Animator emoteAnimator)
         {
             Debug.Log("Dialogue asset = " + inkJSON.name);
-            
+
+            currentStory = new Story(inkJSON.text);
             IsDialoguePlaying = true;
             dialoguePin.SetActive(true);
+
             playerController.StopMovement();
-            
-            currentStory = new Story(inkJSON.text);
             inkExternalFunctions.Bind(currentStory, emoteAnimator);
-            
+
             ContinueStory();
         }
 
@@ -146,12 +167,15 @@ namespace ATBMI.Dialogue
             {
                 StartCoroutine(ExitDialogueMode());
             }
-            else
+            else if (!isAnyChoices && currentStory.currentChoices.Count > 0)
             {
                 DisplayChoices();
             }
+            else if (isAnyChoices && currentStory.currentChoices.Count > 0)
+            {
+                DisplayChoicesWithInput();
+            }
         }
-
 
         private IEnumerator DisplayLine(string line)
         {
@@ -172,12 +196,13 @@ namespace ATBMI.Dialogue
             dialogueText.text = line;
             dialogueText.maxVisibleCharacters = 0;
 
+            isDialogueDisplaying = true;
             canContinueToNextLine = false;
             bool isAddingRichTextTag = false;
-            bool canSkip = false;
+            // bool canSkip = false;
 
             // Process tags before displaying the line
-                    HandleTags(currentStory.currentTags);
+            HandleTags(currentStory.currentTags);
 
             // display char in a line 1 by 1
             foreach (char letter in line.ToCharArray())
@@ -185,7 +210,7 @@ namespace ATBMI.Dialogue
                 yield return null;
 
                 // if player pressed submit button displayed the line immediately
-                if (canSkip && _isSkippedDialogue)
+                if (isSkippedDialogue)
                 {
                     Debug.LogWarning("submit button pressed,  the line display immediately!");
                     dialogueText.maxVisibleCharacters = line.Length;
@@ -208,7 +233,7 @@ namespace ATBMI.Dialogue
                     dialogueText.maxVisibleCharacters++;
                     // dialogueText.text += letter;
                     yield return new WaitForSeconds(typingSpeed);
-                    canSkip = true;
+                    // canSkip = true;
                 }
             }
 
@@ -216,6 +241,8 @@ namespace ATBMI.Dialogue
             DisplayChoices();
 
             canContinueToNextLine = true;
+            isSkippedDialogue = false;
+            isDialogueDisplaying = false;
         }
 
         private void HideChoices()
@@ -225,7 +252,7 @@ namespace ATBMI.Dialogue
                 choice.SetActive(false);
             }
         }
-        
+
         private void DisplayChoices()
         {
             currentChoices.Clear();
@@ -251,7 +278,7 @@ namespace ATBMI.Dialogue
             dialoguePin.SetActive(false);
             dialogueChoicesContainer.transform.parent.gameObject.SetActive(true);
 
-            DialogueEvents.UpdateDialogueChoicesUIPosEvent("Player");
+            DialogueEvents.UpdateDialogueChoicesUIPosEvent();
             DialogueEvents.StopDialogueAnimEvent();
 
             int index = 0;
@@ -278,15 +305,15 @@ namespace ATBMI.Dialogue
                 choices[i].gameObject.SetActive(false);
             }
 
-            // StartCoroutine(SelectFirstChoice());
-            SelectFirstChoice();
+            StartCoroutine(SelectFirstChoice());
+            // SelectFirstChoice();
         }
 
-        private void SelectFirstChoice()
+        private IEnumerator SelectFirstChoice()
         {
             // Event System requires we clear it first, then wait for at Least one frame before we set the current selected object.
-            // EventSystem.current.SetSelectedGameObject(null);
-            // yield return new WaitForEndOfFrame();
+            EventSystem.current.SetSelectedGameObject(null);
+            yield return new WaitForEndOfFrame();
             EventSystem.current.SetSelectedGameObject(choices[0].gameObject);
         }
 
@@ -314,8 +341,12 @@ namespace ATBMI.Dialogue
                             DialogueEvents.StopDialogueAnimEvent();
                         }
 
-                        // TODO: change to other method
-                        dialogueName.text = tagValue == "Player" ? "Atma" : tagValue;
+                        // TODO: change to other method, change the speaker "player" in ink first
+                        dialogueName.text = tagValue == "Player" ? "Dewa" : tagValue;
+                        if (tagValue == "Player")
+                        {
+                            tagValue = "Dewa";
+                        }
 
                         // update dialogue bubble position
                         Debug.Log("Speaker = " + tagValue);
@@ -349,7 +380,11 @@ namespace ATBMI.Dialogue
 
         public void MakeChoice(int choiceIndex)
         {
+            // isAnyChoices = false;
+
             currentStory.ChooseChoiceIndex(choiceIndex);
+
+            Debug.Log(choiceIndex);
 
             // InputManager.GetInstance().RegisterSubmitPressed(); // spesific for this input manager
             ContinueStory();

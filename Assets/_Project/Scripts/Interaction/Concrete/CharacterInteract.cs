@@ -10,41 +10,54 @@ namespace ATBMI.Interaction
     public class CharacterInteract : MonoBehaviour, IInteractable
     {
         #region Fields & Properties
-        
+
         [Header("Properties")]
         [SerializeField] private bool isInteracting;
         [SerializeField] private InteractAction interactAction;
         [ShowIf("@this.interactAction == InteractAction.Give || this.interactAction == InteractAction.Take")]
         [SerializeField] private int targetId;
         [SerializeField] private Transform signTransform;
-        
+
         private int _interactId;
         public bool IsInteracting => isInteracting;
         public static event Action<bool> OnInteracting;
-        
-        [Header("Reference")] 
+
+        [Header("Reference")]
         [SerializeField] private CharacterTraits characterTraits;
-        
+        [SerializeField] private CharacterAI characterAI;
+
         #endregion
-        
+
         #region Methods
-        
+
         private void OnEnable()
         {
             OnInteracting += cond => isInteracting = cond;
         }
-        
+
+        private void Start()
+        {
+            if (characterAI.Data != null)
+            {
+                DialogueEvents.RegisterNPCTipTargetEvent(characterAI.Data.CharacterName, GetSignTransform());
+            }
+            else
+            {
+                Debug.LogError($"CharacterData is missing for NPC {gameObject.name}");
+            }
+        }
+
         public static void InteractingEvent(bool isBegin) => OnInteracting?.Invoke(isBegin);
-        
+
         public Transform GetSignTransform() => signTransform;
-        
+
         // TODO: Adjust isi method dibawah sesuai dgn jenis interaksi
         public void Interact(InteractManager manager, int itemId = 0)
         {
             _interactId = itemId;
             if (_interactId == 0)
             {
-                // DialogueEvents.EnterDialogueEvent();
+                DialogueEvents.EnterDialogueEvent();
                 characterTraits.InfluenceTraits(InteractAction.Run);
             }
             else
@@ -53,7 +66,7 @@ namespace ATBMI.Interaction
                 // DialogueEvents.EnterDialogueEvent(_interactId, targetItemId);
             }
         }
-        
+
         // TODO: Pake ini buat change status di InkExternal
         // NOTE: Pake method waktu diawal interaksi, sesuaiken dgn jenis interaksinya,
         // Semua Ink Dialogue NPCs yang punya emosi, harus pake method ini
@@ -61,12 +74,12 @@ namespace ATBMI.Interaction
         {
             var changedAction = GetAction(action);
             characterTraits.InfluenceTraits(changedAction);
-            
+
             if (interactAction == changedAction)
                 return;
             interactAction = changedAction;
         }
-        
+
         // TODO: Pake ini buat check match id di (Kalo jenis interaksi give/take)
         public bool IsMatchId()
         {
@@ -78,7 +91,7 @@ namespace ATBMI.Interaction
             }
             return false;
         }
-        
+
         private InteractAction GetAction(string action)
         {
             if (System.Enum.TryParse<InteractAction>(action, out var parsedAction))
@@ -94,7 +107,7 @@ namespace ATBMI.Interaction
             }
             return InteractAction.Talks;
         }
-        
+
         #endregion
     }
 }

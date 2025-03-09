@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using ATBMI.Gameplay.Event;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,10 +8,10 @@ public class DialogueUI : MonoBehaviour
     [SerializeField] private RectTransform parentRectTransform;
     [SerializeField] private int characterLimit;
 
+    private Dictionary<string, Transform> npcTargets = new(); // cache the npc tip target for each npcs
     private LayoutElement layoutElement;
     private RectTransform rectTransform;
 
-    private Transform targetPos;
     private Transform pinPosition;
     private Vector3 screenPosition;
 
@@ -27,12 +28,14 @@ public class DialogueUI : MonoBehaviour
 
     private void OnEnable()
     {
+        DialogueEvents.RegisterNPCTipTarget += RegisterNPCTipTarget;
         DialogueEvents.UpdateDialogueUIPos += UpdateDialogueUIPos;
         DialogueEvents.AdjustDialogueUISize += AdjustDialogueUISize;
     }
 
     private void OnDisable()
     {
+        DialogueEvents.RegisterNPCTipTarget -= RegisterNPCTipTarget;
         DialogueEvents.UpdateDialogueUIPos -= UpdateDialogueUIPos;
         DialogueEvents.AdjustDialogueUISize -= AdjustDialogueUISize;
     }
@@ -44,36 +47,26 @@ public class DialogueUI : MonoBehaviour
         updateCounter = 0;
     }
 
+    private void RegisterNPCTipTarget(string npcName, Transform tipTarget)
+    {
+        if (!npcTargets.ContainsKey(npcName))
+        {
+            npcTargets[npcName] = tipTarget;
+        }
+    }
+
     private void UpdateDialogueUIPos(string tagValue)
     {
-        Debug.Log(tagValue);
-
-        targetPos = GameObject.FindGameObjectWithTag(tagValue).transform;
-        pinPosition = SearchPinPlaceholder(targetPos);
-        screenPosition = Camera.main.WorldToScreenPoint(pinPosition.position);
-
-        if (screenPosition != null)
+        if (npcTargets.TryGetValue(tagValue, out Transform targetPos))
         {
+            pinPosition = targetPos;
+            screenPosition = Camera.main.WorldToScreenPoint(targetPos.position);
             parentRectTransform.position = screenPosition;
         }
         else
         {
-            Debug.LogError("Dialogue pin placeholder is missing!!");
+            Debug.LogError("NPC " + tagValue + " not found in registered targets!");
         }
-    }
-
-    private Transform SearchPinPlaceholder(Transform targetPos)
-    {
-        foreach (Transform child in targetPos.transform)
-        {
-            if (child.CompareTag("DialoguePinPlaceholder"))
-            {
-                // If the child has the specific tag, add it to the list
-                return child.transform;
-            }
-        }
-
-        return null;
     }
 
     // TODO change method, so the background can detect the edge of screen, edge of image cannot surpass the edge of screen

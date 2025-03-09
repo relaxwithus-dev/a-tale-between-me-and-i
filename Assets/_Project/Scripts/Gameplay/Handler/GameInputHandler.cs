@@ -39,11 +39,13 @@ namespace ATBMI.Gameplay.Handler
         [SerializeField] private string navigate = "Navigate";
         [SerializeField] private string select = "Select";
         [SerializeField] private string back = "Back";
+        [SerializeField] private string submit = "Submit";
 
         // Input action
         private InputAction _navigateAction;
         private InputAction _selectAction;
         private InputAction _backAction;
+        private InputAction _submitAction;
         
         // Action values
         private bool _isNavigateUp;
@@ -53,6 +55,7 @@ namespace ATBMI.Gameplay.Handler
         public bool IsNavigateDown => _isNavigateDown && _navigateAction.WasPressedThisFrame();
         public bool IsTapSelect => _selectAction.WasPressedThisFrame();
         public bool IsTapBack => _backAction.WasPressedThisFrame();
+        public bool IsTapSubmit => _submitAction.WasPressedThisFrame();
     
         #endregion
         
@@ -72,6 +75,7 @@ namespace ATBMI.Gameplay.Handler
             _navigateAction = _playerActions.FindActionMap(uiMapName).FindAction(navigate);
             _selectAction = _playerActions.FindActionMap(uiMapName).FindAction(select);
             _backAction = _playerActions.FindActionMap(uiMapName).FindAction(back);
+            _submitAction = _playerActions.FindActionMap(uiMapName).FindAction(submit);
         }
 
         private void OnEnable()

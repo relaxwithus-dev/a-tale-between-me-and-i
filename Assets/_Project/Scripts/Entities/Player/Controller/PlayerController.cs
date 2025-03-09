@@ -22,6 +22,7 @@ namespace ATBMI.Entities.Player
         private Vector2 _latestDirection;
         private Vector2 _temporaryDirection = Vector2.zero;
 
+        public PlayerData Data => playerData;
         public bool IsRight => isRight;
         public bool CanMove => canMove;
         public Vector2 MoveDirection => moveDirection;
