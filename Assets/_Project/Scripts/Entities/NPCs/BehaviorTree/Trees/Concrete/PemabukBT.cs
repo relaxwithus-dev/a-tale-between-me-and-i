@@ -29,7 +29,7 @@ namespace ATBMI.Entities.NPCs
                     new Selector("Task", new List<Node>
                     {
                         new TaskGetItem(),
-                        new TaskDialogue(characterAI, "Yah itemnya tidak cocok :(")
+                        new TaskTalk(characterAI, "Yah itemnya tidak cocok :(")
                     }),
                     new TaskMoveToOrigin(characterAI, characterAI.Data, isWalk: true)
                 }),
@@ -44,12 +44,12 @@ namespace ATBMI.Entities.NPCs
                     new Sequence(zoneDetails[0].Type.ToString(), new List<Node>
                     {
                         new CheckTargetInArea(centerPoint, zoneDetails[0].Radius, layerMask),
-                        new TaskDialogue(characterAI,"masuk intimate")
+                        new TaskTalk(characterAI,"masuk intimate")
                     }),
                     new Sequence(zoneDetails[1].Type.ToString(), new List<Node>
                     {
                         new CheckTargetInArea(centerPoint, zoneDetails[1].Radius, layerMask),
-                        new TaskDialogue(characterAI,"masuk personal")
+                        new TaskTalk(characterAI,"masuk personal")
                     }),
                 }),
                 new TaskIdle(characterAI)

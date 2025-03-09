@@ -189,7 +189,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 0}
+  m_Motion: {fileID: 7400000, guid: b3026bfd6f218524cb4811c0981d72d6, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -288,8 +288,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: Idle
-  animationLength: 9
-  shuffleTime: 3.5
+  animationLength: 18
+  shuffleTime: 7
 --- !u!206 &5501905077278478545
 BlendTree:
   m_ObjectHideFlags: 1

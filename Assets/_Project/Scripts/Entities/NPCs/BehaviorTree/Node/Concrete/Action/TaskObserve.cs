@@ -7,7 +7,8 @@ namespace ATBMI.Entities.NPCs
         private readonly CharacterAI character;
         private readonly CharacterAnimation animation;
         private readonly float offRange;
-        
+
+        private const float OFFSET = 0.5f;
         private Transform _currentTarget;
         private Vector3 _targetPosition;
 
@@ -25,10 +26,13 @@ namespace ATBMI.Entities.NPCs
             if (!TrySetupTarget())
                 return NodeStatus.Failure;
 
-            if (!CheckOnRange())
-                return NodeStatus.Failure;
+            if (CheckOffRange())
+            {
+                Debug.Log("Execute Success: TaskObserve");
+                return NodeStatus.Success;
+            }
             
-            _targetPosition = _currentTarget.transform.position - character.transform.position;
+            _targetPosition = character.transform.position - _currentTarget.transform.position;
             _targetPosition.Normalize();
             character.LookAt(_targetPosition);
             animation.TrySetAnimationState("Observe");
@@ -42,7 +46,7 @@ namespace ATBMI.Entities.NPCs
             _currentTarget = null;
             _targetPosition = Vector3.zero;
         }
-
+        
         private bool TrySetupTarget()
         {
             if (_currentTarget != null)
@@ -55,17 +59,17 @@ namespace ATBMI.Entities.NPCs
                 return false;
             }
             
-            Debug.Log("Execute Success: TaskObserve");
             _currentTarget = target;
             return true;
         }
-
-        private bool CheckOnRange()
+        
+        private bool CheckOffRange()
         {
             var characterX = character.transform.position.x;
             var targetX = _currentTarget.transform.position.x;
-
-            return targetX < characterX - offRange || targetX > characterX + offRange;
+            var bound = offRange + OFFSET;
+            
+            return targetX < characterX - bound || targetX > characterX + bound;
         }
     }
 }

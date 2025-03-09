@@ -29,7 +29,7 @@ namespace ATBMI.Entities.NPCs
                {
                    new CheckTargetInProxemics(centerPoint, zoneDetails[1].Radius, layerMask),
                    new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true),
-                   new TaskDialogue(characterAI, "Hi"),
+                   new TaskTalk(characterAI, "Hi"),
                    new TaskMoveToOrigin(characterAI, characterAI.Data, isWalk: true),
                    new TaskIdle(characterAI)
                }),

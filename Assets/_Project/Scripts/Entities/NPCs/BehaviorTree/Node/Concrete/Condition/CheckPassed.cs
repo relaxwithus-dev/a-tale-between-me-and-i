@@ -7,7 +7,8 @@ namespace ATBMI.Entities.NPCs
         private readonly CharacterAI character;
         private readonly float offRange;
         
-        private const float OFFSET = 2f;
+        private const float OFFSET = 0.5f;
+        private const float PASS_OFFSET = 2f;
         
         private Transform _currentTarget;
         private Vector3 _passedPosition;
@@ -22,13 +23,15 @@ namespace ATBMI.Entities.NPCs
         {
             if (!TrySetupTarget())
                 return NodeStatus.Failure;
-            
-            if (!CheckOnRange())
+
+            if (CheckOffRange())
                 return NodeStatus.Failure;
+
+            if (!(Vector3.Distance(_currentTarget.transform.position, _passedPosition) <= 0.01f))
+                return NodeStatus.Running;
             
-            return Vector3.Distance(character.transform.position, _passedPosition) <= 0.01f
-                ? NodeStatus.Success
-                : NodeStatus.Running;
+            Debug.Log("Execute Success: CheckPassed");
+            return NodeStatus.Success;
         }
         
         protected override void Reset()
@@ -51,21 +54,21 @@ namespace ATBMI.Entities.NPCs
             }
             
             _currentTarget = target;
-            var offset = character.transform.position.x > target.transform.position.x ? -OFFSET : OFFSET;
+            var offset = target.transform.position.x > character.transform.position.x ? -PASS_OFFSET : PASS_OFFSET;
             _passedPosition = new Vector3(character.transform.position.x + offset,
                 character.transform.position.y,
                 character.transform.position.z);
             
-            Debug.Log(offset);
             return true;
         }
         
-        private bool CheckOnRange()
+        private bool CheckOffRange()
         {
             var characterX = character.transform.position.x;
             var targetX = _currentTarget.transform.position.x;
+            var bound = offRange + OFFSET;
             
-            return targetX < characterX - offRange || targetX > characterX + offRange;
+            return targetX < characterX - bound || targetX > characterX + bound;
         }
     }
 }

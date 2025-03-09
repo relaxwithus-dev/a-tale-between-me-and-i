@@ -43,7 +43,10 @@ namespace ATBMI.Entities.NPCs
                 return NodeStatus.Failure;
 
             if (_currentIndex >= wayPoints.Count)
-                return NodeStatus.Success;
+            {
+                Debug.Log("Execute Success: TaskPatrol");
+                 return NodeStatus.Success;
+            }
             
             _currentTarget = wayPoints[_currentIndex];
             if (_currentTime < moveDelayTime && _isPathCalculated)
@@ -103,7 +106,6 @@ namespace ATBMI.Entities.NPCs
                 return false;
             }
             
-            Debug.Log("Execute Success: TaskPatrol");
             _isValidated = true;
             return true;
         }

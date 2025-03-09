@@ -54,7 +54,7 @@ namespace ATBMI.Entities.NPCs
             var sortedNodes = weightedNodes.OrderBy(kv => kv.Value).ToList();
             var selectedNode = SelectActionWithProbability(sortedNodes);
             Debug.Log($"Execute: {selectedNode.nodeName}");
-
+            
             return selectedNode.Evaluate();
         }
 
@@ -71,18 +71,18 @@ namespace ATBMI.Entities.NPCs
             (float U, float L) timeRange = emoChild.GetTimeRange();
 
             float weightPlan = (1 - (1 / (1 + omega * planning))) * Mathf.Max((1 - phi + phi * emoPlan), 0);
-            Debug.LogWarning($"Eplanning: {weightPlan}");
+            // Debug.LogWarning($"Eplanning: {weightPlan}");
 
             float weightRisk = Mathf.Clamp((1 - emoRisk * delta) * risk, 0, 1);
-            Debug.LogWarning($"Erisk: {weightRisk}");
+            // Debug.LogWarning($"Erisk: {weightRisk}");
             
             float adjustedTime = timeRange.L + ((timeRange.U - timeRange.L) / 2);
             float weightTime = (1 - (1 / (1 + lambda * adjustedTime))) * Mathf.Max((1 - lambda + lambda * emoTime), 0);
-            Debug.LogWarning($"Etime: {weightTime}");
+            // Debug.LogWarning($"Etime: {weightTime}");
             
             // Final weight calculate
             var totalWeight = alpha * weightRisk + beta * weightTime + gamma * weightPlan;
-            Debug.LogWarning($"Total Weight: {totalWeight}");
+            // Debug.LogWarning($"Total Weight: {totalWeight}");
             return alpha * weightRisk + beta * weightTime + gamma * weightPlan;
         }
         
@@ -107,9 +107,9 @@ namespace ATBMI.Entities.NPCs
                 if (rand <= cumulative)
                 {
                     // Debugging
-                    Debug.LogWarning($"Probability: {rand}");
-                    Debug.LogWarning($"Cumulative: {cumulative}");
-                    Debug.LogError($"Get Node: {sortedNodes[i].Key.nodeName}");
+                    // Debug.LogWarning($"Probability: {rand}");
+                    // Debug.LogWarning($"Cumulative: {cumulative}");
+                    // Debug.LogError($"Get Node: {sortedNodes[i].Key.nodeName}");
                     
                     return sortedNodes[i].Key;
                 }

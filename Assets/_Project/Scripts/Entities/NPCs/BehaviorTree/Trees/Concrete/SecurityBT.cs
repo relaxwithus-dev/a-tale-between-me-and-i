@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using ATBMI.Interaction;
+using UnityEngine.Serialization;
 
 namespace ATBMI.Entities.NPCs
 {
@@ -9,6 +10,7 @@ namespace ATBMI.Entities.NPCs
         [Header("Property")] 
         [SerializeField] private float pullForce;
         [SerializeField] private float pullDelay;
+        [SerializeField] private float passOffRange;
         
         [Space]
         [SerializeField] private CharacterInteract characterInteract;
@@ -33,9 +35,9 @@ namespace ATBMI.Entities.NPCs
                                 new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true),
                                 new TaskPull(characterAI, pullForce, pullDelay),
                                 new TaskMoveToOrigin(characterAI, characterAI.Data, isWalk: true),
-                                new TaskDialogue(characterAI, CharacterState.Anger, "hei, yang sopan kamu!")
+                                new TaskTalk(characterAI, CharacterState.Anger, "hei, yang sopan kamu!")
                             }),
-                            new TaskDialogue(characterAI, "mau kemana kamu?"),
+                            new TaskTalk(characterAI, "mau kemana kamu?"),
                             new TaskIdle(characterAI)
                         })
                     }),

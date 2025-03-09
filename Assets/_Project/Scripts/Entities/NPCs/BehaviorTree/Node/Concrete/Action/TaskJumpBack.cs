@@ -28,6 +28,8 @@ namespace ATBMI.Entities.NPCs
             
             character.transform.DOJump(_jumpTarget, power, 1, duration).SetEase(Ease.OutSine);
             character.LookAt(_jumpTarget);
+            
+            Debug.Log("Execute Success: TaskJumpBack");
             parentNode.ClearData(TARGET_KEY);
             return NodeStatus.Success;
         }
@@ -50,7 +52,6 @@ namespace ATBMI.Entities.NPCs
                 return false;
             }
             
-            Debug.Log("Execute Success: TaskJumpBack");
             var currentDirection = character.transform.position.x > target.position.x ? 1f : -1f;
             var pointThreshold = currentDirection * distance;
             _jumpTarget = new Vector3(character.transform.position.x + pointThreshold,

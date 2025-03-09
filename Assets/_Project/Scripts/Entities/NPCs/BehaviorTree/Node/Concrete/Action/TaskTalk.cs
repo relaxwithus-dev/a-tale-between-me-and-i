@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace ATBMI.Entities.NPCs
 {
-    public class TaskDialogue : LeafWeight
+    public class TaskTalk : LeafWeight
     {
         private readonly CharacterAI character;
         private readonly CharacterState state;
@@ -10,7 +10,7 @@ namespace ATBMI.Entities.NPCs
         
         private bool _isDialogueEnded;
         
-        public TaskDialogue(CharacterAI character, string dialogueText)
+        public TaskTalk(CharacterAI character, string dialogueText)
         {
             this.character = character;
             this.dialogueText = dialogueText;
@@ -18,7 +18,7 @@ namespace ATBMI.Entities.NPCs
             InitFactors(plan: 1f, risk: 0f, timeRange: (1, 2.5f));
         }
         
-        public TaskDialogue(CharacterAI character, CharacterState state, string dialogueText)
+        public TaskTalk(CharacterAI character, CharacterState state, string dialogueText)
         {
             this.character = character;
             this.dialogueText = dialogueText;

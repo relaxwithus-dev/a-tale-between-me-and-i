@@ -55,6 +55,7 @@ namespace ATBMI.Entities.NPCs
                 character.LookAt(_targetDirection);
                 character.ChangeState(CharacterState.Idle);
                 
+                Debug.Log("Execute Success: TaskRunAway");
                 parentNode.ClearData(TARGET_KEY);
                 return NodeStatus.Success;
             }
@@ -84,7 +85,6 @@ namespace ATBMI.Entities.NPCs
             
             // Opposite direction
             _targetDirection *= -1f;
-            Debug.Log("Execute Success: TaskRunAway");
             return true;
         }
     }

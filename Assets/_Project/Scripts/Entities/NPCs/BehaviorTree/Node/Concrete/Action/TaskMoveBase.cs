@@ -53,7 +53,6 @@ namespace ATBMI.Entities.NPCs
         {
             if (_targetState == CharacterState.Idle)
             {
-                Debug.Log("Execute Success: TaskMove");
                 TrySetupStats();
             }
             
@@ -64,6 +63,7 @@ namespace ATBMI.Entities.NPCs
             if (!(Vector2.Distance(character.transform.position, targetPosition) <= 0.01f)) 
                 return NodeStatus.Running;
             
+            Debug.Log("Execute Success: TaskMove");
             WhenReachTarget();
             ResetFields();
             return NodeStatus.Success;

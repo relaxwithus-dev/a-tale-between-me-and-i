@@ -35,8 +35,11 @@ namespace ATBMI.Entities.NPCs
                 return NodeStatus.Failure;
 
             if (_currentFollowTime > followTime)
+            {
+                Debug.Log("Execute Success: TaskFollow");
                 return NodeStatus.Success;
-
+            }
+            
             if (_currentFollowDelayTime < followDelayTime)
             {
                 _currentFollowDelayTime += Time.deltaTime;
@@ -59,7 +62,6 @@ namespace ATBMI.Entities.NPCs
         {
             if (!_currentTarget)
             {
-                Debug.Log("Execute Success: TaskFollow");
                 _currentTarget = (Transform)GetData(TARGET_KEY);
                 if (!_currentTarget)
                 {

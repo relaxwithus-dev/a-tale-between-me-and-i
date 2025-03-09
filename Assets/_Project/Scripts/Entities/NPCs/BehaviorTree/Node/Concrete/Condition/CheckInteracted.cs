@@ -14,14 +14,9 @@ namespace ATBMI.Entities.NPCs
         
         public override NodeStatus Evaluate()
         {
-            if (interact.IsInteracting)
-            {
-                Debug.Log("Execute Success: CheckInteracted");
-                return NodeStatus.Success;
-            }
-            
-            Debug.LogWarning("Execute Failure: CheckInteracted");
-            return NodeStatus.Failure;
+            return interact.IsInteracting ?
+                NodeStatus.Success :
+                NodeStatus.Failure;
         }
     }
 }
