@@ -39,6 +39,8 @@ namespace ATBMI.Dialogue
         private bool isAnyChoices;
         private bool isSkippedDialogue;
         private bool isDialogueDisplaying;
+        // private bool isSequenceIsPlaying;
+        // private CutsceneBaseClass cutscene;
 
         private const string SPEAKER_TAG = "speaker";
         private const string EXPRESSION_TAG = "expression";
@@ -118,7 +120,7 @@ namespace ATBMI.Dialogue
 
             if (GameInputHandler.Instance.IsTapSubmit)
             {
-                if(isDialogueDisplaying)
+                if (isDialogueDisplaying)
                 {
                     isSkippedDialogue = true;
                 }
@@ -376,6 +378,13 @@ namespace ATBMI.Dialogue
             playerController.StartMovement();
             DialogueEvents.StopDialogueAnimEvent();
             CharacterInteract.InteractingEvent(isBegin: false);
+
+            // if (isSequenceIsPlaying)
+            // {
+            //     cutscene.nextstep(currentstep + 1);
+            //     cutscene = null;
+            //     currentstep = 0;
+            // }
         }
 
         public void MakeChoice(int choiceIndex)
@@ -389,6 +398,14 @@ namespace ATBMI.Dialogue
             // InputManager.GetInstance().RegisterSubmitPressed(); // spesific for this input manager
             ContinueStory();
         }
+
+        // public void TurnSequenceState(bool isOn, CutsceneBaseClass cutscene, int currentStep)
+        // {
+        //     isSequenceIsPlaying = isOn;
+
+        //     this.cutscene = cutscene; 
+        //     this.currentStep = currentStep;
+        // }
     }
 
 }
