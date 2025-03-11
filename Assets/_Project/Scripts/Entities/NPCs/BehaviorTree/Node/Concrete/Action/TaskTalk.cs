@@ -15,7 +15,7 @@ namespace ATBMI.Entities.NPCs
             this.character = character;
             this.dialogueText = dialogueText;
             
-            InitFactors(plan: 1f, risk: 0f, timeRange: (1, 2.5f));
+            InitFactors(plan: 1f, risk: 0.2f, timeRange: (1, 2.5f));
         }
         
         public TaskTalk(CharacterAI character, CharacterState state, string dialogueText)

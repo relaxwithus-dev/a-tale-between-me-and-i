@@ -12,8 +12,8 @@ namespace ATBMI.Entities.NPCs
         [SerializeField] private InfluenceConfiguration influenceConfig;
         [SerializeField] private PersonalityConfiguration personalityConfig;
         
-        [Header("Traits")] 
-        [SerializeField] [Range(-1, 1)] [ReadOnly] private float[] emotions = new float[4];
+        [Header("Traits")]
+        [SerializeField] [Range(-1, 1)] private float[] emotions = new float[4];
         [SerializeField] [Range(-1, 1)] private float[] personality = new float[5];
         
         private float[] _currentInfluence;
@@ -21,6 +21,11 @@ namespace ATBMI.Entities.NPCs
         #endregion
         
         #region Methods
+        
+        private void Start()
+        {
+            CalculateNewEmotion();
+        }
         
         // TODO: Call method ini waktu pemain melakukan aksi
         public void InfluenceTraits(InteractAction action)
@@ -48,7 +53,7 @@ namespace ATBMI.Entities.NPCs
                 {
                     var isPositive = emotions[i] >= 0;
                     float factor = personalityConfig.GetPersonalityInfluence((PersonalityTrait)j,
-                        (EmotionType)(i * 2), isPositive);
+                        (Emotion)(i * 2), isPositive);
                     
                     sum += emotions[i] * personality[j] * factor;
                 }
@@ -63,8 +68,6 @@ namespace ATBMI.Entities.NPCs
             }
             
             ExtractDominantEmotion();
-            (EmotionType emo, float ints) dominantEmo = GetDominantEmotion();
-            Debug.Log($"New Emotion: {dominantEmo.emo}");
         }
         
         private void ExtractDominantEmotion()
@@ -121,7 +124,7 @@ namespace ATBMI.Entities.NPCs
             }
         }
         
-        public (EmotionType, float) GetDominantEmotion()
+        public (Emotion, float) GetDominantEmotion()
         {
             var maxValue = 0f;
             var maxIndex = 0;
@@ -135,7 +138,7 @@ namespace ATBMI.Entities.NPCs
                 }
             }
             
-            return (maxValue >= 0 ? (EmotionType)(maxIndex * 2) : (EmotionType)(maxIndex * 2 + 1), maxValue);
+            return (maxValue >= 0 ? (Emotion)(maxIndex * 2) : (Emotion)(maxIndex * 2 + 1), maxValue);
         }
         
         private bool ValidateEmotion(float[] influence)

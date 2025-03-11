@@ -12,7 +12,7 @@ namespace ATBMI.Entities.NPCs
 
         public TaskPull(CharacterAI character, float force, float delay) : base(character, force, delay)
         {
-            InitFactors(plan: 1, risk: 0.8f, timeRange: (0.5f, 1.5f));
+            InitFactors(plan: 1, risk: 0.8f, timeRange: (0.3f, 0.6f));
         }
         
         protected override NodeStatus PerformForce()

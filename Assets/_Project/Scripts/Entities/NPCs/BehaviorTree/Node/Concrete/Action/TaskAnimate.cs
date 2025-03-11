@@ -15,7 +15,7 @@ namespace ATBMI.Entities.NPCs
             this.animation = animation;
             this.state = state;
             
-            InitFactors(plan: 1, risk: 0.1f, timeRange: (0.15f, 4f));
+            InitFactors(plan: 1, risk: 0f, timeRange: (0.15f, 4f));
         }
         
         public override NodeStatus Evaluate()
@@ -24,9 +24,15 @@ namespace ATBMI.Entities.NPCs
                 return NodeStatus.Failure;
             
             _currentTime += Time.deltaTime;
-            return _currentTime > _animationTime ? NodeStatus.Success : NodeStatus.Running;
+            if (_currentTime > _animationTime)
+            {
+                Debug.Log("Execute Success: TaskAnimate");
+                return NodeStatus.Success;
+            }
+            
+            return NodeStatus.Running;
         }
-
+        
         protected override void Reset()
         {
             base.Reset();
@@ -45,7 +51,6 @@ namespace ATBMI.Entities.NPCs
                 return false;
             }
             
-            Debug.Log("Execute Success: TaskAnimate");
             _animationTime = animation.GetAnimationTime();
             return true;
         }

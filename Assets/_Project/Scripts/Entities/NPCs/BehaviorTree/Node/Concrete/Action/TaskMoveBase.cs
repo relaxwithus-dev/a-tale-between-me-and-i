@@ -6,8 +6,9 @@ namespace ATBMI.Entities.NPCs
     public class TaskMoveBase : LeafWeight
     {
         protected readonly CharacterAI character;
+        private readonly CharacterData data;
         private readonly bool isWalk;
-        private readonly float moveDelayTime = 3f;
+        private readonly float moveDelayTime = 1f;
         
         protected Vector3 targetPosition;
         private float _moveSpeed;
@@ -18,10 +19,8 @@ namespace ATBMI.Entities.NPCs
         protected TaskMoveBase(CharacterAI character, CharacterData data, bool isWalk)
         {
             this.character = character;
+            this.data = data;
             this.isWalk = isWalk;
-            
-            _moveSpeed = data.GetSpeedByType(isWalk ? "Walk" : "Run");
-            InitFactors(plan: 1f, risk: 0.4f, timeRange: (4, 8));
         }
         
         // Core
@@ -52,14 +51,12 @@ namespace ATBMI.Entities.NPCs
         private NodeStatus MoveToTarget()
         {
             if (_targetState == CharacterState.Idle)
-            {
                 TrySetupStats();
-            }
             
             character.ChangeState(_targetState);
             character.transform.position = Vector2.MoveTowards(character.transform.position,
                 targetPosition, _moveSpeed * Time.deltaTime);
-
+            
             if (!(Vector2.Distance(character.transform.position, targetPosition) <= 0.01f)) 
                 return NodeStatus.Running;
             
@@ -74,7 +71,8 @@ namespace ATBMI.Entities.NPCs
             if (!(_currentTime >= moveDelayTime / 2f))
                 return;
             
-            var direction = (targetPosition - character.transform.position).normalized;
+            var direction = character.transform.position - targetPosition;
+            direction.Normalize();
             character.LookAt(direction);
         }
         
@@ -87,6 +85,7 @@ namespace ATBMI.Entities.NPCs
         
         private void TrySetupStats()
         {
+            _moveSpeed = data.GetSpeedByType(isWalk ? "Walk" : "Run");
             _targetState = isWalk 
                 ? CharacterState.Walk 
                 : CharacterState.Run;

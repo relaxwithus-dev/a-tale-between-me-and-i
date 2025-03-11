@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using ATBMI.Interaction;
-using UnityEngine.Serialization;
 
 namespace ATBMI.Entities.NPCs
 {
@@ -24,23 +23,23 @@ namespace ATBMI.Entities.NPCs
                 new ZoneSelector("Proxemics", new List<Node>
                 {
                     // Intimate
-                    new Sequence("Intimate Zone", new List<Node>
-                    {
-                        new CheckTargetInProxemics(centerPoint, zoneDetails[0].Radius, layerMask),
-                        new CheckPassed(characterAI, zoneDetails[1].Radius),
-                        new EmotionalSelector("Anger", characterTraits, new List<Node>
-                        {
-                            new SequenceWeight("Pull", new List<Node>
-                            {
-                                new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true),
-                                new TaskPull(characterAI, pullForce, pullDelay),
-                                new TaskMoveToOrigin(characterAI, characterAI.Data, isWalk: true),
-                                new TaskTalk(characterAI, CharacterState.Anger, "hei, yang sopan kamu!")
-                            }),
-                            new TaskTalk(characterAI, "mau kemana kamu?"),
-                            new TaskIdle(characterAI)
-                        })
-                    }),
+                    // new Sequence("Intimate Zone", new List<Node>
+                    // {
+                    //     new CheckTargetInProxemics(centerPoint, zoneDetails[0].Radius, layerMask),
+                    //     new CheckPassed(characterAI, zoneDetails[1].Radius),
+                    //     new EmotionalSelector("Anger", characterTraits, new List<Node>
+                    //     {
+                    //         new SequenceWeight("Pull", new List<Node>
+                    //         {
+                    //             new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true),
+                    //             new TaskPull(characterAI, pullForce, pullDelay),
+                    //             new TaskMoveToOrigin(characterAI, characterAI.Data, isWalk: true),
+                    //             new TaskTalk(characterAI, CharacterState.Anger, "hei, yang sopan kamu!")
+                    //         }),
+                    //         new TaskTalk(characterAI, "mau kemana kamu?"),
+                    //         new TaskIdle(characterAI)
+                    //     })
+                    // }),
                     // Personal
                     new Sequence("Personal Zone", new List<Node>
                     {

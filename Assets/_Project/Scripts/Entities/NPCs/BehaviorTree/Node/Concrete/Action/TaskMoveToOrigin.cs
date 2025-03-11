@@ -5,7 +5,10 @@ namespace ATBMI.Entities.NPCs
 {
     public class TaskMoveToOrigin : TaskMoveBase
     {
-        public TaskMoveToOrigin(CharacterAI character, CharacterData data, bool isWalk) : base(character, data, isWalk) { }
+        public TaskMoveToOrigin(CharacterAI character, CharacterData data, bool isWalk) : base(character, data, isWalk)
+        {
+            InitFactors(plan: 1f, risk: 0.2f, timeRange: (3f, 6f));
+        }
         
         protected override bool TrySetupTarget()
         {
