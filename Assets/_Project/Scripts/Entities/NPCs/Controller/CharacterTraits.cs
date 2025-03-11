@@ -11,36 +11,39 @@ namespace ATBMI.Entities.NPCs
         [Header("Config")]
         [SerializeField] private InfluenceConfiguration influenceConfig;
         [SerializeField] private PersonalityConfiguration personalityConfig;
-        
+
         [Header("Traits")]
-        [SerializeField] [Range(-1, 1)] private float[] emotions = new float[4];
+        [SerializeField] private Emotion initialEmotion;
+        [SerializeField] [Range(-1, 1)] [ReadOnly] private float[] emotions = new float[4];
         [SerializeField] [Range(-1, 1)] private float[] personality = new float[5];
-        
-        private float[] _currentInfluence;
+
+        private float[] _eventEmotion;
         
         #endregion
         
         #region Methods
         
+        // Unity Callbacks
         private void Start()
         {
-            CalculateNewEmotion();
+            _eventEmotion = new float[4];
+            
+            var emotionIndex = (int)initialEmotion;
+            emotions[emotionIndex / 2] = (emotionIndex % 2 == 0) ? 0.5f : -0.5f;
         }
         
-        // TODO: Call method ini waktu pemain melakukan aksi
+        // Core
         public void InfluenceTraits(InteractAction action)
-        { 
+        {
             var influence = influenceConfig.GetInfluenceValues(action);
-                       
-           // Validate
-           if (!ValidateEmotion(influence))
-               return;
-           
-           for (var i = 0; i < emotions.Length; i++)
-           {
-               emotions[i] = influence[i];
-           }
-           CalculateNewEmotion();
+            if (!ValidateEmotion(influence)) 
+                return;
+            
+            for (var i = 0; i < emotions.Length; i++)
+            {
+                _eventEmotion[i] = emotions[i] + influence[i];
+            }
+            CalculateNewEmotion();
         }
         
         private void CalculateNewEmotion()
@@ -51,11 +54,11 @@ namespace ATBMI.Entities.NPCs
                 var sum = 0f;
                 for (var j = 0; j < 5; j++)
                 {
-                    var isPositive = emotions[i] >= 0;
+                    var isPositive = _eventEmotion[i] >= 0;
                     float factor = personalityConfig.GetPersonalityInfluence((PersonalityTrait)j,
                         (Emotion)(i * 2), isPositive);
                     
-                    sum += emotions[i] * personality[j] * factor;
+                    sum += _eventEmotion[i] * personality[j] * factor;
                 }
                 
                 newEmotions[i] = sum / 5f;
@@ -124,6 +127,7 @@ namespace ATBMI.Entities.NPCs
             }
         }
         
+        // Helpers
         public (Emotion, float) GetDominantEmotion()
         {
             var maxValue = 0f;

@@ -89,7 +89,7 @@ namespace ATBMI.Interaction
                     }
                 }
             }
-            return InteractAction.Talks;
+            return InteractAction.Talk;
         }
         
         #endregion

@@ -9,9 +9,9 @@ namespace ATBMI.Entities.NPCs
     {
         private float[,] actionInfluence = {
             { 0.3f, 0.2f, 0, 0 },    // is_talking
-            { -0.15f, -0.1f, -0.5f, 0.1f }, // is_running
+            { -0.15f, -0.1f, -0.3f, 0.1f }, // is_running
             { 0.3f, 0.2f, 0.1f, 0 },  // is_walk
-            { 0.5f, 0.6f, -0.2f, 0.3f }, // is_give_item
+            { 0.3f, 0.3f, -0.2f, 0.3f }, // is_give_item
             { -0.2f, -0.1f, 0.1f, 0 }  // is_take_item
         };
         
