@@ -50,8 +50,6 @@ Okeyy #speaker:Dewa #expression:A_Dewa_Speak
 
 Semoga di lain hari kita bisa bertemu lagi #speaker:Luna #expression:A_Luna_Speak
 
-// Maba pergi
-
 Yuk kita sekarang pergi ke kakak tingkat kita tadi #speaker:Dewa #expression:A_Dewa_Speak
 
 -> END

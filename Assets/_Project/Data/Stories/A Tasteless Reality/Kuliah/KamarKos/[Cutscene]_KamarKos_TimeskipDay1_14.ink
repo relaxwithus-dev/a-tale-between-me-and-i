@@ -12,4 +12,6 @@ Sudah jam segini???? #speaker:Dewa #expression:A_Dewa_Panik
 Gawat!!!! #speaker:Dewa #expression:A_Dewa_Speak
 Aku harus cepat mandi dan bersiap #speaker:Dewa #expression:A_Dewa_Speak
 
+// Fade Screen
+
 -> END
