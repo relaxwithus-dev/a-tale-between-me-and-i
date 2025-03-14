@@ -6,7 +6,7 @@ namespace ATBMI.Entities.NPCs
     public class TaskFollow : LeafWeight
     {
         private readonly CharacterAI character;
-        private readonly CharacterData data;
+        private readonly float moveSpeed;
         private readonly float followTime;
         private readonly float followDelayTime = 1f;
         
@@ -22,10 +22,10 @@ namespace ATBMI.Entities.NPCs
         public TaskFollow(CharacterAI character, CharacterData data, float followTime)
         {
             this.character = character;
-            this.data = data;
             this.followTime = followTime;
+            moveSpeed = data.GetSpeedByType("Walk");
             
-            InitFactors(planning: 1f, risk: 0.5f, timeRange: (6f, 12f));
+            InitFactors(plan: 1f, risk: 0.5f, timeRange: (6f, 12f));
         }
 
         // Core
@@ -35,8 +35,11 @@ namespace ATBMI.Entities.NPCs
                 return NodeStatus.Failure;
 
             if (_currentFollowTime > followTime)
+            {
+                Debug.Log("Execute Success: TaskFollow");
                 return NodeStatus.Success;
-
+            }
+            
             if (_currentFollowDelayTime < followDelayTime)
             {
                 _currentFollowDelayTime += Time.deltaTime;
@@ -59,7 +62,6 @@ namespace ATBMI.Entities.NPCs
         {
             if (!_currentTarget)
             {
-                Debug.Log("Execute Success: TaskFollow");
                 _currentTarget = (Transform)GetData(TARGET_KEY);
                 if (!_currentTarget)
                 {
@@ -77,7 +79,7 @@ namespace ATBMI.Entities.NPCs
             _currentFollowTime += Time.deltaTime;
             character.ChangeState(CharacterState.Walk);
             character.transform.position = Vector2.MoveTowards(character.transform.position, 
-                _targetPosition, data.MoveSpeed * Time.deltaTime);
+                _targetPosition, moveSpeed * Time.deltaTime);
             
             if (Vector3.Distance(character.transform.position, _targetPosition) <= 0.01f)
             {

@@ -41,7 +41,6 @@ namespace ATBMI.Entities.NPCs
                 return false;
             }
             
-            Debug.Log("Execute Success: TaskForce");
             player = target.GetComponent<PlayerController>();
             return true;
         }
@@ -52,6 +51,7 @@ namespace ATBMI.Entities.NPCs
             player.PlayerRb.velocity = Vector2.zero;
             player.StartMovement();
             
+            Debug.Log("Execute Success: TaskForce");
             parentNode.ClearData(PHYSIC_KEY);
         }
     }

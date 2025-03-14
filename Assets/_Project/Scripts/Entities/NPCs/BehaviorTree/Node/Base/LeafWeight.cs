@@ -4,7 +4,7 @@ namespace ATBMI.Entities.NPCs
     {
         // Factors
         private float risk;
-        private float planning;
+        private float plan;
         private (float, float) timeRange;
         
         // Constructor
@@ -12,15 +12,15 @@ namespace ATBMI.Entities.NPCs
         public LeafWeight(string nodeName) : base(nodeName) { }
         
         // Core
-        protected void InitFactors(float planning, float risk, (float, float) timeRange)
+        protected void InitFactors(float plan, float risk, (float, float) timeRange)
         {
             this.risk = risk;
-            this.planning = planning;
+            this.plan = plan;
             this.timeRange = timeRange;
         }
         
         public float GetRiskValue() => risk;
-        public float GetPlanningValue() => planning;
+        public float GetPlanningValue() => plan;
         public (float, float) GetTimeRange() => timeRange;
     }
 }

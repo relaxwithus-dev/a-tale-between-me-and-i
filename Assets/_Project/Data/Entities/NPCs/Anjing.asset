@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Anjing
   m_EditorClassIdentifier: 
   characterName: Anjing
-  moveSpeed: 1
-  defaultDialogue: {fileID: 0}
-  itemListSO: {fileID: 0}
-  itemDialogues: []
+  isIdling: 0
+  moveSpeeds:
+  - Type: Walk
+    Speed: 1.3

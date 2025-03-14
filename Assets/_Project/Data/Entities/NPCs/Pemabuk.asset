@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Pemabuk
   m_EditorClassIdentifier: 
   characterName: Pemabuk
-  moveSpeed: 1
-  defaultDialogue: {fileID: 0}
-  itemListSO: {fileID: 0}
-  itemDialogues: []
+  isIdling: 0
+  moveSpeeds:
+  - Type: Walk
+    Speed: 1.3

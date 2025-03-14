@@ -11,7 +11,7 @@ namespace ATBMI.Entities.NPCs
             {
                 new Sequence("Task Item", new List<Node>
                 {
-                    new CheckTargetInZone(centerPoint, zoneDetails[2].Radius, layerMask),
+                    new CheckTargetInArea(centerPoint, zoneDetails[2].Radius, layerMask),
                     new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true),
                     new TaskGetItem(),
                     new TaskMoveToOrigin(characterAI, characterAI.Data, isWalk: true)
@@ -24,12 +24,12 @@ namespace ATBMI.Entities.NPCs
             {
                 new Sequence("Task Dialogue", new List<Node>
                 {
-                    new CheckTargetInZone(centerPoint, zoneDetails[2].Radius, layerMask),
+                    new CheckTargetInArea(centerPoint, zoneDetails[2].Radius, layerMask),
                     new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true),
                     new Selector("Task", new List<Node>
                     {
                         new TaskGetItem(),
-                        new TaskDialogue(characterAI, "Yah itemnya tidak cocok :(")
+                        new TaskTalk(characterAI, "Yah itemnya tidak cocok :(")
                     }),
                     new TaskMoveToOrigin(characterAI, characterAI.Data, isWalk: true)
                 }),
@@ -43,13 +43,13 @@ namespace ATBMI.Entities.NPCs
                 {
                     new Sequence(zoneDetails[0].Type.ToString(), new List<Node>
                     {
-                        new CheckTargetInZone(centerPoint, zoneDetails[0].Radius, layerMask),
-                        new TaskDialogue(characterAI,"masuk intimate")
+                        new CheckTargetInArea(centerPoint, zoneDetails[0].Radius, layerMask),
+                        new TaskTalk(characterAI,"masuk intimate")
                     }),
                     new Sequence(zoneDetails[1].Type.ToString(), new List<Node>
                     {
-                        new CheckTargetInZone(centerPoint, zoneDetails[1].Radius, layerMask),
-                        new TaskDialogue(characterAI,"masuk personal")
+                        new CheckTargetInArea(centerPoint, zoneDetails[1].Radius, layerMask),
+                        new TaskTalk(characterAI,"masuk personal")
                     }),
                 }),
                 new TaskIdle(characterAI)

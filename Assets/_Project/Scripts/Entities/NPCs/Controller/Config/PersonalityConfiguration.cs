@@ -23,7 +23,7 @@ namespace ATBMI.Entities.NPCs
             { 1f, 1f, 1f, 1f } // Neuroticism influences
         };
 
-        public float GetPersonalityInfluence(PersonalityTrait trait, EmotionType emotion, bool isPositive)
+        public float GetPersonalityInfluence(PersonalityTrait trait, Emotion emotion, bool isPositive)
         {
             var traitIndex = (int)trait;
             var emotionIndex = (int)emotion / 2;
