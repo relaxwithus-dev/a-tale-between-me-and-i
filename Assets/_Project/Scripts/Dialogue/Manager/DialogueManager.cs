@@ -15,6 +15,7 @@ namespace ATBMI.Dialogue
     {
         [Header("Dependencies")]
         [SerializeField] private PlayerController playerController;
+        [SerializeField] private InteractManager interactManager;
 
         [Header("Params")]
         [SerializeField] private float typingSpeed;
@@ -141,6 +142,7 @@ namespace ATBMI.Dialogue
             dialoguePin.SetActive(true);
 
             playerController.StopMovement();
+            interactManager.IsInteracted = true;
             inkExternalFunctions.Bind(currentStory, emoteAnimator);
 
             ContinueStory();
@@ -364,21 +366,21 @@ namespace ATBMI.Dialogue
                 }
             }
         }
-
+        
         private IEnumerator ExitDialogueMode()
         {
             yield return new WaitForSeconds(0.2f);
             inkExternalFunctions.Unbind(currentStory);
-
+            
             IsDialoguePlaying = false;
             dialoguePin.SetActive(false);
             dialogueName.text = "";
             dialogueText.text = "";
-
+            
             playerController.StartMovement();
+            interactManager.IsInteracted = false;
             DialogueEvents.StopDialogueAnimEvent();
-            CharacterInteract.InteractingEvent(isBegin: false);
-
+            
             // if (isSequenceIsPlaying)
             // {
             //     cutscene.nextstep(currentstep + 1);

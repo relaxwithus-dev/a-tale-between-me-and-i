@@ -8,7 +8,7 @@ namespace ATBMI.Entities.NPCs
         private readonly float offRange;
         
         private const float OFFSET = 0.5f;
-        private const float PASS_OFFSET = 2f;
+        private const float PASS_OFFSET = 1.3f;
         
         private Transform _currentTarget;
         private Vector3 _passedPosition;
@@ -28,11 +28,11 @@ namespace ATBMI.Entities.NPCs
 
             if (CheckOffRange())
                 return NodeStatus.Failure;
-
-            if (!(Vector3.Distance(_currentTarget.transform.position, _passedPosition) <= 0.01f))
+            
+            if (!(Vector3.Distance(_currentTarget.transform.position, _passedPosition) <= 0.1f))
                 return NodeStatus.Running;
             
-            Debug.Log("Execute Success: CheckPassed");
+            Debug.LogWarning("Execute Success: CheckPassed");
             return NodeStatus.Success;
         }
         

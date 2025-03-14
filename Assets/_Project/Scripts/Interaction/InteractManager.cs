@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Sirenix.OdinInspector;
 using ATBMI.Dialogue;
@@ -19,6 +20,8 @@ namespace ATBMI.Interaction
             set => isInteracted = value;
         }
         
+        public static event Action<bool> OnInteracted;
+        
         [Header("Area")]
         [SerializeField][MaxValue(3)] private int detectionLimit;
         [SerializeField] private float detectionRadius;
@@ -28,28 +31,44 @@ namespace ATBMI.Interaction
 
         [Header("Reference")]
         [SerializeField] private InteractHandler interactHandler;
-
+        
         #endregion
 
         #region MonoBehaviour Callbacks
+
+        private void OnEnable()
+        {
+            OnInteracted += Interacted;
+        }
+
+        private void OnDisable()
+        {
+            OnInteracted -= Interacted;
+        }
 
         private void Start()
         {
             _hitsNonAlloc = new Collider2D[detectionLimit];
             interactSign.SetActive(false);
         }
-
+        
         private void Update()
         {
             if (IsInteracted) return;
             HandleInteractArea();
         }
-
+        
         #endregion
         
         #region Methods
-
+        
         // !- Core
+        public static void InteractedEvent(bool interact) => OnInteracted?.Invoke(interact);
+        private void Interacted(bool interact)
+        {
+            isInteracted = interact;
+        }
+        
         private void HandleInteractArea()
         {
             if (DialogueManager.Instance.IsDialoguePlaying)
@@ -81,7 +100,7 @@ namespace ATBMI.Interaction
                     {
                         DeactivateSign();
                         IsInteracted = true;
-                        CharacterInteract.InteractingEvent(isBegin: true);
+                        target.WhenInteracted(IsInteracted);
                         
                         if (target as ItemInteract)
                         {
@@ -102,14 +121,14 @@ namespace ATBMI.Interaction
         {
             float closestSqrDist = Mathf.Infinity;
             Collider2D closest = null;
-
+            
             for (var i = 0; i < hitNums; i++)
             {
-                var collider = collider2Ds[i];
-                var sqrDist = (collider.transform.position - origin).sqrMagnitude;
+                var target = collider2Ds[i];
+                var sqrDist = (target.transform.position - origin).sqrMagnitude;
                 if (!closest || sqrDist < closestSqrDist)
                 {
-                    closest = collider;
+                    closest = target;
                     closestSqrDist = sqrDist;
                 }
             }
@@ -120,11 +139,11 @@ namespace ATBMI.Interaction
         private void ActivateSignAt(Transform target)
         {
             if (interactSign.activeSelf || DialogueManager.Instance.IsDialoguePlaying) return;
-
+            
             if (target.TryGetComponent<IInteractable>(out var targetInteract))
             {
-                var signPosTrans = targetInteract.GetSignTransform();
                 var signTransform = interactSign.transform;
+                var signPosTrans = targetInteract.GetSignTransform();
                 
                 if (signPosTrans == null) return;
                 

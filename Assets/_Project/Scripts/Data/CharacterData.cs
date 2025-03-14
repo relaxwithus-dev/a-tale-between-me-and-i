@@ -1,10 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Ink.Parsed;
 using UnityEngine;
 using Sirenix.OdinInspector;
-using UnityEngine.Serialization;
 
 namespace ATBMI.Data
 {
@@ -36,7 +34,7 @@ namespace ATBMI.Data
         [Space]
         [SerializeField] private ItemList itemListSO;
         [SerializeField] private List<ItemDialogue> itemDialogues;
-
+        
         // Stats
         public string CharacterName => characterName;
         public float GetSpeedByType(string type)

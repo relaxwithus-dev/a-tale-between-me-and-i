@@ -1,5 +1,4 @@
 using ATBMI.Interaction;
-using UnityEngine;
 
 namespace ATBMI.Entities.NPCs
 {

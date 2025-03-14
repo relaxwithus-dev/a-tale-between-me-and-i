@@ -98,7 +98,9 @@ namespace ATBMI.Entities.NPCs
             // Weight calculated
             var weightRisk = Mathf.Clamp((1 - risk * delta) * emoRisk, 0, 1);
             var weightPlan = (1 - 1 / (1 + omega * planning)) * Mathf.Max(1 - sign + sign * emoPlan, 0);
-            var weightTime = Mathf.Lerp(1 - 1 / (1 + phi * time), 1 / (1 + phi * time), emoTime * lambda);
+            var weightTime = Mathf.Clamp((1 - time * phi) * lambda * emoTime, 0, 1);
+            // var weightTime = (1 - 1 / (1 + phi * time)) * Mathf.Max(1 - lambda + lambda * emoTime, 0);
+            // var weightTime = Mathf.Lerp(1 - 1 / (1 + phi * time), 1 / (1 + phi * time), emoTime);
             
             var totalWeight = alpha * weightRisk + beta * weightTime + gamma * weightPlan;
             

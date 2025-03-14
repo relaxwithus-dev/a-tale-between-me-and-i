@@ -30,11 +30,11 @@ namespace ATBMI.Entities.NPCs
                         {
                             new SequenceWeight("Pull", new List<Node>
                             {
+                                new CheckInAction(characterInteract, isAction: true),
                                 new CheckPassed(characterAI, zoneDetails[1].Radius),
-                                new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true),
                                 new TaskPull(characterAI, pullForce, pullDelay),
-                                new TaskMoveToOrigin(characterAI, characterAI.Data, isWalk: true),
-                                new TaskTalk(characterAI, CharacterState.Anger, "hei, yang sopan kamu!")
+                                new TaskTalk(characterAI, CharacterState.Anger, "hei, yang sopan kamu!"),
+                                new CheckInAction(characterInteract, isAction: false)
                             }),
                             new TaskTalk(characterAI, "mau kemana kamu?"),
                             new TaskIdle(characterAI)

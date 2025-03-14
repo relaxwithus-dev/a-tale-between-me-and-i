@@ -1,7 +1,5 @@
-using System;
 using UnityEngine;
 using Sirenix.OdinInspector;
-using ATBMI.Data;
 using ATBMI.Enum;
 using ATBMI.Inventory;
 using ATBMI.Entities.NPCs;
@@ -15,47 +13,53 @@ namespace ATBMI.Interaction
 
         [Header("Properties")]
         [SerializeField] private bool isInteracting;
+        [SerializeField] private bool isOnAction;
+        
+        [Space]
         [SerializeField] private InteractAction interactAction;
         [ShowIf("@this.interactAction == InteractAction.Give || this.interactAction == InteractAction.Take")]
         [SerializeField] private int targetId;
         [SerializeField] private Transform signTransform;
-
+        
         private int _interactId;
         public bool IsInteracting => isInteracting;
-        public static event Action<bool> OnInteracting;
-
+                
         [Header("Reference")]
-        [SerializeField] private CharacterTraits characterTraits;
         [SerializeField] private CharacterAI characterAI;
-
+        [SerializeField] private CharacterTraits characterTraits;
+        
         #endregion
 
         #region Methods
-
-        private void OnEnable()
-        {
-            OnInteracting += cond => isInteracting = cond;
-        }
-
+        
+        // Unity Callbacks
         private void Start()
         {
-            if (characterAI.Data != null)
-            {
-                DialogueEvents.RegisterNPCTipTargetEvent(characterAI.Data.CharacterName, GetSignTransform());
-            }
-            else
-            {
+            if (characterAI.Data == null)
                 Debug.LogError($"CharacterData is missing for NPC {gameObject.name}");
-            }
+            
+            DialogueEvents.RegisterNPCTipTargetEvent(characterAI.Data.CharacterName, GetSignTransform());
         }
-
-        public static void InteractingEvent(bool isBegin) => OnInteracting?.Invoke(isBegin);
-        public Transform GetSignTransform() => signTransform;
-
-        // TODO: Adjust isi method dibawah sesuai dgn jenis interaksi
+        
+        // Initiate
+        public void WhenAction(bool action)
+        {
+            isOnAction = action;
+            InteractManager.InteractedEvent(action);
+        }
+        
+        public void WhenInteracted(bool interact)
+        {
+            isInteracting = interact;
+            InteractManager.InteractedEvent(interact);
+        }
+        
+        // Core
         public void Interact(InteractManager manager, int itemId = 0)
         {
             _interactId = itemId;
+            isInteracting = true;
+            
             if (_interactId == 0)
             {
                 DialogueEvents.EnterDialogueEvent(characterAI.Data.GetDefaultDialogue());
@@ -64,8 +68,8 @@ namespace ATBMI.Interaction
             else
             {
                 // TODO: Saran lur, method baru bisa nge-pass 2 parameter, item id yg dipilih & target item id 
-                ItemData itemData = InventoryManager.Instance.GetItemData(_interactId);
-                TextAsset itemDialogue = characterAI.Data.GetItemDialogue(itemData);
+                var itemData = InventoryManager.Instance.GetItemData(_interactId);
+                var itemDialogue = characterAI.Data.GetItemDialogue(itemData);
                 DialogueEvents.EnterItemDialogueEvent(itemDialogue);
             }
         }
@@ -94,6 +98,8 @@ namespace ATBMI.Interaction
             return false;
         }
 
+        // Helpers
+        public Transform GetSignTransform() => signTransform;
         private InteractAction GetAction(string action)
         {
             if (System.Enum.TryParse<InteractAction>(action, out var parsedAction))
@@ -109,6 +115,7 @@ namespace ATBMI.Interaction
             }
             return InteractAction.Talk;
         }
+        
 
         #endregion
     }
