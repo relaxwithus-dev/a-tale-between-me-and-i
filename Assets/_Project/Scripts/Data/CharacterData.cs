@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Ink.Parsed;
 using UnityEngine;
 using Sirenix.OdinInspector;
+using UnityEngine.Serialization;
 
 namespace ATBMI.Data
 {
@@ -16,21 +18,26 @@ namespace ATBMI.Data
             public float Speed;
         }
         
+        [Serializable]
+        private struct CharacterDialogues
+        {
+            public string sceneName;
+            public TextAsset dialogues;
+        }
+        
         [Header("Stats")]
         [SerializeField] private string characterName;
         [SerializeField] private bool isIdling;
         [SerializeField] [HideIf("isIdling")] 
         private CharacterMoves[] moveSpeeds;
 
-        [Space(20)]
-        [Header("Default Dialogue/s")]
-        [SerializeField] private TextAsset defaultDialogue; //TODO: add some default dialogue in different chapters, cange it to list
-
-        [Header("Item-Specific Dialogue")]
+        [Header("Properties")]
+        [SerializeField] private CharacterDialogues[] defaultDialogues;
+        [Space]
         [SerializeField] private ItemList itemListSO;
-        [SerializeField] private List<ItemDialogue> itemDialogues = new();
+        [SerializeField] private List<ItemDialogue> itemDialogues;
 
-        // General
+        // Stats
         public string CharacterName => characterName;
         public float GetSpeedByType(string type)
         {
@@ -45,22 +52,38 @@ namespace ATBMI.Data
         }
   
         // Properties
-        public TextAsset DefaultDialogue => defaultDialogue;
-        public List<ItemDialogue> ItemDialogues => itemDialogues;
+        public TextAsset GetDefaultDialogue(string scene = "null")
+        {
+            if (defaultDialogues.Length == 0)
+            {
+                Debug.LogError("default dialogues not set!");
+                return null;
+            }
+            
+            if (scene == "null")
+                return defaultDialogues[0].dialogues;
+                    
+            foreach (var dialogue in defaultDialogues)
+            {
+                if (dialogue.sceneName == scene)
+                    return dialogue.dialogues;
+            }
+            
+            Debug.LogError("scene default dialogue not found!");
+            return null;
+        }
+        
         public ItemList ItemList => itemListSO;
-
-        #region Method
         public TextAsset GetItemDialogue(ItemData item)
         {
             var entry = itemDialogues.Find(d => d.item == item);
-            return entry != null ? entry.dialogue : defaultDialogue;
+            return entry != null ? entry.dialogue : defaultDialogues[0].dialogues;
         }
-        #endregion
-
-        #region OnValidate Item-Specific Dialogue
+        
+        
+    #if UNITY_EDITOR
         // Automatically call the method when there is a changes in itemlistSO
         // NOTE: still need to assign the item-spesific dialogue on changes
-#if UNITY_EDITOR
         private void OnValidate()
         {
             if (itemListSO != null)
@@ -82,7 +105,7 @@ namespace ATBMI.Data
 
             foreach (var item in itemListSO.itemList)
             {
-                if (!itemDialogues.Any(d => d.item == item))
+                if (itemDialogues.All(d => d.item != item))
                 {
                     itemDialogues.Add(new ItemDialogue { item = item, dialogue = null });
                 }
@@ -90,7 +113,6 @@ namespace ATBMI.Data
 
             UnityEditor.EditorUtility.SetDirty(this);
         }
-#endif
-        #endregion
+    #endif
     }
 }

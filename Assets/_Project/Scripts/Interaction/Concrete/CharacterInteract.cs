@@ -58,7 +58,7 @@ namespace ATBMI.Interaction
             _interactId = itemId;
             if (_interactId == 0)
             {
-                DialogueEvents.EnterDialogueEvent(characterAI.Data.DefaultDialogue);
+                DialogueEvents.EnterDialogueEvent(characterAI.Data.GetDefaultDialogue());
                 characterTraits.InfluenceTraits(InteractAction.Run);
             }
             else
