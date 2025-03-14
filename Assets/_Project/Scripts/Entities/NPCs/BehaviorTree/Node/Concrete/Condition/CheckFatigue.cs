@@ -2,11 +2,11 @@ using UnityEngine;
 
 namespace ATBMI.Entities.NPCs
 {
-    public class CheckIsFatigue : Leaf
+    public class CheckFatigue : Leaf
     {
         private readonly CharacterManager manager;
         
-        public CheckIsFatigue(CharacterManager manager)
+        public CheckFatigue(CharacterManager manager)
         {
             this.manager = manager;
         }
@@ -15,11 +15,11 @@ namespace ATBMI.Entities.NPCs
         {
             if (!manager.IsEnergyEmpty())
             {
-                Debug.Log("Execute Success: CheckIsFatigue");
+                Debug.Log("Execute Success: CheckFatigue");
                 return NodeStatus.Success;
             }
                           
-            Debug.LogWarning("Execute Failure: CheckIsFatigue");
+            Debug.LogWarning("Execute Failure: CheckFatigue");
             return NodeStatus.Failure;
         }
     }

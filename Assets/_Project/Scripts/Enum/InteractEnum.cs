@@ -2,7 +2,7 @@ namespace ATBMI.Enum
 {
     public enum InteractAction
     {
-        Talks, Run, Walk,
+        Talk, Run, Walk,
         Give, Take
     }
     

@@ -1,4 +1,4 @@
-using System;
+using System.Linq;
 using UnityEngine;
 
 namespace ATBMI.Entities.NPCs
@@ -9,57 +9,40 @@ namespace ATBMI.Entities.NPCs
         #region Fields & Properties
         
         private int _currentState;
-        
-        // Cached properties
-        private static readonly int Idle = Animator.StringToHash("Idle");
-        private static readonly int Walk = Animator.StringToHash("Walk");
-        private static readonly int Run = Animator.StringToHash("Run");
-        private static readonly int Dialogue = Animator.StringToHash("Dialogue");
-        
-        // Reference
-        private CharacterAI _characterAI;
         private Animator _characterAnim;
-
-        #endregion
-         
-        #region Unity Methods
-            
-        private void Awake()
-        {
-            _characterAI = GetComponentInParent<CharacterAI>();
-            _characterAnim = GetComponent<Animator>();
-        }
-
-        private void Update()
-        {
-            AnimationStateHandler();
-        }
-
+        
         #endregion
 
         #region  Methods
         
-        private void AnimationStateHandler()
+        // Unity Callbacks
+        private void Awake()
         {
-            var state = GetState();
-
-            if (state == _currentState) return;
-            _characterAnim.CrossFade(state, 0, 0);
-            _currentState = state;
+            _characterAnim = GetComponent<Animator>();
         }
         
-        private int GetState()
+        // Core
+        public bool TrySetAnimationState(string state)
         {
-            return _characterAI.State switch
+            if (IsAnimationExists(state))
             {
-                CharacterState.Idle => Idle,
-                CharacterState.Walk => Walk,
-                CharacterState.Run => Run,
-                CharacterState.Talk => Dialogue,
-                _ => throw new InvalidOperationException("Invalid NPCs State!")
-            };
+                Debug.LogWarning("Animation isn't exists");
+                return false;
+            }
+            
+            _currentState = Animator.StringToHash(state);
+            _characterAnim.CrossFade(_currentState, 0, 0);
+            return true;
         }
-
+        
+        public float GetAnimationTime() => _characterAnim.GetCurrentAnimatorClipInfo(0).Length;
+        
+        private bool IsAnimationExists(string state)
+        {
+            return _characterAnim.runtimeAnimatorController.
+                animationClips.Any(clip => clip.name == state);
+        }
+        
         #endregion
     }
 }

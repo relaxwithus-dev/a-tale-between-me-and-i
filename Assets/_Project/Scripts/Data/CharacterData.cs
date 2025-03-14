@@ -1,15 +1,26 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Sirenix.OdinInspector;
 
 namespace ATBMI.Data
 {
     [CreateAssetMenu(fileName = "NewCharacterData", menuName = "Data/Entities/Character Data", order = 1)]
     public class CharacterData : ScriptableObject
     {
+        [Serializable]
+        private struct CharacterMoves
+        {
+            public string Type;
+            public float Speed;
+        }
+        
         [Header("Stats")]
         [SerializeField] private string characterName;
-        [SerializeField] private float moveSpeed;
+        [SerializeField] private bool isIdling;
+        [SerializeField] [HideIf("isIdling")] 
+        private CharacterMoves[] moveSpeeds;
 
         [Space(20)]
         [Header("Default Dialogue/s")]
@@ -19,9 +30,21 @@ namespace ATBMI.Data
         [SerializeField] private ItemList itemListSO;
         [SerializeField] private List<ItemDialogue> itemDialogues = new();
 
-        // Getter
+        // General
         public string CharacterName => characterName;
-        public float MoveSpeed => moveSpeed;
+        public float GetSpeedByType(string type)
+        {
+            foreach (var speed in moveSpeeds)
+            {
+                if (speed.Type == type)
+                    return speed.Speed;
+            }
+                
+            Debug.LogError("move speeds not found!");
+            return 0f;
+        }
+  
+        // Properties
         public TextAsset DefaultDialogue => defaultDialogue;
         public List<ItemDialogue> ItemDialogues => itemDialogues;
         public ItemList ItemList => itemListSO;

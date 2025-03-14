@@ -17,12 +17,12 @@ namespace ATBMI.Entities.NPCs
         private readonly float StateMinTime = 0.02f;
         private readonly string Blend = "Blend";
         
-        override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+        public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             ResetAnimation(animator);
         }
         
-        override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+        public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             if (!_isShuffled)
             {

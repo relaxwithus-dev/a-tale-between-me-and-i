@@ -33,21 +33,6 @@ namespace ATBMI.Entities.NPCs
             GetTimeRange();
         }
         
-        public float GetRiskValue()
-        {
-            var totalRisk = 1f;
-            foreach (var child in childNodes)
-            {
-                if (child is not IEmotionable risk)
-                {
-                    Debug.LogError($"{child.nodeName} is not an IEmotionable!");
-                    return 0f;
-                }
-                totalRisk *= (1 - risk.GetRiskValue());
-            }
-            return 1 - totalRisk;
-        }
-        
         public float GetPlanningValue()
         {
             var totalPlanning = 0f;
@@ -60,7 +45,22 @@ namespace ATBMI.Entities.NPCs
                 }
                 totalPlanning += planning.GetPlanningValue();
             }
-            return totalPlanning / childNodes.Count;
+            return totalPlanning;
+        }
+        
+        public float GetRiskValue()
+        {
+            var totalRisk = 1f;
+            foreach (var child in childNodes)
+            {
+                if (child is not IEmotionable risk)
+                {
+                    Debug.LogError($"{child.nodeName} is not an IEmotionable!");
+                    return 0f;
+                }
+                totalRisk *= 1 - risk.GetRiskValue();
+            }
+            return 1 - totalRisk;
         }
         
         public (float, float) GetTimeRange()

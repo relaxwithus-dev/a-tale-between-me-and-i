@@ -17,6 +17,7 @@ namespace ATBMI.Entities.NPCs
             : base(character, data, isWalk)
         {
             this.initialPoint = initialPoint;
+            InitFactors(plan: 1f, risk: 0.3f, timeRange: (4, 7));
         }
         
         // Core

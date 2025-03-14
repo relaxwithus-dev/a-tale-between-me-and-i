@@ -1,6 +1,6 @@
 namespace ATBMI.Entities.NPCs
 {
-    public enum EmotionType
+    public enum Emotion
     {
         Joy, Sadness,
         Trust, Disgust,
