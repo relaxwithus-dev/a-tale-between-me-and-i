@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace ATBMI.Entities.NPCs
 {
-    public class CheckPassed : Leaf
+    public class CheckPassed : LeafWeight
     {
         private readonly CharacterAI character;
         private readonly float offRange;
@@ -17,6 +17,8 @@ namespace ATBMI.Entities.NPCs
         {
             this.character = character;
             this.offRange = offRange;
+            
+            InitFactors(plan: 0, risk: 0.1f, timeRange:(0.5f, 1.3f));
         }
         
         public override NodeStatus Evaluate()

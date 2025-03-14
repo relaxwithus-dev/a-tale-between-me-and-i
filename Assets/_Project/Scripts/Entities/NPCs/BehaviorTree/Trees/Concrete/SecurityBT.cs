@@ -26,11 +26,11 @@ namespace ATBMI.Entities.NPCs
                     new Sequence("Intimate Zone", new List<Node>
                     {
                         new CheckTargetInProxemics(centerPoint, zoneDetails[0].Radius, layerMask),
-                        new CheckPassed(characterAI, zoneDetails[1].Radius),
                         new EmotionalSelector("Anger", characterTraits, new List<Node>
                         {
                             new SequenceWeight("Pull", new List<Node>
                             {
+                                new CheckPassed(characterAI, zoneDetails[1].Radius),
                                 new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true),
                                 new TaskPull(characterAI, pullForce, pullDelay),
                                 new TaskMoveToOrigin(characterAI, characterAI.Data, isWalk: true),
