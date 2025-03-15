@@ -4,31 +4,26 @@ using Sirenix.OdinInspector;
 using ATBMI.Dialogue;
 using ATBMI.Entities.NPCs;
 using ATBMI.Gameplay.Handler;
+using UnityEngine.Serialization;
 
 namespace ATBMI.Interaction
 {
     public class InteractManager : MonoBehaviour
     {
         #region Fields & Properties
-        
-        [Header("Properties")]
+
+        [Header("Properties")] 
+        [SerializeField] private bool canInteracted;
         [SerializeField] private bool isInteracted;
         [SerializeField] private GameObject interactSign;
-        
-        public bool IsInteracted
-        {
-            get => isInteracted;
-            set => isInteracted = value;
-        }
-        public static event Action<bool> OnInteracted;
         
         [Header("Area")]
         [SerializeField][MaxValue(3)] private int detectionLimit;
         [SerializeField] private float detectionRadius;
         [SerializeField] private LayerMask targetMask;
-
+        
         private Collider2D[] _hitsNonAlloc;
-
+        
         [Header("Reference")]
         [SerializeField] private InteractHandler interactHandler;
         
@@ -38,14 +33,10 @@ namespace ATBMI.Interaction
 
         private void OnEnable()
         {
-            OnInteracted += Interacted;
+            InteractEvent.OnInteracted += cond => isInteracted = cond;
+            InteractEvent.OnRestricted += cond => canInteracted = cond;
         }
-
-        private void OnDisable()
-        {
-            OnInteracted -= Interacted;
-        }
-
+        
         private void Start()
         {
             _hitsNonAlloc = new Collider2D[detectionLimit];
@@ -54,7 +45,7 @@ namespace ATBMI.Interaction
         
         private void Update()
         {
-            if (IsInteracted) return;
+            if (!canInteracted || isInteracted) return;
             HandleInteractArea();
         }
         
@@ -63,12 +54,6 @@ namespace ATBMI.Interaction
         #region Methods
         
         // !- Core
-        public static void InteractedEvent(bool interact) => OnInteracted?.Invoke(interact);
-        private void Interacted(bool interact)
-        {
-            isInteracted = interact;
-        }
-        
         private void HandleInteractArea()
         {
             if (DialogueManager.Instance.IsDialoguePlaying)
@@ -82,7 +67,7 @@ namespace ATBMI.Interaction
             
             if (numOfHits == 0)
                 DeactivateSign();
-
+            
             for (var i = 0; i < numOfHits; i++)
             {
                 var nearest = FindNearestObjectAt(transform.position, numOfHits, _hitsNonAlloc);
@@ -99,13 +84,12 @@ namespace ATBMI.Interaction
                     if (target != null)
                     {
                         DeactivateSign();
-                        IsInteracted = true;
-                        target.WhenInteracted(IsInteracted);
+                        InteractEvent.InteractedEvent(interact: true);
                         
                         if (target as ItemInteract)
                         {
                             if (!target.Validate()) continue;
-                            isInteracted = false;
+                            InteractEvent.InteractedEvent(interact: false);
                             target.Interact(this);
                         }
                         else

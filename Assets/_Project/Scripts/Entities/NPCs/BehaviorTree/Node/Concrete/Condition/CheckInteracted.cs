@@ -1,3 +1,4 @@
+using ATBMI.Dialogue;
 using ATBMI.Interaction;
 
 namespace ATBMI.Entities.NPCs
@@ -5,7 +6,7 @@ namespace ATBMI.Entities.NPCs
     public class CheckInteracted : Leaf
     {
         private readonly CharacterInteract interact;
-
+        
         public CheckInteracted(CharacterInteract interact)
         {
             this.interact = interact;
@@ -13,7 +14,7 @@ namespace ATBMI.Entities.NPCs
         
         public override NodeStatus Evaluate()
         {
-            return interact.IsInteracting ?
+            return interact.IsInteracting || DialogueManager.Instance.IsDialoguePlaying?
                 NodeStatus.Success :
                 NodeStatus.Failure;
         }

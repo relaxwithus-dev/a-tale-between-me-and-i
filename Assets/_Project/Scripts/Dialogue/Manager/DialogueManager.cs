@@ -15,8 +15,7 @@ namespace ATBMI.Dialogue
     {
         [Header("Dependencies")]
         [SerializeField] private PlayerController playerController;
-        [SerializeField] private InteractManager interactManager;
-
+        
         [Header("Params")]
         [SerializeField] private float typingSpeed;
 
@@ -142,7 +141,6 @@ namespace ATBMI.Dialogue
             dialoguePin.SetActive(true);
 
             playerController.StopMovement();
-            interactManager.IsInteracted = true;
             inkExternalFunctions.Bind(currentStory, emoteAnimator);
 
             ContinueStory();
@@ -378,7 +376,6 @@ namespace ATBMI.Dialogue
             dialogueText.text = "";
             
             playerController.StartMovement();
-            interactManager.IsInteracted = false;
             DialogueEvents.StopDialogueAnimEvent();
             
             // if (isSequenceIsPlaying)

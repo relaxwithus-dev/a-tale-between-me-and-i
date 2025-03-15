@@ -14,7 +14,6 @@ namespace ATBMI.Interaction
 
         [Header("Properties")]
         [SerializeField] private bool isInteracting;
-        [SerializeField] private bool isOnAction;
         
         [Space]
         [SerializeField] private InteractAction interactAction;
@@ -32,13 +31,13 @@ namespace ATBMI.Interaction
         #endregion
         
         #region Methods
-
+        
+        // Unity Callbacks
         private void OnEnable()
         {
-            InteractManager.OnInteracted += b => Debug.LogError("cukimi");
+            InteractEvent.OnInteracted += cond => isInteracting = cond;
         }
-
-        // Unity Callbacks
+        
         private void Start()
         {
             if (characterAI.Data == null)
@@ -47,25 +46,10 @@ namespace ATBMI.Interaction
             DialogueEvents.RegisterNPCTipTargetEvent(characterAI.Data.CharacterName, GetSignTransform());
         }
         
-        // Initiate
-        public void WhenAction(bool action)
-        {
-            isOnAction = action;
-            InteractManager.InteractedEvent(action);
-        }
-        
-        public void WhenInteracted(bool interact)
-        {
-            isInteracting = interact;
-            InteractManager.InteractedEvent(interact);
-        }
-        
         // Core
         public void Interact(InteractManager manager, int itemId = 0)
         {
             _interactId = itemId;
-            isInteracting = true;
-            
             if (_interactId == 0)
             {
                 DialogueEvents.EnterDialogueEvent(characterAI.Data.GetDefaultDialogue());
@@ -103,7 +87,7 @@ namespace ATBMI.Interaction
             }
             return false;
         }
-
+        
         // Helpers
         public Transform GetSignTransform() => signTransform;
         private InteractAction GetAction(string action)
@@ -121,7 +105,6 @@ namespace ATBMI.Interaction
             }
             return InteractAction.Talk;
         }
-        
 
         #endregion
     }

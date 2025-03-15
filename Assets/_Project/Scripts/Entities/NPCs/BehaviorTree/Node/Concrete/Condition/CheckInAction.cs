@@ -4,12 +4,10 @@ namespace ATBMI.Entities.NPCs
 {
     public class CheckInAction : LeafWeight
     {
-        private readonly CharacterInteract interact;
         private readonly bool isAction;
-
-        public CheckInAction(CharacterInteract interact, bool isAction)
+        
+        public CheckInAction(bool isAction)
         {
-            this.interact = interact;
             this.isAction = isAction;
             
             InitFactors(plan: 0f, risk: 0f, timeRange:(0f, 0f));
@@ -17,7 +15,7 @@ namespace ATBMI.Entities.NPCs
         
         public override NodeStatus Evaluate()
         {
-            interact.WhenAction(isAction);
+            InteractEvent.RestrictedEvent(isAction);
             return NodeStatus.Success;
         }
     }
