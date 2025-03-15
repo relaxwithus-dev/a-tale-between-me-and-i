@@ -4,7 +4,7 @@ using ATBMI.Dialogue;
 
 namespace ATBMI
 {
-    public class Cutscene01 : CutsceneManager
+    public class TestCutscene : CutsceneManager
     {
         [SerializeField] private GameObject dewa;
         // [SerializeField] private GameObject ratna;
@@ -14,7 +14,8 @@ namespace ATBMI
         [SerializeField] private GameObject cam;
         [SerializeField] private Animator emoteAnim;
         [SerializeField] private TextAsset PintuMimpi1;
-        // [SerializeField] private TextAsset cutscene1002;
+
+// -----------------------------------------------------------------------------------------------------------
 
         private void OnTriggerEnter2D(Collider2D other)
         {
@@ -25,19 +26,43 @@ namespace ATBMI
             }
         }
 
+// -----------------------------------------------------------------------------------------------------------
+
         protected override void Sequence01()
         {
-            Sequence mySequence = DOTween.Sequence();
-            mySequence.Append(dewa.transform.DOMoveX(7, 1));
-            mySequence.Append(cam.transform.DOMoveX(7, 1));
-            // mySequence.PrependInterval(3);
-            // mySequence.Append(ratna.transform.DOMoveX(45, 1));
-            mySequence.AppendInterval(1); // Jeda 1 detik
-            mySequence.OnComplete(() => 
+            Sequence mySequence = DOTween.Sequence(); // Start Sequence
+            mySequence.Append(dewa.transform.DOMoveX(7, 1)); // Move Character (Jarak, Waktu)
+            mySequence.Append(cam.transform.DOMoveX(7, 1)); // Move Camera (Jarak, Waktu)
+            mySequence.PrependInterval(3); // Sebelum animasi sebelumnya
+            mySequence.AppendInterval(1); // Wait 1 sec (Setelah animasi sebelumnya)
+            mySequence.OnComplete(() => // Menunggu cutscene selesai sebelum dialog 
             {
-                StartDialog(PintuMimpi1, emoteAnim); // Mulai dialog setelah jeda
+                StartDialog(PintuMimpi1, emoteAnim); // Mulai dialog
             });
         }
+
+// -----------------------------------------------------------------------------------------------------------
+
+    // private void StartCutscene()
+    // {
+    //     // Fade in sebelum memulai cutscene
+    //     FadeManager.Instance.FadeIn(() => 
+    //     {
+    //         Debug.Log("Fade in selesai, mulai cutscene...");
+    //         NextStep(1); // Mulai cutscene setelah fade in selesai
+    //     });
+    // }
+
+    // private void EndCutscene()
+    // {
+    //     // Fade out setelah cutscene selesai
+    //     FadeManager.Instance.FadeOut(() => 
+    //     {
+    //         Debug.Log("Fade out selesai, cutscene berakhir.");
+    //     });
+    // }
+
+// -----------------------------------------------------------------------------------------------------------
 
         // protected override void Sequence02()
         // {

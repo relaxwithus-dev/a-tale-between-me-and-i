@@ -118,7 +118,7 @@ namespace ATBMI.Dialogue
         {
             if (!IsDialoguePlaying) return;
 
-            if (GameInputHandler.Instance.IsTapSubmit || Input.GetKeyDown(KeyCode.Space))
+            if (GameInputHandler.Instance.IsTapSubmit)
             {
                 if (isDialogueDisplaying)
                 {
