@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Sirenix.OdinInspector;
 using ATBMI.Enum;
@@ -23,15 +24,20 @@ namespace ATBMI.Interaction
         
         private int _interactId;
         public bool IsInteracting => isInteracting;
-                
+        
         [Header("Reference")]
         [SerializeField] private CharacterAI characterAI;
         [SerializeField] private CharacterTraits characterTraits;
         
         #endregion
-
-        #region Methods
         
+        #region Methods
+
+        private void OnEnable()
+        {
+            InteractManager.OnInteracted += b => Debug.LogError("cukimi");
+        }
+
         // Unity Callbacks
         private void Start()
         {
@@ -73,7 +79,7 @@ namespace ATBMI.Interaction
                 DialogueEvents.EnterItemDialogueEvent(itemDialogue);
             }
         }
-
+        
         // TODO: Pake ini buat change status di InkExternal
         // NOTE: Pake method waktu diawal interaksi, sesuaiken dgn jenis interaksinya,
         // Semua Ink Dialogue NPCs yang punya emosi, harus pake method ini

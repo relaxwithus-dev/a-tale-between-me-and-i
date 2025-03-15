@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using Sirenix.OdinInspector;
 using ATBMI.Dialogue;
+using ATBMI.Entities.NPCs;
 using ATBMI.Gameplay.Handler;
 
 namespace ATBMI.Interaction
@@ -19,7 +20,6 @@ namespace ATBMI.Interaction
             get => isInteracted;
             set => isInteracted = value;
         }
-        
         public static event Action<bool> OnInteracted;
         
         [Header("Area")]
@@ -163,11 +163,11 @@ namespace ATBMI.Interaction
             interactSign.SetActive(false);
         }
         
-        // private void OnDrawGizmos()
-        // {
-        //     Gizmos.color = Color.red;
-        //     Gizmos.DrawWireSphere(transform.position, detectionRadius);
-        // }
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, detectionRadius);
+        }
 
         #endregion
     }
