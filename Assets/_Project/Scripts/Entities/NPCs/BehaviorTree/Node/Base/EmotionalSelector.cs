@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ATBMI.Utilities;
 using UnityEngine;
 
 using Random = UnityEngine.Random;
@@ -14,6 +15,7 @@ namespace ATBMI.Entities.NPCs
         private readonly CharacterTraits traits;
         
         private Node _selectedNode;
+        private string[] _weightContexts = new string[5];
         
         // Cached fields
         private readonly float delta = 0.9f;   // Risk impact
@@ -69,11 +71,13 @@ namespace ATBMI.Entities.NPCs
             var emoRisk = CalculateEmotionalFactor(Factors.Risk) - emotionModifiers[emotion][Factors.Risk];
             var emoTime = CalculateEmotionalFactor(Factors.Time) - emotionModifiers[emotion][Factors.Time];
             
-            // Compute weighted values for each child node
+            // Compute and report weighted values for each child node
             var weightedNodes = new Dictionary<Node, float>();
+            ReportManager.CreateReport(emotion.ToString());
             foreach (var child in childNodes)
             {
-                float weight = CalculateWeight(child, emoPlan, emoRisk, emoTime);
+                var weight = CalculateWeight(child, emoPlan, emoRisk, emoTime);
+                ReportManager.AppendReport(emotion.ToString(), _weightContexts);
                 weightedNodes[child] = weight;
             }
             
@@ -101,54 +105,44 @@ namespace ATBMI.Entities.NPCs
             var weightPlan = (1 - 1 / (1 + omega * planning)) * Mathf.Max(1 - sign + sign * emoPlan, 0);
             var weightTime = (1 - 1 / (1 + phi * time)) * Mathf.Max(1 - lambda + lambda * emoTime, 0);
             
-            var totalWeight = alpha * weightRisk + beta * weightTime + gamma * weightPlan;
+            var weightTotal = alpha * weightRisk + beta * weightTime + gamma * weightPlan;
             
             // Debugging
             Debug.LogWarning($"Node: {node.nodeName} | Risk: {weightRisk} | Planning: {weightPlan} | Time: {weightTime} " +
-                             $"| Final Weight: {totalWeight}");
-            
-            return totalWeight;
+                             $"| Final Weight: {weightTotal}");
+            ReportWeights(node.nodeName, weightRisk, weightPlan, weightTime, weightTotal);
+            return weightTotal;
         }
         
         private float CalculateEmotionalFactor(Factors factor)
         {
-            var factorSum = 0f;
-            var nodeCount = 0;
+            var sumFactor = 0f;
             
             foreach (var child in childNodes)
             {
-                float value;
                 if (child is not IEmotionable emoChild)
                 {
                     Debug.LogError($"{child.nodeName} is not an IEmotionable!");
-                    return 0f;
+                    continue;
                 }
-                
-                // Get child factor value
-                switch (factor)
+
+                float value = factor switch
                 {
-                    case Factors.Plan:
-                        value = emoChild.GetPlanningValue();
-                        break;
-                    case Factors.Risk:
-                        value = emoChild.GetRiskValue();
-                        break;
-                    case Factors.Time:
+                    Factors.Plan => emoChild.GetPlanningValue(),
+                    Factors.Risk => emoChild.GetRiskValue(),
+                    Factors.Time => ((Func<float>)(() => 
                     {
-                        (float L, float U) timeRange = emoChild.GetTimeRange();
-                        value = (timeRange.L + (timeRange.U - timeRange.L) / 2) * (1 - sigma * opt);
-                        break;
-                    }
-                    default:
-                        throw new ArgumentOutOfRangeException(nameof(factor), factor, null);
-                }
+                        var (L, U) = emoChild.GetTimeRange();
+                        return (L - (U + L) / 2f) * (1f - sigma * opt);
+                    }))(),
+                    _ => throw new ArgumentOutOfRangeException(nameof(factor), factor, null)
+                };
                 
-                factorSum += value;
-                nodeCount++;
+                sumFactor += value;
             }
             
-            var average = factorSum / nodeCount;
-            return average - (-1 * average);
+            var average = sumFactor / childNodes.Count;
+            return average * 2f;
         }
         
         private Node SelectActionWithProbability(List<KeyValuePair<Node, float>> sortedNodes)
@@ -180,6 +174,15 @@ namespace ATBMI.Entities.NPCs
                 }
             }
             return sortedNodes.Last().Key;
+        }
+        
+        private void ReportWeights(string name, float wRisk, float wPlan, float wTime, float wTotal)
+        {
+            _weightContexts[0] = name;
+            _weightContexts[1] = wRisk.ToString();
+            _weightContexts[2] = wPlan.ToString();
+            _weightContexts[3] = wTime.ToString();
+            _weightContexts[4] = wTotal.ToString();
         }
     }
 }

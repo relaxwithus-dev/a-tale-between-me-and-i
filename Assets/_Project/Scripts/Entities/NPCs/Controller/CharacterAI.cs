@@ -36,14 +36,6 @@ namespace ATBMI.Entities.NPCs
         {
             gameObject.name = Data.CharacterName;
         }
-
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                Flip();
-            }
-        }
         
         // Core
         public void ChangeState(CharacterState state)
