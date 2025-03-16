@@ -2,8 +2,6 @@ using System.Collections;
 using UnityEngine;
 using ATBMI.Dialogue;
 using ATBMI.Gameplay.Event;
-using ATBMI.Gameplay.Handler;
-using ATBMI.Data;
 
 namespace ATBMI.Entities.Player
 {
@@ -19,18 +17,14 @@ namespace ATBMI.Entities.Player
 
         #endregion
 
-        #region Unity Methods
+        #region Methods
 
+        // Unity Callbacks
         private void Awake()
         {
             _playerController = GetComponent<PlayerController>();
         }
-
-        private void Start()
-        {
-            DialogueEvents.RegisterNPCTipTargetEvent(_playerController.Data.name, signTransform);
-        }
-
+        
         private void OnEnable()
         {
             PlayerEvents.OnMoveToPlayer += MoveToDialogueEntryPoint;
@@ -41,13 +35,15 @@ namespace ATBMI.Entities.Player
             PlayerEvents.OnMoveToPlayer -= MoveToDialogueEntryPoint;
         }
 
-        #endregion
-
-        #region Methods
-
-        public void MoveToDialogueEntryPoint(RuleEntry rule, TextAsset INKJson, float newPositionX, float npcPosX, bool isNpcFacingRight)
+        private void Start()
         {
-            _playerInkJson = INKJson;
+            DialogueEvents.RegisterNPCTipTargetEvent(_playerController.Data.name, signTransform);
+        }
+        
+        // Core
+        private void MoveToDialogueEntryPoint(RuleEntry rule, TextAsset ink, float newPositionX, float npcPosX, bool isNpcFacingRight)
+        {
+            _playerInkJson = ink;
             if (ShouldFlipPlayerWhenDialogue(newPositionX, npcPosX, isNpcFacingRight))
             {
                 _playerController.PlayerFlip();

@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using ATBMI.Data;
 
@@ -13,7 +12,7 @@ namespace ATBMI.Entities.NPCs
         [SerializeField] protected CharacterState characterState;
         [SerializeField] private Vector2 characterDirection;
         [SerializeField] private bool isFacingRight;
-        
+                
         public CharacterData Data => characterData;
         public CharacterState State => characterState;
         public Vector2 Direction => characterDirection;
@@ -60,7 +59,7 @@ namespace ATBMI.Entities.NPCs
             isFacingRight = !isFacingRight;
             transform.Rotate(0f, 180f, 0f);
         }
-
+        
         #endregion
     }
 }

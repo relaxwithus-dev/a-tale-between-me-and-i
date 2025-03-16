@@ -4395,6 +4395,7 @@ MonoBehaviour:
   navigate: Navigate
   select: Select
   back: Back
+  submit: Submit
 --- !u!114 &1734531824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4646,6 +4647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eedf09baf001174cace47f1eabc6ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSignTransform: {fileID: 0}
   parentRectTransform: {fileID: 187175645}
   characterLimit: 30
 --- !u!222 &1850873410
@@ -5316,21 +5318,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 113697320560367387, guid: 7e152498ca8df3d408eadb42c1dcb757, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 255170651677356394, guid: 7e152498ca8df3d408eadb42c1dcb757, type: 3}
       propertyPath: m_Name
       value: Dewa
-      objectReference: {fileID: 0}
-    - target: {fileID: 255170651677356394, guid: 7e152498ca8df3d408eadb42c1dcb757, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1217342992852544004, guid: 7e152498ca8df3d408eadb42c1dcb757, type: 3}
-      propertyPath: inventoryPrefab
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7122435675325356963, guid: 7e152498ca8df3d408eadb42c1dcb757, type: 3}
       propertyPath: sliderUI

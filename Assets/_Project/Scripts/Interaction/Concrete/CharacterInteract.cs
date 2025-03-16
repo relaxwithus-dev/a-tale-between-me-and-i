@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 using Sirenix.OdinInspector;
-using ATBMI.Data;
 using ATBMI.Enum;
 using ATBMI.Inventory;
 using ATBMI.Entities.NPCs;
@@ -15,44 +14,39 @@ namespace ATBMI.Interaction
 
         [Header("Properties")]
         [SerializeField] private bool isInteracting;
+        
+        [Space]
         [SerializeField] private InteractAction interactAction;
         [ShowIf("@this.interactAction == InteractAction.Give || this.interactAction == InteractAction.Take")]
         [SerializeField] private int targetId;
         [SerializeField] private Transform signTransform;
-
+        
         private int _interactId;
         public bool IsInteracting => isInteracting;
-        public static event Action<bool> OnInteracting;
-
+        
         [Header("Reference")]
-        [SerializeField] private CharacterTraits characterTraits;
         [SerializeField] private CharacterAI characterAI;
-
+        [SerializeField] private CharacterTraits characterTraits;
+        
         #endregion
-
+        
         #region Methods
-
+        
+        // Unity Callbacks
         private void OnEnable()
         {
-            OnInteracting += cond => isInteracting = cond;
+            InteractEvent.OnInteracted += cond => isInteracting = cond;
         }
-
+        
         private void Start()
         {
-            if (characterAI.Data != null)
-            {
-                DialogueEvents.RegisterNPCTipTargetEvent(characterAI.Data.CharacterName, GetSignTransform());
-            }
-            else
-            {
+            if (characterAI.Data == null)
                 Debug.LogError($"CharacterData is missing for NPC {gameObject.name}");
-            }
+            
+            DialogueEvents.RegisterNPCTipTargetEvent(characterAI.Data.CharacterName, GetSignTransform());
         }
-
-        public static void InteractingEvent(bool isBegin) => OnInteracting?.Invoke(isBegin);
-        public Transform GetSignTransform() => signTransform;
-
-        // TODO: Adjust isi method dibawah sesuai dgn jenis interaksi
+        
+        // Core
         public void Interact(InteractManager manager, int itemId = 0)
         {
             _interactId = itemId;
@@ -64,12 +58,12 @@ namespace ATBMI.Interaction
             else
             {
                 // TODO: Saran lur, method baru bisa nge-pass 2 parameter, item id yg dipilih & target item id 
-                ItemData itemData = InventoryManager.Instance.GetItemData(_interactId);
-                TextAsset itemDialogue = characterAI.Data.GetItemDialogue(itemData);
+                var itemData = InventoryManager.Instance.GetItemData(_interactId);
+                var itemDialogue = characterAI.Data.GetItemDialogue(itemData);
                 DialogueEvents.EnterItemDialogueEvent(itemDialogue);
             }
         }
-
+        
         // TODO: Pake ini buat change status di InkExternal
         // NOTE: Pake method waktu diawal interaksi, sesuaiken dgn jenis interaksinya,
         // Semua Ink Dialogue NPCs yang punya emosi, harus pake method ini
@@ -93,7 +87,9 @@ namespace ATBMI.Interaction
             }
             return false;
         }
-
+        
+        // Helpers
+        public Transform GetSignTransform() => signTransform;
         private InteractAction GetAction(string action)
         {
             if (System.Enum.TryParse<InteractAction>(action, out var parsedAction))

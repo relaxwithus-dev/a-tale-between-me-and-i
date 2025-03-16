@@ -625,6 +625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 449a5953343b3684a95881817f032489, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canInteracted: 1
   isInteracted: 0
   interactSign: {fileID: 6492219101915990370}
   detectionLimit: 2
@@ -968,7 +969,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adcce0b2c3fc54b45b47c840eaf70bb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryPrefab: {fileID: 34095577210733295, guid: c2c248af68230bb4d92838587531fbcf, type: 3}
+  inventoryPrefab: {fileID: 0}
   inventoryParent: {fileID: 3200480368544856678}
   inventoryFlags:
   - {fileID: 1105032712858574245}
@@ -1383,7 +1384,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1786580504075818229
 Transform:
   m_ObjectHideFlags: 0
@@ -1392,7 +1393,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6492219101915990370}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 3.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
@@ -2427,7 +2428,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8281442564009333888
 RectTransform:
   m_ObjectHideFlags: 0

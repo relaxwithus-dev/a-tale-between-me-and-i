@@ -7,18 +7,18 @@ namespace ATBMI.Entities.NPCs
         private readonly CharacterAI character;
         private readonly CharacterAnimation animation;
         private readonly float offRange;
-
+        
         private const float OFFSET = 0.5f;
         private Transform _currentTarget;
         private Vector3 _targetPosition;
-
+        
         public TaskObserve(CharacterAI character, CharacterAnimation animation, float offRange)
         {
             this.character = character;
             this.animation = animation;
             this.offRange = offRange;
             
-            InitFactors(plan: 1f, risk: 0.2f, timeRange: (3f, 7f));
+            InitFactors(plan: 1f, risk: 0.2f, timeRange: (0.5f, 3.5f));
         }
         
         public override NodeStatus Evaluate()
