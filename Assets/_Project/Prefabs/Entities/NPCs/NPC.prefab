@@ -235,6 +235,7 @@ MonoBehaviour:
   interactAction: 0
   targetId: 0
   signTransform: {fileID: 7611146811407626175}
+  emojiTransform: {fileID: 2312752133860158835}
   characterTraits: {fileID: 0}
   characterAI: {fileID: 1177493690341274544}
 --- !u!50 &3686778759607658557
@@ -264,6 +265,37 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &393822418870494782
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2312752133860158835}
+  m_Layer: 0
+  m_Name: EmojiPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2312752133860158835
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393822418870494782}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.823, y: 2.84, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3504083410098164486}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1695725748540461339
 GameObject:
   m_ObjectHideFlags: 0
@@ -449,6 +481,7 @@ Transform:
   - {fileID: 819465445805292157}
   - {fileID: 7611146811407626175}
   - {fileID: 3754992802670437494}
+  - {fileID: 2312752133860158835}
   - {fileID: 2969078484764688885}
   m_Father: {fileID: 7858659317861269129}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -525,6 +558,10 @@ PrefabInstance:
     - target: {fileID: 2740903259224747130, guid: ceaa9e0053049bc42a89b488a2e4fbe7, type: 3}
       propertyPath: m_Name
       value: Emote
+      objectReference: {fileID: 0}
+    - target: {fileID: 2740903259224747130, guid: ceaa9e0053049bc42a89b488a2e4fbe7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3762035005948477387, guid: ceaa9e0053049bc42a89b488a2e4fbe7, type: 3}
       propertyPath: m_LocalPosition.x

@@ -44,6 +44,7 @@ namespace ATBMI.Dialogue
 
         private const string SPEAKER_TAG = "speaker";
         private const string EXPRESSION_TAG = "expression";
+        private const string EMOJI_TAG = "emoji";
 
         private InkExternalFunctions inkExternalFunctions;
 
@@ -353,10 +354,15 @@ namespace ATBMI.Dialogue
                         // update dialogue bubble position
                         Debug.Log("Speaker = " + tagValue);
                         DialogueEvents.UpdateDialogueUIPosEvent(tagValue);
+                        DialogueEvents.UpdateDialogueEmojiPosEvent(tagValue);
                         break;
                     case EXPRESSION_TAG:
                         // update animation
                         DialogueEvents.PlayDialogueAnimEvent(tagValue);
+                        break;
+                    case EMOJI_TAG:
+                        // update emoji animation
+                        DialogueEvents.PlayEmojiAnimEvent(tagValue);
                         break;
                     default:
                         Debug.LogWarning("Tag came in but is not currently being handled: " + tag);

@@ -16,6 +16,7 @@ namespace ATBMI.Inventory
         public FlagBase CreateInventorySlot()
         {
             GameObject slotObj = Object.Instantiate(inventoryPrefab, parentTransform, worldPositionStays: false);
+
             return slotObj.GetComponent<InventoryFlag>();
         }
 

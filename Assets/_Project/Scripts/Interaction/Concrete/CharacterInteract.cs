@@ -19,6 +19,7 @@ namespace ATBMI.Interaction
         [ShowIf("@this.interactAction == InteractAction.Give || this.interactAction == InteractAction.Take")]
         [SerializeField] private int targetId;
         [SerializeField] private Transform signTransform;
+        [SerializeField] private Transform emojiTransform;
 
         private int _interactId;
         public bool IsInteracting => isInteracting;
@@ -42,6 +43,7 @@ namespace ATBMI.Interaction
             if (characterAI.Data != null)
             {
                 DialogueEvents.RegisterNPCTipTargetEvent(characterAI.Data.CharacterName, GetSignTransform());
+                DialogueEvents.RegisterNPCEmojiTargetEvent(characterAI.Data.CharacterName, GetEmojiTransform());
             }
             else
             {
@@ -51,6 +53,7 @@ namespace ATBMI.Interaction
 
         public static void InteractingEvent(bool isBegin) => OnInteracting?.Invoke(isBegin);
         public Transform GetSignTransform() => signTransform;
+        public Transform GetEmojiTransform() => emojiTransform;
 
         // TODO: Adjust isi method dibawah sesuai dgn jenis interaksi
         public void Interact(InteractManager manager, int itemId = 0)

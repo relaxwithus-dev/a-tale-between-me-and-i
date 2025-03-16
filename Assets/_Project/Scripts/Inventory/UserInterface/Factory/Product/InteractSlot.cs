@@ -16,6 +16,7 @@ namespace ATBMI.Inventory
         public FlagBase CreateInventorySlot()
         {
             var slowObj = Object.Instantiate(interactPrefab, parentTransform, worldPositionStays: false);
+
             return slowObj.GetComponent<InteractFlag>();
         }
     }

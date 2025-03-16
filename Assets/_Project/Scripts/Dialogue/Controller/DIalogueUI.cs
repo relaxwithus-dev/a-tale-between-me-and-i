@@ -78,7 +78,7 @@ public class DialogueUI : MonoBehaviour
         updateCounter = 5;
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         if (screenPosition != null)
         {

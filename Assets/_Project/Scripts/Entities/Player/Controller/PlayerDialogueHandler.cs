@@ -13,6 +13,7 @@ namespace ATBMI.Entities.Player
 
         [Header("Reference")]
         [SerializeField] private Transform signTransform;
+        [SerializeField] private Transform emojiTransform;
 
         private TextAsset _playerInkJson;
         private PlayerController _playerController;
@@ -29,6 +30,7 @@ namespace ATBMI.Entities.Player
         private void Start()
         {
             DialogueEvents.RegisterNPCTipTargetEvent(_playerController.Data.name, signTransform);
+            DialogueEvents.RegisterNPCEmojiTargetEvent(_playerController.Data.name, emojiTransform);
         }
 
         private void OnEnable()

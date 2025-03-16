@@ -33,6 +33,8 @@ namespace ATBMI
             else
             {
                 Destroy(gameObject);
+
+                return;
             }
 
             PopulateQuestDataDict();

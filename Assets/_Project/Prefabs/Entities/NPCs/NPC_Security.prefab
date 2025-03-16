@@ -325,6 +325,7 @@ MonoBehaviour:
   interactAction: 0
   targetId: 0
   signTransform: {fileID: 4557523409864915204}
+  emojiTransform: {fileID: 8540831605420784584}
   characterTraits: {fileID: 5514254196064868325}
   characterAI: {fileID: 5100580093370311947}
 --- !u!4 &6755673961492933830 stripped
@@ -370,7 +371,6 @@ MonoBehaviour:
   isRunning: 0
   visitedCount: 0
   isAfterGettingItem: 0
-  onTalk: {fileID: 4900000, guid: 294e0fb966bda3044a27f16e4ba24c31, type: 3}
   onTalkedTo_AfterExplosion_WithRunning: {fileID: 4900000, guid: 0c1e82866fb7d2a4b9f2d245c5439fcd, type: 3}
   isOnce_AfterExplosion_WithRunning: 1
   onTalkedTo_AfterExplosion_WithRunning_Visited_01: {fileID: 4900000, guid: cf4c7792029bcc5409a96f8470408e11, type: 3}
@@ -398,3 +398,8 @@ MonoBehaviour:
   isOnce07: 0
   isOnce08: 0
   isOnce09: 0
+--- !u!4 &8540831605420784584 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2312752133860158835, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+  m_PrefabInstance: {fileID: 6241895453110703803}
+  m_PrefabAsset: {fileID: 0}
