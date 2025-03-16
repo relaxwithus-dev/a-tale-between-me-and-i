@@ -29,7 +29,7 @@ namespace ATBMI.Entities.NPCs
             _eventEmotion = new float[4];
             
             var emotionIndex = (int)initialEmotion;
-            emotions[emotionIndex / 2] = (emotionIndex % 2 == 0) ? 0.5f : -0.5f;
+            emotions[emotionIndex / 2] = emotionIndex % 2 == 0 ? 0.5f : -0.5f;
         }
         
         // Core

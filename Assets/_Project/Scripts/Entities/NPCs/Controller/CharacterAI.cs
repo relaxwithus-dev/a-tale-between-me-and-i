@@ -26,7 +26,6 @@ namespace ATBMI.Entities.NPCs
         #region Methods
         
         // Unity Callbacks
-
         private void Awake()
         {
             _characterAnim = GetComponentInChildren<CharacterAnimation>();

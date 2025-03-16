@@ -12,7 +12,6 @@ namespace ATBMI.Entities.NPCs
         [SerializeField] private float passOffRange;
         
         [Space]
-        [SerializeField] private CharacterInteract characterInteract;
         [SerializeField] private CharacterAnimation characterAnimation;
         
         protected override Node SetupTree()
@@ -31,7 +30,7 @@ namespace ATBMI.Entities.NPCs
                             new SequenceWeight("Pull", new List<Node>
                             {
                                 new CheckInAction(isAction: true),
-                                // new CheckPassed(characterAI, zoneDetails[1].Radius),
+                                new CheckPassed(characterAI, zoneDetails[1].Radius),
                                 new TaskPull(characterAI, pullForce, pullDelay),
                                 new TaskTalk(characterAI, CharacterState.Anger, "hei, yang sopan kamu!"),
                                 new CheckInAction(isAction: false)
@@ -41,16 +40,16 @@ namespace ATBMI.Entities.NPCs
                         })
                     }),
                     // Personal
-                    // new Sequence("Personal Zone", new List<Node>
-                    // {
-                    //     new CheckTargetInProxemics(centerPoint, zoneDetails[1].Radius, layerMask),
-                    //     new EmotionalSelector("Anticipation", characterTraits, new List<Node>
-                    //     {
-                    //         new TaskObserve(characterAI, characterAnimation, zoneDetails[1].Radius),
-                    //         new TaskAnimate(characterAnimation, "Anticipation"),
-                    //         new TaskIdle(characterAI)
-                    //     })
-                    // })
+                    new Sequence("Personal Zone", new List<Node>
+                    {
+                        new CheckTargetInProxemics(centerPoint, zoneDetails[1].Radius, layerMask),
+                        new EmotionalSelector("Anticipation", characterTraits, new List<Node>
+                        {
+                            new TaskObserve(characterAI, characterAnimation, zoneDetails[1].Radius),
+                            new TaskAnimate(characterAnimation, "Anticipation"),
+                            new TaskIdle(characterAI)
+                        })
+                    })
                 }),
                 new TaskIdle(characterAI)
             });

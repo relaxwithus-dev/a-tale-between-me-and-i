@@ -25,14 +25,19 @@ namespace ATBMI.Interaction
         public bool IsInteracting => isInteracting;
         
         [Header("Reference")]
-        [SerializeField] private CharacterAI characterAI;
         [SerializeField] private CharacterTraits characterTraits;
+        private CharacterAI _characterAI;
         
         #endregion
         
         #region Methods
         
         // Unity Callbacks
+        private void Awake()
+        {
+            _characterAI = GetComponent<CharacterAI>();
+        }
+
         private void OnEnable()
         {
             InteractEvent.OnInteracted += cond => isInteracting = cond;
@@ -40,10 +45,10 @@ namespace ATBMI.Interaction
         
         private void Start()
         {
-            if (characterAI.Data == null)
+            if (_characterAI.Data == null)
                 Debug.LogError($"CharacterData is missing for NPC {gameObject.name}");
             
-            DialogueEvents.RegisterNPCTipTargetEvent(characterAI.Data.CharacterName, GetSignTransform());
+            DialogueEvents.RegisterNPCTipTargetEvent(_characterAI.Data.CharacterName, GetSignTransform());
         }
         
         // Core
@@ -52,14 +57,14 @@ namespace ATBMI.Interaction
             _interactId = itemId;
             if (_interactId == 0)
             {
-                DialogueEvents.EnterDialogueEvent(characterAI.Data.GetDefaultDialogue());
+                DialogueEvents.EnterDialogueEvent(_characterAI.Data.GetDefaultDialogue());
                 characterTraits.InfluenceTraits(InteractAction.Run);
             }
             else
             {
                 // TODO: Saran lur, method baru bisa nge-pass 2 parameter, item id yg dipilih & target item id 
                 var itemData = InventoryManager.Instance.GetItemData(_interactId);
-                var itemDialogue = characterAI.Data.GetItemDialogue(itemData);
+                var itemDialogue = _characterAI.Data.GetItemDialogue(itemData);
                 DialogueEvents.EnterItemDialogueEvent(itemDialogue);
             }
         }

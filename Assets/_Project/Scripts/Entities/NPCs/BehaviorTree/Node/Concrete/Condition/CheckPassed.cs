@@ -18,7 +18,7 @@ namespace ATBMI.Entities.NPCs
             this.character = character;
             this.offRange = offRange;
             
-            InitFactors(plan: 0, risk: 0f, timeRange:(0.3f, 0.8f));
+            InitFactors(plan: 0, risk: 0f, timeRange:(0f, 0f));
         }
         
         public override NodeStatus Evaluate()

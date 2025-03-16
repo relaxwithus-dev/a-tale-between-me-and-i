@@ -15,7 +15,7 @@ PrefabInstance:
     - target: {fileID: 1177493690341274544, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: characterData
       value: 
-      objectReference: {fileID: 11400000, guid: 8e8f17aeeb74b994fb4432df24eb9411, type: 2}
+      objectReference: {fileID: 11400000, guid: 0e1c15affe55c90469a726a8b268fe48, type: 2}
     - target: {fileID: 1177493690341274544, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: isFacingRight
       value: 1
@@ -110,17 +110,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 3736038964476778030}
   m_SourcePrefab: {fileID: 100100000, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
---- !u!114 &5100580093370311947 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1177493690341274544, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
-  m_PrefabInstance: {fileID: 6241895453110703803}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6178640880139922672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eacf663ecdb8b3544bec3ecaa174e2ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6178640880139922672 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 225562555324070475, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
@@ -143,4 +132,3 @@ MonoBehaviour:
   targetId: 0
   signTransform: {fileID: 0}
   characterTraits: {fileID: 0}
-  characterAI: {fileID: 5100580093370311947}
