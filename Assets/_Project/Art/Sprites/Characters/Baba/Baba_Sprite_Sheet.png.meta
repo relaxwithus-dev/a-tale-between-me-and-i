@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 61b5eb7ecaafce14ca185aa0b046a75a
+guid: 4a4192e98fec0244a9348bb56cd5fee9
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -81,33 +81,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: 24
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -123,7 +97,7 @@ TextureImporter:
     buildTarget: Windows Store Apps
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 24
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -149,7 +123,175 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ibu_Dewa_Spritesheet_0
+      name: Baba_Sprite_Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 700
+        width: 100
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c032c47b22ba3b9498a374e19d8b6703
+      internalID: 1092334138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Baba_Sprite_Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 700
+        width: 100
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17dd5642fbcbd9841980b130eff2b6dd
+      internalID: -555713039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Baba_Sprite_Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 700
+        width: 100
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da6bf8c0f5f0147499bd8cb1568e69fa
+      internalID: 1990820158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Baba_Sprite_Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 700
+        width: 100
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3059ff7b1f7348941a9d524572fdd351
+      internalID: -2146310572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Baba_Sprite_Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 600
+        width: 100
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa770e4fd50fb1b4aac599c52cd68266
+      internalID: -564414393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Baba_Sprite_Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 600
+        width: 100
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 070e25e8789cfeb428bfa02055886c83
+      internalID: -1281439264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Baba_Sprite_Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 600
+        width: 100
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 720c766830e4d584498aad01d0982fbe
+      internalID: -1004676079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Baba_Sprite_Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 600
+        width: 100
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ead7c54d32d2aef40ae7be4480e40479
+      internalID: -1804570731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Baba_Sprite_Sheet_8
       rect:
         serializedVersion: 2
         x: 0
@@ -163,14 +305,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 30fa10fadb9951d4d81180544b944e17
-      internalID: 1188570471
+      spriteID: d995029514637ea44a12768954cdf3ba
+      internalID: 1355584777
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ibu_Dewa_Spritesheet_1
+      name: Baba_Sprite_Sheet_9
       rect:
         serializedVersion: 2
         x: 100
@@ -184,14 +326,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec33a283d5663f5419470348aaf6d8ad
-      internalID: 174260620
+      spriteID: 7730d32193def6648a7c4eab9de9ddfc
+      internalID: 1020403427
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ibu_Dewa_Spritesheet_2
+      name: Baba_Sprite_Sheet_10
       rect:
         serializedVersion: 2
         x: 200
@@ -205,14 +347,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a3d9d1e0c078d764ab49efe61129df5b
-      internalID: 449943229
+      spriteID: 769f583d9045c454bafc01b3ba70bf40
+      internalID: -128307450
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ibu_Dewa_Spritesheet_3
+      name: Baba_Sprite_Sheet_11
       rect:
         serializedVersion: 2
         x: 300
@@ -226,35 +368,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46c40dbc9856b8247b976c9c91c6202c
-      internalID: -1901789329
+      spriteID: ad124818c64a34646ab7daffeaf8833d
+      internalID: -1840946834
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ibu_Dewa_Spritesheet_4
-      rect:
-        serializedVersion: 2
-        x: 500
-        y: 500
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 47bfc9fbc70717d44942175c9bffc3a7
-      internalID: 1053036165
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ibu_Dewa_Spritesheet_5
+      name: Baba_Sprite_Sheet_12
       rect:
         serializedVersion: 2
         x: 0
@@ -268,14 +389,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec08c429304a84249b3f6ad2a58f4d8a
-      internalID: 1502022002
+      spriteID: b0800490362398040ae108ea26b635b9
+      internalID: -896960946
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ibu_Dewa_Spritesheet_6
+      name: Baba_Sprite_Sheet_13
       rect:
         serializedVersion: 2
         x: 100
@@ -289,14 +410,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5a67f67ba845b346a6f083b76f0ba09
-      internalID: -1981066499
+      spriteID: f12b5d767cd462647baaa63f92b5ad4b
+      internalID: -333181826
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ibu_Dewa_Spritesheet_7
+      name: Baba_Sprite_Sheet_14
       rect:
         serializedVersion: 2
         x: 200
@@ -310,14 +431,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 381ae44e1e0c1194daea767bbc806bce
-      internalID: -1543482100
+      spriteID: cc8f764b7a138b549ba0ff60443f5149
+      internalID: -1689028470
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ibu_Dewa_Spritesheet_8
+      name: Baba_Sprite_Sheet_15
       rect:
         serializedVersion: 2
         x: 300
@@ -331,56 +452,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 28b6987d50f3ee245b8ba587df30da05
-      internalID: 1409518611
+      spriteID: 5a43f376b1c0b524cb0a1390b146e0f0
+      internalID: -1701263443
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ibu_Dewa_Spritesheet_9
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 400
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 29255ab3d43273c41b38248e700787ff
-      internalID: -1217637051
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ibu_Dewa_Spritesheet_10
-      rect:
-        serializedVersion: 2
-        x: 500
-        y: 400
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d1b4c0b1a169fb143810488bc099bc81
-      internalID: -2087187016
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ibu_Dewa_Spritesheet_11
+      name: Baba_Sprite_Sheet_16
       rect:
         serializedVersion: 2
         x: 0
@@ -394,14 +473,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f1ad12252acbe84898864ca7e1d8d48
-      internalID: -1481649825
+      spriteID: 782c566f12787984db3c51c94be6395e
+      internalID: -1382702729
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ibu_Dewa_Spritesheet_12
+      name: Baba_Sprite_Sheet_17
       rect:
         serializedVersion: 2
         x: 100
@@ -415,14 +494,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 857845aa6aa334a41b55eb8054dfa7b8
-      internalID: 1129028174
+      spriteID: 7efa5f93eb7a5474886f43f6e00ba48c
+      internalID: -539487813
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ibu_Dewa_Spritesheet_13
+      name: Baba_Sprite_Sheet_18
       rect:
         serializedVersion: 2
         x: 200
@@ -436,14 +515,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 31d36d790d2e07f41a184fabd2583e12
-      internalID: 1334289343
+      spriteID: 03379b0e97c45c042b97801209cb94a5
+      internalID: -1776702069
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ibu_Dewa_Spritesheet_14
+      name: Baba_Sprite_Sheet_19
       rect:
         serializedVersion: 2
         x: 300
@@ -457,56 +536,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48d3e8c704c1db7408668f961442cdb5
-      internalID: -1668668715
+      spriteID: 5b9015e73fb47344bb9bc16ff6fd39b5
+      internalID: 493886082
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ibu_Dewa_Spritesheet_15
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 300
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 772821e5315c29640ba1045f7b0ad36b
-      internalID: -1452668705
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ibu_Dewa_Spritesheet_16
-      rect:
-        serializedVersion: 2
-        x: 500
-        y: 300
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cc1e36ef5695cdc48ac9c6d69eaa9ca0
-      internalID: -1223660800
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ibu_Dewa_Spritesheet_17
+      name: Baba_Sprite_Sheet_20
       rect:
         serializedVersion: 2
         x: 0
@@ -520,14 +557,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c095d19d897bf7429a75386938eca13
-      internalID: -1915122139
+      spriteID: 189392bc55a45d94782b2dc6eeb807d2
+      internalID: 856736669
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ibu_Dewa_Spritesheet_18
+      name: Baba_Sprite_Sheet_21
       rect:
         serializedVersion: 2
         x: 100
@@ -541,14 +578,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 338a2b8267470724189ebc33f8d93f34
-      internalID: -1705833357
+      spriteID: 35e9ecd75aaced848a4e8fe5b177ea4a
+      internalID: -2066896319
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ibu_Dewa_Spritesheet_19
+      name: Baba_Sprite_Sheet_22
       rect:
         serializedVersion: 2
         x: 200
@@ -562,14 +599,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e668f3f059ceb846b0b69a6dd13aef1
-      internalID: 832314969
+      spriteID: 6e6bc28d57b763f42a53e9b4525e26a0
+      internalID: 1600979644
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ibu_Dewa_Spritesheet_20
+      name: Baba_Sprite_Sheet_23
       rect:
         serializedVersion: 2
         x: 300
@@ -583,56 +620,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b3e76ce8ffd3e04da34fc50fa3191fc
-      internalID: 301903662
+      spriteID: 6fae39f75ef2a994285c8f75aca9410d
+      internalID: 2069392755
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ibu_Dewa_Spritesheet_21
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 200
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 771f614e5e1e5414a964825cc917af73
-      internalID: -1498797312
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ibu_Dewa_Spritesheet_22
-      rect:
-        serializedVersion: 2
-        x: 500
-        y: 200
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1053c8b9491de1443b18abd49b31b399
-      internalID: -543792825
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ibu_Dewa_Spritesheet_23
+      name: Baba_Sprite_Sheet_24
       rect:
         serializedVersion: 2
         x: 0
@@ -646,14 +641,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c43b8e5fce1fa2a4a9208d28f7df75af
-      internalID: -70718819
+      spriteID: 2f42aecdfea0d344e92425c67f7fde49
+      internalID: 478416132
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ibu_Dewa_Spritesheet_24
+      name: Baba_Sprite_Sheet_25
       rect:
         serializedVersion: 2
         x: 100
@@ -667,14 +662,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 36ae4bf4ebe883e40853d1fdda4a4773
-      internalID: 1042746252
+      spriteID: 3908dd22696fa9b4cade042a9c01487e
+      internalID: 1721564548
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ibu_Dewa_Spritesheet_25
+      name: Baba_Sprite_Sheet_26
       rect:
         serializedVersion: 2
         x: 200
@@ -688,14 +683,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d5983894a4578a34a9fd784a61af4c2f
-      internalID: 1834200319
+      spriteID: cb3799e689960cb41bb73c2480785707
+      internalID: 291186361
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ibu_Dewa_Spritesheet_26
+      name: Baba_Sprite_Sheet_27
       rect:
         serializedVersion: 2
         x: 300
@@ -709,56 +704,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 475c1da203d10734c876939863e71b84
-      internalID: -1898733666
+      spriteID: ca07720090beba441893102a2b9f7e5d
+      internalID: -981884990
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ibu_Dewa_Spritesheet_27
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 100
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 74ffb4ed8acc27f4098738ea6daafe30
-      internalID: -2054827507
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ibu_Dewa_Spritesheet_28
-      rect:
-        serializedVersion: 2
-        x: 500
-        y: 100
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 45faca87cdf89db40b42667ebb05c45a
-      internalID: 901493203
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ibu_Dewa_Spritesheet_29
+      name: Baba_Sprite_Sheet_28
       rect:
         serializedVersion: 2
         x: 0
@@ -772,14 +725,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21223e14d9a75d247a461041efb48329
-      internalID: -663192382
+      spriteID: 3fab18348b879a74bbd72fb45fc66fb4
+      internalID: -1863010739
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ibu_Dewa_Spritesheet_30
+      name: Baba_Sprite_Sheet_29
       rect:
         serializedVersion: 2
         x: 100
@@ -793,71 +746,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 36444d23f7e6e93439d87a3b93abc4f6
-      internalID: -2141279946
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ibu_Dewa_Spritesheet_31
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 0
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 101820fdb3e08c3409b46bafee0f53a3
-      internalID: 1438276152
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ibu_Dewa_Spritesheet_32
-      rect:
-        serializedVersion: 2
-        x: 300
-        y: 0
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 617690b03818ca743ad1be7f0f292ded
-      internalID: -2127266078
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ibu_Dewa_Spritesheet_33
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 0
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 90d20ca486ec0544185c46a981f69c0b
-      internalID: 1923152256
+      spriteID: 403167d14f29e8d4eaca5e5010f4216c
+      internalID: -854538857
       vertices: []
       indices: 
       edges: []
@@ -873,40 +763,36 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Ibu_Dewa_Spritesheet_0: 1188570471
-      Ibu_Dewa_Spritesheet_1: 174260620
-      Ibu_Dewa_Spritesheet_10: -2087187016
-      Ibu_Dewa_Spritesheet_11: -1481649825
-      Ibu_Dewa_Spritesheet_12: 1129028174
-      Ibu_Dewa_Spritesheet_13: 1334289343
-      Ibu_Dewa_Spritesheet_14: -1668668715
-      Ibu_Dewa_Spritesheet_15: -1452668705
-      Ibu_Dewa_Spritesheet_16: -1223660800
-      Ibu_Dewa_Spritesheet_17: -1915122139
-      Ibu_Dewa_Spritesheet_18: -1705833357
-      Ibu_Dewa_Spritesheet_19: 832314969
-      Ibu_Dewa_Spritesheet_2: 449943229
-      Ibu_Dewa_Spritesheet_20: 301903662
-      Ibu_Dewa_Spritesheet_21: -1498797312
-      Ibu_Dewa_Spritesheet_22: -543792825
-      Ibu_Dewa_Spritesheet_23: -70718819
-      Ibu_Dewa_Spritesheet_24: 1042746252
-      Ibu_Dewa_Spritesheet_25: 1834200319
-      Ibu_Dewa_Spritesheet_26: -1898733666
-      Ibu_Dewa_Spritesheet_27: -2054827507
-      Ibu_Dewa_Spritesheet_28: 901493203
-      Ibu_Dewa_Spritesheet_29: -663192382
-      Ibu_Dewa_Spritesheet_3: -1901789329
-      Ibu_Dewa_Spritesheet_30: -2141279946
-      Ibu_Dewa_Spritesheet_31: 1438276152
-      Ibu_Dewa_Spritesheet_32: -2127266078
-      Ibu_Dewa_Spritesheet_33: 1923152256
-      Ibu_Dewa_Spritesheet_4: 1053036165
-      Ibu_Dewa_Spritesheet_5: 1502022002
-      Ibu_Dewa_Spritesheet_6: -1981066499
-      Ibu_Dewa_Spritesheet_7: -1543482100
-      Ibu_Dewa_Spritesheet_8: 1409518611
-      Ibu_Dewa_Spritesheet_9: -1217637051
+      Baba_Sprite_Sheet_0: 1092334138
+      Baba_Sprite_Sheet_1: -555713039
+      Baba_Sprite_Sheet_10: -128307450
+      Baba_Sprite_Sheet_11: -1840946834
+      Baba_Sprite_Sheet_12: -896960946
+      Baba_Sprite_Sheet_13: -333181826
+      Baba_Sprite_Sheet_14: -1689028470
+      Baba_Sprite_Sheet_15: -1701263443
+      Baba_Sprite_Sheet_16: -1382702729
+      Baba_Sprite_Sheet_17: -539487813
+      Baba_Sprite_Sheet_18: -1776702069
+      Baba_Sprite_Sheet_19: 493886082
+      Baba_Sprite_Sheet_2: 1990820158
+      Baba_Sprite_Sheet_20: 856736669
+      Baba_Sprite_Sheet_21: -2066896319
+      Baba_Sprite_Sheet_22: 1600979644
+      Baba_Sprite_Sheet_23: 2069392755
+      Baba_Sprite_Sheet_24: 478416132
+      Baba_Sprite_Sheet_25: 1721564548
+      Baba_Sprite_Sheet_26: 291186361
+      Baba_Sprite_Sheet_27: -981884990
+      Baba_Sprite_Sheet_28: -1863010739
+      Baba_Sprite_Sheet_29: -854538857
+      Baba_Sprite_Sheet_3: -2146310572
+      Baba_Sprite_Sheet_4: -564414393
+      Baba_Sprite_Sheet_5: -1281439264
+      Baba_Sprite_Sheet_6: -1004676079
+      Baba_Sprite_Sheet_7: -1804570731
+      Baba_Sprite_Sheet_8: 1355584777
+      Baba_Sprite_Sheet_9: 1020403427
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

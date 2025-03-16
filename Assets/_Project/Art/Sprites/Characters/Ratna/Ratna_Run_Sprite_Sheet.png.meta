@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 24e45ccc118a855458ff4326bd183986
+guid: 9173892c318910c4bb6b3f5c016bc4ab
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -81,33 +81,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: 24
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -123,7 +97,7 @@ TextureImporter:
     buildTarget: Windows Store Apps
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 24
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -149,154 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ibu_Kos_Spritesheet_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 200
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9bd694cac0527db4dbb73fb545f9c4b5
-      internalID: 1045979292
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ibu_Kos_Spritesheet_1
-      rect:
-        serializedVersion: 2
-        x: 100
-        y: 200
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 033060da118e9dd468e2305c5cab0534
-      internalID: -1086888022
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ibu_Kos_Spritesheet_2
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 200
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b8b24a77dacd76a4fbf598ca47d95b8c
-      internalID: 297980341
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ibu_Kos_Spritesheet_3
-      rect:
-        serializedVersion: 2
-        x: 300
-        y: 200
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3cf1e8900f77539478504f86261062b6
-      internalID: 1093227230
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ibu_Kos_Spritesheet_4
-      rect:
-        serializedVersion: 2
-        x: 100
-        y: 100
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: feab3c607c9bb30489485e86c0cd1ffb
-      internalID: 2007446800
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ibu_Kos_Spritesheet_5
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 100
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 12bc7109b12a6c04da9976227fc37a35
-      internalID: -1552235648
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ibu_Kos_Spritesheet_6
-      rect:
-        serializedVersion: 2
-        x: 300
-        y: 100
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 90fa2edd75347484f82e1bd97d378f25
-      internalID: 922237798
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ibu_Kos_Spritesheet_7
+      name: Ratna_Run_Sprite_Sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -310,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2ed4c28d417adf48aa7a376ee9a7fec
-      internalID: -2107849985
+      spriteID: 49289f9fc13621e458298b4cf0f4f7d2
+      internalID: 162893974
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ibu_Kos_Spritesheet_8
+      name: Ratna_Run_Sprite_Sheet_1
       rect:
         serializedVersion: 2
         x: 100
@@ -331,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 781684abdb56de74e886b7ce5bba9020
-      internalID: 978979605
+      spriteID: 4dee5f3cdd301a545a04e8786397fab2
+      internalID: -1318330666
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ibu_Kos_Spritesheet_9
+      name: Ratna_Run_Sprite_Sheet_2
       rect:
         serializedVersion: 2
         x: 200
@@ -352,8 +179,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fcf7784f003ad944daa78d7347ceb4e4
-      internalID: -586019594
+      spriteID: e3df78ec72f78bf4185455795bf71d42
+      internalID: -711152855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ratna_Run_Sprite_Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 100
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46a0a6570fc19aa4194194c1b339c878
+      internalID: 1556556538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ratna_Run_Sprite_Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 100
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18d46550535958542afd16eb57485f2d
+      internalID: 898607687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ratna_Run_Sprite_Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 0
+        width: 100
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 742eff969c8878442a6c8c26a9d4cc70
+      internalID: 362831602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ratna_Run_Sprite_Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 100
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6109770a2676cdd43ba554d9330032b1
+      internalID: -733504960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ratna_Run_Sprite_Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 0
+        width: 100
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95ad21ff7fc201f418d0a700bb6ac363
+      internalID: -1082836364
       vertices: []
       indices: 
       edges: []
@@ -369,16 +301,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Ibu_Kos_Spritesheet_0: 1045979292
-      Ibu_Kos_Spritesheet_1: -1086888022
-      Ibu_Kos_Spritesheet_2: 297980341
-      Ibu_Kos_Spritesheet_3: 1093227230
-      Ibu_Kos_Spritesheet_4: 2007446800
-      Ibu_Kos_Spritesheet_5: -1552235648
-      Ibu_Kos_Spritesheet_6: 922237798
-      Ibu_Kos_Spritesheet_7: -2107849985
-      Ibu_Kos_Spritesheet_8: 978979605
-      Ibu_Kos_Spritesheet_9: -586019594
+      Ratna_Run_Sprite_Sheet_0: 162893974
+      Ratna_Run_Sprite_Sheet_1: -1318330666
+      Ratna_Run_Sprite_Sheet_2: -711152855
+      Ratna_Run_Sprite_Sheet_3: 1556556538
+      Ratna_Run_Sprite_Sheet_4: 898607687
+      Ratna_Run_Sprite_Sheet_5: 362831602
+      Ratna_Run_Sprite_Sheet_6: -733504960
+      Ratna_Run_Sprite_Sheet_7: -1082836364
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

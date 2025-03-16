@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9ae5f795d1b7ed1488cf6e3e22f15e3d
+guid: e0e64daf28e7b56488e8430613d0705f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -81,33 +81,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: 24
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -123,7 +97,7 @@ TextureImporter:
     buildTarget: Windows Store Apps
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 24
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -149,7 +123,259 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Waffa_Remaja_Spritesheet_0
+      name: Pramuniaga_Bakery_Sprite_Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 700
+        width: 100
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f0ecb8d785fb724ea47d7087639f49a
+      internalID: 542836599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pramuniaga_Bakery_Sprite_Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 700
+        width: 100
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ed720be0cf0c9e41a84eb6c467e3590
+      internalID: 1191785937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pramuniaga_Bakery_Sprite_Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 700
+        width: 100
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47071894f1de6744e90e19fed3c3ddfc
+      internalID: 748954768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pramuniaga_Bakery_Sprite_Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 700
+        width: 100
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 956e748a7d2a8c14ebd3717285125d1d
+      internalID: -2100207524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pramuniaga_Bakery_Sprite_Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 600
+        width: 100
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9caced5af58ad4948a6cf29efe4994df
+      internalID: 163293997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pramuniaga_Bakery_Sprite_Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 600
+        width: 100
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fb961863dd3d5642a098d2f85400483
+      internalID: 1133826513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pramuniaga_Bakery_Sprite_Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 600
+        width: 100
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f11d141019dcf0a46ae1ffd725b0080d
+      internalID: 957432670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pramuniaga_Bakery_Sprite_Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 600
+        width: 100
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcc5128d05eb12c4aaa0ef915384f539
+      internalID: 1446519888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pramuniaga_Bakery_Sprite_Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 500
+        width: 100
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ebd6d492cdff564ab8405e8c03371fe
+      internalID: -525232172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pramuniaga_Bakery_Sprite_Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 500
+        width: 100
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9bf847120af6394f8b7b4835e08b561
+      internalID: 771714267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pramuniaga_Bakery_Sprite_Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 500
+        width: 100
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea81e281adff0c84c8eddbaa917642ed
+      internalID: 1171049929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pramuniaga_Bakery_Sprite_Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 500
+        width: 100
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3c02a79f44fcc74f9f94f72f9bd8b10
+      internalID: -979775704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pramuniaga_Bakery_Sprite_Sheet_12
       rect:
         serializedVersion: 2
         x: 0
@@ -163,14 +389,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 117a6f288577db54084507d07799cfb2
-      internalID: -2085311302
+      spriteID: 195f25f0ba619324db2c57ab99b2d8f3
+      internalID: -193956482
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Waffa_Remaja_Spritesheet_1
+      name: Pramuniaga_Bakery_Sprite_Sheet_13
       rect:
         serializedVersion: 2
         x: 100
@@ -184,14 +410,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ccebdc46e6953d249975d95ba1eb0937
-      internalID: -138591635
+      spriteID: ddc027dfa6753e9498418a261e778b08
+      internalID: -979811001
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Waffa_Remaja_Spritesheet_2
+      name: Pramuniaga_Bakery_Sprite_Sheet_14
       rect:
         serializedVersion: 2
         x: 200
@@ -205,14 +431,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ee9323d2b5807e4b93a1f7801133ebf
-      internalID: 933385776
+      spriteID: 4e2a68a91cc26ad4dbea7242cd71d1fa
+      internalID: -476966752
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Waffa_Remaja_Spritesheet_3
+      name: Pramuniaga_Bakery_Sprite_Sheet_15
       rect:
         serializedVersion: 2
         x: 300
@@ -226,56 +452,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6fbebf1c2ce9847409f9330f40f1e2e5
-      internalID: -1954485656
+      spriteID: a69652b47435e4442b3bbd3775d20cd1
+      internalID: 782312032
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Waffa_Remaja_Spritesheet_4
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 400
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d85f3b091f7e29d42ada4ee44dff24c2
-      internalID: 1092081862
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Waffa_Remaja_Spritesheet_5
-      rect:
-        serializedVersion: 2
-        x: 500
-        y: 400
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 87854710ee0a7ee4abff98def8998444
-      internalID: 1340800635
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Waffa_Remaja_Spritesheet_6
+      name: Pramuniaga_Bakery_Sprite_Sheet_16
       rect:
         serializedVersion: 2
         x: 0
@@ -289,14 +473,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 221ed3a5d6cfe8b408f65f1e04b43116
-      internalID: 1274415663
+      spriteID: 8888eaf2ced20cd4cbef0c85bb8a1b60
+      internalID: 1468366163
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Waffa_Remaja_Spritesheet_7
+      name: Pramuniaga_Bakery_Sprite_Sheet_17
       rect:
         serializedVersion: 2
         x: 100
@@ -310,14 +494,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29e09c8def321514fb277e99921c97ff
-      internalID: 1965439062
+      spriteID: ec63a530981f3534f855de44511a4ff7
+      internalID: -464588327
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Waffa_Remaja_Spritesheet_8
+      name: Pramuniaga_Bakery_Sprite_Sheet_18
       rect:
         serializedVersion: 2
         x: 200
@@ -331,14 +515,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f61e20c2e3b606148a061a71d1e22c20
-      internalID: -1366575744
+      spriteID: b97e3be32a2a06441b953a8563c3dbec
+      internalID: 1118472190
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Waffa_Remaja_Spritesheet_9
+      name: Pramuniaga_Bakery_Sprite_Sheet_19
       rect:
         serializedVersion: 2
         x: 300
@@ -352,56 +536,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 73866db77c51499479e6b975e16704ac
-      internalID: 1809140881
+      spriteID: a99a72205027f9142b07e39621ea8c27
+      internalID: -679957353
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Waffa_Remaja_Spritesheet_10
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 300
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2d50ff1c4dfa1b544aaa22bf92c246d3
-      internalID: 671013619
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Waffa_Remaja_Spritesheet_11
-      rect:
-        serializedVersion: 2
-        x: 500
-        y: 300
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f30087739cfecae46b7c485a0126bc5d
-      internalID: 1926107812
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Waffa_Remaja_Spritesheet_12
+      name: Pramuniaga_Bakery_Sprite_Sheet_20
       rect:
         serializedVersion: 2
         x: 0
@@ -415,14 +557,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb31277a90a11ae4f949232a38b85986
-      internalID: 562484362
+      spriteID: 39fda5998972a084d847fd29bfbc7890
+      internalID: 1545514285
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Waffa_Remaja_Spritesheet_13
+      name: Pramuniaga_Bakery_Sprite_Sheet_21
       rect:
         serializedVersion: 2
         x: 100
@@ -436,14 +578,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b43fc2ab96c74a848859fb4c7518ca96
-      internalID: 552529785
+      spriteID: 08fd1f6721517334c9bc600f5b4d0ec6
+      internalID: -1448707381
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Waffa_Remaja_Spritesheet_14
+      name: Pramuniaga_Bakery_Sprite_Sheet_22
       rect:
         serializedVersion: 2
         x: 200
@@ -457,14 +599,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f926f234ee1fe048b163658be5c9679
-      internalID: -973040241
+      spriteID: 7cee9f2bc59c9d545b6087742128101e
+      internalID: 771949124
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Waffa_Remaja_Spritesheet_15
+      name: Pramuniaga_Bakery_Sprite_Sheet_23
       rect:
         serializedVersion: 2
         x: 300
@@ -478,56 +620,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 255019546bde866409c152b54e4ad12b
-      internalID: 1060047528
+      spriteID: be091122ff814b7489f8a6a5ca4ae1d9
+      internalID: 1303668356
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Waffa_Remaja_Spritesheet_16
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 200
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ef547db9a5a61c14a893cd3fe9eba18b
-      internalID: -309017136
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Waffa_Remaja_Spritesheet_17
-      rect:
-        serializedVersion: 2
-        x: 500
-        y: 200
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c6624f2001e408b428c51a90b13a6317
-      internalID: 755071229
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Waffa_Remaja_Spritesheet_18
+      name: Pramuniaga_Bakery_Sprite_Sheet_24
       rect:
         serializedVersion: 2
         x: 0
@@ -541,14 +641,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a57eb43878be6e64d88133f2b2463f1a
-      internalID: -91517881
+      spriteID: 3abc5ff7d0a19a749acd4f1276ea1c01
+      internalID: 543211528
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Waffa_Remaja_Spritesheet_19
+      name: Pramuniaga_Bakery_Sprite_Sheet_25
       rect:
         serializedVersion: 2
         x: 100
@@ -562,14 +662,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25262cb17837e77498caa018f8d3f956
-      internalID: 71097935
+      spriteID: 36b33bacec5c4c24889b35bbe9a6ec0c
+      internalID: -496208249
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Waffa_Remaja_Spritesheet_20
+      name: Pramuniaga_Bakery_Sprite_Sheet_26
       rect:
         serializedVersion: 2
         x: 200
@@ -583,14 +683,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bea3fe164ff99c14aa73e6d88260a3c1
-      internalID: 1609563097
+      spriteID: 18db97fa25a959b4bbf96ff6268a331d
+      internalID: -52365142
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Waffa_Remaja_Spritesheet_21
+      name: Pramuniaga_Bakery_Sprite_Sheet_27
       rect:
         serializedVersion: 2
         x: 300
@@ -604,56 +704,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5329f88bbf075c14aacfb02ce9ff1356
-      internalID: 1291043670
+      spriteID: 2ad4c17cc9538884586ff0f68c5e8ccf
+      internalID: 2052805031
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Waffa_Remaja_Spritesheet_22
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 100
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 79c46c82469bc6e4f98c45795941517c
-      internalID: -2138040071
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Waffa_Remaja_Spritesheet_23
-      rect:
-        serializedVersion: 2
-        x: 500
-        y: 100
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cdc7b456ce38ac648a26b4fd0ba30f3c
-      internalID: -275475208
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Waffa_Remaja_Spritesheet_24
+      name: Pramuniaga_Bakery_Sprite_Sheet_28
       rect:
         serializedVersion: 2
         x: 0
@@ -667,14 +725,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d12c87662651944798201009169396d
-      internalID: 408513370
+      spriteID: 9f88a5d66a5bb4f4197dc3e8f06581db
+      internalID: 647829809
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Waffa_Remaja_Spritesheet_25
+      name: Pramuniaga_Bakery_Sprite_Sheet_29
       rect:
         serializedVersion: 2
         x: 100
@@ -688,92 +746,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ceafa475a5707046b786a52364b6b12
-      internalID: -116302648
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Waffa_Remaja_Spritesheet_26
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 0
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e45084176887d9a4f8ba4473c458663c
-      internalID: -809436161
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Waffa_Remaja_Spritesheet_27
-      rect:
-        serializedVersion: 2
-        x: 300
-        y: 0
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1cd0ead25b50d18458956c6d50f02d6a
-      internalID: -1975865348
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Waffa_Remaja_Spritesheet_28
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 0
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 51eeb9388b42538409502a1f3e9837df
-      internalID: 1839516194
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Waffa_Remaja_Spritesheet_29
-      rect:
-        serializedVersion: 2
-        x: 500
-        y: 0
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: df2e4f74b5d276547aaf928fc096a2e4
-      internalID: -651102187
+      spriteID: 0f93ad0193504a04ea2947b4e7471dd0
+      internalID: -577451935
       vertices: []
       indices: 
       edges: []
@@ -789,36 +763,36 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Waffa_Remaja_Spritesheet_0: -2085311302
-      Waffa_Remaja_Spritesheet_1: -138591635
-      Waffa_Remaja_Spritesheet_10: 671013619
-      Waffa_Remaja_Spritesheet_11: 1926107812
-      Waffa_Remaja_Spritesheet_12: 562484362
-      Waffa_Remaja_Spritesheet_13: 552529785
-      Waffa_Remaja_Spritesheet_14: -973040241
-      Waffa_Remaja_Spritesheet_15: 1060047528
-      Waffa_Remaja_Spritesheet_16: -309017136
-      Waffa_Remaja_Spritesheet_17: 755071229
-      Waffa_Remaja_Spritesheet_18: -91517881
-      Waffa_Remaja_Spritesheet_19: 71097935
-      Waffa_Remaja_Spritesheet_2: 933385776
-      Waffa_Remaja_Spritesheet_20: 1609563097
-      Waffa_Remaja_Spritesheet_21: 1291043670
-      Waffa_Remaja_Spritesheet_22: -2138040071
-      Waffa_Remaja_Spritesheet_23: -275475208
-      Waffa_Remaja_Spritesheet_24: 408513370
-      Waffa_Remaja_Spritesheet_25: -116302648
-      Waffa_Remaja_Spritesheet_26: -809436161
-      Waffa_Remaja_Spritesheet_27: -1975865348
-      Waffa_Remaja_Spritesheet_28: 1839516194
-      Waffa_Remaja_Spritesheet_29: -651102187
-      Waffa_Remaja_Spritesheet_3: -1954485656
-      Waffa_Remaja_Spritesheet_4: 1092081862
-      Waffa_Remaja_Spritesheet_5: 1340800635
-      Waffa_Remaja_Spritesheet_6: 1274415663
-      Waffa_Remaja_Spritesheet_7: 1965439062
-      Waffa_Remaja_Spritesheet_8: -1366575744
-      Waffa_Remaja_Spritesheet_9: 1809140881
+      Pramuniaga_Bakery_Sprite_Sheet_0: 542836599
+      Pramuniaga_Bakery_Sprite_Sheet_1: 1191785937
+      Pramuniaga_Bakery_Sprite_Sheet_10: 1171049929
+      Pramuniaga_Bakery_Sprite_Sheet_11: -979775704
+      Pramuniaga_Bakery_Sprite_Sheet_12: -193956482
+      Pramuniaga_Bakery_Sprite_Sheet_13: -979811001
+      Pramuniaga_Bakery_Sprite_Sheet_14: -476966752
+      Pramuniaga_Bakery_Sprite_Sheet_15: 782312032
+      Pramuniaga_Bakery_Sprite_Sheet_16: 1468366163
+      Pramuniaga_Bakery_Sprite_Sheet_17: -464588327
+      Pramuniaga_Bakery_Sprite_Sheet_18: 1118472190
+      Pramuniaga_Bakery_Sprite_Sheet_19: -679957353
+      Pramuniaga_Bakery_Sprite_Sheet_2: 748954768
+      Pramuniaga_Bakery_Sprite_Sheet_20: 1545514285
+      Pramuniaga_Bakery_Sprite_Sheet_21: -1448707381
+      Pramuniaga_Bakery_Sprite_Sheet_22: 771949124
+      Pramuniaga_Bakery_Sprite_Sheet_23: 1303668356
+      Pramuniaga_Bakery_Sprite_Sheet_24: 543211528
+      Pramuniaga_Bakery_Sprite_Sheet_25: -496208249
+      Pramuniaga_Bakery_Sprite_Sheet_26: -52365142
+      Pramuniaga_Bakery_Sprite_Sheet_27: 2052805031
+      Pramuniaga_Bakery_Sprite_Sheet_28: 647829809
+      Pramuniaga_Bakery_Sprite_Sheet_29: -577451935
+      Pramuniaga_Bakery_Sprite_Sheet_3: -2100207524
+      Pramuniaga_Bakery_Sprite_Sheet_4: 163293997
+      Pramuniaga_Bakery_Sprite_Sheet_5: 1133826513
+      Pramuniaga_Bakery_Sprite_Sheet_6: 957432670
+      Pramuniaga_Bakery_Sprite_Sheet_7: 1446519888
+      Pramuniaga_Bakery_Sprite_Sheet_8: -525232172
+      Pramuniaga_Bakery_Sprite_Sheet_9: 771714267
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

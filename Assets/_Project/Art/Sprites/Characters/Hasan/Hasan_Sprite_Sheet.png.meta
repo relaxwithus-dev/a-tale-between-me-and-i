@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2d472c271c0302e42aed2fc5ed82d0af
+guid: c662db0265287e649bd6ef60cc871830
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -81,33 +81,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: 24
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -123,7 +97,7 @@ TextureImporter:
     buildTarget: Windows Store Apps
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 24
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -149,7 +123,427 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Hasan_Spritesheet_0
+      name: Hasan_Sprite_Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 900
+        width: 100
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ffff1bf54cff6849ae91a2a2b6db190
+      internalID: 1951880673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hasan_Sprite_Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 900
+        width: 100
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daafc9a4d37504548bf2b375ad0a3d57
+      internalID: -319182474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hasan_Sprite_Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 900
+        width: 100
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34b138c45bc8e4e4c95a38e0f4ce2139
+      internalID: -1165114767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hasan_Sprite_Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 900
+        width: 100
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d72e8e47b76b0e47b8602ea0a8c4bbc
+      internalID: -2126366272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hasan_Sprite_Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 800
+        width: 100
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f7baa9eaa3dd794d87459159b110f00
+      internalID: 1723745926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hasan_Sprite_Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 800
+        width: 100
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20b90d1e7f840424bb4678424c644a42
+      internalID: 2065266766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hasan_Sprite_Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 800
+        width: 100
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c3fe4479da3d824b8ac0b3e714c159a
+      internalID: 360544478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hasan_Sprite_Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 800
+        width: 100
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b66b4a2e8727c5a48b6b492bb76d3f20
+      internalID: -170854772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hasan_Sprite_Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 700
+        width: 100
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d808dc7d77eb6fd46825bce6ecefc855
+      internalID: 707408142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hasan_Sprite_Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 700
+        width: 100
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a63a69b282cd5ce408d13386c6964f9d
+      internalID: -1514442954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hasan_Sprite_Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 700
+        width: 100
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e52831bb50b5a94cbd97cb30dc7b095
+      internalID: 439797945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hasan_Sprite_Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 700
+        width: 100
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef6103b8d9f2b7f43af5d335c1dd9d49
+      internalID: 1193905520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hasan_Sprite_Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 600
+        width: 100
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cc74983d922f354e855d0ab98be11ab
+      internalID: 503993240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hasan_Sprite_Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 600
+        width: 100
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 440a8f6e45ce9f749b1a391e4d0130f7
+      internalID: -1641059055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hasan_Sprite_Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 600
+        width: 100
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 820f8d24e09a36742b086f9ab6a38cb9
+      internalID: -1416732505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hasan_Sprite_Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 600
+        width: 100
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfc6e71a6c29332498b60863d2bec85e
+      internalID: -321577071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hasan_Sprite_Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 500
+        width: 100
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd7ed9170739f3c4a86edce471e01f86
+      internalID: 2127029890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hasan_Sprite_Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 500
+        width: 100
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 539736635b375c045917c01542dbc461
+      internalID: 1308970249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hasan_Sprite_Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 500
+        width: 100
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 537ef559d520eaf47b75e24fdc59d672
+      internalID: 1782007298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hasan_Sprite_Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 500
+        width: 100
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dab565e8ce676f94a98001ad918bd65b
+      internalID: -1269852506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hasan_Sprite_Sheet_20
       rect:
         serializedVersion: 2
         x: 0
@@ -163,14 +557,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7605392c096a62345b3db452b017f426
-      internalID: 1772801369
+      spriteID: a0ada9cb9f4cc6c4998bf4310c742f04
+      internalID: -186535378
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hasan_Spritesheet_1
+      name: Hasan_Sprite_Sheet_21
       rect:
         serializedVersion: 2
         x: 100
@@ -184,14 +578,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09608daa97167ec45a0cd775bdc77b97
-      internalID: 1652725163
+      spriteID: 290e5a2508694974c931a5d786c7a04e
+      internalID: 170532878
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hasan_Spritesheet_2
+      name: Hasan_Sprite_Sheet_22
       rect:
         serializedVersion: 2
         x: 200
@@ -205,14 +599,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8bee6ee07f3466409a03c665b393e92
-      internalID: -1883187639
+      spriteID: e533aec67c75b2e4cb5bde477995bf3b
+      internalID: -1100955286
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hasan_Spritesheet_3
+      name: Hasan_Sprite_Sheet_23
       rect:
         serializedVersion: 2
         x: 300
@@ -226,35 +620,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1fed49aff17ada0498d3c265d0b18d17
-      internalID: 979680410
+      spriteID: c7ea8520406c00b45a54702a16b728ec
+      internalID: -1488880312
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hasan_Spritesheet_4
-      rect:
-        serializedVersion: 2
-        x: 500
-        y: 400
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c115af00bb0d2d249a7b7b8c3cacbf6b
-      internalID: 1250786329
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hasan_Spritesheet_5
+      name: Hasan_Sprite_Sheet_24
       rect:
         serializedVersion: 2
         x: 0
@@ -268,14 +641,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0340df8d1d1173940bcdc51d0a2f4dd1
-      internalID: 2146049625
+      spriteID: 1918c5f2889db5a43b53a9a396ff4cbd
+      internalID: 926318227
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hasan_Spritesheet_6
+      name: Hasan_Sprite_Sheet_25
       rect:
         serializedVersion: 2
         x: 100
@@ -289,14 +662,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d3a0d4353ad44c4ebd511238f77db40
-      internalID: -985821467
+      spriteID: 4926cc93b5d588f49ad72ca253842c45
+      internalID: -161301753
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hasan_Spritesheet_7
+      name: Hasan_Sprite_Sheet_26
       rect:
         serializedVersion: 2
         x: 200
@@ -310,14 +683,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a0836a8e4328f4458b2ba41fe11d9a2
-      internalID: -828143976
+      spriteID: 7fad6cc3560fef94399afa0a52580e0b
+      internalID: 461842660
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hasan_Spritesheet_8
+      name: Hasan_Sprite_Sheet_27
       rect:
         serializedVersion: 2
         x: 300
@@ -331,56 +704,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fc1f92a73c24e8e498dada184e701f8f
-      internalID: 1941745361
+      spriteID: ef8ebd4a972609949848cacd00fc8e1d
+      internalID: -1631563182
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hasan_Spritesheet_9
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 300
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e5cbc22b2b044da4f9aaace733d9c0bd
-      internalID: -354430580
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hasan_Spritesheet_10
-      rect:
-        serializedVersion: 2
-        x: 500
-        y: 300
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3c5c9056d1120cb4d86c68b3c42e27d7
-      internalID: 658684799
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hasan_Spritesheet_11
+      name: Hasan_Sprite_Sheet_28
       rect:
         serializedVersion: 2
         x: 0
@@ -394,14 +725,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd23477b861588b4e894059d3d029db5
-      internalID: -318903516
+      spriteID: 94305515f45d47f4daf4a82cb6a41d29
+      internalID: -1553661448
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hasan_Spritesheet_12
+      name: Hasan_Sprite_Sheet_29
       rect:
         serializedVersion: 2
         x: 100
@@ -415,14 +746,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20d14df5294828a4db05cf22645ec471
-      internalID: -1603006313
+      spriteID: 2a95e6e61d5d98940900b7bcd92918b8
+      internalID: -131123474
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hasan_Spritesheet_13
+      name: Hasan_Sprite_Sheet_30
       rect:
         serializedVersion: 2
         x: 200
@@ -436,14 +767,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff531d8006e7bb940a0abef6eed31cce
-      internalID: -593951355
+      spriteID: 71d467f28245ec84da92697e3faccedf
+      internalID: -1886424335
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hasan_Spritesheet_14
+      name: Hasan_Sprite_Sheet_31
       rect:
         serializedVersion: 2
         x: 300
@@ -457,56 +788,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d9803ecabcd5f245b54e2e637ef1a69
-      internalID: -357587624
+      spriteID: d1594e942defb794599de23c39acd7c9
+      internalID: 684966753
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hasan_Spritesheet_15
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 200
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 04366d72f5e2e1b41b0c56d4532193ff
-      internalID: -1065640689
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hasan_Spritesheet_16
-      rect:
-        serializedVersion: 2
-        x: 500
-        y: 200
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ba568e15e3727104f94f9d59ae207b19
-      internalID: -1399294672
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hasan_Spritesheet_17
+      name: Hasan_Sprite_Sheet_32
       rect:
         serializedVersion: 2
         x: 0
@@ -520,14 +809,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 726126609a316cc44a2ea3a6013d87c7
-      internalID: 1374232230
+      spriteID: 62d35ab4060dd7149beacdb6056ee8ef
+      internalID: -1461501805
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hasan_Spritesheet_18
+      name: Hasan_Sprite_Sheet_33
       rect:
         serializedVersion: 2
         x: 100
@@ -541,14 +830,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6582dd5d5b1bcd4428acc45cc8f39160
-      internalID: 788219397
+      spriteID: b3d5e1bc4bec370469c9e8e16220be3e
+      internalID: -710371293
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hasan_Spritesheet_19
+      name: Hasan_Sprite_Sheet_34
       rect:
         serializedVersion: 2
         x: 200
@@ -562,14 +851,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e33ddebe68c8d4140a342c725f33c8c2
-      internalID: -237012619
+      spriteID: 1d37d99c8b2d655428a9e980b9bc79cc
+      internalID: 345482268
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hasan_Spritesheet_20
+      name: Hasan_Sprite_Sheet_35
       rect:
         serializedVersion: 2
         x: 300
@@ -583,56 +872,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c9712c70df64c747b07900ee512af66
-      internalID: 887782342
+      spriteID: 5c462b3ef7ebd944bba9b44ef5528e6f
+      internalID: 1268621158
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hasan_Spritesheet_21
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 100
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f1dc1b6cf55a0464987ffe676dc97008
-      internalID: -1516397305
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hasan_Spritesheet_22
-      rect:
-        serializedVersion: 2
-        x: 500
-        y: 100
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2f026a9e25159454db310d9193598251
-      internalID: 1705278328
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hasan_Spritesheet_23
+      name: Hasan_Sprite_Sheet_36
       rect:
         serializedVersion: 2
         x: 0
@@ -646,14 +893,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac98a49f481961d44b2d4ca40b82025e
-      internalID: 631303362
+      spriteID: c43f4c6a404b05d4797f189648f62983
+      internalID: 1340630695
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hasan_Spritesheet_24
+      name: Hasan_Sprite_Sheet_37
       rect:
         serializedVersion: 2
         x: 100
@@ -667,71 +914,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e1f373a64359e642a67cc64bbf27452
-      internalID: -697742483
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hasan_Spritesheet_25
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 0
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 047c6ef8087e5264a8378d67ba4a6e08
-      internalID: 899895145
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hasan_Spritesheet_26
-      rect:
-        serializedVersion: 2
-        x: 300
-        y: 0
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: daaa98c173a9e2b478d3f34f1fc33ddc
-      internalID: -1392192996
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hasan_Spritesheet_27
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 0
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0d955eec358f9144bb2b8e1e751b83ba
-      internalID: 250232187
+      spriteID: 9e7b0ab0e04180c4bba26b41c54aa2a7
+      internalID: -1904837368
       vertices: []
       indices: 
       edges: []
@@ -747,34 +931,44 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Hasan_Spritesheet_0: 1772801369
-      Hasan_Spritesheet_1: 1652725163
-      Hasan_Spritesheet_10: 658684799
-      Hasan_Spritesheet_11: -318903516
-      Hasan_Spritesheet_12: -1603006313
-      Hasan_Spritesheet_13: -593951355
-      Hasan_Spritesheet_14: -357587624
-      Hasan_Spritesheet_15: -1065640689
-      Hasan_Spritesheet_16: -1399294672
-      Hasan_Spritesheet_17: 1374232230
-      Hasan_Spritesheet_18: 788219397
-      Hasan_Spritesheet_19: -237012619
-      Hasan_Spritesheet_2: -1883187639
-      Hasan_Spritesheet_20: 887782342
-      Hasan_Spritesheet_21: -1516397305
-      Hasan_Spritesheet_22: 1705278328
-      Hasan_Spritesheet_23: 631303362
-      Hasan_Spritesheet_24: -697742483
-      Hasan_Spritesheet_25: 899895145
-      Hasan_Spritesheet_26: -1392192996
-      Hasan_Spritesheet_27: 250232187
-      Hasan_Spritesheet_3: 979680410
-      Hasan_Spritesheet_4: 1250786329
-      Hasan_Spritesheet_5: 2146049625
-      Hasan_Spritesheet_6: -985821467
-      Hasan_Spritesheet_7: -828143976
-      Hasan_Spritesheet_8: 1941745361
-      Hasan_Spritesheet_9: -354430580
+      Hasan_Sprite_Sheet_0: 1951880673
+      Hasan_Sprite_Sheet_1: -319182474
+      Hasan_Sprite_Sheet_10: 439797945
+      Hasan_Sprite_Sheet_11: 1193905520
+      Hasan_Sprite_Sheet_12: 503993240
+      Hasan_Sprite_Sheet_13: -1641059055
+      Hasan_Sprite_Sheet_14: -1416732505
+      Hasan_Sprite_Sheet_15: -321577071
+      Hasan_Sprite_Sheet_16: 2127029890
+      Hasan_Sprite_Sheet_17: 1308970249
+      Hasan_Sprite_Sheet_18: 1782007298
+      Hasan_Sprite_Sheet_19: -1269852506
+      Hasan_Sprite_Sheet_2: -1165114767
+      Hasan_Sprite_Sheet_20: -186535378
+      Hasan_Sprite_Sheet_21: 170532878
+      Hasan_Sprite_Sheet_22: -1100955286
+      Hasan_Sprite_Sheet_23: -1488880312
+      Hasan_Sprite_Sheet_24: 926318227
+      Hasan_Sprite_Sheet_25: -161301753
+      Hasan_Sprite_Sheet_26: 461842660
+      Hasan_Sprite_Sheet_27: -1631563182
+      Hasan_Sprite_Sheet_28: -1553661448
+      Hasan_Sprite_Sheet_29: -131123474
+      Hasan_Sprite_Sheet_3: -2126366272
+      Hasan_Sprite_Sheet_30: -1886424335
+      Hasan_Sprite_Sheet_31: 684966753
+      Hasan_Sprite_Sheet_32: -1461501805
+      Hasan_Sprite_Sheet_33: -710371293
+      Hasan_Sprite_Sheet_34: 345482268
+      Hasan_Sprite_Sheet_35: 1268621158
+      Hasan_Sprite_Sheet_36: 1340630695
+      Hasan_Sprite_Sheet_37: -1904837368
+      Hasan_Sprite_Sheet_4: 1723745926
+      Hasan_Sprite_Sheet_5: 2065266766
+      Hasan_Sprite_Sheet_6: 360544478
+      Hasan_Sprite_Sheet_7: -170854772
+      Hasan_Sprite_Sheet_8: 707408142
+      Hasan_Sprite_Sheet_9: -1514442954
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
