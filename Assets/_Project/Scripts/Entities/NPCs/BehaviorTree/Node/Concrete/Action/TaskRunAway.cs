@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using ATBMI.Data;
 using UnityEngine;
 
@@ -14,6 +15,18 @@ namespace ATBMI.Entities.NPCs
         private float _currentMoveTime;
         private Vector3 _targetDirection;
         
+        private readonly Dictionary<Emotion, (float plan, float risk, (float, float) time)> _factorsRunAway = new()
+        {
+            { Emotion.Joy, (1, 0.7f, (3f, 6f)) },
+            { Emotion.Trust, (1, 0.7f, (4f, 9f)) },
+            { Emotion.Fear, (1, 0.2f, (2f, 4f)) },
+            { Emotion.Surprise, (1, 0.7f, (3f, 6f)) },
+            { Emotion.Sadness, (1, 0.6f, (4f, 9f)) },
+            { Emotion.Disgust, (1, 0.6f, (4f, 9f)) },
+            { Emotion.Anger, (1, 0.3f, (4f, 9f)) },
+            { Emotion.Anticipation, (1, 0.6f, (4f, 9f)) }
+        };
+        
         // Constructor
         public TaskRunAway(CharacterAI character, CharacterData data, float moveTime)
         {
@@ -21,7 +34,7 @@ namespace ATBMI.Entities.NPCs
             this.moveTime = moveTime;
             
             moveSpeed = data.GetSpeedByType("Run");
-            InitFactors(plan: 1f, risk: 0.7f, timeRange: (3f, 8f));
+            OverrideEmotionFactors(_factorsRunAway);
         }
         
         // Core

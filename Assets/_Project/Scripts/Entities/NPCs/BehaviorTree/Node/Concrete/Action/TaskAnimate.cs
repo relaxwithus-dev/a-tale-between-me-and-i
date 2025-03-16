@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace ATBMI.Entities.NPCs
@@ -9,15 +10,29 @@ namespace ATBMI.Entities.NPCs
         
         private float _currentTime;
         private float _animationTime;
-
+        
+        private readonly Dictionary<Emotion, (float plan, float risk, (float, float) time)> _factorsAnimate = new()
+        {
+            { Emotion.Joy, (1, 0.2f, (1.5f, 3)) },
+            { Emotion.Trust, (1, 0.2f, (0.6f, 4)) },
+            { Emotion.Fear, (1, 0.2f, (1.5f, 5)) },
+            { Emotion.Surprise, (1, 0.4f, (0.35f, 3)) },
+            { Emotion.Sadness, (1, 0.2f, (0.35f, 6)) },
+            { Emotion.Disgust, (1, 0.2f, (0.35f, 6)) },
+            { Emotion.Anger, (1, 0.2f, (0.35f, 6)) },
+            { Emotion.Anticipation, (1, 0.3f, (0.35f, 4)) }
+        };
+        
+        // Constructor
         public TaskAnimate(CharacterAnimation animation, string state)
         {
             this.animation = animation;
             this.state = state;
             
-            InitFactors(plan: 1, risk: 0.3f, timeRange: (0.35f, 4f));
+            OverrideEmotionFactors(_factorsAnimate);
         }
-        
+
+        // Core
         public override NodeStatus Evaluate()
         {
             if (!TrySetupAnimation())

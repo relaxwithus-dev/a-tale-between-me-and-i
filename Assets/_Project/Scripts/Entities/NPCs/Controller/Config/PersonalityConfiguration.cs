@@ -5,9 +5,8 @@ namespace ATBMI.Entities.NPCs
     [CreateAssetMenu(fileName = "NewPersonalityConfig", menuName = "Data/Entities/Config/Personality Configuration", order = 0)]
     public class PersonalityConfiguration : ScriptableObject
     {
-        private readonly int TraitsLenght = 5;
-        private readonly int EmotionLenght = 4;
-        
+        private readonly int traitsLenght = 5;
+                
         private float[,] positiveEmotionMatrix = new float[5, 4]
         {
             { 1f, 1f, -1f, -1f }, // Openness influences
@@ -38,11 +37,10 @@ namespace ATBMI.Entities.NPCs
         public float[] GetPersonalityInfluence(Emotion emotion, bool isPositive)
         {
             var emotionIndex = (int)emotion / 2;
-            Debug.Log(emotionIndex);
             var traits = isPositive ? positiveEmotionMatrix : negativeEmotionMatrix;
-            var influence = new float[TraitsLenght];
+            var influence = new float[traitsLenght];
             
-            for (var i = 0; i < TraitsLenght; i++)
+            for (var i = 0; i < traitsLenght; i++)
             {
                 influence[i] = traits[i, emotionIndex];
             }

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace ATBMI.Entities.NPCs
@@ -12,11 +13,25 @@ namespace ATBMI.Entities.NPCs
         private Vector3 _holdDirection;
         private Vector3 _pullDirection;
         
+        private readonly Dictionary<Emotion, (float plan, float risk, (float, float) time)> _factorsPull = new()
+        {
+            { Emotion.Joy, (1, 0.7f, (0.3f, 1f)) },
+            { Emotion.Trust, (1, 0.7f, (0.6f, 1.5f)) },
+            { Emotion.Fear, (1, 0.7f, (0.8f, 1.4f)) },
+            { Emotion.Surprise, (1, 0.6f, (0.4f, 1.2f)) },
+            { Emotion.Sadness, (1, 0.7f, (0.6f, 1.5f)) },
+            { Emotion.Disgust, (1, 0.7f, (0.6f, 1.5f)) },
+            { Emotion.Anger, (1, 0.7f, (0.3f, 0.6f)) },
+            { Emotion.Anticipation, (1, 0.7f, (0.6f, 1.5f)) }
+        };
+
+        // Constructor
         public TaskPull(CharacterAI character, float force, float delay) : base(character, force, delay)
         {
-            InitFactors(plan: 1, risk: 0.7f, timeRange: (0.15f, 0.2f));
+            OverrideEmotionFactors(_factorsPull);
         }
         
+        // Core
         protected override NodeStatus PerformForce()
         {
             if (_currentHoldTime < holdTime)

@@ -1,26 +1,44 @@
+using System.Collections.Generic;
+using UnityEngine;
+
 namespace ATBMI.Entities.NPCs
 {
     public class LeafWeight : Leaf, IEmotionable
     {
-        // Factors
-        private float risk;
-        private float plan;
-        private (float, float) timeRange;
+        private Dictionary<Emotion, (float plan, float risk, (float, float) timeRange)> _emotionFactors = new();
         
         // Constructor
         protected LeafWeight() : base() { }
         public LeafWeight(string nodeName) : base(nodeName) { }
         
         // Core
-        protected void InitFactors(float plan, float risk, (float, float) timeRange)
+        protected void OverrideEmotionFactors(Dictionary<Emotion, (float, float, (float, float))> factors)
         {
-            this.risk = risk;
-            this.plan = plan;
-            this.timeRange = timeRange;
+            _emotionFactors = factors;
         }
         
-        public float GetRiskValue() => risk;
-        public float GetPlanningValue() => plan;
-        public (float, float) GetTimeRange() => timeRange;
+        public float GetRiskValue(Emotion emotion)
+        {
+            if (_emotionFactors.TryGetValue(emotion, out var factor))
+                return factor.risk;
+            
+            return 0f;
+        }
+        
+        public float GetPlanningValue(Emotion emotion)
+        {
+            if (_emotionFactors.TryGetValue(emotion, out var factor))
+                return factor.plan;
+            
+            return 0f;
+        }
+        
+        public (float, float) GetTimeRange(Emotion emotion)
+        {
+            if (_emotionFactors.TryGetValue(emotion, out var factor))
+                return factor.timeRange;
+            
+            return (0f, 0f);
+        }
     }
 }
