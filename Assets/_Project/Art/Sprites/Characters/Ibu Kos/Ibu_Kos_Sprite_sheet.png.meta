@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 99bf1104b8bef664882a60d9ccf02640
+guid: 53574d13806f3b44caa2fd946282d2f0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -81,33 +81,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: 24
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -123,7 +97,7 @@ TextureImporter:
     buildTarget: Windows Store Apps
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 24
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -149,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Kating_Spritesheet_0
+      name: Ibu_Kos_Sprite_sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -163,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4dd357cc679b92643b170604102e4512
-      internalID: 682333668
+      spriteID: e60475914b2dac54380e4985150c0023
+      internalID: -134114252
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kating_Spritesheet_1
+      name: Ibu_Kos_Sprite_sheet_1
       rect:
         serializedVersion: 2
         x: 100
@@ -184,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 08bd9c8f475023c46a66fe713de0b2a9
-      internalID: -1002752503
+      spriteID: 2a0d529ddef682044aea7973a346984f
+      internalID: 1868144697
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kating_Spritesheet_2
+      name: Ibu_Kos_Sprite_sheet_2
       rect:
         serializedVersion: 2
         x: 200
@@ -205,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91117e64c8ba1074fa34ce02aeb07b19
-      internalID: -1639453896
+      spriteID: b102d5cb1954b6c47924fc2b55c296a9
+      internalID: -1123526600
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kating_Spritesheet_3
+      name: Ibu_Kos_Sprite_sheet_3
       rect:
         serializedVersion: 2
         x: 300
@@ -226,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a2d3f09406a39f47b55b0a85fef3219
-      internalID: -281568305
+      spriteID: 375461cdd183e4144888d7891f006b1e
+      internalID: -1757617793
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kating_Spritesheet_4
+      name: Ibu_Kos_Sprite_sheet_4
       rect:
         serializedVersion: 2
         x: 0
@@ -247,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 93c1f31f58f0d0640ac65a16d099ff00
-      internalID: -105632051
+      spriteID: 4756277a3c57aa54b8f8203c5e8cdb94
+      internalID: 1985080021
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kating_Spritesheet_5
+      name: Ibu_Kos_Sprite_sheet_5
       rect:
         serializedVersion: 2
         x: 100
@@ -268,14 +242,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f4a9aa7c52cf6fa42978b685fc034b56
-      internalID: 688370691
+      spriteID: a61c988d9972b3c4db1cc76783a91c5c
+      internalID: -296904286
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kating_Spritesheet_6
+      name: Ibu_Kos_Sprite_sheet_6
       rect:
         serializedVersion: 2
         x: 200
@@ -289,14 +263,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 282cb7380e57a4d449823d80f4cc813b
-      internalID: -1141681119
+      spriteID: d2459dc842499a244b34e6720fc8779d
+      internalID: 1540522345
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kating_Spritesheet_7
+      name: Ibu_Kos_Sprite_sheet_7
       rect:
         serializedVersion: 2
         x: 300
@@ -310,35 +284,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1ff44fa6fc3b1a749b4bbdeaa9e6ff83
-      internalID: 654143437
+      spriteID: f1f6bef1f60a97e479647c1366d6f915
+      internalID: 1878400505
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kating_Spritesheet_8
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 200
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b460f1ce5a859c24f879017ba888abe5
-      internalID: -2112073597
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Kating_Spritesheet_9
+      name: Ibu_Kos_Sprite_sheet_8
       rect:
         serializedVersion: 2
         x: 0
@@ -352,14 +305,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e91c809683d7b247ad1569adda80bcf
-      internalID: -162616193
+      spriteID: 5dbd1c3fb7433bf4087aa843ca51f5b3
+      internalID: 428614038
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kating_Spritesheet_10
+      name: Ibu_Kos_Sprite_sheet_9
       rect:
         serializedVersion: 2
         x: 100
@@ -373,14 +326,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b7d49db271eb5ef4db03a09ba8528f49
-      internalID: 856675003
+      spriteID: 7e508cae6ea9add4883164ddbdce4a94
+      internalID: 122911526
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kating_Spritesheet_11
+      name: Ibu_Kos_Sprite_sheet_10
       rect:
         serializedVersion: 2
         x: 200
@@ -394,14 +347,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d17ed94b8c4f774ea1fc756ff37b56e
-      internalID: -336865979
+      spriteID: 5597ce4dd7d85d44694c32fbf5414c12
+      internalID: -844156803
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kating_Spritesheet_12
+      name: Ibu_Kos_Sprite_sheet_11
       rect:
         serializedVersion: 2
         x: 300
@@ -415,35 +368,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd6c638846773004e91be5b333f9addb
-      internalID: 950962914
+      spriteID: 3f3a37b8b85f1ee48b477d764ec03808
+      internalID: -1903984672
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kating_Spritesheet_13
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 100
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: da5ee5e95780857468a1ce796cbb9c50
-      internalID: 1449890244
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Kating_Spritesheet_14
+      name: Ibu_Kos_Sprite_sheet_12
       rect:
         serializedVersion: 2
         x: 0
@@ -457,14 +389,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d9c4d6ec636c0e4880496a42d6df6a2
-      internalID: -1567788772
+      spriteID: 7da4aa60256d12145812de2410383747
+      internalID: -336223135
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kating_Spritesheet_15
+      name: Ibu_Kos_Sprite_sheet_13
       rect:
         serializedVersion: 2
         x: 100
@@ -478,14 +410,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f9ddd4f948425f4d97a350582e97ae0
-      internalID: 1270127557
+      spriteID: 6370de360f54e474bbf5a2e4254232ce
+      internalID: 65170235
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kating_Spritesheet_16
+      name: Ibu_Kos_Sprite_sheet_14
       rect:
         serializedVersion: 2
         x: 200
@@ -499,8 +431,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 597acf9f6412fab47bd43b8f9957fc2e
-      internalID: 1507777333
+      spriteID: cd31fd39ac3ae5e478686896877a6197
+      internalID: 579431405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ibu_Kos_Sprite_sheet_15
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 100
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef010bb579379ac4e8c7a09acefdd479
+      internalID: -211123845
       vertices: []
       indices: 
       edges: []
@@ -516,23 +469,22 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Kating_Spritesheet_0: 682333668
-      Kating_Spritesheet_1: -1002752503
-      Kating_Spritesheet_10: 856675003
-      Kating_Spritesheet_11: -336865979
-      Kating_Spritesheet_12: 950962914
-      Kating_Spritesheet_13: 1449890244
-      Kating_Spritesheet_14: -1567788772
-      Kating_Spritesheet_15: 1270127557
-      Kating_Spritesheet_16: 1507777333
-      Kating_Spritesheet_2: -1639453896
-      Kating_Spritesheet_3: -281568305
-      Kating_Spritesheet_4: -105632051
-      Kating_Spritesheet_5: 688370691
-      Kating_Spritesheet_6: -1141681119
-      Kating_Spritesheet_7: 654143437
-      Kating_Spritesheet_8: -2112073597
-      Kating_Spritesheet_9: -162616193
+      Ibu_Kos_Sprite_sheet_0: -134114252
+      Ibu_Kos_Sprite_sheet_1: 1868144697
+      Ibu_Kos_Sprite_sheet_10: -844156803
+      Ibu_Kos_Sprite_sheet_11: -1903984672
+      Ibu_Kos_Sprite_sheet_12: -336223135
+      Ibu_Kos_Sprite_sheet_13: 65170235
+      Ibu_Kos_Sprite_sheet_14: 579431405
+      Ibu_Kos_Sprite_sheet_15: -211123845
+      Ibu_Kos_Sprite_sheet_2: -1123526600
+      Ibu_Kos_Sprite_sheet_3: -1757617793
+      Ibu_Kos_Sprite_sheet_4: 1985080021
+      Ibu_Kos_Sprite_sheet_5: -296904286
+      Ibu_Kos_Sprite_sheet_6: 1540522345
+      Ibu_Kos_Sprite_sheet_7: 1878400505
+      Ibu_Kos_Sprite_sheet_8: 428614038
+      Ibu_Kos_Sprite_sheet_9: 122911526
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
