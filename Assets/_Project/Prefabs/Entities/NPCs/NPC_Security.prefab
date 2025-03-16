@@ -201,28 +201,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3538335800246146966, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 564822670336304445}
-    - targetCorrespondingSourceObject: {fileID: 5044339473557507902, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7235954545669334800}
   m_SourcePrefab: {fileID: 100100000, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
---- !u!1 &1197591164197951877 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5044339473557507902, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
-  m_PrefabInstance: {fileID: 6241895453110703803}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &7235954545669334800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1197591164197951877}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fee8cb504952439fb1d9e497af8fadad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rootSign: {fileID: 4291996230028175410}
 --- !u!114 &1503769504184384528 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4774339738783165099, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
@@ -287,10 +266,10 @@ MonoBehaviour:
   - 0
   personality:
   - 0
-  - -1
   - 0
   - 0
-  - -1
+  - 0
+  - 0
 --- !u!114 &9093390697933653879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,11 +283,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   centerPoint: {fileID: 6755673961492933830}
---- !u!4 &4291996230028175410 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7858659317861269129, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
-  m_PrefabInstance: {fileID: 6241895453110703803}
-  m_PrefabAsset: {fileID: 0}
 --- !u!95 &4461974440957610092 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 7742730968249442007, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
