@@ -11,10 +11,10 @@ namespace ATBMI.Entities.NPCs
         private float _currentHoldTime;
         private Vector3 _holdDirection;
         private Vector3 _pullDirection;
-
+        
         public TaskPull(CharacterAI character, float force, float delay) : base(character, force, delay)
         {
-            InitFactors(plan: 1, risk: 0.7f, timeRange: (0.3f, 0.6f));
+            InitFactors(plan: 1, risk: 0.7f, timeRange: (0.15f, 0.2f));
         }
         
         protected override NodeStatus PerformForce()

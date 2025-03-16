@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -52,7 +53,7 @@ namespace ATBMI.Entities.NPCs
             _selectedNode ??= SelectNodeAction();
             return _selectedNode.Evaluate();
         }
-
+        
         protected override void Reset()
         {
             base.Reset();
@@ -64,9 +65,9 @@ namespace ATBMI.Entities.NPCs
             // Calculate emotional factor
             var (emotion, intensity) = traits.GetDominantEmotion();
             
-            var emoPlan = emotionModifiers[emotion][Factors.Plan];
-            var emoRisk = emotionModifiers[emotion][Factors.Risk];
-            var emoTime = emotionModifiers[emotion][Factors.Time];
+            var emoPlan = CalculateEmotionalFactor(Factors.Plan) - emotionModifiers[emotion][Factors.Plan];
+            var emoRisk = CalculateEmotionalFactor(Factors.Risk) - emotionModifiers[emotion][Factors.Risk];
+            var emoTime = CalculateEmotionalFactor(Factors.Time) - emotionModifiers[emotion][Factors.Time];
             
             // Compute weighted values for each child node
             var weightedNodes = new Dictionary<Node, float>();
@@ -96,11 +97,9 @@ namespace ATBMI.Entities.NPCs
             var time = (timeRange.L + (timeRange.U - timeRange.L) / 2) * (1 - sigma * opt);
             
             // Weight calculated
-            var weightRisk = Mathf.Clamp((1 - risk * delta) * emoRisk, 0, 1);
+            var weightRisk = Mathf.Clamp((1 - emoRisk * delta) * risk, 0, 1);
             var weightPlan = (1 - 1 / (1 + omega * planning)) * Mathf.Max(1 - sign + sign * emoPlan, 0);
-            var weightTime = Mathf.Clamp((1 - time * phi) * lambda * emoTime, 0, 1);
-            // var weightTime = (1 - 1 / (1 + phi * time)) * Mathf.Max(1 - lambda + lambda * emoTime, 0);
-            // var weightTime = Mathf.Lerp(1 - 1 / (1 + phi * time), 1 / (1 + phi * time), emoTime);
+            var weightTime = (1 - 1 / (1 + phi * time)) * Mathf.Max(1 - lambda + lambda * emoTime, 0);
             
             var totalWeight = alpha * weightRisk + beta * weightTime + gamma * weightPlan;
             
@@ -111,11 +110,52 @@ namespace ATBMI.Entities.NPCs
             return totalWeight;
         }
         
+        private float CalculateEmotionalFactor(Factors factor)
+        {
+            var factorSum = 0f;
+            var nodeCount = 0;
+            
+            foreach (var child in childNodes)
+            {
+                float value;
+                if (child is not IEmotionable emoChild)
+                {
+                    Debug.LogError($"{child.nodeName} is not an IEmotionable!");
+                    return 0f;
+                }
+                
+                // Get child factor value
+                switch (factor)
+                {
+                    case Factors.Plan:
+                        value = emoChild.GetPlanningValue();
+                        break;
+                    case Factors.Risk:
+                        value = emoChild.GetRiskValue();
+                        break;
+                    case Factors.Time:
+                    {
+                        (float L, float U) timeRange = emoChild.GetTimeRange();
+                        value = (timeRange.L + (timeRange.U - timeRange.L) / 2) * (1 - sigma * opt);
+                        break;
+                    }
+                    default:
+                        throw new ArgumentOutOfRangeException(nameof(factor), factor, null);
+                }
+                
+                factorSum += value;
+                nodeCount++;
+            }
+            
+            var average = factorSum / nodeCount;
+            return average - (-1 * average);
+        }
+        
         private Node SelectActionWithProbability(List<KeyValuePair<Node, float>> sortedNodes)
         {
             var probabilities = new List<float>();
             var totalProb = 0f;
-
+            
             for (var i = 0; i < sortedNodes.Count; i++)
             {
                 var prob = bias * Mathf.Pow(1 - bias, i);

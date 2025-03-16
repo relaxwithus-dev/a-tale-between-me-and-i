@@ -147,11 +147,11 @@ namespace ATBMI.Interaction
             interactSign.SetActive(false);
         }
         
-        private void OnDrawGizmos()
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, detectionRadius);
-        }
+        // private void OnDrawGizmos()
+        // {
+        //     Gizmos.color = Color.red;
+        //     Gizmos.DrawWireSphere(transform.position, detectionRadius);
+        // }
 
         #endregion
     }
