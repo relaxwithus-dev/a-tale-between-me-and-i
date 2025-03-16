@@ -15,9 +15,16 @@ namespace ATBMI
         public QuestInfoSO[] questPrerequisites;
 
         [Header("Steps")]
-        public GameObject[] questStepPrefabs;
+        public QuestStepEntry[] questSteps;
 
         [Header("Reward")]
         public ItemData[] rewardItem;
+    }
+
+    [System.Serializable]
+    public struct QuestStepEntry
+    {
+        public GameObject questStepPrefab;
+        [TextArea] public string stepStatusText;
     }
 }

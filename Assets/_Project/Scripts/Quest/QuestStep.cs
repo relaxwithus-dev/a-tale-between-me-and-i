@@ -31,7 +31,7 @@ namespace ATBMI
             }
         }
 
-        protected void ChangeState(string newState, string newStatus)
+        protected void ChangeState(string newState, QuestStepStatusEnum newStatus)
         {
             QuestEvents.QuestStepStateChangeEvent(questId, stepIndex, new QuestStepState(newState, newStatus));
         }

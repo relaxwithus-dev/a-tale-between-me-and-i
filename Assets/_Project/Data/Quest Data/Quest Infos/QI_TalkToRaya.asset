@@ -16,6 +16,8 @@ MonoBehaviour:
   displayName: Talk To Raya
   shoulBeFinishManually: 0
   questPrerequisites: []
-  questStepPrefabs: []
+  questSteps:
+  - questStepPrefab: {fileID: 2246666567235768889, guid: 344780df26fb41c4485cff3fe4245e76, type: 3}
+    stepStatusText: bicaralah ke raya
   rewardItem:
-  - {fileID: 11400000, guid: c5d406d1915649845afc5caae7db8c16, type: 2}
+  - {fileID: 11400000, guid: 8029d9389f832e842b00764eed911b85, type: 2}

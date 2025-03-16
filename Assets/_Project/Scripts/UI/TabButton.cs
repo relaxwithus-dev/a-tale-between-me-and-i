@@ -1,7 +1,5 @@
-using System;
 using ATBMI.Gameplay.Event;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace ATBMI
@@ -20,6 +18,9 @@ namespace ATBMI
                 case UIMenuTabEnum.Inventory:
                     UIEvents.OnSelectTabInventoryEvent();
                     break;
+                case UIMenuTabEnum.Quest:
+                    UIEvents.OnSelectTabQuestEvent();
+                    break;
                 default:
                     break;
             }
@@ -32,6 +33,9 @@ namespace ATBMI
             {
                 case UIMenuTabEnum.Inventory:
                     UIEvents.OnDeselectTabInventoryEvent();
+                    break;
+                case UIMenuTabEnum.Quest:
+                    UIEvents.OnDeselectTabQuestEvent();
                     break;
                 default:
                     break;

@@ -38,6 +38,7 @@ namespace ATBMI
         private void OpenMenu()
         {
             UIEvents.OnSelectTabInventoryEvent(); //todo: change it to dynamically call when input for inventory pressed
+            UIEvents.OnSelectTabQuestEvent();
 
             menuUI.SetActive(true);
             isMenuActive = true;
@@ -46,6 +47,7 @@ namespace ATBMI
         private void CloseMenu()
         {
             UIEvents.OnDeselectTabInventoryEvent();
+            UIEvents.OnDeselectTabQuestEvent();
 
             menuUI.SetActive(false);
             isMenuActive = false;

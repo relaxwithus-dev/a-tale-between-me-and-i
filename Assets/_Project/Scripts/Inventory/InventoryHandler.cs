@@ -54,7 +54,7 @@ namespace ATBMI.Inventory
         private void OpenInventoryMenu()
         {
             InitInventoryItemUI();
-            DebugInventoryFlags();
+            // DebugInventoryFlags();
 
             if (_inventoryCreator.InventoryFlags.Count > 0)
             {
@@ -70,9 +70,10 @@ namespace ATBMI.Inventory
             }
         }
 
-
         private void CloseInventoryMenu()
         {
+            (_inventoryCreator.InventoryFlags[selectedIndex] as InventoryFlag)?.Highlight(false);
+
             selectedIndex = -1;
         }
 

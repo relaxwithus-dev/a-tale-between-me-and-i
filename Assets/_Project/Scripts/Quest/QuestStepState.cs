@@ -4,9 +4,9 @@ namespace ATBMI
     public class QuestStepState
     {
         public string state;
-        public string status;
+        public QuestStepStatusEnum status;
 
-        public QuestStepState(string state, string status)
+        public QuestStepState(string state, QuestStepStatusEnum status)
         {
             this.state = state;
             this.status = status;
@@ -15,7 +15,7 @@ namespace ATBMI
         public QuestStepState()
         {
             this.state = "";
-            this.status = "";
+            this.status = QuestStepStatusEnum.Null;
         }
     }
 }

@@ -91,6 +91,8 @@ namespace ATBMI
         {
             Quest quest = GetQuestById(id);
             quest.state = state;
+
+            QuestEvents.QuestStateChangeEvent(quest);
         }
 
         // if any requirements
@@ -124,6 +126,11 @@ namespace ATBMI
             if (Input.GetKeyDown(KeyCode.G))
             {
                 StartQuest(1); // go to market quest id
+            }
+            
+            if (Input.GetKeyDown(KeyCode.H))
+            {
+                StartQuest(2); // go to market quest id
             }
 
             // if (Input.GetKeyDown(KeyCode.H))

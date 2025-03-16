@@ -1,17 +1,19 @@
-using UnityEngine;
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace ATBMI
 {
-    public class GoToMarketQuestStep : QuestStep
+    public class GoToRayaQuestStep : QuestStep
     {
-        private bool hasArrivedAtMarket;
+        private bool hasArrivedAtRaya;
 
         private void ArrivedAtMarket()
         {
-            if (!hasArrivedAtMarket)
+            if (!hasArrivedAtRaya)
             {
-                hasArrivedAtMarket = true;
+                hasArrivedAtRaya = true;
 
                 UpdateStepState(QuestStepStatusEnum.Finished);
 
@@ -22,14 +24,14 @@ namespace ATBMI
 
         private void UpdateStepState(QuestStepStatusEnum stepStatus)
         {
-            ChangeState(hasArrivedAtMarket.ToString(), stepStatus); // TODO: change to new status
+            ChangeState(hasArrivedAtRaya.ToString(), stepStatus); // TODO: change to new status
         }
 
         protected override void SetQuestStepState(string state)
         {
-            this.hasArrivedAtMarket = Convert.ToBoolean(state);
+            this.hasArrivedAtRaya = Convert.ToBoolean(state);
 
-            if (hasArrivedAtMarket)
+            if (hasArrivedAtRaya)
             {
                 UpdateStepState(QuestStepStatusEnum.Finished);
             }
