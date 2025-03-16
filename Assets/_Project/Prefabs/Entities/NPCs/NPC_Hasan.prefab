@@ -79,7 +79,7 @@ PrefabInstance:
     - target: {fileID: 4878722094123776488, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1772801369, guid: 2d472c271c0302e42aed2fc5ed82d0af, type: 3}
+      objectReference: {fileID: 1951880673, guid: c662db0265287e649bd6ef60cc871830, type: 3}
     - target: {fileID: 4878722094123776488, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -181,6 +181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   influenceConfig: {fileID: 11400000, guid: c751ae8aadbb81f43b8f6b5096a36955, type: 2}
   personalityConfig: {fileID: 11400000, guid: daad5bdba89a97142b7a570695d56fdf, type: 2}
+  initialEmotion: 0
   emotions:
   - 0
   - 0
