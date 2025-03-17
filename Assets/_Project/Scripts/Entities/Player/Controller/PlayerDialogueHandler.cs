@@ -41,11 +41,6 @@ namespace ATBMI.Entities.Player
         {
             PlayerEvents.OnMoveToPlayer -= MoveToDialogueEntryPoint;
         }
-
-        private void Start()
-        {
-            DialogueEvents.RegisterNPCTipTargetEvent(_playerController.Data.name, signTransform);
-        }
         
         // Core
         private void MoveToDialogueEntryPoint(RuleEntry rule, TextAsset ink, float newPositionX, float npcPosX, bool isNpcFacingRight)

@@ -14,7 +14,7 @@ namespace ATBMI.Interaction
 
         [Header("Properties")]
         [SerializeField] private bool isInteracting;
-        
+
         [Space]
         [SerializeField] private InteractAction interactAction;
         [ShowIf("@this.interactAction == InteractAction.Give || this.interactAction == InteractAction.Take")]
@@ -24,15 +24,15 @@ namespace ATBMI.Interaction
 
         private int _interactId;
         public bool IsInteracting => isInteracting;
-        
+
         [Header("Reference")]
         [SerializeField] private CharacterTraits characterTraits;
         private CharacterAI _characterAI;
-        
+
         #endregion
-        
+
         #region Methods
-        
+
         // Unity Callbacks
         private void Awake()
         {
@@ -43,22 +43,21 @@ namespace ATBMI.Interaction
         {
             InteractEvent.OnInteracted += cond => isInteracting = cond;
         }
-        
+
         private void Start()
         {
-            if (characterAI.Data != null)
+            if (_characterAI.Data != null)
             {
-                DialogueEvents.RegisterNPCTipTargetEvent(characterAI.Data.CharacterName, GetSignTransform());
-                DialogueEvents.RegisterNPCEmojiTargetEvent(characterAI.Data.CharacterName, GetEmojiTransform());
+                DialogueEvents.RegisterNPCTipTargetEvent(_characterAI.Data.CharacterName, GetSignTransform());
+                DialogueEvents.RegisterNPCEmojiTargetEvent(_characterAI.Data.CharacterName, GetEmojiTransform());
             }
             else
             {
                 Debug.LogError($"CharacterData is missing for NPC {gameObject.name}");
-            
-            DialogueEvents.RegisterNPCTipTargetEvent(_characterAI.Data.CharacterName, GetSignTransform());
+            }
         }
 
-        public static void InteractingEvent(bool isBegin) => OnInteracting?.Invoke(isBegin);
+        // public static void InteractingEvent(bool isBegin) => OnInteracting?.Invoke(isBegin);
         public Transform GetSignTransform() => signTransform;
         public Transform GetEmojiTransform() => emojiTransform;
 
@@ -79,7 +78,7 @@ namespace ATBMI.Interaction
                 DialogueEvents.EnterItemDialogueEvent(itemDialogue);
             }
         }
-        
+
         // TODO: Pake ini buat change status di InkExternal
         // NOTE: Pake method waktu diawal interaksi, sesuaiken dgn jenis interaksinya,
         // Semua Ink Dialogue NPCs yang punya emosi, harus pake method ini
@@ -87,7 +86,7 @@ namespace ATBMI.Interaction
         {
             var changedAction = GetAction(action);
             characterTraits.InfluenceTraits(changedAction);
-            
+
             if (interactAction == changedAction) return;
             interactAction = changedAction;
         }
@@ -103,9 +102,9 @@ namespace ATBMI.Interaction
             }
             return false;
         }
-        
+
         // Helpers
-        public Transform GetSignTransform() => signTransform;
+        // public Transform GetSignTransform() => signTransform;
         private InteractAction GetAction(string action)
         {
             if (System.Enum.TryParse<InteractAction>(action, out var parsedAction))
