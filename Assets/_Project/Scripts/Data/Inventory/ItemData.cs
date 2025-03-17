@@ -6,15 +6,18 @@ namespace ATBMI.Data
     public class ItemData : ScriptableObject
     {
         [Header("Data")]
-        [SerializeField] private int itemId;
-        [SerializeField] private string itemName;
-        [SerializeField] [TextArea] private string itemDescription;
-        [SerializeField] private Sprite itemSprite;
+        public int itemId;
+        public string itemName;
+        [TextArea] public string itemDescription;
+        public Sprite itemSprite;
 
         // Getter
         public int ItemId => itemId;
         public string ItemName => itemName;
         public string ItemDescription => itemDescription;
         public Sprite ItemSprite => itemSprite;
+
+        // Add this method for testing purposes
+        public void SetItemId(int newId) => itemId = newId;
     }
 }

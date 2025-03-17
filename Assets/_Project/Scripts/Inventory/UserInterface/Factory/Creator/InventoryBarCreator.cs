@@ -9,10 +9,10 @@ namespace ATBMI.Inventory
         #region Global Fields
 
         [Header("General")]
-        [SerializeField] protected GameObject inventoryPrefab;
-        [SerializeField] protected Transform inventoryParent;
-        [SerializeField] protected List<FlagBase> inventoryFlags;
-        protected IInventorySlot inventorySlot;
+        public GameObject inventoryPrefab;
+        public Transform inventoryParent;
+        public List<FlagBase> inventoryFlags;
+        public IInventorySlot inventorySlot;
 
         public List<FlagBase> InventoryFlags => inventoryFlags;
 
@@ -30,7 +30,7 @@ namespace ATBMI.Inventory
             PlayerEvents.OnUpdateInventory -= ModifyInventory;
         }
 
-        private void Start()
+        public void Start()
         {
             InitOnStart();
         }
@@ -45,7 +45,7 @@ namespace ATBMI.Inventory
         // !- Core
         protected virtual void ModifyInventory(List<InventoryItem> inventoryList) {}
 
-        protected void CreateInventorySlot()
+        public void CreateInventorySlot()
         {
             var slot = inventorySlot.CreateInventorySlot();
             inventoryFlags.Add(slot);

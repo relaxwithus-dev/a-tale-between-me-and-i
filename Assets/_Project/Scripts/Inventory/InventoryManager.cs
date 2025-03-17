@@ -12,18 +12,18 @@ namespace ATBMI.Inventory
     {
         #region Fields & Properties
 
-        [SerializeField] private ItemList itemList;
+        public ItemList itemList;
 
-        [SerializeField] private GameObject uiGetItemPanel;
+        public GameObject uiGetItemPanel;
 
         public List<InventoryItem> InventoryList { get; set; } = new();
-        private readonly Dictionary<int, ItemData> itemDatasDict = new();
-        
+        public Dictionary<int, ItemData> itemDatasDict = new();
+
         public static InventoryManager Instance;
-        
+
         #endregion
 
-        private void Awake()
+        public void Awake()
         {
             if (Instance == null)
             {
@@ -35,21 +35,26 @@ namespace ATBMI.Inventory
                 Destroy(gameObject);
             }
 
+
+        }
+
+        public void Start()
+        {
             PopulateItemDict();
 
-            uiGetItemPanel.SetActive(false);
+            // uiGetItemPanel.SetActive(false);
         }
 
         private void Update()
         {
-            if(Input.GetKeyDown(KeyCode.C))
+            if (Input.GetKeyDown(KeyCode.C))
             {
                 AddItemToInventory(101);
                 AddItemToInventory(102);
                 AddItemToInventory(103);
             }
 
-            if(Input.GetKeyDown(KeyCode.V))
+            if (Input.GetKeyDown(KeyCode.V))
             {
                 AddItemToInventory(104);
                 AddItemToInventory(105);
@@ -57,13 +62,13 @@ namespace ATBMI.Inventory
             }
         }
 
-        private void PopulateItemDict()
+        public void PopulateItemDict()
         {
             foreach (ItemData item in itemList.itemList)
             {
                 if (itemDatasDict.ContainsKey(item.ItemId))
                 {
-                    Debug.LogWarning("Duplicate ID found when creating item data dictionary: " + item.ItemId);
+                    // Debug.LogWarning("Duplicate ID found when creating item data dictionary: " + item.ItemId);
                 }
                 else
                 {
@@ -98,10 +103,10 @@ namespace ATBMI.Inventory
                 // Add item to inventory
                 InventoryList.Add(new InventoryItem(itemId));
                 PlayerEvents.UpdateInventoryEvent(InventoryList);
-                Debug.Log("add item " + data.ItemName + " " + data.ItemId + " to inventory");
+                // Debug.Log("add item " + data.ItemName + " " + data.ItemId + " to inventory");
 
                 // TODO: change this method to UI manager
-                StartCoroutine(AnimateUIGetItemPanel());
+                // StartCoroutine(AnimateUIGetItemPanel());
 
                 // Destroy item
                 if (item != null)

@@ -180,5 +180,17 @@ namespace ATBMI.Dialogue
         {
             base.EnterDialogueWithInkJson(InkJson);
         }
+
+        public void Evaluate()
+        {
+            foreach (var rule in manualTriggerRules)
+            {
+                if (rule.Evaluate(this))
+                {
+                    rule.Execute(this);
+                    break; // Execute only the first valid rule
+                }
+            }
+        }
     }
 }
