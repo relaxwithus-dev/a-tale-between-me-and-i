@@ -13,8 +13,6 @@ namespace ATBMI.Entities.NPCs
             targetPosition = new Vector3(targetPoint.position.x,
                 character.transform.position.y,
                 character.transform.position.z);
-            
-            InitFactors(plan: 0f, risk: 0f, timeRange: (0, 0));
         }
         
         public override NodeStatus Evaluate()

@@ -16,8 +16,6 @@ namespace ATBMI.Entities.NPCs
             this.centerPoint = centerPoint;
             this.radius = radius;
             this.targetLayer = targetLayer;
-            
-            InitFactors(plan: 0f, risk: 0.3f, timeRange: (0, 0));
         }
         
         public override NodeStatus Evaluate()

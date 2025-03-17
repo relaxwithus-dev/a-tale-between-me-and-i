@@ -15,7 +15,7 @@ namespace ATBMI.Entities.NPCs
         [Header("Traits")]
         [SerializeField] private Emotion initialEmotion;
         [SerializeField] [Range(-1, 1)] [ReadOnly] private float[] emotions = new float[4];
-        [SerializeField] [Range(-1, 1)] private float[] personality = new float[5];
+        [SerializeField] [Range(-1, 1)] [ReadOnly] private float[] personality = new float[5];
 
         private float[] _eventEmotion;
         
@@ -29,7 +29,10 @@ namespace ATBMI.Entities.NPCs
             _eventEmotion = new float[4];
             
             var emotionIndex = (int)initialEmotion;
-            emotions[emotionIndex / 2] = emotionIndex % 2 == 0 ? 0.5f : -0.5f;
+            var isPositiveEmotion = emotionIndex % 2 == 0;
+            
+            emotions[emotionIndex / 2] = isPositiveEmotion ? 0.5f : -0.5f;
+            personality = personalityConfig.GetPersonalityInfluence(initialEmotion, isPositiveEmotion);
         }
         
         // Core
@@ -55,7 +58,7 @@ namespace ATBMI.Entities.NPCs
                 for (var j = 0; j < 5; j++)
                 {
                     var isPositive = _eventEmotion[i] >= 0;
-                    float factor = personalityConfig.GetPersonalityInfluence((PersonalityTrait)j,
+                    float factor = personalityConfig.GetPersonalityTrait((PersonalityTrait)j,
                         (Emotion)(i * 2), isPositive);
                     
                     sum += _eventEmotion[i] * personality[j] * factor;

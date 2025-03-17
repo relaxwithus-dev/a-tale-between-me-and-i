@@ -27,7 +27,7 @@ namespace ATBMI.Entities.NPCs
                         new CheckTargetInProxemics(centerPoint, zoneDetails[0].Radius, layerMask),
                         new EmotionalSelector("Anger", characterTraits, new List<Node>
                         {
-                            new SequenceWeight("Pull", new List<Node>
+                            new SequenceWeight("Pull",new List<Node>
                             {
                                 new CheckInAction(isAction: true),
                                 new CheckPassed(characterAI, zoneDetails[1].Radius),

@@ -16,4 +16,7 @@ namespace ATBMI.Entities.NPCs
         Agreeableness,
         Neuroticism
     }
+    
+    public enum Factors { Plan, Risk, Time }
+
 }
