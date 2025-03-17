@@ -1,13 +1,14 @@
+using ATBMI.Entities.NPCs;
 using ATBMI.Entities.Player;
 using UnityEngine;
 
 namespace ATBMI.Entities.NPCs
 {
-    public class CheckSameDirection : LeafWeight
+    public class CheckOffPosition : LeafWeight
     {
         private readonly CharacterAI character;
 
-        public CheckSameDirection(CharacterAI character)
+        public CheckOffPosition(CharacterAI character)
         {
             this.character = character;
         }
@@ -16,14 +17,11 @@ namespace ATBMI.Entities.NPCs
         {
             if (GetData(TARGET_KEY) is not Transform target)
                 return LogFailure();
-
-            if (!target.TryGetComponent<PlayerController>(out var player))
-                return LogFailure();
-
-            if (player.IsRight && character.IsFacingRight)
-                return LogSuccess();
-
-            return LogFailure();
+            
+            var targetIsOnRight = target.position.x > character.transform.position.x;
+            var characterIsFacingTarget = character.IsFacingRight == targetIsOnRight;
+            
+            return characterIsFacingTarget ? LogSuccess() : LogFailure();
         }
         
         private NodeStatus LogFailure()
@@ -37,6 +35,5 @@ namespace ATBMI.Entities.NPCs
             Debug.Log("Execute Success: CheckSameDirection");
             return NodeStatus.Success;
         }
-
     }
 }
