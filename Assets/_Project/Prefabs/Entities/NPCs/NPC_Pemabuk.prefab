@@ -51,7 +51,7 @@ PrefabInstance:
     - target: {fileID: 4878722094123776488, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -2097087313, guid: 826a54663110caf4aa74aa2a121f878b, type: 3}
+      objectReference: {fileID: -1926640074, guid: fc00bf1c097c3c545bf250e33003f248, type: 3}
     - target: {fileID: 4878722094123776488, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -154,6 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   influenceConfig: {fileID: 11400000, guid: c751ae8aadbb81f43b8f6b5096a36955, type: 2}
   personalityConfig: {fileID: 11400000, guid: daad5bdba89a97142b7a570695d56fdf, type: 2}
+  initialEmotion: 0
   emotions:
   - 0
   - 0
@@ -221,6 +222,7 @@ MonoBehaviour:
   targetId: 0
   signTransform: {fileID: 0}
   characterTraits: {fileID: 0}
+  characterAI: {fileID: 0}
 --- !u!4 &6755673961492933830 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 819465445805292157, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}

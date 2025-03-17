@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace ATBMI.Entities.NPCs
@@ -7,18 +8,32 @@ namespace ATBMI.Entities.NPCs
         private readonly CharacterAI character;
         private readonly CharacterAnimation animation;
         private readonly float offRange;
-
+        
         private const float OFFSET = 0.5f;
         private Transform _currentTarget;
         private Vector3 _targetPosition;
+        
+        private readonly Dictionary<Emotion, (float plan, float risk, (float, float) time)> _factorsObserve = new()
+        {
+            { Emotion.Joy, (1, 0.5f, (2f, 4f)) },
+            { Emotion.Trust, (1, 0.5f, (3f, 7f)) },
+            { Emotion.Fear, (1, 0.4f, (2f, 4f)) },
+            { Emotion.Surprise, (1, 0.5f, (2f, 4f)) },
+            { Emotion.Sadness, (1, 0.3f, (1f, 3f)) },
+            { Emotion.Disgust, (1, 0.3f, (1.5f, 2f)) },
+            { Emotion.Anger, (1, 0.4f, (3f, 7f)) },
+            { Emotion.Anticipation, (1, 0.2f, (0.5f, 3.5f)) }
+        };
 
+        
+        // Constructor
         public TaskObserve(CharacterAI character, CharacterAnimation animation, float offRange)
         {
             this.character = character;
             this.animation = animation;
             this.offRange = offRange;
             
-            InitFactors(plan: 1f, risk: 0.2f, timeRange: (3f, 7f));
+            OverrideEmotionFactors(_factorsObserve);
         }
         
         public override NodeStatus Evaluate()

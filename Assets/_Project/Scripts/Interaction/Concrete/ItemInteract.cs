@@ -8,6 +8,8 @@ namespace ATBMI.Interaction
 {
     public class ItemInteract : MonoBehaviour, IInteractable
     {
+        private enum ItemType { Collectible, Scenery }
+        
         [Header("Properties")]
         [SerializeField] private ItemData itemData;
         [SerializeField] private ItemType itemType;
@@ -15,11 +17,9 @@ namespace ATBMI.Interaction
         [SerializeField] private TextAsset defaultDialogue;
         [SerializeField] private TextAsset defaultItemDialogue;
         
-        private enum ItemType { Collectible, Scenery }
-        
+        // Core
         public bool Validate() => itemType == ItemType.Scenery;
         public Transform GetSignTransform() => signTransform;
-        
         public void Interact(InteractManager manager, int itemId = 0)
         {
             switch (itemType)

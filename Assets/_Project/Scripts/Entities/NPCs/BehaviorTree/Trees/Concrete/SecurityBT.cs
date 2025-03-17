@@ -12,7 +12,6 @@ namespace ATBMI.Entities.NPCs
         [SerializeField] private float passOffRange;
         
         [Space]
-        [SerializeField] private CharacterInteract characterInteract;
         [SerializeField] private CharacterAnimation characterAnimation;
         
         protected override Node SetupTree()
@@ -28,13 +27,13 @@ namespace ATBMI.Entities.NPCs
                         new CheckTargetInProxemics(centerPoint, zoneDetails[0].Radius, layerMask),
                         new EmotionalSelector("Anger", characterTraits, new List<Node>
                         {
-                            new SequenceWeight("Pull", new List<Node>
+                            new SequenceWeight("Pull",new List<Node>
                             {
+                                new CheckInAction(isAction: true),
                                 new CheckPassed(characterAI, zoneDetails[1].Radius),
-                                new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true),
                                 new TaskPull(characterAI, pullForce, pullDelay),
-                                new TaskMoveToOrigin(characterAI, characterAI.Data, isWalk: true),
-                                new TaskTalk(characterAI, CharacterState.Anger, "hei, yang sopan kamu!")
+                                new TaskTalk(characterAI, CharacterState.Anger, "hei, yang sopan kamu!"),
+                                new CheckInAction(isAction: false)
                             }),
                             new TaskTalk(characterAI, "mau kemana kamu?"),
                             new TaskIdle(characterAI)

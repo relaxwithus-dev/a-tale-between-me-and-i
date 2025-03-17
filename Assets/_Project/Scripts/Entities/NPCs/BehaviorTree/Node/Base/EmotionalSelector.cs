@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using ATBMI.Utilities;
 using UnityEngine;
 
 using Random = UnityEngine.Random;
@@ -9,10 +11,9 @@ namespace ATBMI.Entities.NPCs
     public class EmotionalSelector : Node
     {
         // Fields
-        private enum Factors { Plan, Risk, Time }
-        private readonly CharacterTraits traits;
-        
         private Node _selectedNode;
+        private readonly CharacterTraits traits;
+        private readonly string[] _weightContexts = new string[5];
         
         // Cached fields
         private readonly float delta = 0.9f;   // Risk impact
@@ -52,7 +53,7 @@ namespace ATBMI.Entities.NPCs
             _selectedNode ??= SelectNodeAction();
             return _selectedNode.Evaluate();
         }
-
+        
         protected override void Reset()
         {
             base.Reset();
@@ -64,15 +65,17 @@ namespace ATBMI.Entities.NPCs
             // Calculate emotional factor
             var (emotion, intensity) = traits.GetDominantEmotion();
             
-            var emoPlan = emotionModifiers[emotion][Factors.Plan];
-            var emoRisk = emotionModifiers[emotion][Factors.Risk];
-            var emoTime = emotionModifiers[emotion][Factors.Time];
+            var emoPlan = CalculateEmotionalFactor(emotion,Factors.Plan);
+            var emoRisk = CalculateEmotionalFactor(emotion,Factors.Risk);
+            var emoTime = CalculateEmotionalFactor(emotion,Factors.Time);
             
-            // Compute weighted values for each child node
+            // Compute and report weighted values for each child node
             var weightedNodes = new Dictionary<Node, float>();
+            ReportManager.CreateReport(emotion.ToString());
             foreach (var child in childNodes)
             {
-                float weight = CalculateWeight(child, emoPlan, emoRisk, emoTime);
+                var weight = CalculateWeight(emotion, child, emoPlan, emoRisk, emoTime);
+                ReportManager.AppendReport(emotion.ToString(), _weightContexts);
                 weightedNodes[child] = weight;
             }
             
@@ -81,7 +84,7 @@ namespace ATBMI.Entities.NPCs
             return SelectActionWithProbability(sortedNodes);
         }
         
-        private float CalculateWeight(Node node, float emoPlan, float emoRisk, float emoTime)
+        private float CalculateWeight(Emotion emotion, Node node, float emoPlan, float emoRisk, float emoTime)
         {
             if (node is not IEmotionable emoChild)
             {
@@ -90,30 +93,67 @@ namespace ATBMI.Entities.NPCs
             }
             
             // Raw node value
-            var risk = emoChild.GetRiskValue();
-            var planning = emoChild.GetPlanningValue();
-            (float U, float L) timeRange = emoChild.GetTimeRange();
+            var risk = emoChild.GetRiskValue(emotion);
+            var planning = emoChild.GetPlanningValue(emotion);
+            (float U, float L) timeRange = emoChild.GetTimeRange(emotion);
             var time = (timeRange.L + (timeRange.U - timeRange.L) / 2) * (1 - sigma * opt);
             
             // Weight calculated
-            var weightRisk = Mathf.Clamp((1 - risk * delta) * emoRisk, 0, 1);
+            var weightRisk = Mathf.Clamp((1 - emoRisk * delta) * risk, 0, 1);
             var weightPlan = (1 - 1 / (1 + omega * planning)) * Mathf.Max(1 - sign + sign * emoPlan, 0);
-            var weightTime = Mathf.Lerp(1 - 1 / (1 + phi * time), 1 / (1 + phi * time), emoTime * lambda);
+            var weightTime = (1 - 1 / (1 + phi * time)) * Mathf.Max(1 - lambda + lambda * emoTime, 0);
             
-            var totalWeight = alpha * weightRisk + beta * weightTime + gamma * weightPlan;
+            var weightTotal = alpha * weightRisk + beta * weightTime + gamma * weightPlan;
             
             // Debugging
             Debug.LogWarning($"Node: {node.nodeName} | Risk: {weightRisk} | Planning: {weightPlan} | Time: {weightTime} " +
-                             $"| Final Weight: {totalWeight}");
+                             $"| Weight: {weightTotal}");
+            ReportWeights(node.nodeName, weightRisk, weightPlan, weightTime, weightTotal);
+            return weightTotal;
+        }
+        
+        private float CalculateEmotionalFactor(Emotion emotion, Factors factor)
+        {
+            var factorSum = 0f;
             
-            return totalWeight;
+            foreach (var child in childNodes)
+            {
+                var value = 0f;
+                if (child is not IEmotionable emoChild)
+                {
+                    Debug.LogError($"{child.nodeName} is not an IEmotionable!");
+                    return 0f;
+                }
+                
+                // Get child factor value
+                switch (factor)
+                {
+                    case Factors.Plan:
+                        value = emoChild.GetPlanningValue(emotion);
+                        break;
+                    case Factors.Risk:
+                        value = emoChild.GetRiskValue(emotion);
+                        break;
+                    case Factors.Time:
+                    {
+                        (float L, float U) timeRange = emoChild.GetTimeRange(emotion);
+                        value = (timeRange.L + (timeRange.U - timeRange.L) / 2) * (1 - sigma * opt);
+                        break;
+                    }
+                }
+                
+                factorSum += value;
+            }
+            
+            var average = factorSum / childNodes.Count;
+            return average * 2f - emotionModifiers[emotion][factor];
         }
         
         private Node SelectActionWithProbability(List<KeyValuePair<Node, float>> sortedNodes)
         {
             var probabilities = new List<float>();
             var totalProb = 0f;
-
+            
             for (var i = 0; i < sortedNodes.Count; i++)
             {
                 var prob = bias * Mathf.Pow(1 - bias, i);
@@ -138,6 +178,15 @@ namespace ATBMI.Entities.NPCs
                 }
             }
             return sortedNodes.Last().Key;
+        }
+        
+        private void ReportWeights(string name, float wRisk, float wPlan, float wTime, float wTotal)
+        {
+            _weightContexts[0] = name;
+            _weightContexts[1] = wRisk.ToString(CultureInfo.InvariantCulture);
+            _weightContexts[2] = wPlan.ToString(CultureInfo.InvariantCulture);
+            _weightContexts[3] = wTime.ToString(CultureInfo.InvariantCulture);
+            _weightContexts[4] = wTotal.ToString(CultureInfo.InvariantCulture);
         }
     }
 }

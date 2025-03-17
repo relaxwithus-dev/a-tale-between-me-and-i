@@ -1,13 +1,27 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace ATBMI.Entities.NPCs
 {
     public class TaskPush : TaskForceBase
     {
+        private readonly Dictionary<Emotion, (float plan, float risk, (float, float) time)> _factorsPush = new()
+        {
+            { Emotion.Joy, (1, 0.8f, (0.2f, 0.5f)) },
+            { Emotion.Trust, (1, 0.8f, (0.4f, 0.9f)) },
+            { Emotion.Fear, (1, 0.8f, (0.6f, 1f)) },
+            { Emotion.Surprise, (1, 0.6f, (0.5f, 0.8f)) },
+            { Emotion.Sadness, (1, 0.8f, (0.5f, 0.9f)) },
+            { Emotion.Disgust, (1, 0.8f, (0.5f, 0.9f)) },
+            { Emotion.Anger, (1, 0.8f, (0.3f, 1f)) },
+            { Emotion.Anticipation, (1, 0.8f, (0.5f, 0.9f)) }
+        };
+
+        
         // Constructor
         public TaskPush(CharacterAI character, float force, float delay) : base(character, force, delay)
         {
-            InitFactors(plan: 1, risk: 0.8f, timeRange: (0.3f, 1f));
+            OverrideEmotionFactors(_factorsPush);
         }
         
         // Core

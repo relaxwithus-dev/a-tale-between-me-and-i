@@ -25,7 +25,7 @@ namespace ATBMI.Entities.NPCs
 
             return LogFailure();
         }
-
+        
         private NodeStatus LogFailure()
         {
             Debug.LogWarning("Execute Failure: CheckSameDirection");

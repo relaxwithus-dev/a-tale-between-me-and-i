@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace ATBMI.Entities.NPCs
@@ -9,18 +10,37 @@ namespace ATBMI.Entities.NPCs
         
         private bool _isHolding;
         private float _currentHoldTime;
+        private Vector3 _holdDirection;
+        private Vector3 _pullDirection;
+        
+        private readonly Dictionary<Emotion, (float plan, float risk, (float, float) time)> _factorsPull = new()
+        {
+            { Emotion.Joy, (1, 0.7f, (0.3f, 1f)) },
+            { Emotion.Trust, (1, 0.7f, (0.6f, 1.5f)) },
+            { Emotion.Fear, (1, 0.7f, (0.8f, 1.4f)) },
+            { Emotion.Surprise, (1, 0.6f, (0.4f, 1.2f)) },
+            { Emotion.Sadness, (1, 0.7f, (0.6f, 1.5f)) },
+            { Emotion.Disgust, (1, 0.7f, (0.6f, 1.5f)) },
+            { Emotion.Anger, (1, 0.7f, (0.3f, 0.6f)) },
+            { Emotion.Anticipation, (1, 0.7f, (0.6f, 1.5f)) }
+        };
 
+        // Constructor
         public TaskPull(CharacterAI character, float force, float delay) : base(character, force, delay)
         {
-            InitFactors(plan: 1, risk: 0.7f, timeRange: (0.3f, 0.6f));
+            OverrideEmotionFactors(_factorsPull);
         }
         
+        // Core
         protected override NodeStatus PerformForce()
         {
             if (_currentHoldTime < holdTime)
             {
                 if (!_isHolding)
+                {
+                    InitiateDirection();
                     HoldTarget();
+                }
                 
                 _currentHoldTime += Time.deltaTime;
                 return NodeStatus.Running;
@@ -36,22 +56,33 @@ namespace ATBMI.Entities.NPCs
             _currentHoldTime = 0f;
         }
         
+        private void InitiateDirection()
+        {
+            if (_pullDirection != Vector3.zero && _holdDirection != Vector3.zero)
+                return;
+            
+            _pullDirection = character.transform.position - player.transform.position;
+            _pullDirection.Normalize();
+            
+            _holdDirection = player.transform.position - character.transform.position;
+            _holdDirection.Normalize();
+        }
+        
         private NodeStatus PullTarget()
         {
-            Vector2 direction = (character.transform.position - player.transform.position).normalized;
-            
-            player.PlayerRb.AddForce(direction * force, ForceMode2D.Impulse);
+            player.PlayerRb.AddForce(_pullDirection * force, ForceMode2D.Impulse);
             player.StartCoroutine(WhenDoneForce());
             return NodeStatus.Success;
         }
-
+        
         private void HoldTarget()
         {
-            Vector2 direction = (player.transform.position - character.transform.position).normalized;
+            _isHolding = true; 
+            character.LookAt(_pullDirection);
             
-            _isHolding = true;
+            player.PlayerFlip();
             player.StopMovement();
-            player.PlayerRb.AddForce(direction * holdForce, ForceMode2D.Impulse);
+            player.PlayerRb.AddForce(_holdDirection * holdForce, ForceMode2D.Impulse);
         }
     }
 }
