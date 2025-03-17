@@ -1,8 +1,7 @@
-using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using ATBMI.Utilities;
-using UnityEditor.Localization.Plugins.XLIFF.V20;
 using UnityEngine;
 
 using Random = UnityEngine.Random;
@@ -72,11 +71,11 @@ namespace ATBMI.Entities.NPCs
             
             // Compute and report weighted values for each child node
             var weightedNodes = new Dictionary<Node, float>();
-            // ReportManager.CreateReport(emotion.ToString());
+            ReportManager.CreateReport(emotion.ToString());
             foreach (var child in childNodes)
             {
                 var weight = CalculateWeight(emotion, child, emoPlan, emoRisk, emoTime);
-                // ReportManager.AppendReport(emotion.ToString(), _weightContexts);
+                ReportManager.AppendReport(emotion.ToString(), _weightContexts);
                 weightedNodes[child] = weight;
             }
             
@@ -112,37 +111,6 @@ namespace ATBMI.Entities.NPCs
             ReportWeights(node.nodeName, weightRisk, weightPlan, weightTime, weightTotal);
             return weightTotal;
         }
-        
-        // private float CalculateEmotionalFactor(Emotion emotion, Factors factor)
-        // {
-        //     var sumFactor = 0f;
-        //     
-        //     foreach (var child in childNodes)
-        //     {
-        //         if (child is not IEmotionable emoChild)
-        //         {
-        //             Debug.LogError($"{child.nodeName} is not an IEmotionable!");
-        //             continue;
-        //         }
-        //
-        //         float value = factor switch
-        //         {
-        //             Factors.Plan => emoChild.GetPlanningValue(emotion),
-        //             Factors.Risk => emoChild.GetRiskValue(emotion),
-        //             Factors.Time => ((Func<float>)(() => 
-        //             {
-        //                 var (L, U) = emoChild.GetTimeRange(emotion);
-        //                 return (L - (U + L) / 2f) * (1f - sigma * opt);
-        //             }))(),
-        //             _ => throw new ArgumentOutOfRangeException(nameof(factor), factor, null)
-        //         };
-        //         
-        //         sumFactor += value;
-        //     }
-        //     
-        //     var average = sumFactor / childNodes.Count;
-        //     return average * 2f;
-        // }
         
         private float CalculateEmotionalFactor(Emotion emotion, Factors factor)
         {
@@ -215,10 +183,10 @@ namespace ATBMI.Entities.NPCs
         private void ReportWeights(string name, float wRisk, float wPlan, float wTime, float wTotal)
         {
             _weightContexts[0] = name;
-            _weightContexts[1] = wRisk.ToString();
-            _weightContexts[2] = wPlan.ToString();
-            _weightContexts[3] = wTime.ToString();
-            _weightContexts[4] = wTotal.ToString();
+            _weightContexts[1] = wRisk.ToString(CultureInfo.InvariantCulture);
+            _weightContexts[2] = wPlan.ToString(CultureInfo.InvariantCulture);
+            _weightContexts[3] = wTime.ToString(CultureInfo.InvariantCulture);
+            _weightContexts[4] = wTotal.ToString(CultureInfo.InvariantCulture);
         }
     }
 }
