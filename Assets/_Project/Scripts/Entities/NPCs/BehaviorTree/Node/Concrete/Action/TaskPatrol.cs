@@ -8,8 +8,9 @@ namespace ATBMI.Entities.NPCs
     {
         // Fields
         private readonly CharacterAI character;
-        private readonly CharacterData data;
         private readonly CharacterManager manager;
+        private readonly float moveSpeed;
+        private readonly CharacterState targetState = CharacterState.Walk;
         
         private readonly List<Vector3> wayPoints = new();
         private readonly float moveDelayTime = 3f;
@@ -26,7 +27,8 @@ namespace ATBMI.Entities.NPCs
         {
             this.character = character;
             this.manager = manager;
-            this.data = data;
+            
+            moveSpeed = data.GetSpeedByType(targetState.ToString());
             foreach (var point in wayPoints)
             {
                 var pointPosition = point.position;
@@ -41,7 +43,10 @@ namespace ATBMI.Entities.NPCs
                 return NodeStatus.Failure;
 
             if (_currentIndex >= wayPoints.Count)
-                return NodeStatus.Success;
+            {
+                Debug.Log("Execute Success: TaskPatrol");
+                 return NodeStatus.Success;
+            }
             
             _currentTarget = wayPoints[_currentIndex];
             if (_currentTime < moveDelayTime && _isPathCalculated)
@@ -67,9 +72,9 @@ namespace ATBMI.Entities.NPCs
         private NodeStatus Patrol(Vector3 target)
         {
             manager.DecreaseEnergy();
-            character.ChangeState(CharacterState.Walk);
+            character.ChangeState(targetState);
             character.transform.position = Vector2.MoveTowards(character.transform.position,
-                target, data.MoveSpeed * Time.deltaTime);
+                target, moveSpeed * Time.deltaTime);
             
             // Set path-way
             if (Vector3.Distance(character.transform.position, target) <= 0.01f)
@@ -101,7 +106,6 @@ namespace ATBMI.Entities.NPCs
                 return false;
             }
             
-            Debug.Log("Execute Success: TaskPatrol");
             _isValidated = true;
             return true;
         }

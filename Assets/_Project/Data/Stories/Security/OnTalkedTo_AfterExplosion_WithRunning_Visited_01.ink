@@ -1,4 +1,4 @@
-Apa? Kenapa kau berlari? #speaker:Pak Satpam
-Bapak dengar sesuatu? #speaker:Player
-Selain suara sepatumu? Tidak! #speaker:Pak Satpam #expression:A_PakSatpam_Speak
-Sekarang pergilah dari sini #speaker:Pak Satpam #expression:A_PakSatpam_Speak
+Apa? Kenapa kau berlari? #speaker:Security
+Bapak dengar sesuatu? #speaker:Dewa
+Selain suara sepatumu? Tidak! #speaker:Security #expression:A_PakSatpam_Speak
+Sekarang pergilah dari sini #speaker:Security #expression:A_PakSatpam_Speak

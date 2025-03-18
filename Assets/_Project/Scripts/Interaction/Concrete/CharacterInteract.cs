@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using Sirenix.OdinInspector;
 using ATBMI.Enum;
+using ATBMI.Inventory;
 using ATBMI.Entities.NPCs;
 using ATBMI.Gameplay.Event;
 
@@ -10,50 +11,74 @@ namespace ATBMI.Interaction
     public class CharacterInteract : MonoBehaviour, IInteractable
     {
         #region Fields & Properties
-        
+
         [Header("Properties")]
         [SerializeField] private bool isInteracting;
+
+        [Space]
         [SerializeField] private InteractAction interactAction;
         [ShowIf("@this.interactAction == InteractAction.Give || this.interactAction == InteractAction.Take")]
         [SerializeField] private int targetId;
         [SerializeField] private Transform signTransform;
-        
+        [SerializeField] private Transform emojiTransform;
+
         private int _interactId;
         public bool IsInteracting => isInteracting;
-        public static event Action<bool> OnInteracting;
-        
-        [Header("Reference")] 
+
+        [Header("Reference")]
         [SerializeField] private CharacterTraits characterTraits;
-        
+        private CharacterAI _characterAI;
+
         #endregion
-        
+
         #region Methods
-        
+
+        // Unity Callbacks
+        private void Awake()
+        {
+            _characterAI = GetComponent<CharacterAI>();
+        }
+
         private void OnEnable()
         {
-            OnInteracting += cond => isInteracting = cond;
+            InteractEvent.OnInteracted += cond => isInteracting = cond;
         }
-        
-        public static void InteractingEvent(bool isBegin) => OnInteracting?.Invoke(isBegin);
-        
+
+        private void Start()
+        {
+            if (_characterAI.Data != null)
+            {
+                DialogueEvents.RegisterNPCTipTargetEvent(_characterAI.Data.CharacterName, GetSignTransform());
+                DialogueEvents.RegisterNPCEmojiTargetEvent(_characterAI.Data.CharacterName, GetEmojiTransform());
+            }
+            else
+            {
+                Debug.LogError($"CharacterData is missing for NPC {gameObject.name}");
+            }
+        }
+
+        // public static void InteractingEvent(bool isBegin) => OnInteracting?.Invoke(isBegin);
         public Transform GetSignTransform() => signTransform;
-        
+        public Transform GetEmojiTransform() => emojiTransform;
+
         // TODO: Adjust isi method dibawah sesuai dgn jenis interaksi
         public void Interact(InteractManager manager, int itemId = 0)
         {
             _interactId = itemId;
             if (_interactId == 0)
             {
-                // DialogueEvents.EnterDialogueEvent();
+                DialogueEvents.EnterDialogueEvent(_characterAI.Data.GetDefaultDialogue());
                 characterTraits.InfluenceTraits(InteractAction.Run);
             }
             else
             {
                 // TODO: Saran lur, method baru bisa nge-pass 2 parameter, item id yg dipilih & target item id 
-                // DialogueEvents.EnterDialogueEvent(_interactId, targetItemId);
+                var itemData = InventoryManager.Instance.GetItemData(_interactId);
+                var itemDialogue = _characterAI.Data.GetItemDialogue(itemData);
+                DialogueEvents.EnterItemDialogueEvent(itemDialogue);
             }
         }
-        
+
         // TODO: Pake ini buat change status di InkExternal
         // NOTE: Pake method waktu diawal interaksi, sesuaiken dgn jenis interaksinya,
         // Semua Ink Dialogue NPCs yang punya emosi, harus pake method ini
@@ -61,12 +86,11 @@ namespace ATBMI.Interaction
         {
             var changedAction = GetAction(action);
             characterTraits.InfluenceTraits(changedAction);
-            
-            if (interactAction == changedAction)
-                return;
+
+            if (interactAction == changedAction) return;
             interactAction = changedAction;
         }
-        
+
         // TODO: Pake ini buat check match id di (Kalo jenis interaksi give/take)
         public bool IsMatchId()
         {
@@ -78,7 +102,9 @@ namespace ATBMI.Interaction
             }
             return false;
         }
-        
+
+        // Helpers
+        // public Transform GetSignTransform() => signTransform;
         private InteractAction GetAction(string action)
         {
             if (System.Enum.TryParse<InteractAction>(action, out var parsedAction))
@@ -92,9 +118,9 @@ namespace ATBMI.Interaction
                     }
                 }
             }
-            return InteractAction.Talks;
+            return InteractAction.Talk;
         }
-        
+
         #endregion
     }
 }

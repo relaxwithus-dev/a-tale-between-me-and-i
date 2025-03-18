@@ -1,6 +1,6 @@
 namespace ATBMI.Entities.NPCs
 {
-    public enum EmotionType
+    public enum Emotion
     {
         Joy, Sadness,
         Trust, Disgust,
@@ -16,4 +16,7 @@ namespace ATBMI.Entities.NPCs
         Agreeableness,
         Neuroticism
     }
+    
+    public enum Factors { Plan, Risk, Time }
+
 }

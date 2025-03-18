@@ -1,96 +1,92 @@
 using UnityEngine;
 using DG.Tweening;
 using System.Collections;
-using ATBMI.Entities.Player;
+using ATBMI.Dialogue;
 
 public class CutsceneManager : MonoBehaviour
 {
-    public Transform player;
-    public Transform cameraTransform;
-    public DialogManager dialogManager;
-    public CanvasGroup blackScreen;
-    public CutsceneData cutsceneData; // Cutscene yang akan dimainkan
+    [SerializeField] private DialogueManager dialogueManager;
+    protected bool isDialogActive = false;
+    protected int currentStep = 1;
 
-    private Animator playerAnimator;
-    private PlayerController playerController;
+    [SerializeField] private string cutsceneID;
 
-    void Start()
+    [Header("Cutscene Status")]
+    [SerializeField] protected bool cutsceneTriggered; // Bisa diubah di Inspector
+
+    protected virtual void Start()
     {
-        playerAnimator = player?.GetComponent<Animator>();
-        playerController = player?.GetComponent<PlayerController>();
+        // Sinkronisasi nilai dari PlayerPrefs saat game dimulai
+        cutsceneTriggered = PlayerPrefs.GetInt(cutsceneID, 0) == 1;
 
-        if (cutsceneData == null)
+        if (cutsceneTriggered)
         {
-            Debug.LogError("❌ ERROR: Tidak ada cutscene yang diassign!");
-            return;
+            gameObject.SetActive(false); // Nonaktifkan jika sudah dimainkan
         }
     }
 
-    public void StartCutscene() // Metode agar bisa dipanggil dari luar
+    protected virtual void Update()
     {
-        if (playerController != null)
+        if (isDialogActive && !dialogueManager.IsDialoguePlaying)
         {
-            playerController.enabled = false; // Nonaktifkan kontrol pemain
+            isDialogActive = false;
+            OnDialogComplete();
         }
-
-        if (playerAnimator != null)
-        {
-            playerAnimator.SetBool("isWalking", false); // Pastikan animasi Idle
-            playerAnimator.Play("Idle"); // Paksa animasi kembali ke Idle
-        }
-
-        StartCoroutine(PlayCutscene());
     }
 
-    private IEnumerator PlayCutscene()
+    protected virtual void OnDialogComplete()
     {
-        foreach (CutsceneEvent cutsceneEvent in cutsceneData.events)
-        {
-            switch (cutsceneEvent.type)
-            {
-                case CutsceneType.ShowDialog:
-                    dialogManager.ShowDialog(cutsceneEvent.dialog, cutsceneEvent.speaker);
-                    yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space)); // Tekan tombol untuk lanjut
-                    dialogManager.HideDialog();
-                    break;
-
-                case CutsceneType.MovePlayer:
-                    if (playerAnimator != null)
-                    {
-                        playerAnimator.SetBool("isWalking", true);
-                    }
-                    yield return player.DOMoveX(player.position.x + cutsceneEvent.moveDistance, cutsceneEvent.moveTime).SetEase(Ease.Linear).WaitForCompletion();
-                    if (playerAnimator != null)
-                    {
-                        playerAnimator.SetBool("isWalking", false);
-                        playerAnimator.Play("Idle"); // Pastikan Idle setelah jalan
-                    }
-                    break;
-
-                case CutsceneType.MoveCamera:
-                    yield return cameraTransform.DOMoveX(cameraTransform.position.x + cutsceneEvent.moveDistance, cutsceneEvent.moveTime).SetEase(Ease.InOutSine).WaitForCompletion();
-                    break;
-
-                case CutsceneType.FadeScreen:
-                    yield return blackScreen.DOFade(cutsceneEvent.moveDistance, cutsceneEvent.moveTime).WaitForCompletion();
-                    break;
-            }
-        }
-
-        EndCutscene();
+        NextStep(currentStep + 1);
     }
 
-    private void EndCutscene()
+    protected virtual void NextStep(int step)
     {
-        if (playerController != null)
+        currentStep = step;
+        switch (step)
         {
-            playerController.enabled = true; // Aktifkan kontrol pemain kembali
+            case 1:
+                Sequence01();
+                break;
+            case 2:
+                Sequence02();
+                break;
+            case 3:
+                Sequence03();
+                break;
+            default:
+                Debug.Log("Cutscene selesai atau langkah tidak valid.");
+                break;
         }
-        
-        if (playerAnimator != null)
-        {
-            playerAnimator.SetBool("isWalking", false);
-            playerAnimator.Play("Idle"); // Pastikan karakter tetap Idle setelah cutscene
-        }
+    }
+
+    protected virtual void Sequence01() { }
+    protected virtual void Sequence02() { }
+    protected virtual void Sequence03() { }
+
+    protected void StartDialog(TextAsset inkJSON, Animator emoteAnimator)
+    {
+        isDialogActive = true;
+        dialogueManager.EnterDialogueMode(inkJSON, emoteAnimator);
+    }
+
+    // Method untuk menandai cutscene sudah dijalankan
+    protected void MarkCutsceneAsTriggered()
+    {
+        SetCutsceneStatus(true);
+    }
+
+    // Setter untuk mengatur status cutscene melalui Inspector & kode
+    public void SetCutsceneStatus(bool isTriggered)
+    {
+        cutsceneTriggered = isTriggered;
+        PlayerPrefs.SetInt(cutsceneID, isTriggered ? 1 : 0);
+        PlayerPrefs.Save();
+        gameObject.SetActive(!isTriggered); // Aktifkan/nonaktifkan cutscene berdasarkan status
+    }
+
+    // Getter untuk mendapatkan status cutscene
+    public bool GetCutsceneStatus()
+    {
+        return cutsceneTriggered;
     }
 }

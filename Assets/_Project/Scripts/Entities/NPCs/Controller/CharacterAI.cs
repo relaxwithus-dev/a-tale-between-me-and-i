@@ -12,17 +12,25 @@ namespace ATBMI.Entities.NPCs
         [SerializeField] protected CharacterState characterState;
         [SerializeField] private Vector2 characterDirection;
         [SerializeField] private bool isFacingRight;
-        
+                
         public CharacterData Data => characterData;
         public CharacterState State => characterState;
         public Vector2 Direction => characterDirection;
         public bool IsFacingRight => isFacingRight;
+        
+        // Reference
+        private CharacterAnimation _characterAnim;
         
         #endregion
 
         #region Methods
         
         // Unity Callbacks
+        private void Awake()
+        {
+            _characterAnim = GetComponentInChildren<CharacterAnimation>();
+        }
+
         private void Start()
         {
             gameObject.name = Data.CharacterName;
@@ -35,11 +43,11 @@ namespace ATBMI.Entities.NPCs
                 return;
             
             characterState = state;
+            _characterAnim.TrySetAnimationState(state.ToString());
         }
         
         public void LookAt(Vector2 direction)
         {
-            Debug.LogWarning(direction);
             characterDirection = direction.normalized;
             if (direction.x > 0 && !isFacingRight || direction.x < 0 && isFacingRight)
                 Flip();
@@ -50,7 +58,7 @@ namespace ATBMI.Entities.NPCs
             isFacingRight = !isFacingRight;
             transform.Rotate(0f, 180f, 0f);
         }
-
+        
         #endregion
     }
 }

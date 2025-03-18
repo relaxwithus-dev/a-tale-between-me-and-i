@@ -19,7 +19,7 @@ namespace ATBMI
             this.info = questInfo;
             this.state = QuestStateEnum.Can_Start;
             this.currentQuestStepIndex = 0;
-            this.questStepStates = new QuestStepState[info.questStepPrefabs.Length];
+            this.questStepStates = new QuestStepState[info.questSteps.Length];
             for (int i = 0; i < questStepStates.Length; i++)
             {
                 questStepStates[i] = new QuestStepState();
@@ -35,7 +35,7 @@ namespace ATBMI
 
             // if the quest step states and prefabs are different lengths,
             // something has changed during development and the saved data is out of sync.
-            if (this.questStepStates.Length != this.info.questStepPrefabs.Length)
+            if (this.questStepStates.Length != this.info.questSteps.Length)
             {
                 Debug.LogWarning("Quest Step Prefabs and Quest Step States are "
                     + "of different lengths. This indicates something changed "
@@ -51,7 +51,7 @@ namespace ATBMI
 
         public bool CurrentStepExists()
         {
-            return (currentQuestStepIndex < info.questStepPrefabs.Length);
+            return (currentQuestStepIndex < info.questSteps.Length);
         }
 
         public void InstantiateCurrentQuestStep(Transform parentTransform)
@@ -70,7 +70,7 @@ namespace ATBMI
             GameObject questStepPrefab = null;
             if (CurrentStepExists())
             {
-                questStepPrefab = info.questStepPrefabs[currentQuestStepIndex];
+                questStepPrefab = info.questSteps[currentQuestStepIndex].questStepPrefab;
             }
             else
             {

@@ -43,12 +43,20 @@ namespace ATBMI.Dialogue
             }
         }
 
-        public override void OnEnterDialogue()
+        public override void OnEnterDialogue(TextAsset defaultDialogue)
         {
-            if (!isDialogueAboutToStart)
+            if (!isDialogueAboutToStart && isPlayerInRange)
             {
-                isDialogueAboutToStart = true;
-                PlayerEvents.MoveToPlayerEvent(this, onTalk, playerEntryPoint.position.x, transform.position.x, npc.IsFacingRight);
+                // TODO: change to default dialogue (use rules if default dialogue > 1, eg. default dialogue ch1, ch2, ch3...)
+                base.EnterDialogue(this, defaultDialogue);
+            }
+        }
+        
+        public override void OnEnterItemDialogue(TextAsset itemDialogue)
+        {
+           if (!isDialogueAboutToStart && isPlayerInRange)
+            {
+                base.EnterDialogue(this, itemDialogue);
             }
         }
 
@@ -56,5 +64,6 @@ namespace ATBMI.Dialogue
         {
             base.EnterDialogueWithInkJson(InkJson);
         }
+
     }
 }

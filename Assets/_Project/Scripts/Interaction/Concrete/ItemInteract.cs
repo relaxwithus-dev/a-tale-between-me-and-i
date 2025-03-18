@@ -8,16 +8,18 @@ namespace ATBMI.Interaction
 {
     public class ItemInteract : MonoBehaviour, IInteractable
     {
+        private enum ItemType { Collectible, Scenery }
+        
         [Header("Properties")]
         [SerializeField] private ItemData itemData;
         [SerializeField] private ItemType itemType;
         [SerializeField] private Transform signTransform;
+        [SerializeField] private TextAsset defaultDialogue;
+        [SerializeField] private TextAsset defaultItemDialogue;
         
-        private enum ItemType { Collectible, Scenery }
-        
+        // Core
         public bool Validate() => itemType == ItemType.Scenery;
         public Transform GetSignTransform() => signTransform;
-        
         public void Interact(InteractManager manager, int itemId = 0)
         {
             switch (itemType)
@@ -43,12 +45,12 @@ namespace ATBMI.Interaction
         {
             if (itemId == 0)
             {
-                DialogueEvents.EnterDialogueEvent();
+                DialogueEvents.EnterDialogueEvent(defaultDialogue);
             }
             else
             {
                 // TODO: Apply dialogue, tidak terjadi apa2
-                DialogueEvents.EnterDialogueEvent();
+                DialogueEvents.EnterDialogueEvent(defaultItemDialogue);
             }
         }
     }

@@ -3,10 +3,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using System.Collections.Generic;
-using System.Linq;
-using System;
 using ATBMI.Data;
+using ATBMI.Gameplay.Event;
+using UnityEngine.InputSystem;
 
 namespace ATBMI.Inventory
 {
@@ -15,15 +14,17 @@ namespace ATBMI.Inventory
     public class InventoryHandler : MonoBehaviour
     {
         [Header("UI")]
-        [SerializeField] private GameObject menuUI;
         [SerializeField] private Sprite noneImageUI;
         [SerializeField] private Image itemImageUI;
         [SerializeField] private TextMeshProUGUI itemNameTextUI;
         [SerializeField] private TextMeshProUGUI itemDescriptionTextUI;
 
+        [Header("Input Actions")]
+        [SerializeField] private InputActionReference navigateAction; // This is a Vector2 input
+
+
         // [Header("Reference")]
         private InventoryCreator _inventoryCreator;
-        private bool isMenuActive;
         private int selectedIndex;
         private int flagCount;
 
@@ -31,51 +32,49 @@ namespace ATBMI.Inventory
         {
             _inventoryCreator = GetComponent<InventoryCreator>();
 
-            isMenuActive = false;
             selectedIndex = -1; // not selected
         }
 
-        private void Update()
+        private void OnEnable()
         {
-            // TODO: change with new input system
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                if (!isMenuActive)
-                {
-                    OpenInventoryMenu();
-                }
-                else
-                {
-                    CloseInventoryMenu();
-                }
-            }
+            UIEvents.OnSelectTabInventory += OpenInventoryMenu;
+            UIEvents.OnDeselectTabInventory += CloseInventoryMenu;
 
-            if (!isMenuActive) return;
+            navigateAction.action.performed += OnNavigate;
+        }
 
-            HandleNavigation();
+        private void OnDisable()
+        {
+            UIEvents.OnSelectTabInventory -= OpenInventoryMenu;
+            UIEvents.OnDeselectTabInventory -= CloseInventoryMenu;
+
+            navigateAction.action.performed -= OnNavigate;
         }
 
         private void OpenInventoryMenu()
         {
-            menuUI.SetActive(true);
-            isMenuActive = true;
-
             InitInventoryItemUI();
+            // DebugInventoryFlags();
 
-            // at least there is one inventory, set the selected gameobject with index 0
             if (_inventoryCreator.InventoryFlags.Count > 0)
             {
-                EventSystem.current.SetSelectedGameObject(_inventoryCreator.InventoryFlags[0].gameObject);
                 selectedIndex = 0;
+                (_inventoryCreator.InventoryFlags[selectedIndex] as InventoryFlag)?.Highlight(true); // Highlight first item
 
                 SetDescription();
             }
             else
             {
                 SetDescriptionToNull();
-
                 selectedIndex = -1;
             }
+        }
+
+        private void CloseInventoryMenu()
+        {
+            (_inventoryCreator.InventoryFlags[selectedIndex] as InventoryFlag)?.Highlight(false);
+
+            selectedIndex = -1;
         }
 
         private void InitInventoryItemUI()
@@ -106,33 +105,35 @@ namespace ATBMI.Inventory
             flag.FlagNameText.text = flagName;
         }
 
-        private void CloseInventoryMenu()
+        private void OnNavigate(InputAction.CallbackContext context)
         {
-            menuUI.SetActive(false);
+            Vector2 input = context.ReadValue<Vector2>();
 
-            EventSystem.current.SetSelectedGameObject(null);
-
-            selectedIndex = -1;
-
-            isMenuActive = false;
-        }
-
-        private void HandleNavigation()
-        {
-            if (GameInputHandler.Instance.IsNavigateUp)
-            {
-                Navigate(1);
-            }
-            else if (GameInputHandler.Instance.IsNavigateDown)
+            if (input.y > 0.5f) // Up
             {
                 Navigate(-1);
+            }
+            else if (input.y < -0.5f) // Down
+            {
+                Navigate(1);
             }
         }
 
         private void Navigate(int direction)
         {
+            if (_inventoryCreator.InventoryFlags.Count == 0) return;
+
+            // Remove highlight from previous selection
+            if (selectedIndex >= 0 && selectedIndex < _inventoryCreator.InventoryFlags.Count)
+            {
+                (_inventoryCreator.InventoryFlags[selectedIndex] as InventoryFlag)?.Highlight(false);
+            }
+
             // Update index with wrapping
             selectedIndex = (selectedIndex + direction + _inventoryCreator.InventoryFlags.Count) % _inventoryCreator.InventoryFlags.Count;
+
+            // Highlight the new selected element
+            (_inventoryCreator.InventoryFlags[selectedIndex] as InventoryFlag)?.Highlight(true);
 
             // Update description
             SetDescription();
@@ -154,5 +155,17 @@ namespace ATBMI.Inventory
             itemNameTextUI.text = "???";
             itemDescriptionTextUI.text = "???";
         }
+
+        private void DebugInventoryFlags()
+        {
+            Debug.Log($"Total Inventory Flags: {_inventoryCreator.InventoryFlags.Count}");
+
+            for (int i = 0; i < _inventoryCreator.InventoryFlags.Count; i++)
+            {
+                var flag = _inventoryCreator.InventoryFlags[i] as InventoryFlag;
+                Debug.Log($"Flag {i}: Name = {flag.FlagNameText.text}, GameObject = {flag.gameObject.name}");
+            }
+        }
+
     }
 }

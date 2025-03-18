@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using ATBMI.Gameplay.Event;
+using ATBMI.Enum;
 
 namespace ATBMI.Dialogue
 {
@@ -26,7 +27,7 @@ namespace ATBMI.Dialogue
         #region Dialogue Text Assets
         [Space(20)]
         [Header("Dialogue Text Assets")]
-        public TextAsset onTalk;
+        // public TextAsset onTalk;
 
         [Space(10)]
         public TextAsset onTalkedTo_AfterExplosion_WithRunning;
@@ -139,7 +140,7 @@ namespace ATBMI.Dialogue
                 }
             }
         }
-        
+
         // if dialogue trigger after player exiting object/npc area
         public override void OnTriggerExit2D(Collider2D other)
         {
@@ -148,8 +149,8 @@ namespace ATBMI.Dialogue
                 isPlayerInRange = false;
             }
         }
-        
-        public override void OnEnterDialogue()
+
+        public override void OnEnterDialogue(TextAsset defaultDialogue)
         {
             if (!isDialogueAboutToStart && isPlayerInRange)
             {
@@ -161,15 +162,20 @@ namespace ATBMI.Dialogue
                         break; // Execute only the first valid rule
                     }
                 }
-                
-                if (!isDialogueAboutToStart)
-                {
-                    isDialogueAboutToStart = true;
-                    PlayerEvents.MoveToPlayerEvent(this, onTalk, playerEntryPoint.position.x, transform.position.x, npc.IsFacingRight);
-                }
+
+                // TODO: change to default dialogue (use rules if default dialogue > 1, eg. default dialogue ch1, ch2, ch3...)
+                base.EnterDialogue(this, defaultDialogue);
             }
         }
-        
+
+        public override void OnEnterItemDialogue(TextAsset itemDialogue)
+        {
+            if (!isDialogueAboutToStart && isPlayerInRange)
+            {
+                base.EnterDialogue(this, itemDialogue);
+            }
+        }
+
         public override void EnterDialogueWithInkJson(TextAsset InkJson)
         {
             base.EnterDialogueWithInkJson(InkJson);

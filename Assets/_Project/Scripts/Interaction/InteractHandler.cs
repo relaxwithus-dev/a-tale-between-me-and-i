@@ -147,15 +147,15 @@ namespace ATBMI.Interaction
             playerController.StopMovement();
             optionPanelUI.SetActive(true);
         }
-
+        
         private IEnumerator CloseInteractOption()
         {
             _interactable = null;
             optionPanelUI.SetActive(false);
             playerController.StartMovement();
-
+            
             yield return new WaitForSeconds(0.05f);
-            interactManager.IsInteracted = false;
+            InteractEvent.InteractedEvent(interact: false);
         }
 
         private void HandleNavigation()

@@ -1,1 +1,1 @@
-Sebaiknya aku menyembunyikan ini #speaker:Player
+Sebaiknya aku menyembunyikan ini #speaker:Dewa

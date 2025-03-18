@@ -9,12 +9,13 @@ namespace ATBMI.Data
     {
         public List<ItemData> itemList = new();
 
+        // NOTE: still need to save the project after changing stuffs
         private void OnValidate()
         {
-            #if UNITY_EDITOR
+#if UNITY_EDITOR
             itemList = itemList.OrderBy(x => x.ItemId).ToList();
             UnityEditor.EditorUtility.SetDirty(this);
-            #endif
+#endif
         }
     }
 }

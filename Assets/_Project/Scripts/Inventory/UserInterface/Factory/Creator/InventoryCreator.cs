@@ -1,7 +1,4 @@
-using System;
 using System.Collections.Generic;
-using ATBMI.Data;
-using UnityEngine;
 
 namespace ATBMI.Inventory
 {
@@ -19,19 +16,19 @@ namespace ATBMI.Inventory
         {
             base.ModifyInventory(inventoryList);
 
-            var itemSlotCount = inventoryFlags.Count;
-            var inventoryCount = inventoryList.Count;
+            int itemSlotCount = inventoryFlags.Count;
+            int inventoryCount = inventoryList.Count;
 
             if (inventoryCount > itemSlotCount)
             {
-                for (var i = itemSlotCount; i < inventoryCount; i++)
+                for (int i = itemSlotCount; i < inventoryCount; i++)
                 {
                     CreateInventorySlot();
                 }
             }
             else if (inventoryCount < itemSlotCount)
             {
-                for (var i = itemSlotCount - 1; i >= inventoryCount; i--)
+                for (int i = itemSlotCount - 1; i >= inventoryCount; i--)
                 {
                     RemoveInventorySlot(i);
                 }

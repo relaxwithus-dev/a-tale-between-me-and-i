@@ -1,7 +1,8 @@
 EXTERNAL PlayEmote(emoteName)
+Hallo #speaker:Security #expression:A_PakSatpam_Speak
 ~PlayEmote("A_Emoji_Happy")
-Hallo #speaker:Pak Satpam #expression:A_PakSatpam_Speak
-* [Selamat Pagi] 
-    Selamat pagi pak #speaker:Player #expression:A_Atma_Speak
-* [Hai] 
-    Hai pak #speaker:Player #expression:A_Atma_Speak
+
+    Selamat pagi pak #speaker:Dewa #expression:A_Atma_Speak
+
+    Hai pak #speaker:Dewa #expression:A_Atma_Speak
+    ~PlayEmote("A_Emoji_Happy")

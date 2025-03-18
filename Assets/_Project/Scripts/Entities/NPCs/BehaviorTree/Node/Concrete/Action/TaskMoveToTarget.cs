@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using ATBMI.Data;
 using UnityEngine;
 
@@ -10,6 +11,19 @@ namespace ATBMI.Entities.NPCs
         private readonly Vector3 leftDistance = new(-1f, 0f, 0f);
 
         private Transform _targetPoint;
+        
+        private readonly Dictionary<Emotion, (float plan, float risk, (float, float) time)> _factorsMoveToTarget = new()
+        {
+            { Emotion.Joy, (1, 0.3f, (3f, 7f)) },
+            { Emotion.Trust, (1, 0.3f, (3f, 7f)) },
+            { Emotion.Fear, (1, 0.5f, (3f, 7f)) },
+            { Emotion.Surprise, (1, 0.4f, (2f, 4f)) },
+            { Emotion.Sadness, (1, 0.4f, (2f, 4f)) },
+            { Emotion.Disgust, (1, 0.4f, (2f, 4f)) },
+            { Emotion.Anger, (1, 0.4f, (0.7f, 1.5f)) },
+            { Emotion.Anticipation, (1, 0.4f, (2f, 4f)) }
+        };
+
 
         // Constructor
         public TaskMoveToTarget(CharacterAI character, CharacterData data, bool isWalk) : base(character, data, isWalk) { }
@@ -17,6 +31,7 @@ namespace ATBMI.Entities.NPCs
             : base(character, data, isWalk)
         {
             this.initialPoint = initialPoint;
+            OverrideEmotionFactors(_factorsMoveToTarget);
         }
         
         // Core

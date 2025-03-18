@@ -13,23 +13,30 @@ namespace ATBMI
             {
                 hasArrivedAtMarket = true;
 
-                UpdateStepState();
+                UpdateStepState(QuestStepStatusEnum.Finished);
 
                 Quest quest = QuestManager.Instance.GetQuestById(questId);
                 FinishQuestStep();
             }
         }
 
-        private void UpdateStepState()
+        private void UpdateStepState(QuestStepStatusEnum stepStatus)
         {
-            ChangeState(hasArrivedAtMarket.ToString(), hasArrivedAtMarket.ToString()); // TODO: change to new status
+            ChangeState(hasArrivedAtMarket.ToString(), stepStatus); // TODO: change to new status
         }
 
         protected override void SetQuestStepState(string state)
         {
             this.hasArrivedAtMarket = Convert.ToBoolean(state);
 
-            UpdateStepState();
+            if (hasArrivedAtMarket)
+            {
+                UpdateStepState(QuestStepStatusEnum.Finished);
+            }
+            else
+            {
+                UpdateStepState(QuestStepStatusEnum.In_Progress);
+            }
         }
 
         private void OnTriggerEnter2D(Collider2D other)

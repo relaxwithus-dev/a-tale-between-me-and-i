@@ -33,6 +33,12 @@ namespace ATBMI.Inventory
             flagName = name;
             itemData = data;
         }
+
+        public void Highlight(bool isSelected)
+        {
+            // TODO: change the highligh selected
+            flagImage.color = isSelected ? Color.yellow : Color.white; // Change color
+        }
         
         #endregion
     }

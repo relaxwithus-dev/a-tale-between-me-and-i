@@ -1,0 +1,1 @@
+Ini diperlukan untuk menjepit kertas, sepertinya harus bikin anggaran untuk kantor hehe.. #speaker:Security

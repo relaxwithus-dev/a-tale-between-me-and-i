@@ -8,11 +8,12 @@ namespace ATBMI.Entities.NPCs
         protected readonly CharacterAI character;
         private readonly CharacterData data;
         private readonly bool isWalk;
-        private readonly float moveDelayTime = 3f;
+        private readonly float moveDelayTime = 1f;
         
         protected Vector3 targetPosition;
-        private CharacterState _targetState;
+        private float _moveSpeed;
         private float _currentTime;
+        private CharacterState _targetState;
         
         // Constructor
         protected TaskMoveBase(CharacterAI character, CharacterData data, bool isWalk)
@@ -20,8 +21,6 @@ namespace ATBMI.Entities.NPCs
             this.character = character;
             this.data = data;
             this.isWalk = isWalk;
-            
-            InitFactors(planning: 1f, risk: 0.4f, timeRange: (4, 8));
         }
         
         // Core
@@ -52,18 +51,16 @@ namespace ATBMI.Entities.NPCs
         private NodeStatus MoveToTarget()
         {
             if (_targetState == CharacterState.Idle)
-            {
-                Debug.Log("Execute Success: TaskMove");
-                TrySetupState();
-            }
+                TrySetupStats();
             
             character.ChangeState(_targetState);
             character.transform.position = Vector2.MoveTowards(character.transform.position,
-                targetPosition, data.MoveSpeed * Time.deltaTime);
-
+                targetPosition, _moveSpeed * Time.deltaTime);
+            
             if (!(Vector2.Distance(character.transform.position, targetPosition) <= 0.01f)) 
                 return NodeStatus.Running;
             
+            Debug.Log("Execute Success: TaskMove");
             WhenReachTarget();
             ResetFields();
             return NodeStatus.Success;
@@ -74,7 +71,8 @@ namespace ATBMI.Entities.NPCs
             if (!(_currentTime >= moveDelayTime / 2f))
                 return;
             
-            var direction = (targetPosition - character.transform.position).normalized;
+            var direction = character.transform.position - targetPosition;
+            direction.Normalize();
             character.LookAt(direction);
         }
         
@@ -85,8 +83,9 @@ namespace ATBMI.Entities.NPCs
             character.ChangeState(CharacterState.Idle);
         }
         
-        private void TrySetupState()
+        private void TrySetupStats()
         {
+            _moveSpeed = data.GetSpeedByType(isWalk ? "Walk" : "Run");
             _targetState = isWalk 
                 ? CharacterState.Walk 
                 : CharacterState.Run;
@@ -95,8 +94,10 @@ namespace ATBMI.Entities.NPCs
         // Helpers
         private void ResetFields()
         {
-            _currentTime = 0f;
             targetPosition = Vector3.zero;
+            
+            _moveSpeed = 0f;
+            _currentTime = 0f;
             _targetState = CharacterState.Idle;
         }
     }

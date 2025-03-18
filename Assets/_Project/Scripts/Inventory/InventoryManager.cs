@@ -48,6 +48,13 @@ namespace ATBMI.Inventory
                 AddItemToInventory(102);
                 AddItemToInventory(103);
             }
+
+            if(Input.GetKeyDown(KeyCode.V))
+            {
+                AddItemToInventory(104);
+                AddItemToInventory(105);
+                AddItemToInventory(106);
+            }
         }
 
         private void PopulateItemDict()

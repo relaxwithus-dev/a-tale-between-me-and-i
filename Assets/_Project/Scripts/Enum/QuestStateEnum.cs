@@ -12,4 +12,11 @@ namespace ATBMI
         Finished,
         Null
     }
+
+    public enum QuestStepStatusEnum
+    {
+        Null,
+        In_Progress,
+        Finished
+    }
 }

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
@@ -12,15 +13,29 @@ namespace ATBMI.Entities.NPCs
         
         private Vector3 _jumpTarget;
         
+        private readonly Dictionary<Emotion, (float plan, float risk, (float, float) time)> _factorsJumpBack = new()
+        {
+            { Emotion.Joy, (1, 0.6f, (0.3f, 0.7f)) },
+            { Emotion.Trust, (1, 0.6f, (0.5f, 1f)) },
+            { Emotion.Fear, (1, 0.6f, (0.8f, 1.6f)) },
+            { Emotion.Surprise, (1, 0.7f, (0.2f, 0.5f)) },
+            { Emotion.Sadness, (1, 0.6f, (0.5f, 1f)) },
+            { Emotion.Disgust, (1, 0.6f, (0.5f, 1f)) },
+            { Emotion.Anger, (1, 0.6f, (0.6f, 1.1f)) },
+            { Emotion.Anticipation, (1, 0.6f, (0.5f, 1f)) }
+        };
+        
+        // Constructor
         public TaskJumpBack(CharacterAI character, float power, float duration)
         {
             this.character = character;
             this.power = power;
             this.duration = duration;
             
-            InitFactors(planning: 1, risk: 0.6f, timeRange: (0.4f, 0.8f));
+            OverrideEmotionFactors(_factorsJumpBack);
         }
         
+        // Core
         public override NodeStatus Evaluate()
         {
             if (!TrySetupTarget())
@@ -28,6 +43,8 @@ namespace ATBMI.Entities.NPCs
             
             character.transform.DOJump(_jumpTarget, power, 1, duration).SetEase(Ease.OutSine);
             character.LookAt(_jumpTarget);
+            
+            Debug.Log("Execute Success: TaskJumpBack");
             parentNode.ClearData(TARGET_KEY);
             return NodeStatus.Success;
         }
@@ -50,7 +67,6 @@ namespace ATBMI.Entities.NPCs
                 return false;
             }
             
-            Debug.Log("Execute Success: TaskJumpBack");
             var currentDirection = character.transform.position.x > target.position.x ? 1f : -1f;
             var pointThreshold = currentDirection * distance;
             _jumpTarget = new Vector3(character.transform.position.x + pointThreshold,
