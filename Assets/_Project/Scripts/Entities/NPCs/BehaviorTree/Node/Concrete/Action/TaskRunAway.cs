@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using ATBMI.Data;
+using ATBMI.Interaction;
 using UnityEngine;
 
 namespace ATBMI.Entities.NPCs
@@ -64,12 +65,14 @@ namespace ATBMI.Entities.NPCs
         {
             if (_currentMoveTime >= moveTime)
             {
+                Debug.Log("Execute Success: TaskRunAway");
+                
                 _targetDirection *= -1f;
                 character.LookAt(_targetDirection);
                 character.ChangeState(CharacterState.Idle);
                 
-                Debug.Log("Execute Success: TaskRunAway");
                 parentNode.ClearData(TARGET_KEY);
+                InteractEvent.RestrictedEvent(false);
                 return NodeStatus.Success;
             }
             
@@ -98,6 +101,7 @@ namespace ATBMI.Entities.NPCs
             
             // Opposite direction
             _targetDirection *= -1f;
+            InteractEvent.RestrictedEvent(true);
             return true;
         }
     }

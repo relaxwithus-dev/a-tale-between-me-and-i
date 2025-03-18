@@ -1,8 +1,6 @@
-using System;
 using UnityEngine;
 using Sirenix.OdinInspector;
 using ATBMI.Dialogue;
-using ATBMI.Entities.NPCs;
 using ATBMI.Gameplay.Handler;
 using UnityEngine.Serialization;
 
@@ -13,13 +11,14 @@ namespace ATBMI.Interaction
         #region Fields & Properties
 
         [Header("Properties")] 
-        [SerializeField] private bool canInteracted;
         [SerializeField] private bool isInteracted;
+        [SerializeField] private bool isRestricted;
         [SerializeField] private GameObject interactSign;
         
         [Header("Area")]
         [SerializeField][MaxValue(3)] private int detectionLimit;
-        [SerializeField] private float detectionRadius;
+        [SerializeField] private Transform centerPoint;
+        [SerializeField] private float radius;
         [SerializeField] private LayerMask targetMask;
         
         private Collider2D[] _hitsNonAlloc;
@@ -29,12 +28,13 @@ namespace ATBMI.Interaction
         
         #endregion
 
-        #region MonoBehaviour Callbacks
+        #region Methods
 
+        // Unity Callbacks
         private void OnEnable()
         {
             InteractEvent.OnInteracted += cond => isInteracted = cond;
-            InteractEvent.OnRestricted += cond => canInteracted = cond;
+            InteractEvent.OnRestricted += cond => isRestricted = cond;
         }
         
         private void Start()
@@ -45,25 +45,21 @@ namespace ATBMI.Interaction
         
         private void Update()
         {
-            if (!canInteracted || isInteracted) return;
+            if (isInteracted) return;
             HandleInteractArea();
         }
         
-        #endregion
-        
-        #region Methods
-        
-        // !- Core
+        // Core
         private void HandleInteractArea()
         {
-            if (DialogueManager.Instance.IsDialoguePlaying)
+            if (DialogueManager.Instance.IsDialoguePlaying || isRestricted)
             {
                 DeactivateSign();
                 return;
             }
             
             // Alloc intersection
-            var numOfHits = Physics2D.OverlapCircleNonAlloc(transform.position, detectionRadius, _hitsNonAlloc, targetMask);
+            var numOfHits = Physics2D.OverlapCircleNonAlloc(transform.position, radius, _hitsNonAlloc, targetMask);
             
             if (numOfHits == 0)
                 DeactivateSign();

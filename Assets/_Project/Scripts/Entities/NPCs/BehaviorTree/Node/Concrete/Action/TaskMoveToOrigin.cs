@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using ATBMI.Data;
+using ATBMI.Interaction;
 using UnityEngine;
 
 namespace ATBMI.Entities.NPCs
@@ -44,10 +45,11 @@ namespace ATBMI.Entities.NPCs
         protected override void WhenReachTarget()
         {
             base.WhenReachTarget();
-            
             var direction = character.Direction * -1f;
+            
             character.LookAt(direction);
             parentNode.ClearData(ORIGIN_KEY);
+            InteractEvent.RestrictedEvent(false);
         }
     }
 }

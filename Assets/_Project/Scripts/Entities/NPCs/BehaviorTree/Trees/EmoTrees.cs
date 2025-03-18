@@ -1,13 +1,27 @@
+using System;
 using ATBMI.Interaction;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace ATBMI.Entities.NPCs
 {
     [RequireComponent(typeof(CharacterTraits))]
     public class EmoTrees : Trees
     {
+        [Serializable]
+        private struct DialogueAsset
+        {
+            public Emotion emotion;
+            public TextAsset[] textAssets;
+        }
+        
         #region Fields & Properties
-
+        
+        [Header("Dialogue")]
+        [SerializeField] protected TextAsset[] defaultTexts;
+        [SerializeField] private DialogueAsset[] emotionTexts;
+        [SerializeField] protected Animator emoteAnimator;
+        
         [Header("Zone")] 
         [SerializeField] protected Transform centerPoint;
         [SerializeField] protected ZoneDetail[] zoneDetails;
@@ -35,7 +49,13 @@ namespace ATBMI.Entities.NPCs
             throw new System.NotImplementedException();
         }
         
-        // Drawer
+        // Helper
+        protected TextAsset[] GetTextAssets(Emotion emotion)
+        {
+            var asset = Array.Find(emotionTexts, x => x.emotion == emotion);
+            return asset.textAssets;
+        }
+        
         private void OnDrawGizmos()
         {
             if (zoneDetails == null || zoneDetails.Length < 1) return;

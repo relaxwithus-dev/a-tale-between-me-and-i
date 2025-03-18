@@ -319,7 +319,7 @@ namespace ATBMI.Dialogue
             yield return new WaitForEndOfFrame();
             EventSystem.current.SetSelectedGameObject(choices[0].gameObject);
         }
-
+        
         private void HandleTags(List<string> currentTags)
         {
             foreach (string tag in currentTags)

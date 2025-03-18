@@ -44,6 +44,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 72b65c3b04572f54aa9e5c2c8e2def2d, type: 2}
+    - target: {fileID: 4536252543316230107, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+      propertyPath: characterTraits
+      value: 
+      objectReference: {fileID: 6062890008277042715}
     - target: {fileID: 4878722094123776488, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_Size.x
       value: 3.125
@@ -78,7 +82,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7858659317861269129, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.3547962
+      value: -5.63
       objectReference: {fileID: 0}
     - target: {fileID: 7858659317861269129, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -144,6 +148,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec2d159942cb76b42a6595e3cad8171a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultTexts:
+  - {fileID: 4900000, guid: 9f1a7346a61c35c43ae999c42698e810, type: 3}
+  emotionTexts:
+  - emotion: 7
+    textAssets:
+    - {fileID: 4900000, guid: 0110e3c5922cd5a4eae1564eda38ae49, type: 3}
+    - {fileID: 4900000, guid: 8ec8ec90ce6004142861dd27efeda2eb, type: 3}
+  emoteAnimator: {fileID: 7747208020035534566}
   centerPoint: {fileID: 6755673961492933830}
   zoneDetails:
   - Type: 0
@@ -194,3 +206,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90926fb261ccf3440b3010858b0f1c49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &7747208020035534566 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4403454399528855645, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+  m_PrefabInstance: {fileID: 6241895453110703803}
+  m_PrefabAsset: {fileID: 0}
