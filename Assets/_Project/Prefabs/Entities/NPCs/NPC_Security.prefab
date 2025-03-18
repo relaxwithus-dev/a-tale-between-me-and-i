@@ -267,11 +267,6 @@ MonoBehaviour:
   - 0
   - 0
   - -1
---- !u!95 &4461974440957610092 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 7742730968249442007, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
-  m_PrefabInstance: {fileID: 6241895453110703803}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4557523409864915204 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7611146811407626175, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
@@ -340,7 +335,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npc: {fileID: 5100580093370311947}
   playerEntryPoint: {fileID: 7098729475346264781}
-  emoteAnimator: {fileID: 4461974440957610092}
+  emoteAnimator: {fileID: 0}
   isPlayerInRange: 0
   isDialogueAboutToStart: 0
   manualTriggerRules:

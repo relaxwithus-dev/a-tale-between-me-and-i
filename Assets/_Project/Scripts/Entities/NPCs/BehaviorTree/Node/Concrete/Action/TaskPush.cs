@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using ATBMI.Interaction;
 using UnityEngine;
 
 namespace ATBMI.Entities.NPCs
@@ -16,7 +17,6 @@ namespace ATBMI.Entities.NPCs
             { Emotion.Anger, (1, 0.8f, (0.3f, 1f)) },
             { Emotion.Anticipation, (1, 0.8f, (0.5f, 0.9f)) }
         };
-
         
         // Constructor
         public TaskPush(CharacterAI character, float force, float delay) : base(character, force, delay)
@@ -32,7 +32,8 @@ namespace ATBMI.Entities.NPCs
             player.StopMovement();
             player.PlayerRb.AddForce(direction * force, ForceMode2D.Impulse);
             player.StartCoroutine(WhenDoneForce());
-
+            
+            InteractEvent.RestrictedEvent(true);
             return NodeStatus.Success;
         }
     }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using ATBMI.Interaction;
 using UnityEngine;
 
 namespace ATBMI.Entities.NPCs
@@ -38,6 +39,7 @@ namespace ATBMI.Entities.NPCs
             {
                 if (!_isHolding)
                 {
+                    InteractEvent.RestrictedEvent(true);
                     InitiateDirection();
                     HoldTarget();
                 }
@@ -54,6 +56,7 @@ namespace ATBMI.Entities.NPCs
             base.Reset();
             _isHolding = false;
             _currentHoldTime = 0f;
+            _pullDirection = Vector3.zero;
         }
         
         private void InitiateDirection()
@@ -72,6 +75,7 @@ namespace ATBMI.Entities.NPCs
         {
             player.PlayerRb.AddForce(_pullDirection * force, ForceMode2D.Impulse);
             player.StartCoroutine(WhenDoneForce());
+            InteractEvent.RestrictedEvent(false);
             return NodeStatus.Success;
         }
         
