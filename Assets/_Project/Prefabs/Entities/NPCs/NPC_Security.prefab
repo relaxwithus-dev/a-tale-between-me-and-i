@@ -227,6 +227,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28f2a8da6bf16304891677b806c71a42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultTexts:
+  - {fileID: 4900000, guid: 61c8b6fbefe525f42972633016f0afa3, type: 3}
+  - {fileID: 4900000, guid: 9e258533078843446ad06753bbe517b7, type: 3}
+  emotionTexts:
+  - emotion: 5
+    textAssets:
+    - {fileID: 4900000, guid: 7ed36acef800ee148abfa77ee1aa51be, type: 3}
+    - {fileID: 4900000, guid: beb4f141069e8d04eb1c787af3aa709a, type: 3}
+    - {fileID: 4900000, guid: b4f0d77c3edd3f346b943130bae2a873, type: 3}
+  - emotion: 7
+    textAssets:
+    - {fileID: 4900000, guid: 9e258533078843446ad06753bbe517b7, type: 3}
+  emoteAnimator: {fileID: 7747208020035534566}
   centerPoint: {fileID: 6755673961492933830}
   zoneDetails:
   - Type: 0
@@ -300,6 +313,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90926fb261ccf3440b3010858b0f1c49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultDialogueAsset: {fileID: 4900000, guid: 61c8b6fbefe525f42972633016f0afa3, type: 3}
+  emoteAnimator: {fileID: 7747208020035534566}
   isInteracting: 0
   interactAction: 0
   targetId: 0
@@ -376,6 +391,11 @@ MonoBehaviour:
   isOnce07: 0
   isOnce08: 0
   isOnce09: 0
+--- !u!95 &7747208020035534566 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4403454399528855645, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+  m_PrefabInstance: {fileID: 6241895453110703803}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8540831605420784584 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2312752133860158835, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}

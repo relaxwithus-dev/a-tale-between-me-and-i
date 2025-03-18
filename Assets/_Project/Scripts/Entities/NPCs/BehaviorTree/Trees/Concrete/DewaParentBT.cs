@@ -6,6 +6,8 @@ namespace ATBMI.Entities.NPCs
     {
         protected override Node SetupTree()
         {
+            var anticipationText = GetTextAssets(Emotion.Anticipation);
+            
             Selector tree = new Selector("Orang Tua Dewa", new List<Node>
             {
                 new CheckInteracted(characterInteract),
@@ -14,7 +16,7 @@ namespace ATBMI.Entities.NPCs
                     new CheckTargetInProxemics(centerPoint, zoneDetails[0].Radius, layerMask),
                     new EmotionalSelector("Anticipation", characterTraits, new List<Node>
                     {
-                        new TaskTalk(characterAI, "hi nak, ada apa?"),
+                        new TaskTalk(characterAI, anticipationText, emoteAnimator),
                         new TaskIdle(characterAI)
                     })
                 })

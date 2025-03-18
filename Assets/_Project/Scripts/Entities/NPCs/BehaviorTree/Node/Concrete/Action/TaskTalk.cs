@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using ATBMI.Dialogue;
 
 namespace ATBMI.Entities.NPCs
 {
@@ -7,10 +8,11 @@ namespace ATBMI.Entities.NPCs
     {
         private readonly CharacterAI character;
         private readonly CharacterState state;
-        private readonly string dialogueText;
-        
-        private bool _isDialogueEnded;
-        
+        private readonly TextAsset[] dialogueAssets;
+        private readonly Animator emoteAnim;
+
+        private int _talkCount;
+                
         private readonly Dictionary<Emotion, (float plan, float risk, (float, float) time)> _factorsTalk = new()
         {
             { Emotion.Joy, (1, 0.2f, (0.5f, 4.5f)) },
@@ -36,19 +38,21 @@ namespace ATBMI.Entities.NPCs
         };
         
         // Constructor        
-        public TaskTalk(CharacterAI character, string dialogueText)
+        public TaskTalk(CharacterAI character, TextAsset[] dialogueAssets, Animator emoteAnim)
         {
             this.character = character;
-            this.dialogueText = dialogueText;
+            this.emoteAnim = emoteAnim;
+            this.dialogueAssets = dialogueAssets;
             
             OverrideEmotionFactors(_factorsTalk);
         }
         
-        public TaskTalk(CharacterAI character, CharacterState state, string dialogueText)
+        public TaskTalk(CharacterAI character, CharacterState state, TextAsset[] dialogueAssets, Animator emoteAnim)
         {
-            this.character = character;
-            this.dialogueText = dialogueText;
             this.state = state;
+            this.character = character;
+            this.emoteAnim = emoteAnim;
+            this.dialogueAssets = dialogueAssets;
             
             OverrideEmotionFactors(_factorsTalkState);
         } 
@@ -56,22 +60,14 @@ namespace ATBMI.Entities.NPCs
         // Core
         public override NodeStatus Evaluate()
         {
-            if (Input.GetKeyDown(KeyCode.Space) && _isDialogueEnded)
-            {
-                return NodeStatus.Success;
-            }
-            
-            Debug.Log($"Execute: TaskDialogue( {dialogueText} )");
+            Debug.Log("Execute: TaskTalk");
             var targetState = state is CharacterState.Idle ? CharacterState.Talk : state;
+            
+            DialogueManager.Instance.EnterDialogueMode(dialogueAssets[_talkCount], emoteAnim);
+            _talkCount = Mathf.Clamp(_talkCount++, 0, dialogueAssets.Length - 1);
             character.ChangeState(targetState);
-            _isDialogueEnded = true;
-            return NodeStatus.Running;
-        }
-        
-        protected override void Reset()
-        {
-            base.Reset();
-            _isDialogueEnded = false;
+            
+            return NodeStatus.Success;
         }
     }
 }
