@@ -8,9 +8,9 @@ Jam kuda jani, ne? (Jam berapa sekarang?) #speaker:Dewa #expression:A_Dewa_Speak
 Hari ini rahina libur, ne? (Hari ini, libur kan?) #speaker:Dewa #expression:A_Dewa_Speak
 Kayangne tiang lakar engsap sajan jani... (Kayaknya aku mau tidur seharian…) #speaker:Dewa #expression:A_Dewa_Speak
 
-Dewa, bangun suba!!! (Dewa, bangun sekarang!!!) #speaker:IbuDewa #expression:A_IbuDewa_Marah
-Dot medem terus? Sampai kuda lakar engsap? (Mau tidur terus? Sampai kapan kamu mau malas-malasan?!) #speaker:IbuDewa #expression:A_IbuDewa_Speak
-Suba dekat wajah ngajeng siang! Apa lakar tidur terus sampai sore? (Ini sudah hampir waktunya makan siang! Apa kamu mau tidur terus sampai sore?!) #speaker:IbuDewa #expression:A_IbuDewa_Speak
+Dewa, bangun suba!!! (Dewa, bangun sekarang!!!) #speaker:Ibu Dewa #expression:A_IbuDewa_Marah
+Dot medem terus? Sampai kuda lakar engsap? (Mau tidur terus? Sampai kapan kamu mau malas-malasan?!) #speaker:Ibu Dewa #expression:A_IbuDewa_Speak
+Suba dekat wajah ngajeng siang! Apa lakar tidur terus sampai sore? (Ini sudah hampir waktunya makan siang! Apa kamu mau tidur terus sampai sore?!) #speaker:Ibu Dewa #expression:A_IbuDewa_Speak
 
 Hmmm? #speaker:Dewa #expression:A_Dewa_Speak
 Suba siang? (Sudah siang?) #speaker:Dewa #expression:A_Dewa_Speak

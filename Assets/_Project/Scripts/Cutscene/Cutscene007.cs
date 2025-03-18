@@ -6,9 +6,7 @@ namespace ATBMI
 {
     public class Cutscene007 : CutsceneManager
     {
-        [SerializeField] private GameObject dewa;
-        [SerializeField] private GameObject ibudewa;
-        
+        [SerializeField] private GameObject dewa;     
         [SerializeField] private GameObject cam;
         [SerializeField] private Animator emoteAnim;
         [SerializeField] private TextAsset JalanBali_AfterParentEncounter_08;

@@ -26,7 +26,7 @@ namespace ATBMI.Entities.NPCs
         protected Node()
         {
             parentNode = null;
-            // nodeName = GetType().Name;
+            nodeName = GetType().Name;
         }
         
         protected Node(string nodeName)

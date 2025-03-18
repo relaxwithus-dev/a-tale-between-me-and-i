@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using Sirenix.OdinInspector;
 using ATBMI.Enum;
@@ -11,7 +10,7 @@ namespace ATBMI.Interaction
     public class CharacterInteract : MonoBehaviour, IInteractable
     {
         #region Fields & Properties
-
+        
         [Header("Properties")]
         [SerializeField] private bool isInteracting;
 
@@ -57,31 +56,25 @@ namespace ATBMI.Interaction
             }
         }
 
-        // public static void InteractingEvent(bool isBegin) => OnInteracting?.Invoke(isBegin);
-        public Transform GetSignTransform() => signTransform;
-        public Transform GetEmojiTransform() => emojiTransform;
-
-        // TODO: Adjust isi method dibawah sesuai dgn jenis interaksi
         public void Interact(InteractManager manager, int itemId = 0)
         {
             _interactId = itemId;
             if (_interactId == 0)
             {
                 DialogueEvents.EnterDialogueEvent(_characterAI.Data.GetDefaultDialogue());
-                characterTraits.InfluenceTraits(InteractAction.Run);
+                characterTraits.InfluenceTraits(InteractAction.Talk);
             }
             else
             {
                 // TODO: Saran lur, method baru bisa nge-pass 2 parameter, item id yg dipilih & target item id 
                 var itemData = InventoryManager.Instance.GetItemData(_interactId);
-                var itemDialogue = _characterAI.Data.GetItemDialogue(itemData);
-                DialogueEvents.EnterItemDialogueEvent(itemDialogue);
+                
+                DialogueEvents.EnterItemDialogueEvent(_characterAI.Data.GetItemDialogue(itemData));
+                characterTraits.InfluenceTraits(InteractAction.Give);
             }
         }
 
         // TODO: Pake ini buat change status di InkExternal
-        // NOTE: Pake method waktu diawal interaksi, sesuaiken dgn jenis interaksinya,
-        // Semua Ink Dialogue NPCs yang punya emosi, harus pake method ini
         public void ChangeStatus(string action)
         {
             var changedAction = GetAction(action);
@@ -104,7 +97,8 @@ namespace ATBMI.Interaction
         }
 
         // Helpers
-        // public Transform GetSignTransform() => signTransform;
+        public Transform GetSignTransform() => signTransform;
+        private Transform GetEmojiTransform() => emojiTransform;
         private InteractAction GetAction(string action)
         {
             if (System.Enum.TryParse<InteractAction>(action, out var parsedAction))

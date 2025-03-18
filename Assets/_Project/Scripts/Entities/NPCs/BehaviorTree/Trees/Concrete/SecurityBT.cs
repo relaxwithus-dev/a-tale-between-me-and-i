@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using ATBMI.Interaction;
 
 namespace ATBMI.Entities.NPCs
 {
@@ -10,12 +9,14 @@ namespace ATBMI.Entities.NPCs
         [SerializeField] private float pullForce;
         [SerializeField] private float pullDelay;
         [SerializeField] private float passOffRange;
-                
+        
         [Space]
         [SerializeField] private CharacterAnimation characterAnimation;
         
         protected override Node SetupTree()
         {
+            var angerText = GetTextAssets(Emotion.Anger);
+            
             Selector tree = new Selector("Security", new List<Node>
             {
                 new CheckInteracted(characterInteract),
@@ -29,13 +30,11 @@ namespace ATBMI.Entities.NPCs
                         {
                             new SequenceWeight("Pull",new List<Node>
                             {
-                                new CheckInAction(isAction: true),
                                 new CheckPassed(characterAI, zoneDetails[1].Radius),
                                 new TaskPull(characterAI, pullForce, pullDelay),
-                                new TaskTalk(characterAI, CharacterState.Anger, "hei, yang sopan kamu!"),
-                                new CheckInAction(isAction: false)
+                                new TaskTalk(characterAI, CharacterState.Anger, angerText, emoteAnimator)
                             }),
-                            new TaskTalk(characterAI, "mau kemana kamu?"),
+                            new TaskTalk(characterAI, defaultTexts, emoteAnimator),
                             new TaskIdle(characterAI)
                         })
                     }),
