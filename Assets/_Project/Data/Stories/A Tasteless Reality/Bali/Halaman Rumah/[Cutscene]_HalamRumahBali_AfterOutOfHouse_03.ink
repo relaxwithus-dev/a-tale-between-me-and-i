@@ -3,6 +3,7 @@ EXTERNAL StartQuest(questId)
 EXTERNAL FinishQuest(questId)
 
 Woof... #speaker:Anjing #expression:A_Anjing_Speak
+// #emoji:A_Emoji_ (Nama .anim)
 
 #speaker:Dewa #expression:A_Dewa_Bingung
 

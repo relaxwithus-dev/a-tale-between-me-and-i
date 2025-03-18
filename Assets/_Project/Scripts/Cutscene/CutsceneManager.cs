@@ -5,18 +5,28 @@ using ATBMI.Dialogue;
 
 public class CutsceneManager : MonoBehaviour
 {
-    [SerializeField] private DialogueManager dialogueManager; // Assign via Inspector
+    [SerializeField] private DialogueManager dialogueManager;
     protected bool isDialogActive = false;
     protected int currentStep = 1;
 
+    [SerializeField] private string cutsceneID;
+
+    [Header("Cutscene Status")]
+    [SerializeField] protected bool cutsceneTriggered; // Bisa diubah di Inspector
+
     protected virtual void Start()
     {
-        // Inisialisasi tambahan jika diperlukan
+        // Sinkronisasi nilai dari PlayerPrefs saat game dimulai
+        cutsceneTriggered = PlayerPrefs.GetInt(cutsceneID, 0) == 1;
+
+        if (cutsceneTriggered)
+        {
+            gameObject.SetActive(false); // Nonaktifkan jika sudah dimainkan
+        }
     }
 
     protected virtual void Update()
     {
-        // Cek jika dialog selesai
         if (isDialogActive && !dialogueManager.IsDialoguePlaying)
         {
             isDialogActive = false;
@@ -26,7 +36,6 @@ public class CutsceneManager : MonoBehaviour
 
     protected virtual void OnDialogComplete()
     {
-        // Panggil langkah berikutnya setelah dialog selesai
         NextStep(currentStep + 1);
     }
 
@@ -50,7 +59,6 @@ public class CutsceneManager : MonoBehaviour
         }
     }
 
-    // Override method ini di child class
     protected virtual void Sequence01() { }
     protected virtual void Sequence02() { }
     protected virtual void Sequence03() { }
@@ -58,7 +66,27 @@ public class CutsceneManager : MonoBehaviour
     protected void StartDialog(TextAsset inkJSON, Animator emoteAnimator)
     {
         isDialogActive = true;
-        // Panggil method EnterDialogueMode dari DialogueManager
         dialogueManager.EnterDialogueMode(inkJSON, emoteAnimator);
+    }
+
+    // Method untuk menandai cutscene sudah dijalankan
+    protected void MarkCutsceneAsTriggered()
+    {
+        SetCutsceneStatus(true);
+    }
+
+    // Setter untuk mengatur status cutscene melalui Inspector & kode
+    public void SetCutsceneStatus(bool isTriggered)
+    {
+        cutsceneTriggered = isTriggered;
+        PlayerPrefs.SetInt(cutsceneID, isTriggered ? 1 : 0);
+        PlayerPrefs.Save();
+        gameObject.SetActive(!isTriggered); // Aktifkan/nonaktifkan cutscene berdasarkan status
+    }
+
+    // Getter untuk mendapatkan status cutscene
+    public bool GetCutsceneStatus()
+    {
+        return cutsceneTriggered;
     }
 }

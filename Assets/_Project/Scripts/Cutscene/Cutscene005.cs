@@ -1,5 +1,4 @@
 using UnityEngine;
-using DG.Tweening;
 using ATBMI.Dialogue;
 
 namespace ATBMI
@@ -10,13 +9,19 @@ namespace ATBMI
         [SerializeField] private GameObject cam;
         [SerializeField] private Animator emoteAnim;
         [SerializeField] private TextAsset KamarDewa_AfterBackTebing_06;
-        
+
+        protected override void Start()
+        {
+            base.Start(); // Panggil Start() dari CutsceneManager
+        }
+
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.CompareTag("Player"))
+            if (other.CompareTag("Player") && !cutsceneTriggered)
             {
                 // Mulai sequence pertama
                 NextStep(1);
+                MarkCutsceneAsTriggered(); // Tandai cutscene telah dimainkan
             }
         }
 
