@@ -180,5 +180,10 @@ namespace ATBMI.Dialogue
         {
             base.EnterDialogueWithInkJson(InkJson);
         }
+
+        public override void IsPlayerRun(bool isRunning)
+        {
+            this.isRunning = isRunning;
+        }
     }
 }

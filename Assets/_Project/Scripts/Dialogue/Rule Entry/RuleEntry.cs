@@ -11,7 +11,6 @@ namespace ATBMI.Dialogue
         [Header("Params")]
         public CharacterAI npc;
         public Transform playerEntryPoint;
-        public Animator emoteAnimator;
         public bool isPlayerInRange;
         public bool isDialogueAboutToStart;
 
@@ -31,17 +30,19 @@ namespace ATBMI.Dialogue
         {
             DialogueEvents.OnEnterDialogue += OnEnterDialogue;
             DialogueEvents.OnEnterItemDialogue += OnEnterItemDialogue;
+            DialogueEvents.PlayerRun += IsPlayerRun;
         }
 
         private void OnDisable()
         {
             DialogueEvents.OnEnterDialogue -= OnEnterDialogue;
             DialogueEvents.OnEnterItemDialogue -= OnEnterItemDialogue;
+            DialogueEvents.PlayerRun -= IsPlayerRun;
         }
         
         public virtual void EnterDialogueWithInkJson(TextAsset InkJson)
         {
-            DialogueManager.Instance.EnterDialogueMode(InkJson, emoteAnimator);
+            DialogueManager.Instance.EnterDialogueMode(InkJson);
 
             isDialogueAboutToStart = false;
         }
@@ -59,5 +60,6 @@ namespace ATBMI.Dialogue
         public abstract void OnTriggerExit2D(Collider2D other);
         public abstract void OnEnterDialogue(TextAsset defaultDialogue);
         public abstract void OnEnterItemDialogue(TextAsset itemDialogue);
+        public abstract void IsPlayerRun(bool isRunning);
     }
 }

@@ -56,10 +56,10 @@ public class CutsceneManager : MonoBehaviour
     protected virtual void Sequence02() { }
     protected virtual void Sequence03() { }
 
-    protected void StartDialog(TextAsset inkJSON, Animator emoteAnimator)
+    protected void StartDialog(TextAsset inkJSON)
     {
         isDialogActive = true;
-        dialogueManager.EnterDialogueMode(inkJSON, emoteAnimator);
+        dialogueManager.EnterDialogueMode(inkJSON);
     }
 
     protected void MarkCutsceneAsTriggered()

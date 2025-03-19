@@ -133,7 +133,7 @@ namespace ATBMI.Dialogue
             }
         }
 
-        public void EnterDialogueMode(TextAsset inkJSON, Animator emoteAnimator)
+        public void EnterDialogueMode(TextAsset inkJSON)
         {
             Debug.Log("Dialogue asset = " + inkJSON.name);
 
@@ -142,7 +142,7 @@ namespace ATBMI.Dialogue
             dialoguePin.SetActive(true);
 
             playerController.StopMovement();
-            inkExternalFunctions.Bind(currentStory, emoteAnimator);
+            inkExternalFunctions.Bind(currentStory);
 
             ContinueStory();
         }

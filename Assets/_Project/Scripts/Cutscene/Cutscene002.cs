@@ -10,7 +10,6 @@ namespace ATBMI
         [SerializeField] private GameObject ibudewa;
         
         [SerializeField] private GameObject cam;
-        [SerializeField] private Animator emoteAnim;
         [SerializeField] private TextAsset RumahBali_AfterOutDewaRoom_02;
         
         private void OnTriggerEnter2D(Collider2D other)
@@ -24,7 +23,7 @@ namespace ATBMI
 
         protected override void Sequence01()
         {
-            StartDialog(RumahBali_AfterOutDewaRoom_02, emoteAnim); // Mulai dialog setelah jeda
+            StartDialog(RumahBali_AfterOutDewaRoom_02); // Mulai dialog setelah jeda
         }
 
         protected override void Sequence03()

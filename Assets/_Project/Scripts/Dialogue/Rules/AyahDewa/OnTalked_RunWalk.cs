@@ -15,7 +15,7 @@ namespace ATBMI
 
         public override void Execute(RE_AyahDewa context)
         {
-            DialogueManager.Instance.EnterDialogueMode(context.onTalkedTo_JalanBali_RunOrWalkWOInteract, context.emoteAnimator);
+            DialogueManager.Instance.EnterDialogueMode(context.onTalkedTo_JalanBali_RunOrWalkWOInteract);
             if (context.isOnce_JalanBali_RunOrWalkWOInteract)
             {
                 context.isOnce01 = true;

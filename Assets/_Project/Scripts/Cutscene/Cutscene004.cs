@@ -9,7 +9,6 @@ namespace ATBMI
         [SerializeField] private GameObject dewa;
         [SerializeField] private GameObject anjing; 
         [SerializeField] private GameObject cam;
-        [SerializeField] private Animator emoteAnim;
         [SerializeField] private TextAsset Tebing_Monolog1_04;
         [SerializeField] private TextAsset Tebing_Monolog2_05;
         
@@ -33,7 +32,7 @@ namespace ATBMI
         protected override void Sequence01()
         {
             Sequence mySequence = DOTween.Sequence(); // Start Sequence
-            StartDialog(Tebing_Monolog1_04, emoteAnim); // Mulai dialog setelah jeda
+            StartDialog(Tebing_Monolog1_04); // Mulai dialog setelah jeda
             mySequence.Play(); // Pastikan Sequence dimainkan!
         }
 
@@ -45,7 +44,7 @@ namespace ATBMI
             mySequence.Append(cam.transform.DOMoveY(-4, 1));
             mySequence.AppendCallback(() => 
             {
-                StartDialog(Tebing_Monolog2_05, emoteAnim); // Mulai dialog setelah jeda
+                StartDialog(Tebing_Monolog2_05); // Mulai dialog setelah jeda
             });
 
             mySequence.Play(); // Pastikan Sequence dimainkan!
