@@ -11,6 +11,7 @@ namespace ATBMI
         
         [SerializeField] private GameObject cam;
         [SerializeField] private TextAsset RumahBali_AfterOutDewaRoom_02;
+        private bool isTriggered; //Bool Trigger
         
         private void OnTriggerEnter2D(Collider2D other)
         {
@@ -23,7 +24,11 @@ namespace ATBMI
 
         protected override void Sequence01()
         {
-            StartDialog(RumahBali_AfterOutDewaRoom_02); // Mulai dialog setelah jeda
+            if (isTriggered == false)
+            {
+                StartDialog(RumahBali_AfterOutDewaRoom_02); // Mulai dialog setelah jeda
+                isTriggered = true;
+            }
         }
 
         protected override void Sequence03()

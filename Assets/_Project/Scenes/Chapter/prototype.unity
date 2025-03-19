@@ -837,13 +837,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3b39bc468c73d44fa8dd598f10e478f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueManager: {fileID: 0}
+  dialogueManager: {fileID: 1600726442}
   cutsceneID: CS005
   cutsceneDatabase: {fileID: 11400000, guid: 247a20aaaaedfe24e976d7bf4c5980e4, type: 2}
   cutsceneTriggered: 0
   dewa: {fileID: 547299382}
   cam: {fileID: 1545024454}
-  emoteAnim: {fileID: 0}
   KamarDewa_AfterBackTebing_06: {fileID: 4900000, guid: 08b68b103d9501c42a44ba9648ed7563, type: 3}
 --- !u!61 &138229579
 BoxCollider2D:
@@ -1030,7 +1029,6 @@ MonoBehaviour:
   cutsceneTriggered: 0
   dewa: {fileID: 547299382}
   cam: {fileID: 1545024454}
-  emoteAnim: {fileID: 0}
   JalanBali_AfterParentEncounter_08: {fileID: 4900000, guid: d63204022f97cfd439c301b9bd6492c9, type: 3}
 --- !u!61 &148438641
 BoxCollider2D:
@@ -1300,7 +1298,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &227426015
 Transform:
   m_ObjectHideFlags: 0
@@ -1310,7 +1308,7 @@ Transform:
   m_GameObject: {fileID: 227426014}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.1879716, y: -1.7476861, z: 362.50192}
+  m_LocalPosition: {x: -24.84, y: -1.37, z: 362.50192}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1563,7 +1561,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6178640880139922672, guid: a82d4d51608e3b549a6dfbbaf89f6e2f, type: 3}
       propertyPath: m_Name
-      value: Anjing_1
+      value: Anjing_Tebing
       objectReference: {fileID: 0}
     - target: {fileID: 7328970025779641990, guid: a82d4d51608e3b549a6dfbbaf89f6e2f, type: 3}
       propertyPath: m_BodyType
@@ -1835,7 +1833,6 @@ MonoBehaviour:
   dewa: {fileID: 547299382}
   ibudewa: {fileID: 1707458702}
   cam: {fileID: 1545024454}
-  emoteAnim: {fileID: 0}
   RumahBali_AfterOutDewaRoom_02: {fileID: 4900000, guid: 1b4e6b0e83dc17447a7f83905e6debbf, type: 3}
 --- !u!61 &407235641
 BoxCollider2D:
@@ -2361,7 +2358,6 @@ MonoBehaviour:
   dewa: {fileID: 547299382}
   ibudewa: {fileID: 1105500409}
   cam: {fileID: 1545024454}
-  emoteAnim: {fileID: 0}
   KamarDewa_SecondDay_07: {fileID: 4900000, guid: 772dc84c567e64a45835a911ef99c57d, type: 3}
 --- !u!61 &491708274
 BoxCollider2D:
@@ -3216,7 +3212,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6178640880139922672, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
       propertyPath: m_Name
-      value: Ibu_Dewa
+      value: Ibu_Dewa_Kamar
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3273,7 +3269,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6178640880139922672, guid: a82d4d51608e3b549a6dfbbaf89f6e2f, type: 3}
       propertyPath: m_Name
-      value: Anjing
+      value: Anjing_Jalan
       objectReference: {fileID: 0}
     - target: {fileID: 7328970025779641990, guid: a82d4d51608e3b549a6dfbbaf89f6e2f, type: 3}
       propertyPath: m_BodyType
@@ -5651,7 +5647,6 @@ MonoBehaviour:
   dewa: {fileID: 547299382}
   anjing: {fileID: 337256508}
   cam: {fileID: 1545024454}
-  emoteAnim: {fileID: 0}
   Tebing_Monolog1_04: {fileID: 4900000, guid: 542ce9d95e2fda445811ab9bee954ca1, type: 3}
   Tebing_Monolog2_05: {fileID: 4900000, guid: fe807eb6d576ba2448a85748a27782fa, type: 3}
 --- !u!61 &1392649915
@@ -6240,9 +6235,8 @@ MonoBehaviour:
   cutsceneDatabase: {fileID: 11400000, guid: 247a20aaaaedfe24e976d7bf4c5980e4, type: 2}
   cutsceneTriggered: 0
   dewa: {fileID: 547299382}
-  ibudewa: {fileID: 1562015110}
+  ibudewa: {fileID: 1105500409}
   cam: {fileID: 1545024454}
-  emoteAnim: {fileID: 0}
   KamarDewa_FirstDay_01: {fileID: 4900000, guid: d0a0dc9761d40fa489cd2195dbaa1dd3, type: 3}
 --- !u!4 &1480165691
 Transform:
@@ -6483,7 +6477,6 @@ MonoBehaviour:
   dewa: {fileID: 547299382}
   anjing: {fileID: 811107281}
   cam: {fileID: 1545024454}
-  emoteAnim: {fileID: 0}
   HalamRumahBali_AfterOutOfHouse_03: {fileID: 4900000, guid: 16fa9d76bab1e3c4bbf2db67efe5870c, type: 3}
 --- !u!1 &1545024454 stripped
 GameObject:
@@ -6521,11 +6514,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1163261913}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1562015110 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6178640880139922672, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
-  m_PrefabInstance: {fileID: 1624991467}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1577522212
 GameObject:
   m_ObjectHideFlags: 0
@@ -6902,7 +6890,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6178640880139922672, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
       propertyPath: m_Name
-      value: Ibu_Dewa
+      value: Ibu_Dewa_Jalan
       objectReference: {fileID: 0}
     - target: {fileID: 7328970025779641990, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
       propertyPath: m_BodyType
@@ -7288,13 +7276,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 856278592}
     m_Modifications:
+    - target: {fileID: 1525340603847733075, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1525340603847733075, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4291996230028175410, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.1
+      value: -17.64
       objectReference: {fileID: 0}
     - target: {fileID: 4291996230028175410, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.15
+      value: -3.67
       objectReference: {fileID: 0}
     - target: {fileID: 4291996230028175410, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7302,19 +7298,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4291996230028175410, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4291996230028175410, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4291996230028175410, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4291996230028175410, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4291996230028175410, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7322,19 +7318,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4291996230028175410, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 4291996230028175410, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5100580093370311947, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
+      propertyPath: isFacingRight
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6178640880139922672, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
       propertyPath: m_Name
-      value: Ibu_Dewa
+      value: Ibu_Dewa_Rumah
       objectReference: {fileID: 0}
     - target: {fileID: 7328970025779641990, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
       propertyPath: m_BodyType
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7376,7 +7376,7 @@ Transform:
   m_GameObject: {fileID: 1713354773}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.1879716, y: -1.7476861, z: 362.50192}
+  m_LocalPosition: {x: -5.33, y: -1.8, z: 362.50192}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9543,6 +9543,10 @@ PrefabInstance:
       propertyPath: m_Icon
       value: 
       objectReference: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 5609437623307998051, guid: 7e152498ca8df3d408eadb42c1dcb757, type: 3}
+      propertyPath: m_ReferencePixelsPerUnit
+      value: 32
+      objectReference: {fileID: 0}
     - target: {fileID: 6492219101915990370, guid: 7e152498ca8df3d408eadb42c1dcb757, type: 3}
       propertyPath: m_Icon
       value: 

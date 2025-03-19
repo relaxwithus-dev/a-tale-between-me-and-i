@@ -9,6 +9,7 @@ namespace ATBMI
         [SerializeField] private GameObject dewa;     
         [SerializeField] private GameObject cam;
         [SerializeField] private TextAsset JalanBali_AfterParentEncounter_08;
+        private bool isTriggered; //Bool
         
         private void OnTriggerEnter2D(Collider2D other)
         {
@@ -21,7 +22,11 @@ namespace ATBMI
 
         protected override void Sequence01()
         {
+            if (isTriggered == false)
+            {
             StartDialog(JalanBali_AfterParentEncounter_08);
+            isTriggered = true;
+            }
         }
     }
 }
