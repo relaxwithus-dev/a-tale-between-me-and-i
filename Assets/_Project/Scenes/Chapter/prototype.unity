@@ -3176,7 +3176,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4291996230028175410, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.12
+      value: -3.87
       objectReference: {fileID: 0}
     - target: {fileID: 4291996230028175410, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3217,10 +3217,6 @@ PrefabInstance:
     - target: {fileID: 6178640880139922672, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
       propertyPath: m_Name
       value: Ibu_Dewa
-      objectReference: {fileID: 0}
-    - target: {fileID: 7328970025779641990, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
-      propertyPath: m_BodyType
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4659,10 +4655,10 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2062836007}
+  - {fileID: 1773452616}
   - {fileID: 698490919}
   - {fileID: 1553516140}
   - {fileID: 903759866}
-  - {fileID: 1773452616}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1191665813
@@ -4763,10 +4759,6 @@ PrefabInstance:
     - target: {fileID: 6178640880139922672, guid: 82c090cf7487b0f4b96c0635e2692ecb, type: 3}
       propertyPath: m_Name
       value: Ayah_Dewa
-      objectReference: {fileID: 0}
-    - target: {fileID: 7328970025779641990, guid: 82c090cf7487b0f4b96c0635e2692ecb, type: 3}
-      propertyPath: m_BodyType
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5335,8 +5327,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1307769167}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.6487975, y: -11.47542, z: -360.92673}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6260,8 +6252,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1480165689}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.2679715, y: 0.017686129, z: -360.92673}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7417,7 +7409,7 @@ Transform:
   m_GameObject: {fileID: 1723856242}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.1879716, y: -1.7476861, z: 362.50192}
+  m_LocalPosition: {x: -1.6, y: -2.3, z: 362.50192}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9606,6 +9598,10 @@ PrefabInstance:
     - target: {fileID: 8600351667431493300, guid: 7e152498ca8df3d408eadb42c1dcb757, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200348307748090742, guid: 7e152498ca8df3d408eadb42c1dcb757, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

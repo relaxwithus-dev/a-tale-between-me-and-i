@@ -49,6 +49,7 @@ public class CutsceneManager : MonoBehaviour
             case 3: Sequence03(); break;
             default: EndCutscene(); break;
         }
+        transform.parent.gameObject.SetActive(false);
     }
 
     protected virtual void Sequence01() { }
