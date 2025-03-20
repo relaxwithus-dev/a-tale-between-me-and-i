@@ -21,6 +21,9 @@ namespace ATBMI.Gameplay.Event
         public static event Action<int> AdjustDialogueUISize;
         public static event Action<int> AdjustDialogueChoicesUISize;
 
+        // Behaviour events
+        public static event Action<bool> PlayerRun;
+
         // Main Event - Caller
         public static void EnterDialogueEvent(TextAsset defaultDialogue) => OnEnterDialogue?.Invoke(defaultDialogue);
         public static void EnterItemDialogueEvent(TextAsset itemDialogue) => OnEnterItemDialogue?.Invoke(itemDialogue);
@@ -36,5 +39,8 @@ namespace ATBMI.Gameplay.Event
         public static void UpdateDialogueEmojiPosEvent(string tag) => UpdateDialogueEmojiPos?.Invoke(tag);
         public static void AdjustDialogueUISizeEvent(int count) => AdjustDialogueUISize?.Invoke(count);
         public static void AdjustDialogueChoicesUISizeEvent(int count) => AdjustDialogueChoicesUISize?.Invoke(count);
+
+        // behaviour events
+        public static void PlayerRunEvent(bool isRunning) => PlayerRun?.Invoke(isRunning);
     }
 }

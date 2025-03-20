@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2b450a47a515ba40b7e732579b2c69b, type: 3}
   m_Name: QI_GiveBoltToSatpam
   m_EditorClassIdentifier: 
-  <QuestId>k__BackingField: 003
+  <QuestId>k__BackingField: 996
   displayName: 'Give This Bolt '
+  shoulBeFinishManually: 0
   questPrerequisites: []
-  questStepPrefabs: []
+  questSteps: []
   rewardItem:
   - {fileID: 11400000, guid: c5d406d1915649845afc5caae7db8c16, type: 2}

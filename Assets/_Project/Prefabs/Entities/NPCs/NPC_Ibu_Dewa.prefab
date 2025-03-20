@@ -78,11 +78,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7858659317861269129, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.9
+      value: -5.12
       objectReference: {fileID: 0}
     - target: {fileID: 7858659317861269129, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.369093
+      value: -4.15
       objectReference: {fileID: 0}
     - target: {fileID: 7858659317861269129, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -94,15 +94,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7858659317861269129, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7858659317861269129, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7858659317861269129, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7858659317861269129, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -139,18 +139,18 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2727677842074490205}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec2d159942cb76b42a6595e3cad8171a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   defaultTexts:
-  - {fileID: 4900000, guid: dc571a5245d0a21478a75548b34aef97, type: 3}
+  - {fileID: 4900000, guid: 8003128b91c577c44bda03dd6e373a22, type: 3}
   emotionTexts:
   - emotion: 7
     textAssets:
-    - {fileID: 4900000, guid: eeb6f96b9aa488842a0d3d59ecf5358d, type: 3}
-    - {fileID: 4900000, guid: 0febedee2f7b25b4c9a3187d4122bce1, type: 3}
+    - {fileID: 4900000, guid: 16299217b910d7241ba4e4522dff0360, type: 3}
+    - {fileID: 4900000, guid: bfa7256c01e8d4140bb2de5e249f429d, type: 3}
   emoteAnimator: {fileID: 0}
   centerPoint: {fileID: 6755673961492933830}
   zoneDetails:

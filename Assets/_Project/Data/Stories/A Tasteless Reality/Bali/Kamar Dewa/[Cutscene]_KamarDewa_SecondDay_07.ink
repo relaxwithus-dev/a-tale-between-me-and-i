@@ -34,4 +34,6 @@ SIAP, NYONYA!!! (SIAP, NYONYA!!!) #speaker:Dewa #expression:A_Dewa_Speak
 
 Sekarang saatnya bersiap #speaker:Dewa #expression:A_Dewa_Speak
 
+~StartQuest("3") //Start quest besar ketiga (berpamitan)
+
 -> END

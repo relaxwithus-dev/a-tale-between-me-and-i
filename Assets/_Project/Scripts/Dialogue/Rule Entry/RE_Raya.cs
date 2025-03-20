@@ -10,6 +10,8 @@ namespace ATBMI.Dialogue
         [Space(20)]
         [Header("Dialogue Rules")]
         [SerializeField] private int visitedCount;
+        [SerializeField] private bool isRunning;
+        public bool IsRunning => isRunning;
         #endregion
         #region Dialogue Text Assets
         [Space(20)]
@@ -65,5 +67,9 @@ namespace ATBMI.Dialogue
             base.EnterDialogueWithInkJson(InkJson);
         }
 
+        public override void IsPlayerRun(bool isRunning)
+        {
+            this.isRunning = isRunning;
+        }
     }
 }

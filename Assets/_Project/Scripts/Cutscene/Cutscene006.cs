@@ -10,8 +10,8 @@ namespace ATBMI
         [SerializeField] private GameObject ibudewa;
         
         [SerializeField] private GameObject cam;
-        [SerializeField] private Animator emoteAnim;
         [SerializeField] private TextAsset KamarDewa_SecondDay_07;
+        private bool isTriggered; //Bool Trigger
         
         private void OnTriggerEnter2D(Collider2D other)
         {
@@ -24,7 +24,11 @@ namespace ATBMI
 
         protected override void Sequence01()
         {
-            StartDialog(KamarDewa_SecondDay_07, emoteAnim);
+            if (isTriggered == false)
+            {
+                StartDialog(KamarDewa_SecondDay_07);
+                isTriggered = true;
+            }
         }
     }
 }

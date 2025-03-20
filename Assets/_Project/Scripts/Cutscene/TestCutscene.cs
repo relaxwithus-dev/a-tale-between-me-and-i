@@ -12,7 +12,6 @@ namespace ATBMI
         // [SerializeField] private GameObject luna;
         // [SerializeField] private GameObject kating;
         [SerializeField] private GameObject cam;
-        [SerializeField] private Animator emoteAnim;
         [SerializeField] private TextAsset PintuMimpi1;
 
 // -----------------------------------------------------------------------------------------------------------
@@ -37,7 +36,7 @@ namespace ATBMI
             mySequence.AppendInterval(1); // Wait 1 sec (Setelah animasi sebelumnya)
             mySequence.OnComplete(() => // Menunggu cutscene selesai sebelum dialog 
             {
-                StartDialog(PintuMimpi1, emoteAnim); // Mulai dialog
+                StartDialog(PintuMimpi1); // Mulai dialog
             });
         }
 

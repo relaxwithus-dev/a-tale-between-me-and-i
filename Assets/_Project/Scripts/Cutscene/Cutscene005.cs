@@ -7,7 +7,6 @@ namespace ATBMI
     {
         [SerializeField] private GameObject dewa;      
         [SerializeField] private GameObject cam;
-        [SerializeField] private Animator emoteAnim;
         [SerializeField] private TextAsset KamarDewa_AfterBackTebing_06;
 
         protected override void Start()
@@ -27,7 +26,7 @@ namespace ATBMI
 
         protected override void Sequence01()
         {
-            StartDialog(KamarDewa_AfterBackTebing_06, emoteAnim);
+            StartDialog(KamarDewa_AfterBackTebing_06);
         }
     }
 }

@@ -4,13 +4,14 @@ using UnityEngine;
 using ATBMI.Data;
 using ATBMI.Dialogue;
 using ATBMI.Gameplay.Handler;
+using ATBMI.Gameplay.Event;
 
 namespace ATBMI.Entities.Player
 {
     public class PlayerController : MonoBehaviour
     {
         #region Fields & Properties
-        
+
         [Header("Stats")]
         [SerializeField] private PlayerState playerState = PlayerState.Idle;
         [SerializeField] private PlayerData playerData;
@@ -38,7 +39,7 @@ namespace ATBMI.Entities.Player
         #endregion
 
         #region Methods
-        
+
         // Unity Callbacks
         private void Awake()
         {
@@ -50,7 +51,7 @@ namespace ATBMI.Entities.Player
         {
             InitPlayer();
         }
-        
+
         private void FixedUpdate()
         {
             if (!CanMove || DialogueManager.Instance.IsDialoguePlaying) return;
@@ -62,7 +63,7 @@ namespace ATBMI.Entities.Player
             HandleState();
             PlayerDirection();
         }
-        
+
         // Initialize
         private void InitPlayer()
         {
@@ -70,7 +71,7 @@ namespace ATBMI.Entities.Player
             CurrentStat = playerData.MoveStats[0];
             CurrentSpeed = CurrentStat.Speed;
         }
-        
+
         // Core
         private void PlayerMove()
         {
@@ -98,7 +99,7 @@ namespace ATBMI.Entities.Player
         {
             var data = CurrentStat;
             _currentDeceleration = data.Deceleration;
-            
+
             while (_currentDeceleration > 0f)
             {
                 var decelSpeed = Mathf.Lerp(data.Speed, 0f, 1f - (_currentDeceleration / data.Deceleration));
@@ -123,7 +124,7 @@ namespace ATBMI.Entities.Player
             isRight = !isRight;
             _playerSr.flipX = !isRight;
         }
-        
+
         // Helpers
         public void StartMovement()
         {
@@ -137,7 +138,7 @@ namespace ATBMI.Entities.Player
             _latestDirection = Vector2.zero;
             PlayerRb.velocity = Vector2.zero;
         }
-        
+
         public void SetTemporaryDirection(Vector2 direction)
         {
             _temporaryDirection = direction;
@@ -151,12 +152,14 @@ namespace ATBMI.Entities.Player
         {
             var state = GetState();
 
+            DialogueEvents.PlayerRunEvent(state == PlayerState.Run);
+
             if (playerState == state) return;
             playerState = state;
             CurrentStat = GetMoveStats(state);
             CurrentSpeed = CurrentStat.Speed;
         }
-        
+
         private PlayerState GetState()
         {
             var direction = MoveDirection;
@@ -165,12 +168,12 @@ namespace ATBMI.Entities.Player
             if (direction == Vector2.zero) return PlayerState.Idle;
             return isRunning ? PlayerState.Run : PlayerState.Walk;
         }
-        
+
         private PlayerData.MoveStat GetMoveStats(PlayerState state)
         {
             if (state == PlayerState.Idle)
                 return CurrentStat;
-            
+
             return Array.Find(playerData.MoveStats, stat => stat.State == state);
         }
 

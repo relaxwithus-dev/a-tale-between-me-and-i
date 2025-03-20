@@ -9,7 +9,6 @@ namespace ATBMI.Entities.NPCs
         private readonly CharacterAI character;
         private readonly CharacterState state;
         private readonly TextAsset[] dialogueAssets;
-        private readonly Animator emoteAnim;
 
         private int _talkCount;
                 
@@ -38,20 +37,18 @@ namespace ATBMI.Entities.NPCs
         };
         
         // Constructor        
-        public TaskTalk(CharacterAI character, TextAsset[] dialogueAssets, Animator emoteAnim)
+        public TaskTalk(CharacterAI character, TextAsset[] dialogueAssets)
         {
             this.character = character;
-            this.emoteAnim = emoteAnim;
             this.dialogueAssets = dialogueAssets;
             
             OverrideEmotionFactors(_factorsTalk);
         }
         
-        public TaskTalk(CharacterAI character, CharacterState state, TextAsset[] dialogueAssets, Animator emoteAnim)
+        public TaskTalk(CharacterAI character, CharacterState state, TextAsset[] dialogueAssets)
         {
             this.state = state;
             this.character = character;
-            this.emoteAnim = emoteAnim;
             this.dialogueAssets = dialogueAssets;
             
             OverrideEmotionFactors(_factorsTalkState);
@@ -63,7 +60,7 @@ namespace ATBMI.Entities.NPCs
             Debug.Log("Execute: TaskTalk");
             var targetState = state is CharacterState.Idle ? CharacterState.Talk : state;
             
-            DialogueManager.Instance.EnterDialogueMode(dialogueAssets[_talkCount], emoteAnim);
+            DialogueManager.Instance.EnterDialogueMode(dialogueAssets[_talkCount]);
             _talkCount = Mathf.Clamp(_talkCount++, 0, dialogueAssets.Length - 1);
             character.ChangeState(targetState);
             

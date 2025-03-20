@@ -10,8 +10,8 @@ namespace ATBMI
         [SerializeField] private GameObject anjing;
         
         [SerializeField] private GameObject cam;
-        [SerializeField] private Animator emoteAnim;
         [SerializeField] private TextAsset HalamRumahBali_AfterOutOfHouse_03;
+        private bool isTriggered; //Bool Trigger
         
         private void OnTriggerEnter2D(Collider2D other)
         {
@@ -24,7 +24,11 @@ namespace ATBMI
 
         protected override void Sequence01()
         {
-            StartDialog(HalamRumahBali_AfterOutOfHouse_03, emoteAnim); // Mulai dialog setelah jeda
+            if (isTriggered == false)
+            {
+            StartDialog(HalamRumahBali_AfterOutOfHouse_03); // Mulai dialog setelah jeda
+            isTriggered = true;
+            }
         }
     }
 }
