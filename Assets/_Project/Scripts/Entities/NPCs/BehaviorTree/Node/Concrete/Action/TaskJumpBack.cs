@@ -16,12 +16,12 @@ namespace ATBMI.Entities.NPCs
         private readonly Dictionary<Emotion, (float plan, float risk, (float, float) time)> _factorsJumpBack = new()
         {
             { Emotion.Joy, (1, 0.6f, (0.3f, 0.7f)) },
-            { Emotion.Trust, (1, 0.6f, (0.5f, 1f)) },
+            { Emotion.Trust, (1, 0.6f, (0.8f, 1.6f)) },
             { Emotion.Fear, (1, 0.6f, (0.8f, 1.6f)) },
-            { Emotion.Surprise, (1, 0.7f, (0.2f, 0.5f)) },
+            { Emotion.Surprise, (1, 0.7f, (0.2f, 0.2f)) },
             { Emotion.Sadness, (1, 0.6f, (0.5f, 1f)) },
             { Emotion.Disgust, (1, 0.6f, (0.5f, 1f)) },
-            { Emotion.Anger, (1, 0.6f, (0.6f, 1.1f)) },
+            { Emotion.Anger, (1, 0.5f, (0.8f, 3f)) },
             { Emotion.Anticipation, (1, 0.6f, (0.5f, 1f)) }
         };
         
