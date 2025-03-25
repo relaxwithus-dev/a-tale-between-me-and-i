@@ -17,10 +17,10 @@ namespace ATBMI.Entities.NPCs
             { Emotion.Joy, (1, 0.3f, (3f, 7f)) },
             { Emotion.Trust, (1, 0.3f, (3f, 7f)) },
             { Emotion.Fear, (1, 0.5f, (3f, 7f)) },
-            { Emotion.Surprise, (1, 0.4f, (2f, 4f)) },
+            { Emotion.Surprise, (1, 0.4f, (3f, 7f)) },
             { Emotion.Sadness, (1, 0.4f, (2f, 4f)) },
             { Emotion.Disgust, (1, 0.4f, (2f, 4f)) },
-            { Emotion.Anger, (1, 0.4f, (0.7f, 1.5f)) },
+            { Emotion.Anger, (1, 0.2f, (0.15f, 0.2f)) },
             { Emotion.Anticipation, (1, 0.4f, (2f, 4f)) }
         };
 

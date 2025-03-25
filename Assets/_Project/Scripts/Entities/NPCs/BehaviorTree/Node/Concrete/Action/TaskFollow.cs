@@ -22,7 +22,7 @@ namespace ATBMI.Entities.NPCs
         private readonly Dictionary<Emotion, (float plan, float risk, (float, float) time)> _factorsFollow = new()
         {
             { Emotion.Joy, (1, 0.2f, (3f, 8f)) },
-            { Emotion.Trust, (1, 0.1f, (1f, 4.5f)) },
+            { Emotion.Trust, (0.5f, 0.4f, (1f, 3.5f)) },
             { Emotion.Fear, (1, 0.6f, (1f, 3f)) },
             { Emotion.Surprise, (1, 0.2f, (3f, 8f)) },
             { Emotion.Sadness, (1, 0.5f, (1f, 4.5f)) },
@@ -30,7 +30,6 @@ namespace ATBMI.Entities.NPCs
             { Emotion.Anger, (1, 0.4f, (5f, 12f)) },
             { Emotion.Anticipation, (1, 0.5f, (1f, 4.5f)) }
         };
-
 
         // Constructor
         public TaskFollow(CharacterAI character, CharacterData data, float followTime)

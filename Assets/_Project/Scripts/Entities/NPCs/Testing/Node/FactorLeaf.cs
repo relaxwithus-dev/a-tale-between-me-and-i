@@ -1,4 +1,4 @@
-namespace ATBMI.Entities.NPCs.Testing
+namespace ATBMI.Entities.NPCs
 {
     public class FactorLeaf : LeafWeight
     {
