@@ -4,41 +4,43 @@ using Directory = System.IO.Directory;
 
 namespace ATBMI.Utilities
 {
-    public static class ReportManager
+    public class ReportManager : MonoBehaviour
     {
         // Fields
-        private static string reportDirectory = "Testing";
-        private static string reportSeparator = ";";
-        private static string[] repotHeader = 
-        {
-            "Node",
-            "Wrisk",
-            "Wplan",
-            "Wtime",
-            "Wtotal"
-        };
+        [Header("Property")]
+        [SerializeField] private string reportDirectory;
+        [SerializeField] private string[] reportHeader;
+        
+        private readonly string defaultDirectory = "/_Project/Testing/";
+        private readonly string reportSeparator = ";";
         
         // Core
-        public static void CreateReport(string fileName)
+        public void CreateReport(string fileName)
         {
             VerifyDirectoryPath();
             using (StreamWriter sw = File.CreateText(GetFilePath(fileName)))
             {
                 var finalString = "";
-                for (var i = 0; i < repotHeader.Length; i++)
+                for (var i = 0; i < reportHeader.Length; i++)
                 {
                     if (finalString != "")
                         finalString += reportSeparator;
                     
-                    finalString += repotHeader[i];
+                    finalString += reportHeader[i];
                 }
                 sw.WriteLine(finalString);
                 sw.Close();
             }
         }
         
-        public static void AppendReport(string fileName, string[] content)
+        public void AppendReport(string fileName, string[] content)
         {
+            if (content.Length != reportHeader.Length)
+            {
+                Debug.LogError("content isn't same with header!");
+                return;
+            }
+            
             using (StreamWriter sw = File.AppendText(GetFilePath(fileName)))
             {
                 var finalString = "";
@@ -54,22 +56,21 @@ namespace ATBMI.Utilities
             }
         }
         
-        static void VerifyDirectoryPath()
+        private void VerifyDirectoryPath()
         {
             var directory = GetDirectoryPath();
             if (!Directory.Exists(directory))
                 Directory.CreateDirectory(directory);
         }
         
-        private static string GetDirectoryPath()
+        private string GetDirectoryPath()
         {
-            return Application.dataPath + "/_Project" + "/" + reportDirectory;
+            return Application.dataPath + defaultDirectory + reportDirectory;
         }
         
-        private static string GetFilePath(string fileName)
+        private string GetFilePath(string fileName)
         {
             return GetDirectoryPath() + "/" + fileName + ".csv";
         }
-        
     }
 }

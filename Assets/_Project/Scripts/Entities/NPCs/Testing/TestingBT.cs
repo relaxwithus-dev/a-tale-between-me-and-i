@@ -1,20 +1,25 @@
 using System.Collections.Generic;
-using ATBMI.Entities.NPCs.Testing;
+using UnityEngine;
+using ATBMI.Utilities;
 
 namespace ATBMI.Entities.NPCs
 {
     public class TestingBT : EmoTrees
     {
+        // Fields
+        [Header("Testing")]
+        [SerializeField] private ReportManager reportManager;
+        
         private EmotionalFactors _emotionalFactors;
+        
+        // Methods
         protected override Node SetupTree()
         {
             _emotionalFactors = new EmotionalFactors();
 
-            EmotionalSelector testing = new EmotionalSelector("Testing BT", characterTraits, new List<Node>
+            EmotionalSelector testing = new EmotionalSelector("Testing BT", characterTraits, reportManager, new List<Node>
             {
                 new FactorLeaf(NodeType.Idle, _emotionalFactors),
-                // new FactorLeaf(NodeType.MoveToTarget, _emotionalFactors),
-                // new FactorLeaf(NodeType.MoveToOrigin, _emotionalFactors),
                 new FactorLeaf(NodeType.Talk, _emotionalFactors),
                 new FactorLeaf(NodeType.Animate, _emotionalFactors),
                 new FactorLeaf(NodeType.Observe, _emotionalFactors),

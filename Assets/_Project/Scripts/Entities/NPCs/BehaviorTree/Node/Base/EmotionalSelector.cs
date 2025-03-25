@@ -15,6 +15,9 @@ namespace ATBMI.Entities.NPCs
         private readonly CharacterTraits traits;
         private readonly string[] _weightContexts = new string[5];
         
+        // Testing
+        private readonly ReportManager report;
+        
         // Cached fields
         private readonly float delta = 0.9f;   // Risk impact
         private readonly float lambda = 0.9f;  // Time discounting impact
@@ -47,6 +50,12 @@ namespace ATBMI.Entities.NPCs
             this.traits = traits;
         }
         
+        public EmotionalSelector(string nodeName, CharacterTraits traits, ReportManager report, List<Node> childNodes) : base(nodeName, childNodes)
+        {
+            this.traits = traits;
+            this.report = report;
+        }
+        
         // Core
         public override NodeStatus Evaluate()
         {
@@ -71,11 +80,11 @@ namespace ATBMI.Entities.NPCs
             
             // Compute and report weighted values for each child node
             var weightedNodes = new Dictionary<Node, float>();
-            ReportManager.CreateReport(emotion.ToString());
+            CreateReport(emotion.ToString());
             foreach (var child in childNodes)
             {
                 var weight = CalculateWeight(emotion, child, emoPlan, emoRisk, emoTime);
-                ReportManager.AppendReport(emotion.ToString(), _weightContexts);
+                AppendReport(emotion.ToString(), _weightContexts);
                 weightedNodes[child] = weight;
             }
             
@@ -180,8 +189,22 @@ namespace ATBMI.Entities.NPCs
             return sortedNodes.Last().Key;
         }
         
+        // Testing
+        private void CreateReport(string fileName)
+        {
+            if (!report) return;
+            report.CreateReport(fileName);
+        }
+
+        private void AppendReport(string fileName, string[] content)
+        {
+            if (!report) return;
+            report.AppendReport(fileName, content);
+        }
+        
         private void ReportWeights(string name, float wRisk, float wPlan, float wTime, float wTotal)
         {
+            if (!report) return;
             _weightContexts[0] = name;
             _weightContexts[1] = wRisk.ToString(CultureInfo.InvariantCulture);
             _weightContexts[2] = wPlan.ToString(CultureInfo.InvariantCulture);
