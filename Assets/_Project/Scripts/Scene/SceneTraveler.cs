@@ -7,15 +7,22 @@ namespace ATBMI.Scene
     [RequireComponent(typeof(Collider2D))]
     public class SceneTraveler : MonoBehaviour
     {
-        [Header("Properties")] 
+        #region Fields & Properties
+
+        [Header("Attribute")] 
         [SerializeField] private string regionName;
         [SerializeField] private string sceneId;
-        [SerializeField] private bool canTravel;
+        
+        private bool _canTravel;
         
         // Reference
         private Collider2D _collider2D;
-        
-        // Methods
+
+        #endregion
+
+        #region Methods
+
+        // Unity Callbacks
         private void Start()
         {
             _collider2D = GetComponent<Collider2D>();
@@ -25,10 +32,12 @@ namespace ATBMI.Scene
         
         private void Update()
         {
-            if (!canTravel) return;
+            if (!_canTravel) return;
             if (GameInputHandler.Instance.IsTapInteract)
             {
-                var sceneAsset = SceneDatabase.Instance.GetSceneAsset(regionName, sceneId);
+                var currentScene = SceneNavigation.Instance.CurrentScene;
+                var sceneAsset = currentScene.GetNeighbourById(sceneId);
+
                 if (!sceneAsset)
                 {
                     Debug.LogWarning("target scene not found");
@@ -43,7 +52,7 @@ namespace ATBMI.Scene
         {
             if (other.CompareTag(GameTag.PLAYER_TAG))
             {
-                canTravel = true;
+                _canTravel = true;
             }
         }
         
@@ -51,8 +60,10 @@ namespace ATBMI.Scene
         {
             if (other.CompareTag(GameTag.PLAYER_TAG))
             {
-                canTravel = false;
+                _canTravel = false;
             }
         }
+        
+        #endregion
     }
 }

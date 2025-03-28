@@ -13,10 +13,8 @@ MonoBehaviour:
   m_Name: S_Bali_Jalan_2
   m_EditorClassIdentifier: 
   sceneId: bali-jalan-2
-  confiner: {fileID: 0}
   reference:
     sceneAsset: {fileID: 102900000, guid: d40358cdebc130f4d8d113d9118512b1, type: 3}
     scenePath: Assets/_Project/Scenes/Chapter/chapter-1/Bali-v1/S_Bali_Jalan_2.unity
   neighbours:
-  - sceneAsset: {fileID: 11400000, guid: 540724bb6742d014a99785f26707a5e4, type: 2}
-    entryPointFrom: {fileID: 0}
+  - {fileID: 11400000, guid: 540724bb6742d014a99785f26707a5e4, type: 2}

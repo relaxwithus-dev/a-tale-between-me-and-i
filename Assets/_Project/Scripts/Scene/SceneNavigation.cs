@@ -1,60 +1,75 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Cinemachine;
-using ATBMI.Singleton;
 using ATBMI.Gameplay.Controller;
 
 namespace ATBMI.Scene
 {
-    public class SceneNavigation : MonoDDOL<SceneNavigation>
+    public class SceneNavigation : MonoBehaviour
     {
-        // Fields & Properties
+        #region Fields & Properties
+
         [Header("Properties")]
-        [SerializeField] private SceneAsset initializeScene;
         [SerializeField] private bool isInitialized;
-        
-        [Space]
-        [SerializeField] private Transform playerTransform;
-        [SerializeField] private CinemachineConfiner2D cameraConfiner;
+        [SerializeField] private SceneAsset initializeScene;
         [SerializeField] private FadeController fader;
         
-        private SceneAsset _currentScene;
-        private SceneAsset _latestScene;
         private AsyncOperation _asyncOperation;
+
+        public SceneAsset CurrentScene { get; private set; }
+        public SceneAsset LatestScene { get; private set; }
+        public static SceneNavigation Instance;
+
+        #endregion
+
+        #region Methods
         
-        // Methods
+        // Unity Callbacks
+        private void Awake()
+        {
+            if (Instance != null)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                Instance = this;
+            }
+        }
+
         private void Start()
         {
-            // Initialize Scene
+            // Initialize scene
             if (isInitialized) return;
-            _currentScene = initializeScene;
-            StartCoroutine(LoadSceneAsyncProcess(_currentScene.Reference));
+            StartCoroutine(InitSceneAsync());
         }
         
+        // Initialize
+        private IEnumerator InitSceneAsync()
+        {
+            fader.DoFade(1f, 0f);
+            
+            StartCoroutine(LoadSceneAsyncProcess(initializeScene.Reference)); 
+            _asyncOperation.allowSceneActivation = true;
+            CurrentScene = initializeScene;
+            
+            yield return new WaitForSeconds(fader.FadeDuration);
+            fader.FadeIn();
+        }
+        
+        // Core
         public void SwitchScene(SceneAsset sceneAsset)
         {
-            StartCoroutine(SwitchRoutine(sceneAsset));
-        }
-        
-        private IEnumerator SwitchRoutine(SceneAsset sceneAsset)
-        {
             fader.FadeOut();
-            if (_currentScene)
-                _latestScene = _currentScene;
+            if (CurrentScene)
+                LatestScene = CurrentScene;
             
-            // Setup properties
-            var fromNeighbour = sceneAsset.GetNeighbourById(_latestScene.Id);
-            playerTransform.position = fromNeighbour.entryPointFrom.position;
-            cameraConfiner.m_BoundingShape2D = sceneAsset.Confiner;
-            cameraConfiner.InvalidateCache();
-            
-            // Load scene
-            yield return LoadSceneAsyncProcess(sceneAsset.Reference);
+            // StartCoroutine(LoadSceneAsyncProcess(sceneAsset.Reference)); 
+            SceneManager.LoadSceneAsync(sceneAsset.Reference, LoadSceneMode.Additive);
             _asyncOperation.allowSceneActivation = true;
-            _currentScene = sceneAsset;
+            CurrentScene = sceneAsset;
             
-            UnloadSceneAsyncProcess(_latestScene.Reference);
+            SceneManager.UnloadSceneAsync(LatestScene.Reference);
             fader.FadeIn();
         }
         
@@ -73,5 +88,8 @@ namespace ATBMI.Scene
         {
             _asyncOperation = SceneManager.UnloadSceneAsync(scene);
         }
+
+        #endregion
+
     }
 }

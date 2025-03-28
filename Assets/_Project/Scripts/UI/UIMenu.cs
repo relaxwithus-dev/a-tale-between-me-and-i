@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using ATBMI.Gameplay.Event;
 using UnityEngine;
+using ATBMI.Gameplay.Event;
 
 namespace ATBMI
 {

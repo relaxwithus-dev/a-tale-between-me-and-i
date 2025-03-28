@@ -25,11 +25,6 @@ namespace ATBMI.Gameplay.Controller
             DOTween.Init(true, false, LogBehaviour.Verbose).SetCapacity(900, 450);
         }
         
-        private void Start()
-        {
-            FadeIn();
-        }
-        
         // Core
         public void FadeIn()
         {
@@ -54,7 +49,7 @@ namespace ATBMI.Gameplay.Controller
             });
         }
 
-        private void DoFade(float target, float duration, TweenCallback callback = null)
+        public void DoFade(float target, float duration, TweenCallback callback = null)
         {
             _fadeTween?.Kill(false);
             _fadeTween = fadeCanvasGroup.DOFade(target, duration);
