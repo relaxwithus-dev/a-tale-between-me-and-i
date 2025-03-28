@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using DG.Tweening;
 
@@ -10,7 +9,7 @@ namespace ATBMI.Gameplay.Controller
 
         [Header("Stats")]
         [SerializeField][Range(0f, 3f)] private float fadeDuration = 0.5f;
-        [SerializeField] private CanvasGroup fadeCanvasGroup;
+        [SerializeField] private CanvasGroup canvasGroup;
         
         private Tween _fadeTween;
         public float FadeDuration => fadeDuration;
@@ -28,31 +27,31 @@ namespace ATBMI.Gameplay.Controller
         // Core
         public void FadeIn()
         {
-            fadeCanvasGroup.gameObject.SetActive(true);
+            canvasGroup.gameObject.SetActive(true);
             
             DoFade(1f, 0f);
             DoFade(0f, fadeDuration, () => 
             {
-                fadeCanvasGroup.interactable = true;
-                fadeCanvasGroup.gameObject.SetActive(false);
+                canvasGroup.interactable = true;
+                canvasGroup.gameObject.SetActive(false);
             });
         }
         
         public void FadeOut()
         {
-            fadeCanvasGroup.gameObject.SetActive(true);
+            canvasGroup.gameObject.SetActive(true);
 
             DoFade(0f, 0f);
             DoFade(1f, fadeDuration, () =>
             {
-                fadeCanvasGroup.interactable = false;
+                canvasGroup.interactable = false;
             });
         }
 
         public void DoFade(float target, float duration, TweenCallback callback = null)
         {
             _fadeTween?.Kill(false);
-            _fadeTween = fadeCanvasGroup.DOFade(target, duration);
+            _fadeTween = canvasGroup.DOFade(target, duration);
             _fadeTween.onComplete += callback;
         }
 

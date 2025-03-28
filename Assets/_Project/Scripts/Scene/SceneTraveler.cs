@@ -43,7 +43,7 @@ namespace ATBMI.Scene
                     Debug.LogWarning("target scene not found");
                     return;
                 }
-                
+
                 SceneNavigation.Instance.SwitchScene(sceneAsset);
             }
         }

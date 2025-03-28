@@ -1,4 +1,5 @@
 using System.Collections;
+using ATBMI.Entities.Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using ATBMI.Gameplay.Controller;
@@ -47,6 +48,7 @@ namespace ATBMI.Scene
         // Initialize
         private IEnumerator InitSceneAsync()
         {
+            fader.gameObject.SetActive(true);
             fader.DoFade(1f, 0f);
             
             StartCoroutine(LoadSceneAsyncProcess(initializeScene.Reference)); 
@@ -60,16 +62,23 @@ namespace ATBMI.Scene
         // Core
         public void SwitchScene(SceneAsset sceneAsset)
         {
+            StartCoroutine(SwitchRoutine(sceneAsset));
+        }
+        
+        private IEnumerator SwitchRoutine(SceneAsset sceneAsset)
+        {
             fader.FadeOut();
+            yield return new WaitForSeconds(fader.FadeDuration);
+            
             if (CurrentScene)
                 LatestScene = CurrentScene;
-            
-            // StartCoroutine(LoadSceneAsyncProcess(sceneAsset.Reference)); 
-            SceneManager.LoadSceneAsync(sceneAsset.Reference, LoadSceneMode.Additive);
+
+            StartCoroutine(LoadSceneAsyncProcess(sceneAsset.Reference)); 
             _asyncOperation.allowSceneActivation = true;
             CurrentScene = sceneAsset;
             
-            SceneManager.UnloadSceneAsync(LatestScene.Reference);
+            UnloadSceneAsyncProcess(LatestScene.Reference);
+            yield return new WaitForSeconds(fader.FadeDuration * 2.5f);
             fader.FadeIn();
         }
         

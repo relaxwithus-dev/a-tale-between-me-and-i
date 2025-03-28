@@ -561,6 +561,7 @@ GameObject:
   - component: {fileID: 522382173}
   - component: {fileID: 522382172}
   - component: {fileID: 522382171}
+  - component: {fileID: 522382175}
   m_Layer: 5
   m_Name: Fader
   m_TagString: Untagged
@@ -637,52 +638,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &582810834
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 582810836}
-  - component: {fileID: 582810835}
-  m_Layer: 0
-  m_Name: FadeController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &582810835
+--- !u!114 &522382175
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 582810834}
+  m_GameObject: {fileID: 522382170}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 885e572c2b9549f4cbf88f60a4547868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fadeDuration: 0.5
-  fadeCanvasGroup: {fileID: 522382171}
---- !u!4 &582810836
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 582810834}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  canvasGroup: {fileID: 522382171}
 --- !u!1 &636046800
 GameObject:
   m_ObjectHideFlags: 0
@@ -817,7 +786,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isInitialized: 0
   initializeScene: {fileID: 11400000, guid: ee07507d86c9cc2429237254d53cb96a, type: 2}
-  fader: {fileID: 582810835}
+  fader: {fileID: 522382175}
 --- !u!1 &888167234
 GameObject:
   m_ObjectHideFlags: 0
@@ -1250,37 +1219,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7001795427993455385, guid: 1621db0aa22667849a0080a8db68adf8, type: 3}
   m_PrefabInstance: {fileID: 8118909723798628435}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1730592826
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1730592827}
-  m_Layer: 0
-  m_Name: --- Controller ---
-  m_TagString: EditorOnly
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1730592827
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1730592826}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1734531822
 GameObject:
   m_ObjectHideFlags: 0
@@ -2678,10 +2616,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2464458794868415110, guid: 87cb6c1027c86a24ebdad4f560f56b94, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3445732737556278748, guid: 87cb6c1027c86a24ebdad4f560f56b94, type: 3}
       propertyPath: m_Follow
       value: 
@@ -2742,8 +2676,6 @@ SceneRoots:
   - {fileID: 1023983488}
   - {fileID: 9030679253425923975}
   - {fileID: 2143600227}
-  - {fileID: 1730592827}
-  - {fileID: 582810836}
   - {fileID: 636046801}
   - {fileID: 1191665815}
   - {fileID: 811507926}
