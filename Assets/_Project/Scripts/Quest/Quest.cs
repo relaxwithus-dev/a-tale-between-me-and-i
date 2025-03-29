@@ -8,6 +8,7 @@ namespace ATBMI
     {
         // static info
         public QuestInfoSO info;
+        public int CurrentQuestStepIndex => currentQuestStepIndex;
 
         // state info
         public QuestStateEnum state;

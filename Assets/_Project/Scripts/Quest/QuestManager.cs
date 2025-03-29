@@ -130,7 +130,7 @@ namespace ATBMI
             
             if (Input.GetKeyDown(KeyCode.H))
             {
-                StartQuest(2); // go to market quest id
+                StartQuest(997); // go to market quest id
             }
 
             // if (Input.GetKeyDown(KeyCode.H))
