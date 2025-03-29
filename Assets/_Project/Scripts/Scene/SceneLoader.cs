@@ -2,6 +2,7 @@ using System;
 using ATBMI.Entities.Player;
 using Cinemachine;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace ATBMI.Scene
 {
@@ -13,7 +14,7 @@ namespace ATBMI.Scene
         private struct EntryInfo
         {
             public string id;
-            public Transform point;
+            public Transform pointFromScene;
         }
 
         #endregion
@@ -45,7 +46,7 @@ namespace ATBMI.Scene
         {
             var latestScene = SceneNavigation.Instance.LatestScene;
             var entryPoint = latestScene != null 
-                ? Array.Find(entryPoints, e => e.id == latestScene.Id).point 
+                ? Array.Find(entryPoints, e => e.id == latestScene.Id).pointFromScene 
                 : defaultPoint;
             
             _player.transform.position = entryPoint.position;

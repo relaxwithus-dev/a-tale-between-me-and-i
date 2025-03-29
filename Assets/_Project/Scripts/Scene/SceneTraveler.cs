@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 using ATBMI.Core;
 using ATBMI.Gameplay.Handler;
 
@@ -10,8 +11,8 @@ namespace ATBMI.Scene
         #region Fields & Properties
 
         [Header("Attribute")] 
-        [SerializeField] private string regionName;
         [SerializeField] private string sceneId;
+        [SerializeField] private TextMeshProUGUI infoTextUI;
         
         private bool _canTravel;
         
@@ -24,7 +25,9 @@ namespace ATBMI.Scene
 
         // Unity Callbacks
         private void Start()
-        {
+        { 
+            infoTextUI.gameObject.SetActive(false);
+                
             _collider2D = GetComponent<Collider2D>();
             _collider2D.isTrigger = true;
             _collider2D.enabled = true;
@@ -43,7 +46,8 @@ namespace ATBMI.Scene
                     Debug.LogWarning("target scene not found");
                     return;
                 }
-
+                
+                infoTextUI.gameObject.SetActive(false);
                 SceneNavigation.Instance.SwitchScene(sceneAsset);
             }
         }
@@ -53,6 +57,7 @@ namespace ATBMI.Scene
             if (other.CompareTag(GameTag.PLAYER_TAG))
             {
                 _canTravel = true;
+                infoTextUI.gameObject.SetActive(true);
             }
         }
         
@@ -61,6 +66,7 @@ namespace ATBMI.Scene
             if (other.CompareTag(GameTag.PLAYER_TAG))
             {
                 _canTravel = false;
+                infoTextUI.gameObject.SetActive(false);
             }
         }
         
