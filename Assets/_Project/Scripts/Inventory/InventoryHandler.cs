@@ -72,7 +72,10 @@ namespace ATBMI.Inventory
 
         private void CloseInventoryMenu()
         {
-            // (_inventoryCreator.InventoryFlags[selectedIndex] as InventoryFlag)?.Highlight(false);
+            if (selectedIndex != -1)
+            {
+                (_inventoryCreator.InventoryFlags[selectedIndex] as InventoryFlag)?.Highlight(false);
+            }
 
             selectedIndex = -1;
         }
