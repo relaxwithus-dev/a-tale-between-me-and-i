@@ -13,6 +13,7 @@ namespace ATBMI.Dialogue
         public Transform playerEntryPoint;
         public bool isPlayerInRange;
         public bool isDialogueAboutToStart;
+        public bool isExecuted;
 
         #region Dialogue Rules
         [Space(20)]
@@ -30,6 +31,7 @@ namespace ATBMI.Dialogue
         {
             DialogueEvents.OnEnterDialogue += OnEnterDialogue;
             DialogueEvents.OnEnterItemDialogue += OnEnterItemDialogue;
+            DialogueEvents.OnExitDialogue += ExitDialogue;
             DialogueEvents.PlayerRun += IsPlayerRun;
         }
 
@@ -37,7 +39,13 @@ namespace ATBMI.Dialogue
         {
             DialogueEvents.OnEnterDialogue -= OnEnterDialogue;
             DialogueEvents.OnEnterItemDialogue -= OnEnterItemDialogue;
+            DialogueEvents.OnExitDialogue -= ExitDialogue;
             DialogueEvents.PlayerRun -= IsPlayerRun;
+        }
+
+        private void ExitDialogue()
+        {
+            isExecuted = false;
         }
         
         public virtual void EnterDialogueWithInkJson(TextAsset InkJson)
@@ -45,6 +53,8 @@ namespace ATBMI.Dialogue
             DialogueManager.Instance.EnterDialogueMode(InkJson);
 
             isDialogueAboutToStart = false;
+
+            isExecuted = true;
         }
 
         public virtual void EnterDialogue(RuleEntry ruleEntry, TextAsset dialogue)

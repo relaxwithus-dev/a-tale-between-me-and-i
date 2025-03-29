@@ -383,6 +383,7 @@ namespace ATBMI.Dialogue
             
             playerController.StartMovement();
             DialogueEvents.StopDialogueAnimEvent();
+            DialogueEvents.OnExitDialogueEvent();
             
             // if (isSequenceIsPlaying)
             // {

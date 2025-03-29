@@ -8,6 +8,7 @@ namespace ATBMI.Gameplay.Event
         // Main Event
         public static event Action<TextAsset> OnEnterDialogue;
         public static event Action<TextAsset> OnEnterItemDialogue;
+        public static event Action OnExitDialogue;
         public static event Action<string> PlayDialogueAnim;
         public static event Action StopDialogueAnim;
         public static event Action<string> PlayEmojiAnim;
@@ -27,6 +28,7 @@ namespace ATBMI.Gameplay.Event
         // Main Event - Caller
         public static void EnterDialogueEvent(TextAsset defaultDialogue) => OnEnterDialogue?.Invoke(defaultDialogue);
         public static void EnterItemDialogueEvent(TextAsset itemDialogue) => OnEnterItemDialogue?.Invoke(itemDialogue);
+        public static void OnExitDialogueEvent() => OnExitDialogue?.Invoke();
         public static void PlayDialogueAnimEvent(string tag) => PlayDialogueAnim?.Invoke(tag);
         public static void StopDialogueAnimEvent() => StopDialogueAnim?.Invoke();
         public static void PlayEmojiAnimEvent(string tag) => PlayEmojiAnim?.Invoke(tag);
