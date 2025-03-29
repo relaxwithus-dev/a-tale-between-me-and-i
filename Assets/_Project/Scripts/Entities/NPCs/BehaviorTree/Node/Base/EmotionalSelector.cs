@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using ATBMI.Utilities;
 using UnityEngine;
+using ATBMI.Utilities;
 
 using Random = UnityEngine.Random;
 

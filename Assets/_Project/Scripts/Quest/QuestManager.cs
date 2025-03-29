@@ -1,10 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using ATBMI.Gameplay.Event;
-using ATBMI.Inventory;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using ATBMI.Gameplay.Event;
+using ATBMI.Inventory;
 
 namespace ATBMI
 {

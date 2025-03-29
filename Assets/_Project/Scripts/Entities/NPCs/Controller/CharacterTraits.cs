@@ -1,7 +1,7 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 using Sirenix.OdinInspector;
 using ATBMI.Enum;
-using UnityEngine.Serialization;
 
 namespace ATBMI.Entities.NPCs
 {

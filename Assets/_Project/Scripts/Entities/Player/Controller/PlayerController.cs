@@ -22,7 +22,7 @@ namespace ATBMI.Entities.Player
         private float _currentDeceleration;
         private Vector2 _latestDirection;
         private Vector2 _temporaryDirection = Vector2.zero;
-
+        
         public PlayerData Data => playerData;
         public bool IsRight => isRight;
         public bool CanMove => canMove;
