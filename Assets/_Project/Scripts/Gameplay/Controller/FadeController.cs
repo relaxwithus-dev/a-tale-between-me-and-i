@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using DG.Tweening;
 
@@ -25,25 +26,27 @@ namespace ATBMI.Gameplay.Controller
         }
         
         // Core
-        public void FadeIn()
+        public void FadeIn(Action onComplete = null)
         {
             canvasGroup.gameObject.SetActive(true);
             
             DoFade(1f, 0f);
             DoFade(0f, fadeDuration, () => 
             {
+                onComplete?.Invoke();
                 canvasGroup.interactable = true;
                 canvasGroup.gameObject.SetActive(false);
             });
         }
         
-        public void FadeOut()
+        public void FadeOut(Action onComplete = null)
         {
             canvasGroup.gameObject.SetActive(true);
 
             DoFade(0f, 0f);
             DoFade(1f, fadeDuration, () =>
             {
+                onComplete?.Invoke();
                 canvasGroup.interactable = false;
             });
         }

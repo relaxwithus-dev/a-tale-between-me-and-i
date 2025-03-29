@@ -13,6 +13,9 @@ namespace ATBMI.Scene
         [Header("Properties")]
         [SerializeField] private bool isInitialized;
         [SerializeField] private SceneAsset initializeScene;
+        
+        [Space]
+        [SerializeField] private PlayerController player;
         [SerializeField] private FadeController fader;
         
         private AsyncOperation _asyncOperation;
@@ -37,7 +40,7 @@ namespace ATBMI.Scene
                 Instance = this;
             }
         }
-
+        
         private void Start()
         {
             // Initialize scene
@@ -68,6 +71,7 @@ namespace ATBMI.Scene
         private IEnumerator SwitchRoutine(SceneAsset sceneAsset)
         {
             fader.FadeOut();
+            player.StopMovement();
             yield return new WaitForSeconds(fader.FadeDuration);
             
             if (CurrentScene)
@@ -79,7 +83,9 @@ namespace ATBMI.Scene
             
             UnloadSceneAsyncProcess(LatestScene.Reference);
             yield return new WaitForSeconds(fader.FadeDuration * 2.5f);
-            fader.FadeIn();
+            fader.FadeIn(() => {
+                player.StartMovement();
+            });
         }
         
         private IEnumerator LoadSceneAsyncProcess(SceneReference scene)
