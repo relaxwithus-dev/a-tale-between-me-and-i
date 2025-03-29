@@ -20,13 +20,16 @@ namespace ATBMI
             switch (status)
             {
                 case QuestStepStatusEnum.Null:
-                    statusIcon.color = Color.white;
+                    // statusIcon.color = Color.white;
+                    stepText.fontStyle = TMPro.FontStyles.Normal;
                     break;
                 case QuestStepStatusEnum.In_Progress:
-                    statusIcon.color = Color.white;
+                    // statusIcon.color = Color.white;
+                    stepText.fontStyle = TMPro.FontStyles.Normal;
                     break;
                 case QuestStepStatusEnum.Finished:
-                    statusIcon.color = Color.green;
+                    // statusIcon.color = Color.green;
+                    stepText.fontStyle = TMPro.FontStyles.Strikethrough;
                     break;
             }
         }
