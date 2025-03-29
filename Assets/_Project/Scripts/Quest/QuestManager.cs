@@ -125,7 +125,7 @@ namespace ATBMI
             // Test
             if (Input.GetKeyDown(KeyCode.G))
             {
-                StartQuest(1); // go to market quest id
+                StartQuest(999); // go to market quest id
             }
             
             if (Input.GetKeyDown(KeyCode.H))
@@ -186,7 +186,7 @@ namespace ATBMI
             {
                 ChangeQuestState(quest.info.QuestId, QuestStateEnum.Can_Finish);
 
-                if (!quest.info.shoulBeFinishManually)
+                if (!quest.info.shouldBeFinishManually)
                 {
                     FinishQuest(id);
                 }

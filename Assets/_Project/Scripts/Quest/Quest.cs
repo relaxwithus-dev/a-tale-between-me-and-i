@@ -61,7 +61,7 @@ namespace ATBMI
             {
                 QuestStep questStep = Object.Instantiate<GameObject>(questStepPrefab, parentTransform)
                     .GetComponent<QuestStep>();
-                questStep.InitializeQuestStep(info.QuestId, currentQuestStepIndex, questStepStates[currentQuestStepIndex].state);
+                questStep.InitializeQuestStep(info.QuestId, currentQuestStepIndex, questStepStates[currentQuestStepIndex].state, info.questSteps[currentQuestStepIndex].targetScene);
             }
         }
 

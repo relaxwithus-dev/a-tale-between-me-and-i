@@ -6,13 +6,15 @@ namespace ATBMI
     public abstract class QuestStep : MonoBehaviour
     {
         protected int questId;
+        protected string targetScene;
         private bool isFinished = false;
         private int stepIndex;
 
-        public void InitializeQuestStep(int questId, int stepIndex, string questStepState)
+        public void InitializeQuestStep(int questId, int stepIndex, string questStepState, string gameScene)
         {
             this.questId = questId;
             this.stepIndex = stepIndex;
+            this.targetScene = gameScene;
             if (questStepState != null && questStepState != "")
             {
                 SetQuestStepState(questStepState);
