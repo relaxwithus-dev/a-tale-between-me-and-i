@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ATBMI.Scene
 {
-    [CreateAssetMenu(fileName = "NewSceneAsset", menuName = "Data/Scene Asset", order = 0)]
+    [CreateAssetMenu(fileName = "NewSceneAsset", menuName = "Data/Scene/Scene Asset", order = 0)]
     public class SceneAsset : ScriptableObject
     {
         [Header("Assets")] 
