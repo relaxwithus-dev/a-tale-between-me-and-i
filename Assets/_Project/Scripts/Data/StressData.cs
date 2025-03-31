@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ATBMI.Data
 {
-    [CreateAssetMenu(fileName = "NewStressData", menuName = "Data/Stress Data", order = 0)]
+    [CreateAssetMenu(fileName = "NewStressData", menuName = "Data/Stress Data", order = 1)]
     public class StressData : ScriptableObject
     {
         [Header("General")]
