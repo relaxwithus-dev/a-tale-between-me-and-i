@@ -211,7 +211,7 @@ MonoBehaviour:
   isFirstSpawn: 1
   defaultPoint: {fileID: 1881756297}
   entryPoints:
-  - id: bali-dalam-rumah
+  - locationTarget: {fileID: 11400000, guid: 49bccccc83623e343a9fddd0dbe8e9fa, type: 2}
     pointFromScene: {fileID: 751338740}
   confiner: {fileID: 1375257704}
 --- !u!1 &466669627
@@ -848,7 +848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2d5600188a4b88854d4bd523fe97d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneId: bali-dalam-rumah
+  locationTarget: {fileID: 11400000, guid: 49bccccc83623e343a9fddd0dbe8e9fa, type: 2}
   infoTextUI: {fileID: 712656667}
 --- !u!1 &972521209
 GameObject:

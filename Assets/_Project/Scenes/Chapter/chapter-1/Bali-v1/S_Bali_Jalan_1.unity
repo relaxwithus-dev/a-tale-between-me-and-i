@@ -856,7 +856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2d5600188a4b88854d4bd523fe97d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneId: bali-dalam-rumah
+  locationTarget: {fileID: 11400000, guid: 49bccccc83623e343a9fddd0dbe8e9fa, type: 2}
   infoTextUI: {fileID: 1039546951}
 --- !u!1 &1039546948
 GameObject:
@@ -1276,9 +1276,9 @@ MonoBehaviour:
   isFirstSpawn: 0
   defaultPoint: {fileID: 1578348361}
   entryPoints:
-  - id: bali-dalam-rumah
+  - locationTarget: {fileID: 11400000, guid: 49bccccc83623e343a9fddd0dbe8e9fa, type: 2}
     pointFromScene: {fileID: 1061055696}
-  - id: bali-tebing
+  - locationTarget: {fileID: 11400000, guid: 98405a3f2128c0f498140b1e23881028, type: 2}
     pointFromScene: {fileID: 1243254175}
   confiner: {fileID: 320762905}
 --- !u!1 &1375646168
@@ -1475,7 +1475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2d5600188a4b88854d4bd523fe97d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneId: bali-tebing
+  locationTarget: {fileID: 11400000, guid: 98405a3f2128c0f498140b1e23881028, type: 2}
   infoTextUI: {fileID: 1039546951}
 --- !u!61 &1689487326
 BoxCollider2D:

@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a5d9a2753d3342619c3e76d19e25c859, type: 3}
-  m_Name: S_Bali_Jalan_2
+  m_Name: S_Bali_Kamar
   m_EditorClassIdentifier: 
-  sceneId: bali-jalan-2
+  locationTarget: {fileID: 11400000, guid: ba2deb381211ac74bac7c9db8aa8aba9, type: 2}
   reference:
-    sceneAsset: {fileID: 102900000, guid: d40358cdebc130f4d8d113d9118512b1, type: 3}
-    scenePath: Assets/_Project/Scenes/Chapter/chapter-1/Bali-v1/S_Bali_Jalan_2.unity
+    sceneAsset: {fileID: 102900000, guid: e3f412bafe46bf446868f02098ca6002, type: 3}
+    scenePath: Assets/_Project/Scenes/Chapter/chapter-1/Bali-v1/S_Bali_Kamar.unity
   neighbours:
-  - {fileID: 11400000, guid: 540724bb6742d014a99785f26707a5e4, type: 2}
+  - {fileID: 11400000, guid: ff6a8642627fbd0408869078cbcb7570, type: 2}

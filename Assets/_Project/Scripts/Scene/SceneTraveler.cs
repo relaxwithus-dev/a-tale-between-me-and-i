@@ -9,9 +9,9 @@ namespace ATBMI.Scene
     public class SceneTraveler : MonoBehaviour
     {
         #region Fields & Properties
-
+        
         [Header("Attribute")] 
-        [SerializeField] private string sceneId;
+        [SerializeField] private LocationTarget locationTarget;
         [SerializeField] private TextMeshProUGUI infoTextUI;
         
         private bool _canTravel;
@@ -39,7 +39,7 @@ namespace ATBMI.Scene
             if (GameInputHandler.Instance.IsTapInteract)
             {
                 var currentScene = SceneNavigation.Instance.CurrentScene;
-                var sceneAsset = currentScene.GetNeighbourById(sceneId);
+                var sceneAsset = currentScene.GetNeighbourById(locationTarget.location);
 
                 if (!sceneAsset)
                 {

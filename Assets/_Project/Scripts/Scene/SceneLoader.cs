@@ -13,7 +13,7 @@ namespace ATBMI.Scene
         [Serializable]
         private struct EntryInfo
         {
-            public string id;
+            [FormerlySerializedAs("locationData")] public LocationTarget locationTarget;
             public Transform pointFromScene;
         }
 
@@ -46,8 +46,14 @@ namespace ATBMI.Scene
         {
             var latestScene = SceneNavigation.Instance.LatestScene;
             var entryPoint = latestScene != null 
-                ? Array.Find(entryPoints, e => e.id == latestScene.Id).pointFromScene 
+                ? Array.Find(entryPoints, e => e.locationTarget.location == latestScene.Id).pointFromScene 
                 : defaultPoint;
+
+            if (entryPoint == null)
+            {
+                Debug.LogWarning("entry point not found!");
+                return;
+            }
             
             _player.transform.position = entryPoint.position;
             _cameraConfiner.m_BoundingShape2D = confiner;

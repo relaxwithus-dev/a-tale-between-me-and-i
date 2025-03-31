@@ -1043,7 +1043,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2d5600188a4b88854d4bd523fe97d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneId: bali-jalan-1
+  locationTarget: {fileID: 11400000, guid: 270a7b96ddb157046ba5ad55c6c0df27, type: 2}
   infoTextUI: {fileID: 713580704}
 --- !u!1 &1334933498
 GameObject:
@@ -1134,7 +1134,7 @@ MonoBehaviour:
   isFirstSpawn: 0
   defaultPoint: {fileID: 1578348361}
   entryPoints:
-  - id: bali-jalan-1
+  - locationTarget: {fileID: 11400000, guid: 270a7b96ddb157046ba5ad55c6c0df27, type: 2}
     pointFromScene: {fileID: 1578348361}
   confiner: {fileID: 659971550}
 --- !u!1 &1375646168
