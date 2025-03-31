@@ -5,7 +5,7 @@ using UnityEditor;
 namespace ATBMI.Scene
 {
     [CreateAssetMenu(fileName = "NewLocationData", menuName = "Data/Scene/Location Data", order = 1)]
-    public class LocationData : ScriptableObject
+    public class LocationTarget : ScriptableObject
     {
         [Header("Attribute")] 
         public Region region;
@@ -22,12 +22,12 @@ namespace ATBMI.Scene
         }
     }
     
-    [CustomEditor(typeof(LocationData))]
+    [CustomEditor(typeof(LocationTarget))]
     public class LocationDataEditor : Editor 
     {
         public override void OnInspectorGUI() 
         {
-            var selector = (LocationData)target;
+            var selector = (LocationTarget)target;
             var regionName = selector.region.ToString();
             selector.region = (Region)EditorGUILayout.EnumPopup("Region", selector.region);
 
