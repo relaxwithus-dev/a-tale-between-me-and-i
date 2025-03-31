@@ -14,15 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <QuestId>k__BackingField: 1
   displayName: Pergi ke tebing bersama anjingmu
-  shoulBeFinishManually: 0
+  shouldBeFinishManually: 0
   questPrerequisites: []
   questSteps:
-  - questStepPrefab: {fileID: 451177549589878547, guid: 39dd9701cbd20794abeb6b2592fc93be, type: 3}
+  - targetScene: prototype
+    questStepPrefab: {fileID: 451177549589878547, guid: 39dd9701cbd20794abeb6b2592fc93be, type: 3}
     stepStatusText: Cek ke dapur
-  - questStepPrefab: {fileID: 3739044540314316817, guid: 2b41b1465b6d290419b8ce36ef3b17bd, type: 3}
+  - targetScene: prototype
+    questStepPrefab: {fileID: 3739044540314316817, guid: 2b41b1465b6d290419b8ce36ef3b17bd, type: 3}
     stepStatusText: Periksa Kintamani di luar
-  - questStepPrefab: {fileID: 2670543971913793812, guid: a3eb455c847a9264aaafffbae22b1735, type: 3}
+  - targetScene: prototype
+    questStepPrefab: {fileID: 2670543971913793812, guid: a3eb455c847a9264aaafffbae22b1735, type: 3}
     stepStatusText: Pergilah ke tebing
-  - questStepPrefab: {fileID: 6549083851470520251, guid: 17dbfc586ff3e6c4eb714c1e98e5c383, type: 3}
+  - targetScene: prototype
+    questStepPrefab: {fileID: 6549083851470520251, guid: 17dbfc586ff3e6c4eb714c1e98e5c383, type: 3}
     stepStatusText: Balik ke kamar untuk istirahat
   rewardItem: []

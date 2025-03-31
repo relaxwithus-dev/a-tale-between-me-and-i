@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7141115465186423564}
   - component: {fileID: -796338585192130371}
-  - component: {fileID: 7952834315586394372}
+  - component: {fileID: -5088641390715011811}
   m_Layer: 0
   m_Name: TriggerCutsceneDapur
   m_TagString: Untagged
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 451177549589878547}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20.6, y: -2.8, z: 0}
+  m_LocalPosition: {x: -21.3, y: -2.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -78,7 +78,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &7952834315586394372
+--- !u!114 &-5088641390715011811
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -87,6 +87,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 451177549589878547}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c993c11439fe7534cac4b1e1df038025, type: 3}
+  m_Script: {fileID: 11500000, guid: 0fb01d7676b8c394fb1beb8111914801, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

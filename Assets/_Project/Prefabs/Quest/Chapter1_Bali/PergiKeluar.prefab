@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7121175244127717336}
   - component: {fileID: -5322026860097989802}
-  - component: {fileID: 2492251876849114791}
+  - component: {fileID: 4960166282581895079}
   m_Layer: 0
   m_Name: PergiKeluar
   m_TagString: Untagged
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 7625369298513363047}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.86, y: -20.46, z: -1.7950903}
+  m_LocalPosition: {x: -7.86, y: -20.46, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -78,7 +78,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &2492251876849114791
+--- !u!114 &4960166282581895079
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -87,6 +87,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7625369298513363047}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d41df49b8b0c6c542816517fd6f9a985, type: 3}
+  m_Script: {fileID: 11500000, guid: 0fb01d7676b8c394fb1beb8111914801, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
