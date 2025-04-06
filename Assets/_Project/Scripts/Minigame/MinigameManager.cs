@@ -17,7 +17,7 @@ namespace ATBMI.Minigame
         #endregion
         
         #region Methods
-
+        
         // Unity Callbacks
         private void Awake()
         {
@@ -25,12 +25,16 @@ namespace ATBMI.Minigame
         }
         
         // Core
-        public void PlayMinigame()
+        public void EnterMinigame()
         {
-            isPlaying = false;
             _playerController.StopMovement();
             minigameView.gameObject.SetActive(true);
             minigameView.EnterMinigame();
+        }
+        
+        public void ExitMinigame()
+        {
+            _playerController.StopMovement();
         }
         
         #endregion

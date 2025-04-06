@@ -160,11 +160,11 @@ namespace ATBMI.Interaction
 
         private void HandleNavigation()
         {
-            if (GameInputHandler.Instance.IsNavigateUp)
+            if (GameInputHandler.Instance.IsArrowRight)
             {
                 scrollSnap.GoToNextPanel();
             }
-            else if (GameInputHandler.Instance.IsNavigateDown)
+            else if (GameInputHandler.Instance.IsArrowLeft)
             {
                 scrollSnap.GoToPreviousPanel();
             }
