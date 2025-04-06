@@ -537,7 +537,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &198305518
 Transform:
   m_ObjectHideFlags: 0
@@ -566,7 +566,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlaying: 0
-  minigameView: {fileID: 0}
+  minigameView: {fileID: 1416036989}
 --- !u!1 &227151674
 GameObject:
   m_ObjectHideFlags: 0
@@ -613,6 +613,7 @@ GameObject:
   - component: {fileID: 232565023}
   - component: {fileID: 232565025}
   - component: {fileID: 232565024}
+  - component: {fileID: 232565026}
   m_Layer: 5
   m_Name: ArrowPanel
   m_TagString: Untagged
@@ -678,6 +679,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 232565022}
   m_CullTransparentMesh: 1
+--- !u!114 &232565026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 232565022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8cad1b38d444127b62842efadc12bbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minigamePanelUI: {fileID: 232565022}
+  minigameManager: {fileID: 198305519}
+  isPlayMinigame: 0
+  arrowCount: 3
+  arrowDuration: 6
+  arrowForms:
+  - name: Arrow Up
+    form: {fileID: 21300000, guid: 5c87c855171374440b9f5e764acc8405, type: 3}
+  - name: Arrow Down
+    form: {fileID: 21300000, guid: 0084c7214dabfef43ae4074bc931271f, type: 3}
+  - name: Arrow Left
+    form: {fileID: 21300000, guid: 80996362f1ee3994aa816f4fadfc3c87, type: 3}
+  - name: Arrow Right
+    form: {fileID: 21300000, guid: 015d34fd8d49fd547a2545a1fd5b10bf, type: 3}
+  arrowImages:
+  - {fileID: 785452145}
+  - {fileID: 182456298}
+  - {fileID: 1716712014}
+  - {fileID: 603265457}
+  - {fileID: 973108637}
+  arrowSlider: {fileID: 622220444}
 --- !u!1 &287419259
 GameObject:
   m_ObjectHideFlags: 0
@@ -2879,12 +2913,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1416036987}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b8cad1b38d444127b62842efadc12bbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   minigamePanelUI: {fileID: 232565022}
+  minigameManager: {fileID: 0}
   isPlayMinigame: 0
   arrowCount: 3
   arrowDuration: 6

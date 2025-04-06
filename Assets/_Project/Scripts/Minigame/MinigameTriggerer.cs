@@ -11,7 +11,7 @@ namespace ATBMI.Minigame
         #region Fields & Properties
         
         [Header("Attribute")] 
-        [SerializeField] private MinigameView minigameView;
+        [SerializeField] private MinigameManager minigameView;
         [SerializeField] private TextMeshProUGUI infoTextUI;
         
         private bool _canPlayMinigame;

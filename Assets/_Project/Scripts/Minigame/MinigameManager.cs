@@ -28,13 +28,15 @@ namespace ATBMI.Minigame
         public void EnterMinigame()
         {
             _playerController.StopMovement();
+            
             minigameView.gameObject.SetActive(true);
             minigameView.EnterMinigame();
         }
         
         public void ExitMinigame()
         {
-            _playerController.StopMovement();
+            _playerController.StartMovement();
+            minigameView.gameObject.SetActive(false);
         }
         
         #endregion
