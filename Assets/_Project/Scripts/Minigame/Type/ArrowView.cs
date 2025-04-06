@@ -20,10 +20,11 @@ namespace ATBMI.Minigame
         }
         
         [Header("Attribute")] 
-        [SerializeField] private float arrowDuration;
         [SerializeField] private int arrowCount;
+        [SerializeField] private float arrowDuration;
         [SerializeField] private Arrows[] arrowForms;
-        
+
+        private float _elapsedTime;
         private int _currentArrowIndex;
         private readonly List<string> _spawnedArrowNames = new();
         
@@ -43,23 +44,28 @@ namespace ATBMI.Minigame
         {
             base.InitOnStart();
             
+            _elapsedTime = 0f;
             _currentArrowIndex = 0;
             _input = GameInputHandler.Instance;
+            arrowSlider.value = MAX_SLIDER_VALUE;
             
             ResetArrowImage(isNonActivate: true);
             
             // Drop this when complete!
             EnterMinigame();
         }
-
+        
         // Core
         public override void EnterMinigame() 
         {
             base.EnterMinigame();
             
+            _elapsedTime = 0f;
             _currentArrowIndex = 0;
             if (_spawnedArrowNames.Count > 0)
                 _spawnedArrowNames.Clear();
+            
+            arrowSlider.value = MAX_SLIDER_VALUE;
             
             for (var i = 0; i < arrowCount; i++)
             {
@@ -82,6 +88,18 @@ namespace ATBMI.Minigame
         {
             base.RunMinigame();
             
+            HandleArrowTime();
+            HandleArrowGameplay();
+        }
+        
+        public override void ExitMinigame()
+        {
+            base.ExitMinigame();
+            ResetArrowImage(isNonActivate: true);
+        }
+        
+        private void HandleArrowGameplay()
+        {
             var inputName = GetArrowInputName();
             if (!string.IsNullOrEmpty(inputName))
             {
@@ -98,15 +116,24 @@ namespace ATBMI.Minigame
             }
             
             if (_currentArrowIndex >= arrowCount)
+            {
+                Debug.Log("win ez");
                 ExitMinigame();
+            }
         }
         
-        public override void ExitMinigame()
+        private void HandleArrowTime()
         {
-            base.ExitMinigame();
-            ResetArrowImage(isNonActivate: true);
+            _elapsedTime += Time.deltaTime;
+            arrowSlider.value = Mathf.Lerp(MAX_SLIDER_VALUE, MIN_SLIDER_VALUE, _elapsedTime / arrowDuration);
+            if (arrowSlider.value <= MIN_SLIDER_VALUE)
+            {
+                Debug.Log("lose cupu");
+                arrowSlider.value = MIN_SLIDER_VALUE;
+                ExitMinigame();
+            }
         }
-
+        
         private void ResetArrowImage(bool isNonActivate)
         {
             foreach (var arrow in arrowImages)

@@ -17,26 +17,20 @@ namespace ATBMI.Minigame
         
         #region Methods
         
-        // Unity Callbacks
-        private void Start()
-        {
-            
-        }
-        
-        private void Update()
-        {
-            
-        }
-        
         // Core
         public override void EnterMinigame() 
         {
-            
+            base.EnterMinigame();
         }
 
+        protected override void RunMinigame()
+        {
+            base.RunMinigame();
+        }
+        
         public override void ExitMinigame()
         {
-            
+            base.ExitMinigame();
         }
 
         #endregion

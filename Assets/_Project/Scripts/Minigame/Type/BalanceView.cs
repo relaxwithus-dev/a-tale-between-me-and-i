@@ -7,36 +7,28 @@ namespace ATBMI.Minigame
         #region Fields & Properties
 
         [Header("Attribute")] 
-        [SerializeField] private float duration;
+        [SerializeField] private float balanceDuration;
         [SerializeField] private float[] speedRange;
         [SerializeField] private float barWidth;
         
-        private float _currentDuration;
-
         #endregion
         
         #region Methods
         
-        // Unity Callbacks
-        private void Start()
-        {
-            _currentDuration = duration;
-        }
-        
-        private void Update()
-        {
-            
-        }
-        
         // Core
         public override void EnterMinigame() 
         {
-            
+            base.EnterMinigame();
         }
 
+        protected override void RunMinigame()
+        {
+            base.RunMinigame();
+        }
+        
         public override void ExitMinigame()
         {
-            _currentDuration = duration;
+            base.ExitMinigame();
         }
 
         #endregion

@@ -54,7 +54,7 @@ namespace ATBMI.Minigame
             minigamePanelUI.SetActive(false);
             _playerController.StartMovement();
         }
-
+        
         protected virtual void RunMinigame() { }
         
         #endregion
