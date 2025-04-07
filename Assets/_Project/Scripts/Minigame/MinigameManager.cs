@@ -1,4 +1,5 @@
 using UnityEngine;
+using Sirenix.OdinInspector;
 using ATBMI.Entities.Player;
 
 namespace ATBMI.Minigame
@@ -6,10 +7,14 @@ namespace ATBMI.Minigame
     public class MinigameManager : MonoBehaviour
     {
         #region Fields & Properties
-
+        
+        private enum MinigameType { Arrow, Balance, Mesh }
+        
         [Header("Properties")]
-        [SerializeField] private bool isPlaying;
-        [SerializeField] private MinigameView minigameView;
+        [SerializeField] private MinigameType minigameType;
+        [SerializeField] [ReadOnly] private MinigameView[] minigameViews;
+        
+        private MinigameView _selectedView;
         
         // Reference
         private PlayerController _playerController;
@@ -27,16 +32,31 @@ namespace ATBMI.Minigame
         // Core
         public void EnterMinigame()
         {
+            _selectedView = GetMinigameView(minigameType);
             _playerController.StopMovement();
             
-            minigameView.gameObject.SetActive(true);
-            minigameView.EnterMinigame();
+            _selectedView.gameObject.SetActive(true);
+            _selectedView.EnterMinigame();
         }
         
         public void ExitMinigame()
         {
+            if (!_selectedView)
+                return;
+            
             _playerController.StartMovement();
-            minigameView.gameObject.SetActive(false);
+            _selectedView.gameObject.SetActive(false);
+        }
+
+        private MinigameView GetMinigameView(MinigameType type)
+        {
+            return type switch
+            {
+                MinigameType.Arrow => minigameViews[0],
+                MinigameType.Balance => minigameViews[1],
+                MinigameType.Mesh => minigameViews[2],
+                _ => null
+            };
         }
         
         #endregion

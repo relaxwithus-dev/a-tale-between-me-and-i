@@ -28,7 +28,7 @@ namespace ATBMI.Minigame
             base.RunMinigame();
         }
         
-        public override void ExitMinigame()
+        protected override void ExitMinigame()
         {
             base.ExitMinigame();
         }

@@ -7,7 +7,6 @@ namespace ATBMI.Minigame
         #region Global Fields
         
         [Header("View")]
-        [SerializeField] private GameObject minigamePanelUI;
         [SerializeField] private MinigameManager minigameManager;
         [SerializeField] private bool isPlayMinigame;
         
@@ -36,14 +35,13 @@ namespace ATBMI.Minigame
         {
             isPlayMinigame = true;
         }
-        
-        public virtual void ExitMinigame()
+        protected virtual void RunMinigame() { }
+        protected virtual void ExitMinigame()
         {
             isPlayMinigame = false;
             minigameManager.ExitMinigame();
         }
         
-        protected virtual void RunMinigame() { }
         
         #endregion
     }

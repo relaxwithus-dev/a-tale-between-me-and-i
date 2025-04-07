@@ -2,7 +2,6 @@ using UnityEngine;
 using TMPro;
 using ATBMI.Core;
 using ATBMI.Gameplay.Handler;
-using UnityEngine.Serialization;
 
 namespace ATBMI.Minigame
 {
@@ -11,7 +10,7 @@ namespace ATBMI.Minigame
         #region Fields & Properties
         
         [Header("Attribute")] 
-        [SerializeField] private MinigameManager minigameView;
+        [SerializeField] private MinigameManager minigameManager;
         [SerializeField] private TextMeshProUGUI infoTextUI;
         
         private bool _canPlayMinigame;
@@ -41,7 +40,7 @@ namespace ATBMI.Minigame
                 _canPlayMinigame = false;
                 
                 infoTextUI.gameObject.SetActive(false);
-                minigameView.EnterMinigame();
+                minigameManager.EnterMinigame();
             }
         }
         

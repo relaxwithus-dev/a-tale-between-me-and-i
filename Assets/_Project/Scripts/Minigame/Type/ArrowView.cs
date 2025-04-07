@@ -92,7 +92,7 @@ namespace ATBMI.Minigame
             HandleArrowGameplay();
         }
         
-        public override void ExitMinigame()
+        protected override void ExitMinigame()
         {
             base.ExitMinigame();
             ResetArrowImage(isNonActivate: true);
