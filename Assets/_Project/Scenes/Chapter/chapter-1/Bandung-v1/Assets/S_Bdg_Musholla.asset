@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a5d9a2753d3342619c3e76d19e25c859, type: 3}
-  m_Name: S_Bali_Pintu_Mimpi
+  m_Name: S_Bdg_Musholla
   m_EditorClassIdentifier: 
-  locationTarget: {fileID: 11400000, guid: 7c28532a8ebaaac45b59a0d2288919cb, type: 2}
+  locationTarget: {fileID: 11400000, guid: 01cda0f8499ca294abf269a2676aa611, type: 2}
   reference:
-    sceneAsset: {fileID: 102900000, guid: 93c21d121569aa1429c5274bf8ac451d, type: 3}
-    scenePath: Assets/_Project/Scenes/Chapter/chapter-1/Bali-v1/S_Bali_Pintu_Mimpi.unity
-  neighbours: []
+    sceneAsset: {fileID: 0}
+    scenePath: 
+  neighbours:
+  - {fileID: 11400000, guid: 4075ccef39870854285d89291cc33ac0, type: 2}
+  - {fileID: 11400000, guid: 1f8852a96c63dbc4bb75817b4a23a342, type: 2}

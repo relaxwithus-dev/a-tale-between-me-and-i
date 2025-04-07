@@ -433,7 +433,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -4.4389133}
+  m_Offset: {x: -0.9626241, y: -5.664075}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -444,7 +444,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 60, y: 1.2684484}
+  m_Size: {x: 17.119343, y: 0.4516735}
   m_EdgeRadius: 0
 --- !u!1 &320762904
 GameObject:
@@ -671,8 +671,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -2088782713
+  m_SortingLayer: -1
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 3573a6eea991df04fac018960e83d7d9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1356,9 +1356,9 @@ MonoBehaviour:
   isFirstSpawn: 0
   defaultPoint: {fileID: 1578348361}
   entryPoints:
-  - locationTarget: {fileID: 11400000, guid: 49bccccc83623e343a9fddd0dbe8e9fa, type: 2}
+  - locationTarget: {fileID: 11400000, guid: 270a7b96ddb157046ba5ad55c6c0df27, type: 2}
     pointFromScene: {fileID: 1061055696}
-  - locationTarget: {fileID: 11400000, guid: 98405a3f2128c0f498140b1e23881028, type: 2}
+  - locationTarget: {fileID: 11400000, guid: 49bccccc83623e343a9fddd0dbe8e9fa, type: 2}
     pointFromScene: {fileID: 1243254175}
   confiner: {fileID: 320762905}
 --- !u!1 &1375646168
@@ -1468,7 +1468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2d5600188a4b88854d4bd523fe97d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locationTarget: {fileID: 11400000, guid: 98405a3f2128c0f498140b1e23881028, type: 2}
+  locationTarget: {fileID: 11400000, guid: 270a7b96ddb157046ba5ad55c6c0df27, type: 2}
   infoTextUI: {fileID: 1039546951}
 --- !u!61 &1689487326
 BoxCollider2D:
@@ -1712,8 +1712,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -2088782713
+  m_SortingLayer: -1
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 9a259b351da41e444a9ffbac91edb7e6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1827,8 +1827,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -2088782713
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 05a8272394774114880f12b40d29ffa7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
