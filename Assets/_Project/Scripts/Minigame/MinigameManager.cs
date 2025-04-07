@@ -29,6 +29,14 @@ namespace ATBMI.Minigame
             _playerController = FindObjectOfType<PlayerController>();
         }
         
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                EnterMinigame();
+            }
+        }
+        
         // Core
         public void EnterMinigame()
         {

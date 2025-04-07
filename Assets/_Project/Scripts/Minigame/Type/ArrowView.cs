@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using ATBMI.Gameplay.Handler;
-
+using Unity.VisualScripting;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace ATBMI.Minigame
 {
     public class ArrowView : MinigameView
     {
-        #region Fields & Properties
+        #region Structs
 
         [Serializable]
         private struct Arrows
@@ -19,13 +20,26 @@ namespace ATBMI.Minigame
             public Sprite form;
         }
         
-        [Header("Attribute")] 
-        [SerializeField] private int arrowCount;
-        [SerializeField] private float arrowDuration;
-        [SerializeField] private Arrows[] arrowForms;
+        [Serializable]
+        private struct ArrowAttribute
+        {
+            public int count;
+            public float duration;
+        }
 
+        #endregion
+        
+        #region Fields & Properties
+        
+        [Header("Attribute")] 
+        [SerializeField] private ArrowAttribute[] arrowAttributes;
+        [SerializeField] private Arrows[] arrowForms;
+    
         private float _elapsedTime;
+        private int _interactCount;
         private int _currentArrowIndex;
+        
+        private ArrowAttribute _currentAttribute;
         private readonly List<string> _spawnedArrowNames = new();
         
         [Header("UI")]
@@ -39,37 +53,28 @@ namespace ATBMI.Minigame
         
         #region Methods
         
-        // Initialize
-        protected override void InitOnStart()
-        {
-            base.InitOnStart();
-            
-            _elapsedTime = 0f;
-            _currentArrowIndex = 0;
-            _input = GameInputHandler.Instance;
-            arrowSlider.value = MAX_SLIDER_VALUE;
-            
-            ResetArrowImage(isNonActivate: true);
-            
-            // Drop this when complete!
-            EnterMinigame();
-        }
-        
         // Core
         public override void EnterMinigame() 
         {
             base.EnterMinigame();
             
+            // Initiate attribute
             _elapsedTime = 0f;
             _currentArrowIndex = 0;
-            if (_spawnedArrowNames.Count > 0)
-                _spawnedArrowNames.Clear();
+            
+            _spawnedArrowNames.Clear();
+            _input ??= GameInputHandler.Instance;
+            _currentAttribute = arrowAttributes[_interactCount];
             
             arrowSlider.value = MAX_SLIDER_VALUE;
             
-            for (var i = 0; i < arrowCount; i++)
+            // Reset image
+            ResetArrowImage(isNonActivate: true);
+            
+            // Initiate Image
+            for (var i = 0; i < _currentAttribute.count; i++)
             {
-                if (arrowImages.Length < arrowCount)
+                if (arrowImages.Length < _currentAttribute.count)
                 {
                     Debug.LogWarning("Arrow image count is less than arrow count!");
                     break;
@@ -114,10 +119,10 @@ namespace ATBMI.Minigame
                     ResetArrowImage(isNonActivate: false);
                 }
             }
-            
-            if (_currentArrowIndex >= arrowCount)
+
+            if (_currentArrowIndex >= _currentAttribute.count)
             {
-                Debug.Log("win ez");
+                _interactCount = Mathf.Clamp(_interactCount + 1, 0, arrowAttributes.Length - 1);
                 ExitMinigame();
             }
         }
@@ -125,10 +130,10 @@ namespace ATBMI.Minigame
         private void HandleArrowTime()
         {
             _elapsedTime += Time.deltaTime;
-            arrowSlider.value = Mathf.Lerp(MAX_SLIDER_VALUE, MIN_SLIDER_VALUE, _elapsedTime / arrowDuration);
+            arrowSlider.value = Mathf.Lerp(MAX_SLIDER_VALUE, MIN_SLIDER_VALUE, _elapsedTime / _currentAttribute.duration);
+            
             if (arrowSlider.value <= MIN_SLIDER_VALUE)
             {
-                Debug.Log("lose cupu");
                 arrowSlider.value = MIN_SLIDER_VALUE;
                 ExitMinigame();
             }

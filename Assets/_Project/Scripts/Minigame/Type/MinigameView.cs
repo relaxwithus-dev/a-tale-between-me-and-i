@@ -17,11 +17,6 @@ namespace ATBMI.Minigame
 
         #region Methods
         
-        private void Start()
-        {
-            InitOnStart();
-        }
-        
         private void Update()
         {
             if (!isPlayMinigame) return;
@@ -29,8 +24,6 @@ namespace ATBMI.Minigame
         }
         
         // Core
-        protected virtual void InitOnStart() { }
-        
         public virtual void EnterMinigame()
         {
             isPlayMinigame = true;
