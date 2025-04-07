@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a5d9a2753d3342619c3e76d19e25c859, type: 3}
-  m_Name: S_Bali_Tebing
+  m_Name: S_Sby_Taman
   m_EditorClassIdentifier: 
-  locationTarget: {fileID: 11400000, guid: 98405a3f2128c0f498140b1e23881028, type: 2}
+  locationTarget: {fileID: 11400000, guid: b8ea39d814811124d9c00fded9fabdbc, type: 2}
   reference:
-    sceneAsset: {fileID: 102900000, guid: 7ef131735b65a8445964cbd2dc299595, type: 3}
-    scenePath: Assets/_Project/Scenes/Chapter/chapter-1/Bali-v1/S_Bali_Tebing.unity
+    sceneAsset: {fileID: 0}
+    scenePath: 
   neighbours:
-  - {fileID: 11400000, guid: 8a32ae7f891060b4a804f0b24de2fa4d, type: 2}
+  - {fileID: 11400000, guid: 93a57a46c08052f4fa2bfb097674d61d, type: 2}
+  - {fileID: 11400000, guid: c0905a0478d928e4fac4b369d661670b, type: 2}
