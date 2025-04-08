@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2b450a47a515ba40b7e732579b2c69b, type: 3}
+  m_Name: TuanAkanMemasak
+  m_EditorClassIdentifier: 
+  <QuestId>k__BackingField: 0
+  displayName: Tuan akan memasak
+  shouldBeFinishManually: 0
+  questPrerequisites: []
+  questSteps:
+  - targetScene: S_Bdg_Toko_Kelontong
+    questStepPrefab: {fileID: 1003646914550813466, guid: 21f624a8a61e47c4b9133faadd96efed, type: 3}
+    stepStatusText: Ikuti warna melayang tersebut lagi
+  - targetScene: S_Bdg_Toko_Kelontong
+    questStepPrefab: {fileID: 738487786386527901, guid: c7c088417c8b0c64a8c50a8b06955b56, type: 3}
+    stepStatusText: Hentikan orang yang sedang mencuri itu
+  - targetScene: S_Bdg_Toko_Kelontong
+    questStepPrefab: {fileID: 1849394506524788674, guid: 5bc34c9b57b25744ba0a7cfea88702cc, type: 3}
+    stepStatusText: Cari tepung di toko kelontong
+  - targetScene: S_Bdg_Jalan_Mekar_Mulya_1
+    questStepPrefab: {fileID: 7219820464004067542, guid: df6e2d9f0f8a95a4e810683caed46772, type: 3}
+    stepStatusText: Cari telur di toko sebelah
+  - targetScene: S_Bdg_Toko_Kelontong
+    questStepPrefab: {fileID: 7370954608848588666, guid: b6e2e24a872efb24185b31d2614cc12a, type: 3}
+    stepStatusText: Kembali ke Ratna dan Waffa
+  - targetScene: S_Bdg_Dalam_Rumah_Waffa
+    questStepPrefab: {fileID: 2543979134074518798, guid: 9ba4b5e471cf87947a6184634b9985b8, type: 3}
+    stepStatusText: Kejar Waffa!
+  - targetScene: S_Bdg_Dalam_Rumah_Waffa
+    questStepPrefab: {fileID: 4924724888794256049, guid: 2d2a7a17f7385954aa5847b20ef5124c, type: 3}
+    stepStatusText: Ambil benda aneh tersebut
+  - targetScene: S_Bdg_Rumah_Waffa
+    questStepPrefab: {fileID: 4918882349780945386, guid: c80484d28b67e8746bc0f7cb417a17ae, type: 3}
+    stepStatusText: Ajak Ratna berdiskusi di depan
+  rewardItem: []

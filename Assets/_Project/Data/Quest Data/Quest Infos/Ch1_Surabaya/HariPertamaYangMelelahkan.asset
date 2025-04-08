@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2b450a47a515ba40b7e732579b2c69b, type: 3}
+  m_Name: HariPertamaYangMelelahkan
+  m_EditorClassIdentifier: 
+  <QuestId>k__BackingField: 0
+  displayName: Hari pertama yang melelahkan
+  shouldBeFinishManually: 0
+  questPrerequisites: []
+  questSteps:
+  - targetScene: S_Sby_Kamar_Kos
+    questStepPrefab: {fileID: 2565938749532189052, guid: ed94c095680bd1743b4a49e9e34e458b, type: 3}
+    stepStatusText: Segera mandi
+  - targetScene: S_Sby_Kamar_Kos
+    questStepPrefab: {fileID: 4323906254169627582, guid: 5c153840725523746a34418d00b8cad3, type: 3}
+    stepStatusText: Aku harus membawa buku, peralatan tulis, serta laptop
+  - targetScene: S_Sby_Jalan_Mulyorejo_3
+    questStepPrefab: {fileID: 8973310822000188913, guid: 800c7a8e9212f8b4dabfbaa3a13aa801, type: 3}
+    stepStatusText: Pergi ke kampus
+  - targetScene: S_Sby_PENS
+    questStepPrefab: {fileID: 3891797877587026628, guid: f9f5bdf9c9515d4419a6b228275be353, type: 3}
+    stepStatusText: Cari kampus bersama teman baru
+  - targetScene: S_Sby_Kantin
+    questStepPrefab: {fileID: 4104459510338152752, guid: 1e6af18de1343d04a80f70fa93699660, type: 3}
+    stepStatusText: Pergi ke ruangan kelas
+  - targetScene: S_Sby_Kantin
+    questStepPrefab: {fileID: 1421200665787207026, guid: e411c891b2be58c45956665fbd5523f8, type: 3}
+    stepStatusText: Hentikan Ratna untuk ikut campur
+  - targetScene: S_Sby_Kampus
+    questStepPrefab: {fileID: 5235361283557259965, guid: f2fe8fdca2daeb54aa0226334d8bcc4e, type: 3}
+    stepStatusText: Ikuti arahan dari kakak tingkat
+  - targetScene: S_Sby_Kamar_Kos
+    questStepPrefab: {fileID: 6200727874676888648, guid: 3beb9339b2b645947a05cee378fd0bae, type: 3}
+    stepStatusText: Beristirahatlah di kamar kos mu
+  rewardItem: []
