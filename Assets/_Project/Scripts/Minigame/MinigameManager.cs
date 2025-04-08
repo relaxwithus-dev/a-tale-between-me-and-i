@@ -28,7 +28,17 @@ namespace ATBMI.Minigame
         {
             _playerController = FindObjectOfType<PlayerController>();
         }
+
+        private void Start()
+        {
+            _selectedView = GetMinigameView(minigameType);
+            foreach (var view in minigameViews)
+            {
+                view.gameObject.SetActive(false);
+            }
+        }
         
+        // TODO: Drop update method pas minigame aman
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Space))
@@ -40,9 +50,7 @@ namespace ATBMI.Minigame
         // Core
         public void EnterMinigame()
         {
-            _selectedView = GetMinigameView(minigameType);
             _playerController.StopMovement();
-            
             _selectedView.gameObject.SetActive(true);
             _selectedView.EnterMinigame();
         }
