@@ -34,12 +34,11 @@ namespace ATBMI.Minigame
         [Header("Attribute")] 
         [SerializeField] private ArrowAttribute[] arrowAttributes;
         [SerializeField] private Arrows[] arrowForms;
-    
+        
         private float _elapsedTime;
-        private int _interactCount;
         private int _currentArrowIndex;
         
-        private ArrowAttribute _currentAttribute;
+        private ArrowAttribute _attribute;
         private readonly List<string> _spawnedArrowNames = new();
         
         [Header("UI")]
@@ -64,7 +63,7 @@ namespace ATBMI.Minigame
             
             _spawnedArrowNames.Clear();
             _input ??= GameInputHandler.Instance;
-            _currentAttribute = arrowAttributes[_interactCount];
+            _attribute = arrowAttributes[playingCount];
             
             arrowSlider.value = MAX_SLIDER_VALUE;
             
@@ -72,9 +71,9 @@ namespace ATBMI.Minigame
             ResetArrowImage(isNonActivate: true);
             
             // Initiate Image
-            for (var i = 0; i < _currentAttribute.count; i++)
+            for (var i = 0; i < _attribute.count; i++)
             {
-                if (arrowImages.Length < _currentAttribute.count)
+                if (arrowImages.Length < _attribute.count)
                 {
                     Debug.LogWarning("Arrow image count is less than arrow count!");
                     break;
@@ -120,9 +119,9 @@ namespace ATBMI.Minigame
                 }
             }
 
-            if (_currentArrowIndex >= _currentAttribute.count)
+            if (_currentArrowIndex >= _attribute.count)
             {
-                _interactCount = Mathf.Clamp(_interactCount + 1, 0, arrowAttributes.Length - 1);
+                playingCount = Mathf.Clamp(playingCount + 1, 0, arrowAttributes.Length - 1);
                 ExitMinigame();
             }
         }
@@ -130,8 +129,7 @@ namespace ATBMI.Minigame
         private void HandleArrowTime()
         {
             _elapsedTime += Time.deltaTime;
-            arrowSlider.value = Mathf.Lerp(MAX_SLIDER_VALUE, MIN_SLIDER_VALUE, _elapsedTime / _currentAttribute.duration);
-            
+            arrowSlider.value = Mathf.Lerp(MAX_SLIDER_VALUE, MIN_SLIDER_VALUE, _elapsedTime / _attribute.duration);
             if (arrowSlider.value <= MIN_SLIDER_VALUE)
             {
                 arrowSlider.value = MIN_SLIDER_VALUE;
