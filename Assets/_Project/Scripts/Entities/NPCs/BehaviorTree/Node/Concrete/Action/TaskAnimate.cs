@@ -13,14 +13,14 @@ namespace ATBMI.Entities.NPCs
         
         private readonly Dictionary<Emotion, (float plan, float risk, (float, float) time)> _factorsAnimate = new()
         {
-            { Emotion.Joy, (1, 0.2f, (1.5f, 3)) },
-            { Emotion.Trust, (1, 0.2f, (0.6f, 4)) },
-            { Emotion.Fear, (1, 0.2f, (1.5f, 5)) },
-            { Emotion.Surprise, (1, 0.4f, (0.35f, 3)) },
-            { Emotion.Sadness, (1, 0.2f, (0.35f, 6)) },
-            { Emotion.Disgust, (1, 0.2f, (0.35f, 6)) },
-            { Emotion.Anger, (1, 0.2f, (0.35f, 6)) },
-            { Emotion.Anticipation, (1, 0.3f, (0.35f, 4)) }
+            { Emotion.Joy, (1, 0.2f, (1.5f, 3f)) },
+            { Emotion.Trust, (1, 0.4f, (1.15f, 4.6f)) },
+            { Emotion.Fear, (1, 0.2f, (1.5f, 5f)) },
+            { Emotion.Surprise, (1, 0.4f, (0.35f, 3.7f)) },
+            { Emotion.Sadness, (1, 0.2f, (0.35f, 4f)) },
+            { Emotion.Disgust, (1, 0.2f, (0.35f, 4f)) },
+            { Emotion.Anger, (1, 0.2f, (3f, 6.5f)) },
+            { Emotion.Anticipation, (1, 0.3f, (0.35f, 4f)) }
         };
         
         // Constructor

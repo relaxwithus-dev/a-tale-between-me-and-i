@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using ATBMI.Core;
 using ATBMI.Gameplay.Handler;
@@ -8,6 +7,8 @@ namespace ATBMI.Gameplay.Controller
     [RequireComponent(typeof(BoxCollider2D))]
     public class TravelController : MonoBehaviour
     {
+        #region Fields & Properties
+
         [Header("Require")]
         [SerializeField] private string targetMapName; 
         [SerializeField] private GameObject notifierUI;
@@ -15,7 +16,11 @@ namespace ATBMI.Gameplay.Controller
         
         [Header("Reference")]
         [SerializeField] private MapLoader mapLoader;
-        
+
+        #endregion
+
+        #region Methods
+
         // Unity Callbacks
         private void Start()
         {
@@ -50,5 +55,7 @@ namespace ATBMI.Gameplay.Controller
                     notifierUI.SetActive(false);
             }
         }
+
+        #endregion
     }
 }

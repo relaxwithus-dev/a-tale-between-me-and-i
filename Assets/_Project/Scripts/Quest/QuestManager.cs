@@ -1,10 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using ATBMI.Gameplay.Event;
-using ATBMI.Inventory;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using ATBMI.Gameplay.Event;
+using ATBMI.Inventory;
 
 namespace ATBMI
 {
@@ -125,12 +124,12 @@ namespace ATBMI
             // Test
             if (Input.GetKeyDown(KeyCode.G))
             {
-                StartQuest(1); // go to market quest id
+                StartQuest(999); // go to market quest id
             }
             
             if (Input.GetKeyDown(KeyCode.H))
             {
-                StartQuest(2); // go to market quest id
+                StartQuest(997); // go to market quest id
             }
 
             // if (Input.GetKeyDown(KeyCode.H))
@@ -186,7 +185,7 @@ namespace ATBMI
             {
                 ChangeQuestState(quest.info.QuestId, QuestStateEnum.Can_Finish);
 
-                if (!quest.info.shoulBeFinishManually)
+                if (!quest.info.shouldBeFinishManually)
                 {
                     FinishQuest(id);
                 }

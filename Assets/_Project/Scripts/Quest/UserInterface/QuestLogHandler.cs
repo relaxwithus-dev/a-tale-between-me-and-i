@@ -159,21 +159,28 @@ namespace ATBMI
             // Move the button only if its parent needs to change
             if (questLogButton.transform.parent != targetParent)
             {
-                int originalIndex = questLogButtons.IndexOf(questLogButton); // Get the original order
+                int originalIndex = questLogButtons.IndexOf(questLogButton); // Get the original order based on quest start order
 
                 questLogButton.transform.SetParent(targetParent, false);
 
                 // Maintain order: insert at the correct index instead of pushing to the top
-                questLogButton.transform.SetSiblingIndex(originalIndex);
+                questLogButton.transform.SetSiblingIndex(originalIndex + 1); // +1 for completed text on the scene
             }
         }
 
         public void UpdateQuestSteps(Quest quest)
         {
-            int stepCount = quest.info.questSteps.Length;
+            int maxSteps = quest.info.questSteps.Length;
+            int currentQuestStepIndex = Mathf.Clamp(quest.CurrentQuestStepIndex, 0, maxSteps); // Prevent out-of-bounds
 
-            // Activate or instantiate required quest step logs
-            for (int i = 0; i < stepCount; i++)
+            // Ensure at least the first quest step log is instantiated
+            if (questStepLogs.Count == 0 && maxSteps > 0)
+            {
+                InstantiateQuestStepLog(quest, 0);
+            }
+
+            // Activate or instantiate only up to the current quest step index
+            for (int i = 0; i <= currentQuestStepIndex && i < maxSteps; i++)
             {
                 QuestStepLog stepLog;
 
@@ -186,25 +193,30 @@ namespace ATBMI
                 else
                 {
                     // Instantiate new log
-                    GameObject stepObject = Instantiate(questStepLogPrefab, questStepParent);
-                    stepLog = stepObject.GetComponent<QuestStepLog>();
-                    questStepLogs.Add(stepLog);
+                    InstantiateQuestStepLog(quest, i);
                 }
 
                 // Update state of quest step log
                 string stepStatus = quest.info.questSteps[i].stepStatusText;
+                stepLog = questStepLogs[i];
                 stepLog.SetText(stepStatus);
                 stepLog.UpdateStepStatus(quest.GetQuestData().questStepStates[i].status);
-
-                // Debug.Log(stepStatus + " " + quest.GetQuestData().questStepStates[i].status);
             }
 
-            // Deactivate excess logs
-            for (int i = stepCount; i < questStepLogs.Count; i++)
+            // Deactivate excess logs if any
+            for (int i = currentQuestStepIndex + 1; i < questStepLogs.Count; i++)
             {
                 questStepLogs[i].gameObject.SetActive(false);
             }
         }
+
+        private void InstantiateQuestStepLog(Quest quest, int stepIndex)
+        {
+            GameObject stepObject = Instantiate(questStepLogPrefab, questStepParent);
+            QuestStepLog stepLog = stepObject.GetComponent<QuestStepLog>();
+            questStepLogs.Add(stepLog);
+        }
+
 
         private void OnNavigate(InputAction.CallbackContext context)
         {
@@ -241,7 +253,7 @@ namespace ATBMI
 
         private Quest FindQuestById(int questId)
         {
-            return QuestManager.Instance.GetQuestById(questId); // Assuming QuestManager handles active quests
+            return QuestManager.Instance.GetQuestById(questId);
         }
 
 

@@ -9,7 +9,7 @@ namespace ATBMI
         [field: SerializeField] public int QuestId { get; private set; }
         [Header("General")]
         public string displayName;
-        public bool shoulBeFinishManually;
+        public bool shouldBeFinishManually;
 
         [Header("Requirements")]
         public QuestInfoSO[] questPrerequisites;
@@ -24,6 +24,7 @@ namespace ATBMI
     [System.Serializable]
     public struct QuestStepEntry
     {
+        public string targetScene; //TODO: change to enum
         public GameObject questStepPrefab;
         [TextArea] public string stepStatusText;
     }

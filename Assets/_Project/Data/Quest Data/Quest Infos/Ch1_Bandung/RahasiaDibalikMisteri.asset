@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2b450a47a515ba40b7e732579b2c69b, type: 3}
+  m_Name: RahasiaDibalikMisteri
+  m_EditorClassIdentifier: 
+  <QuestId>k__BackingField: 0
+  displayName: Rahasia Dibalik Misteri
+  shouldBeFinishManually: 0
+  questPrerequisites: []
+  questSteps:
+  - targetScene: S_Bdg_Lapangan_1
+    questStepPrefab: {fileID: 559325267628914761, guid: 0ec4467e556f49643b579be67d50f5a9, type: 3}
+    stepStatusText: Ikuti warna melayang itu kembali
+  - targetScene: S_Bdg_Lapangan_1
+    questStepPrefab: {fileID: 5756402131471883884, guid: 25a72ee6ca70c764cb4f940a4d33e703, type: 3}
+    stepStatusText: Apa yang terjadi di sana?!
+  - targetScene: S_Bdg_Tugu_Juang
+    questStepPrefab: {fileID: 4283459655527682750, guid: 5ffd389fd9bfe7a42830527e191859e5, type: 3}
+    stepStatusText: Isi kembali keindahan dunia
+  - targetScene: S_Sby_Kampus
+    questStepPrefab: {fileID: 2503534268713425144, guid: ff105a35ba714814bb99ece73fce6b17, type: 3}
+    stepStatusText: Benda yang berkilau
+  rewardItem: []

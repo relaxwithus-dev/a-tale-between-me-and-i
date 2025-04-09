@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5d9a2753d3342619c3e76d19e25c859, type: 3}
+  m_Name: S_Bdg_Lapangan_2
+  m_EditorClassIdentifier: 
+  locationTarget: {fileID: 11400000, guid: 6b20dd84a7a688a43af1cf10636d27c3, type: 2}
+  reference:
+    sceneAsset: {fileID: 102900000, guid: 06e952c3d8efe8d4eb6a7d07dcd7cec7, type: 3}
+    scenePath: Assets/_Project/Scenes/Chapter/chapter-1/Bandung-v1/S_Bdg_Lapangan_2.unity
+  neighbours:
+  - {fileID: 11400000, guid: b2745c2c8ffc2b449bc5f30d18464b0d, type: 2}

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5d9a2753d3342619c3e76d19e25c859, type: 3}
+  m_Name: S_Sby_Kamar_Kos
+  m_EditorClassIdentifier: 
+  locationTarget: {fileID: 11400000, guid: ddeb6b1bc35f3a447afac72ec0f88d3d, type: 2}
+  reference:
+    sceneAsset: {fileID: 102900000, guid: 2426fd13f11553549bfea493e36a36b1, type: 3}
+    scenePath: Assets/_Project/Scenes/Chapter/chapter-1/Surabaya-v1/S_Sby_Kamar_Kos.unity
+  neighbours:
+  - {fileID: 11400000, guid: 6cb817be35af59346a35c47ebb3853f0, type: 2}

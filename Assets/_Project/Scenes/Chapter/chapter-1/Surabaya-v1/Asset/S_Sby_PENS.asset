@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5d9a2753d3342619c3e76d19e25c859, type: 3}
+  m_Name: S_Sby_PENS
+  m_EditorClassIdentifier: 
+  locationTarget: {fileID: 11400000, guid: ef6d7b2e0a5144648abd271f03243217, type: 2}
+  reference:
+    sceneAsset: {fileID: 102900000, guid: 78653f1478f811b4d803a6277be303c3, type: 3}
+    scenePath: Assets/_Project/Scenes/Chapter/chapter-1/Surabaya-v1/S_Sby_PENS.unity
+  neighbours:
+  - {fileID: 11400000, guid: 93a57a46c08052f4fa2bfb097674d61d, type: 2}
+  - {fileID: 11400000, guid: 4a47c8f31d4d9eb4d89424ce29923b82, type: 2}

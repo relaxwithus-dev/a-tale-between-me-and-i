@@ -15,7 +15,7 @@ namespace ATBMI.Entities.NPCs
             { Emotion.Sadness, (1, 0.8f, (0.5f, 0.9f)) },
             { Emotion.Disgust, (1, 0.8f, (0.5f, 0.9f)) },
             { Emotion.Anger, (1, 0.8f, (0.3f, 1f)) },
-            { Emotion.Anticipation, (1, 0.8f, (0.5f, 0.9f)) }
+            { Emotion.Anticipation, (1, 0.8f, (0.2f, 0.2f)) }
         };
         
         // Constructor

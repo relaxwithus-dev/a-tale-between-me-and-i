@@ -6,7 +6,7 @@ namespace ATBMI.Singleton
     {
         public static T Instance;
 
-        protected void Awake()
+        protected virtual void Awake()
         {
             if (Instance != null)
             {
@@ -17,7 +17,5 @@ namespace ATBMI.Singleton
             Instance = this as T;
             DontDestroyOnLoad(gameObject);
         }
-        
-        public virtual void InitComponent() { }
     }
 }

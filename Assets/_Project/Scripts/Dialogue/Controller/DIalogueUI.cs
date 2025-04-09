@@ -8,7 +8,7 @@ public class DialogueUI : MonoBehaviour
     [SerializeField] private RectTransform parentRectTransform;
     [SerializeField] private int characterLimit;
 
-    private Dictionary<string, Transform> npcTargets = new(); // cache the npc tip target for each npcs
+    private Dictionary<string, List<Transform>> npcTargets = new(); // cache the npc tip target for each npcs
     private LayoutElement layoutElement;
     private RectTransform rectTransform;
 
@@ -51,21 +51,41 @@ public class DialogueUI : MonoBehaviour
     {
         if (!npcTargets.ContainsKey(npcName))
         {
-            npcTargets[npcName] = tipTarget;
+            npcTargets[npcName] = new List<Transform>();
+        }
+
+        if (!npcTargets[npcName].Contains(tipTarget))
+        {
+            npcTargets[npcName].Add(tipTarget);
         }
     }
 
     private void UpdateDialogueUIPos(string tagValue)
     {
-        if (npcTargets.TryGetValue(tagValue, out Transform targetPos))
+        if (!npcTargets.TryGetValue(tagValue, out List<Transform> targets) || targets.Count == 0)
         {
-            pinPosition = targetPos;
-            screenPosition = Camera.main.WorldToScreenPoint(targetPos.position);
-            parentRectTransform.position = screenPosition;
+            Debug.LogError($"NPC {tagValue} not found in registered targets!");
+            return;
         }
-        else
+
+        Transform closestTarget = null;
+        float minSqrDistance = float.MaxValue;
+
+        foreach (Transform target in targets)
         {
-            Debug.LogError("NPC " + tagValue + " not found in registered targets!");
+            float sqrDistance = (Camera.main.transform.position - target.position).sqrMagnitude;
+            if (sqrDistance < minSqrDistance)
+            {
+                minSqrDistance = sqrDistance;
+                closestTarget = target;
+            }
+        }
+
+        if (closestTarget != null)
+        {
+            pinPosition = closestTarget;
+            screenPosition = Camera.main.WorldToScreenPoint(pinPosition.position);
+            parentRectTransform.position = screenPosition;
         }
     }
 

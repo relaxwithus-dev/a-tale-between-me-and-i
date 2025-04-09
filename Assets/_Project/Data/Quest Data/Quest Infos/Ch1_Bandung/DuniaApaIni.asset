@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2b450a47a515ba40b7e732579b2c69b, type: 3}
+  m_Name: DuniaApaIni
+  m_EditorClassIdentifier: 
+  <QuestId>k__BackingField: 0
+  displayName: 
+  shouldBeFinishManually: 0
+  questPrerequisites: []
+  questSteps:
+  - targetScene: S_Bdg_Jalan_Raya_Laswi_2
+    questStepPrefab: {fileID: 7121514518031944113, guid: 29adf59f12cc878479d7e14fefccabee, type: 3}
+    stepStatusText: Cari tahu kalian di mana
+  - targetScene: S_Bdg_Jalan_Raya_Laswi_3
+    questStepPrefab: {fileID: 3826946851205955813, guid: d5bf61040a4650349b2cde3236ebd040, type: 3}
+    stepStatusText: Cari informasi lebih lanjut ke sekitar
+  - targetScene: S_Bdg_Rumah_Waffa
+    questStepPrefab: {fileID: 6548594097559940364, guid: 424ee22c877c44540aa5e33681fe3624, type: 3}
+    stepStatusText: Ikuti warna tersebut
+  - targetScene: S_Bdg_Dalam_Rumah_Waffa
+    questStepPrefab: {fileID: 3322957548509189213, guid: d675217e52dd78a4387fa1f55d3e2add, type: 3}
+    stepStatusText: Cari asal sumber suara
+  - targetScene: S_Bdg_Dalam_Rumah_Waffa
+    questStepPrefab: {fileID: 1416592371151574727, guid: 1195af7a0d7bdfa4dad8a7c93f1114fc, type: 3}
+    stepStatusText: Selamatkan anak kecil itu
+  - targetScene: S_Bdg_Rumah_Waffa
+    questStepPrefab: {fileID: 2358902604818620879, guid: 130fdbc8e9f47334eb4aeabceacfe7e5, type: 3}
+    stepStatusText: Kejar Waffa Kecil
+  - targetScene: S_Bdg_Toko_Kue
+    questStepPrefab: {fileID: 769028130327987016, guid: 5038b0d27b3a08645b8897bf81ca2a90, type: 3}
+    stepStatusText: Ikuti Warna Tersebut
+  - targetScene: S_Bdg_Dalam_Toko_Kue
+    questStepPrefab: {fileID: 9016743548953925480, guid: 7cf047bb4f7fffc4b863bcc31ba8a4c7, type: 3}
+    stepStatusText: Bertanya informasi lebih lanjut ke ibu tersebut
+  rewardItem: []

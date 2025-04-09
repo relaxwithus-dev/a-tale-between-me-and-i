@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5d9a2753d3342619c3e76d19e25c859, type: 3}
+  m_Name: S_Bali_Halaman_Rumah
+  m_EditorClassIdentifier: 
+  locationTarget: {fileID: 11400000, guid: e89399a148995274eb0bce4b04741a59, type: 2}
+  reference:
+    sceneAsset: {fileID: 102900000, guid: 8954a40144217b84893c667024181459, type: 3}
+    scenePath: Assets/_Project/Scenes/Chapter/chapter-1/Bali-v1/S_Bali_HalamanRumah.unity
+  neighbours:
+  - {fileID: 11400000, guid: ff6a8642627fbd0408869078cbcb7570, type: 2}
+  - {fileID: 11400000, guid: 540724bb6742d014a99785f26707a5e4, type: 2}

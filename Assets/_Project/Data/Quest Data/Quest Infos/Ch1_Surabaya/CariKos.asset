@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2b450a47a515ba40b7e732579b2c69b, type: 3}
+  m_Name: CariKos
+  m_EditorClassIdentifier: 
+  <QuestId>k__BackingField: 0
+  displayName: Cari tahu di mana tempat kos
+  shouldBeFinishManually: 0
+  questPrerequisites: []
+  questSteps:
+  - targetScene: S_Sby_Jalan_Mulyorejo_1
+    questStepPrefab: {fileID: 5702264162522918145, guid: a37826459f5ae604d99c9467f287cc77, type: 3}
+    stepStatusText: Cari tahu ke warga sekitar
+  - targetScene: S_Sby_Jalan_Mulyorejo_1
+    questStepPrefab: {fileID: 6304070466074613206, guid: de4dbc342fbad154ba72c0e567b92eb9, type: 3}
+    stepStatusText: Coba lihat map pada ponselmu
+  - targetScene: S_Sby_Kos_Depan
+    questStepPrefab: {fileID: 6434662327650409180, guid: 7a053cf26fa488f499160711562e35bf, type: 3}
+    stepStatusText: Waktunya ke tempat tinggal sementara
+  - targetScene: S_Sby_Kos_Depan
+    questStepPrefab: {fileID: 6823625390016188983, guid: af2f17be1a128f0479e511c19f35a6c9, type: 3}
+    stepStatusText: Beri impresi yang baik ke Ibu Kos
+  rewardItem: []

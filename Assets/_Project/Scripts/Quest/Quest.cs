@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace ATBMI
@@ -8,28 +6,30 @@ namespace ATBMI
     {
         // static info
         public QuestInfoSO info;
+        public int CurrentQuestStepIndex => currentQuestStepIndex;
 
         // state info
         public QuestStateEnum state;
         private int currentQuestStepIndex;
         private QuestStepState[] questStepStates;
 
-        public Quest(QuestInfoSO questInfo)
+        public Quest(QuestInfoSO info)
         {
-            this.info = questInfo;
-            this.state = QuestStateEnum.Can_Start;
-            this.currentQuestStepIndex = 0;
-            this.questStepStates = new QuestStepState[info.questSteps.Length];
-            for (int i = 0; i < questStepStates.Length; i++)
+            this.info = info;
+            state = QuestStateEnum.Can_Start;
+            currentQuestStepIndex = 0;
+            questStepStates = new QuestStepState[this.info.questSteps.Length];
+            
+            for (var i = 0; i < questStepStates.Length; i++)
             {
                 questStepStates[i] = new QuestStepState();
             }
         }
 
-        public Quest(QuestInfoSO questInfo, QuestStateEnum questState, int currentQuestStepIndex, QuestStepState[] questStepStates)
+        public Quest(QuestInfoSO info, QuestStateEnum state, int currentQuestStepIndex, QuestStepState[] questStepStates)
         {
-            this.info = questInfo;
-            this.state = questState;
+            this.info = info;
+            this.state = state;
             this.currentQuestStepIndex = currentQuestStepIndex;
             this.questStepStates = questStepStates;
 
@@ -61,7 +61,7 @@ namespace ATBMI
             {
                 QuestStep questStep = Object.Instantiate<GameObject>(questStepPrefab, parentTransform)
                     .GetComponent<QuestStep>();
-                questStep.InitializeQuestStep(info.QuestId, currentQuestStepIndex, questStepStates[currentQuestStepIndex].state);
+                questStep.InitializeQuestStep(info.QuestId, currentQuestStepIndex, questStepStates[currentQuestStepIndex].state, info.questSteps[currentQuestStepIndex].targetScene);
             }
         }
 

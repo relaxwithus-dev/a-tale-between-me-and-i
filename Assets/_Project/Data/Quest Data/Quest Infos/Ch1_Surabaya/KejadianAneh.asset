@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2b450a47a515ba40b7e732579b2c69b, type: 3}
+  m_Name: KejadianAneh
+  m_EditorClassIdentifier: 
+  <QuestId>k__BackingField: 0
+  displayName: Kejadian yang aneh
+  shouldBeFinishManually: 0
+  questPrerequisites: []
+  questSteps:
+  - targetScene: S_Sby_Kos_Depan
+    questStepPrefab: {fileID: 5562992199509801539, guid: d3213a48836c40548b57614828d5499c, type: 3}
+    stepStatusText: Tanya kejadian ini ke warga sekitar
+  - targetScene: S_Sby_Jalan_Mulyorejo_4
+    questStepPrefab: {fileID: 5192617294375031708, guid: 69a2967e082dd824a8ed8bbcdfc0d33e, type: 3}
+    stepStatusText: Cari Ratna di kampus
+  - targetScene: S_Sby_Kampus
+    questStepPrefab: {fileID: 4202407988036303883, guid: 272a48ebd1f726241932eb5ae956ed55, type: 3}
+    stepStatusText: Kejar benda aneh itu!
+  - targetScene: S_Sby_Kampus
+    questStepPrefab: {fileID: 7120317082400991667, guid: c7b97a15f948aa343a6b22b71ed8f123, type: 3}
+    stepStatusText: Segera bantu Ratna
+  rewardItem: []

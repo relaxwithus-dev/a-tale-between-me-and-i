@@ -11,28 +11,28 @@ namespace ATBMI.Entities.NPCs
         private readonly TextAsset[] dialogueAssets;
 
         private int _talkCount;
-                
+        
         private readonly Dictionary<Emotion, (float plan, float risk, (float, float) time)> _factorsTalk = new()
         {
-            { Emotion.Joy, (1, 0.2f, (0.5f, 4.5f)) },
-            { Emotion.Trust, (1, 0.2f, (1f, 3)) },
-            { Emotion.Fear, (1, 0.4f, (0.5f, 4)) },
-            { Emotion.Surprise, (1, 0.3f, (1f, 3)) },
-            { Emotion.Sadness, (1, 0.3f, (1f, 2.5f)) },
-            { Emotion.Disgust, (1, 0.3f, (1f, 2.5f)) },
-            { Emotion.Anger, (1, 0.5f, (1f, 3.5f)) },
+            { Emotion.Joy, (1, 0.2f, (1, 4)) },
+            { Emotion.Trust, (1, 0.3f, (2, 4.5f)) },
+            { Emotion.Fear, (1, 0.4f, (1, 2.5f)) },
+            { Emotion.Surprise, (1, 0.6f, (1, 2.5f)) },
+            { Emotion.Sadness, (1, 0.5f, (1, 4)) },
+            { Emotion.Disgust, (1, 0.5f, (1, 4)) },
+            { Emotion.Anger, (1, 0.5f, (2, 4.5f)) },
             { Emotion.Anticipation, (1, 0.2f, (0.5f, 1f)) }
         };
         
         private readonly Dictionary<Emotion, (float plan, float risk, (float, float) time)> _factorsTalkState = new()
         {
             { Emotion.Joy, (1, 0.2f, (0.5f, 4)) },
-            { Emotion.Trust, (1, 0.2f, (1f, 3)) },
+            { Emotion.Trust, (0, 0.2f, (0.5f, 2)) },
             { Emotion.Fear, (1, 0.4f, (0.5f, 4)) },
-            { Emotion.Surprise, (1, 0.3f, (1f, 3)) },
+            { Emotion.Surprise, (1, 0.2f, (0.5f, 0.5f)) },
             { Emotion.Sadness, (1, 0.3f, (1f, 3)) },
             { Emotion.Disgust, (1, 0.3f, (1f, 3)) },
-            { Emotion.Anger, (1, 0.2f, (0.2f, 0.4f)) },
+            { Emotion.Anger, (1, 0.1f, (0.1f, 0.1f)) },
             { Emotion.Anticipation, (1, 0.2f, (0.5f, 1f)) }
         };
         

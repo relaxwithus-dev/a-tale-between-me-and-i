@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 using Sirenix.OdinInspector;
 using ATBMI.Enum;
 
@@ -13,11 +14,14 @@ namespace ATBMI.Entities.NPCs
         [SerializeField] private PersonalityConfiguration personalityConfig;
 
         [Header("Traits")]
-        [SerializeField] private Emotion initialEmotion;
+        [SerializeField] private Emotion baseEmotion;
         [SerializeField] [Range(-1, 1)] [ReadOnly] private float[] emotions = new float[4];
         [SerializeField] [Range(-1, 1)] [ReadOnly] private float[] personality = new float[5];
-
-        private float[] _eventEmotion;
+        
+        private float[] _initEmotions = new float[4];
+        
+        public Emotion BaseEmotion => baseEmotion;
+        public float[] Emotions => emotions;
         
         #endregion
         
@@ -26,13 +30,12 @@ namespace ATBMI.Entities.NPCs
         // Unity Callbacks
         private void Start()
         {
-            _eventEmotion = new float[4];
-            
-            var emotionIndex = (int)initialEmotion;
+            var emotionIndex = (int)baseEmotion;
             var isPositiveEmotion = emotionIndex % 2 == 0;
             
             emotions[emotionIndex / 2] = isPositiveEmotion ? 0.5f : -0.5f;
-            personality = personalityConfig.GetPersonalityInfluence(initialEmotion, isPositiveEmotion);
+            personality = personalityConfig.GetPersonalityInfluence(baseEmotion, isPositiveEmotion);
+            _initEmotions = emotions;
         }
         
         // Core
@@ -44,7 +47,8 @@ namespace ATBMI.Entities.NPCs
             
             for (var i = 0; i < emotions.Length; i++)
             {
-                _eventEmotion[i] = emotions[i] + influence[i];
+                // _eventEmotion[i] = emotions[i] + influence[i];
+                emotions[i] =+ influence[i];
             }
             CalculateNewEmotion();
         }
@@ -57,11 +61,11 @@ namespace ATBMI.Entities.NPCs
                 var sum = 0f;
                 for (var j = 0; j < 5; j++)
                 {
-                    var isPositive = _eventEmotion[i] >= 0;
+                    var isPositive = emotions[i] >= 0;
                     float factor = personalityConfig.GetPersonalityTrait((PersonalityTrait)j,
                         (Emotion)(i * 2), isPositive);
                     
-                    sum += _eventEmotion[i] * personality[j] * factor;
+                    sum += emotions[i] * personality[j] * factor;
                 }
                 
                 newEmotions[i] = sum / 5f;
@@ -160,7 +164,11 @@ namespace ATBMI.Entities.NPCs
             return true;
         }
         
-        #endregion
+        public void SetInitEmotions()
+        {
+            emotions = _initEmotions;
+        }
         
+        #endregion
     }
 }
