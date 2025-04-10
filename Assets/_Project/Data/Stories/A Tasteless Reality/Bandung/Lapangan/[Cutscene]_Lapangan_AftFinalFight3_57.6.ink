@@ -1,4 +1,4 @@
-EXTERNAL AddItem(itemId)
+EXTERNAL RemoveItem(itemId)
 EXTERNAL StartQuest(questId)
 EXTERNAL FinishQuest(questId)
 

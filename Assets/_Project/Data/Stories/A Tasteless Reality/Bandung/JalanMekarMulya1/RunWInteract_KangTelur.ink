@@ -36,4 +36,6 @@ No problemo #speaker:Penjual Telur #expression:A_PenjualTelur_Speak
 
 Orang disini unik-unik yah ternyata #speaker:Dewa #expression:A_Dewa_Speak
 
+~AddItem("15")
+
 -> END

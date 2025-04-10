@@ -1,8 +1,12 @@
-EXTERNAL AddItem(itemId)
+EXTERNAL RemoveItem(itemId)
 EXTERNAL StartQuest(questId)
 EXTERNAL FinishQuest(questId)
 
 // SFX: Alarm
+
+~RemoveItem("03")
+~RemoveItem("04")
+~RemoveItem("05")
 
 Hum.... #speaker:Dewa #expression:A_Dewa_Speak
 Ini benar lewat sini kan? #speaker:Dewa #expression:A_Dewa_Speak

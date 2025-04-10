@@ -1,6 +1,8 @@
-EXTERNAL AddItem(itemId)
+EXTERNAL RemoveItem(itemId)
 EXTERNAL StartQuest(questId)
 EXTERNAL FinishQuest(questId)
+
+~RemoveItem("12")
 
 Ini air untuk para anggota kru #speaker:Dewa #expression:A_Dewa_Speak
 Cepat Waffa berikan air itu pada mereka #speaker:Dewa #expression:A_Dewa_Speak

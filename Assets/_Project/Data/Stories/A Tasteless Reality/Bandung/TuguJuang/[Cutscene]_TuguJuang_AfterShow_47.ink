@@ -7,6 +7,7 @@ EXTERNAL FinishQuest(questId)
 // ... #speaker:Dewa #expression:A_Dewa_Speak
 
 // Get item Cat Pasta 1
+~AddItem("13")
 
 Itu kan??? #speaker:Dewa #expression:A_Dewa_Speak
 Jangan bilang aku harus melakukan itu? #speaker:Dewa #expression:A_Dewa_Speak

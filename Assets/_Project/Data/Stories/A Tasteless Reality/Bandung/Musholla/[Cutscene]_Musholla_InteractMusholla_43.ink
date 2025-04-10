@@ -2,6 +2,8 @@ EXTERNAL AddItem(itemId)
 EXTERNAL StartQuest(questId)
 EXTERNAL FinishQuest(questId)
 
+~AddItem("11")
+
 ??? #speaker:Waffa Kecil #expression:A_WafaChild_Speak
 
 Ada apa Waffa? #speaker:Dewa #expression:A_Dewa_Speak

@@ -1,4 +1,5 @@
 EXTERNAL AddItem(itemId)
+EXTERNAL RemoveItem(itemId)
 EXTERNAL StartQuest(questId)
 EXTERNAL FinishQuest(questId)
 
@@ -14,5 +15,9 @@ Siapkan gelasnya Waffa #speaker:Dewa #expression:A_Dewa_Speak
 Baik kak #speaker:Waffa Kecil #expression:A_WafaChild_Speak
 
 // After get Water
+
+~RemoveItem("10")
+~RemoveItem("11")
+~AddItem("12")
 
 -> END

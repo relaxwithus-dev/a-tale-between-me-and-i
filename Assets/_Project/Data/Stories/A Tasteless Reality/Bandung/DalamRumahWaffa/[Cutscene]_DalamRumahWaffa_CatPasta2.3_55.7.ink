@@ -7,7 +7,8 @@ EXTERNAL FinishQuest(questId)
 // Kamera panning ke bawah
 // Tiba-tiba pemandangan yang mereka lihat berubah menjadi sebuah cat (Filter if can)
 
-// ~GetItem("CatPasta2")
+// Add Item Cat Pasta 2
+~AddItem("16")
 
 Ehhhh??? a-apa yang sedang terjadi? #speaker:Ratna #expression:A_Ratna_Speak
 Kemana perginya mereka berdua? #speaker:Ratna #expression:A_Ratna_Speak

@@ -40,4 +40,6 @@ Tidak jauh dari sini juga tempatnya #speaker:Penjaga Toko #expression:A_PenjagaW
 
 Ahhh… sekali lagi terimakasih pak #speaker:Dewa #expression:A_Dewa_Speak
 
+~AddItem("14")
+
 -> END

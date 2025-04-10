@@ -37,5 +37,6 @@ Ngomong-ngomong Dewa #speaker:Waffa #expression:A_Wafa_Speak
 Maneh tahu kan apa yang harus dilakukan dengan ini #speaker:Waffa #expression:A_Wafa_Speak
 
 // Waffa ngasih cat ke Dewa
+~AddItem("17")
 
 -> END

@@ -1,4 +1,4 @@
-EXTERNAL AddItem(itemId)
+EXTERNAL RemoveItem(itemId)
 EXTERNAL StartQuest(questId)
 EXTERNAL FinishQuest(questId)
 
@@ -13,6 +13,9 @@ Tenang dulu Waffa #speaker:Ratna #expression:A_Ratna_Speak
 
 Tidak… Ibu tidak ada disini… #speaker:Waffa Remaja #expression:A_WafaTeen_Panic
 Jangan-jangan… #speaker:Waffa Remaja #expression:A_WafaTeen_Panic
+
+~RemoveItem("14")
+~RemoveItem("15")
 
 // Waffa berlari keluar toko
 

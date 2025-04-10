@@ -1,6 +1,10 @@
-EXTERNAL AddItem(itemId)
+EXTERNAL RemoveItem(itemId)
 EXTERNAL StartQuest(questId)
 EXTERNAL FinishQuest(questId)
+
+~RemoveItem("13")
+~RemoveItem("16")
+~RemoveItem("17")
 
 Tidak menyangka aku harus melakukannya lagi #speaker:Dewa #expression:A_Dewa_Speak
 

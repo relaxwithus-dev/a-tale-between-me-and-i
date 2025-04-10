@@ -39,4 +39,6 @@ Terimakasih pak #speaker:Dewa #expression:A_Dewa_Speak
 
 Sama-sama #speaker:Penjual Telur #expression:A_PenjualTelur_Speak
 
+~AddItem("15")
+
 -> END

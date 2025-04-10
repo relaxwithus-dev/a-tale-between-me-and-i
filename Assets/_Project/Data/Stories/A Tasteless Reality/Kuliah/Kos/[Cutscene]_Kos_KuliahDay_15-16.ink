@@ -1,6 +1,10 @@
-EXTERNAL AddItem(itemId)
+EXTERNAL RemoveItem(itemId)
 EXTERNAL StartQuest(questId)
 EXTERNAL FinishQuest(questId)
+
+~RemoveItem("03")
+~RemoveItem("06")
+~RemoveItem("07")
 
 Arah ke kampus… #speaker:Dewa #expression:A_Dewa_Speak
 Ikut jalan kemarin lalu tinggal belok kan ya? #speaker:Dewa #expression:A_Dewa_Speak
