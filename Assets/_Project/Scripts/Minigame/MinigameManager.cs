@@ -8,7 +8,7 @@ namespace ATBMI.Minigame
     {
         #region Fields & Properties
         
-        private enum MinigameType { Arrow, Balance, Mesh }
+        private enum MinigameType { Arrow, Balance, Mash }
         
         [Header("Properties")]
         [SerializeField] private MinigameType minigameType;
@@ -70,7 +70,7 @@ namespace ATBMI.Minigame
             {
                 MinigameType.Arrow => minigameViews[0],
                 MinigameType.Balance => minigameViews[1],
-                MinigameType.Mesh => minigameViews[2],
+                MinigameType.Mash => minigameViews[2],
                 _ => null
             };
         }
