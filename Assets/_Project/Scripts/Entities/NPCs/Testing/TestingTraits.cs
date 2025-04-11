@@ -27,25 +27,25 @@ namespace ATBMI.Entities.NPCs
                 var actionLenght = System.Enum.GetNames(typeof(InteractAction)).Length;
             
                 reportManager.CreateReport(_traits.BaseEmotion.ToString());
-            
                 for (var i = 0; i < actionLenght; i++)
                 {
                     var action = (InteractAction)i;
-                    var (emotion, intensity) = _traits.GetDominantEmotion();
-                    
                     _traits.InfluenceTraits(action);
+                    
                     _reportContents[0] = action.ToString();
                     _reportContents[1] = _traits.Emotions[0].ToString(CultureInfo.InvariantCulture);
                     _reportContents[2] = _traits.Emotions[1].ToString(CultureInfo.InvariantCulture);
                     _reportContents[3] = _traits.Emotions[2].ToString(CultureInfo.InvariantCulture);
                     _reportContents[4] = _traits.Emotions[3].ToString(CultureInfo.InvariantCulture);
+                    
+                    var (emotion, intensity) = _traits.GetDominantEmotion();
                     _reportContents[5] = emotion.ToString();
                     
                     Debug.LogWarning($"Emotion: {_reportContents[0]} | Index: {_traits.Emotions[0]}," +
                                      $"{_traits.Emotions[1]},{_traits.Emotions[2]},{_traits.Emotions[3]}," +
                                      $" | New Emotion: {_reportContents[5]}");
                 
-                    reportManager.AppendReport(emotion.ToString(), _reportContents);
+                    reportManager.AppendReport(_traits.BaseEmotion.ToString(), _reportContents);
                     _traits.SetInitEmotions();
                 }
             }

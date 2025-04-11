@@ -1,7 +1,6 @@
 using UnityEngine;
 using Sirenix.OdinInspector;
 using ATBMI.Enum;
-using UnityEngine.Serialization;
 
 namespace ATBMI.Entities.NPCs
 {
@@ -76,7 +75,7 @@ namespace ATBMI.Entities.NPCs
             {
                 emotions[i] = Mathf.Clamp(emotions[i] + newEmotions[i], -1f, 1f);
             }
-            
+
             ExtractDominantEmotion();
         }
         
