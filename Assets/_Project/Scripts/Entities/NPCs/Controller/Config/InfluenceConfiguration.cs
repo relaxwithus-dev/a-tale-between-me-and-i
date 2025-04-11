@@ -7,11 +7,11 @@ namespace ATBMI.Entities.NPCs
     public class InfluenceConfiguration : ScriptableObject
     {
         private float[,] actionInfluence = {
-            { 0.3f, 0.2f, 0, 0 },    // is_talking
-            { -0.2f, -0.1f, -0.3f, 0.1f }, // is_running
-            { 0.3f, 0.2f, 0.1f, 0 },  // is_walk
-            { 0.3f, 0.3f, -0.2f, 0.1f }, // is_give_item
-            { -0.2f, -0.1f, 0.1f, 0 }  // is_take_item
+            {  0.3f,  0.2f,  0.0f,  0.1f },   // is_talking
+            { -0.2f, -0.1f, -0.3f, -0.2f },   // is_running
+            {  0.1f,  0.2f,  0.2f,  0.0f },   // is_walk
+            {  0.2f,  0.3f,  0.1f,  0.3f },   // is_give_item
+            { -0.2f, -0.1f, -0.2f, -0.2f }    // is_take_item
         };
         
         public float[] GetInfluenceValues(InteractAction action)
