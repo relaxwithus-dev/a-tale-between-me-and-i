@@ -3,6 +3,8 @@ using UnityEngine.UI;
 using TMPro;
 using Sirenix.OdinInspector;
 using ATBMI.Gameplay.Handler;
+using DG.Tweening;
+using UnityEngine.Serialization;
 
 namespace ATBMI.Minigame
 {
@@ -16,17 +18,22 @@ namespace ATBMI.Minigame
         [SerializeField] private float mashIncrease;
         [SerializeField] private float mashDecrease;
         [SerializeField] private float decreaseDelay;
-        [SerializeField] private float lerpSpeed;
         
         private int _mashCount;
         private float _currentValue;
         private float _elapsedTime;
         
+        [Header("Tween")]
+        [SerializeField] private float sliderSpeed;
+        [SerializeField] private Vector3 indicatorTargetScale;
+        [SerializeField] private Vector3 indicatorOriginalScale;
+        [SerializeField] private float indicatorTime;
+        
         [Header("UI")]
         [SerializeField] private Slider mashSliderUI;
         [SerializeField] private TextMeshProUGUI valueTextUI;
         [SerializeField] private TextMeshProUGUI targetValueTextUI;
-        [SerializeField] private Image[] indicatorImages;
+        [SerializeField] private RectTransform[] indicatorRect;
         
         // Reference
         private GameInputHandler _inputHandler;
@@ -52,6 +59,7 @@ namespace ATBMI.Minigame
             _currentValue = initiateMashValue;
             
             mashSliderUI.value = _currentValue / mashMaxValue;
+            indicatorRect[_mashCount].localScale = indicatorTargetScale;
         }
         
         protected override void RunMinigame()
@@ -69,18 +77,25 @@ namespace ATBMI.Minigame
         {
             base.ExitMinigame();
             mashSliderUI.value =  initiateMashValue / mashMaxValue;
+            foreach (var rect in indicatorRect)
+            {
+                rect.localScale = Vector3.one;
+            }
         }
         
         private void HandleIncreaseMash()
         {
-            if (_inputHandler.IsArrowRight && _mashCount == 0)
+            switch (_mashCount)
             {
-                _mashCount++;
-            }
-            else if (_inputHandler.IsArrowLeft && _mashCount == 1)
-            {
-                _mashCount--;
-                _currentValue += mashIncrease;
+                case 0 when _inputHandler.IsArrowRight:
+                    _mashCount = 1;
+                    ModifyIndicator();
+                    break;
+                case 1 when _inputHandler.IsArrowLeft:
+                    _mashCount = 0;
+                    _currentValue += mashIncrease;
+                    ModifyIndicator();
+                    break;
             }
         }
         
@@ -98,7 +113,7 @@ namespace ATBMI.Minigame
         private void ModifySliderValue()
         {
             var sliderValue = _currentValue / mashMaxValue;
-            mashSliderUI.value = Mathf.Lerp(mashSliderUI.value, sliderValue, lerpSpeed / Time.deltaTime);
+            mashSliderUI.value = Mathf.Lerp(mashSliderUI.value, sliderValue, sliderSpeed * Time.deltaTime);
             
             switch (sliderValue)
             {
@@ -112,11 +127,28 @@ namespace ATBMI.Minigame
                     break;
             }
         }
-
+        
         private void ModifyTextValue()
         {
             valueTextUI.text = _currentValue + "%";
             targetValueTextUI.text = mashMaxValue - _currentValue + "%";
+        }
+        
+        private void ModifyIndicator()
+        {
+            for (var i = 0; i < indicatorRect.Length; i++)
+            {
+                var isActive = i == _mashCount;
+                AnimateIndicator(i, isActive);
+            }
+        }
+        
+        private void AnimateIndicator(int index, bool isScaleUp)
+        {
+            var scale = isScaleUp ? indicatorTargetScale : indicatorOriginalScale;
+            var ease = isScaleUp ? Ease.InSine : Ease.OutSine;
+            
+            indicatorRect[index].DOScale(scale, indicatorTime).SetEase(ease);
         }
         
         #endregion

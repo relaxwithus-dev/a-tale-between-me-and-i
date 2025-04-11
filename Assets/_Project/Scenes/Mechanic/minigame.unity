@@ -1925,7 +1925,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -1939,7 +1939,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 125145425}
   m_FillRect: {fileID: 1459473225}
   m_HandleRect: {fileID: 125145424}
@@ -4255,13 +4255,16 @@ MonoBehaviour:
   mashIncrease: 3
   mashDecrease: 7
   decreaseDelay: 1
-  lerpSpeed: 10
+  sliderSpeed: 7
+  indicatorTargetScale: {x: 1.15, y: 1.15, z: 1.15}
+  indicatorOriginalScale: {x: 1, y: 1, z: 1}
+  indicatorTime: 0.15
   mashSliderUI: {fileID: 460208020}
   valueTextUI: {fileID: 435504683}
   targetValueTextUI: {fileID: 1632216250}
-  indicatorImages:
-  - {fileID: 292705736}
-  - {fileID: 51052518}
+  indicatorRect:
+  - {fileID: 292705735}
+  - {fileID: 51052517}
 --- !u!114 &1036880790
 MonoBehaviour:
   m_ObjectHideFlags: 0
