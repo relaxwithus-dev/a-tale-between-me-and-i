@@ -82,8 +82,10 @@ namespace ATBMI.Minigame
                 var hitAreaWorld = WorldRect(hitAreaRect);
                 var timingBarWorld = WorldRect(timingBarRect);
                 
+                // Win
                 if (hitAreaWorld.Overlaps(timingBarWorld))
                 {
+                    playingCount = Mathf.Clamp(playingCount + 1, 0, balanceAttributes.Length - 1);
                     _timingController.StopTimingBar();
                     ExitMinigame();
                 }
@@ -120,6 +122,7 @@ namespace ATBMI.Minigame
             _elapsedTime += Time.deltaTime;
             timeSliderUI.value = Mathf.Lerp(MAX_SLIDER_VALUE, MIN_SLIDER_VALUE, _elapsedTime / _attribute.duration);
             
+            // Lose
             if (timeSliderUI.value <= MIN_SLIDER_VALUE)
             {
                 timeSliderUI.value = MIN_SLIDER_VALUE;

@@ -1,27 +1,39 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using DG.Tweening;
 using Sirenix.OdinInspector;
 using ATBMI.Gameplay.Handler;
-using DG.Tweening;
-using UnityEngine.Serialization;
 
 namespace ATBMI.Minigame
 {
     public class MashView : MinigameView
     {
+        #region MashData
+
+        [Serializable]
+        private struct MashAttribute
+        {
+            public float increase;
+            public float decrease;
+            public float delay;
+        }
+
+        #endregion
+        
         #region Fields & Properties
 
         [Header("Attribute")]
         [SerializeField] [Range(0, 100)] private float mashMaxValue;
         [SerializeField] [MaxValue(100)] private float initiateMashValue;
-        [SerializeField] private float mashIncrease;
-        [SerializeField] private float mashDecrease;
-        [SerializeField] private float decreaseDelay;
+        [SerializeField] private MashAttribute[] mashAttributes;
         
         private int _mashCount;
         private float _currentValue;
         private float _elapsedTime;
+        
+        private MashAttribute _attribute;
         
         [Header("Tween")]
         [SerializeField] private float sliderSpeed;
@@ -57,6 +69,7 @@ namespace ATBMI.Minigame
             _mashCount = 0;
             _elapsedTime = 0f;
             _currentValue = initiateMashValue;
+            _attribute = mashAttributes[playingCount];
             
             mashSliderUI.value = _currentValue / mashMaxValue;
             indicatorRect[_mashCount].localScale = indicatorTargetScale;
@@ -93,7 +106,7 @@ namespace ATBMI.Minigame
                     break;
                 case 1 when _inputHandler.IsArrowLeft:
                     _mashCount = 0;
-                    _currentValue += mashIncrease;
+                    _currentValue += _attribute.increase;
                     ModifyIndicator();
                     break;
             }
@@ -102,10 +115,10 @@ namespace ATBMI.Minigame
         private void HandleDecreaseMash()
         {
             _elapsedTime += Time.deltaTime;
-            if (_elapsedTime >= decreaseDelay)
+            if (_elapsedTime >= _attribute.delay)
             {
                 _elapsedTime = 0f;
-                _currentValue -= mashDecrease;
+                _currentValue -= _attribute.decrease;
                 _currentValue = Mathf.Max(_currentValue, 0f);
             }
         }
@@ -119,10 +132,13 @@ namespace ATBMI.Minigame
             {
                 // Win
                 case >= MAX_SLIDER_VALUE:
+                    playingCount = Mathf.Clamp(playingCount + 1, 0, mashAttributes.Length - 1);
+                    ModifyIndicator(isEnd: true);
                     ExitMinigame();
                     break;
                 // Lose
                 case <= MIN_SLIDER_VALUE:
+                    ModifyIndicator(isEnd: true);
                     ExitMinigame();
                     break;
             }
@@ -134,11 +150,11 @@ namespace ATBMI.Minigame
             targetValueTextUI.text = mashMaxValue - _currentValue + "%";
         }
         
-        private void ModifyIndicator()
+        private void ModifyIndicator(bool isEnd = false)
         {
             for (var i = 0; i < indicatorRect.Length; i++)
             {
-                var isActive = i == _mashCount;
+                var isActive = !isEnd && i == _mashCount;
                 AnimateIndicator(i, isActive);
             }
         }

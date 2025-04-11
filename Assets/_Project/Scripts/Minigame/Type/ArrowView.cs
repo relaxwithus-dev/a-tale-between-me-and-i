@@ -118,7 +118,8 @@ namespace ATBMI.Minigame
                     ResetArrowImage(isNonActivate: false);
                 }
             }
-
+            
+            // Win
             if (_currentArrowIndex >= _attribute.count)
             {
                 playingCount = Mathf.Clamp(playingCount + 1, 0, arrowAttributes.Length - 1);
@@ -130,6 +131,8 @@ namespace ATBMI.Minigame
         {
             _elapsedTime += Time.deltaTime;
             arrowSlider.value = Mathf.Lerp(MAX_SLIDER_VALUE, MIN_SLIDER_VALUE, _elapsedTime / _attribute.duration);
+            
+            // Lose
             if (arrowSlider.value <= MIN_SLIDER_VALUE)
             {
                 arrowSlider.value = MIN_SLIDER_VALUE;

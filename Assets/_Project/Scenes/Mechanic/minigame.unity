@@ -4252,9 +4252,16 @@ MonoBehaviour:
   isPlayMinigame: 0
   mashMaxValue: 100
   initiateMashValue: 50
-  mashIncrease: 3
-  mashDecrease: 7
-  decreaseDelay: 1
+  mashAttributes:
+  - increase: 3
+    decrease: 7
+    delay: 1
+  - increase: 2
+    decrease: 5
+    delay: 1
+  - increase: 1
+    decrease: 2
+    delay: 0.5
   sliderSpeed: 7
   indicatorTargetScale: {x: 1.15, y: 1.15, z: 1.15}
   indicatorOriginalScale: {x: 1, y: 1, z: 1}
