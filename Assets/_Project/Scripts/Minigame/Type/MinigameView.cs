@@ -1,6 +1,5 @@
-using System;
-using ATBMI.Gameplay.Handler;
 using UnityEngine;
+using ATBMI.Gameplay.Handler;
 
 namespace ATBMI.Minigame
 {
@@ -22,10 +21,11 @@ namespace ATBMI.Minigame
         #endregion
 
         #region Methods
-
+        
+        // Unity Callbacks
         private void Awake()
         {
-            inputHandler = GameInputHandler.Instance;
+            InitOnAwake();
         }
 
         private void Update()
@@ -34,9 +34,13 @@ namespace ATBMI.Minigame
             RunMinigame();
         }
         
+        // Initialize
+        protected virtual void InitOnAwake()
+        {
+            inputHandler = GameInputHandler.Instance;
+        }
+        
         // Core
-
-        protected virtual void InitOnAwake(){ }
         public virtual void EnterMinigame()
         {
             isPlayMinigame = true;

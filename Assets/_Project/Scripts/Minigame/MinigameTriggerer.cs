@@ -5,6 +5,7 @@ using ATBMI.Gameplay.Handler;
 
 namespace ATBMI.Minigame
 {
+    [RequireComponent(typeof(Collider2D))]
     public class MinigameTriggerer : MonoBehaviour
     {
         #region Fields & Properties

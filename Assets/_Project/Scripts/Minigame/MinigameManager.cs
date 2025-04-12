@@ -8,7 +8,7 @@ namespace ATBMI.Minigame
     {
         #region Fields & Properties
         
-        private enum MinigameType { Arrow, Balance, Mash }
+        private enum MinigameType { Arrow, Timing, Mash }
         
         [Header("Properties")]
         [SerializeField] private MinigameType minigameType;
@@ -38,15 +38,6 @@ namespace ATBMI.Minigame
             }
         }
         
-        // TODO: Drop update method pas minigame aman
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                EnterMinigame();
-            }
-        }
-        
         // Core
         public void EnterMinigame()
         {
@@ -69,7 +60,7 @@ namespace ATBMI.Minigame
             return type switch
             {
                 MinigameType.Arrow => minigameViews[0],
-                MinigameType.Balance => minigameViews[1],
+                MinigameType.Timing => minigameViews[1],
                 MinigameType.Mash => minigameViews[2],
                 _ => null
             };

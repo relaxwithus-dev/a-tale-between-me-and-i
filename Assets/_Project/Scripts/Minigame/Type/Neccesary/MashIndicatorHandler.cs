@@ -12,7 +12,7 @@ namespace ATBMI.Minigame
         [SerializeField] private Vector3 originalScale;
         [SerializeField] private float tweenTime;
 
-        private int _initRectIndex = 0;
+        private readonly int _initRectIndex = 0;
         
         [Header("UI")]
         [SerializeField] private RectTransform[] indicatorRect;

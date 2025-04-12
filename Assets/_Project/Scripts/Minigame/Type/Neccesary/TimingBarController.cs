@@ -16,8 +16,9 @@ namespace ATBMI.Minigame
         
         private float _currentSpeed;
         private int _initiatePosIndex;
-        
         private Tween _moveTween;
+        
+        // Reference
         private RectTransform _timingBarRect;
         
         #endregion

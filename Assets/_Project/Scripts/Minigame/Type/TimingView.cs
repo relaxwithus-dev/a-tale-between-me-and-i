@@ -1,8 +1,6 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
-using ATBMI.Gameplay.Handler;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace ATBMI.Minigame

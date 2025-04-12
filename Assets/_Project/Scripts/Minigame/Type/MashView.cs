@@ -3,7 +3,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Sirenix.OdinInspector;
-using ATBMI.Gameplay.Handler;
 
 namespace ATBMI.Minigame
 {
