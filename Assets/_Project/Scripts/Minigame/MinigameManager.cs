@@ -1,0 +1,71 @@
+using UnityEngine;
+using Sirenix.OdinInspector;
+using ATBMI.Entities.Player;
+
+namespace ATBMI.Minigame
+{
+    public class MinigameManager : MonoBehaviour
+    {
+        #region Fields & Properties
+        
+        private enum MinigameType { Arrow, Timing, Mash }
+        
+        [Header("Properties")]
+        [SerializeField] private MinigameType minigameType;
+        [SerializeField] [ReadOnly] private MinigameView[] minigameViews;
+        
+        private MinigameView _selectedView;
+        
+        // Reference
+        private PlayerController _playerController;
+        
+        #endregion
+        
+        #region Methods
+        
+        // Unity Callbacks
+        private void Awake()
+        {
+            _playerController = FindObjectOfType<PlayerController>();
+        }
+
+        private void Start()
+        {
+            _selectedView = GetMinigameView(minigameType);
+            foreach (var view in minigameViews)
+            {
+                view.gameObject.SetActive(false);
+            }
+        }
+        
+        // Core
+        public void EnterMinigame()
+        {
+            _playerController.StopMovement();
+            _selectedView.gameObject.SetActive(true);
+            _selectedView.EnterMinigame();
+        }
+        
+        public void ExitMinigame()
+        {
+            if (!_selectedView)
+                return;
+            
+            _playerController.StartMovement();
+            _selectedView.gameObject.SetActive(false);
+        }
+
+        private MinigameView GetMinigameView(MinigameType type)
+        {
+            return type switch
+            {
+                MinigameType.Arrow => minigameViews[0],
+                MinigameType.Timing => minigameViews[1],
+                MinigameType.Mash => minigameViews[2],
+                _ => null
+            };
+        }
+        
+        #endregion
+    }
+}

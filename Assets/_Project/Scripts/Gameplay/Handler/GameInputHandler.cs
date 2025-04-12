@@ -40,7 +40,7 @@ namespace ATBMI.Gameplay.Handler
         [SerializeField] private string select = "Select";
         [SerializeField] private string back = "Back";
         [SerializeField] private string submit = "Submit";
-
+        
         // Input action
         private InputAction _navigateAction;
         private InputAction _selectAction;
@@ -48,15 +48,20 @@ namespace ATBMI.Gameplay.Handler
         private InputAction _submitAction;
         
         // Action values
-        private bool _isNavigateUp;
-        private bool _isNavigateDown;
+        private bool _isArrowUp;
+        private bool _isArrowDown;
+        private bool _isArrowLeft;
+        private bool _isArrowRight;
         
-        public bool IsNavigateUp => _isNavigateUp && _navigateAction.WasPressedThisFrame();
-        public bool IsNavigateDown => _isNavigateDown && _navigateAction.WasPressedThisFrame();
+        public bool IsArrowUp => _isArrowUp && _navigateAction.WasPressedThisFrame();
+        public bool IsArrowDown => _isArrowDown && _navigateAction.WasPressedThisFrame();
+        public bool IsArrowLeft => _isArrowLeft && _navigateAction.WasPressedThisFrame();
+        public bool IsArrowRight => _isArrowRight && _navigateAction.WasPressedThisFrame();
+        
+        public bool IsTapSubmit => _submitAction.WasPressedThisFrame();
         public bool IsTapSelect => _selectAction.WasPressedThisFrame();
         public bool IsTapBack => _backAction.WasPressedThisFrame();
-        public bool IsTapSubmit => _submitAction.WasPressedThisFrame();
-    
+        
         #endregion
         
         #region MonoBehaviour Callbacks
@@ -99,24 +104,31 @@ namespace ATBMI.Gameplay.Handler
             _moveAction.Enable();
             _moveAction.performed += value => MoveDirection = value.ReadValue<Vector2>();
             _moveAction.canceled += value => MoveDirection = Vector2.zero;
-
+            
             // Run
             _runAction.Enable();
             _runAction.performed += value => IsPressRun = true;
             _runAction.canceled += value => IsPressRun = false;
-
+            
             // Navigation
             _navigateAction.Enable();
             _navigateAction.performed += value =>
                 {
                     var navigateValue = value.ReadValue<Vector2>();
-                    _isNavigateUp = navigateValue.x > 0;
-                    _isNavigateDown = navigateValue.x < 0;
+                    _isArrowRight = navigateValue.x > 0;
+                    _isArrowLeft = navigateValue.x < 0;
+                    
+                    _isArrowUp = navigateValue.y > 0;
+                    _isArrowDown = navigateValue.y < 0;
+                    
                 };
             _navigateAction.canceled += value =>
                 {
-                    _isNavigateUp = false;
-                    _isNavigateDown = false;
+                    _isArrowRight = false;
+                    _isArrowLeft = false;
+                    
+                    _isArrowUp = false;
+                    _isArrowDown = false;
                 };
         }
 
@@ -137,13 +149,19 @@ namespace ATBMI.Gameplay.Handler
             _navigateAction.performed -= value =>
                 {
                     var navigateValue = value.ReadValue<Vector2>();
-                    _isNavigateUp = navigateValue.x > 0;
-                    _isNavigateDown = navigateValue.x < 0;
+                    _isArrowRight = navigateValue.x > 0;
+                    _isArrowLeft = navigateValue.x < 0;
+                    
+                    _isArrowUp = navigateValue.y > 0;
+                    _isArrowDown = navigateValue.y < 0;
                 };
             _navigateAction.canceled -= value =>
                 {
-                    _isNavigateUp = false;
-                    _isNavigateDown = false;
+                    _isArrowRight = false;
+                    _isArrowLeft = false;
+                    
+                    _isArrowUp = false;
+                    _isArrowDown = false;
                 };
         }
 
