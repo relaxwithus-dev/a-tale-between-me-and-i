@@ -7,6 +7,7 @@ EXTERNAL FinishQuest(questId)
 ~RemoveItem("03")
 ~RemoveItem("04")
 ~RemoveItem("05")
+~FinishQuest("3")
 
 Hum.... #speaker:Dewa #expression:A_Dewa_Speak
 Ini benar lewat sini kan? #speaker:Dewa #expression:A_Dewa_Speak
@@ -44,5 +45,7 @@ Ohhh aku akan coba mengecek maps #speaker:Dewa #expression:A_Dewa_Speak
 Tidak ada disini #speaker:Dewa #expression:A_Dewa_Speak
 Musholla yang disebut tidak ada di maps #speaker:Dewa #expression:A_Dewa_Speak
 Kalau begitu aku akan coba mencarinya sendiri #speaker:Dewa #expression:A_Dewa_Speak
+
+~StartQuest("4")
 
 -> END

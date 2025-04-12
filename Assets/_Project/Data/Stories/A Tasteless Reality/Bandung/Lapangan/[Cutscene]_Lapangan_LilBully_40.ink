@@ -18,4 +18,6 @@ Hahahahaha #speaker:Anak 1 #expression:A_Anak1_Speak
 
 // Kamera panning ke Ratna & Dewa
 
+~StartQuest("8")
+
 -> END

@@ -12,4 +12,6 @@ Tolongg!!! #speaker:Ratna #expression:A_Ratna_Panik
 
 // Kamera panning ke Ratna
 
+~FinishQuest("6")
+
 -> END

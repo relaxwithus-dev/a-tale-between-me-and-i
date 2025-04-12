@@ -2,6 +2,8 @@ EXTERNAL AddItem(itemId)
 EXTERNAL StartQuest(questId)
 EXTERNAL FinishQuest(questId)
 
+~FinishQuest("5")
+
 Siapa ya yang nelfon malam-malam begini #speaker:Dewa #expression:A_Dewa_Speak
 Ohhh ternyata mama #speaker:Dewa #expression:A_Dewa_Speak
 Halo iya ma ada apa? #speaker:Dewa #expression:A_Dewa_Speak

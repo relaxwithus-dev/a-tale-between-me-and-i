@@ -14,4 +14,6 @@ Aku harus cepat mandi dan bersiap #speaker:Dewa #expression:A_Dewa_Speak
 
 // Fade Screen
 
+~StartQuest("5")
+
 -> END

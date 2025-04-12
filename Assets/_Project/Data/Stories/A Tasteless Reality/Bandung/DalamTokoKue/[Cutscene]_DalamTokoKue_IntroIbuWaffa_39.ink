@@ -59,4 +59,6 @@ Baik bu #speaker:Dewa #expression:A_Dewa_Speak
 Biasanya jam segini dia bermain di lapangan #speaker:Ibu Waffa #expression:A_IbuWaffa_Speak
 Kamu harus cepat nak sebelum seuatu terjadi pada dirinya #speaker:Ibu Waffa #expression:A_IbuWaffa_Speak
 
+~FinishQuest("7")
+
 -> END

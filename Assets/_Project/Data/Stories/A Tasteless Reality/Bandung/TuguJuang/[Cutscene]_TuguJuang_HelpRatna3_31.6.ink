@@ -48,4 +48,6 @@ Iya juga ya... #speaker:Dewa #expression:A_Dewa_Speak
 Makanya kita harus mencari tahu sebenarnya kita ada dimana #speaker:Dewa #expression:A_Dewa_Speak
 Karena pintu keluarnya juga sudah menghilang #speaker:Dewa #expression:A_Dewa_Speak
 
+~StartQuest("7")
+
 -> END

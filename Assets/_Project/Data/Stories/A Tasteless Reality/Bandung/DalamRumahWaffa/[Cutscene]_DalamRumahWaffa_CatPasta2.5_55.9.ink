@@ -29,4 +29,6 @@ Kita ikuti warna itu lagi #speaker:Dewa #expression:A_Dewa_Speak
 
 O-oke… #speaker:Ratna #expression:A_Ratna_Speak
 
+~StartQuest("10")
+
 -> END
