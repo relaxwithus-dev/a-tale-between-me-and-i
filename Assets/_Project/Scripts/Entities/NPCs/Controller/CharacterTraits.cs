@@ -76,7 +76,7 @@ namespace ATBMI.Entities.NPCs
             {
                 emotions[i] = Mathf.Clamp(emotions[i] + newEmotions[i], -1f, 1f);
             }
-            
+
             ExtractDominantEmotion();
         }
         
