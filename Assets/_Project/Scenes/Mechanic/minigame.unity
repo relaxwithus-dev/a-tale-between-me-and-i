@@ -973,7 +973,7 @@ MonoBehaviour:
   - {fileID: 1716712014}
   - {fileID: 603265457}
   - {fileID: 973108637}
-  arrowSlider: {fileID: 622220444}
+  timeSliderUI: {fileID: 622220444}
 --- !u!1 &257276256
 GameObject:
   m_ObjectHideFlags: 0
@@ -3199,7 +3199,7 @@ MonoBehaviour:
   minigameManager: {fileID: 292361787}
   isPlayMinigame: 0
   wrongDelayTime: 1
-  balanceAttributes:
+  timingAttributes:
   - duration: 15
     minSpeed: 5
     maxSpeed: 9
@@ -4266,9 +4266,6 @@ MonoBehaviour:
   mashSliderUI: {fileID: 460208020}
   valueTextUI: {fileID: 435504683}
   targetValueTextUI: {fileID: 1632216250}
-  indicatorRect:
-  - {fileID: 292705735}
-  - {fileID: 51052517}
   indicatorHandler: {fileID: 1603854656}
 --- !u!114 &1036880790
 MonoBehaviour:

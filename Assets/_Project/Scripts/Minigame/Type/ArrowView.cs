@@ -1,10 +1,8 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using ATBMI.Gameplay.Handler;
-using Unity.VisualScripting;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 namespace ATBMI.Minigame
@@ -43,7 +41,7 @@ namespace ATBMI.Minigame
         
         [Header("UI")]
         [SerializeField] private Image[] arrowImages;
-        [SerializeField] private Slider arrowSlider;
+        [SerializeField] private Slider timeSliderUI;
         
         #endregion
         
@@ -60,7 +58,7 @@ namespace ATBMI.Minigame
             _spawnedArrowNames.Clear();
             _attribute = arrowAttributes[playingCount];
             
-            arrowSlider.value = MAX_SLIDER_VALUE;
+            timeSliderUI.value = MAX_SLIDER_VALUE;
             
             // Reset image
             ResetArrowImage(isNonActivate: true);
@@ -125,12 +123,12 @@ namespace ATBMI.Minigame
         private void HandleArrowTime()
         {
             _elapsedTime += Time.deltaTime;
-            arrowSlider.value = Mathf.Lerp(MAX_SLIDER_VALUE, MIN_SLIDER_VALUE, _elapsedTime / _attribute.duration);
+            timeSliderUI.value = Mathf.Lerp(MAX_SLIDER_VALUE, MIN_SLIDER_VALUE, _elapsedTime / _attribute.duration);
             
             // Lose
-            if (arrowSlider.value <= MIN_SLIDER_VALUE)
+            if (timeSliderUI.value <= MIN_SLIDER_VALUE)
             {
-                arrowSlider.value = MIN_SLIDER_VALUE;
+                timeSliderUI.value = MIN_SLIDER_VALUE;
                 ExitMinigame();
             }
         }

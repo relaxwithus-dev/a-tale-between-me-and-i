@@ -2,16 +2,17 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 using ATBMI.Gameplay.Handler;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace ATBMI.Minigame
 {
-    public class BalanceView : MinigameView
+    public class TimingView : MinigameView
     {
         #region Struct
 
         [Serializable]
-        private struct BalanceAttribute
+        private struct TimingAttribute
         {
             public float duration;
             public float minSpeed;
@@ -24,12 +25,12 @@ namespace ATBMI.Minigame
 
         [Header("Attribute")] 
         [SerializeField] private float wrongDelayTime;
-        [SerializeField] private BalanceAttribute[] balanceAttributes;
+        [SerializeField] private TimingAttribute[] timingAttributes;
         [SerializeField] private RectTransform[] hitAreaRestrictions = new RectTransform[2];
         
         private bool _canInteract;
         private float _elapsedTime;
-        private BalanceAttribute _attribute;
+        private TimingAttribute _attribute;
         
         [Header("UI")] 
         [SerializeField] private RectTransform hitAreaRect;
@@ -57,7 +58,7 @@ namespace ATBMI.Minigame
             
             _elapsedTime = 0f;
             _canInteract = true;
-            _attribute = balanceAttributes[playingCount];
+            _attribute = timingAttributes[playingCount];
             _timingController.StartAnimateBar((_attribute.minSpeed, _attribute.maxSpeed));
             
             // Random area anchoredPosition
@@ -85,7 +86,7 @@ namespace ATBMI.Minigame
                 // Win
                 if (hitAreaWorld.Overlaps(timingBarWorld))
                 {
-                    playingCount = Mathf.Clamp(playingCount + 1, 0, balanceAttributes.Length - 1);
+                    playingCount = Mathf.Clamp(playingCount + 1, 0, timingAttributes.Length - 1);
                     _timingController.StopTimingBar();
                     ExitMinigame();
                 }
