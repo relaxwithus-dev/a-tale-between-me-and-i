@@ -2,7 +2,6 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using DG.Tweening;
 using Sirenix.OdinInspector;
 using ATBMI.Gameplay.Handler;
 
@@ -10,7 +9,7 @@ namespace ATBMI.Minigame
 {
     public class MashView : MinigameView
     {
-        #region MashData
+        #region Struct
 
         [Serializable]
         private struct MashAttribute
@@ -27,6 +26,7 @@ namespace ATBMI.Minigame
         [Header("Attribute")]
         [SerializeField] [Range(0, 100)] private float mashMaxValue;
         [SerializeField] [MaxValue(100)] private float initiateMashValue;
+        [SerializeField] private float sliderSpeed;
         [SerializeField] private MashAttribute[] mashAttributes;
         
         private int _mashCount;
@@ -35,31 +35,18 @@ namespace ATBMI.Minigame
         
         private MashAttribute _attribute;
         
-        [Header("Tween")]
-        [SerializeField] private float sliderSpeed;
-        [SerializeField] private Vector3 indicatorTargetScale;
-        [SerializeField] private Vector3 indicatorOriginalScale;
-        [SerializeField] private float indicatorTime;
-        
         [Header("UI")]
         [SerializeField] private Slider mashSliderUI;
         [SerializeField] private TextMeshProUGUI valueTextUI;
         [SerializeField] private TextMeshProUGUI targetValueTextUI;
-        [SerializeField] private RectTransform[] indicatorRect;
         
         // Reference
-        private GameInputHandler _inputHandler;
+        [Header("Reference")]
+        [SerializeField] private MashIndicatorHandler indicatorHandler;
         
         #endregion
         
         #region Methods
-        
-        // Initialize
-        protected override void InitOnAwake()
-        {
-            base.InitOnAwake();
-            _inputHandler = GameInputHandler.Instance;
-        }
         
         // Core
         public override void EnterMinigame() 
@@ -72,7 +59,6 @@ namespace ATBMI.Minigame
             _attribute = mashAttributes[playingCount];
             
             mashSliderUI.value = _currentValue / mashMaxValue;
-            indicatorRect[_mashCount].localScale = indicatorTargetScale;
         }
         
         protected override void RunMinigame()
@@ -90,24 +76,20 @@ namespace ATBMI.Minigame
         {
             base.ExitMinigame();
             mashSliderUI.value =  initiateMashValue / mashMaxValue;
-            foreach (var rect in indicatorRect)
-            {
-                rect.localScale = Vector3.one;
-            }
         }
         
         private void HandleIncreaseMash()
         {
             switch (_mashCount)
             {
-                case 0 when _inputHandler.IsArrowRight:
+                case 0 when inputHandler.IsArrowRight:
                     _mashCount = 1;
-                    ModifyIndicator();
+                    indicatorHandler.ModifyIndicator(_mashCount);
                     break;
-                case 1 when _inputHandler.IsArrowLeft:
+                case 1 when inputHandler.IsArrowLeft:
                     _mashCount = 0;
                     _currentValue += _attribute.increase;
-                    ModifyIndicator();
+                    indicatorHandler.ModifyIndicator(_mashCount);
                     break;
             }
         }
@@ -133,12 +115,12 @@ namespace ATBMI.Minigame
                 // Win
                 case >= MAX_SLIDER_VALUE:
                     playingCount = Mathf.Clamp(playingCount + 1, 0, mashAttributes.Length - 1);
-                    ModifyIndicator(isEnd: true);
+                    indicatorHandler.ModifyIndicator(_mashCount, true);
                     ExitMinigame();
                     break;
                 // Lose
                 case <= MIN_SLIDER_VALUE:
-                    ModifyIndicator(isEnd: true);
+                    indicatorHandler.ModifyIndicator(_mashCount, true);
                     ExitMinigame();
                     break;
             }
@@ -148,23 +130,6 @@ namespace ATBMI.Minigame
         {
             valueTextUI.text = _currentValue + "%";
             targetValueTextUI.text = mashMaxValue - _currentValue + "%";
-        }
-        
-        private void ModifyIndicator(bool isEnd = false)
-        {
-            for (var i = 0; i < indicatorRect.Length; i++)
-            {
-                var isActive = !isEnd && i == _mashCount;
-                AnimateIndicator(i, isActive);
-            }
-        }
-        
-        private void AnimateIndicator(int index, bool isScaleUp)
-        {
-            var scale = isScaleUp ? indicatorTargetScale : indicatorOriginalScale;
-            var ease = isScaleUp ? Ease.InSine : Ease.OutSine;
-            
-            indicatorRect[index].DOScale(scale, indicatorTime).SetEase(ease);
         }
         
         #endregion

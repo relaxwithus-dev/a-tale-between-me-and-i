@@ -1,4 +1,5 @@
 using System;
+using ATBMI.Gameplay.Handler;
 using UnityEngine;
 
 namespace ATBMI.Minigame
@@ -12,9 +13,11 @@ namespace ATBMI.Minigame
         [SerializeField] private bool isPlayMinigame;
 
         protected int playingCount;
-        
         protected const float MAX_SLIDER_VALUE = 1f;
         protected const float MIN_SLIDER_VALUE = 0f;
+        
+        // Reference
+        protected GameInputHandler inputHandler;
         
         #endregion
 
@@ -22,7 +25,7 @@ namespace ATBMI.Minigame
 
         private void Awake()
         {
-            InitOnAwake();
+            inputHandler = GameInputHandler.Instance;
         }
 
         private void Update()

@@ -37,16 +37,13 @@ namespace ATBMI.Minigame
         
         private float _elapsedTime;
         private int _currentArrowIndex;
-        
         private ArrowAttribute _attribute;
+        
         private readonly List<string> _spawnedArrowNames = new();
         
         [Header("UI")]
         [SerializeField] private Image[] arrowImages;
         [SerializeField] private Slider arrowSlider;
-        
-        // Reference
-        private GameInputHandler _input;
         
         #endregion
         
@@ -60,9 +57,7 @@ namespace ATBMI.Minigame
             // Initiate attribute
             _elapsedTime = 0f;
             _currentArrowIndex = 0;
-            
             _spawnedArrowNames.Clear();
-            _input ??= GameInputHandler.Instance;
             _attribute = arrowAttributes[playingCount];
             
             arrowSlider.value = MAX_SLIDER_VALUE;
@@ -155,10 +150,10 @@ namespace ATBMI.Minigame
         
         private string GetArrowInputName()
         {
-            if (_input.IsArrowUp) return "Arrow Up";
-            if (_input.IsArrowDown) return "Arrow Down";
-            if (_input.IsArrowLeft) return "Arrow Left";
-            if (_input.IsArrowRight) return "Arrow Right";
+            if (inputHandler.IsArrowUp) return "Arrow Up";
+            if (inputHandler.IsArrowDown) return "Arrow Down";
+            if (inputHandler.IsArrowLeft) return "Arrow Left";
+            if (inputHandler.IsArrowRight) return "Arrow Right";
             return null;
         }
         

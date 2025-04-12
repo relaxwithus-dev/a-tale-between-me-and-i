@@ -77,7 +77,7 @@ namespace ATBMI.Minigame
         {
             if (!_canInteract) return;
             
-            if (GameInputHandler.Instance.IsTapInteract)
+            if (inputHandler.IsTapInteract)
             {
                 var hitAreaWorld = WorldRect(hitAreaRect);
                 var timingBarWorld = WorldRect(timingBarRect);
