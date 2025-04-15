@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace ATBMI.Entities.NPCs
 {
-    public class PemabukBT : EmoTrees
+    public class TestBT : EmoTrees
     {
         protected override Node SetupTree()
         {

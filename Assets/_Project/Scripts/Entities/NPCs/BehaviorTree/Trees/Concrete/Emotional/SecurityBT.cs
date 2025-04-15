@@ -5,19 +5,19 @@ namespace ATBMI.Entities.NPCs
 {
     public class SecurityBT : EmoTrees
     {
-        [Header("Property")] 
+        [Header("Attribute")] 
         [SerializeField] private float pullForce;
         [SerializeField] private float pullDelay;
         [SerializeField] private float passOffRange;
         
         [Space]
-        [SerializeField] private CharacterAnimation characterAnimation;
+        [SerializeField] private CharacterAnimation characterAnim;
         
         protected override Node SetupTree()
         {
             var angerText = GetTextAssets(Emotion.Anger);
             
-            Selector tree = new Selector("Security", new List<Node>
+            Selector tree = new Selector("Security BT", new List<Node>
             {
                 new CheckInteracted(characterInteract),
                 new ZoneSelector("Proxemics", new List<Node>
@@ -44,8 +44,8 @@ namespace ATBMI.Entities.NPCs
                         new CheckTargetInProxemics(centerPoint, zoneDetails[1].Radius, layerMask),
                         new EmotionalSelector("Anticipation", characterTraits, new List<Node>
                         {
-                            new TaskObserve(characterAI, characterAnimation, zoneDetails[1].Radius),
-                            new TaskAnimate(characterAnimation, "Anticipation"),
+                            new TaskObserve(characterAI, characterAnim, zoneDetails[1].Radius),
+                            new TaskAnimate(characterAnim, "Anticipation"),
                             new TaskIdle(characterAI)
                         })
                     })

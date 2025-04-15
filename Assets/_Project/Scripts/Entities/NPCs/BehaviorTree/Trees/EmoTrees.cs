@@ -1,7 +1,6 @@
 using System;
-using ATBMI.Interaction;
 using UnityEngine;
-using UnityEngine.Serialization;
+using ATBMI.Interaction;
 
 namespace ATBMI.Entities.NPCs
 {

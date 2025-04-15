@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC_Pemabuk
       objectReference: {fileID: 0}
+    - target: {fileID: 225562555324070475, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 819465445805292157, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.2
@@ -125,16 +129,27 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 225562555324070475, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3736038964476778030}
+    - targetCorrespondingSourceObject: {fileID: 225562555324070475, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6605989077549685683}
     - targetCorrespondingSourceObject: {fileID: 8306047683278652390, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4017804727601841783}
     - targetCorrespondingSourceObject: {fileID: 8306047683278652390, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2306330349123930863}
-    - targetCorrespondingSourceObject: {fileID: 8306047683278652390, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 953005315424389862}
+      addedObject: {fileID: 4208733923917531124}
   m_SourcePrefab: {fileID: 100100000, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+--- !u!114 &1503769504184384528 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4774339738783165099, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+  m_PrefabInstance: {fileID: 6241895453110703803}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f63e0aa3778344d0a3088aa66c4f6a2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2727677842074490205 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8306047683278652390, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
@@ -154,7 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   influenceConfig: {fileID: 11400000, guid: c751ae8aadbb81f43b8f6b5096a36955, type: 2}
   personalityConfig: {fileID: 11400000, guid: daad5bdba89a97142b7a570695d56fdf, type: 2}
-  initialEmotion: 0
+  baseEmotion: 5
   emotions:
   - 0
   - 0
@@ -166,7 +181,7 @@ MonoBehaviour:
   - 0
   - 0
   - 0
---- !u!114 &2306330349123930863
+--- !u!114 &4208733923917531124
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -175,31 +190,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 2727677842074490205}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d7de85b0bbe490285c157c9c7f505a0, type: 3}
+  m_Script: {fileID: 11500000, guid: 912cc7c5d7ce4597b790361cfb995511, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultTexts: []
+  emotionTexts: []
+  emoteAnimator: {fileID: 0}
   centerPoint: {fileID: 6755673961492933830}
-  zoneDetails:
-  - Type: 0
-    Radius: 1.5
-  - Type: 1
-    Radius: 3
+  zoneDetails: []
   layerMask:
     serializedVersion: 2
     m_Bits: 64
---- !u!114 &953005315424389862
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  characterInteract: {fileID: 3736038964476778030}
+  pushForce: 6.3
+  pushDelay: 0.15
+  wayPoints: []
+  characterManager: {fileID: 6605989077549685683}
+  characterAnim: {fileID: 1503769504184384528}
+--- !u!4 &4557523409864915204 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7611146811407626175, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+  m_PrefabInstance: {fileID: 6241895453110703803}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2727677842074490205}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e367e0cce99a44e695005815f1976651, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  centerPoint: {fileID: 6755673961492933830}
 --- !u!1 &6178640880139922672 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 225562555324070475, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
@@ -220,11 +232,29 @@ MonoBehaviour:
   isInteracting: 0
   interactAction: 0
   targetId: 0
-  signTransform: {fileID: 0}
-  characterTraits: {fileID: 0}
-  characterAI: {fileID: 0}
+  signTransform: {fileID: 4557523409864915204}
+  emojiTransform: {fileID: 8540831605420784584}
+  characterTraits: {fileID: 4017804727601841783}
+--- !u!114 &6605989077549685683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6178640880139922672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6a86d9e3f0035042bec9a0b1cbd87bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterEnergy: 30
 --- !u!4 &6755673961492933830 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 819465445805292157, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+  m_PrefabInstance: {fileID: 6241895453110703803}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8540831605420784584 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2312752133860158835, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
   m_PrefabInstance: {fileID: 6241895453110703803}
   m_PrefabAsset: {fileID: 0}
