@@ -21,6 +21,8 @@ namespace ATBMI.Gameplay.Event
         public static event Action<string> UpdateDialogueEmojiPos;
         public static event Action<int> AdjustDialogueUISize;
         public static event Action<int> AdjustDialogueChoicesUISize;
+        public static event Action RegisterDialogueSignPoint;
+        public static event Action UnregisterDialogueSignPoint;
 
         // Behaviour events
         public static event Action<bool> PlayerRun;
@@ -41,6 +43,8 @@ namespace ATBMI.Gameplay.Event
         public static void UpdateDialogueEmojiPosEvent(string tag) => UpdateDialogueEmojiPos?.Invoke(tag);
         public static void AdjustDialogueUISizeEvent(int count) => AdjustDialogueUISize?.Invoke(count);
         public static void AdjustDialogueChoicesUISizeEvent(int count) => AdjustDialogueChoicesUISize?.Invoke(count);
+        public static void RegisterDialogueSignPointEvent() => RegisterDialogueSignPoint?.Invoke();
+        public static void UnregisterDialogueSignPointEvent() => UnregisterDialogueSignPoint?.Invoke();
 
         // behaviour events
         public static void PlayerRunEvent(bool isRunning) => PlayerRun?.Invoke(isRunning);

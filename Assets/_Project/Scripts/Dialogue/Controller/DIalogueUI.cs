@@ -24,20 +24,24 @@ public class DialogueUI : MonoBehaviour
     {
         layoutElement = GetComponent<LayoutElement>();
         rectTransform = GetComponent<RectTransform>();
+
+        SubscribeEvents();
     }
 
-    private void OnEnable()
+    private void SubscribeEvents()
     {
-        DialogueEvents.RegisterNPCTipTarget += RegisterNPCTipTarget;
+        DialogueEvents.RegisterNPCTipTarget += RegisterDialogueSignPoint;
         DialogueEvents.UpdateDialogueUIPos += UpdateDialogueUIPos;
         DialogueEvents.AdjustDialogueUISize += AdjustDialogueUISize;
+        DialogueEvents.UnregisterDialogueSignPoint += UnregisterDialogueSignPoint;
     }
 
-    private void OnDisable()
+    private void UnsubscribeEvents()
     {
-        DialogueEvents.RegisterNPCTipTarget -= RegisterNPCTipTarget;
+        DialogueEvents.RegisterNPCTipTarget -= RegisterDialogueSignPoint;
         DialogueEvents.UpdateDialogueUIPos -= UpdateDialogueUIPos;
         DialogueEvents.AdjustDialogueUISize -= AdjustDialogueUISize;
+        DialogueEvents.UnregisterDialogueSignPoint -= UnregisterDialogueSignPoint;
     }
 
     private void Start()
@@ -47,7 +51,7 @@ public class DialogueUI : MonoBehaviour
         updateCounter = 0;
     }
 
-    private void RegisterNPCTipTarget(string npcName, Transform tipTarget)
+    private void RegisterDialogueSignPoint(string npcName, Transform tipTarget)
     {
         if (!npcTargets.ContainsKey(npcName))
         {
@@ -58,6 +62,11 @@ public class DialogueUI : MonoBehaviour
         {
             npcTargets[npcName].Add(tipTarget);
         }
+    }
+
+    private void UnregisterDialogueSignPoint()
+    {
+        npcTargets.Clear();
     }
 
     private void UpdateDialogueUIPos(string tagValue)
@@ -100,9 +109,10 @@ public class DialogueUI : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (screenPosition != null)
+        if (screenPosition != null && pinPosition != null)
         {
-            parentRectTransform.position = Camera.main.WorldToScreenPoint(pinPosition.position);
+            // parentRectTransform.position = Camera.main.WorldToScreenPoint(pinPosition.position);
+            // Debug.Log(pinPosition.position);
         }
 
         if (updateCounter <= 0)
@@ -132,6 +142,11 @@ public class DialogueUI : MonoBehaviour
         }
 
         updateCounter--;
+    }
+
+    private void OnDestroy()
+    {
+        UnsubscribeEvents();
     }
 }
 

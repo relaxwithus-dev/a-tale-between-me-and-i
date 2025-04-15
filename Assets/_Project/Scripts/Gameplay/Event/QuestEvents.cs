@@ -14,6 +14,7 @@ namespace ATBMI.Gameplay.Event
 
         // Quest Step Event
         // TODO: put quest step event here
+        public static event Action<int> GetItemQuestStep;
 
         // Main Caller
         public static void StartQuestEvent(int id) => StartQuest?.Invoke(id);
@@ -28,6 +29,6 @@ namespace ATBMI.Gameplay.Event
         }
 
         // Quest Step Caller
-
+        public static void GetItemQuestStepEvent(int itemId) => GetItemQuestStep?.Invoke(itemId);
     }
 }

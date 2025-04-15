@@ -26,23 +26,25 @@ namespace ATBMI.Entities.Player
             _playerController = GetComponent<PlayerController>();
         }
 
-        private void Start()
-        {
-            DialogueEvents.RegisterNPCTipTargetEvent(_playerController.Data.name, signTransform);
-            DialogueEvents.RegisterNPCEmojiTargetEvent(_playerController.Data.name, emojiTransform);
-        }
-
         private void OnEnable()
         {
+            DialogueEvents.RegisterDialogueSignPoint += RegisterDialogueSignPoint;
             PlayerEvents.OnMoveToPlayer += MoveToDialogueEntryPoint;
         }
 
         private void OnDisable()
         {
+            DialogueEvents.RegisterDialogueSignPoint -= RegisterDialogueSignPoint;
             PlayerEvents.OnMoveToPlayer -= MoveToDialogueEntryPoint;
         }
-        
+
         // Core
+        private void RegisterDialogueSignPoint()
+        {
+            DialogueEvents.RegisterNPCTipTargetEvent(_playerController.Data.name, signTransform);
+            DialogueEvents.RegisterNPCEmojiTargetEvent(_playerController.Data.name, emojiTransform);
+        }
+
         private void MoveToDialogueEntryPoint(RuleEntry rule, TextAsset ink, float newPositionX, float npcPosX, bool isNpcFacingRight)
         {
             _playerInkJson = ink;

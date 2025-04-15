@@ -10,7 +10,7 @@ namespace ATBMI.Interaction
     public class CharacterInteract : MonoBehaviour, IInteractable
     {
         #region Fields & Properties
-        
+
         [Header("Properties")]
         [SerializeField] private bool isInteracting;
 
@@ -41,9 +41,16 @@ namespace ATBMI.Interaction
         private void OnEnable()
         {
             InteractEvent.OnInteracted += cond => isInteracting = cond;
+
+            DialogueEvents.RegisterDialogueSignPoint += RegisterDialogueSignPoint;
         }
 
-        private void Start()
+        private void OnDisable()
+        {
+            DialogueEvents.RegisterDialogueSignPoint -= RegisterDialogueSignPoint;
+        }
+
+        private void RegisterDialogueSignPoint()
         {
             if (_characterAI.Data != null)
             {
@@ -68,7 +75,7 @@ namespace ATBMI.Interaction
             {
                 // TODO: Saran lur, method baru bisa nge-pass 2 parameter, item id yg dipilih & target item id 
                 var itemData = InventoryManager.Instance.GetItemData(_interactId);
-                
+
                 DialogueEvents.EnterItemDialogueEvent(_characterAI.Data.GetItemDialogue(itemData));
                 characterTraits.InfluenceTraits(InteractAction.Give);
             }

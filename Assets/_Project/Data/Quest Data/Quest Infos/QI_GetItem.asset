@@ -10,18 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c2b450a47a515ba40b7e732579b2c69b, type: 3}
-  m_Name: QI_TalkToRaya
+  m_Name: QI_GetItem
   m_EditorClassIdentifier: 
   <QuestId>k__BackingField: 997
-  displayName: Talk To Raya
+  displayName: Get This Item
   shouldBeFinishManually: 0
   questPrerequisites: []
   questSteps:
-  - targetScene: scene-template-new
-    questStepPrefab: {fileID: 2246666567235768889, guid: 344780df26fb41c4485cff3fe4245e76, type: 3}
-    stepStatusText: bicaralah ke raya
-  - targetScene: scene-template-new
-    questStepPrefab: {fileID: 2246666567235768889, guid: 344780df26fb41c4485cff3fe4245e76, type: 3}
-    stepStatusText: bicaralah ke raya
+  - targetScene: 
+    questStepPrefab: {fileID: 6882783277361605278, guid: b1004cc7bb0966449916cb14d2f7350f, type: 3}
+    stepStatusText: get item id 1 dan 4
   rewardItem:
   - {fileID: 11400000, guid: 8029d9389f832e842b00764eed911b85, type: 2}

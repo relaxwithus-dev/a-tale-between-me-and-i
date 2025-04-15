@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using UnityEngine.SceneManagement;
+using ATBMI.Scene;
 
 namespace ATBMI
 {
@@ -31,7 +32,7 @@ namespace ATBMI
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (SceneManager.GetActiveScene().name == targetScene && other.CompareTag("Player"))
+            if (SceneNavigation.Instance.CurrentScene.name == targetScene && other.CompareTag("Player"))
             {
                 ArrivedAtTargetArea();
             }

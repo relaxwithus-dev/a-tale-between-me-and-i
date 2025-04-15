@@ -44,16 +44,16 @@ namespace ATBMI.Inventory
         {
             if(Input.GetKeyDown(KeyCode.C))
             {
-                AddItemToInventory(101);
-                AddItemToInventory(102);
-                AddItemToInventory(103);
+                AddItemToInventory(1);
+                // AddItemToInventory(2);
+                // AddItemToInventory(3);
             }
 
             if(Input.GetKeyDown(KeyCode.V))
             {
-                AddItemToInventory(104);
-                AddItemToInventory(105);
-                AddItemToInventory(106);
+                AddItemToInventory(4);
+                // AddItemToInventory(5);
+                // AddItemToInventory(6);
             }
         }
 
@@ -98,6 +98,7 @@ namespace ATBMI.Inventory
                 // Add item to inventory
                 InventoryList.Add(new InventoryItem(itemId));
                 PlayerEvents.UpdateInventoryEvent(InventoryList);
+                QuestEvents.GetItemQuestStepEvent(itemId);
                 Debug.Log("add item " + data.ItemName + " " + data.ItemId + " to inventory");
 
                 // TODO: change this method to UI manager
