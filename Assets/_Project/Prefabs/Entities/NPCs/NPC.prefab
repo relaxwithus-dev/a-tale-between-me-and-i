@@ -260,10 +260,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isInteracting: 0
   interactAction: 0
-  targetId: 0
   signTransform: {fileID: 7611146811407626175}
   emojiTransform: {fileID: 2312752133860158835}
-  characterTraits: {fileID: 0}
+  characterTraits: {fileID: 3271371676049430528}
 --- !u!1 &393822418870494782
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,6 +536,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2788492814297127293}
+  - component: {fileID: 3271371676049430528}
   m_Layer: 7
   m_Name: Behavior
   m_TagString: Untagged
@@ -559,3 +559,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7858659317861269129}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3271371676049430528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8306047683278652390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c81ffecf9eec47e3a52591c21ad85f13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  influenceConfig: {fileID: 11400000, guid: c751ae8aadbb81f43b8f6b5096a36955, type: 2}
+  personalityConfig: {fileID: 11400000, guid: daad5bdba89a97142b7a570695d56fdf, type: 2}
+  baseEmotion: 0
+  emotions:
+  - 0
+  - 0
+  - 0
+  - 0
+  personality:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0

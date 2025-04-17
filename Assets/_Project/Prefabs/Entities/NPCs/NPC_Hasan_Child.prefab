@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC_Hasan_Child
       objectReference: {fileID: 0}
+    - target: {fileID: 225562555324070475, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 819465445805292157, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.05
@@ -147,5 +151,25 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8306047683278652390, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8251824530802700}
   m_SourcePrefab: {fileID: 100100000, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+--- !u!1 &2727677842074490205 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8306047683278652390, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+  m_PrefabInstance: {fileID: 6241895453110703803}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8251824530802700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2727677842074490205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cf7f2ef985342c4cb9ec9bd1ab3acaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

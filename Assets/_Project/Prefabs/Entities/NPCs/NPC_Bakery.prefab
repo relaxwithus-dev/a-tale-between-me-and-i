@@ -20,6 +20,10 @@ PrefabInstance:
       propertyPath: isFacingRight
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3271371676049430528, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+      propertyPath: baseEmotion
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3609649175966335719, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_Size.x
       value: 0.4264629
@@ -43,7 +47,7 @@ PrefabInstance:
     - target: {fileID: 4536252543316230107, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: characterTraits
       value: 
-      objectReference: {fileID: 5315839284354488440}
+      objectReference: {fileID: 8933336138072542907}
     - target: {fileID: 4878722094123776488, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_Size.x
       value: 3.125
@@ -122,9 +126,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8306047683278652390, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5315839284354488440}
-    - targetCorrespondingSourceObject: {fileID: 8306047683278652390, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 544013501744105879}
   m_SourcePrefab: {fileID: 100100000, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
 --- !u!114 &1503769504184384528 stripped
@@ -143,32 +144,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8306047683278652390, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
   m_PrefabInstance: {fileID: 6241895453110703803}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5315839284354488440
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2727677842074490205}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c81ffecf9eec47e3a52591c21ad85f13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  influenceConfig: {fileID: 11400000, guid: c751ae8aadbb81f43b8f6b5096a36955, type: 2}
-  personalityConfig: {fileID: 11400000, guid: daad5bdba89a97142b7a570695d56fdf, type: 2}
-  baseEmotion: 1
-  emotions:
-  - 0
-  - 0
-  - 0
-  - 0
-  personality:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
 --- !u!114 &544013501744105879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,5 +185,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90926fb261ccf3440b3010858b0f1c49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8933336138072542907 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3271371676049430528, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+  m_PrefabInstance: {fileID: 6241895453110703803}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2727677842074490205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c81ffecf9eec47e3a52591c21ad85f13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
