@@ -41,7 +41,7 @@ namespace ATBMI.Minigame
                 _canPlayMinigame = false;
                 
                 infoTextUI.gameObject.SetActive(false);
-                minigameManager.EnterMinigame();
+                MinigameManager.EnterMinigameEvent();
             }
         }
         

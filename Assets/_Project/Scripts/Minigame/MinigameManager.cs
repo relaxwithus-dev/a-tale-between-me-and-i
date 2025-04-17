@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Sirenix.OdinInspector;
 using ATBMI.Entities.Player;
@@ -15,6 +16,7 @@ namespace ATBMI.Minigame
         [SerializeField] [ReadOnly] private MinigameView[] minigameViews;
         
         private MinigameView _selectedView;
+        public static event Action OnEnterMinigame;
         
         // Reference
         private PlayerController _playerController;
@@ -29,6 +31,16 @@ namespace ATBMI.Minigame
             _playerController = FindObjectOfType<PlayerController>();
         }
 
+        private void OnEnable()
+        {
+            OnEnterMinigame += EnterEnterMinigame;
+        }
+
+        private void OnDisable()
+        {
+            OnEnterMinigame -= EnterEnterMinigame;
+        }
+
         private void Start()
         {
             _selectedView = GetMinigameView(minigameType);
@@ -39,7 +51,9 @@ namespace ATBMI.Minigame
         }
         
         // Core
-        public void EnterMinigame()
+        public static void EnterMinigameEvent() => OnEnterMinigame?.Invoke();
+        
+        private void EnterEnterMinigame()
         {
             _playerController.StopMovement();
             _selectedView.gameObject.SetActive(true);
