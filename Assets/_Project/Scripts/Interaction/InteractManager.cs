@@ -2,7 +2,6 @@ using UnityEngine;
 using Sirenix.OdinInspector;
 using ATBMI.Dialogue;
 using ATBMI.Gameplay.Handler;
-using UnityEngine.Serialization;
 
 namespace ATBMI.Interaction
 {

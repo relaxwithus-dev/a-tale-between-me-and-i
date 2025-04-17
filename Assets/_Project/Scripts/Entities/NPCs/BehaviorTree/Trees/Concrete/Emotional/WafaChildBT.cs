@@ -6,7 +6,7 @@ namespace ATBMI.Entities.NPCs
     public class WafaChildBT : EmoTrees
     {
         [Header("Attribute")] 
-        [SerializeField] private float runAwayDuration = 8f;
+        [SerializeField] private float followDuration = 6f;
         [SerializeField] private Transform[] wayPoints;
         
         [Space]
@@ -27,7 +27,7 @@ namespace ATBMI.Entities.NPCs
                         {
                             new SequenceWeight("Follow", new List<Node>
                             {
-                                new TaskFollow(characterAI, characterAI.Data, 6f),
+                                new TaskFollow(characterAI, characterAI.Data, followDuration),
                                 new TaskTalk(characterAI, defaultTexts)
                             }),
                             new TaskTalk(characterAI, defaultTexts),

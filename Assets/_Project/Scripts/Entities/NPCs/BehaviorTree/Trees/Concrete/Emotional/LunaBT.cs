@@ -25,7 +25,7 @@ namespace ATBMI.Entities.NPCs
                         new CheckTargetInProxemics(centerPoint, zoneDetails[0].Radius, layerMask),
                         new EmotionalSelector("Fear and Disgust", characterTraits, new List<Node>
                         {
-                            new TaskRunAway(characterAI, characterAI.Data, 8f),
+                            new TaskRunAway(characterAI, characterAI.Data, runAwayDuration),
                             new TaskTalk(characterAI, defaultTexts),
                             new TaskAnimate(characterAnim, "Disgust"),
                             new TaskIdle(characterAI)
