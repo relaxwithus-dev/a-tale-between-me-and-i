@@ -105,7 +105,7 @@ namespace ATBMI.Entities.NPCs
                new Sequence("Jump", new List<Node>
                {
                    new CheckTargetInProxemics(centerPoint, zoneDetails[0].Radius, layerMask),
-                   new CheckSameDirection(characterAI),
+                   new CheckDirection(characterAI),
                    new TaskJumpBack(characterAI, 0.3f, 0.15f),
                    new TaskIdle(characterAI)
                }),

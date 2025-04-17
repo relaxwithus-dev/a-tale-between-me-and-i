@@ -3,13 +3,15 @@ using UnityEngine;
 
 namespace ATBMI.Entities.NPCs
 {
-    public class CheckSameDirection : LeafWeight
+    public class CheckDirection : LeafWeight
     {
         private readonly CharacterAI character;
+        private readonly bool isDifferentDir;
 
-        public CheckSameDirection(CharacterAI character)
+        public CheckDirection(CharacterAI character, bool isDifferentDir = false)
         {
             this.character = character;
+            this.isDifferentDir = isDifferentDir;
         }
 
         public override NodeStatus Evaluate()
@@ -20,9 +22,10 @@ namespace ATBMI.Entities.NPCs
             if (!target.TryGetComponent<PlayerController>(out var player))
                 return LogFailure();
 
-            if (player.IsRight && character.IsFacingRight)
+            var facingSameDirection = player.IsRight == character.IsFacingRight;
+            if ((isDifferentDir && !facingSameDirection) || (!isDifferentDir && facingSameDirection))
                 return LogSuccess();
-
+            
             return LogFailure();
         }
         

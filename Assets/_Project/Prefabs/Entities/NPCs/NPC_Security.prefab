@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC_Security
       objectReference: {fileID: 0}
+    - target: {fileID: 225562555324070475, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 819465445805292157, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.15
@@ -55,6 +59,10 @@ PrefabInstance:
     - target: {fileID: 2969078484764688885, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3271371676049430528, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+      propertyPath: baseEmotion
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3754992802670437494, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_LocalScale.x
@@ -154,7 +162,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7858659317861269129, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7858659317861269129, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_LocalRotation.y
@@ -162,7 +170,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7858659317861269129, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7858659317861269129, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -192,9 +200,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8306047683278652390, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4922681613591676213}
-    - targetCorrespondingSourceObject: {fileID: 8306047683278652390, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5514254196064868325}
     - targetCorrespondingSourceObject: {fileID: 3538335800246146966, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 564822670336304445}
@@ -253,33 +258,7 @@ MonoBehaviour:
   pullForce: 2.3
   pullDelay: 0.15
   passOffRange: 2.5
-  characterAnimation: {fileID: 1503769504184384528}
---- !u!114 &5514254196064868325
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2727677842074490205}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c81ffecf9eec47e3a52591c21ad85f13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  influenceConfig: {fileID: 11400000, guid: c751ae8aadbb81f43b8f6b5096a36955, type: 2}
-  personalityConfig: {fileID: 11400000, guid: daad5bdba89a97142b7a570695d56fdf, type: 2}
-  initialEmotion: 5
-  emotions:
-  - 0
-  - 0
-  - 0
-  - 0
-  personality:
-  - 0
-  - -1
-  - 0
-  - 0
-  - -1
+  characterAnim: {fileID: 1503769504184384528}
 --- !u!4 &4557523409864915204 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7611146811407626175, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
@@ -313,14 +292,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90926fb261ccf3440b3010858b0f1c49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultDialogueAsset: {fileID: 4900000, guid: 61c8b6fbefe525f42972633016f0afa3, type: 3}
-  emoteAnimator: {fileID: 7747208020035534566}
   isInteracting: 0
   interactAction: 0
-  targetId: 0
   signTransform: {fileID: 4557523409864915204}
   emojiTransform: {fileID: 8540831605420784584}
-  characterTraits: {fileID: 5514254196064868325}
+  characterTraits: {fileID: 8933336138072542907}
 --- !u!4 &6755673961492933830 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 819465445805292157, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
@@ -350,9 +326,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npc: {fileID: 5100580093370311947}
   playerEntryPoint: {fileID: 7098729475346264781}
-  emoteAnimator: {fileID: 0}
   isPlayerInRange: 0
   isDialogueAboutToStart: 0
+  isExecuted: 0
   manualTriggerRules:
   - {fileID: 11400000, guid: 17777916603fb6449a8e92305c4fb8b0, type: 2}
   - {fileID: 11400000, guid: cd697aa0dcd9f3842a939a724f2a9d10, type: 2}
@@ -401,3 +377,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2312752133860158835, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
   m_PrefabInstance: {fileID: 6241895453110703803}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8933336138072542907 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3271371676049430528, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+  m_PrefabInstance: {fileID: 6241895453110703803}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2727677842074490205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c81ffecf9eec47e3a52591c21ad85f13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

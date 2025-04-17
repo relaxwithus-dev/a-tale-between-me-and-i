@@ -31,7 +31,7 @@ namespace ATBMI.Entities.NPCs
             
             OverrideEmotionFactors(_factorsAnimate);
         }
-
+        
         // Core
         public override NodeStatus Evaluate()
         {
