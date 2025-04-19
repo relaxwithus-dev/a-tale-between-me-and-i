@@ -1,8 +1,8 @@
 using Ink.Runtime;
+using ATBMI.Minigame;
 using ATBMI.Inventory;
 using ATBMI.Interaction;
 using ATBMI.Gameplay.Event;
-using ATBMI.Minigame;
 
 namespace ATBMI.Dialogue
 {

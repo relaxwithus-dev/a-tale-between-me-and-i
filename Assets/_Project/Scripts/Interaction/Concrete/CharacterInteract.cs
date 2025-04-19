@@ -52,8 +52,10 @@ namespace ATBMI.Interaction
             DialogueEvents.RegisterNPCEmojiTargetEvent(_characterAI.Data.CharacterName, GetEmojiTransform());
         }
         
+        // TODO: Meet needed, gimana cara cek kalau interacting sudah selesai?
         public void Interact(InteractManager manager, int itemId = 0)
         {
+            isInteracting = true;
             InteractObserver.Observe(this);
             if (itemId == 0)
             {

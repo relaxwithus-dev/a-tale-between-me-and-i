@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using ATBMI.Core;
+using ATBMI.Dialogue;
 using ATBMI.Gameplay.Handler;
 
 namespace ATBMI.Scene
@@ -36,6 +37,11 @@ namespace ATBMI.Scene
         private void Update()
         {
             if (!_canTravel) return;
+            if (DialogueManager.Instance.IsDialoguePlaying)
+            {
+                DisableTravel();
+            }
+            
             if (GameInputHandler.Instance.IsTapInteract)
             {
                 var currentScene = SceneNavigation.Instance.CurrentScene;
@@ -56,8 +62,7 @@ namespace ATBMI.Scene
         {
             if (other.CompareTag(GameTag.PLAYER_TAG))
             {
-                _canTravel = true;
-                infoTextUI.gameObject.SetActive(true);
+                EnableTravel();
             }
         }
         
@@ -65,9 +70,21 @@ namespace ATBMI.Scene
         {
             if (other.CompareTag(GameTag.PLAYER_TAG))
             {
-                _canTravel = false;
-                infoTextUI.gameObject.SetActive(false);
+                DisableTravel();
             }
+        }
+        
+        // Helper
+        private void EnableTravel()
+        {
+            _canTravel = true;
+            infoTextUI.gameObject.SetActive(true);
+        }
+        
+        private void DisableTravel()
+        {
+            _canTravel = false;
+            infoTextUI.gameObject.SetActive(false);
         }
         
         #endregion
