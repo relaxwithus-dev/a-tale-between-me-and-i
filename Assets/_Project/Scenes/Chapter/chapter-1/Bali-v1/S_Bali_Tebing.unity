@@ -965,7 +965,7 @@ GameObject:
   - component: {fileID: 1031792303}
   - component: {fileID: 1031792304}
   m_Layer: 0
-  m_Name: Door_Jalan_1
+  m_Name: Door_Lapangan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1043,8 +1043,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2d5600188a4b88854d4bd523fe97d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locationTarget: {fileID: 11400000, guid: 270a7b96ddb157046ba5ad55c6c0df27, type: 2}
+  locationTarget: {fileID: 11400000, guid: 69447e52b9ed0d5489b3330eccbc69f0, type: 2}
   infoTextUI: {fileID: 713580704}
+--- !u!1 &1257100266
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1257100267}
+  m_Layer: 0
+  m_Name: Point_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1257100267
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257100266}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -20.08, y: -0.7, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1783877393}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1334933498
 GameObject:
   m_ObjectHideFlags: 0
@@ -1135,7 +1166,7 @@ MonoBehaviour:
   defaultPoint: {fileID: 1578348361}
   entryPoints:
   - locationTarget: {fileID: 11400000, guid: 69447e52b9ed0d5489b3330eccbc69f0, type: 2}
-    pointFromScene: {fileID: 1578348361}
+    pointFromScene: {fileID: 1257100267}
   confiner: {fileID: 659971550}
 --- !u!1 &1375646168
 GameObject:
@@ -1291,6 +1322,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1578348361}
+  - {fileID: 1257100267}
   m_Father: {fileID: 1338313044}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1874529763

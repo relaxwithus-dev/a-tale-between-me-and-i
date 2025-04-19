@@ -1,9 +1,9 @@
 using System.Collections;
-using ATBMI.Entities.Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using ATBMI.Gameplay.Controller;
 using ATBMI.Gameplay.Event;
+using ATBMI.Entities.Player;
+using ATBMI.Gameplay.Controller;
 
 namespace ATBMI.Scene
 {
@@ -20,9 +20,10 @@ namespace ATBMI.Scene
         [SerializeField] private FadeController fader;
 
         private AsyncOperation _asyncOperation;
-
+        
         public SceneAsset CurrentScene { get; private set; }
         public SceneAsset LatestScene { get; private set; }
+        
         public static SceneNavigation Instance;
 
         #endregion
