@@ -15,8 +15,9 @@ namespace ATBMI.Scene
         {
             return targetRegion switch
             {
-                Region.Surabaya => "SBY",
                 Region.Bali => "BLI",
+                Region.Bandung => "BDG",
+                Region.Surabaya => "SBY",
                 _ => "UNK"
             };
         }
