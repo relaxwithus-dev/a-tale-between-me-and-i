@@ -7,7 +7,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: A_Ratna_Take_Run
+  m_Name: A_Ratna_Run
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -95,31 +95,31 @@ AnimatorStateMachine:
     m_Position: {x: 235, y: 65, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6958051792082707589}
-    m_Position: {x: 270, y: 130, z: 0}
+    m_Position: {x: 260, y: 240, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7134157588393036067}
-    m_Position: {x: 305, y: 195, z: 0}
+    m_Position: {x: 290, y: 300, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7346700228151263910}
-    m_Position: {x: 340, y: 260, z: 0}
+    m_Position: {x: 330, y: 360, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6868431327228454825}
-    m_Position: {x: 375, y: 325, z: 0}
+    m_Position: {x: 360, y: 420, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7864745492971208166}
-    m_Position: {x: 410, y: 390, z: 0}
+    m_Position: {x: 240, y: 120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2379672271394340187}
-    m_Position: {x: 445, y: 455, z: 0}
+    m_Position: {x: 470, y: 600, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -4595425644820925037}
-    m_Position: {x: 480, y: 520, z: 0}
+    m_Position: {x: 400, y: 480, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1542043662385444463}
-    m_Position: {x: 515, y: 585, z: 0}
+    m_Position: {x: 440, y: 540, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7166214991286944363}
-    m_Position: {x: 550, y: 650, z: 0}
+    m_Position: {x: 240, y: 180, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -189,7 +189,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: A_Ratna_Take_Defense
+  m_Name: A_Ratna_Defense
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -237,7 +237,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: A_Ratna_Talk
+  m_Name: A_Ratna_Speak
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []

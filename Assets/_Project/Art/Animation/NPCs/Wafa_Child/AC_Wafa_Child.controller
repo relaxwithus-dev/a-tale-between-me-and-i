@@ -7,7 +7,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Idle
+  m_Name: A_Waffa_Child_Idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -33,7 +33,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Anticipation
+  m_Name: A_Waffa_Child_Anticipation
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -59,7 +59,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Fear
+  m_Name: A_Waffa_Child_Fear
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -107,7 +107,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Sadness
+  m_Name: A_Waffa_Child_Sadness
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -146,13 +146,13 @@ AnimatorStateMachine:
     m_Position: {x: 250, y: 180, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6588140295960546365}
-    m_Position: {x: 250, y: 360, z: 0}
+    m_Position: {x: 250, y: 500, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1858106907938613806}
-    m_Position: {x: 250, y: 420, z: 0}
+    m_Position: {x: 250, y: 360, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1566433634252798571}
-    m_Position: {x: 250, y: 480, z: 0}
+    m_Position: {x: 250, y: 420, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5091216578482654954}
     m_Position: {x: 250, y: 300, z: 0}
@@ -173,7 +173,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Walk
+  m_Name: A_Waffa_Child_Walk
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -199,7 +199,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Defense
+  m_Name: A_Waffa_Child_Defense
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -225,7 +225,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Talk
+  m_Name: A_Waffa_Child_Speak
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
