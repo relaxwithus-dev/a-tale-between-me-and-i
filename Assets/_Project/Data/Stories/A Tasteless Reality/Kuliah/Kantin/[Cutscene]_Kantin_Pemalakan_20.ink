@@ -25,7 +25,7 @@ Hentikan sekarang juga atau aku panggil penjaga #speaker:Ratna #expression:A_Rat
 
 Wahhhh… ada orang yang berani sama aing ternyata disini #speaker:Waffa #expression:A_Waffa_Speak
 Jarang aing kena nasehat dadakan seperti ini… #speaker:Waffa #expression:A_Waffa_Speak
-Tapi mungkin jawaban dari nasehatmu itu adalah tinju ini!! #speaker:Waffa #expression:A_Waffa_Marah
+Tapi mungkin jawaban dari nasehatmu itu adalah tinju ini!! #speaker:Waffa #expression:A_Waffa_Angry #Emoji:A_Emoji_Angry
 
 Ehhh??? #speaker:Ratna #expression:A_Ratna_Speak
 

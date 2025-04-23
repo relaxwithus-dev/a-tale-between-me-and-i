@@ -2,36 +2,36 @@ EXTERNAL AddItem(itemId)
 EXTERNAL StartQuest(questId)
 EXTERNAL FinishQuest(questId)
 
-Akhirnya metu juga tukang engsap ne! (Akhirnya keluar juga tukang tidur satu ini!) #speaker:Ibu Dewa #expression:A_IbuDewa_Marah
-Saking ibi jangkrik susah dogén nyak ngudangang ragane! (Dari tadi pagi susah sekali bangun!) #speaker:Ibu Dewa #expression:A_IbuDewa_Speak
-Sampunang keto, sarapanne suba adem jani! (Sarapanmu juga sudah dingin sekarang!) #speaker:Ibu Dewa #expression:A_IbuDewa_Speak
+Akhirnya metu juga tukang engsap ne! (Akhirnya keluar juga tukang tidur satu ini!) #speaker:Ibu Dewa #expression:A_Ibu_Dewa_Anger
+Saking ibi jangkrik susah dogén nyak ngudangang ragane! (Dari tadi pagi susah sekali bangun!) #speaker:Ibu Dewa #expression:A_Ibu_Dewa_Speak
+Sampunang keto, sarapanne suba adem jani! (Sarapanmu juga sudah dingin sekarang!) #speaker:Ibu Dewa #expression:A_Ibu_Dewa_Speak
 
 Ehh… Nah yening keto, kenapa tusing nyak digudangin saking ibi, Me? (Ehh… kalau gitu kenapa nggak dibangunin dari pagi aja, Ma?) #speaker:Dewa #expression:A_Dewa_Speak
 
-Hahhh? Meme suba neglisin ragane saking ibi! (Hahhh? Mamamu ini sudah mencoba bangunin kamu dari tadi pagi!)#speaker:Ibu Dewa #expression:A_IbuDewa_Marah
-Tapi ragane dogén ngomong "5 menit malih, 5 menit malih"! (Tapi kamu selalu bilang "5 menit lagi, 5 menit lagi"!) #speaker:Ibu Dewa #expression:A_IbuDewa_Marah
-Lungaang keto jam ne di dingding! (Lihatlah jam di dinding itu!) #speaker:Ibu Dewa #expression:A_IbuDewa_Speak
-Jani suba liwat 5 jam! (Sekarang sudah lewat 5 jam!) #speaker:Ibu Dewa #expression:A_IbuDewa_Speak
+Hahhh? Meme suba neglisin ragane saking ibi! (Hahhh? Mamamu ini sudah mencoba bangunin kamu dari tadi pagi!)#speaker:Ibu Dewa #expression:A_Ibu_Dewa_Marah
+Tapi ragane dogén ngomong "5 menit malih, 5 menit malih"! (Tapi kamu selalu bilang "5 menit lagi, 5 menit lagi"!) #speaker:Ibu Dewa #expression:A_Ibu_Dewa_Marah
+Lungaang keto jam ne di dingding! (Lihatlah jam di dinding itu!) #speaker:Ibu Dewa #expression:A_Ibu_Dewa_Speak
+Jani suba liwat 5 jam! (Sekarang sudah lewat 5 jam!) #speaker:Ibu Dewa #expression:A_Ibu_Dewa_Speak #Emoji:A_Emoji_Angry
 
 Ma-maaf, Me... (Ma-maaf, Ma…) #speaker:Dewa #expression:A_Dewa_Sedih
 
-Becik… Meme nyupat ragane! (Yasudah, Mama maafkan kamu!) #speaker:Ibu Dewa #expression:A_IbuDewa_Speak
-Tapi keto, sarapanne suba adem! (Tapi sarapannya sudah dingin!) #speaker:Ibu Dewa #expression:A_IbuDewa_Speak
+Becik… Meme nyupat ragane! (Yasudah, Mama maafkan kamu!) #speaker:Ibu Dewa #expression:A_Ibu_Dewa_Speak
+Tapi keto, sarapanne suba adem (Tapi cepat, sarapannya sudah dingin) #speaker:Ibu Dewa #expression:A_Ibu_Dewa_Agree
 
 Ahhh… Tusing apa-apa, Me! (Ahhh… Gapapa kok, Ma!) #speaker:Dewa #expression:A_Dewa_Speak
 Anak Meme lakar lungsur dulu ajak ngantos wayah ngajeng! (Anakmu akan pergi keluar sambil menunggu makan siang!) #speaker:Dewa #expression:A_Dewa_Speak
 Lagi ada tempat lakar tiang rauhin dulu sane mamun! (Lagian ada tempat yang ingin ku kunjungi sebelum pergi besok!) #speaker:Dewa #expression:A_Dewa_Speak
 
-Ragane lakar mejalan ke ditu? (Kamu akan mengunjungi dia?) #speaker:Ibu Dewa #expression:A_IbuDewa_Speak
+Ragane lakar mejalan ke ditu? (Kamu akan mengunjungi dia?) #speaker:Ibu Dewa #expression:A_Ibu_Dewa_Speak
 
 Inggih… (Iya…) #speaker:Dewa #expression:A_Dewa_Speak
 
-Becik… Lakar-lakarin jalan! (Yasudah, hati-hati di jalan!) #speaker:Ibu Dewa #expression:A_IbuDewa_Speak
-Uliang keto, tusing lali sampunang salam Meme ke ditu! (Jangan lupa sampaikan salam Mama juga pada dia!) #speaker:Ibu Dewa #expression:A_IbuDewa_Speak
+Becik… Lakar-lakarin jalan! (Yasudah, hati-hati di jalan!) #speaker:Ibu Dewa #expression:A_Ibu_Dewa_Speak
+Uliang keto, tusing lali sampunang salam Meme ke ditu! (Jangan lupa sampaikan salam Mama juga pada dia!) #speaker:Ibu Dewa #expression:A_Ibu_Dewa_Speak
 
 Inggih, Ma… (Oke…) #speaker:Dewa #expression:A_Dewa_Speak
 
-Sai malih! (Satu lagi!) #speaker:Ibu Dewa #expression:A_IbuDewa_Speak
-Jani keto, ulian keto, tusing lungsur ne malam-malam! (Jangan pulang terlalu malam!) #speaker:Ibu Dewa #expression:A_IbuDewa_Speak
+Sai malih! (Satu lagi!) #speaker:Ibu Dewa #expression:A_Ibu_Dewa_Speak
+Jani keto, ulian keto, tusing lungsur ne malam-malam! (Jangan pulang terlalu malam!) #speaker:Ibu Dewa #expression:A_Ibu_Dewa_Speak
 
 -> END

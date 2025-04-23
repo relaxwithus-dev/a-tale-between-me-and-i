@@ -3,7 +3,7 @@ EXTERNAL StartQuest(questId)
 EXTERNAL FinishQuest(questId)
 
 Silau banget... #speaker:Dewa #expression:A_Dewa_Speak
-Aku... di mana? #speaker:Dewa #expression:A_Dewa_Speak
+Aku... di mana? #speaker:Dewa #expression:A_Dewa_Speak #Emoji:A_Emoji_Question
 Oh... Mimpi yang biasanya #speaker:Dewa #expression:A_Dewa_Speak
 Maksud dari mimpi ini... apa ya? #speaker:Dewa #expression:A_Dewa_Speak
 Dan pintu ini... #speaker:Dewa #expression:A_Dewa_Speak

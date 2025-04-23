@@ -2,9 +2,9 @@ EXTERNAL AddItem(itemId)
 EXTERNAL StartQuest(questId)
 EXTERNAL FinishQuest(questId)
 
-Apakah kalian ga dengar suara ledakan? #speaker:Dewa #expression:A_Dewa_Bingung
+Apakah kalian ga dengar suara ledakan? #speaker:Dewa #expression:A_Dewa_Speak
 
-Ledakan? #speaker:Anak1 #expression:A_Anak1_Bingung
+Ledakan? #speaker:Anak1 #expression:A_Anak1_Speak #Emoji:A_Emoji_Question
 Nggak tuh mas #speaker:Anak1 #expression:A_Anak1_Speak
 
 Yang bener??? #speaker:Dewa #expression:A_Dewa_Speak
@@ -13,7 +13,7 @@ Iya mas daritadi kita main disini gaada dengar suara kayak gitu #speaker:Anak2 #
 
 // Suara ledakan
 
-Tuh yang barusan… pada dengar nggak? #speaker:Dewa #expression:A_Dewa_Speak
+Tuh barusan ada lagi, pada dengar nggak? #speaker:Dewa #expression:A_Dewa_Speak #Emoji:A_Emoji_Question
 
 ??? #speaker:Anak2
 

@@ -12,7 +12,7 @@ Aku sangat lelah setelah semua itu… #speaker:Ratna #expression:A_Ratna_Speak
 Oi jangan bersantai dulu #speaker:Hasan #expression:A_Hasan_Speak
 Kita harus laporkan keadaan ini ke dosen #speaker:Hasan #expression:A_Hasan_Speak
 
-Ehhhh…. tapi kakiku sudah tidak kuat… #speaker:Ratna #expression:A_Ratna_Speak
+Ehhhh…. tapi kakiku sudah tidak kuat… #speaker:Ratna #expression:A_Ratna_Speak #Emoji:A_Emoji_Tears
 
 Yaudah, kamu balik duluan aja Ratna #speaker:Dewa #expression:A_Dewa_Speak
 Aku bakal cari tahu di sini sebentar lagi #speaker:Dewa #expression:A_Dewa_Speak

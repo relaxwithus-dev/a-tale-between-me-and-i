@@ -2,18 +2,18 @@ EXTERNAL AddItem(itemId)
 EXTERNAL StartQuest(questId)
 EXTERNAL FinishQuest(questId)
 
-Oi…. kamu yang disana!!! #speaker:Waffa #expression:A_Waffa_Marah
+Oi…. kamu yang disana!!! #speaker:Waffa #expression:A_Waffa_Angry
 Maneh tau kan hari ini hari apa? #speaker:Waffa #expression:A_Waffa_Speak
 Sudah maneh siapkan kah duitnya? #speaker:Waffa #expression:A_Waffa_Speak
 
-Su-sudah a-aku siapkan uangnya #speaker:Luna #expression:A_Luna_Takut
-To-tolong jangan pukul aku #speaker::Luna #expression:A_Luna_Takut
+Su-sudah a-aku siapkan uangnya #speaker:Anak Kuliah #expression:A_Anak_Kuliah_Speak
+To-tolong jangan pukul aku #speaker:Anak Kuliah #expression:A_Anak_Kuliah_Speak
 
 HAHAHAHAHA #speaker:Waffa #expression:A_Waffa_Speak
 Bagus…. maneh memang bisa diandalkan #speaker:Waffa #expression:A_Waffa_Speak
-SEKARANG MANA DUITNYA!!!! #speaker:Waffa #expression:A_Waffa_Marah
+SEKARANG MANA DUITNYA!!!! #speaker:Waffa #expression:A_Waffa_Angry #Emoji:A_Emoji_Angry
 
-Hiiieeekkkk…… #speaker:Luna #expression:A_Luna_Takut
-I-ini uangnya…. #speaker:Luna #expression:A_Luna_Speak
+Hiiieeekkkk…… #speaker:Anak Kuliah #expression:A_Anak_Kuliah_Speak #Emoji:A_Emoji_Tears
+I-ini uangnya…. #speaker:Anak Kuliah #expression:A_Anak_Kuliah_Speak
 
 -> END

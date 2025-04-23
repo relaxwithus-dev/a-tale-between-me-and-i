@@ -7,7 +7,7 @@ EXTERNAL FinishQuest(questId)
 
 ??? #speaker:Dewa #expression:A_Dewa_Speak
 Sebuah Kunci? #speaker:Dewa #expression:A_Dewa_Speak
-Kenapa ada kunci disini? #speaker:Dewa #expression:A_Dewa_Speak
+Kenapa ada kunci disini? #speaker:Dewa #expression:A_Dewa_Speak #Emoji:A_Emoji_Question
 Jangan-jangan… #speaker:Dewa #expression:A_Dewa_Speak
 
 -> END

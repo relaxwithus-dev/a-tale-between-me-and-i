@@ -9,17 +9,17 @@ Gaada waktu untuk meladeni orang seperti kalian #speaker:Waffa #expression:A_Waf
 Aku disini cuman mau membawa anak ini pergi #speaker:Dewa #expression:A_Dewa_Speak
 Tidak ada maksud lain kok #speaker:Dewa #expression:A_Dewa_Speak
 
-Kamu!!! #speaker:Ratna #expression:A_Ratna_Panik
+Kamu!!! #speaker:Ratna #expression:A_Ratna_Shock
 
 Psst... diam dulu... aku sudah merencanakan sesuatu #speaker:Dewa #expression:A_Dewa_Speak
 
-Ehhhh???? #speaker:Ratna #expression:A_Ratna_Speak
+Ehhhh???? #speaker:Ratna #expression:A_Ratna_Speak #Emoji:A_Emoji_Question
 
 Bagus… cepat bawa cewek ini pergi #speaker:Waffa #expression:A_Waffa_Speak
 Dan jangan pernah muncul di hadapanku lagi #speaker:Waffa #expression:A_Waffa_Speak
 Kalau sampai kalian muncul…. maka tinju ini akan mendarat di wajah maneh nanti #speaker:Waffa #expression:A_Waffa_Speak
 
-Seharusnya mereka akan muncul…. sekarang!!! #speaker:Dewa #expression:A_Dewa_Panik
+Seharusnya mereka akan muncul…. sekarang!!! #speaker:Dewa #expression:A_Dewa_Stroking_Head #Emoji:A_Emoji_Lightbulb
 
 ??? #speaker:Waffa
 

@@ -2,12 +2,12 @@ EXTERNAL AddItem(itemId)
 EXTERNAL StartQuest(questId)
 EXTERNAL FinishQuest(questId)
 
-Haduh... Capekne...  #speaker:Dewa #expression:A_Dewa_Speak
+Haduh... Capekne...  #speaker:Dewa #expression:A_Dewa_Speak #Emoji:A_Emoji_Tears
 Naik turun tebing jaan kaki tusing gampang dogén… (Naik dan turun tebing dengan jalan kaki bukanlah urusan yang mudah…) #speaker:Dewa #expression:A_Dewa_Speak
 Hmmm... #speaker:Dewa #expression:A_Dewa_Speak
  Kayangne nyak kelupaan barang... (Sepertinya aku kelupaan sesuatu…) #speaker:Dewa #expression:A_Dewa_Speak
  Sebentar... #speaker:Dewa #expression:A_Dewa_Speak
- Ohhh, iya. Nyak belum paking barang ka koper! (Oh iya, packing barang ke koper!) #speaker:Dewa #expression:A_Dewa_Panik
+ Ohhh, iya. Nyak belum paking barang ka koper! (Oh iya, packing barang ke koper!) #speaker:Dewa #expression:A_Dewa_Panik #Emoji:A_Emoji_Lightbulb
  Nyak masih belum siap-siap anggen besok… (Aku juga belum siap-siap buat besok…) #speaker:Dewa #expression:A_Dewa_Speak
  ... #speaker:Dewa #expression:A_Dewa_Speak
  Besok dogen... (Besok aja deh…) #speaker:Dewa #expression:A_Dewa_Speak
