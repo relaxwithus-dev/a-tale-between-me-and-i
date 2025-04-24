@@ -1,21 +1,33 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ATBMI.Interaction;
 
-namespace ATBMI
+namespace ATBMI.Entities.NPCs
 {
-    public class KatingBT : MonoBehaviour
+    public class KatingBT : Trees
     {
-        // Start is called before the first frame update
-        void Start()
-        {
+        [Header("Attribute")] 
+        [SerializeField] private float moveDelay;
+        [SerializeField] private Transform[] wayPoints;
         
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
+        [Header("Reference")]
+        [SerializeField] private CharacterInteract interact;
+        [SerializeField] private CharacterManager manager;
         
+        protected override Node SetupTree()
+        {
+            Selector tree = new Selector("Kating BT", new List<Node>
+            {
+                new CheckInteracted(interact),
+                new Sequence("Patrol", new List<Node>
+                {
+                    new CheckFatigue(manager),
+                    new TaskPatrol(characterAI, manager, characterAI.Data, wayPoints, moveDelay)
+                }),
+                new TaskIdle(characterAI)
+            });
+            
+            return tree;
         }
     }
 }
