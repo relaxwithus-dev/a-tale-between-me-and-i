@@ -735,7 +735,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2156024548041644300, guid: b9c0808041603ca41ae99899166dc0dd, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -979,10 +980,6 @@ PrefabInstance:
     - target: {fileID: 6178640880139922672, guid: d32015df44805434b819f3a1c07a4174, type: 3}
       propertyPath: m_Name
       value: NPC_Ibu_Kos
-      objectReference: {fileID: 0}
-    - target: {fileID: 6178640880139922672, guid: d32015df44805434b819f3a1c07a4174, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1688,10 +1685,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC_Wafa
       objectReference: {fileID: 0}
-    - target: {fileID: 6178640880139922672, guid: 5ccab1f8c587f2f439c2712e06e3d457, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1753,10 +1746,6 @@ PrefabInstance:
     - target: {fileID: 6178640880139922672, guid: 5984a0b3d23bffb469791058ac9c4cbc, type: 3}
       propertyPath: m_Name
       value: NPC_Wafa_Teen
-      objectReference: {fileID: 0}
-    - target: {fileID: 6178640880139922672, guid: 5984a0b3d23bffb469791058ac9c4cbc, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2354,80 +2343,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4291996230028175410, guid: bba90cf1fe18e954685791f726bab267, type: 3}
   m_PrefabInstance: {fileID: 715717293}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &725088620
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1348626248}
-    m_Modifications:
-    - target: {fileID: 4291996230028175410, guid: bb83f269e648f8c44b131c976daf764b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.79
-      objectReference: {fileID: 0}
-    - target: {fileID: 4291996230028175410, guid: bb83f269e648f8c44b131c976daf764b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3.931065
-      objectReference: {fileID: 0}
-    - target: {fileID: 4291996230028175410, guid: bb83f269e648f8c44b131c976daf764b, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4291996230028175410, guid: bb83f269e648f8c44b131c976daf764b, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4291996230028175410, guid: bb83f269e648f8c44b131c976daf764b, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4291996230028175410, guid: bb83f269e648f8c44b131c976daf764b, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4291996230028175410, guid: bb83f269e648f8c44b131c976daf764b, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4291996230028175410, guid: bb83f269e648f8c44b131c976daf764b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4291996230028175410, guid: bb83f269e648f8c44b131c976daf764b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4291996230028175410, guid: bb83f269e648f8c44b131c976daf764b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6178640880139922672, guid: bb83f269e648f8c44b131c976daf764b, type: 3}
-      propertyPath: m_Name
-      value: Hasan
-      objectReference: {fileID: 0}
-    - target: {fileID: 6178640880139922672, guid: bb83f269e648f8c44b131c976daf764b, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8031476864829162985, guid: bb83f269e648f8c44b131c976daf764b, type: 3}
-      propertyPath: targetPoints.Array.data[0]
-      value: 
-      objectReference: {fileID: 1264889497}
-    - target: {fileID: 8031476864829162985, guid: bb83f269e648f8c44b131c976daf764b, type: 3}
-      propertyPath: targetPoints.Array.data[1]
-      value: 
-      objectReference: {fileID: 606424647}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: bb83f269e648f8c44b131c976daf764b, type: 3}
---- !u!4 &725088621 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4291996230028175410, guid: bb83f269e648f8c44b131c976daf764b, type: 3}
-  m_PrefabInstance: {fileID: 725088620}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &729101056
 GameObject:
   m_ObjectHideFlags: 0
@@ -2960,10 +2875,6 @@ PrefabInstance:
     - target: {fileID: 6178640880139922672, guid: 63d69930790ef5b4d9f0c1bd93c14056, type: 3}
       propertyPath: m_Name
       value: NPC_Penjual_Nasi
-      objectReference: {fileID: 0}
-    - target: {fileID: 6178640880139922672, guid: 63d69930790ef5b4d9f0c1bd93c14056, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3715,7 +3626,6 @@ Transform:
   - {fileID: 828851707}
   - {fileID: 2055134261}
   - {fileID: 590803359}
-  - {fileID: 725088621}
   - {fileID: 936236170}
   - {fileID: 531964941}
   - {fileID: 567588877}
@@ -4071,7 +3981,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC_Hasan_Child
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
