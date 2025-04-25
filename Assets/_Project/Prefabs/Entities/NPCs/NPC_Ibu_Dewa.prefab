@@ -20,6 +20,10 @@ PrefabInstance:
       propertyPath: isFacingRight
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3271371676049430528, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+      propertyPath: baseEmotion
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3609649175966335719, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_Size.x
       value: 0.3982098
@@ -43,7 +47,7 @@ PrefabInstance:
     - target: {fileID: 4536252543316230107, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: characterTraits
       value: 
-      objectReference: {fileID: 8764918481660991021}
+      objectReference: {fileID: 8933336138072542907}
     - target: {fileID: 4878722094123776488, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_Size.x
       value: 3.125
@@ -123,9 +127,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8306047683278652390, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6478594235226817692}
-    - targetCorrespondingSourceObject: {fileID: 8306047683278652390, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8764918481660991021}
   m_SourcePrefab: {fileID: 100100000, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
 --- !u!1 &2727677842074490205 stripped
 GameObject:
@@ -151,7 +152,7 @@ MonoBehaviour:
     textAssets:
     - {fileID: 4900000, guid: 16299217b910d7241ba4e4522dff0360, type: 3}
     - {fileID: 4900000, guid: bfa7256c01e8d4140bb2de5e249f429d, type: 3}
-  emoteAnimator: {fileID: 0}
+  emoteAnimator: {fileID: 7747208020035534566}
   centerPoint: {fileID: 6755673961492933830}
   zoneDetails:
   - Type: 0
@@ -160,32 +161,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   characterInteract: {fileID: 7524296102529034592}
---- !u!114 &8764918481660991021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2727677842074490205}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c81ffecf9eec47e3a52591c21ad85f13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  influenceConfig: {fileID: 11400000, guid: c751ae8aadbb81f43b8f6b5096a36955, type: 2}
-  personalityConfig: {fileID: 11400000, guid: daad5bdba89a97142b7a570695d56fdf, type: 2}
-  initialEmotion: 7
-  emotions:
-  - 0
-  - 0
-  - 0
-  - 0
-  personality:
-  - -1
-  - 0
-  - -1
-  - -1
-  - 1
 --- !u!4 &6755673961492933830 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 819465445805292157, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
@@ -200,5 +175,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90926fb261ccf3440b3010858b0f1c49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &7747208020035534566 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4403454399528855645, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+  m_PrefabInstance: {fileID: 6241895453110703803}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8933336138072542907 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3271371676049430528, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+  m_PrefabInstance: {fileID: 6241895453110703803}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2727677842074490205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c81ffecf9eec47e3a52591c21ad85f13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

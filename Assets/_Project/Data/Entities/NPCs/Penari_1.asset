@@ -10,15 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe195ef6725630241b8ad3ba30b4f8db, type: 3}
-  m_Name: Pemabuk
+  m_Name: Penari_1
   m_EditorClassIdentifier: 
-  characterName: Pemabuk
-  animationTagName: A_Pemabuk
-  characterType: 1
-  isIdling: 0
-  moveSpeeds:
-  - Type: Walk
-    Speed: 1.3
+  characterName: Penari 1
+  animationTagName: A_Penari_Cewek
+  characterType: 0
+  isIdling: 1
+  moveSpeeds: []
   itemListSO: {fileID: 0}
   defaultDialogues: []
   sceneDialogues: []

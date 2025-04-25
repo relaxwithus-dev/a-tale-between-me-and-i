@@ -13,10 +13,15 @@ MonoBehaviour:
   m_Name: Anjing
   m_EditorClassIdentifier: 
   characterName: Anjing
+  animationTagName: A_Anjing
+  characterType: 0
   isIdling: 0
   moveSpeeds:
   - Type: Walk
     Speed: 1.3
-  defaultDialogues: []
   itemListSO: {fileID: 0}
+  defaultDialogues: []
+  sceneDialogues: []
+  emotionDialogues: []
+  storyDialogue: []
   itemDialogues: []

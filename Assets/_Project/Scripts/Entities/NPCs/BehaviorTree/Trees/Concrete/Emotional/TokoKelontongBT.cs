@@ -10,7 +10,9 @@ namespace ATBMI.Entities.NPCs
 
         protected override Node SetupTree()
         {
-            var angerText = GetTextAssets(Emotion.Anger);
+            var data = characterAI.Data;
+            var defaultTexts = data.GetDefaultDialogue();
+            var angerTexts = data.GetEmotionDialogues(Emotion.Anger);
             
             Selector tree = new Selector("Toko Kelontong BT", new List<Node>
             {
@@ -23,7 +25,7 @@ namespace ATBMI.Entities.NPCs
                         new CheckTargetInProxemics(centerPoint, zoneDetails[0].Radius, layerMask),
                         new EmotionalSelector("Anger", characterTraits, new List<Node>
                         {
-                            new TaskTalk(characterAI, angerText),
+                            new TaskTalk(characterAI, angerTexts),
                             new TaskIdle(characterAI)
                         })
                     }),

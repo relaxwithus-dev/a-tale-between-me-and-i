@@ -9,7 +9,7 @@ namespace ATBMI.Entities.NPCs
         private readonly CharacterAI character;
         private readonly float moveSpeed;
         private readonly float followTime;
-        private readonly float followDelayTime = 1f;
+        private readonly float delayTime;
         
         private readonly Vector3 rightDistance= new(2f, 0f, 0f);
         private readonly Vector3 leftDistance = new(-2f, 0f, 0f);
@@ -32,10 +32,11 @@ namespace ATBMI.Entities.NPCs
         };
 
         // Constructor
-        public TaskFollow(CharacterAI character, CharacterData data, float followTime)
+        public TaskFollow(CharacterAI character, CharacterData data, float followTime, float delayTime = 1f)
         {
             this.character = character;
             this.followTime = followTime;
+            this.delayTime = delayTime;
             
             moveSpeed = data.GetSpeedByType("Walk");
             OverrideEmotionFactors(_factorsFollow);
@@ -46,14 +47,14 @@ namespace ATBMI.Entities.NPCs
         {
             if (!TrySetupTarget())
                 return NodeStatus.Failure;
-
+            
             if (_currentFollowTime > followTime)
             {
                 Debug.Log("Execute Success: TaskFollow");
                 return NodeStatus.Success;
             }
             
-            if (_currentFollowDelayTime < followDelayTime)
+            if (_currentFollowDelayTime < delayTime)
             {
                 _currentFollowDelayTime += Time.deltaTime;
                 return NodeStatus.Running;
@@ -61,7 +62,7 @@ namespace ATBMI.Entities.NPCs
             
             return FollowTarget();
         }
-
+        
         protected override void Reset()
         {
             base.Reset();

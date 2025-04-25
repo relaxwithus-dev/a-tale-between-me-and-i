@@ -15,7 +15,9 @@ namespace ATBMI.Entities.NPCs
         
         protected override Node SetupTree()
         {
-            Selector tree = new Selector("Luna BT", new List<Node>
+            var defaultTexts = characterAI.Data.GetDefaultDialogue();
+            
+            Selector tree = new Selector("Wafa Child BT", new List<Node>
             {
                 new CheckInteracted(characterInteract),
                 new ZoneSelector("Proxemics", new List<Node>

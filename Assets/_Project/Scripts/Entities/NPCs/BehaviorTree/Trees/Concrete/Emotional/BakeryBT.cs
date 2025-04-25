@@ -11,7 +11,7 @@ namespace ATBMI.Entities.NPCs
         
         protected override Node SetupTree()
         {
-            var sadnessText = GetTextAssets(Emotion.Sadness);
+            var sadnessTexts = characterAI.Data.GetEmotionDialogues(Emotion.Sadness);
             
             Selector tree = new Selector("Bakery BT", new List<Node>
             {
@@ -28,7 +28,7 @@ namespace ATBMI.Entities.NPCs
                             {
                                 new TaskAnimate(characterAnim, "Sadness"),
                                 new CheckTargetInArea(centerPoint, talkRadius, layerMask),
-                                new TaskTalk(characterAI, sadnessText)
+                                new TaskTalk(characterAI, sadnessTexts)
                             }),
                             new TaskIdle(characterAI)
                         })
