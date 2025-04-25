@@ -16,11 +16,13 @@ namespace ATBMI.Entities.NPCs
         
         protected override Node SetupTree()
         {
-            var angerText = GetTextAssets(Emotion.Anger);
+            var data = characterAI.Data;
+            var defaultTexts = data.GetDefaultDialogue();
+            var angerTexts = data.GetEmotionDialogues(Emotion.Anger);
             
             Selector tree = new Selector("Pemabuk BT", new List<Node>
             {
-                new CheckInteracted(interact),
+                new CheckInteracted(characterInteract),
                 new ZoneSelector("Proxemics", new List<Node>
                 {
                     // Intimate
@@ -34,7 +36,7 @@ namespace ATBMI.Entities.NPCs
                                 new CheckDirection(characterAI, isDifferentDir: false),
                                 new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true),
                                 new TaskPush(characterAI, pushForce, pushDelay),
-                                new TaskTalk(characterAI, CharacterState.Anger, angerText),
+                                new TaskTalk(characterAI, CharacterState.Anger, angerTexts),
                                 new TaskMoveToOrigin(characterAI, characterAI.Data, isWalk: true)
                             }),
                             new TaskTalk(characterAI, defaultTexts),

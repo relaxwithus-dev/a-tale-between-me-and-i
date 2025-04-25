@@ -12,10 +12,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC_Penari_2
       objectReference: {fileID: 0}
+    - target: {fileID: 225562555324070475, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1177493690341274544, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: characterData
       value: 
-      objectReference: {fileID: 11400000, guid: a4a6eeb76c1b6284dbb8e830425fc89d, type: 2}
+      objectReference: {fileID: 11400000, guid: 1d1bcf668a2bef0438faca146241d17d, type: 2}
     - target: {fileID: 1177493690341274544, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: isFacingRight
       value: 1

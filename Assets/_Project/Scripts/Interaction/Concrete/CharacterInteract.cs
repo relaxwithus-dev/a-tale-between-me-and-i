@@ -57,7 +57,7 @@ namespace ATBMI.Interaction
             InteractObserver.Observe(this);
             if (itemId == 0)
             {
-                DialogueEvents.EnterDialogueEvent(_characterAI.Data.GetDefaultDialogue());
+                DialogueEvents.EnterDialogueEvent(_characterAI.Data.GetDefaultDialogueByScene());
                 characterTraits.InfluenceTraits(InteractAction.Talk);
             }
             else

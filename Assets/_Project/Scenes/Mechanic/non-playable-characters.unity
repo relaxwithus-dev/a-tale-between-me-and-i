@@ -1891,10 +1891,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC_Penari_3
       objectReference: {fileID: 0}
-    - target: {fileID: 6178640880139922672, guid: f1834777656f8f54f9b09f0cc381df87, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2916,11 +2912,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4291996230028175410, guid: f895ee240a37de14b935f27623085632, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.2910266
+      value: 0.21
       objectReference: {fileID: 0}
     - target: {fileID: 4291996230028175410, guid: f895ee240a37de14b935f27623085632, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.628135
+      value: -3.92
       objectReference: {fileID: 0}
     - target: {fileID: 4291996230028175410, guid: f895ee240a37de14b935f27623085632, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5089,10 +5085,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC_Penari_2
       objectReference: {fileID: 0}
-    - target: {fileID: 6178640880139922672, guid: 716d546d0eac17149b76ffd0d0392635, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6107,9 +6099,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11867baeb3b246d69d9afd061de64d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultTexts: []
-  emotionTexts: []
-  emoteAnimator: {fileID: 0}
   centerPoint: {fileID: 2671855568142711231}
   zoneDetails:
   - Type: 0
@@ -6119,7 +6108,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 64
-  interact: {fileID: 0}
+  characterInteract: {fileID: 0}
   reportManager: {fileID: 1602604185}
 --- !u!114 &6705304990373773350
 MonoBehaviour:

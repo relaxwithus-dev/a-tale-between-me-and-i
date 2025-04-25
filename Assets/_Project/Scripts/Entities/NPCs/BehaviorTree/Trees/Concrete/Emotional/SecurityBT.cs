@@ -15,11 +15,13 @@ namespace ATBMI.Entities.NPCs
         
         protected override Node SetupTree()
         {
-            var angerText = GetTextAssets(Emotion.Anger);
+            var data = characterAI.Data;
+            var defaultTexts = data.GetDefaultDialogue();
+            var angerTexts = data.GetEmotionDialogues(Emotion.Anger);
             
             Selector tree = new Selector("Security BT", new List<Node>
             {
-                new CheckInteracted(interact),
+                new CheckInteracted(characterInteract),
                 new ZoneSelector("Proxemics", new List<Node>
                 {
                     // Intimate
@@ -32,7 +34,7 @@ namespace ATBMI.Entities.NPCs
                             {
                                 new CheckPassed(characterAI, zoneDetails[1].Radius),
                                 new TaskPull(characterAI, pullForce, pullDelay),
-                                new TaskTalk(characterAI, CharacterState.Anger, angerText)
+                                new TaskTalk(characterAI, CharacterState.Anger, angerTexts)
                             }),
                             new TaskTalk(characterAI, defaultTexts),
                             new TaskIdle(characterAI)

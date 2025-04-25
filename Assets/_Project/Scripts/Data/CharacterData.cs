@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using Sirenix.OdinInspector;
 using ATBMI.Entities.NPCs;
+using UnityEngine.Serialization;
 
 namespace ATBMI.Data
 {
@@ -48,7 +49,8 @@ namespace ATBMI.Data
         [Header("Dialogue")]
         [SerializeField] private ItemList itemListSO;
         
-        [SerializeField] private List<Dialogues> defaultDialogues;
+        [SerializeField] private List<TextAsset> defaultDialogues;
+        [SerializeField] private List<Dialogues> sceneDialogues;
         [SerializeField] [ShowIf("characterType", CharacterType.Emotion)]
         private List<EmotionDialogues> emotionDialogues;
         [SerializeField] [ShowIf("characterType", CharacterType.Story)]
@@ -72,18 +74,19 @@ namespace ATBMI.Data
         
         // Dialogue
         public ItemList ItemList => itemListSO;
-        public TextAsset GetDefaultDialogue(string scene = "null")
+        public TextAsset[] GetDefaultDialogue() => defaultDialogues.ToArray();
+        public TextAsset GetDefaultDialogueByScene(string scene = "null")
         {
-            if (defaultDialogues.Count == 0)
+            if (sceneDialogues.Count == 0)
             {
                 Debug.LogError("default dialogues not set!");
                 return null;
             }
             
             if (scene == "null")
-                return defaultDialogues[0].dialogues;
+                return sceneDialogues[0].dialogues;
                     
-            foreach (var dialogue in defaultDialogues)
+            foreach (var dialogue in sceneDialogues)
             {
                 if (dialogue.sceneName == scene)
                     return dialogue.dialogues;
@@ -102,7 +105,7 @@ namespace ATBMI.Data
         public TextAsset GetItemDialogue(ItemData item)
         {
             var entry = itemDialogues.Find(d => d.item == item);
-            return entry != null ? entry.dialogue : defaultDialogues[0].dialogues;
+            return entry != null ? entry.dialogue : sceneDialogues[0].dialogues;
         }
         
         
