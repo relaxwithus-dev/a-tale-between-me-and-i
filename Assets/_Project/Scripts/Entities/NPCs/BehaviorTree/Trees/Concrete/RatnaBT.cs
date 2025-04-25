@@ -4,7 +4,7 @@ using ATBMI.Interaction;
 
 namespace ATBMI.Entities.NPCs
 {
-    public class AnjingBT : Trees
+    public class RatnaBT : Trees
     {
         [Header("Attribute")] 
         [SerializeField] private float followTime;
@@ -17,7 +17,7 @@ namespace ATBMI.Entities.NPCs
         
         protected override Node SetupTree()
         {
-            Selector tree = new Selector("Anjing BT", new List<Node>
+            Selector tree = new Selector("Ratna BT", new List<Node>
             {
                 new CheckInteracted(interact),
                 new Sequence("Check Target In Area", new List<Node>
