@@ -17,10 +17,19 @@ namespace ATBMI.Data
         
         [Header("Stats")]
         [SerializeField] private string playerName;
+        [SerializeField] private string playerAnimationTag;
         [SerializeField] private MoveStat[] moveStats;
+        
+        [Header("Assets")]
+        [SerializeField] private Sprite playerSprite;
+        [SerializeField] private RuntimeAnimatorController playerAnimator;
         
         // Getter
         public string PlayerName => playerName;
+        public string PlayerAnimationTag => playerAnimationTag;
         public MoveStat[] MoveStats => moveStats;
+        
+        public Sprite PlayerSprite => playerSprite;
+        public RuntimeAnimatorController PlayerAnimator => playerAnimator;
     }
 }

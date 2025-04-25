@@ -1,4 +1,4 @@
-using System.Linq;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace ATBMI.Entities.NPCs
@@ -9,6 +9,9 @@ namespace ATBMI.Entities.NPCs
         #region Fields & Properties
         
         private int _currentState;
+        private readonly Dictionary<string, int> _animationHashes = new();
+        
+        // Reference
         private Animator _characterAnim;
         private CharacterAI _characterAI;
         
@@ -22,27 +25,47 @@ namespace ATBMI.Entities.NPCs
             _characterAnim = GetComponent<Animator>();
             _characterAI = GetComponentInParent<CharacterAI>();
         }
-        
+
+        private void Start()
+        {
+            foreach (var clip in _characterAnim.runtimeAnimatorController.animationClips)
+            {
+                CacheAnimationHash(clip.name);
+            }
+        }
+
         // Core
         public bool TrySetAnimationState(string state)
         {
             var stateName = _characterAI.Data.AnimationTagName + "_" + state;
-            if (IsAnimationExists(stateName))
+            if (_animationHashes.ContainsKey(stateName))
             {
                 Debug.LogWarning("Animation isn't exists");
                 return false;
             }
             
-            _currentState = Animator.StringToHash(stateName);
+            _currentState = GetCachedHash(stateName);
             _characterAnim.CrossFade(_currentState, 0, 0);
             return true;
         }
         
         public float GetAnimationTime() => _characterAnim.GetCurrentAnimatorClipInfo(0).Length;
-        private bool IsAnimationExists(string state)
+        
+        // Helpers
+        private void CacheAnimationHash(string animName)
         {
-            return _characterAnim.runtimeAnimatorController.
-                animationClips.Any(clip => clip.name == state);
+            if (!_animationHashes.ContainsKey(animName))
+                _animationHashes[animName] = Animator.StringToHash(animName);
+        }
+
+        private int GetCachedHash(string animName)
+        {
+            if (_animationHashes.TryGetValue(animName, out var hash))
+                return hash;
+            
+            hash = Animator.StringToHash(animName);
+            _animationHashes[animName] = hash;
+            return hash;
         }
         
         #endregion

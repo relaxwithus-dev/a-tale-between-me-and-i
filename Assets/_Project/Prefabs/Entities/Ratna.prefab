@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8600351667431493300
 Transform:
   m_ObjectHideFlags: 0
@@ -116,7 +116,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerState: 0
-  playerData: {fileID: 11400000, guid: a4479147af062e844bccc0c81ca3556f, type: 2}
+  playerData:
+  - {fileID: 11400000, guid: 51ed34dd20df0bb43adc8149779c5e25, type: 2}
+  - {fileID: 11400000, guid: a4479147af062e844bccc0c81ca3556f, type: 2}
   moveDirection: {x: 0, y: 0}
   isRight: 1
   canMove: 1

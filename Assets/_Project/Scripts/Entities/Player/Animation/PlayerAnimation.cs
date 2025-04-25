@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace ATBMI.Entities.Player
@@ -8,16 +10,13 @@ namespace ATBMI.Entities.Player
     {
         #region Fields & Properties
         
-        // Cached properties
         private int _currentState;
-
-        private static readonly int Idle = Animator.StringToHash("Idle");
-        private static readonly int Walk = Animator.StringToHash("Walk");
-        private static readonly int Run = Animator.StringToHash("Run");
-
+        private bool _isInteractiveAnimation;
+        private readonly Dictionary<string, int> _animationHashes = new();
+        
         // Reference
         private PlayerController _playerController;
-        private Animator _playerAnim;
+        private Animator _playerAnimator;
 
         #endregion
 
@@ -26,9 +25,9 @@ namespace ATBMI.Entities.Player
         private void Awake()
         {
             _playerController = GetComponentInParent<PlayerController>();
-            _playerAnim = GetComponent<Animator>();
+            _playerAnimator = GetComponent<Animator>();
         }
-        
+
         private void Update()
         {
             AnimationStateHandler();
@@ -37,27 +36,72 @@ namespace ATBMI.Entities.Player
         #endregion
 
         #region Methods
-
-        // !- Core
+        
+        // Initialize
+        public void InitAnimationHash()
+        {
+            _animationHashes.Clear();
+            foreach (var clip in _playerAnimator.runtimeAnimatorController.animationClips)
+            {
+                CacheAnimationHash(clip.name);
+            }
+        }
+        
+        // Core
         private void AnimationStateHandler()
         {
+            if (_isInteractiveAnimation) return;
             var state = GetState();
 
             if (state == _currentState) return;
-            _playerAnim.CrossFade(state, 0, 0);
+            _playerAnimator.CrossFade(state, 0, 0);
             _currentState = state;
+        }
+
+        public IEnumerator TrySetAnimationState(string state)
+        {
+            var stateName = _playerController.Data.PlayerAnimationTag + "_" + state;
+            if (!_animationHashes.ContainsKey(stateName))
+            {
+                Debug.LogWarning($"animation {stateName} isn't exist");
+                yield break;
+            }
+
+            _isInteractiveAnimation = true;
+            _currentState = GetCachedHash(stateName);
+            _playerAnimator.CrossFade(_currentState, 0, 0);
+            
+            yield return new WaitForSeconds(_playerAnimator.GetCurrentAnimatorClipInfo(0).Length);
+            _isInteractiveAnimation = false;
         }
         
         private int GetState()
         {
-            var playerState = _playerController.PlayerState;
-            return playerState switch
+            var animTag = _playerController.Data.PlayerAnimationTag;
+            return _playerController.PlayerState switch
             {
-                PlayerState.Run => Run,
-                PlayerState.Walk => Walk,
-                PlayerState.Idle => Idle,
-                _ => throw new InvalidOperationException("Invalid player state"),
+                PlayerState.Idle => GetCachedHash(animTag + "_Idle"),
+                PlayerState.Walk => GetCachedHash(animTag + "_Walk"),
+                PlayerState.Run => GetCachedHash(animTag + "_Run"),
+                _ => throw new InvalidOperationException("Invalid player state")
             };
+        }
+        
+        // Helpers
+        private void CacheAnimationHash(string animName)
+        {
+            if (!_animationHashes.ContainsKey(animName))
+                _animationHashes[animName] = Animator.StringToHash(animName);
+        }
+
+        private int GetCachedHash(string animName)
+        {
+            if (_animationHashes.TryGetValue(animName, out var hash))
+                return hash;
+            
+            hash = Animator.StringToHash(animName);
+            _animationHashes[animName] = hash;
+            return hash;
         }
 
         #endregion

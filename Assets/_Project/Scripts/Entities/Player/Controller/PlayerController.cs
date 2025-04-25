@@ -3,8 +3,8 @@ using System.Collections;
 using UnityEngine;
 using ATBMI.Data;
 using ATBMI.Dialogue;
-using ATBMI.Gameplay.Handler;
 using ATBMI.Gameplay.Event;
+using ATBMI.Gameplay.Handler;
 
 namespace ATBMI.Entities.Player
 {
@@ -14,16 +14,17 @@ namespace ATBMI.Entities.Player
 
         [Header("Stats")]
         [SerializeField] private PlayerState playerState = PlayerState.Idle;
-        [SerializeField] private PlayerData playerData;
+        [SerializeField] private PlayerData[] playerData;
         [SerializeField] private Vector2 moveDirection;
         [SerializeField] private bool isRight;
         [SerializeField] private bool canMove;
 
         private float _currentDeceleration;
         private Vector2 _latestDirection;
-        private Vector2 _temporaryDirection = Vector2.zero;
+        private Vector2 _temporaryDirection;
+        private PlayerData _currentData;
         
-        public PlayerData Data => playerData;
+        public PlayerData Data => _currentData;
         public bool IsRight => isRight;
         public bool CanMove => canMove;
         public Vector2 MoveDirection => moveDirection;
@@ -34,6 +35,8 @@ namespace ATBMI.Entities.Player
 
         // Reference
         private SpriteRenderer _playerSr;
+        private Animator _playerAnimator;
+        private PlayerAnimation _playerAnimation;
         public Rigidbody2D PlayerRb { get; private set; }
 
         #endregion
@@ -44,7 +47,10 @@ namespace ATBMI.Entities.Player
         private void Awake()
         {
             PlayerRb = GetComponent<Rigidbody2D>();
+            
             _playerSr = GetComponentInChildren<SpriteRenderer>();
+            _playerAnimator = GetComponentInChildren<Animator>();
+            _playerAnimation = GetComponentInChildren<PlayerAnimation>();
         }
 
         private void Start()
@@ -63,13 +69,26 @@ namespace ATBMI.Entities.Player
             HandleState();
             PlayerDirection();
         }
-
+        
         // Initialize
-        private void InitPlayer()
+        private void InitPlayer(string playerName = "Dewa")
         {
-            gameObject.name = playerData.PlayerName;
-            CurrentStat = playerData.MoveStats[0];
+            _currentData = Array.Find(playerData, data => data.PlayerName == playerName);
+            if (_currentData == null)
+            {
+                Debug.LogWarning("player target data not found!");
+                return;
+            }
+            
+            // Stats
+            gameObject.name = _currentData.PlayerName;
+            CurrentStat = _currentData.MoveStats[0];
             CurrentSpeed = CurrentStat.Speed;
+            
+            // Assets
+            _playerSr.sprite = _currentData.PlayerSprite;
+            _playerAnimator.runtimeAnimatorController = _currentData.PlayerAnimator;
+            _playerAnimation.InitAnimationHash();
         }
 
         // Core
@@ -174,7 +193,7 @@ namespace ATBMI.Entities.Player
             if (state == PlayerState.Idle)
                 return CurrentStat;
 
-            return Array.Find(playerData.MoveStats, stat => stat.State == state);
+            return Array.Find(_currentData.MoveStats, stat => stat.State == state);
         }
 
         #endregion

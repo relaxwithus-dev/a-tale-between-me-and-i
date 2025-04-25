@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Dewa
   m_EditorClassIdentifier: 
   playerName: Dewa
+  playerAnimationTag: A_Dewa
   moveStats:
   - State: 1
     Speed: 3
@@ -20,3 +21,5 @@ MonoBehaviour:
   - State: 2
     Speed: 7
     Deceleration: 0.25
+  playerSprite: {fileID: 1147685309, guid: e994e4d214307654fa59ac216c9b37be, type: 3}
+  playerAnimator: {fileID: 9100000, guid: 74beb960e39ba1f44b8f7b4f8a0a397e, type: 2}
