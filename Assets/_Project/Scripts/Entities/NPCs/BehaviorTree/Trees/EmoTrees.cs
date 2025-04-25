@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using ATBMI.Interaction;
+using UnityEngine.Serialization;
 
 namespace ATBMI.Entities.NPCs
 {
@@ -29,7 +30,7 @@ namespace ATBMI.Entities.NPCs
         public ZoneDetail[] ZoneDetails => zoneDetails;
         
         [Header("Reference")]
-        [SerializeField] protected CharacterInteract characterInteract;
+        [SerializeField] protected CharacterInteract interact;
         protected CharacterTraits characterTraits;
 
         #endregion

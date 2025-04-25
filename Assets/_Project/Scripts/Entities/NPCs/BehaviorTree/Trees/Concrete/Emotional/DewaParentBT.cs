@@ -10,7 +10,7 @@ namespace ATBMI.Entities.NPCs
             
             Selector tree = new Selector("Orang Tua Dewa", new List<Node>
             {
-                new CheckInteracted(characterInteract),
+                new CheckInteracted(interact),
                 new Sequence("Intimate Zone", new List<Node>
                 {
                     new CheckTargetInProxemics(centerPoint, zoneDetails[0].Radius, layerMask),

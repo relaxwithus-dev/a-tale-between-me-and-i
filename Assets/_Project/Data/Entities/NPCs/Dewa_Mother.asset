@@ -13,12 +13,16 @@ MonoBehaviour:
   m_Name: Dewa_Mother
   m_EditorClassIdentifier: 
   characterName: Ibu Dewa
+  animationTagName: A_Ibu_Dewa
+  characterType: 1
   isIdling: 1
   moveSpeeds: []
+  itemListSO: {fileID: 11400000, guid: ecd511338be204c4f93720e86a66a9fa, type: 2}
   defaultDialogues:
   - sceneName: protoype
     dialogues: {fileID: 4900000, guid: 8003128b91c577c44bda03dd6e373a22, type: 3}
-  itemListSO: {fileID: 11400000, guid: ecd511338be204c4f93720e86a66a9fa, type: 2}
+  emotionDialogues: []
+  storyDialogue: []
   itemDialogues:
   - item: {fileID: 11400000, guid: 8e8a3682512abbe4d9ac49fbe00ce974, type: 2}
     dialogue: {fileID: 0}

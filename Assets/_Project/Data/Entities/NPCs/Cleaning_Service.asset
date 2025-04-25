@@ -13,10 +13,14 @@ MonoBehaviour:
   m_Name: Cleaning_Service
   m_EditorClassIdentifier: 
   characterName: Cleaning Service
+  animationTagName: A_Cleaning_Service
+  characterType: 2
   isIdling: 0
   moveSpeeds:
   - Type: Walk
     Speed: 1.3
-  defaultDialogues: []
   itemListSO: {fileID: 0}
+  defaultDialogues: []
+  emotionDialogues: []
+  storyDialogue: []
   itemDialogues: []

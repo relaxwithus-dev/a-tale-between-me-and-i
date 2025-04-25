@@ -20,7 +20,7 @@ namespace ATBMI.Entities.NPCs
             
             Selector tree = new Selector("Pemabuk BT", new List<Node>
             {
-                new CheckInteracted(characterInteract),
+                new CheckInteracted(interact),
                 new ZoneSelector("Proxemics", new List<Node>
                 {
                     // Intimate

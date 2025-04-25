@@ -981,6 +981,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC_Ibu_Kos
       objectReference: {fileID: 0}
+    - target: {fileID: 6178640880139922672, guid: d32015df44805434b819f3a1c07a4174, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1685,6 +1689,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC_Wafa
       objectReference: {fileID: 0}
+    - target: {fileID: 6178640880139922672, guid: 5ccab1f8c587f2f439c2712e06e3d457, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1743,9 +1751,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5100580093370311947, guid: 5984a0b3d23bffb469791058ac9c4cbc, type: 3}
+      propertyPath: characterData
+      value: 
+      objectReference: {fileID: 11400000, guid: a8625e68edb99c749bd9aa25a0c99a7b, type: 2}
     - target: {fileID: 6178640880139922672, guid: 5984a0b3d23bffb469791058ac9c4cbc, type: 3}
       propertyPath: m_Name
       value: NPC_Wafa_Teen
+      objectReference: {fileID: 0}
+    - target: {fileID: 6178640880139922672, guid: 5984a0b3d23bffb469791058ac9c4cbc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2876,6 +2892,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC_Penjual_Nasi
       objectReference: {fileID: 0}
+    - target: {fileID: 6178640880139922672, guid: 63d69930790ef5b4d9f0c1bd93c14056, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3003,6 +3023,10 @@ PrefabInstance:
     - target: {fileID: 6178640880139922672, guid: 62e86d717d49e17409b68e1e34bf7432, type: 3}
       propertyPath: m_Name
       value: NPC_Toko_Kelontong
+      objectReference: {fileID: 0}
+    - target: {fileID: 6178640880139922672, guid: 62e86d717d49e17409b68e1e34bf7432, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3980,6 +4004,10 @@ PrefabInstance:
     - target: {fileID: 6178640880139922672, guid: 21459dcb61289e943947df827ef43ca7, type: 3}
       propertyPath: m_Name
       value: NPC_Hasan_Child
+      objectReference: {fileID: 0}
+    - target: {fileID: 6178640880139922672, guid: 21459dcb61289e943947df827ef43ca7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -6091,7 +6119,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 64
-  characterInteract: {fileID: 5408185932799525719}
+  interact: {fileID: 0}
   reportManager: {fileID: 1602604185}
 --- !u!114 &6705304990373773350
 MonoBehaviour:

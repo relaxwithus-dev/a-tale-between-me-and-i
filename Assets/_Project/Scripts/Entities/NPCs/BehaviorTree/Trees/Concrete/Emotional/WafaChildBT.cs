@@ -17,7 +17,7 @@ namespace ATBMI.Entities.NPCs
         {
             Selector tree = new Selector("Wafa Child BT", new List<Node>
             {
-                new CheckInteracted(characterInteract),
+                new CheckInteracted(interact),
                 new ZoneSelector("Proxemics", new List<Node>
                 {
                     new Sequence("Personal Zone", new List<Node>
