@@ -7,7 +7,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: A_Pak_Satpam_Idle
+  m_Name: A_Security_Idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -34,7 +34,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: A_Pak_Satpam_Walk
+  m_Name: A_Security_Walk
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -60,7 +60,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: A_Pak_Satpam_Anger
+  m_Name: A_Security_Anger
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -112,31 +112,31 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -5019488475476740981}
-    m_Position: {x: 500, y: 410, z: 0}
+    m_Position: {x: 500, y: 470, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 749701101551823322}
-    m_Position: {x: 270, y: 170, z: 0}
+    m_Position: {x: 270, y: 230, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -9145292683022022047}
     m_Position: {x: 270, y: 110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6903996689281822857}
-    m_Position: {x: 270, y: 290, z: 0}
+    m_Position: {x: 270, y: 350, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -221686550307825957}
-    m_Position: {x: 270, y: 410, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: -114617602425739972}
-    m_Position: {x: 730, y: 410, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: -120251957525391215}
-    m_Position: {x: 270, y: 230, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: -7990233835046983462}
     m_Position: {x: 270, y: 470, z: 0}
   - serializedVersion: 1
+    m_State: {fileID: -114617602425739972}
+    m_Position: {x: 730, y: 470, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -120251957525391215}
+    m_Position: {x: 270, y: 290, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -7990233835046983462}
+    m_Position: {x: 270, y: 170, z: 0}
+  - serializedVersion: 1
     m_State: {fileID: 5272670771421151952}
-    m_Position: {x: 270, y: 350, z: 0}
+    m_Position: {x: 270, y: 410, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -154,7 +154,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: A_Pak_Satpam_Anticipation
+  m_Name: A_Security_Anticipation_Idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -181,7 +181,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: A_Pak_Satpam_Anticipation_In
+  m_Name: A_Security_Anticipation
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -208,7 +208,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: A_Pak_Satpam_Observe
+  m_Name: A_Security_Observe
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -288,7 +288,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: A_Pak_Satpam_Speak
+  m_Name: A_Security_Speak
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -329,7 +329,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: A_Pak_Satpam_Take_Item
+  m_Name: A_Security_Take_Item
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []

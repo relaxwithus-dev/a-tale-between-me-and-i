@@ -733,7 +733,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6178640880139922672, guid: b9c0808041603ca41ae99899166dc0dd, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2156024548041644300, guid: b9c0808041603ca41ae99899166dc0dd, type: 3}
@@ -882,10 +882,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC_Luna
       objectReference: {fileID: 0}
-    - target: {fileID: 6178640880139922672, guid: 0f39b449f4f187e4ea1ecedfb6c275ad, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -983,7 +979,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6178640880139922672, guid: d32015df44805434b819f3a1c07a4174, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1155,10 +1151,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 272835186}
     m_Modifications:
-    - target: {fileID: 2727677842074490205, guid: 82c090cf7487b0f4b96c0635e2692ecb, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4291996230028175410, guid: 82c090cf7487b0f4b96c0635e2692ecb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -21.3
@@ -1202,22 +1194,6 @@ PrefabInstance:
     - target: {fileID: 6178640880139922672, guid: 82c090cf7487b0f4b96c0635e2692ecb, type: 3}
       propertyPath: m_Name
       value: NPC_Ayah_Dewa
-      objectReference: {fileID: 0}
-    - target: {fileID: 6178640880139922672, guid: 82c090cf7487b0f4b96c0635e2692ecb, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6296002971637020943, guid: 82c090cf7487b0f4b96c0635e2692ecb, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7459398586366820653, guid: 82c090cf7487b0f4b96c0635e2692ecb, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7917052502691012759, guid: 82c090cf7487b0f4b96c0635e2692ecb, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1691,7 +1667,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6178640880139922672, guid: 5ccab1f8c587f2f439c2712e06e3d457, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1761,7 +1737,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6178640880139922672, guid: 5984a0b3d23bffb469791058ac9c4cbc, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1825,10 +1801,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC_Ibu_Dewa
       objectReference: {fileID: 0}
-    - target: {fileID: 6178640880139922672, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1890,6 +1862,10 @@ PrefabInstance:
     - target: {fileID: 6178640880139922672, guid: f1834777656f8f54f9b09f0cc381df87, type: 3}
       propertyPath: m_Name
       value: NPC_Penari_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6178640880139922672, guid: f1834777656f8f54f9b09f0cc381df87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2890,7 +2866,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6178640880139922672, guid: 63d69930790ef5b4d9f0c1bd93c14056, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2954,10 +2930,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC_Pemabuk
       objectReference: {fileID: 0}
-    - target: {fileID: 6178640880139922672, guid: f895ee240a37de14b935f27623085632, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3019,10 +2991,6 @@ PrefabInstance:
     - target: {fileID: 6178640880139922672, guid: 62e86d717d49e17409b68e1e34bf7432, type: 3}
       propertyPath: m_Name
       value: NPC_Toko_Kelontong
-      objectReference: {fileID: 0}
-    - target: {fileID: 6178640880139922672, guid: 62e86d717d49e17409b68e1e34bf7432, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3490,10 +3458,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC_Bakery
       objectReference: {fileID: 0}
-    - target: {fileID: 6178640880139922672, guid: c3edcf82606dafe41a94d2d17a927be2, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3556,10 +3520,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC_Wafa_Child
       objectReference: {fileID: 0}
-    - target: {fileID: 6178640880139922672, guid: 48a7a4762d62c3d43b034339f78b192d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3621,7 +3581,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1348626248
 Transform:
   m_ObjectHideFlags: 0
@@ -4003,7 +3963,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6178640880139922672, guid: 21459dcb61289e943947df827ef43ca7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -4343,7 +4303,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6178640880139922672, guid: bb83f269e648f8c44b131c976daf764b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4845,10 +4805,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 272835186}
     m_Modifications:
-    - target: {fileID: 2727677842074490205, guid: a60027ca022f1c8489d0890ff2253168, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4291996230028175410, guid: a60027ca022f1c8489d0890ff2253168, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4889,21 +4845,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4922681613591676213, guid: a60027ca022f1c8489d0890ff2253168, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6178640880139922672, guid: a60027ca022f1c8489d0890ff2253168, type: 3}
       propertyPath: m_Name
       value: NPC_Security
-      objectReference: {fileID: 0}
-    - target: {fileID: 6178640880139922672, guid: a60027ca022f1c8489d0890ff2253168, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8933336138072542907, guid: a60027ca022f1c8489d0890ff2253168, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5084,6 +5028,10 @@ PrefabInstance:
     - target: {fileID: 6178640880139922672, guid: 716d546d0eac17149b76ffd0d0392635, type: 3}
       propertyPath: m_Name
       value: NPC_Penari_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6178640880139922672, guid: 716d546d0eac17149b76ffd0d0392635, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

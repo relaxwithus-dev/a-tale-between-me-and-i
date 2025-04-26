@@ -145,14 +145,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec2d159942cb76b42a6595e3cad8171a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultTexts:
-  - {fileID: 4900000, guid: 8003128b91c577c44bda03dd6e373a22, type: 3}
-  emotionTexts:
-  - emotion: 7
-    textAssets:
-    - {fileID: 4900000, guid: 16299217b910d7241ba4e4522dff0360, type: 3}
-    - {fileID: 4900000, guid: bfa7256c01e8d4140bb2de5e249f429d, type: 3}
-  emoteAnimator: {fileID: 7747208020035534566}
   centerPoint: {fileID: 6755673961492933830}
   zoneDetails:
   - Type: 0
@@ -177,11 +169,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90926fb261ccf3440b3010858b0f1c49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &7747208020035534566 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 4403454399528855645, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
-  m_PrefabInstance: {fileID: 6241895453110703803}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &8933336138072542907 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3271371676049430528, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}

@@ -86,11 +86,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7858659317861269129, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.2910266
+      value: 0.21
       objectReference: {fileID: 0}
     - target: {fileID: 7858659317861269129, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.628135
+      value: -3.92
       objectReference: {fileID: 0}
     - target: {fileID: 7858659317861269129, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -168,9 +168,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 912cc7c5d7ce4597b790361cfb995511, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultTexts: []
-  emotionTexts: []
-  emoteAnimator: {fileID: 0}
   centerPoint: {fileID: 6755673961492933830}
   zoneDetails: []
   layerMask:
