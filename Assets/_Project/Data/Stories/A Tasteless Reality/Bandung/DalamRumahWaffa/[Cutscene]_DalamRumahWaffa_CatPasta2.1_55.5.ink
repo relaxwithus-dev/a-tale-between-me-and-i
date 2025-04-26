@@ -4,12 +4,12 @@ EXTERNAL FinishQuest(questId)
 
 // Dewa menghampiri Drunkard dan mencoba menghentikan
 
-Urrgghhh… kenapa orang ini sangat kuat #speaker:Dewa #expression:A_Dewa_Speak
-Tahan lengannya Waffa #speaker:Dewa #expression:A_Dewa_Speak
+Urrgghhh… kenapa orang ini sangat kuat #speaker:Dewa #expression:A_Dewa_Defense
+Tahan lengannya Waffa #speaker:Dewa #expression:A_Dewa_Defense
 
-Aku sudah mencapai batas… #speaker:Waffa Remaja #expression:A_WafaTeen_Speak#speaker:Waffa Remaja #expression:A_WafaTeen_Speak
+Aku sudah mencapai batas… #speaker:Waffa Remaja #expression:A_WafaTeen_Defense
 
-RARGGHHH… ARRGGHHHH….  #speaker:Pemabuk #expression_Pemabuk_Speak
+RARGGHHH… ARRGGHHHH….  #speaker:Pemabuk #expression_Pemabuk_Punch
 
 // Kamera panning ke atas
 // Layar berubah menjadi hitam

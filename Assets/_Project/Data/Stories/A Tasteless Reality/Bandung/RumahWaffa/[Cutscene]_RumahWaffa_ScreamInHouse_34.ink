@@ -6,7 +6,7 @@ EXTERNAL FinishQuest(questId)
 
 ???? #speaker:Dewa
 
-Apakah kamu mendengarnya? #speaker:Ratna #expression:A_Ratna_Bingung
+Apakah kamu mendengarnya? #speaker:Ratna #expression:A_Ratna_Speak #Emoji:A_Emoji_Question
 
 Sangat jelas #speaker:Dewa #expression:A_Dewa_Speak
 Dan sepertinya itu bukanlah sesuatu yang bagus #speaker:Dewa #expression:A_Dewa_Speak

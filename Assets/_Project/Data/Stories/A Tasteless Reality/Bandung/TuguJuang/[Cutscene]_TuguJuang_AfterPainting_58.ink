@@ -25,7 +25,7 @@ Kamu ini memang sedikit tidak punya kesadaran tentang yang ada di sekitarmu #spe
 Aku berhenti melukis karena satu kejadian di masa lalu #speaker:Dewa #expression:A_Dewa_Speak
 Kejadian yang membuatku tidak bisa melukis selamanya #speaker:Dewa #expression:A_Dewa_Speak
 Tapi tidak tahu kenapa disini berbeda #speaker:Dewa #expression:A_Dewa_Speak
-Di tempat ini aku bisa melukis lagi #speaker:Dewa #expression:A_Dewa_Speak
+Di tempat ini... aku bisa melukis lagi #speaker:Dewa #expression:A_Dewa_Speak #Emoji:A_Emoji_Love
 Dan perasaan jijik yang telah kurasakan selama ini sakan menghilang #speaker:Dewa #expression:A_Dewa_Speak
 
 Ka-kamu tidak apa-apa kan Dewa? #speaker:Ratna #expression:A_Ratna_Speak

@@ -1,3 +1,5 @@
+EXTERNAL AddItem(itemId)
+
 Permisi… #speaker:Dewa #expression:A_Dewa_Speak
 Apakah saya boleh tanya sesuatu? #speaker:Dewa #expression:A_Dewa_Speak
 
@@ -23,5 +25,7 @@ Ayo kak Dewa kita ambil air disitu #speaker:Waffa Kecil #expression:A_WafaChild_
 O-oke #speaker:Dewa #expression:A_Dewa_Speak
 
 // Received empty bottle
+
+~AddItem("10")
 
 -> END

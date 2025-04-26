@@ -4,30 +4,30 @@ EXTERNAL FinishQuest(questId)
 
 // Baba & Hasan join into scene
 
-Tenang kami akan membantu kalian menahan #speaker:Hasan #expression:A_Hasan_Speak
+Tenang kami akan membantu kalian menahan #speaker:Hasan #expression:A_Hasan_Surprise
 
-Iya kami berdua akan membantu #speaker:Baba #expression:A_Baba_Speak
+Iya kami berdua akan membantu #speaker:Baba #expression:A_Baba_Defense
 
-Uhhh… terimakasih #speaker:Dewa #expression:A_Dewa_Speak
+Uhhh… terimakasih #speaker:Dewa #expression:A_Dewa_Defense
 
-Sekarang hanya tinggal pengecut itu #speaker:Ratna #expression:A_Ratna_Speak
+Sekarang hanya tinggal pengecut itu #speaker:Ratna #expression:A_Ratna_Defense
 
-Kita butuh bantuanmu disini Waffa #speaker:Dewa #expression:A_Dewa_Speak
+Kita butuh bantuanmu disini Waffa #speaker:Dewa #expression:A_Dewa_Defense
 
-Iya bos kami butuh bantuan #speaker:Hasan #expression:A_Hasan_Speak
-Kami tahu kamu adalah bos paling hebat yang bisa melawan siapapun #speaker:Hasan #expression:A_Hasan_Speak
-Jadi untuk kali ini saja tolong bantu kami #speaker:Hasan #expression:A_Hasan_Speak
-Sadarlah bos dan bantu kami #speaker:Hasan #expression:A_Hasan_Speak
+Iya bos kami butuh bantuan #speaker:Hasan #expression:A_Hasan_Surprise
+Kami tahu kamu adalah bos paling hebat yang bisa melawan siapapun #speaker:Hasan #expression:A_Hasan_Surprise
+Jadi untuk kali ini saja tolong bantu kami #speaker:Hasan #expression:A_Hasan_Surprise
+Sadarlah bos dan bantu kami #speaker:Hasan #expression:A_Hasan_Surprise
 
-Benar bos kami tidak akan bertahan lama #speaker:Baba #expression:A_Baba_Speak
+Benar bos kami tidak akan bertahan lama #speaker:Baba #expression:A_Baba_Defense
 
-Gawat aku sudah tidak bisa menahan ini lagi #speaker:Dewa #expression:A_Dewa_Speak
+Gawat aku sudah tidak bisa menahan ini lagi #speaker:Dewa #expression:A_Dewa_Defense
 
-Aku juga… #speaker:Hasan #expression:A_Hasan_Speak
+Aku juga… #speaker:Hasan #expression:A_Hasan_Surprise
 
-TOLONG SADARLAH WAFFA!!!! #speaker:Dewa #expression:A_Dewa_Speak
+TOLONG SADARLAH WAFFA!!!! #speaker:Dewa #expression:A_Dewa_Defense
 
-RAAARRRGGGHHHHH….. #speaker:Pemabuk #expression:A_Pemabuk_Anger
+RAAARRRGGGHHHHH….. #speaker:Pemabuk #expression:A_Pemabuk_Punch
 
 // Kamera panning ke atas
 // Karakter mundur semua kecuali Waffa

@@ -6,7 +6,7 @@ EXTERNAL FinishQuest(questId)
 // Karakter mundur semua kecuali Waffa
 // Kamera panning ke bawah
 
-Hahh... Hahh... susah sekali #speaker:Dewa #expression:A_Dewa_Speak
+Hahh... Hahh... susah sekali #speaker:Dewa #expression:A_Dewa_Speak #Emoji:A_Emoji_Angry
 
 Iya, sepertinya kekuatan kita kurang #speaker:Hasan #expression:A_Hasan_Speak
 

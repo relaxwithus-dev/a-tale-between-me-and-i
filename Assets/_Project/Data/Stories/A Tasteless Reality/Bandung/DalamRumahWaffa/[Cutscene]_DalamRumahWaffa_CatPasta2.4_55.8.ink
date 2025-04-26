@@ -16,7 +16,7 @@ Kamu bisa lihat ini? #speaker:Dewa #expression:A_Dewa_Speak
 Itu kan… cat? #speaker:Ratna #expression:A_Ratna_Speak
 
 Benar… dan sepertinya kita harus mewarnai dunia ini dengan cat ini #speaker:Dewa #expression:A_Dewa_Speak
-Agar kita dapat keluat dari sini #speaker:Dewa #expression:A_Dewa_Speak
+Agar kita dapat keluar dari sini #speaker:Dewa #expression:A_Dewa_Speak
 
 Lalu apa yang kau tunggu Dewa #speaker:Ratna #expression:A_Ratna_Speak
 Cepat pakai warnanya untuk memperbaiki dunia ini #speaker:Ratna #expression:A_Ratna_Speak

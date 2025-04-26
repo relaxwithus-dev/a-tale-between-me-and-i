@@ -2,14 +2,14 @@ EXTERNAL AddItem(itemId)
 EXTERNAL StartQuest(questId)
 EXTERNAL FinishQuest(questId)
 
-Gimana? kamu dapat sesuatu? #speaker:Ratna #expression:A_Ratna_Bingung
+Gimana? kamu dapat sesuatu? #speaker:Ratna #expression:A_Ratna_Speak
 
 Bapak tadi menyebutkan sesuatu… #speaker:Dewa #expression:A_Dewa_Speak
-Mis- ro? #speaker:Dewa #expression:A_Dewa_Speak
+Mis- ro? #speaker:Dewa #expression:A_Dewa_Speak #Emoji:A_Emoji_Question
 Hmmm.... misro? #speaker:Dewa #expression:A_Dewa_Speak
 Apa kamu tau apa itu misro? #speaker:Dewa #expression:A_Dewa_Speak
 
-??? #speaker:Ratna
+??? #speaker:Ratna 
 Tidak tahu #speaker:Ratna #expression:A_Ratna_Speak
 
 Lupakan saja lah #speaker:Dewa #expression:A_Dewa_Speak

@@ -21,19 +21,19 @@ Jadinya aku cuman bisa dapat terigu sama telor… #speaker:Dewa #expression:A_De
 Hmmm.... #speaker:Ratna #expression:A_Ratna_Speak
 Oiya.. Waffa kamu tahu tempat yang jual ragi? #speaker:Ratna #expression:A_Ratna_Speak
 
-Ehhh… sebentar biar kupikir dulu #speaker:Waffa Remaja #expression:A_WafaTeen_Speak
-!!! #speaker:Waffa Remaja #expression:A_WafaTeen_Speak
- Aku tahu satu tempat #speaker:Waffa Remaja #expression:A_WafaTeen_Speak
-Di toko kue tempat ibuku bekerja kalau tidak salah jual ragi untuk umum #speaker:Waffa Remaja #expression:A_WafaTeen_Speak
-Ayo kita coba kesana aja #speaker:Waffa Remaja #expression:A_WafaTeen_Speak
+Ehhh… sebentar biar kupikir dulu #speaker:Waffa Remaja #expression:A_Waffa_Teen_Speak
+!!! #speaker:Waffa Remaja #Emoji:A_Emoji_Lightbulb
+Aku tahu satu tempat #speaker:Waffa Remaja #expression:A_Waffa_Teen_Speak
+Di toko kue tempat ibuku bekerja kalau tidak salah jual ragi untuk umum #speaker:Waffa Remaja #expression:A_Waffa_Teen_Speak
+Ayo kita coba kesana aja #speaker:Waffa Remaja #expression:A_Waffa_Teen_Speak
 
 Bagus Waffa… sekarang kita bisa bikin kue deh kalau dapat raginya #speaker:Ratna #expression:A_Ratna_Speak
 
-Tapi... #speaker:Waffa Remaja #expression:A_WafaTeen_Speak
+Tapi... #speaker:Waffa Remaja #expression:A_Waffa_Teen_Speak
 
 Tapi? #speaker:Ratna #expression:A_Ratna_Speak
 
-Kalian harus merahasiakan semua ini dari Ibuku oke #speaker:Waffa Remaja #expression:A_WafaTeen_Speak
+Kalian harus merahasiakan semua ini dari Ibuku oke #speaker:Waffa Remaja #expression:A_Waffa_Teen_Speak
 
 Tenang saja mulutku ini kekunci rapat kok #speaker:Ratna #expression:A_Ratna_Speak
 

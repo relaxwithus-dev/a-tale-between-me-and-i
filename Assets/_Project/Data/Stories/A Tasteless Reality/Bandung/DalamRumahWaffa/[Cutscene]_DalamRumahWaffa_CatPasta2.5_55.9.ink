@@ -4,8 +4,8 @@ EXTERNAL FinishQuest(questId)
 
 // Warna melayang muncul
 
-Ehhh? #speaker:Ratna #expression:A_Ratna_Speak
-Kenapa ada warna yang melayang? #speaker:Ratna #expression:A_Ratna_Speak
+Ehhh? #speaker:Ratna #expression:A_Ratna_Shock_In
+Kenapa ada warna yang melayang? #speaker:Ratna #expression:A_Ratna_Shock_Out
 
 Kamu juga sudah bisa melihatnya ya kalau sudah sampai sejauh ini #speaker:Dewa #expression:A_Dewa_Speak
 
@@ -16,7 +16,7 @@ Tapi kamu malah tidak percaya #speaker:Dewa #expression:A_Dewa_Speak
 
 Uhhh… #speaker:Ratna #expression:A_Ratna_Speak
 
-Seperti yang kau lihat, warna itu seperti mengarah ke suatu tempat #speaker:Dewa #expression:A_Dewa_Speak
+Seperti yang kamu lihat, warna itu seperti mengarah ke suatu tempat #speaker:Dewa #expression:A_Dewa_Speak
 Sadar tidak dari awal aku seperti tahu kita harus pergi kemana? #speaker:Dewa #expression:A_Dewa_Speak
 
 Berarti dari awal kita sudah dituntun oleh warna itu? #speaker:Ratna #expression:A_Ratna_Speak

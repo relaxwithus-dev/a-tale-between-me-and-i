@@ -48,7 +48,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: A_Pemabuk_Looking
+  m_Name: A_Pemabuk_Looking_Below
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -82,6 +82,32 @@ BlendTree:
   m_UseAutomaticThresholds: 1
   m_NormalizedBlendValues: 0
   m_BlendType: 0
+--- !u!1102 &-5560313963488428863
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: A_Pemabuk_Smoke
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: e7032c8d44ecc9944b851802dd30e56c, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!114 &-4939745602487284610
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -165,7 +191,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: A_Pemabuk_Keeper
+  m_Name: A_Pemabuk_Keeper_Start
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -299,7 +325,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: A_Pemabuk_Walk
+  m_Name: A_Pemabuk_Walk_Start
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -352,7 +378,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Keeper_Loop
+  m_Name: A_Pemabuk_Keeper
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -382,7 +408,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -9221919468395853899}
-    m_Position: {x: 500, y: -20, z: 0}
+    m_Position: {x: 510, y: 190, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 9128652667307399510}
     m_Position: {x: 290, y: 190, z: 0}
@@ -416,6 +442,9 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: -6270582455123366283}
     m_Position: {x: 290, y: 610, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -5560313963488428863}
+    m_Position: {x: 290, y: 750, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -459,7 +488,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Walk_Loop
+  m_Name: A_Pemabuk_Walk
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []

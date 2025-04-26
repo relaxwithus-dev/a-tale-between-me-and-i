@@ -7,11 +7,11 @@ EXTERNAL FinishQuest(questId)
 
 ???? #speaker:Dewa
 
-Ehhh… mereka kenapa #speaker:Ratna #expression:A_Ratna_Speak
+Ehhh… mereka kenapa #speaker:Ratna #expression:A_Ratna_Speak #Emoji:A_Emoji_Question
 Seperti sedang kebingungan akan sesuatu #speaker:Ratna #expression:A_Ratna_Speak
 
-Ada yang aneh dengan mereka #speaker:Hasan #expression:A_HasanChild_Speak
-Ayo kita kesana dan tanya ada apa #speaker:Hasan #expression:A_HasanChild_Speak
+Ada yang aneh dengan mereka #speaker:Hasan #expression:A_Hasan_Child_Speak
+Ayo kita kesana dan tanya ada apa #speaker:Hasan #expression:A_Hasan_Child_Speak
 
 // Menghampiri kru penari
 
