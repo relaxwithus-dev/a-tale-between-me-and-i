@@ -20,8 +20,11 @@ MonoBehaviour:
   - Type: Walk
     Speed: 1.3
   itemListSO: {fileID: 11400000, guid: ecd511338be204c4f93720e86a66a9fa, type: 2}
-  defaultDialogues: []
-  sceneDialogues: []
+  defaultDialogues:
+  - {fileID: 4900000, guid: 323a6fe9fad6d09499d5db84339f4c71, type: 3}
+  sceneDialogues:
+  - sceneName: S_Bali_Rumah_Kamar
+    dialogues: {fileID: 4900000, guid: 323a6fe9fad6d09499d5db84339f4c71, type: 3}
   emotionDialogues: []
   storyDialogue: []
   itemDialogues:

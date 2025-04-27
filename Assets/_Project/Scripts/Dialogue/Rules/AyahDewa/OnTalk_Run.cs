@@ -16,7 +16,7 @@ namespace ATBMI
 
         public override void Execute(RE_AyahDewa context)
         {
-            context.isDialogueAboutToStart = true;
+            context.IsDialogueAboutToStart = true;
                 PlayerEvents.MoveToPlayerEvent(context, context.JalanBali_RunWithInteraction, context.playerEntryPoint.position.x, context.transform.position.x, context.npc.IsFacingRight);
                 if (context.isOnce_JalanBali_RunWithInteraction)
                 {

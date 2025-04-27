@@ -10,8 +10,8 @@ namespace ATBMI.Dialogue
         [Space(20)]
         [Header("Dialogue Rules")]
         [SerializeField] private int visitedCount;
-        [SerializeField] private bool isRunning;
-        public bool IsRunning => isRunning;
+        // [SerializeField] private bool isRunning;
+        // public bool IsRunning => isRunning;
         #endregion
         #region Dialogue Text Assets
         [Space(20)]
@@ -23,53 +23,14 @@ namespace ATBMI.Dialogue
         // Start is called before the first frame update
         void Start()
         {
-            isPlayerInRange = false;
-            isDialogueAboutToStart = false;
+            InitializeRuleEntry();
+        }
+
+        public override void InitializeRuleEntry()
+        {
+            base.InitializeRuleEntry();
 
             visitedCount = 0;
-        }
-
-        public override void OnTriggerEnter2D(Collider2D other)
-        {
-            if (other.CompareTag("Player"))
-            {
-                isPlayerInRange = true;
-            }
-        }
-
-        public override void OnTriggerExit2D(Collider2D other)
-        {
-            if (other.CompareTag("Player"))
-            {
-                isPlayerInRange = false;
-            }
-        }
-
-        public override void OnEnterDialogue(TextAsset defaultDialogue)
-        {
-            if (!isDialogueAboutToStart && isPlayerInRange)
-            {
-                // TODO: change to default dialogue (use rules if default dialogue > 1, eg. default dialogue ch1, ch2, ch3...)
-                base.EnterDialogue(this, defaultDialogue);
-            }
-        }
-        
-        public override void OnEnterItemDialogue(TextAsset itemDialogue)
-        {
-           if (!isDialogueAboutToStart && isPlayerInRange)
-            {
-                base.EnterDialogue(this, itemDialogue);
-            }
-        }
-
-        public override void EnterDialogueWithInkJson(TextAsset InkJson)
-        {
-            base.EnterDialogueWithInkJson(InkJson);
-        }
-
-        public override void IsPlayerRun(bool isRunning)
-        {
-            this.isRunning = isRunning;
         }
     }
 }

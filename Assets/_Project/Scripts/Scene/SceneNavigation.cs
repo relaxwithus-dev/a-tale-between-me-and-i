@@ -23,6 +23,7 @@ namespace ATBMI.Scene
         
         public SceneAsset CurrentScene { get; private set; }
         public SceneAsset LatestScene { get; private set; }
+        public string CurrentSceneName => CurrentScene.name;
         
         public static SceneNavigation Instance;
 
@@ -60,10 +61,10 @@ namespace ATBMI.Scene
             _asyncOperation.allowSceneActivation = true;
             CurrentScene = initializeScene;
 
-            DialogueEvents.RegisterDialogueSignPointEvent(); // Register NPCs sign point
-
             yield return new WaitForSeconds(fader.FadeDuration);
             fader.FadeIn();
+
+            DialogueEvents.RegisterDialogueSignPointEvent(); // Register NPCs sign point
         }
 
         // Core

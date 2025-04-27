@@ -11,11 +11,11 @@ namespace ATBMI.Dialogue
         [Space(20)]
         [Header("Dialogue Rules")]
         [SerializeField] private bool isAfterExplosion;
-        [SerializeField] private bool isRunning;
+        // [SerializeField] private bool isRunning;
         [SerializeField] private int visitedCount;
         [SerializeField] private bool isAfterGettingItem;
         public bool IsAfterExplosion => isAfterExplosion;
-        public bool IsRunning => isRunning;
+        // public bool IsRunning => isRunning;
         public int VisitedCount
         {
             get => visitedCount;
@@ -73,117 +73,16 @@ namespace ATBMI.Dialogue
         [HideInInspector] public bool isOnce09;
         #endregion
 
-        private void Awake()
-        {
-            // TODO: change the method of getting this script
-            // playerInputHandler = FindObjectOfType<PlayerInputHandler>();
-            // interactManager = GetComponent<InteractManager>();
-
-            // visualCue = GetComponentInChildren<VisualCue>();
-            // npc = transform.parent.gameObject.GetComponent<NPC>();
-
-            InitializeRules();
-        }
-
-        private void InitializeRules()
-        {
-            // dialogueRules = new List<IDialogueRule<RE_Security_01>>
-            // {
-            //     new OnTalk_ExplosionRunningRule(),
-            //     new OnTalk_ExplosionWalkingRule(),
-            //     new OnTalk_GettingItemRule()
-            // };
-
-            // triggerRules = new List<IDialogueRule<RE_Security_01>>
-            // {
-            //     new OnTalkedTo_ExplosionRunningRule(),
-            //     new OnTalkedTo_GettingItemRunningRule()
-            // };
-
-            // Sort rules by priority
-            // dialogueRules = dialogueRules.OrderBy(rule => rule.RulePriority).ToList();
-            // triggerRules = triggerRules.OrderBy(rule => rule.RulePriority).ToList();
-        }
-
         private void Start()
         {
-            // if (visualCue != null)
-            // {
-            //     isVisualCueExists = true;
-            //     visualCue.DeactivateVisualCue();
-            // }
-            // else
-            // {
-            //     isVisualCueExists = false;
-            // }
+            InitializeRuleEntry();
+        }
 
-            isPlayerInRange = false;
-            isDialogueAboutToStart = false;
+        public override void InitializeRuleEntry()
+        {
+            base.InitializeRuleEntry();
 
             visitedCount = 0;
-        }
-
-        // if dialogue trigger after player entering object/npc area
-        public override void OnTriggerEnter2D(Collider2D other)
-        {
-            if (other.CompareTag("Player"))
-            {
-                isPlayerInRange = true;
-
-                foreach (var rule in autoTriggerRules)
-                {
-                    if (rule.Evaluate(this))
-                    {
-                        rule.Execute(this);
-                        break; // Execute only the first valid rule
-                    }
-                }
-            }
-        }
-
-        // if dialogue trigger after player exiting object/npc area
-        public override void OnTriggerExit2D(Collider2D other)
-        {
-            if (other.CompareTag("Player"))
-            {
-                isPlayerInRange = false;
-            }
-        }
-
-        public override void OnEnterDialogue(TextAsset defaultDialogue)
-        {
-            if (!isDialogueAboutToStart && isPlayerInRange)
-            {
-                foreach (var rule in manualTriggerRules)
-                {
-                    if (rule.Evaluate(this))
-                    {
-                        rule.Execute(this);
-                        break; // Execute only the first valid rule
-                    }
-                }
-
-                // TODO: change to default dialogue (use rules if default dialogue > 1, eg. default dialogue ch1, ch2, ch3...)
-                base.EnterDialogue(this, defaultDialogue);
-            }
-        }
-
-        public override void OnEnterItemDialogue(TextAsset itemDialogue)
-        {
-            if (!isDialogueAboutToStart && isPlayerInRange)
-            {
-                base.EnterDialogue(this, itemDialogue);
-            }
-        }
-
-        public override void EnterDialogueWithInkJson(TextAsset InkJson)
-        {
-            base.EnterDialogueWithInkJson(InkJson);
-        }
-
-        public override void IsPlayerRun(bool isRunning)
-        {
-            this.isRunning = isRunning;
         }
     }
 }

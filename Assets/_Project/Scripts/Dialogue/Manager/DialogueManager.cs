@@ -32,6 +32,7 @@ namespace ATBMI.Dialogue
 
         public bool IsDialoguePlaying { get; private set; }
 
+        private string currentSpeakerName;
         private Coroutine displayLineCoroutine;
         private Story currentStory;
         private List<Choice> currentChoices;
@@ -282,7 +283,7 @@ namespace ATBMI.Dialogue
             dialogueChoicesContainer.transform.parent.gameObject.SetActive(true);
 
             DialogueEvents.UpdateDialogueChoicesUIPosEvent();
-            DialogueEvents.StopDialogueAnimEvent();
+            DialogueEvents.StopDialogueAnimEvent(currentSpeakerName);
 
             int index = 0;
             int maxLength = 0;
@@ -341,11 +342,13 @@ namespace ATBMI.Dialogue
                         if (dialogueName.text != tagValue)
                         {
                             // Stop animation between speaker
-                            DialogueEvents.StopDialogueAnimEvent();
+                            DialogueEvents.StopDialogueAnimEvent(currentSpeakerName);
                         }
 
                         // TODO: change to other method, change the speaker "player" in ink first
-                        dialogueName.text = tagValue == "Player" ? "Dewa" : tagValue;
+                        // if the player name change, change the method
+                        currentSpeakerName = tagValue == "Player" ? "Dewa" : tagValue;
+                        dialogueName.text = currentSpeakerName;
                         if (tagValue == "Player")
                         {
                             tagValue = "Dewa";
@@ -358,7 +361,7 @@ namespace ATBMI.Dialogue
                         break;
                     case EXPRESSION_TAG:
                         // update animation
-                        DialogueEvents.PlayDialogueAnimEvent(tagValue);
+                        DialogueEvents.PlayDialogueAnimEvent(currentSpeakerName, tagValue);
                         break;
                     case EMOJI_TAG:
                         // update emoji animation
@@ -382,7 +385,7 @@ namespace ATBMI.Dialogue
             dialogueText.text = "";
             
             playerController.StartMovement();
-            DialogueEvents.StopDialogueAnimEvent();
+            DialogueEvents.StopDialogueAnimEvent(currentSpeakerName);
             DialogueEvents.OnExitDialogueEvent();
             
             // if (isSequenceIsPlaying)

@@ -9,8 +9,8 @@ namespace ATBMI.Gameplay.Event
         public static event Action<TextAsset> OnEnterDialogue;
         public static event Action<TextAsset> OnEnterItemDialogue;
         public static event Action OnExitDialogue;
-        public static event Action<string> PlayDialogueAnim;
-        public static event Action StopDialogueAnim;
+        public static event Action<string, string> PlayDialogueAnim;
+        public static event Action<string> StopDialogueAnim;
         public static event Action<string> PlayEmojiAnim;
         public static event Action<string, Transform> RegisterNPCTipTarget;
         public static event Action<string, Transform> RegisterNPCEmojiTarget;
@@ -31,8 +31,8 @@ namespace ATBMI.Gameplay.Event
         public static void EnterDialogueEvent(TextAsset defaultDialogue) => OnEnterDialogue?.Invoke(defaultDialogue);
         public static void EnterItemDialogueEvent(TextAsset itemDialogue) => OnEnterItemDialogue?.Invoke(itemDialogue);
         public static void OnExitDialogueEvent() => OnExitDialogue?.Invoke();
-        public static void PlayDialogueAnimEvent(string tag) => PlayDialogueAnim?.Invoke(tag);
-        public static void StopDialogueAnimEvent() => StopDialogueAnim?.Invoke();
+        public static void PlayDialogueAnimEvent(string speaker, string tag) => PlayDialogueAnim?.Invoke(speaker, tag);
+        public static void StopDialogueAnimEvent(string speaker) => StopDialogueAnim?.Invoke(speaker);
         public static void PlayEmojiAnimEvent(string tag) => PlayEmojiAnim?.Invoke(tag);
         public static void RegisterNPCTipTargetEvent(string npcName, Transform tipTarget) => RegisterNPCTipTarget?.Invoke(npcName, tipTarget);
         public static void RegisterNPCEmojiTargetEvent(string npcName, Transform emojiTarget) => RegisterNPCEmojiTarget?.Invoke(npcName, emojiTarget);

@@ -19,7 +19,7 @@ namespace ATBMI.Dialogue
 
             if (context.VisitedCount == 1 && !context.isOnce05)
             {
-                context.isDialogueAboutToStart = true;
+                context.IsDialogueAboutToStart = true;
                 PlayerEvents.MoveToPlayerEvent(context, context.onTalk_AfterExplosion_WithWalking_Visited_01, context.playerEntryPoint.position.x, context.transform.position.x, context.npc.IsFacingRight);
                 if (context.isOnce_AfterExplosion_WithWalking_Visited_01)
                 {
@@ -28,7 +28,7 @@ namespace ATBMI.Dialogue
             }
             else if (context.VisitedCount == 2 && !context.isOnce06)
             {
-                context.isDialogueAboutToStart = true;
+                context.IsDialogueAboutToStart = true;
                 PlayerEvents.MoveToPlayerEvent(context, context.onTalk_AfterExplosion_WithWalking_Visited_02, context.playerEntryPoint.position.x, context.transform.position.x, context.npc.IsFacingRight);
                 if (context.isOnce_AfterExplosion_WithWalking_Visited_02)
                 {

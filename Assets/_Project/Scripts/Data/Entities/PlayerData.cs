@@ -31,5 +31,6 @@ namespace ATBMI.Data
         
         public Sprite PlayerSprite => playerSprite;
         public RuntimeAnimatorController PlayerAnimator => playerAnimator;
+
     }
 }

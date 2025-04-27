@@ -92,8 +92,9 @@ namespace ATBMI.Data
                     return dialogue.dialogues;
             }
             
-            Debug.LogError("scene default dialogue not found!");
-            return null;
+            // Debug.LogError("scene default dialogue not found!");
+            return sceneDialogues[0].dialogues;
+            // return null;
         }
         
         public TextAsset[] GetEmotionDialogues(Emotion emotion)

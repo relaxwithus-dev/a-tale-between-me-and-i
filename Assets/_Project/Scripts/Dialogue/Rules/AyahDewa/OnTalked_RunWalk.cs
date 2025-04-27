@@ -10,7 +10,7 @@ namespace ATBMI
     {
         public override bool Evaluate(RE_AyahDewa context)
         {
-            return context.isPlayerInRange && context.IsRunning && !context.isOnce01;
+            return context.IsPlayerInRange && context.IsRunning && !context.isOnce01;
         }
 
         public override void Execute(RE_AyahDewa context)

@@ -3,6 +3,7 @@ using ATBMI.Enum;
 using ATBMI.Inventory;
 using ATBMI.Entities.NPCs;
 using ATBMI.Gameplay.Event;
+using ATBMI.Scene;
 
 namespace ATBMI.Interaction
 {
@@ -59,7 +60,7 @@ namespace ATBMI.Interaction
             InteractObserver.Observe(this);
             if (itemId == 0)
             {
-                DialogueEvents.EnterDialogueEvent(_characterAI.Data.GetDefaultDialogueByScene());
+                DialogueEvents.EnterDialogueEvent(_characterAI.Data.GetDefaultDialogueByScene(SceneNavigation.Instance.CurrentSceneName));
                 characterTraits.InfluenceTraits(InteractAction.Talk);
             }
             else

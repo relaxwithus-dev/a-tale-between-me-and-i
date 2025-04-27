@@ -9,7 +9,7 @@ namespace ATBMI.Dialogue
 
         public override bool Evaluate(RE_Security_01 context)
         {
-            return context.isPlayerInRange && context.IsAfterExplosion && context.IsRunning && !context.isOnce01;
+            return context.IsPlayerInRange && context.IsAfterExplosion && context.IsRunning && !context.isOnce01;
         }
 
         public override void Execute(RE_Security_01 context)

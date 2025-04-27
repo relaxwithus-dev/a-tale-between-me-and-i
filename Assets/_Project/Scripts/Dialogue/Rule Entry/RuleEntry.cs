@@ -11,9 +11,16 @@ namespace ATBMI.Dialogue
         [Header("Params")]
         public CharacterAI npc;
         public Transform playerEntryPoint;
-        public bool isPlayerInRange;
-        public bool isDialogueAboutToStart;
-        public bool isExecuted;
+
+        private bool isDialogueAboutToStart;
+        private bool isRunning;
+        private bool isPlayerInRange;
+        private bool isExecuted;
+
+        public bool IsDialogueAboutToStart { get; set; }
+        public bool IsPlayerInRange => isPlayerInRange;
+        public bool IsExecuted => isExecuted;
+        public bool IsRunning => isRunning;
 
         #region Dialogue Rules
         [Space(20)]
@@ -43,12 +50,18 @@ namespace ATBMI.Dialogue
             DialogueEvents.PlayerRun -= IsPlayerRun;
         }
 
-        private void ExitDialogue()
+        public virtual void InitializeRuleEntry()
+        {
+            isPlayerInRange = false;
+            isDialogueAboutToStart = false;
+        }
+
+        public void ExitDialogue()
         {
             isExecuted = false;
         }
-        
-        public virtual void EnterDialogueWithInkJson(TextAsset InkJson)
+
+        public void EnterDialogueWithInkJson(TextAsset InkJson)
         {
             DialogueManager.Instance.EnterDialogueMode(InkJson);
 
@@ -57,7 +70,15 @@ namespace ATBMI.Dialogue
             isExecuted = true;
         }
 
-        public virtual void EnterDialogue(RuleEntry ruleEntry, TextAsset dialogue)
+        public void OnEnterItemDialogue(TextAsset itemDialogue)
+        {
+            if (!isDialogueAboutToStart && IsPlayerInRange)
+            {
+                EnterDialogue(this, itemDialogue);
+            }
+        }
+
+        public void EnterDialogue(RuleEntry ruleEntry, TextAsset dialogue)
         {
             if (!isDialogueAboutToStart)
             {
@@ -66,10 +87,52 @@ namespace ATBMI.Dialogue
             }
         }
 
-        public abstract void OnTriggerEnter2D(Collider2D other);
-        public abstract void OnTriggerExit2D(Collider2D other);
-        public abstract void OnEnterDialogue(TextAsset defaultDialogue);
-        public abstract void OnEnterItemDialogue(TextAsset itemDialogue);
-        public abstract void IsPlayerRun(bool isRunning);
+        public void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.CompareTag("Player"))
+            {
+                isPlayerInRange = true;
+
+                foreach (var rule in autoTriggerRules)
+                {
+                    if (rule.Evaluate(this))
+                    {
+                        rule.Execute(this);
+                        break; // Execute only the first valid rule
+                    }
+                }
+            }
+        }
+
+        public void OnTriggerExit2D(Collider2D other)
+        {
+            if (other.CompareTag("Player"))
+            {
+                isPlayerInRange = false;
+            }
+        }
+
+        public void OnEnterDialogue(TextAsset defaultDialogue)
+        {
+            if (!isDialogueAboutToStart && IsPlayerInRange)
+            {
+                foreach (var rule in manualTriggerRules)
+                {
+                    if (rule.Evaluate(this))
+                    {
+                        rule.Execute(this);
+                        break; // Execute only the first valid rule
+                    }
+                }
+
+                // TODO: change to default dialogue (use rules if default dialogue > 1, eg. default dialogue ch1, ch2, ch3...)
+                EnterDialogue(this, defaultDialogue);
+            }
+        }
+
+        public void IsPlayerRun(bool isRunning)
+        {
+            this.isRunning = isRunning;
+        }
     }
 }
