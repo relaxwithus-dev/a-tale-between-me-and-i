@@ -1,6 +1,5 @@
 using UnityEngine;
 using System;
-using UnityEngine.SceneManagement;
 using ATBMI.Scene;
 
 namespace ATBMI

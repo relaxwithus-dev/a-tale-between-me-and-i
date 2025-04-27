@@ -12,6 +12,8 @@ namespace ATBMI
 
         public void Select()
         {
+            QuestEvents.CheckUIMenuTabQuestStepEvent(uIMenuTab);
+
             //TODO: add some method when this tab is selected
             switch (uIMenuTab)
             {
