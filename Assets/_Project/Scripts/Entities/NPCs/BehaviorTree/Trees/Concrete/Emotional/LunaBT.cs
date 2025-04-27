@@ -24,7 +24,7 @@ namespace ATBMI.Entities.NPCs
                     // Public
                     new Sequence("Public Zone", new List<Node>
                     {
-                        new CheckTargetInProxemics(centerPoint, zoneDetails[0].Radius, layerMask),
+                        new CheckTargetInZone(centerPoint, zoneDetails[0].Radius, layerMask),
                         new EmotionalSelector("Fear and Disgust", characterTraits, new List<Node>
                         {
                             new TaskRunAway(characterAI, characterAI.Data, runAwayDuration),

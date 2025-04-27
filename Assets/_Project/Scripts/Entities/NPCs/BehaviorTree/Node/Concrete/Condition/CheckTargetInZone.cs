@@ -2,9 +2,9 @@ using UnityEngine;
 
 namespace ATBMI.Entities.NPCs
 {
-    public class CheckTargetInProxemics : CheckTargetInArea
+    public class CheckTargetInZone : CheckTargetInArea
     {
-        public CheckTargetInProxemics(Transform centerPoint, float radius, LayerMask targetLayer) 
+        public CheckTargetInZone(Transform centerPoint, float radius, LayerMask targetLayer) 
             : base(centerPoint, radius, targetLayer) { }
         
         protected override void OnTargetEnter(Collider2D targetPhys)

@@ -58,7 +58,7 @@ namespace ATBMI.Entities.NPCs
         public override NodeStatus Evaluate()
         {
             Debug.Log("Execute: TaskTalk");
-            var targetState = state is CharacterState.Idle ? CharacterState.Talk : state;
+            var targetState = state is CharacterState.Idle ? CharacterState.Speak : state;
             
             DialogueManager.Instance.EnterDialogueMode(dialogueAssets[_talkCount]);
             _talkCount = Mathf.Clamp(_talkCount++, 0, dialogueAssets.Length - 1);

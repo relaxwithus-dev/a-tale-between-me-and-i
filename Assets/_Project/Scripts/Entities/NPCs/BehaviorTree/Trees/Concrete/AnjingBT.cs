@@ -22,7 +22,7 @@ namespace ATBMI.Entities.NPCs
                 new CheckInteracted(interact),
                 new Sequence("Check Target In Area", new List<Node>
                 {
-                    new CheckTargetInArea(centerPoint, areaRadius, layerMask),
+                    new CheckTargetInZone(centerPoint, areaRadius, layerMask),
                     new Sequence("Follow", new List<Node>
                     {
                         new TaskFollow(characterAI, characterAI.Data, followTime),
@@ -34,7 +34,7 @@ namespace ATBMI.Entities.NPCs
             
             return tree;
         }
-
+        
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.green;

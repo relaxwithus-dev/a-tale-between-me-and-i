@@ -191,7 +191,7 @@ namespace ATBMI
                 }
             }
         }
-
+        
         private void FinishQuest(int id)
         {
             Quest quest = GetQuestById(id);
@@ -211,7 +211,7 @@ namespace ATBMI
                 Debug.Log("Quest " + quest.info.displayName + " Can't be finished because its state is " + quest.state + ", it should be " + QuestStateEnum.Can_Finish.ToString());
             }
         }
-
+        
         private void ClaimRewards(Quest quest)
         {
             foreach (var reward in quest.info.rewardItem)

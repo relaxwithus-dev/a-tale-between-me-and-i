@@ -20,7 +20,7 @@ namespace ATBMI
                 NextStep(1);
             }
         }
-
+        
         protected override void Sequence01()
         {
             if (isTriggered == false)

@@ -19,7 +19,7 @@ public class DialogueExpressionController : MonoBehaviour
         DialogueEvents.PlayDialogueAnim -= PlayDialogueAnim;
         DialogueEvents.StopDialogueAnim -= StopDialogueAnim;
     }
-
+    
     private void PlayDialogueAnim(string expressionValue)
     {
         // get the animation state
@@ -33,7 +33,7 @@ public class DialogueExpressionController : MonoBehaviour
             anim.Play(expressionValue);
         }
     }
-
+    
     private void StopDialogueAnim()
     {
         anim.Play("A_StopDialogue");

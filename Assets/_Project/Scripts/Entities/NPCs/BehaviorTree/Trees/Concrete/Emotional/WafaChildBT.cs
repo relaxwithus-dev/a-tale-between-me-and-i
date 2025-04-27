@@ -24,7 +24,7 @@ namespace ATBMI.Entities.NPCs
                 {
                     new Sequence("Personal Zone", new List<Node>
                     {
-                        new CheckTargetInProxemics(centerPoint, zoneDetails[0].Radius, layerMask),
+                        new CheckTargetInZone(centerPoint, zoneDetails[0].Radius, layerMask),
                         new EmotionalSelector("Joy and Anticipation", characterTraits, new List<Node>
                         {
                             new SequenceWeight("Follow", new List<Node>

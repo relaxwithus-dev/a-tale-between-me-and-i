@@ -27,7 +27,7 @@ namespace ATBMI.Entities.NPCs
                     // Intimate
                     new Sequence("Intimate Zone", new List<Node>
                     {
-                        new CheckTargetInProxemics(centerPoint, zoneDetails[0].Radius, layerMask),
+                        new CheckTargetInZone(centerPoint, zoneDetails[0].Radius, layerMask),
                         new EmotionalSelector("Anger", characterTraits, new List<Node>
                         {
                             new SequenceWeight("Pull",new List<Node>
@@ -43,7 +43,7 @@ namespace ATBMI.Entities.NPCs
                     // Personal
                     new Sequence("Personal Zone", new List<Node>
                     {
-                        new CheckTargetInProxemics(centerPoint, zoneDetails[1].Radius, layerMask),
+                        new CheckTargetInZone(centerPoint, zoneDetails[1].Radius, layerMask),
                         new EmotionalSelector("Anticipation", characterTraits, new List<Node>
                         {
                             new TaskObserve(characterAI, characterAnim, zoneDetails[1].Radius),

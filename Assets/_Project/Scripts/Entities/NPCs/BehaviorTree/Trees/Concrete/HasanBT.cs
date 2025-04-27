@@ -27,7 +27,7 @@ namespace ATBMI.Entities.NPCs
            {
                new Sequence("Move and Back", new List<Node>
                {
-                   new CheckTargetInProxemics(centerPoint, zoneDetails[1].Radius, layerMask),
+                   new CheckTargetInZone(centerPoint, zoneDetails[1].Radius, layerMask),
                    new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true),
                    // new TaskTalk(characterAI, dialogueAssets, emoteAnimator),
                    new TaskMoveToOrigin(characterAI, characterAI.Data, isWalk: true),
@@ -52,7 +52,7 @@ namespace ATBMI.Entities.NPCs
            {
                new Sequence("Run Away", new List<Node>
                {
-                   new CheckTargetInProxemics(centerPoint, zoneDetails[1].Radius, layerMask),
+                   new CheckTargetInZone(centerPoint, zoneDetails[1].Radius, layerMask),
                    new TaskRunAway(characterAI, characterAI.Data, 8f),
                    new TaskIdle(characterAI)
                }),
@@ -64,7 +64,7 @@ namespace ATBMI.Entities.NPCs
            {
                new Sequence("Follow", new List<Node>
                {
-                   new CheckTargetInProxemics(centerPoint, zoneDetails[2].Radius, layerMask),
+                   new CheckTargetInZone(centerPoint, zoneDetails[2].Radius, layerMask),
                    new TaskFollow(characterAI, characterAI.Data, 6f),
                    new TaskIdle(characterAI)
                }),
@@ -76,7 +76,7 @@ namespace ATBMI.Entities.NPCs
            {
                new Sequence("Push", new List<Node>
                {
-                   new CheckTargetInProxemics(centerPoint, zoneDetails[1].Radius, layerMask),
+                   new CheckTargetInZone(centerPoint, zoneDetails[1].Radius, layerMask),
                    new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true),
                    new TaskPush(characterAI, force: 6f, delay: 0.15f),
                    new TaskMoveToOrigin(characterAI, characterAI.Data, isWalk: true),
@@ -90,7 +90,7 @@ namespace ATBMI.Entities.NPCs
            {
                new Sequence("Pull", new List<Node>
                {
-                   new CheckTargetInProxemics(centerPoint, zoneDetails[1].Radius, layerMask),
+                   new CheckTargetInZone(centerPoint, zoneDetails[1].Radius, layerMask),
                    new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true),
                    new TaskPull(characterAI, force: 2f, delay: 0.15f),
                    new TaskMoveToOrigin(characterAI, characterAI.Data, isWalk: true),
@@ -104,7 +104,7 @@ namespace ATBMI.Entities.NPCs
            {
                new Sequence("Jump", new List<Node>
                {
-                   new CheckTargetInProxemics(centerPoint, zoneDetails[0].Radius, layerMask),
+                   new CheckTargetInZone(centerPoint, zoneDetails[0].Radius, layerMask),
                    new CheckDirection(characterAI),
                    new TaskJumpBack(characterAI, 0.3f, 0.15f),
                    new TaskIdle(characterAI)

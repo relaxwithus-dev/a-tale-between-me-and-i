@@ -53,7 +53,7 @@ namespace ATBMI.Entities.Player
             _playerAnimation = GetComponentInChildren<PlayerAnimation>();
         }
 
-        private void Start()
+        private void OnEnable()
         {
             InitPlayer();
         }
@@ -71,7 +71,7 @@ namespace ATBMI.Entities.Player
         }
         
         // Initialize
-        private void InitPlayer(string playerName = "Dewa")
+        public void InitPlayer(string playerName = "Dewa")
         {
             _currentData = Array.Find(playerData, data => data.PlayerName == playerName);
             if (_currentData == null)

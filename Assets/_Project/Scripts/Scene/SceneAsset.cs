@@ -1,13 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace ATBMI.Scene
 {
     [CreateAssetMenu(fileName = "NewSceneAsset", menuName = "Data/Scene/Scene Asset", order = 0)]
     public class SceneAsset : ScriptableObject
     {
-        [FormerlySerializedAs("locationData")]
         [Header("Assets")] 
         [SerializeField] private LocationTarget locationTarget;
         [SerializeField] private SceneReference reference;
