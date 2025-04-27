@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5d9a2753d3342619c3e76d19e25c859, type: 3}
+  m_Name: S_Intro_Sby_Kampus_Dalam
+  m_EditorClassIdentifier: 
+  locationTarget: {fileID: 11400000, guid: bf1c81d35c4e2f14f868502a0f04da2b, type: 2}
+  reference:
+    sceneAsset: {fileID: 102900000, guid: 28e1ad03d135abb47959e98cb3e75481, type: 3}
+    scenePath: Assets/_Project/Scenes/Chapter/chapter-intro/S_Intro_Sby_Kampus_Dalam.unity
+  neighbours:
+  - {fileID: 11400000, guid: 1433806f8ed633a4b86db92407ca7fe3, type: 2}
+  - {fileID: 11400000, guid: a6aa3720d25a13e48b54af94f442b6f4, type: 2}

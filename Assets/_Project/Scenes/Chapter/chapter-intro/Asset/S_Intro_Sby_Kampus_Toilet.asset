@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5d9a2753d3342619c3e76d19e25c859, type: 3}
+  m_Name: S_Intro_Sby_Kampus_Toilet
+  m_EditorClassIdentifier: 
+  locationTarget: {fileID: 11400000, guid: 75f6ba29d5b32f045bd9c4c0628b7291, type: 2}
+  reference:
+    sceneAsset: {fileID: 102900000, guid: cca88afd185d65348abc098ec472dcba, type: 3}
+    scenePath: Assets/_Project/Scenes/Chapter/chapter-intro/S_Intro_Sby_Kampus_Toilet.unity
+  neighbours:
+  - {fileID: 11400000, guid: 79a05091ddeffa64d96ce8ab498fb939, type: 2}
