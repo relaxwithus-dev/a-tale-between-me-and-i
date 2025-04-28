@@ -3,13 +3,12 @@ using UnityEngine;
 
 namespace ATBMI.Entities.NPCs
 {
-    public class HasanBT : EmoTrees
+    public class BehaviorTestBT : EmoTrees
     {
         [Header("Properties")]
         [SerializeField] private float moveStamina;
         [SerializeField] private Transform[] targetPoints;
-        [SerializeField] private CharacterManager characterManager;
-        
+                
         protected override Node SetupTree()
         {
            // Move Target Behavior
