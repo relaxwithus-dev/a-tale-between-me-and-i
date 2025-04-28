@@ -17,13 +17,16 @@ MonoBehaviour:
   shouldBeFinishManually: 0
   questPrerequisites: []
   questSteps:
-  - targetScene: 
+  - targetScene: S_Bali_Rumah_Kamar
     questStepPrefab: {fileID: 7151983779725176322, guid: 9f8ab28758caedd47849d82610a030f0, type: 3}
     stepStatusText: Ambil laptop
-  - targetScene: 
+  - targetScene: S_Bali_Rumah_Kamar
     questStepPrefab: {fileID: 230253418674576441, guid: 1452bda68ac840f45baad8b6e98e5458, type: 3}
     stepStatusText: Ambil charger laptop
-  - targetScene: 
+  - targetScene: S_Bali_Rumah_Kamar
     questStepPrefab: {fileID: 1291429303552227604, guid: e9fa8a0e5c172494f88a989edcf81ccb, type: 3}
     stepStatusText: Ambil mouse
-  rewardItem: []
+  rewardItem:
+  - {fileID: 11400000, guid: 8029d9389f832e842b00764eed911b85, type: 2}
+  - {fileID: 11400000, guid: 45b7783996fbcaf4ea92bffd9052f12a, type: 2}
+  - {fileID: 11400000, guid: 9dec2905f78da7e42884be5fd632d098, type: 2}

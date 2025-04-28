@@ -4,15 +4,12 @@ EXTERNAL FinishQuest(questId)
 
 // Create "empty" near toilet range
 
- ~AddItem("ID")
+ ~AddItem("1")
 
-#speaker:Ratna #expression:A_Ratna_Bingung
+#speaker:Ratna #Emoji:A_Emoji_Question
 
 Ini kan... #speaker:Ratna #expression:A_Ratna_speak
 Kunci untuk gudang kebun #speaker:Ratna #expression:A_Ratna_speak
 Mungkin Aku bisa cari alat buat buka pintu di sana #speaker:Ratna #expression:A_Ratna_speak
-
-~FinishQuest("1")
-~StartQuest("2")
 
 -> END

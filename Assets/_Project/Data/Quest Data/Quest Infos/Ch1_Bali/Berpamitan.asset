@@ -14,11 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <QuestId>k__BackingField: 3
   displayName: Berpamitan dengan orang tua
-  shoulBeFinishManually: 0
+  shouldBeFinishManually: 0
   questPrerequisites: []
   questSteps:
-  - questStepPrefab: {fileID: 7625369298513363047, guid: 7c283775e532c754286b2656b2e85f5b, type: 3}
-    stepStatusText: Sudah waktunya berangkat
-  - questStepPrefab: {fileID: 602148446757708550, guid: 35a47df7c8515e140a4f4c45134ca8c5, type: 3}
+  - targetScene: S_Bali_Jalan_1
+    questStepPrefab: {fileID: 7625369298513363047, guid: 7c283775e532c754286b2656b2e85f5b, type: 3}
+    stepStatusText: Waktunya berangkat, keluar ke jalan
+  - targetScene: S_Bali_Jalan_1
+    questStepPrefab: {fileID: 602148446757708550, guid: 35a47df7c8515e140a4f4c45134ca8c5, type: 3}
     stepStatusText: Berpamitan pada orang tua
   rewardItem: []
