@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2b450a47a515ba40b7e732579b2c69b, type: 3}
+  m_Name: Ql_SemuaBerawal
+  m_EditorClassIdentifier: 
+  <QuestId>k__BackingField: 11
+  displayName: Semua berawal
+  shouldBeFinishManually: 0
+  questPrerequisites: []
+  questSteps:
+  - targetScene: S_Intro_Sby_Kampus_Dalam
+    questStepPrefab: {fileID: 1178780388700598779, guid: fa2c0807dc97d3c419fdcc024760dd76, type: 3}
+    stepStatusText: Investigasi sumber suara di lantai 2
+  - targetScene: S_Intro_Sby_Kampus_Dalam
+    questStepPrefab: {fileID: 6953226211430511243, guid: 1b18c8de98428bf4f9c27fbcd93a3de3, type: 3}
+    stepStatusText: Cari bantuan ke lantai 1
+  - targetScene: S_Intro_Sby_Kampus_Gudang
+    questStepPrefab: {fileID: 8815372483378705685, guid: 4f9159a7557f145489942ab118417949, type: 3}
+    stepStatusText: Cari peralatan dalam gudang kebun
+  - targetScene: S_Intro_Sby_Kampus_Gudang
+    questStepPrefab: {fileID: 887583011498045298, guid: 7e5d03f800d4c6246a82d731ebbf9461, type: 3}
+    stepStatusText: Cari barang untuk membuka pintu
+  - targetScene: S_Intro_Sby_Kampus_Dalam
+    questStepPrefab: {fileID: 8252650081702549806, guid: 2aa1fcb5f148fc243aadfa9dc189c2d4, type: 3}
+    stepStatusText: Apa yang terjadi di dalam?
+  rewardItem:
+  - {fileID: 11400000, guid: 02224b2cda974da4189b91e57083dad4, type: 2}
+  - {fileID: 11400000, guid: 8e8a3682512abbe4d9ac49fbe00ce974, type: 2}
