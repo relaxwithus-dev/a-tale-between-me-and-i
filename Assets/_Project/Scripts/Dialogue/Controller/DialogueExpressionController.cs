@@ -20,21 +20,21 @@ public class DialogueExpressionController : MonoBehaviour
         DialogueEvents.StopDialogueAnim -= StopDialogueAnim;
     }
     
-    private void PlayDialogueAnim(string expressionValue)
+    private void PlayDialogueAnim(string speaker, string expression)
     {
         // get the animation state
         stateInfo = anim.GetCurrentAnimatorStateInfo(0);
         // check is there any animation called expressionValue
-        hasAnimation = anim.HasState(0, Animator.StringToHash(expressionValue)); 
+        hasAnimation = anim.HasState(0, Animator.StringToHash(expression)); 
 
         // play anim
-        if (hasAnimation && !stateInfo.IsName(expressionValue))
+        if (hasAnimation && !stateInfo.IsName(expression))
         {
-            anim.Play(expressionValue);
+            anim.Play(expression);
         }
     }
     
-    private void StopDialogueAnim()
+    private void StopDialogueAnim(string speaker)
     {
         anim.Play("A_StopDialogue");
     }
