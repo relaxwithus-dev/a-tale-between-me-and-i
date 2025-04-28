@@ -10,20 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe195ef6725630241b8ad3ba30b4f8db, type: 3}
-  m_Name: Wafa 1
+  m_Name: Ibu_Dewa
   m_EditorClassIdentifier: 
-  characterName: Wafa
-  animationTagName: A_Wafa
-  characterType: 2
-  isIdling: 0
-  moveSpeeds:
-  - Type: Walk
-    Speed: 1.3
-  - Type: Run
-    Speed: 2.7
-  itemListSO: {fileID: 0}
+  characterName: Ibu Dewa
+  animationTag: A_Ibu_Dewa
+  type: 1
+  isIdling: 1
+  moveSpeeds: []
   defaultDialogues: []
-  sceneDialogues: []
   emotionDialogues: []
-  storyDialogue: []
   itemDialogues: []

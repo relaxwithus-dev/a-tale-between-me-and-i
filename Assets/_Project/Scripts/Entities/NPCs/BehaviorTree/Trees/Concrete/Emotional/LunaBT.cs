@@ -14,7 +14,7 @@ namespace ATBMI.Entities.NPCs
         
         protected override Node SetupTree()
         {
-            var defaultTexts = characterAI.Data.GetDefaultDialogue();
+            var defaultTexts = characterAI.Data.GetDefaultDialogues();
             
             Selector tree = new Selector("Luna BT", new List<Node>
             {

@@ -13,15 +13,14 @@ MonoBehaviour:
   m_Name: Ratna
   m_EditorClassIdentifier: 
   characterName: Ratna
-  animationTagName: A_Ratna
-  characterType: 0
+  animationTag: A_Ratna
+  type: 0
   isIdling: 0
   moveSpeeds:
   - Type: Walk
     Speed: 1.3
-  itemListSO: {fileID: 0}
+  - Type: Run
+    Speed: 2.7
   defaultDialogues: []
-  sceneDialogues: []
   emotionDialogues: []
-  storyDialogue: []
   itemDialogues: []

@@ -1,9 +1,9 @@
 using UnityEngine;
 using ATBMI.Enum;
+using ATBMI.Scene;
 using ATBMI.Inventory;
 using ATBMI.Entities.NPCs;
 using ATBMI.Gameplay.Event;
-using ATBMI.Scene;
 
 namespace ATBMI.Interaction
 {
@@ -18,7 +18,9 @@ namespace ATBMI.Interaction
         [SerializeField] private InteractAction interactAction;
         [SerializeField] private Transform signTransform;
         [SerializeField] private Transform emojiTransform;
-        
+
+        private int _interactCount;
+        private TextAsset _currentDialogue;
         public bool IsInteracting => isInteracting;
 
         [Header("Reference")]
@@ -48,6 +50,11 @@ namespace ATBMI.Interaction
                 return;
             }
             
+            // Stats
+            interactAction = InteractAction.Talk;
+            isInteracting = false;
+            _interactCount = 0;
+            
             // Register
             DialogueEvents.RegisterNPCTipTargetEvent(_characterAI.Data.CharacterName, GetSignTransform());
             DialogueEvents.RegisterNPCEmojiTargetEvent(_characterAI.Data.CharacterName, GetEmojiTransform());
@@ -60,7 +67,11 @@ namespace ATBMI.Interaction
             InteractObserver.Observe(this);
             if (itemId == 0)
             {
-                DialogueEvents.EnterDialogueEvent(_characterAI.Data.GetDefaultDialogueByScene(SceneNavigation.Instance.CurrentSceneName));
+                var sceneId = SceneNavigation.Instance.CurrentScene.Id;
+                var dialogues = _characterAI.Data.GetDefaultDialogues(sceneId);
+                
+                _interactCount = Mathf.Clamp(_interactCount++, 0, dialogues.Length - 1);
+                DialogueEvents.EnterDialogueEvent(dialogues[_interactCount]);
                 characterTraits.InfluenceTraits(InteractAction.Talk);
             }
             else

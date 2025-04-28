@@ -4,6 +4,8 @@ using System.Linq;
 using UnityEngine;
 using Sirenix.OdinInspector;
 using ATBMI.Entities.NPCs;
+using ATBMI.Scene;
+using UnityEngine.Serialization;
 
 namespace ATBMI.Data
 {
@@ -20,17 +22,17 @@ namespace ATBMI.Data
         }
         
         [Serializable]
-        private struct Dialogues
+        private class Dialogues
         {
-            public string sceneName;
-            public TextAsset dialogues;
+            public Location location;
+            public TextAsset[] dialogues;
         }
         
         [Serializable]
-        private struct EmotionDialogues
+        private class EmotionDialogues
         {
             public Emotion emotion;
-            public TextAsset[] textAssets;
+            public TextAsset[] dialogues;
         }
         
         #endregion
@@ -39,26 +41,21 @@ namespace ATBMI.Data
         
         [Header("Stats")]
         [SerializeField] private string characterName;
-        [SerializeField] private string animationTagName;
-        [SerializeField] [EnumToggleButtons] private CharacterType characterType;
+        [SerializeField] private string animationTag;
+        [SerializeField] [EnumToggleButtons] private CharacterType type;
         [SerializeField] private bool isIdling;
         [SerializeField] [HideIf("isIdling")] 
         private MoveStats[] moveSpeeds;
         
         [Header("Dialogue")]
-        [SerializeField] private ItemList itemListSO;
-        
-        [SerializeField] private List<TextAsset> defaultDialogues;
-        [SerializeField] private List<Dialogues> sceneDialogues;
-        [SerializeField] [ShowIf("characterType", CharacterType.Emotion)]
+        [SerializeField] private List<Dialogues> defaultDialogues;
+        [SerializeField] [ShowIf("type", CharacterType.Emotion)]
         private List<EmotionDialogues> emotionDialogues;
-        [SerializeField] [ShowIf("characterType", CharacterType.Story)]
-        private List<TextAsset> storyDialogue;
         [SerializeField] private List<ItemDialogue> itemDialogues;
         
         // Stats
         public string CharacterName => characterName;
-        public string AnimationTagName => animationTagName;
+        public string AnimationTag => animationTag;
         public float GetSpeedByType(string type)
         {
             foreach (var speed in moveSpeeds)
@@ -72,75 +69,41 @@ namespace ATBMI.Data
         }
         
         // Dialogue
-        public ItemList ItemList => itemListSO;
-        public TextAsset[] GetDefaultDialogue() => defaultDialogues.ToArray();
-        public TextAsset GetDefaultDialogueByScene(string scene = "null")
+        public TextAsset[] GetDefaultDialogues(Location location = Location.Default)
         {
-            if (sceneDialogues.Count == 0)
+            if (defaultDialogues == null || defaultDialogues.Count == 0)
             {
-                Debug.LogError("default dialogues not set!");
+                Debug.LogError("Default dialogues not set!");
                 return null;
             }
-            
-            if (scene == "null")
-                return sceneDialogues[0].dialogues;
-                    
-            foreach (var dialogue in sceneDialogues)
-            {
-                if (dialogue.sceneName == scene)
-                    return dialogue.dialogues;
-            }
-            
-            // Debug.LogError("scene default dialogue not found!");
-            return sceneDialogues[0].dialogues;
-            // return null;
+
+            // If location is default, fallback immediately
+            if (location == Location.Default)
+                return defaultDialogues[0].dialogues;
+
+            // Try find the dialogue
+            var found = defaultDialogues.Find(d => d.location == location);
+            return found != null ? found.dialogues : defaultDialogues[0].dialogues;
         }
         
         public TextAsset[] GetEmotionDialogues(Emotion emotion)
         {
+            if (emotionDialogues == null || emotionDialogues.Count == 0)
+            {
+                Debug.LogError("Default dialogues not set!");
+                return null;
+            }
+            
+            // Try find the dialogue
             var asset = emotionDialogues.Find(x => x.emotion == emotion);
-            return asset.textAssets;
+            return asset != null ? asset.dialogues : emotionDialogues[0].dialogues;
         }
         
         public TextAsset GetItemDialogue(ItemData item)
         {
+            // Try find the dialogue
             var entry = itemDialogues.Find(d => d.item == item);
-            return entry != null ? entry.dialogue : sceneDialogues[0].dialogues;
+            return entry != null ? entry.dialogue : itemDialogues[0].dialogue;
         }
-        
-        
-    #if UNITY_EDITOR
-        // Automatically call the method when there is a changes in itemlistSO
-        // NOTE: still need to assign the item-spesific dialogue on changes
-        private void OnValidate()
-        {
-            if (itemListSO != null)
-            {
-                ItemListReferenceRegistry.RegisterCharacterData(this, itemListSO);
-            }
-            UpdateItemDialogues();
-            UnityEditor.EditorUtility.SetDirty(this);
-        }
-
-        public void UpdateItemDialogues()
-        {
-            if (itemListSO == null) return;
-
-            // Ensure item dialogues match the item list
-            itemDialogues = itemDialogues
-                .Where(d => itemListSO.itemList.Contains(d.item))
-                .ToList();
-
-            foreach (var item in itemListSO.itemList)
-            {
-                if (itemDialogues.All(d => d.item != item))
-                {
-                    itemDialogues.Add(new ItemDialogue { item = item, dialogue = null });
-                }
-            }
-
-            UnityEditor.EditorUtility.SetDirty(this);
-        }
-    #endif
     }
 }

@@ -13,17 +13,14 @@ MonoBehaviour:
   m_Name: Wafa_Teen
   m_EditorClassIdentifier: 
   characterName: Wafa Remaja
-  animationTagName: A_Wafa_Teen
-  characterType: 2
+  animationTag: A_Wafa_Teen
+  type: 0
   isIdling: 0
   moveSpeeds:
   - Type: Walk
     Speed: 1.3
   - Type: Run
     Speed: 2.7
-  itemListSO: {fileID: 0}
   defaultDialogues: []
-  sceneDialogues: []
   emotionDialogues: []
-  storyDialogue: []
   itemDialogues: []

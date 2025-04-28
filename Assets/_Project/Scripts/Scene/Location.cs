@@ -9,6 +9,9 @@ namespace ATBMI.Scene
     
     public enum Location
     {
+        // Other
+        Default,
+        
         // Bali
         BLI_01, BLI_02, BLI_03, BLI_04, BLI_05,
         BLI_06, BLI_07, BLI_08,

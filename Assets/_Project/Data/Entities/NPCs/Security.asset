@@ -13,54 +13,12 @@ MonoBehaviour:
   m_Name: Security
   m_EditorClassIdentifier: 
   characterName: Security
-  animationTagName: A_Security
-  characterType: 1
+  animationTag: A_Security
+  type: 1
   isIdling: 0
   moveSpeeds:
   - Type: Walk
     Speed: 1.3
-  itemListSO: {fileID: 11400000, guid: ecd511338be204c4f93720e86a66a9fa, type: 2}
-  defaultDialogues:
-  - {fileID: 4900000, guid: 323a6fe9fad6d09499d5db84339f4c71, type: 3}
-  sceneDialogues:
-  - sceneName: S_Bali_Rumah_Kamar
-    dialogues: {fileID: 4900000, guid: 323a6fe9fad6d09499d5db84339f4c71, type: 3}
+  defaultDialogues: []
   emotionDialogues: []
-  storyDialogue: []
-  itemDialogues:
-  - item: {fileID: 11400000, guid: 8e8a3682512abbe4d9ac49fbe00ce974, type: 2}
-    dialogue: {fileID: 4900000, guid: c2b88f41ec5e8cc4d9c47c0921171b62, type: 3}
-  - item: {fileID: 11400000, guid: 02224b2cda974da4189b91e57083dad4, type: 2}
-    dialogue: {fileID: 4900000, guid: bdd4b6cb60ee11e41a07161b80e466fc, type: 3}
-  - item: {fileID: 11400000, guid: 8029d9389f832e842b00764eed911b85, type: 2}
-    dialogue: {fileID: 0}
-  - item: {fileID: 11400000, guid: 45b7783996fbcaf4ea92bffd9052f12a, type: 2}
-    dialogue: {fileID: 0}
-  - item: {fileID: 11400000, guid: 9dec2905f78da7e42884be5fd632d098, type: 2}
-    dialogue: {fileID: 0}
-  - item: {fileID: 11400000, guid: 3f8819d54fc6acc4daba74e421a47d64, type: 2}
-    dialogue: {fileID: 0}
-  - item: {fileID: 11400000, guid: 787ca494275d9094f8ab9ef148f756b2, type: 2}
-    dialogue: {fileID: 0}
-  - item: {fileID: 11400000, guid: da3e0b8ab9aff0745b7bd955a3dc2c37, type: 2}
-    dialogue: {fileID: 0}
-  - item: {fileID: 11400000, guid: 0653d1c707fa59a4e819d9b8c72ffd5f, type: 2}
-    dialogue: {fileID: 0}
-  - item: {fileID: 11400000, guid: 59f087d466659d3489008b098cb1e1e8, type: 2}
-    dialogue: {fileID: 0}
-  - item: {fileID: 11400000, guid: ea05fb23ff9410a48a11eed044498226, type: 2}
-    dialogue: {fileID: 0}
-  - item: {fileID: 11400000, guid: 619bbf329bb42194389598b5119601c2, type: 2}
-    dialogue: {fileID: 0}
-  - item: {fileID: 11400000, guid: a5656441520c38f4f92a1ba7353147fc, type: 2}
-    dialogue: {fileID: 0}
-  - item: {fileID: 11400000, guid: 87b73bfaa5cdb924d9ac166a8dc6a580, type: 2}
-    dialogue: {fileID: 0}
-  - item: {fileID: 11400000, guid: 137e9bd075ddbb441b747f9cde909862, type: 2}
-    dialogue: {fileID: 0}
-  - item: {fileID: 11400000, guid: d45c048ab272e064dbafbc95547d3db5, type: 2}
-    dialogue: {fileID: 0}
-  - item: {fileID: 11400000, guid: 07e9580ca985e794996f37045cd44eb4, type: 2}
-    dialogue: {fileID: 0}
-  - item: {fileID: 11400000, guid: 66e05b62f032c7842a30c7863c455085, type: 2}
-    dialogue: {fileID: 0}
+  itemDialogues: []

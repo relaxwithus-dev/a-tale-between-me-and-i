@@ -14,7 +14,7 @@ namespace ATBMI.Entities.NPCs
         protected override Node SetupTree()
         {
             var data = characterAI.Data;
-            var defaultTexts = data.GetDefaultDialogue();
+            var defaultTexts = data.GetDefaultDialogues();
             var surpriseText = data.GetEmotionDialogues(Emotion.Surprise);
             
             Selector tree = new Selector("Pak Ustadz BT", new List<Node>

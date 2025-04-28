@@ -11,7 +11,7 @@ namespace ATBMI.Entities.NPCs
         protected override Node SetupTree()
         {
             var data = characterAI.Data;
-            var defaultTexts = data.GetDefaultDialogue();
+            var defaultTexts = data.GetDefaultDialogues();
             var angerTexts = data.GetEmotionDialogues(Emotion.Anger);
             
             Selector tree = new Selector("Toko Kelontong BT", new List<Node>

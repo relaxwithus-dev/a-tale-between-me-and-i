@@ -15,7 +15,7 @@ namespace ATBMI.Entities.NPCs
         
         protected override Node SetupTree()
         {
-            var defaultTexts = characterAI.Data.GetDefaultDialogue();
+            var defaultTexts = characterAI.Data.GetDefaultDialogues();
             
             CheckFatigue checkFatigue = new CheckFatigue(moveStamina);
             

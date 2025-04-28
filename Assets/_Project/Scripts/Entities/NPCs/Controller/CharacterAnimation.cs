@@ -40,7 +40,7 @@ namespace ATBMI.Entities.NPCs
         // Core
         public bool TrySetAnimationState(string state)
         {
-            var stateName = _characterAI.Data.AnimationTagName + "_" + state;
+            var stateName = _characterAI.Data.AnimationTag + "_" + state;
             if (!_animationHashes.ContainsKey(stateName))
             {
                 Debug.LogWarning("Animation isn't exists");
