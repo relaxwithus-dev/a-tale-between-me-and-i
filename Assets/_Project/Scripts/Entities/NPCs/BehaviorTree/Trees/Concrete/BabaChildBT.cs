@@ -7,22 +7,23 @@ namespace ATBMI.Entities.NPCs
     public class BabaChildBT : Trees
     {
         [Header("Attribute")] 
+        [SerializeField] private float moveStamina;
         [SerializeField] private float moveDelay;
         [SerializeField] private Transform[] wayPoints;
         
         [Header("Reference")]
         [SerializeField] private CharacterInteract interact;
-        [SerializeField] private CharacterManager manager;
         
         protected override Node SetupTree()
         {
+            CheckFatigue checkFatigue = new CheckFatigue(moveStamina);
             Selector tree = new Selector("Baba Child BT", new List<Node>
             {
                 new CheckInteracted(interact),
                 new Sequence("Patrol", new List<Node>
                 {
-                    new CheckFatigue(manager),
-                    new TaskPatrol(characterAI, manager, characterAI.Data, wayPoints, moveDelay)
+                    checkFatigue,
+                    new TaskPatrol(characterAI, checkFatigue, wayPoints, moveDelay)
                 }),
                 new TaskIdle(characterAI)
             });

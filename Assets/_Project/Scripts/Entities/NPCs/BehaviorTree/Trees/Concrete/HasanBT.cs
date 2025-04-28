@@ -6,6 +6,7 @@ namespace ATBMI.Entities.NPCs
     public class HasanBT : EmoTrees
     {
         [Header("Properties")]
+        [SerializeField] private float moveStamina;
         [SerializeField] private Transform[] targetPoints;
         [SerializeField] private CharacterManager characterManager;
         
@@ -37,12 +38,13 @@ namespace ATBMI.Entities.NPCs
            });
            
            // Patrol 
+           CheckFatigue checkFatigue = new CheckFatigue(moveStamina);
            Selector patrolTree = new Selector("Patrol Tree", new List<Node>
            {
                new Sequence("Patrol", new List<Node>
                {
-                   new CheckFatigue(characterManager),
-                   new TaskPatrol(characterAI, characterManager, characterAI.Data, targetPoints)
+                   checkFatigue,
+                   new TaskPatrol(characterAI, checkFatigue, targetPoints)
                }),
                new TaskIdle(characterAI)
            });

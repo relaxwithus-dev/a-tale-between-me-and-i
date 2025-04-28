@@ -24,6 +24,10 @@ PrefabInstance:
       propertyPath: characterState
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1177493690341274544, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+      propertyPath: characterDirection.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1430332966588592220, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -113,9 +117,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 225562555324070475, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3736038964476778030}
-    - targetCorrespondingSourceObject: {fileID: 225562555324070475, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3476162047258806650}
     - targetCorrespondingSourceObject: {fileID: 8306047683278652390, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2446555364072436339}
@@ -137,10 +138,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c32e65ea72353394c85370b1e7f27ebd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveStamina: 23
   moveDelay: 5
   wayPoints: []
   interact: {fileID: 3736038964476778030}
-  manager: {fileID: 3476162047258806650}
+  manager: {fileID: 0}
 --- !u!4 &4557523409864915204 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7611146811407626175, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
@@ -168,19 +170,6 @@ MonoBehaviour:
   signTransform: {fileID: 4557523409864915204}
   emojiTransform: {fileID: 8540831605420784584}
   characterTraits: {fileID: 8933336138072542907}
---- !u!114 &3476162047258806650
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6178640880139922672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6a86d9e3f0035042bec9a0b1cbd87bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterEnergy: 20
 --- !u!4 &8540831605420784584 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2312752133860158835, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}

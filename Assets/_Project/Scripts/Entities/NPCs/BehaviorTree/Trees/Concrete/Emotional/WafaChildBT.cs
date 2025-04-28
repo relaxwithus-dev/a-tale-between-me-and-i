@@ -7,15 +7,17 @@ namespace ATBMI.Entities.NPCs
     {
         [Header("Attribute")] 
         [SerializeField] private float followDuration = 6f;
+        [SerializeField] private float moveStamina;
         [SerializeField] private Transform[] wayPoints;
         
         [Space]
-        [SerializeField] private CharacterManager characterManager;
         [SerializeField] private CharacterAnimation characterAnim;
         
         protected override Node SetupTree()
         {
             var defaultTexts = characterAI.Data.GetDefaultDialogue();
+            
+            CheckFatigue checkFatigue = new CheckFatigue(moveStamina);
             
             Selector tree = new Selector("Wafa Child BT", new List<Node>
             {
@@ -38,10 +40,10 @@ namespace ATBMI.Entities.NPCs
                         })
                     })
                 }),
-                new Sequence("Move", new List<Node>
+                new Sequence("Patrol", new List<Node>
                 {
-                    new CheckFatigue(characterManager),
-                    new TaskPatrol(characterAI, characterManager, characterAI.Data, wayPoints)
+                    checkFatigue,
+                    new TaskPatrol(characterAI, checkFatigue, wayPoints)
                 }),
                 new TaskIdle(characterAI)
             });
