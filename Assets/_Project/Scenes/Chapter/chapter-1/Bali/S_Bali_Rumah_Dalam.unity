@@ -131,21 +131,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 729101057}
     m_Modifications:
-    - target: {fileID: 1525340603847733075, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
-      propertyPath: m_FlipX
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1525340603847733075, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
-      propertyPath: m_FlipY
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4291996230028175410, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.99
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4291996230028175410, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.85
+      value: -4.2
       objectReference: {fileID: 0}
     - target: {fileID: 4291996230028175410, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -179,17 +171,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5100580093370311947, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
-      propertyPath: isFacingRight
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6178640880139922672, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
       propertyPath: m_Name
       value: Ibu_Dewa_Rumah
-      objectReference: {fileID: 0}
-    - target: {fileID: 7328970025779641990, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
-      propertyPath: m_BodyType
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

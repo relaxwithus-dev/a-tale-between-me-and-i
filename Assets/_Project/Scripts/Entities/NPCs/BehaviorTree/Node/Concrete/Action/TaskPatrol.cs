@@ -32,7 +32,7 @@ namespace ATBMI.Entities.NPCs
             moveSpeed = character.Data.GetSpeedByType(targetState.ToString());
             foreach (var point in wayPoints)
             {
-                var pointPosition = new Vector3(point.position.x, character.transform.position.y, point.position.z);
+                var pointPosition = new Vector3(point.localPosition.x, character.transform.localPosition.y, point.localPosition.z);
                 Debug.Log(pointPosition);
                 this.wayPoints.Add(pointPosition);
             }
@@ -75,11 +75,11 @@ namespace ATBMI.Entities.NPCs
         {
             fatigue.ModifyStamina();
             character.ChangeState(targetState);
-            character.transform.position = Vector2.MoveTowards(character.transform.position,
+            character.transform.localPosition = Vector2.MoveTowards(character.transform.localPosition,
                 target, moveSpeed * Time.deltaTime);
             
             // Set path-way
-            if (Vector3.Distance(character.transform.position, target) <= 0.01f)
+            if (Vector3.Distance(character.transform.localPosition, target) <= 0.01f)
             {
                 _currentIndex++;
                 _currentTime = 0f;
@@ -94,7 +94,7 @@ namespace ATBMI.Entities.NPCs
         private void ChangeDirectionToTarget(Vector3 target)
         {
             if (!(_currentTime >= moveDelayTime / 2f)) return;
-            var direction = target - character.transform.position;
+            var direction = target - character.transform.localPosition;
             direction.Normalize();
             character.LookAt(direction);
         }
