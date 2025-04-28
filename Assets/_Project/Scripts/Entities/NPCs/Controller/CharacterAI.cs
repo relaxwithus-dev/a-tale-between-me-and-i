@@ -30,11 +30,6 @@ namespace ATBMI.Entities.NPCs
         {
             _characterAnim = GetComponentInChildren<CharacterAnimation>();
         }
-
-        private void Start()
-        {
-            gameObject.name = Data.CharacterName;
-        }
         
         // Core
         public void ChangeState(CharacterState state)

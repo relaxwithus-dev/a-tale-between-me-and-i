@@ -15,7 +15,7 @@ namespace ATBMI.Entities.NPCs
                 new CheckInteracted(characterInteract),
                 new Sequence("Intimate Zone", new List<Node>
                 {
-                    new CheckTargetInProxemics(centerPoint, zoneDetails[0].Radius, layerMask),
+                    new CheckTargetInZone(centerPoint, zoneDetails[0].Radius, layerMask),
                     new EmotionalSelector("Anticipation", characterTraits, new List<Node>
                     {
                         new TaskTalk(characterAI, anticipationTexts),

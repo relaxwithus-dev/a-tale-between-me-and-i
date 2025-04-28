@@ -8,9 +8,9 @@ namespace ATBMI.Entities.NPCs
     {
         // Fields
         private readonly CharacterAI character;
-        private readonly CharacterManager manager;
         private readonly float moveSpeed;
         private readonly CharacterState targetState = CharacterState.Walk;
+        private readonly CheckFatigue fatigue;
         
         private readonly List<Vector3> wayPoints = new();
         private readonly float moveDelayTime;
@@ -23,17 +23,17 @@ namespace ATBMI.Entities.NPCs
         private Vector3 _currentTarget;
         
         // Constructor
-        public TaskPatrol(CharacterAI character, CharacterManager manager, CharacterData data, Transform[] wayPoints,
-            float moveDelayTime = 3f)
+        public TaskPatrol(CharacterAI character, CheckFatigue fatigue, Transform[] wayPoints, float moveDelayTime = 2f)
         {
             this.character = character;
-            this.manager = manager;
+            this.fatigue = fatigue;
             this.moveDelayTime = moveDelayTime;
             
-            moveSpeed = data.GetSpeedByType(targetState.ToString());
+            moveSpeed = character.Data.GetSpeedByType(targetState.ToString());
             foreach (var point in wayPoints)
             {
-                var pointPosition = point.position;
+                var pointPosition = new Vector3(point.localPosition.x, character.transform.localPosition.y, point.localPosition.z);
+                Debug.Log(pointPosition);
                 this.wayPoints.Add(pointPosition);
             }
         }
@@ -46,8 +46,8 @@ namespace ATBMI.Entities.NPCs
 
             if (_currentIndex >= wayPoints.Count)
             {
-                Debug.Log("Execute Success: TaskPatrol");
-                 return NodeStatus.Success;
+                Debug.Log("Execute Success: TaskPatrol"); 
+                return NodeStatus.Success;
             }
             
             _currentTarget = wayPoints[_currentIndex];
@@ -73,17 +73,18 @@ namespace ATBMI.Entities.NPCs
         
         private NodeStatus Patrol(Vector3 target)
         {
-            manager.DecreaseEnergy();
+            fatigue.ModifyStamina();
             character.ChangeState(targetState);
-            character.transform.position = Vector2.MoveTowards(character.transform.position,
+            character.transform.localPosition = Vector2.MoveTowards(character.transform.localPosition,
                 target, moveSpeed * Time.deltaTime);
             
             // Set path-way
-            if (Vector3.Distance(character.transform.position, target) <= 0.01f)
+            if (Vector3.Distance(character.transform.localPosition, target) <= 0.01f)
             {
                 _currentIndex++;
                 _currentTime = 0f;
                 _isPathCalculated = true;
+                Debug.Log("reach way points");
                 character.ChangeState(CharacterState.Idle);
             }
             
@@ -93,7 +94,7 @@ namespace ATBMI.Entities.NPCs
         private void ChangeDirectionToTarget(Vector3 target)
         {
             if (!(_currentTime >= moveDelayTime / 2f)) return;
-            var direction = target - character.transform.position;
+            var direction = target - character.transform.localPosition;
             direction.Normalize();
             character.LookAt(direction);
         }
@@ -104,7 +105,7 @@ namespace ATBMI.Entities.NPCs
             if (wayPoints.Count < MinWayPoints)
             {
                 Debug.LogWarning("Execute Failure: TaskPatrol");
-                _isValidated = true;
+                _isValidated = false;
                 return false;
             }
             

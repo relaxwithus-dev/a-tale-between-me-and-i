@@ -4,7 +4,6 @@ using System.Linq;
 using UnityEngine;
 using Sirenix.OdinInspector;
 using ATBMI.Entities.NPCs;
-using UnityEngine.Serialization;
 
 namespace ATBMI.Data
 {

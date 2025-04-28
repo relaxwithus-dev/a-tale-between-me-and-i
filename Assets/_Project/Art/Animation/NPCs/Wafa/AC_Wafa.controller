@@ -33,7 +33,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: A_Waffa_Punch_Prepare_In
+  m_Name: A_Waffa_Punch_Prepare
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -67,7 +67,7 @@ AnimatorStateMachine:
     m_Position: {x: 260, y: 120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8501775780675827146}
-    m_Position: {x: 260, y: 390, z: 0}
+    m_Position: {x: 260, y: 400, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7271605303710553681}
     m_Position: {x: 260, y: 190, z: 0}
@@ -171,7 +171,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: A_Waffa_Punch_Prepare
+  m_Name: A_Waffa_Punch_Prepare_idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []

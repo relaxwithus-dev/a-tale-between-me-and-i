@@ -29,7 +29,7 @@ namespace ATBMI.Entities.NPCs
                 if (!targetPhys.CompareTag(GameTag.PLAYER_TAG))
                     return NodeStatus.Failure;
                 
-                Debug.Log("Execute Success: CheckTargetInArea");
+                Debug.LogWarning("Execute Success: CheckTargetInArea");
                 OnTargetEnter(targetPhys);
                 _latestTarget = targetPhys;
                 return NodeStatus.Success;

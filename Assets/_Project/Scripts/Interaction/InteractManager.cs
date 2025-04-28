@@ -141,12 +141,6 @@ namespace ATBMI.Interaction
             interactSign.transform.position = Vector3.zero;
             interactSign.SetActive(false);
         }
-        
-        // private void OnDrawGizmos()
-        // {
-        //     Gizmos.color = Color.red;
-        //     Gizmos.DrawWireSphere(transform.position, detectionRadius);
-        // }
 
         #endregion
     }

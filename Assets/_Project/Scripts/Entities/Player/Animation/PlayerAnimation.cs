@@ -57,7 +57,7 @@ namespace ATBMI.Entities.Player
             _playerAnimator.CrossFade(state, 0, 0);
             _currentState = state;
         }
-
+        
         public IEnumerator TrySetAnimationState(string state)
         {
             var stateName = _playerController.Data.PlayerAnimationTag + "_" + state;

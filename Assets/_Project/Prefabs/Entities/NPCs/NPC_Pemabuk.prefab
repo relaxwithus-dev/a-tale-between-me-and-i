@@ -36,6 +36,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 3007679818138177100, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3271371676049430528, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: baseEmotion
       value: 5
@@ -86,11 +90,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7858659317861269129, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.2910266
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7858659317861269129, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.628135
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7858659317861269129, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -179,8 +183,10 @@ MonoBehaviour:
   characterInteract: {fileID: 3736038964476778030}
   pushForce: 6.3
   pushDelay: 0.15
-  wayPoints: []
-  characterManager: {fileID: 6605989077549685683}
+  moveStamina: 20
+  wayPoints:
+  - {fileID: 0}
+  - {fileID: 0}
   characterAnim: {fileID: 1503769504184384528}
 --- !u!4 &4557523409864915204 stripped
 Transform:
@@ -232,7 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6a86d9e3f0035042bec9a0b1cbd87bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterEnergy: 30
+  moveEnergy: 0
 --- !u!4 &6755673961492933830 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 819465445805292157, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}

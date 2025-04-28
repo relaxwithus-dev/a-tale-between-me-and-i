@@ -28,9 +28,12 @@ namespace ATBMI.Entities.NPCs
 
         private void Start()
         {
+            // Cache animation hash
             foreach (var clip in _characterAnim.runtimeAnimatorController.animationClips)
             {
-                CacheAnimationHash(clip.name);
+                var clipName = clip.name;
+                if (!_animationHashes.ContainsKey(clipName))
+                    _animationHashes[clipName] = Animator.StringToHash(clipName);
             }
         }
 
@@ -38,7 +41,7 @@ namespace ATBMI.Entities.NPCs
         public bool TrySetAnimationState(string state)
         {
             var stateName = _characterAI.Data.AnimationTagName + "_" + state;
-            if (_animationHashes.ContainsKey(stateName))
+            if (!_animationHashes.ContainsKey(stateName))
             {
                 Debug.LogWarning("Animation isn't exists");
                 return false;
@@ -52,12 +55,6 @@ namespace ATBMI.Entities.NPCs
         public float GetAnimationTime() => _characterAnim.GetCurrentAnimatorClipInfo(0).Length;
         
         // Helpers
-        private void CacheAnimationHash(string animName)
-        {
-            if (!_animationHashes.ContainsKey(animName))
-                _animationHashes[animName] = Animator.StringToHash(animName);
-        }
-
         private int GetCachedHash(string animName)
         {
             if (_animationHashes.TryGetValue(animName, out var hash))
