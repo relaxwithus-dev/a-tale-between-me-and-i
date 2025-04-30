@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a5d9a2753d3342619c3e76d19e25c859, type: 3}
-  m_Name: S_Intro_Sby_Kampus_Toilet
+  m_Name: S_Bdg_Rumah_Waffa_Dalam
   m_EditorClassIdentifier: 
-  locationTarget: {fileID: 11400000, guid: 75f6ba29d5b32f045bd9c4c0628b7291, type: 2}
+  sceneType: 1
+  location: {fileID: 11400000, guid: 8306c8b15b7cce2429e1b6df657a110e, type: 2}
   reference:
-    sceneAsset: {fileID: 102900000, guid: cca88afd185d65348abc098ec472dcba, type: 3}
-    scenePath: Assets/_Project/Scenes/Chapter/chapter-intro/S_Intro_Sby_Kampus_Toilet.unity
+    sceneAsset: {fileID: 102900000, guid: 319c194d204d4f7438fafdeb75ca3422, type: 3}
+    scenePath: Assets/_Project/Scenes/Chapter/chapter-1/Bandung/S_Bdg_Rumah_Waffa_Dalam.unity
   neighbours:
-  - {fileID: 11400000, guid: 79a05091ddeffa64d96ce8ab498fb939, type: 2}
+  - {fileID: 11400000, guid: e4391ff5afd498c418cbc761769054ef, type: 2}

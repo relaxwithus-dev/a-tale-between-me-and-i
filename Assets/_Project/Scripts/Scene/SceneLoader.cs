@@ -13,7 +13,7 @@ namespace ATBMI.Scene
         [Serializable]
         private struct EntryInfo
         {
-            [FormerlySerializedAs("locationData")] public LocationTarget locationTarget;
+            [FormerlySerializedAs("locationTarget")] public LocationData locationData;
             public Transform pointFromScene;
         }
 
@@ -46,7 +46,7 @@ namespace ATBMI.Scene
         {
             var latestScene = SceneNavigation.Instance.LatestScene;
             var entryPoint = latestScene != null 
-                ? Array.Find(entryPoints, e => e.locationTarget.location == latestScene.Id).pointFromScene 
+                ? Array.Find(entryPoints, e => e.locationData.location == latestScene.Id).pointFromScene 
                 : defaultPoint;
 
             if (entryPoint == null)

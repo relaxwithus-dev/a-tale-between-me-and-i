@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5d9a2753d3342619c3e76d19e25c859, type: 3}
   m_Name: S_Bali_Jalan_2
   m_EditorClassIdentifier: 
-  locationTarget: {fileID: 11400000, guid: 6f73041e6bce8744eb5b843de5d590e1, type: 2}
+  sceneType: 1
+  location: {fileID: 11400000, guid: 6f73041e6bce8744eb5b843de5d590e1, type: 2}
   reference:
-    sceneAsset: {fileID: 102900000, guid: efd7e7547152cc24f954f94bb35c1afc, type: 3}
-    scenePath: Assets/_Project/Scenes/Chapter/chapter-1/Bali-v1/S_Bali_Jalan_2.unity
+    sceneAsset: {fileID: 102900000, guid: dbdfccf41f06dab419dfed59b89a7f2f, type: 3}
+    scenePath: Assets/_Project/Scenes/Chapter/chapter-1/Bali/S_Bali_Rumah_Dalam.unity
   neighbours:
   - {fileID: 11400000, guid: 540724bb6742d014a99785f26707a5e4, type: 2}
   - {fileID: 11400000, guid: 8a32ae7f891060b4a804f0b24de2fa4d, type: 2}

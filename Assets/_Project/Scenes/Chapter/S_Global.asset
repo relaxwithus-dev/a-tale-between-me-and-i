@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5d9a2753d3342619c3e76d19e25c859, type: 3}
   m_Name: S_Global
   m_EditorClassIdentifier: 
-  sceneId: global
+  sceneType: 0
+  location: {fileID: 0}
   reference:
     sceneAsset: {fileID: 102900000, guid: 5d7a640c9c972e8418439aaa8eb612f6, type: 3}
     scenePath: Assets/_Project/Scenes/Chapter/S_Global.unity

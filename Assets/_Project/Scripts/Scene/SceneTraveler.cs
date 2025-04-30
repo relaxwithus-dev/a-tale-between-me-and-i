@@ -3,6 +3,7 @@ using TMPro;
 using ATBMI.Core;
 using ATBMI.Dialogue;
 using ATBMI.Gameplay.Handler;
+using UnityEngine.Serialization;
 
 namespace ATBMI.Scene
 {
@@ -11,8 +12,9 @@ namespace ATBMI.Scene
     {
         #region Fields & Properties
         
+        [FormerlySerializedAs("locationTarget")]
         [Header("Attribute")] 
-        [SerializeField] private LocationTarget locationTarget;
+        [SerializeField] private LocationData locationData;
         [SerializeField] private TextMeshProUGUI infoTextUI;
         
         private bool _canTravel;
@@ -45,7 +47,7 @@ namespace ATBMI.Scene
             if (GameInputHandler.Instance.IsTapInteract)
             {
                 var currentScene = SceneNavigation.Instance.CurrentScene;
-                var sceneAsset = currentScene.GetNeighbourById(locationTarget.location);
+                var sceneAsset = currentScene.GetNeighbourById(locationData.location);
 
                 if (!sceneAsset)
                 {
