@@ -1,28 +1,20 @@
 using UnityEngine;
 using ATBMI.Gameplay.Event;
 
-namespace ATBMI
+namespace ATBMI.UI.Ingame
 {
     public class UIMenu : MonoBehaviour
     {
         [Header("UI")]
         [SerializeField] private GameObject menuUI;
-
-        private bool isMenuActive;
-
-        public bool IsMenuActive => isMenuActive;
-
-        private void Awake()
-        {
-            isMenuActive = false;
-        }
+        private bool _isMenuActive;
 
         private void Update()
         {
             // TODO: change with new input system
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                if (!isMenuActive)
+                if (!_isMenuActive)
                 {
                     OpenMenu();
                 }
@@ -39,16 +31,16 @@ namespace ATBMI
             UIEvents.OnSelectTabQuestEvent();
 
             menuUI.SetActive(true);
-            isMenuActive = true;
+            _isMenuActive = true;
         }
-
+        
         private void CloseMenu()
         {
             UIEvents.OnDeselectTabInventoryEvent();
             UIEvents.OnDeselectTabQuestEvent();
 
             menuUI.SetActive(false);
-            isMenuActive = false;
+            _isMenuActive = false;
         }
     }
 }

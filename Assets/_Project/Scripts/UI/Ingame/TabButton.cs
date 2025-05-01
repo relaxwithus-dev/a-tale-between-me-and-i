@@ -2,7 +2,7 @@ using ATBMI.Gameplay.Event;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace ATBMI
+namespace ATBMI.UI.Ingame
 {
     [RequireComponent(typeof(Image))]
     public class TabButton : MonoBehaviour
@@ -23,8 +23,6 @@ namespace ATBMI
                 case UIMenuTabEnum.Quest:
                     UIEvents.OnSelectTabQuestEvent();
                     break;
-                default:
-                    break;
             }
         }
 
@@ -38,8 +36,6 @@ namespace ATBMI
                     break;
                 case UIMenuTabEnum.Quest:
                     UIEvents.OnDeselectTabQuestEvent();
-                    break;
-                default:
                     break;
             }
         }

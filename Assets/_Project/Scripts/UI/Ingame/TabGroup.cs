@@ -1,25 +1,22 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace ATBMI
+namespace ATBMI.UI.Ingame
 {
     public class TabGroup : MonoBehaviour
     {
-
         [SerializeField] private List<TabButton> tabButtons;
         [SerializeField] private List<GameObject> pages;
-
+        
         [SerializeField] private Color tabIdleColor;
         [SerializeField] private Color tabActiveColor;
         [SerializeField] private InputActionReference navigateLeftAction;
         [SerializeField] private InputActionReference navigateRightAction;
-
-        private TabButton selectedTab;
-        private int currentTabIndex = 0;
-
+        
+        private TabButton _selectedTab;
+        private int _currentTabIndex;
+        
         private void OnEnable()
         {
             navigateLeftAction.action.Enable();
@@ -28,7 +25,7 @@ namespace ATBMI
             navigateLeftAction.action.performed += MoveToPreviousTab;
             navigateRightAction.action.performed += MoveToNextTab;
         }
-
+        
         private void OnDisable()
         {
             navigateLeftAction.action.performed -= MoveToPreviousTab;
@@ -42,41 +39,41 @@ namespace ATBMI
         {
             if (tabButtons.Count > 0)
             {
-                currentTabIndex = 0;
-                SelectTab(currentTabIndex); // Start with the first tab selected
+                _currentTabIndex = 0;
+                SelectTab(_currentTabIndex); // Start with the first tab selected
             }
         }
 
         private void MoveToNextTab(InputAction.CallbackContext context)
         {
-            if (currentTabIndex < tabButtons.Count - 1) // Stop at the last tab
+            if (_currentTabIndex < tabButtons.Count - 1) // Stop at the last tab
             {
-                currentTabIndex++;
-                SelectTab(currentTabIndex);
+                _currentTabIndex++;
+                SelectTab(_currentTabIndex);
             }
         }
 
         private void MoveToPreviousTab(InputAction.CallbackContext context)
         {
-            if (currentTabIndex > 0) // Stop at the first tab
+            if (_currentTabIndex > 0) // Stop at the first tab
             {
-                currentTabIndex--;
-                SelectTab(currentTabIndex);
+                _currentTabIndex--;
+                SelectTab(_currentTabIndex);
             }
         }
 
         private void SelectTab(int index)
         {
-            if (selectedTab != null)
+            if (_selectedTab != null)
             {
-                selectedTab.Deselect();
+                _selectedTab.Deselect();
             }
 
-            selectedTab = tabButtons[index];
-            selectedTab.Select();
+            _selectedTab = tabButtons[index];
+            _selectedTab.Select();
 
             ResetTabs();
-            selectedTab.background.color = tabActiveColor;
+            _selectedTab.background.color = tabActiveColor;
 
             // Activate the correct page based on the tab index
             for (int i = 0; i < pages.Count; i++)
