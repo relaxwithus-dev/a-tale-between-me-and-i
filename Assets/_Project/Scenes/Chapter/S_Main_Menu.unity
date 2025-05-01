@@ -704,7 +704,7 @@ GameObject:
   - component: {fileID: 83597611}
   - component: {fileID: 83597610}
   m_Layer: 5
-  m_Name: OptionButton
+  m_Name: Option
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1364,6 +1364,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 142497063}
   m_CullTransparentMesh: 1
+--- !u!1 &145264636
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 145264637}
+  - component: {fileID: 145264638}
+  m_Layer: 0
+  m_Name: MenuManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &145264637
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145264636}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &145264638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145264636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33f658151b624cf48dc1454c065a9adc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuPanelUI: {fileID: 121030576}
+  playPanelUI: {fileID: 508175945}
+  optionPanelUI: {fileID: 2011997373}
+  playButtonUI: {fileID: 282431088}
+  optionButtonUI: {fileID: 83597610}
+  exitButtonUI: {fileID: 388329618}
 --- !u!1 &171490488
 GameObject:
   m_ObjectHideFlags: 0
@@ -1797,7 +1847,7 @@ GameObject:
   - component: {fileID: 282431090}
   - component: {fileID: 282431088}
   m_Layer: 5
-  m_Name: PlayButton
+  m_Name: Play
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2523,6 +2573,8 @@ MonoBehaviour:
   buttons:
   - {fileID: 311311519}
   - {fileID: 817775895}
+  - {fileID: 1954602782}
+  - {fileID: 1354336934}
 --- !u!114 &469858796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3680,6 +3732,53 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &755515065
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 755515066}
+  - component: {fileID: 755515067}
+  m_Layer: 0
+  m_Name: PlayManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &755515066
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 755515065}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &755515067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 755515065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d99ffc041b494f57ba549aded547f525, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playPanelUI: {fileID: 508175945}
+  saveButtonUI: {fileID: 27762746}
+  prologueAsset: {fileID: 11400000, guid: 79a05091ddeffa64d96ce8ab498fb939, type: 2}
 --- !u!1 &761378479
 GameObject:
   m_ObjectHideFlags: 0
@@ -7789,6 +7888,63 @@ MonoBehaviour:
   - {fileID: 282431088}
   - {fileID: 83597610}
   - {fileID: 388329618}
+--- !u!1 &1650514567
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1650514568}
+  - component: {fileID: 1650514569}
+  m_Layer: 0
+  m_Name: OptionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1650514568
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650514567}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1650514569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650514567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202a2b858a0945f48d319a57fc2d6bfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  optionPanelUI: {fileID: 2011997373}
+  headerMenuUI:
+  - {fileID: 352974446}
+  - {fileID: 752306814}
+  - {fileID: 1392066240}
+  contentMenuUI:
+  - {fileID: 385393270}
+  - {fileID: 469858793}
+  - {fileID: 68102173}
+  highlightBarColor: {r: 0, g: 0, b: 0, a: 1}
+  normalBarColor: {r: 1, g: 1, b: 1, a: 1}
+  highlightTextColor: {r: 1, g: 1, b: 1, a: 1}
+  normalTextColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &1650516490
 GameObject:
   m_ObjectHideFlags: 0
@@ -8169,9 +8325,10 @@ MonoBehaviour:
   interact: Interact
   phone: Phone
   navigate: Navigate
+  submit: Submit
   select: Select
   back: Back
-  submit: Submit
+  tabMenu: TabMenu
 --- !u!114 &1734531824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9797,6 +9954,9 @@ SceneRoots:
   - {fileID: 1023983488}
   - {fileID: 9030679253425923975}
   - {fileID: 636046801}
+  - {fileID: 145264637}
+  - {fileID: 755515066}
+  - {fileID: 1650514568}
   - {fileID: 1734531825}
   - {fileID: 56242373}
   - {fileID: 140067345}

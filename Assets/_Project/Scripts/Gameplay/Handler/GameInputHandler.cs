@@ -37,21 +37,26 @@ namespace ATBMI.Gameplay.Handler
         
         [Header("UI Actions Reference")]
         [SerializeField] private string navigate = "Navigate";
+        [SerializeField] private string submit = "Submit";
         [SerializeField] private string select = "Select";
         [SerializeField] private string back = "Back";
-        [SerializeField] private string submit = "Submit";
+        [SerializeField] private string tabMenu = "TabMenu";
         
         // Input action
         private InputAction _navigateAction;
         private InputAction _selectAction;
         private InputAction _backAction;
         private InputAction _submitAction;
+        private InputAction _tabMenuAction;
         
         // Action values
         private bool _isArrowUp;
         private bool _isArrowDown;
         private bool _isArrowLeft;
         private bool _isArrowRight;
+        
+        private bool _isTabLeft;
+        private bool _isTabRight;
         
         public bool IsArrowUp => _isArrowUp && _navigateAction.WasPressedThisFrame();
         public bool IsArrowDown => _isArrowDown && _navigateAction.WasPressedThisFrame();
@@ -62,10 +67,14 @@ namespace ATBMI.Gameplay.Handler
         public bool IsTapSelect => _selectAction.WasPressedThisFrame();
         public bool IsTapBack => _backAction.WasPressedThisFrame();
         
+        public bool IsTabRight => _isTabRight && _tabMenuAction.WasPressedThisFrame();
+        public bool IsTabLeft => _isTabLeft && _tabMenuAction.WasPressedThisFrame();
+        
         #endregion
         
-        #region MonoBehaviour Callbacks
+        #region Methods
         
+        // Unity Callbacks
         protected override void Awake()
         {
             _playerActions = GetComponent<PlayerInput>().actions;
@@ -81,6 +90,7 @@ namespace ATBMI.Gameplay.Handler
             _selectAction = _playerActions.FindActionMap(uiMapName).FindAction(select);
             _backAction = _playerActions.FindActionMap(uiMapName).FindAction(back);
             _submitAction = _playerActions.FindActionMap(uiMapName).FindAction(submit);
+            _tabMenuAction = _playerActions.FindActionMap(uiMapName).FindAction(tabMenu);
         }
 
         private void OnEnable()
@@ -93,78 +103,102 @@ namespace ATBMI.Gameplay.Handler
             UnsubscribeAction();
         }
 
-        #endregion
-
-        #region Methods
-
-        // !- Initialize
+        // Initialize
         private void SubscribeAction()
         {
-            // Movement
+            // Player
             _moveAction.Enable();
-            _moveAction.performed += value => MoveDirection = value.ReadValue<Vector2>();
-            _moveAction.canceled += value => MoveDirection = Vector2.zero;
+            _moveAction.performed += OnMovePerformed;
+            _moveAction.canceled += OnMoveCanceled;
             
-            // Run
             _runAction.Enable();
-            _runAction.performed += value => IsPressRun = true;
-            _runAction.canceled += value => IsPressRun = false;
+            _runAction.performed += OnRunPerformed;
+            _runAction.canceled += OnRunCanceled;
             
-            // Navigation
+            _interactAction.Enable();
+            _phoneAction.Enable();
+            
+            // UI
             _navigateAction.Enable();
-            _navigateAction.performed += value =>
-                {
-                    var navigateValue = value.ReadValue<Vector2>();
-                    _isArrowRight = navigateValue.x > 0;
-                    _isArrowLeft = navigateValue.x < 0;
-                    
-                    _isArrowUp = navigateValue.y > 0;
-                    _isArrowDown = navigateValue.y < 0;
-                    
-                };
-            _navigateAction.canceled += value =>
-                {
-                    _isArrowRight = false;
-                    _isArrowLeft = false;
-                    
-                    _isArrowUp = false;
-                    _isArrowDown = false;
-                };
+            _navigateAction.performed += OnNavigationPerformed;
+            _navigateAction.canceled += OnNavigationCanceled;
+            
+            _selectAction.Enable();
+            _backAction.Enable();
+            _submitAction.Enable();
+            
+            _tabMenuAction.Enable();
+            _tabMenuAction.performed += OnMenuPerformed;
+            _tabMenuAction.canceled += OnMenuCanceled;
         }
-
+        
         private void UnsubscribeAction()
         {
-            // Movement
+            // Player
             _moveAction.Disable();
-            _moveAction.performed -= value => MoveDirection = value.ReadValue<Vector2>();
-            _moveAction.canceled -= value => MoveDirection = Vector2.zero;
-
-            // Run
+            _moveAction.performed -= OnMovePerformed;
+            _moveAction.canceled -= OnMoveCanceled;
+            
             _runAction.Disable();
-            _runAction.performed -= value => IsPressRun = true;
-            _runAction.canceled -= value => IsPressRun = false;
-
-            // Navigation
+            _runAction.performed -= OnRunPerformed;
+            _runAction.canceled -= OnRunCanceled;
+            
+            _interactAction.Disable();
+            _phoneAction.Disable();
+            
+            // UI
             _navigateAction.Disable();
-            _navigateAction.performed -= value =>
-                {
-                    var navigateValue = value.ReadValue<Vector2>();
-                    _isArrowRight = navigateValue.x > 0;
-                    _isArrowLeft = navigateValue.x < 0;
-                    
-                    _isArrowUp = navigateValue.y > 0;
-                    _isArrowDown = navigateValue.y < 0;
-                };
-            _navigateAction.canceled -= value =>
-                {
-                    _isArrowRight = false;
-                    _isArrowLeft = false;
-                    
-                    _isArrowUp = false;
-                    _isArrowDown = false;
-                };
+            _navigateAction.performed -= OnNavigationPerformed;
+            _navigateAction.canceled -= OnNavigationCanceled;
+            
+            _selectAction.Disable();
+            _backAction.Disable();
+            _submitAction.Disable();
+            
+            _tabMenuAction.Disable();
+            _tabMenuAction.performed -= OnMenuPerformed;
+            _tabMenuAction.canceled -= OnMenuCanceled;
         }
+        
+        // Core
+        private void OnMovePerformed(InputAction.CallbackContext value) => MoveDirection = value.ReadValue<Vector2>();
+        private void OnMoveCanceled(InputAction.CallbackContext value) => MoveDirection = Vector2.zero;
 
+        private void OnRunPerformed(InputAction.CallbackContext value) => IsPressRun = true;
+        private void OnRunCanceled(InputAction.CallbackContext value) => IsPressRun = false;
+        
+        private void OnNavigationPerformed(InputAction.CallbackContext value)
+        {
+            var navigateValue = value.ReadValue<Vector2>();
+            _isArrowRight = navigateValue.x > 0;
+            _isArrowLeft = navigateValue.x < 0;
+                    
+            _isArrowUp = navigateValue.y > 0;
+            _isArrowDown = navigateValue.y < 0;
+        }
+        
+        private void OnNavigationCanceled(InputAction.CallbackContext value)
+        {
+            _isArrowRight = false;
+            _isArrowLeft = false;
+                    
+            _isArrowUp = false;
+            _isArrowDown = false;
+        }
+        
+        private void OnMenuPerformed(InputAction.CallbackContext value)
+        {
+            var tabValue = value.ReadValue<Vector2>();
+            _isTabRight = tabValue.x > 0;
+            _isTabLeft = tabValue.x < 0;
+        }
+        
+        private void OnMenuCanceled(InputAction.CallbackContext value)
+        {
+            _isTabRight = false;
+            _isTabLeft = false;
+        }
+        
         #endregion
     }
 }
