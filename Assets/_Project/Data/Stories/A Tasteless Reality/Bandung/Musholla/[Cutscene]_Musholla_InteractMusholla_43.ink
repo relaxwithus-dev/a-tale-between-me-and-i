@@ -2,7 +2,7 @@ EXTERNAL AddItem(itemId)
 EXTERNAL StartQuest(questId)
 EXTERNAL FinishQuest(questId)
 
-~AddItem("11")
+// ~AddItem("11")
 
 ??? #speaker:Waffa Kecil #expression:A_Waffa_Child_Speak
 
