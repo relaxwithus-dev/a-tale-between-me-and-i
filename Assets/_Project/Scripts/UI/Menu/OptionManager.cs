@@ -68,7 +68,7 @@ namespace ATBMI.UI.Menu
         // Core
         private void MoveToNext()
         {
-            if (_selectedMenuIndex >= headerMenuUI.Length) return;
+            if (_selectedMenuIndex >= headerMenuUI.Length - 1) return;
             
             _selectedMenuIndex++;
             HighlightMenu(_selectedMenuIndex);
