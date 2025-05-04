@@ -28,23 +28,9 @@ Coba lihat sekitarmu #speaker:Dewa #expression:A_Dewa_Speak
 
 EEEHHHH???? #speaker:Ratna #expression:A_Ratna_Shock
 Ini dimana??? #speaker:Ratna #expression:A_Ratna_Shock_Out
-Kenapa kita ada di... sini? #speaker:Ratna #expression:A_Ratna_Speak
-Sebentar, di mana kita? #speaker:Ratna #expression:A_Ratna_Speak #Emoji:A_Emoji_Question
+Kenapa kita ada di... sini? #speaker:Ratna #expression:A_Ratna_Speak #Emoji:A_Emoji_Question
 
-Aneh kan… #speaker:Dewa #expression:A_Dewa_Speak
-Tapi yang aneh lagi coba liat ke langit #speaker:Dewa #expression:A_Dewa_Speak
-
-Langit… ehhh??? #speaker:Ratna #expression:A_Ratna_Speak
-Kenapa warnanya begitu? #speaker:Ratna #expression:A_Ratna_Speak #Emoji:A_Emoji_Question
-Bukannya langit itu warna biru? #speaker:Ratna #expression:A_Ratna_Speak
-
-Tidak cuma langit tapi warna lingkungan sekitar juga beda #speaker:Dewa #expression:A_Dewa_Speak
-
-Kamu benar seperti... menghilang??? #speaker:Ratna #expression:A_Ratna_Speak
-
-Hmmmm.... #speaker:Dewa #expression:A_Dewa_Speak
-Iya juga ya... #speaker:Dewa #expression:A_Dewa_Speak
-Makanya kita harus mencari tahu sebenarnya kita ada dimana #speaker:Dewa #expression:A_Dewa_Speak
+Kita harus mencari tahu sebenarnya kita ada dimana #speaker:Dewa #expression:A_Dewa_Speak
 Karena pintu keluarnya juga sudah menghilang #speaker:Dewa #expression:A_Dewa_Speak
 
 ~StartQuest("7")
