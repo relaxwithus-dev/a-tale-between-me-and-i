@@ -1,6 +1,9 @@
 EXTERNAL AddItem(itemId)
 EXTERNAL StartQuest(questId)
 EXTERNAL FinishQuest(questId)
+EXTERNAL EnterMinigame()
+
+~EnterMinigame()
 
 // Layar fade in & out
 // Waffa besar mengganti posisi waffa kecil menahan serangan

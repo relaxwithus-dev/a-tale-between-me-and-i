@@ -2,6 +2,7 @@ EXTERNAL AddItem(itemId)
 EXTERNAL RemoveItem(itemId)
 EXTERNAL StartQuest(questId)
 EXTERNAL FinishQuest(questId)
+EXTERNAL EnterMinigame()
 
 Nahhh… ini ada sumber air #speaker:Dewa #expression:A_Dewa_Speak
 Tapi apakah air disini bisa diminum? #speaker:Dewa #expression:A_Dewa_Speak
@@ -13,6 +14,8 @@ Kalau begitu kita bisa mengambil air dari sumur ini #speaker:Dewa #expression:A_
 Siapkan gelasnya Waffa #speaker:Dewa #expression:A_Dewa_Speak
 
 Baik kak #speaker:Waffa Kecil #expression:A_Waffa_Child_Speak #Emoji:A_Emoji_Love
+
+~EnterMinigame()
 
 // After get Water
 

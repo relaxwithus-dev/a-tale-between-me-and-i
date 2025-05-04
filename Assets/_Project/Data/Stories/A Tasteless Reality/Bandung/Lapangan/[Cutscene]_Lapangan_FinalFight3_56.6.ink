@@ -1,8 +1,10 @@
 EXTERNAL AddItem(itemId)
 EXTERNAL StartQuest(questId)
 EXTERNAL FinishQuest(questId)
+EXTERNAL EnterMinigame()
 
 // Ratna join scene & block attack
+~EnterMinigame()
 
 Jangan jadi pengecut Waffa #speaker:Ratna #expression:A_Ratna_Defense
 Cepat kesini… #speaker:Ratna #expression:A_Ratna_Defense #Emoji:A_Emoji_Angry

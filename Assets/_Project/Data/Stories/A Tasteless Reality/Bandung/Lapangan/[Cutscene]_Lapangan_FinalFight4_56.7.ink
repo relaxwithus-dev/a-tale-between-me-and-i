@@ -1,8 +1,10 @@
 EXTERNAL AddItem(itemId)
 EXTERNAL StartQuest(questId)
 EXTERNAL FinishQuest(questId)
+EXTERNAL EnterMinigame()
 
 // Baba & Hasan join into scene
+~EnterMinigame()
 
 Tenang kami akan membantu kalian menahan #speaker:Hasan #expression:A_Hasan_Surprise
 
