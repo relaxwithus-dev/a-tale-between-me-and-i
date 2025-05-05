@@ -1,8 +1,8 @@
 using System;
-using ATBMI.Entities.Player;
-using Cinemachine;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Cinemachine;
+using ATBMI.Entities.Player;
 
 namespace ATBMI.Scene
 {
@@ -45,7 +45,7 @@ namespace ATBMI.Scene
         private void OnEnable()
         {
             var latestScene = SceneNavigation.Instance.LatestScene;
-            var entryPoint = latestScene != null 
+            var entryPoint = latestScene != null && latestScene.Type == SceneAsset.SceneType.Gameplay
                 ? Array.Find(entryPoints, e => e.locationData.location == latestScene.Id).pointFromScene 
                 : defaultPoint;
 

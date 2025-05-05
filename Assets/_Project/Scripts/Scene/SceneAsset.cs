@@ -7,7 +7,7 @@ namespace ATBMI.Scene
     [CreateAssetMenu(fileName = "NewSceneAsset", menuName = "Data/Scene/Scene Asset", order = 0)]
     public class SceneAsset : ScriptableObject
     {
-        private enum SceneType { Global, Gameplay }
+        public enum SceneType { Global, Gameplay }
         
         [Header("Assets")]
         [SerializeField] private SceneType sceneType;
@@ -17,6 +17,7 @@ namespace ATBMI.Scene
         [SerializeField] private List<SceneAsset> neighbours;
         
         // Getter
+        public SceneType Type => sceneType;
         public Location Id => location.location;
         public SceneReference Reference => reference;
         public SceneAsset GetNeighbourById(Location id)

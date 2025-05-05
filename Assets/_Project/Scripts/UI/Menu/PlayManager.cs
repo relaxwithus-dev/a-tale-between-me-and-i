@@ -23,7 +23,7 @@ namespace ATBMI.UI.Menu
         // Unity Callbacks
         private void Start()
         {
-            saveButtonUI.onClick.AddListener(() => Debug.Log("Go!"));
+            saveButtonUI.onClick.AddListener(OnPlayButton);
         }
         
         private void Update()
@@ -33,6 +33,12 @@ namespace ATBMI.UI.Menu
             {
                 playPanelUI.SetActive(false);
             }
+        }
+        
+        // Core
+        private void OnPlayButton()
+        {
+            SceneNavigation.Instance.SwitchSceneSection(isToMenu: false, prologueAsset);
         }
 
         #endregion

@@ -16,7 +16,7 @@ namespace ATBMI.Gameplay.Controller
         public float FadeDuration => fadeDuration;
         
         #endregion
-
+        
         #region Methods
         
         // Unity Callbacks
@@ -33,6 +33,8 @@ namespace ATBMI.Gameplay.Controller
             DoFade(1f, 0f);
             DoFade(0f, fadeDuration, () => 
             {
+                Debug.Log("donn fade in!");
+                
                 onComplete?.Invoke();
                 canvasGroup.interactable = true;
                 canvasGroup.gameObject.SetActive(false);

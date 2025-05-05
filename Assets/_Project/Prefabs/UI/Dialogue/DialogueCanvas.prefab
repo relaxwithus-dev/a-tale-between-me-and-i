@@ -57,11 +57,11 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_VertexColorAlwaysGammaSpace: 1
+  m_AdditionalShaderChannelsFlag: 1
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &815812118256629183
 MonoBehaviour:
@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UiScaleMode: 1
-  m_ReferencePixelsPerUnit: 100
+  m_ReferencePixelsPerUnit: 32
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
@@ -238,7 +238,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3287043813824916691, guid: 87b5f96bf7463564a889407712cc7f16, type: 3}
       propertyPath: m_Name
-      value: Dialogue Pin
+      value: DialoguePin
       objectReference: {fileID: 0}
     - target: {fileID: 3399725761374321867, guid: 87b5f96bf7463564a889407712cc7f16, type: 3}
       propertyPath: m_Pivot.x
@@ -404,7 +404,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3737589111901244852, guid: d5205e53ab059494da938bada2872f76, type: 3}
       propertyPath: m_Name
-      value: Dialogue Choices Pin
+      value: DialogueChoicesPin
       objectReference: {fileID: 0}
     - target: {fileID: 4526311625431779087, guid: d5205e53ab059494da938bada2872f76, type: 3}
       propertyPath: m_SizeDelta.x
