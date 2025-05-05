@@ -1,5 +1,6 @@
 using UnityEngine;
 using ATBMI.Gameplay.Event;
+using ATBMI.Gameplay.Handler;
 
 namespace ATBMI.UI.Ingame
 {
@@ -11,23 +12,16 @@ namespace ATBMI.UI.Ingame
 
         private void Update()
         {
-            // TODO: change with new input system
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                if (!_isMenuActive)
-                {
-                    OpenMenu();
-                }
-                else
-                {
-                    CloseMenu();
-                }
-            }
+            if (GameInputHandler.Instance.IsTapPhone && !_isMenuActive)
+                OpenMenu();
+            else if (GameInputHandler.Instance.IsTapBack && _isMenuActive)
+                CloseMenu();
         }
 
+        //TODO: Change it to dynamically call when input for inventory pressed
         private void OpenMenu()
         {
-            UIEvents.OnSelectTabInventoryEvent(); //todo: change it to dynamically call when input for inventory pressed
+            UIEvents.OnSelectTabInventoryEvent();
             UIEvents.OnSelectTabQuestEvent();
 
             menuUI.SetActive(true);

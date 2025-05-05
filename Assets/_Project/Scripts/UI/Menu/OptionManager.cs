@@ -8,6 +8,8 @@ namespace ATBMI.UI.Menu
 {
     public class OptionManager : MonoBehaviour
     {
+        #region Fields & Properties
+        
         [Header("UI")]
         [SerializeField] private GameObject optionPanelUI;
         [SerializeField] private Image[] headerMenuUI;
@@ -22,6 +24,11 @@ namespace ATBMI.UI.Menu
         [SerializeField] private Color highlightTextColor;
         [SerializeField] private Color normalTextColor;
 
+        #endregion
+
+        #region Methods
+
+        // Unity Callbacks
         private void Start()
         {
             // Validate
@@ -99,5 +106,7 @@ namespace ATBMI.UI.Menu
             
             contentMenuUI[index].SetActive(false);
         }
+        
+        #endregion
     }
 }

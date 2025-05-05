@@ -20,6 +20,7 @@ namespace ATBMI.UI.Menu
 
         #region Methods
         
+        // Unity Callbacks
         private void Start()
         {
 			_currentIndex = 0;

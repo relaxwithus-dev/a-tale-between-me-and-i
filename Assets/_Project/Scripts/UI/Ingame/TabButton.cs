@@ -1,6 +1,6 @@
-using ATBMI.Gameplay.Event;
 using UnityEngine;
 using UnityEngine.UI;
+using ATBMI.Gameplay.Event;
 
 namespace ATBMI.UI.Ingame
 {
@@ -10,11 +10,11 @@ namespace ATBMI.UI.Ingame
         public UIMenuTabEnum uIMenuTab;
         public Image background;
 
+        //TODO: Add some method when this tab is selected
         public void Select()
         {
             QuestEvents.CheckUIMenuTabQuestStepEvent(uIMenuTab);
-
-            //TODO: add some method when this tab is selected
+            
             switch (uIMenuTab)
             {
                 case UIMenuTabEnum.Inventory:
@@ -26,9 +26,9 @@ namespace ATBMI.UI.Ingame
             }
         }
 
+        //TODO: Add some method when this tab is deselected
         public void Deselect()
         {
-            //TODO: add some method when this tab is deselected
             switch (uIMenuTab)
             {
                 case UIMenuTabEnum.Inventory:
