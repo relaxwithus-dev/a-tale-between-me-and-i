@@ -20,9 +20,8 @@ namespace ATBMI.Scene
         #endregion
 
         #region Fields & Properties
-
+        
         [Header("Attribute")]
-        [SerializeField] private bool isFirstSpawn;
         [SerializeField] private Transform defaultPoint;
         [SerializeField] private EntryInfo[] entryPoints;
         [SerializeField] private PolygonCollider2D confiner;

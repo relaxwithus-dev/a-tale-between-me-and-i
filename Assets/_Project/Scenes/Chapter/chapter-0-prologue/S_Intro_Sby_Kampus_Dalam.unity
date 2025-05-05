@@ -726,8 +726,8 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_VertexColorAlwaysGammaSpace: 1
+  m_AdditionalShaderChannelsFlag: 1
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -926,7 +926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2d5600188a4b88854d4bd523fe97d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locationTarget: {fileID: 11400000, guid: 75f6ba29d5b32f045bd9c4c0628b7291, type: 2}
+  locationData: {fileID: 11400000, guid: 75f6ba29d5b32f045bd9c4c0628b7291, type: 2}
   infoTextUI: {fileID: 1039546951}
 --- !u!1 &1039546948
 GameObject:
@@ -1149,6 +1149,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1338313044}
   - component: {fileID: 1338313045}
+  - component: {fileID: 1338313046}
   m_Layer: 0
   m_Name: Root
   m_TagString: Untagged
@@ -1193,14 +1194,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0bd71baf65d494ab60e4edd815b2eeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFirstSpawn: 0
   defaultPoint: {fileID: 1578348361}
   entryPoints:
-  - locationTarget: {fileID: 11400000, guid: 75f6ba29d5b32f045bd9c4c0628b7291, type: 2}
+  - locationData: {fileID: 11400000, guid: 75f6ba29d5b32f045bd9c4c0628b7291, type: 2}
     pointFromScene: {fileID: 1061055696}
-  - locationTarget: {fileID: 11400000, guid: 680a9f6479b985043bd2f4b5df41c194, type: 2}
+  - locationData: {fileID: 11400000, guid: 680a9f6479b985043bd2f4b5df41c194, type: 2}
     pointFromScene: {fileID: 1243254175}
   confiner: {fileID: 320762905}
+--- !u!114 &1338313046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338313043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d3a46722a16485daaad6f057a6e873d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLoading: 0
+  playerName: Ratna
+  chapterName: 0
 --- !u!1 &1375646168
 GameObject:
   m_ObjectHideFlags: 0
@@ -1257,7 +1272,7 @@ Transform:
   m_GameObject: {fileID: 1578348360}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11, y: -14, z: 0}
+  m_LocalPosition: {x: -4.75, y: -14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1482,7 +1497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2d5600188a4b88854d4bd523fe97d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locationTarget: {fileID: 11400000, guid: 680a9f6479b985043bd2f4b5df41c194, type: 2}
+  locationData: {fileID: 11400000, guid: 680a9f6479b985043bd2f4b5df41c194, type: 2}
   infoTextUI: {fileID: 1039546951}
 --- !u!61 &1689487326
 BoxCollider2D:
