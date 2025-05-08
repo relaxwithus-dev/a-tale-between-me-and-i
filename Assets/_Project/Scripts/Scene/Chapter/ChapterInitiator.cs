@@ -18,9 +18,14 @@ namespace ATBMI.Scene.Chapter
         protected override IEnumerator AnimateSceneFade()
         {
             _chapterViewer = ChapterViewer.Instance;
-            if (_chapterViewer.IsInitializedChapter && chapterName !=  _chapterViewer.Chapter) 
-                yield break;
+            if (!_chapterViewer.IsInitializedChapter && chapterName ==  _chapterViewer.Chapter) 
+                yield return AnimateChapterIntro();
             
+            yield return base.AnimateSceneFade();
+        }
+        
+        private IEnumerator AnimateChapterIntro()
+        {
             yield return new WaitForSeconds(chapterFader.FadeDuration);
             chapterFader.gameObject.SetActive(true);
             chapterFader.DoFade(0f, 0f);
@@ -29,8 +34,6 @@ namespace ATBMI.Scene.Chapter
             yield return new WaitForSeconds(chapterFader.FadeDuration * animateDuration);
             chapterFader.FadeIn();
             player.InitPlayer(playerName);
-            
-            yield return base.AnimateSceneFade();
         }
     }
 }
