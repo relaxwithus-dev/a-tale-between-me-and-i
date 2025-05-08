@@ -11,7 +11,7 @@ Ati-ati di dalan, Nak (Hati-hati di jalan, Nak) #speaker:Ibu Dewa #expression:A_
 Inggih, Ma… (Iya, Ma...) #speaker:Dewa #expression:A_Dewa_Speak
 
 Sebentar… (Sebentar...) #speaker:Ibu Dewa #expression:A_Ibu_Dewa_Speak
-Bukankah ada pesu yang lakar Papa omongang ring Dewa sebelum budal?  (Bukannya ada yang ingin Papa sampaikan pada Dewa sebelum dia berangkat?) #speaker:Ibu Dewa #expression:A_Ibu_Dewa_Speak
+Bukankah ada pesu yang lakar Papa omongan ring Dewa sebelum budal?  (Bukannya ada yang ingin Papa sampaikan pada Dewa sebelum dia berangkat?) #speaker:Ibu Dewa #expression:A_Ibu_Dewa_Speak
 
 Ehh? #speaker:Dewa #expression:A_Dewa_Speak
 
