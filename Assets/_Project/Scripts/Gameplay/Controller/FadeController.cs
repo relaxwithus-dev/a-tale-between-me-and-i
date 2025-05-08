@@ -7,7 +7,7 @@ namespace ATBMI.Gameplay.Controller
     public class FadeController : MonoBehaviour
     {
         #region Fields & Properties
-
+        
         [Header("Stats")]
         [SerializeField][Range(0f, 3f)] private float fadeDuration = 0.5f;
         [SerializeField] private CanvasGroup canvasGroup;
@@ -20,7 +20,7 @@ namespace ATBMI.Gameplay.Controller
         #region Methods
         
         // Unity Callbacks
-        private void OnEnable()
+        private void Start()
         {
             DOTween.Init(true, false, LogBehaviour.Verbose).SetCapacity(900, 450);
         }
@@ -33,8 +33,6 @@ namespace ATBMI.Gameplay.Controller
             DoFade(1f, 0f);
             DoFade(0f, fadeDuration, () => 
             {
-                Debug.Log("donn fade in!");
-                
                 onComplete?.Invoke();
                 canvasGroup.interactable = true;
                 canvasGroup.gameObject.SetActive(false);
@@ -44,7 +42,7 @@ namespace ATBMI.Gameplay.Controller
         public void FadeOut(Action onComplete = null)
         {
             canvasGroup.gameObject.SetActive(true);
-
+            
             DoFade(0f, 0f);
             DoFade(1f, fadeDuration, () =>
             {
@@ -52,7 +50,7 @@ namespace ATBMI.Gameplay.Controller
                 canvasGroup.interactable = false;
             });
         }
-
+        
         public void DoFade(float target, float duration, TweenCallback callback = null)
         {
             _fadeTween?.Kill(false);

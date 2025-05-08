@@ -163,8 +163,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 454383186}
-  - component: {fileID: 454383187}
   - component: {fileID: 454383188}
+  - component: {fileID: 454383187}
   m_Layer: 0
   m_Name: Root
   m_TagString: Untagged
@@ -227,7 +227,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerName: Dewa
+  chapterLoadTime: 0
   chapterName: 1
+  chapterFader: {fileID: 0}
 --- !u!1 &466669627
 GameObject:
   m_ObjectHideFlags: 0

@@ -251,10 +251,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1831762531689175425, guid: 77eeb7f3b9d1f8c48af497769733f0c8, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6357984900262314457, guid: 77eeb7f3b9d1f8c48af497769733f0c8, type: 3}
       propertyPath: m_Name
       value: GlobalCanvas
@@ -264,17 +260,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77eeb7f3b9d1f8c48af497769733f0c8, type: 3}
---- !u!114 &182814480 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6082263328983187924, guid: 77eeb7f3b9d1f8c48af497769733f0c8, type: 3}
-  m_PrefabInstance: {fileID: 182814479}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 885e572c2b9549f4cbf88f60a4547868, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &321159739 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7888607841824646447, guid: 486f5daed683891468edd06c30f627a7, type: 3}
@@ -337,6 +322,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &623994654 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 377177130906270532, guid: 77eeb7f3b9d1f8c48af497769733f0c8, type: 3}
+  m_PrefabInstance: {fileID: 182814479}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 885e572c2b9549f4cbf88f60a4547868, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &636046800
 GameObject:
   m_ObjectHideFlags: 0
@@ -470,17 +466,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugMode: 0
-  sceneLoadDelay: 2.5
   menuScene: {fileID: 11400000, guid: cf397f725c03dc540b8ef3936eaab128, type: 2}
   debugScene: {fileID: 11400000, guid: 79a05091ddeffa64d96ce8ab498fb939, type: 2}
   gameplayObjects:
   - {fileID: 2143600230}
+  - {fileID: 1615875459}
   - {fileID: 1191665813}
   - {fileID: 674455011}
   - {fileID: 1600726441}
   - {fileID: 502739510}
   player: {fileID: 2143600228}
-  fader: {fileID: 182814480}
+  fader: {fileID: 623994654}
 --- !u!114 &888167235 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8830153673355373404, guid: 486f5daed683891468edd06c30f627a7, type: 3}
@@ -754,6 +750,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c652ac0d0d4b4341baad8b1ccce3f3c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isInitializedChapter: 1
   chapter: 0
 --- !u!1 &1648197781 stripped
 GameObject:

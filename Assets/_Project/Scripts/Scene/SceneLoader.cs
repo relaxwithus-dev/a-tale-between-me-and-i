@@ -1,11 +1,15 @@
 using System;
+using System.Collections;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Cinemachine;
+using ATBMI.Gameplay.Event;
 using ATBMI.Entities.Player;
+using ATBMI.Gameplay.Controller;
+using ATBMI.Scene.Chapter;
 
 namespace ATBMI.Scene
 {
+    [DisallowMultipleComponent]
     public class SceneLoader : MonoBehaviour
     {
         #region Struct
@@ -13,7 +17,7 @@ namespace ATBMI.Scene
         [Serializable]
         private struct EntryInfo
         {
-            [FormerlySerializedAs("locationTarget")] public LocationData locationData;
+            public LocationData locationData;
             public Transform pointFromScene;
         }
 
@@ -27,7 +31,8 @@ namespace ATBMI.Scene
         [SerializeField] private PolygonCollider2D confiner;
         
         // Reference
-        private PlayerController _player;
+        protected PlayerController player;
+        private FadeController _fader;
         private CinemachineConfiner2D _cameraConfiner;
         
         #endregion
@@ -37,11 +42,18 @@ namespace ATBMI.Scene
         // Unity Callbacks
         private void Awake()
         {
-            _player = FindObjectOfType<PlayerController>();
+            player = FindObjectOfType<PlayerController>();
+            _fader = SceneNavigation.Instance.Fader;
             _cameraConfiner = FindObjectOfType<CinemachineConfiner2D>();
         }
         
         private void OnEnable()
+        {
+            SetupSceneAttribute();
+            StartCoroutine(AnimateSceneFade());
+        }
+        
+        private void SetupSceneAttribute()
         {
             var latestScene = SceneNavigation.Instance.LatestScene;
             var entryPoint = latestScene != null && latestScene.Type == SceneAsset.SceneType.Gameplay
@@ -54,9 +66,19 @@ namespace ATBMI.Scene
                 return;
             }
             
-            _player.transform.position = entryPoint.position;
+            player.transform.position = entryPoint.position;
             _cameraConfiner.m_BoundingShape2D = confiner;
             _cameraConfiner.InvalidateCache();
+        }
+        
+        protected virtual IEnumerator AnimateSceneFade()
+        {
+            yield return new WaitForSeconds(_fader.FadeDuration);
+            _fader.FadeIn(() =>
+            {
+                player.StartMovement();
+                DialogueEvents.RegisterDialogueSignPointEvent();
+            });
         }
         
         #endregion

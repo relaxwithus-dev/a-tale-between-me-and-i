@@ -15,7 +15,6 @@ namespace ATBMI.Scene
 
         [Header("Attribute")]
         [SerializeField] private bool debugMode;
-        [SerializeField] private float sceneLoadDelay;
         [SerializeField] private SceneAsset menuScene;
         [SerializeField] [ShowIf("debugMode")]
         private SceneAsset debugScene;
@@ -33,22 +32,22 @@ namespace ATBMI.Scene
         [Header("Reference")]
         [SerializeField] private PlayerController player;
         [SerializeField] private FadeController fader;
-
+        
+        public FadeController Fader => fader;
+                
         #endregion
-
+        
         #region Methods
-
+        
         // Unity Callbacks
         private void Awake()
         {
             if (Instance != null)
             {
                 Destroy(gameObject);
+                return;
             }
-            else
-            {
-                Instance = this;
-            }
+            Instance = this;
         }
         
         private void Start()
@@ -62,7 +61,7 @@ namespace ATBMI.Scene
         {
             fader.gameObject.SetActive(true);
             fader.DoFade(1f, 0f);
-
+            
             StartCoroutine(LoadSceneAsync(sceneAsset.Reference));
             _asyncOperation.allowSceneActivation = true;
             CurrentScene = sceneAsset;
@@ -80,7 +79,7 @@ namespace ATBMI.Scene
         {
             StartCoroutine(SwitchRoutine(sceneAsset));
         }
-
+        
         public void SwitchSceneSection(bool isToMenu, SceneAsset sceneAsset = null)
         {
             // Validate
@@ -103,7 +102,7 @@ namespace ATBMI.Scene
             fader.FadeOut();
             player.StopMovement();
             yield return new WaitForSeconds(fader.FadeDuration);
-
+            
             onSwitchBegin?.Invoke();
             DialogueEvents.UnregisterDialogueSignPointEvent();
             
@@ -116,12 +115,6 @@ namespace ATBMI.Scene
             CurrentScene = sceneAsset;
             
             UnloadSceneAsync(LatestScene.Reference);
-            yield return new WaitForSeconds(fader.FadeDuration * sceneLoadDelay);
-            fader.FadeIn(() =>
-            {
-                player.StartMovement();
-                DialogueEvents.RegisterDialogueSignPointEvent();
-            });
         }
         
         private IEnumerator LoadSceneAsync(SceneReference scene)

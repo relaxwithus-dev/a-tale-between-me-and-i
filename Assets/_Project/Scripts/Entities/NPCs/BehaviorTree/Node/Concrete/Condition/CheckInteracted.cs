@@ -14,9 +14,9 @@ namespace ATBMI.Entities.NPCs
         
         public override NodeStatus Evaluate()
         {
-            return interact.IsInteracting || DialogueManager.Instance.IsDialoguePlaying?
-                NodeStatus.Success :
-                NodeStatus.Failure;
+            return interact.IsInteracting || DialogueManager.Instance.IsDialoguePlaying
+                ? NodeStatus.Success 
+                : NodeStatus.Failure;
         }
     }
 }
