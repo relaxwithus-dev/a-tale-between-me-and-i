@@ -3,6 +3,7 @@ using ATBMI.Minigame;
 using ATBMI.Inventory;
 using ATBMI.Interaction;
 using ATBMI.Gameplay.Event;
+using ATBMI.Scene.Chapter;
 
 namespace ATBMI.Dialogue
 {
@@ -19,6 +20,7 @@ namespace ATBMI.Dialogue
             story.BindExternalFunction("StartQuest", (string questId) => StartQuest(questId));
             story.BindExternalFunction("FinishQuest", (string questId) => FinishQuest(questId));
             story.BindExternalFunction("EnterMinigame", EnterMinigame);
+            story.BindExternalFunction("UpdateStoryChapter", (string chapter) => UpdateStoryChapter(chapter));
         }
         
         public void Unbind(Story story)
@@ -28,6 +30,7 @@ namespace ATBMI.Dialogue
             story.UnbindExternalFunction("StartQuest");
             story.UnbindExternalFunction("FinishQuest");
             story.UnbindExternalFunction("EnterMinigame");
+            story.UnbindExternalFunction("UpdateStoryChapter");
         }
         
         public void AddItem(string itemId) => UpdateItem(itemId, isAdding: true);
@@ -60,6 +63,7 @@ namespace ATBMI.Dialogue
         }
 
         public void EnterMinigame() => MinigameManager.EnterMinigameEvent();
-        
+        public void UpdateStoryChapter(string chapter) => ChapterViewer.Instance.UpdateChapter(chapter);
+
     }
 }

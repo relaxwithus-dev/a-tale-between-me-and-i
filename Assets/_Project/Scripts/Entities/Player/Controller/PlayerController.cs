@@ -57,13 +57,13 @@ namespace ATBMI.Entities.Player
         {
             InitPlayer();
         }
-
+        
         private void FixedUpdate()
         {
             if (!CanMove || DialogueManager.Instance.IsDialoguePlaying) return;
             PlayerMove();
         }
-
+        
         private void Update()
         {
             HandleState();

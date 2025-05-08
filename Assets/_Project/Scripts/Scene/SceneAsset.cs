@@ -1,18 +1,24 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Sirenix.OdinInspector;
 
 namespace ATBMI.Scene
 {
     [CreateAssetMenu(fileName = "NewSceneAsset", menuName = "Data/Scene/Scene Asset", order = 0)]
     public class SceneAsset : ScriptableObject
     {
-        [Header("Assets")] 
-        [SerializeField] private LocationTarget locationTarget;
+        public enum SceneType { Global, Gameplay }
+        
+        [Header("Assets")]
+        [SerializeField] private SceneType sceneType;
+        [SerializeField] [ShowIf("sceneType", SceneType.Gameplay)]
+        private LocationData location;
         [SerializeField] private SceneReference reference;
         [SerializeField] private List<SceneAsset> neighbours;
         
         // Getter
-        public Location Id => locationTarget.location;
+        public SceneType Type => sceneType;
+        public Location Id => location.location;
         public SceneReference Reference => reference;
         public SceneAsset GetNeighbourById(Location id)
         {

@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5d9a2753d3342619c3e76d19e25c859, type: 3}
   m_Name: S_Bdg_Toko_Kelontong
   m_EditorClassIdentifier: 
-  locationTarget: {fileID: 11400000, guid: 7034e219a2b233a41b992b2b5202dd14, type: 2}
+  sceneType: 1
+  location: {fileID: 11400000, guid: 7034e219a2b233a41b992b2b5202dd14, type: 2}
   reference:
     sceneAsset: {fileID: 102900000, guid: e84a2b6333813df449f179b8dfbf7cbf, type: 3}
-    scenePath: Assets/_Project/Scenes/Chapter/chapter-1/Bandung-v1/S_Bdg_Toko_Kelontong.unity
+    scenePath: Assets/_Project/Scenes/Chapter/chapter-1/Bandung/S_Bdg_Toko_Kelontong.unity
   neighbours:
   - {fileID: 11400000, guid: 1f8852a96c63dbc4bb75817b4a23a342, type: 2}
   - {fileID: 11400000, guid: d9a7244927bbee74ca7735bfcfc30d93, type: 2}

@@ -1,11 +1,15 @@
 using System;
-using ATBMI.Entities.Player;
-using Cinemachine;
+using System.Collections;
 using UnityEngine;
-using UnityEngine.Serialization;
+using Cinemachine;
+using ATBMI.Gameplay.Event;
+using ATBMI.Entities.Player;
+using ATBMI.Gameplay.Controller;
+using ATBMI.Scene.Chapter;
 
 namespace ATBMI.Scene
 {
+    [DisallowMultipleComponent]
     public class SceneLoader : MonoBehaviour
     {
         #region Struct
@@ -13,22 +17,22 @@ namespace ATBMI.Scene
         [Serializable]
         private struct EntryInfo
         {
-            [FormerlySerializedAs("locationData")] public LocationTarget locationTarget;
+            public LocationData locationData;
             public Transform pointFromScene;
         }
 
         #endregion
 
         #region Fields & Properties
-
+        
         [Header("Attribute")]
-        [SerializeField] private bool isFirstSpawn;
         [SerializeField] private Transform defaultPoint;
         [SerializeField] private EntryInfo[] entryPoints;
         [SerializeField] private PolygonCollider2D confiner;
         
         // Reference
-        private PlayerController _player;
+        protected PlayerController player;
+        private FadeController _fader;
         private CinemachineConfiner2D _cameraConfiner;
         
         #endregion
@@ -38,15 +42,22 @@ namespace ATBMI.Scene
         // Unity Callbacks
         private void Awake()
         {
-            _player = FindObjectOfType<PlayerController>();
+            player = FindObjectOfType<PlayerController>();
+            _fader = SceneNavigation.Instance.Fader;
             _cameraConfiner = FindObjectOfType<CinemachineConfiner2D>();
         }
         
         private void OnEnable()
         {
+            SetupSceneAttribute();
+            StartCoroutine(AnimateSceneFade());
+        }
+        
+        private void SetupSceneAttribute()
+        {
             var latestScene = SceneNavigation.Instance.LatestScene;
-            var entryPoint = latestScene != null 
-                ? Array.Find(entryPoints, e => e.locationTarget.location == latestScene.Id).pointFromScene 
+            var entryPoint = latestScene != null && latestScene.Type == SceneAsset.SceneType.Gameplay
+                ? Array.Find(entryPoints, e => e.locationData.location == latestScene.Id).pointFromScene 
                 : defaultPoint;
 
             if (entryPoint == null)
@@ -55,9 +66,19 @@ namespace ATBMI.Scene
                 return;
             }
             
-            _player.transform.position = entryPoint.position;
+            player.transform.position = entryPoint.position;
             _cameraConfiner.m_BoundingShape2D = confiner;
             _cameraConfiner.InvalidateCache();
+        }
+        
+        protected virtual IEnumerator AnimateSceneFade()
+        {
+            yield return new WaitForSeconds(_fader.FadeDuration);
+            _fader.FadeIn(() =>
+            {
+                player.StartMovement();
+                DialogueEvents.RegisterDialogueSignPointEvent();
+            });
         }
         
         #endregion

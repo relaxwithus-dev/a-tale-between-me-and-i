@@ -163,6 +163,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 454383186}
+  - component: {fileID: 454383188}
   - component: {fileID: 454383187}
   m_Layer: 0
   m_Name: Root
@@ -208,12 +209,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0bd71baf65d494ab60e4edd815b2eeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFirstSpawn: 1
   defaultPoint: {fileID: 1881756297}
   entryPoints:
-  - locationTarget: {fileID: 11400000, guid: 49bccccc83623e343a9fddd0dbe8e9fa, type: 2}
+  - locationData: {fileID: 11400000, guid: 49bccccc83623e343a9fddd0dbe8e9fa, type: 2}
     pointFromScene: {fileID: 751338740}
   confiner: {fileID: 1375257704}
+--- !u!114 &454383188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454383185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d3a46722a16485daaad6f057a6e873d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerName: Dewa
+  chapterLoadTime: 0
+  chapterName: 1
+  chapterFader: {fileID: 0}
 --- !u!1 &466669627
 GameObject:
   m_ObjectHideFlags: 0
@@ -849,7 +865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2d5600188a4b88854d4bd523fe97d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locationTarget: {fileID: 11400000, guid: 49bccccc83623e343a9fddd0dbe8e9fa, type: 2}
+  locationData: {fileID: 11400000, guid: 49bccccc83623e343a9fddd0dbe8e9fa, type: 2}
   infoTextUI: {fileID: 712656667}
 --- !u!1 &972521209
 GameObject:
