@@ -84,7 +84,7 @@ namespace ATBMI.Entities.NPCs
             _isHolding = true; 
             character.LookAt(_pullDirection);
             
-            player.PlayerFlip();
+            player.Flip();
             player.StopMovement();
             player.PlayerRb.AddForce(_holdDirection * holdForce, ForceMode2D.Impulse);
         }

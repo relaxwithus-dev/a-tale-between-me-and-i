@@ -1,4 +1,5 @@
 using System;
+using ATBMI.Entities;
 using UnityEngine;
 using ATBMI.Entities.Player;
 
@@ -10,7 +11,7 @@ namespace ATBMI.Data
         [Serializable]
         public struct MoveStat
         {
-            public PlayerState State;
+            public EntitiesState State;
             public float Speed;
             public float Deceleration;
         }

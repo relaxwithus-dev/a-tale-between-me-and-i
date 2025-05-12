@@ -34,7 +34,7 @@ namespace ATBMI.Entities.NPCs
                             {
                                 new CheckPassed(characterAI, zoneDetails[1].Radius),
                                 new TaskPull(characterAI, pullForce, pullDelay),
-                                new TaskTalk(characterAI, CharacterState.Anger, angerTexts)
+                                new TaskTalk(characterAI, angerTexts)
                             }),
                             new TaskTalk(characterAI, defaultTexts),
                             new TaskIdle(characterAI)

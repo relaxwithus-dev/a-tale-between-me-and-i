@@ -13,7 +13,7 @@ namespace ATBMI.Entities.NPCs
         protected Vector3 targetPosition;
         private float _moveSpeed;
         private float _currentTime;
-        private CharacterState _targetState;
+        private EntitiesState _targetState;
         
         // Constructor
         protected TaskMoveBase(CharacterAI character, CharacterData data, bool isWalk)
@@ -50,7 +50,7 @@ namespace ATBMI.Entities.NPCs
         
         private NodeStatus MoveToTarget()
         {
-            if (_targetState == CharacterState.Idle)
+            if (_targetState == EntitiesState.Idle)
                 TrySetupStats();
             
             character.ChangeState(_targetState);
@@ -80,15 +80,15 @@ namespace ATBMI.Entities.NPCs
         protected virtual void WhenReachTarget()
         {
             character.transform.position = targetPosition;
-            character.ChangeState(CharacterState.Idle);
+            character.ChangeState(EntitiesState.Idle);
         }
         
         private void TrySetupStats()
         {
             _moveSpeed = data.GetSpeedByType(isWalk ? "Walk" : "Run");
             _targetState = isWalk 
-                ? CharacterState.Walk 
-                : CharacterState.Run;
+                ? EntitiesState.Walk 
+                : EntitiesState.Run;
         }
         
         // Helpers
@@ -98,7 +98,7 @@ namespace ATBMI.Entities.NPCs
             
             _moveSpeed = 0f;
             _currentTime = 0f;
-            _targetState = CharacterState.Idle;
+            _targetState = EntitiesState.Idle;
         }
     }
 }

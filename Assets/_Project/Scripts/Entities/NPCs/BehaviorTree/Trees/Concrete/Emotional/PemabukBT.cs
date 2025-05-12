@@ -38,7 +38,7 @@ namespace ATBMI.Entities.NPCs
                                 new CheckDirection(characterAI, isDifferentDir: false),
                                 new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true),
                                 new TaskPush(characterAI, pushForce, pushDelay),
-                                new TaskTalk(characterAI, CharacterState.Anger, angerTexts),
+                                new TaskTalk(characterAI, angerTexts),
                                 new TaskMoveToOrigin(characterAI, characterAI.Data, isWalk: true)
                             }),
                             new TaskTalk(characterAI, defaultTexts),

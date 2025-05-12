@@ -87,9 +87,9 @@ namespace ATBMI.Entities.Player
             var animTag = _playerController.Data.PlayerAnimationTag;
             return _playerController.PlayerState switch
             {
-                PlayerState.Idle => GetCachedHash(animTag + "_Idle"),
-                PlayerState.Walk => GetCachedHash(animTag + "_Walk"),
-                PlayerState.Run => GetCachedHash(animTag + "_Run"),
+                EntitiesState.Idle => GetCachedHash(animTag + "_Idle"),
+                EntitiesState.Walk => GetCachedHash(animTag + "_Walk"),
+                EntitiesState.Run => GetCachedHash(animTag + "_Run"),
                 _ => throw new InvalidOperationException("Invalid player state")
             };
         }

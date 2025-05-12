@@ -8,15 +8,15 @@ using ATBMI.Gameplay.Handler;
 
 namespace ATBMI.Entities.Player
 {
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : MonoBehaviour, IController
     {
         #region Fields & Properties
 
         [Header("Stats")]
-        [SerializeField] private PlayerState playerState = PlayerState.Idle;
+        [SerializeField] private EntitiesState playerState = EntitiesState.Idle;
         [SerializeField] private PlayerData[] playerData;
         [SerializeField] private Vector2 moveDirection;
-        [SerializeField] private bool isRight;
+        [SerializeField] private bool isFacingRight;
         [SerializeField] private bool canMove;
 
         private float _currentDeceleration;
@@ -25,10 +25,10 @@ namespace ATBMI.Entities.Player
         private PlayerData _currentData;
         
         public PlayerData Data => _currentData;
-        public bool IsRight => isRight;
+        public bool IsFacingRight => isFacingRight;
         public bool CanMove => canMove;
         public Vector2 MoveDirection => moveDirection;
-        public PlayerState PlayerState => playerState;
+        public EntitiesState PlayerState => playerState;
 
         public PlayerData.MoveStat CurrentStat { get; private set; }
         public float CurrentSpeed { get; set; }
@@ -67,7 +67,7 @@ namespace ATBMI.Entities.Player
         private void Update()
         {
             HandleState();
-            PlayerDirection();
+            LookAt(moveDirection);
         }
         
         // Initialize
@@ -130,18 +130,17 @@ namespace ATBMI.Entities.Player
             PlayerRb.velocity = Vector2.zero;
             _latestDirection = Vector2.zero;
         }
-
-        private void PlayerDirection()
+        
+        public void LookAt(Vector2 direction)
         {
-            var direction = moveDirection;
-            if (direction.x > 0 && !isRight || direction.x < 0 && isRight)
-                PlayerFlip();
+            if (direction.x > 0 && !isFacingRight || direction.x < 0 && isFacingRight)
+                Flip();
         }
-
-        public void PlayerFlip()
+        
+        public void Flip()
         {
-            isRight = !isRight;
-            _playerSr.flipX = !isRight;
+            isFacingRight = !isFacingRight;
+            _playerSr.flipX = !isFacingRight;
         }
 
         // Helpers
@@ -167,11 +166,16 @@ namespace ATBMI.Entities.Player
 
         #region State
 
+        public void ChangeState(EntitiesState state)
+        {
+            throw new NotImplementedException();
+        }
+        
         private void HandleState()
         {
             var state = GetState();
 
-            DialogueEvents.PlayerRunEvent(state == PlayerState.Run);
+            DialogueEvents.PlayerRunEvent(state == EntitiesState.Run);
 
             if (playerState == state) return;
             playerState = state;
@@ -179,18 +183,18 @@ namespace ATBMI.Entities.Player
             CurrentSpeed = CurrentStat.Speed;
         }
 
-        private PlayerState GetState()
+        private EntitiesState GetState()
         {
             var direction = MoveDirection;
             var isRunning = GameInputHandler.Instance.IsPressRun;
 
-            if (direction == Vector2.zero) return PlayerState.Idle;
-            return isRunning ? PlayerState.Run : PlayerState.Walk;
+            if (direction == Vector2.zero) return EntitiesState.Idle;
+            return isRunning ? EntitiesState.Run : EntitiesState.Walk;
         }
 
-        private PlayerData.MoveStat GetMoveStats(PlayerState state)
+        private PlayerData.MoveStat GetMoveStats(EntitiesState state)
         {
-            if (state == PlayerState.Idle)
+            if (state == EntitiesState.Idle)
                 return CurrentStat;
 
             return Array.Find(_currentData.MoveStats, stat => stat.State == state);
