@@ -8,8 +8,8 @@ namespace ATBMI.Cutscene
         [SerializeField] private CutsceneHandler[] cutsceneHandlers;
         
         private int _currentIndex;
-        private bool _isCutscenePlaying;
         private CutsceneHandler _currentCutscene;
+        public static bool IsCutscenePlaying;
         
         private void Start()
         {
@@ -20,8 +20,8 @@ namespace ATBMI.Cutscene
         {
             // Stats
             _currentIndex = 0;
-            _isCutscenePlaying = false;
             _currentCutscene = cutsceneHandlers[_currentIndex];
+            IsCutscenePlaying = false;
             
             // Handlers
             for (var i = 0; i < cutsceneHandlers.Length; i++)
@@ -37,12 +37,12 @@ namespace ATBMI.Cutscene
         public void EnterCutscene()
         {
             _currentCutscene.gameObject.SetActive(true);
-            _isCutscenePlaying = true;
+            IsCutscenePlaying = true;
         }
         
         public void ExitCutscene()
         {
-            _isCutscenePlaying = false;
+            IsCutscenePlaying = false;
             _currentCutscene.gameObject.SetActive(false);
             if (_currentIndex < cutsceneHandlers.Length - 1)
             {

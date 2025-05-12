@@ -18,6 +18,7 @@ namespace ATBMI.Cutscene
         private int _currentIndex;
         private bool _isPlaying;
         private bool _isTransitioning;
+        private bool _hasExecutingStep;
         private Cutscene _currentCutscene;
         
         // Reference
@@ -76,7 +77,14 @@ namespace ATBMI.Cutscene
         // Core
         private void HandleCutsceneFlow()
         {
-            _currentCutscene.Execute();
+            // Execute step
+            if (!_hasExecutingStep)
+            { 
+                _currentCutscene.Execute();
+                _hasExecutingStep = true;
+            }
+            
+            // Check if finished
             if (_currentCutscene.IsFinished())
             {
                 if (_currentIndex >= cutsceneSteps.Count - 1)
@@ -96,8 +104,9 @@ namespace ATBMI.Cutscene
             yield return new WaitForSeconds(transitionTime);
 
             _currentIndex++;
-            _currentCutscene = cutsceneSteps[_currentIndex];
             _isTransitioning = false;
+            _hasExecutingStep = false;
+            _currentCutscene = cutsceneSteps[_currentIndex];
         }
         
         #endregion

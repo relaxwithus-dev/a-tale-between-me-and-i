@@ -6,7 +6,7 @@ using UnityEngine;
 namespace ATBMI.Entities.Player
 {
     [RequireComponent(typeof(Animator))]
-    public class PlayerAnimation : MonoBehaviour
+    public class PlayerAnimation : MonoBehaviour, IAnimatable
     {
         #region Fields & Properties
         
@@ -58,15 +58,22 @@ namespace ATBMI.Entities.Player
             _currentState = state;
         }
         
-        public IEnumerator TrySetAnimationState(string state)
+        
+        public bool TrySetAnimationState(string state)
         {
             var stateName = _playerController.Data.PlayerAnimationTag + "_" + state;
             if (!_animationHashes.ContainsKey(stateName))
             {
                 Debug.LogWarning($"animation {stateName} isn't exist");
-                yield break;
+                return false;
             }
 
+            StartCoroutine(PlayAnimationRoutine(stateName));
+            return true;
+        }
+        
+        private IEnumerator PlayAnimationRoutine(string stateName)
+        {
             _isInteractiveAnimation = true;
             _currentState = GetCachedHash(stateName);
             _playerAnimator.CrossFade(_currentState, 0, 0);
