@@ -12,16 +12,16 @@ namespace ATBMI.Cutscene
         [SerializeField] private Ease easeType;
         [SerializeField] private bool isRunning;
         [SerializeField] private float moveDuration;
-        [SerializeField] private Transform targetTransform;
+        [SerializeField] private Transform characterTransform;
         [SerializeField] private Transform targetPoint;
-
+        
         private bool _isFinished;
-        private string _animationState;
+        private EntitiesState _animationState;
         private Tweener _tween;
-        private IAnimatable _animatable;
+        private IController _controller;
         
         #endregion
-
+        
         #region Methods
         
         protected override void InitOnStart()
@@ -29,25 +29,29 @@ namespace ATBMI.Cutscene
             base.InitOnStart();
             
             _isFinished = false;
-            _animationState = isRunning ? "Run" : "Walk";
-            _animatable = targetTransform.GetComponent<IAnimatable>();
+            _animationState = isRunning ? EntitiesState.Run : EntitiesState.Walk;
+            _controller = characterTransform.GetComponent<IController>();
         }
         
         public override void Execute()
         {
             var targetPosX = targetPoint.position.x;
+            var lookPos = targetPoint.position - characterTransform.position;
+            lookPos.Normalize();
             
             _tween?.Kill(false);
-            _animatable.TrySetAnimationState(_animationState);
-            _tween = targetTransform.DOMoveX(targetPosX, moveDuration)
+            
+            _controller.LookAt(lookPos);
+            _controller.ChangeState(_animationState);
+            _tween = characterTransform.DOMoveX(targetPosX, moveDuration)
                 .SetEase(easeType)
                 .OnComplete(() =>
                 {
-                    _animatable.TrySetAnimationState("Idle");
+                    _controller.ChangeState(EntitiesState.Idle);
                     _isFinished = true;
                 });
         }
-
+        
         public override bool IsFinished() => _isFinished;
         
         #endregion

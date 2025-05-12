@@ -40,16 +40,20 @@ namespace ATBMI.Cutscene
             if (_dialogueManager.IsDialoguePlaying) return;
             DialogueEvents.EnterDialogueEvent(dialogueText);
         }
-
+        
         public override bool IsFinished()
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (debugMode)
             {
-                _isStarted = false;
-                return true;
-            }
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    _isStarted = false;
+                    return true;
+                }
 
-            return false;
+                return false;
+            }
+           
             return !_dialogueManager.IsDialoguePlaying;
         }
         

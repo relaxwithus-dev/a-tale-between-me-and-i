@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace ATBMI.Cutscene
 {
+    // TODO: Bikin condition node jika cutscene berjalan untuk NPCs
     public class CutsceneManager : MonoBehaviour
     {
         [Header("Attribute")] 
@@ -9,6 +10,7 @@ namespace ATBMI.Cutscene
         
         private int _currentIndex;
         private CutsceneHandler _currentCutscene;
+        
         public static bool IsCutscenePlaying;
         
         private void Start()

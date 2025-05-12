@@ -51,6 +51,7 @@ namespace ATBMI.Cutscene
         {
             if (other.CompareTag(GameTag.PLAYER_TAG))
             {
+                Debug.Log($"execute cutscene {cutsceneID}");
                 _isPlaying = true;
                 SetupCollider(isEnable: false);
                 CutsceneManager.EnterCutscene();
