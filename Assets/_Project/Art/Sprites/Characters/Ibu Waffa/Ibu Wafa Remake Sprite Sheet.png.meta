@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d3a4a7d4a9dff284f88e7c49b48be60a
+guid: 5b94b8d4b53f50d4496e4696990f6a1d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -81,33 +81,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: 24
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -123,7 +97,7 @@ TextureImporter:
     buildTarget: Windows Store Apps
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 24
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -149,568 +123,421 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Warmad_Spritesheet_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 400
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7bb923cb4a24dee4181768c442b087ac
-      internalID: -1716787426
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Warmad_Spritesheet_1
-      rect:
-        serializedVersion: 2
-        x: 100
-        y: 400
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4f753f5e8e38e394ca724f9281bedb1e
-      internalID: -1755653144
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Warmad_Spritesheet_2
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 400
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4350858f0a0574544a33bc5c882a9b3c
-      internalID: -507929128
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Warmad_Spritesheet_3
-      rect:
-        serializedVersion: 2
-        x: 300
-        y: 400
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 59d6e93b22fbcf248b7e615aac1306bd
-      internalID: -1112641111
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Warmad_Spritesheet_4
-      rect:
-        serializedVersion: 2
-        x: 500
-        y: 400
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 015b27e7f39b20f48b071c96b0375570
-      internalID: 1604329684
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Warmad_Spritesheet_5
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 300
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e7f4acd0cdf5abb45a369d44d1a66f55
-      internalID: -1115262602
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Warmad_Spritesheet_6
-      rect:
-        serializedVersion: 2
-        x: 100
-        y: 300
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4748cf51fe8613c4d8440bb7e09c8c9e
-      internalID: -1238085484
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Warmad_Spritesheet_7
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 300
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a5b8edc10e210ac49b2256ddf9ef3c05
-      internalID: -1963238712
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Warmad_Spritesheet_8
-      rect:
-        serializedVersion: 2
-        x: 300
-        y: 300
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 88fd86dae9830a94fb16281233457887
-      internalID: -1810755842
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Warmad_Spritesheet_9
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 300
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 344d16e88527da4458f6274b54e65a30
-      internalID: -684057989
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Warmad_Spritesheet_10
-      rect:
-        serializedVersion: 2
-        x: 500
-        y: 300
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f60854e8983e0aa44a33b2a54e03fa19
-      internalID: -659923286
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Warmad_Spritesheet_11
+      name: Ibu Wafa Remake Sprite Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 200
         width: 100
         height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a705a845adee6174f871a4b8176f4e93
-      internalID: -910908054
+      spriteID: 956685469f330e64f95b653b21dd910b
+      internalID: 1755086245
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Warmad_Spritesheet_12
+      name: Ibu Wafa Remake Sprite Sheet_1
       rect:
         serializedVersion: 2
         x: 100
         y: 200
         width: 100
         height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7eaeadcbcaaae054dac8e6265d49a9f2
-      internalID: -1320221925
+      spriteID: a75d18d1a6930174f96cbff4fed07036
+      internalID: 526973652
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Warmad_Spritesheet_13
+      name: Ibu Wafa Remake Sprite Sheet_2
       rect:
         serializedVersion: 2
         x: 200
         y: 200
         width: 100
         height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1db2e53e766e0c1498d1082eaf37e876
-      internalID: 156347141
+      spriteID: 92953ae039285a04d83469b2bf7664aa
+      internalID: 223745436
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Warmad_Spritesheet_14
+      name: Ibu Wafa Remake Sprite Sheet_3
       rect:
         serializedVersion: 2
         x: 300
         y: 200
         width: 100
         height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 164d4331c9b329b4f98b2af7a0cf7c52
-      internalID: 273955504
+      spriteID: cbe9a27a1b6781040a29812faafd6e45
+      internalID: -769441585
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Warmad_Spritesheet_15
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 200
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1017d454fbc38b146bf8dcada75ee4b5
-      internalID: -1355759498
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Warmad_Spritesheet_16
+      name: Ibu Wafa Remake Sprite Sheet_4
       rect:
         serializedVersion: 2
         x: 500
         y: 200
         width: 100
         height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c06af08e8e9c8cd44849a6feb5c00cb3
-      internalID: 1950084283
+      spriteID: a23e57bcf04afca48822511d07cdc5a9
+      internalID: -19253315
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Warmad_Spritesheet_17
+      name: Ibu Wafa Remake Sprite Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 200
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d8f17713df53d14f983dbcc0ad29ae8
+      internalID: -606063519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ibu Wafa Remake Sprite Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 200
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c951a572b30adaa4baf21b7166025cf2
+      internalID: 581767590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ibu Wafa Remake Sprite Sheet_7
       rect:
         serializedVersion: 2
         x: 0
         y: 100
         width: 100
         height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 87109eda713f03542a81c32727236e4d
-      internalID: 581669279
+      spriteID: 4f5eb2170058b164b9a71b1dd2dbadd4
+      internalID: 1956725230
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Warmad_Spritesheet_18
-      rect:
-        serializedVersion: 2
-        x: 100
-        y: 100
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 47d3559d7767edb4a880fbd3fc263136
-      internalID: -1555490794
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Warmad_Spritesheet_19
+      name: Ibu Wafa Remake Sprite Sheet_8
       rect:
         serializedVersion: 2
         x: 200
         y: 100
         width: 100
         height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2904173eb51862b41968aa74ea072ab7
-      internalID: -1886233646
+      spriteID: 8384484009200694c8e37c43627e01a4
+      internalID: 755769330
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Warmad_Spritesheet_20
+      name: Ibu Wafa Remake Sprite Sheet_9
       rect:
         serializedVersion: 2
         x: 300
         y: 100
         width: 100
         height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c5e682f5be110046852a208a50953c3
-      internalID: 862345727
+      spriteID: 772d0826c68e6eb48bee72af9e09684d
+      internalID: 644221390
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Warmad_Spritesheet_21
+      name: Ibu Wafa Remake Sprite Sheet_10
       rect:
         serializedVersion: 2
         x: 400
         y: 100
         width: 100
         height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a3738a4632e7ec4ab9db3c804fd53e0
-      internalID: 2089516791
+      spriteID: 8ff8e53944db0c44192d966443cec618
+      internalID: 940021293
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Warmad_Spritesheet_22
+      name: Ibu Wafa Remake Sprite Sheet_11
       rect:
         serializedVersion: 2
         x: 500
         y: 100
         width: 100
         height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa9feff36bd28c94f88c83506b862ba9
-      internalID: -418604048
+      spriteID: 41f6d4b9c6b1a4a44873d3046cb1a377
+      internalID: 1333265050
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Warmad_Spritesheet_23
+      name: Ibu Wafa Remake Sprite Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 100
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0db9eea88f076bc4f9d822ff5407bc0d
+      internalID: -1264839634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ibu Wafa Remake Sprite Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 100
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24650e37b5337904a99cc87c85bdb6c2
+      internalID: -1646690317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ibu Wafa Remake Sprite Sheet_14
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 100
         height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 272bc2d0ec11a5c498336e2dfc1bb606
-      internalID: -2122792234
+      spriteID: 79613791ec7cecd4d89a05ab4e5e50c2
+      internalID: 1761994840
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Warmad_Spritesheet_24
+      name: Ibu Wafa Remake Sprite Sheet_15
       rect:
         serializedVersion: 2
         x: 100
         y: 0
         width: 100
         height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 171227d3787142d48be0d13575f806b6
-      internalID: 1568123157
+      spriteID: 8f76eae9ee9a4dc4a999914f7cb1980c
+      internalID: -482370605
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Warmad_Spritesheet_25
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 0
-        width: 100
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1efe64aef9de0144e868319f2dc9299c
-      internalID: 371149222
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Warmad_Spritesheet_26
+      name: Ibu Wafa Remake Sprite Sheet_16
       rect:
         serializedVersion: 2
         x: 300
         y: 0
         width: 100
         height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48b360b998bafa541ae33d7c53491257
-      internalID: -1477950739
+      spriteID: 3a053b2399d937a4a923136434238051
+      internalID: 365955311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ibu Wafa Remake Sprite Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28ceca4a7107b8143b5c39ac357582d5
+      internalID: 1348618497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ibu Wafa Remake Sprite Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14e470a2750ac754d936331204a34625
+      internalID: -989471805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ibu Wafa Remake Sprite Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c5e4581836d9e640a86ddc5a0c30c07
+      internalID: 1132796415
       vertices: []
       indices: 
       edges: []
@@ -726,33 +553,26 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Warmad_Spritesheet_0: -1716787426
-      Warmad_Spritesheet_1: -1755653144
-      Warmad_Spritesheet_10: -659923286
-      Warmad_Spritesheet_11: -910908054
-      Warmad_Spritesheet_12: -1320221925
-      Warmad_Spritesheet_13: 156347141
-      Warmad_Spritesheet_14: 273955504
-      Warmad_Spritesheet_15: -1355759498
-      Warmad_Spritesheet_16: 1950084283
-      Warmad_Spritesheet_17: 581669279
-      Warmad_Spritesheet_18: -1555490794
-      Warmad_Spritesheet_19: -1886233646
-      Warmad_Spritesheet_2: -507929128
-      Warmad_Spritesheet_20: 862345727
-      Warmad_Spritesheet_21: 2089516791
-      Warmad_Spritesheet_22: -418604048
-      Warmad_Spritesheet_23: -2122792234
-      Warmad_Spritesheet_24: 1568123157
-      Warmad_Spritesheet_25: 371149222
-      Warmad_Spritesheet_26: -1477950739
-      Warmad_Spritesheet_3: -1112641111
-      Warmad_Spritesheet_4: 1604329684
-      Warmad_Spritesheet_5: -1115262602
-      Warmad_Spritesheet_6: -1238085484
-      Warmad_Spritesheet_7: -1963238712
-      Warmad_Spritesheet_8: -1810755842
-      Warmad_Spritesheet_9: -684057989
+      Ibu Wafa Remake Sprite Sheet_0: 1755086245
+      Ibu Wafa Remake Sprite Sheet_1: 526973652
+      Ibu Wafa Remake Sprite Sheet_10: 940021293
+      Ibu Wafa Remake Sprite Sheet_11: 1333265050
+      Ibu Wafa Remake Sprite Sheet_12: -1264839634
+      Ibu Wafa Remake Sprite Sheet_13: -1646690317
+      Ibu Wafa Remake Sprite Sheet_14: 1761994840
+      Ibu Wafa Remake Sprite Sheet_15: -482370605
+      Ibu Wafa Remake Sprite Sheet_16: 365955311
+      Ibu Wafa Remake Sprite Sheet_17: 1348618497
+      Ibu Wafa Remake Sprite Sheet_18: -989471805
+      Ibu Wafa Remake Sprite Sheet_19: 1132796415
+      Ibu Wafa Remake Sprite Sheet_2: 223745436
+      Ibu Wafa Remake Sprite Sheet_3: -769441585
+      Ibu Wafa Remake Sprite Sheet_4: -19253315
+      Ibu Wafa Remake Sprite Sheet_5: -606063519
+      Ibu Wafa Remake Sprite Sheet_6: 581767590
+      Ibu Wafa Remake Sprite Sheet_7: 1956725230
+      Ibu Wafa Remake Sprite Sheet_8: 755769330
+      Ibu Wafa Remake Sprite Sheet_9: 644221390
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
