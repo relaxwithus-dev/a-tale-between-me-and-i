@@ -54,7 +54,7 @@ namespace ATBMI.Entities.NPCs
             {
                 Debug.Log("Execute Success: TaskFollow");
                 parentNode.ClearData(TARGET_KEY);
-                character.ChangeState(CharacterState.Idle);
+                character.ChangeState(EntitiesState.Idle);
                 return NodeStatus.Success;
             }
             
@@ -114,13 +114,13 @@ namespace ATBMI.Entities.NPCs
             if (Vector3.Distance(character.transform.position, _targetPosition) <= 0.01f)
             {
                 _currentFollowDelayTime = 0f;
-                character.ChangeState(CharacterState.Idle);
+                character.ChangeState(EntitiesState.Idle);
                 return NodeStatus.Running;
             }
             
             _currentFollowTime += Time.deltaTime;
             character.LookAt(_targetDirection);
-            character.ChangeState(CharacterState.Walk);
+            character.ChangeState(EntitiesState.Walk);
             character.transform.position = Vector2.MoveTowards(character.transform.position, 
                 _targetPosition, moveSpeed * Time.deltaTime);
             

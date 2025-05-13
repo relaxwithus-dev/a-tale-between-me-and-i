@@ -1,90 +1,49 @@
 using UnityEngine;
-using DG.Tweening;
-using System.Collections;
-using ATBMI.Dialogue;
+using ATBMI.Core;
 
-public class CutsceneManager : MonoBehaviour
+namespace ATBMI.Cutscene
 {
-    [SerializeField] private DialogueManager dialogueManager;
-    protected bool isDialogActive = false;
-    protected int currentStep = 1;
-
-    [SerializeField] private string cutsceneID;
-
-    [Header("Cutscene Database")]
-    [SerializeField] private CutsceneDatabase cutsceneDatabase;
-
-    [Header("Cutscene Status")]
-    [SerializeField] protected bool cutsceneTriggered;
-
-    protected virtual void Start()
+    public class CutsceneManager : MonoBehaviour
     {
-        cutsceneTriggered = cutsceneDatabase.GetCutsceneState(cutsceneID);
-
-        if (cutsceneTriggered)
+        #region Fields
+        
+        // Main
+        public static CutsceneManager Instance;
+        public bool IsCutscenePlaying { get; private set; }
+        
+        [Header("Reference")]
+        [SerializeField] private Transform playerTransform;
+        
+        public Transform Player
         {
-            gameObject.SetActive(false);
-            Debug.Log($"Cutscene {cutsceneID} sudah di-trigger sebelumnya, dinonaktifkan.");
+            get
+            {
+                if (playerTransform.CompareTag(GameTag.PLAYER_TAG))
+                    return playerTransform;
+                
+                Debug.Log("player transform is not player!\n check the tag!");
+                return null;
+            }
         }
-    }
+        
+        #endregion
 
-    protected virtual void Update()
-    {
-        if (isDialogActive && !dialogueManager.IsDialoguePlaying)
+        #region Methods
+        
+        private void Awake()
         {
-            isDialogActive = false;
-            OnDialogComplete();
+            if (Instance != null)
+            {
+                Destroy(gameObject);
+                return;
+            }
+            
+            Instance = this;
         }
-    }
-
-    protected virtual void OnDialogComplete() => NextStep(currentStep + 1);
-
-    protected virtual void NextStep(int step)
-    {
-        currentStep = step;
-        switch (step)
-        {
-            case 1: Sequence01(); break;
-            case 2: Sequence02(); break;
-            case 3: Sequence03(); break;
-            default: EndCutscene(); break;
-        }
-        transform.parent.gameObject.SetActive(false);
-    }
-
-    protected virtual void Sequence01() { }
-    protected virtual void Sequence02() { }
-    protected virtual void Sequence03() { }
-
-    protected void StartDialog(TextAsset inkJSON)
-    {
-        isDialogActive = true;
-        dialogueManager.EnterDialogueMode(inkJSON);
-    }
-
-    protected void MarkCutsceneAsTriggered()
-    {
-        if (!cutsceneTriggered)
-        {
-            cutsceneDatabase.SetCutsceneState(cutsceneID, true);
-            cutsceneTriggered = true;
-            gameObject.SetActive(false);
-            Debug.Log($"Cutscene {cutsceneID} telah di-trigger dan dinonaktifkan.");
-        }
-    }
-
-    public void ResetCutsceneState()
-    {
-        cutsceneDatabase.SetCutsceneState(cutsceneID, false);
-        cutsceneTriggered = false;
-        gameObject.SetActive(true);
-        currentStep = 1;
-        Debug.Log($"Cutscene {cutsceneID} telah di-reset.");
-    }
-
-    protected virtual void EndCutscene()
-    {
-        Debug.Log($"Cutscene {cutsceneID} selesai!");
-        MarkCutsceneAsTriggered();
+        
+        public void OnCutscenePlay() => IsCutscenePlaying = true;
+        public void OnCutsceneStop() => IsCutscenePlaying = false;
+        
+        #endregion
     }
 }

@@ -3,18 +3,18 @@ using ATBMI.Data;
 
 namespace ATBMI.Entities.NPCs
 {
-    public class CharacterAI : MonoBehaviour
+    public class CharacterAI : MonoBehaviour, IController
     {
         #region Fields & Properties
 
         [Header("General")]
         [SerializeField] protected CharacterData characterData;
-        [SerializeField] protected CharacterState characterState;
+        [SerializeField] protected EntitiesState characterState;
         [SerializeField] private Vector2 characterDirection;
         [SerializeField] private bool isFacingRight;
                 
         public CharacterData Data => characterData;
-        public CharacterState State => characterState;
+        public EntitiesState State => characterState;
         public Vector2 Direction => characterDirection;
         public bool IsFacingRight => isFacingRight;
         
@@ -32,7 +32,7 @@ namespace ATBMI.Entities.NPCs
         }
         
         // Core
-        public void ChangeState(CharacterState state)
+        public void ChangeState(EntitiesState state)
         {
             if (state == characterState) 
                 return;
@@ -48,7 +48,7 @@ namespace ATBMI.Entities.NPCs
                 Flip();
         }
         
-        private void Flip()
+        public void Flip()
         {
             isFacingRight = !isFacingRight;
             transform.Rotate(0f, 180f, 0f);

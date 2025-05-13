@@ -1,3 +1,4 @@
+using ATBMI.Cutscene;
 using ATBMI.Dialogue;
 using ATBMI.Interaction;
 
@@ -14,7 +15,8 @@ namespace ATBMI.Entities.NPCs
         
         public override NodeStatus Evaluate()
         {
-            return interact.IsInteracting || DialogueManager.Instance.IsDialoguePlaying
+            return interact.IsInteracting || DialogueManager.Instance.IsDialoguePlaying 
+                                          || CutsceneManager.Instance.IsCutscenePlaying
                 ? NodeStatus.Success 
                 : NodeStatus.Failure;
         }

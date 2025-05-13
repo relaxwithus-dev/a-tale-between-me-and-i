@@ -9,7 +9,7 @@ namespace ATBMI.Entities.NPCs
         // Fields
         private readonly CharacterAI character;
         private readonly float moveSpeed;
-        private readonly CharacterState targetState = CharacterState.Walk;
+        private readonly EntitiesState targetState = EntitiesState.Walk;
         private readonly CheckFatigue fatigue;
         
         private readonly List<Vector3> wayPoints = new();
@@ -85,7 +85,7 @@ namespace ATBMI.Entities.NPCs
                 _currentTime = 0f;
                 _isPathCalculated = true;
                 Debug.Log("reach way points");
-                character.ChangeState(CharacterState.Idle);
+                character.ChangeState(EntitiesState.Idle);
             }
             
             return NodeStatus.Running;

@@ -1,10 +1,5 @@
 namespace ATBMI.Core
 {
-    public class GameConstant
-    {
-        
-    }
-
     public class GameTag
     {
         public const string PLAYER_TAG = "Player";

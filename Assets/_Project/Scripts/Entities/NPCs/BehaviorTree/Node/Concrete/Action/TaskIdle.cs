@@ -28,7 +28,7 @@ namespace ATBMI.Entities.NPCs
         // Core
         public override NodeStatus Evaluate()
         {
-            character.ChangeState(CharacterState.Idle);
+            character.ChangeState(EntitiesState.Idle);
             return NodeStatus.Success;
         }
     }

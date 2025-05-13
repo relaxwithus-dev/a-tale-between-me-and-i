@@ -7,7 +7,6 @@ namespace ATBMI.Entities.NPCs
     public class TaskTalk : LeafWeight
     {
         private readonly CharacterAI character;
-        private readonly CharacterState state;
         private readonly TextAsset[] dialogueAssets;
 
         private int _talkCount;
@@ -45,26 +44,22 @@ namespace ATBMI.Entities.NPCs
             OverrideEmotionFactors(_factorsTalk);
         }
         
-        public TaskTalk(CharacterAI character, CharacterState state, TextAsset[] dialogueAssets)
-        {
-            this.state = state;
-            this.character = character;
-            this.dialogueAssets = dialogueAssets;
-            
-            OverrideEmotionFactors(_factorsTalkState);
-        } 
-        
         // Core
         public override NodeStatus Evaluate()
         {
-            Debug.Log("Execute: TaskTalk");
-            var targetState = state is CharacterState.Idle ? CharacterState.Speak : state;
+            if (!DialogueManager.Instance.IsDialoguePlaying)
+            {
+                if (_talkCount < dialogueAssets.Length)
+                {
+                    DialogueManager.Instance.EnterDialogueMode(dialogueAssets[_talkCount]);
+                    _talkCount++;
+                    return NodeStatus.Running;
+                }
+                
+                return NodeStatus.Success;
+            }
             
-            DialogueManager.Instance.EnterDialogueMode(dialogueAssets[_talkCount]);
-            _talkCount = Mathf.Clamp(_talkCount++, 0, dialogueAssets.Length - 1);
-            character.ChangeState(targetState);
-            
-            return NodeStatus.Success;
+            return NodeStatus.Running;
         }
     }
 }

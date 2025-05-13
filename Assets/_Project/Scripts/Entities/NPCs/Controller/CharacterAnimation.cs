@@ -4,7 +4,7 @@ using UnityEngine;
 namespace ATBMI.Entities.NPCs
 {
     [RequireComponent(typeof(Animator))]
-    public class CharacterAnimation : MonoBehaviour
+    public class CharacterAnimation : MonoBehaviour, IAnimatable
     {
         #region Fields & Properties
         

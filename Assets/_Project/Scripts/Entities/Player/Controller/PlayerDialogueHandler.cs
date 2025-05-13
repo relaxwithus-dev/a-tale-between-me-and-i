@@ -50,7 +50,7 @@ namespace ATBMI.Entities.Player
             _playerInkJson = ink;
             if (ShouldFlipPlayerWhenDialogue(newPositionX, npcPosX, isNpcFacingRight))
             {
-                _playerController.PlayerFlip();
+                _playerController.Flip();
             }
 
             // TODO: change to dotween?
@@ -87,7 +87,7 @@ namespace ATBMI.Entities.Player
             if (ShouldFlipPlayerWhenDialogue(newPositionX, npcPosX, isNpcFacingRight))
             {
                 yield return new WaitForSeconds(0.05f);
-                _playerController.PlayerFlip();
+                _playerController.Flip();
             }
 
             rule.EnterDialogueWithInkJson(_playerInkJson);
@@ -123,13 +123,13 @@ namespace ATBMI.Entities.Player
                 if (playerMovingRight)
                 {
                     // Player moving right
-                    shouldFlip = (!_playerController.IsRight && isNpcFacingRight) // Player facing left, NPC faces right
+                    shouldFlip = (!_playerController.IsFacingRight && isNpcFacingRight) // Player facing left, NPC faces right
                                 || (playerOnLeftOfNpc && !isNpcFacingRight);      // Player on left, NPC facing left
                 }
                 else if (playerMovingLeft)
                 {
                     // Player moving left
-                    shouldFlip = (_playerController.IsRight && !isNpcFacingRight) // Player facing right, NPC faces left
+                    shouldFlip = (_playerController.IsFacingRight && !isNpcFacingRight) // Player facing right, NPC faces left
                                 || (!playerOnLeftOfNpc && isNpcFacingRight);      // Player on right, NPC facing right
                 }
             }

@@ -69,7 +69,7 @@ namespace ATBMI.Entities.NPCs
                 
                 _targetDirection *= -1f;
                 character.LookAt(_targetDirection);
-                character.ChangeState(CharacterState.Idle);
+                character.ChangeState(EntitiesState.Idle);
                 
                 parentNode.ClearData(TARGET_KEY);
                 InteractEvent.RestrictedEvent(false);
@@ -78,7 +78,7 @@ namespace ATBMI.Entities.NPCs
             
             _currentMoveTime += Time.deltaTime;
             character.LookAt(_targetDirection);
-            character.ChangeState(CharacterState.Run);
+            character.ChangeState(EntitiesState.Run);
             character.transform.Translate(Vector3.right * (moveSpeed * Time.deltaTime));
             return NodeStatus.Running;
         }
