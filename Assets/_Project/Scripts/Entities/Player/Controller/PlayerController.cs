@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using ATBMI.Cutscene;
 using UnityEngine;
 using ATBMI.Data;
 using ATBMI.Dialogue;
@@ -60,12 +61,14 @@ namespace ATBMI.Entities.Player
         
         private void FixedUpdate()
         {
+            if (CutsceneManager.IsCutscenePlaying) return;
             if (!CanMove || DialogueManager.Instance.IsDialoguePlaying) return;
             PlayerMove();
         }
         
         private void Update()
         {
+            if (CutsceneManager.IsCutscenePlaying) return;
             HandleState();
             LookAt(moveDirection);
         }
@@ -165,10 +168,13 @@ namespace ATBMI.Entities.Player
         #endregion
 
         #region State
-
+        
         public void ChangeState(EntitiesState state)
         {
-            throw new NotImplementedException();
+            if (state == playerState) 
+                return;
+            
+            playerState = state;
         }
         
         private void HandleState()

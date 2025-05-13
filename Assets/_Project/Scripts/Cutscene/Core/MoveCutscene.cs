@@ -1,6 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
 using ATBMI.Entities;
+using Sirenix.OdinInspector;
 
 namespace ATBMI.Cutscene
 {
@@ -8,17 +9,27 @@ namespace ATBMI.Cutscene
     {
         #region Fields
         
-        [Header("Stats")] 
-        [SerializeField] private Ease easeType;
+        private enum TargetType { Player, Character }
+        
+        [Header("Stats")]
+        [SerializeField] private TargetType type;
         [SerializeField] private bool isRunning;
         [SerializeField] private float moveDuration;
-        [SerializeField] private Transform characterTransform;
-        [SerializeField] private Transform targetPoint;
         
         private bool _isFinished;
+        
+        [Header("Animation")]
+        [SerializeField] private Ease easeType;
+        [SerializeField] [ShowIf("type", TargetType.Character)]
+        private Transform characterTransform;
+        [SerializeField] private Transform targetPoint;
+        
         private EntitiesState _animationState;
         private Tweener _tween;
         private IController _controller;
+        
+        [Header("Reference")]
+        [SerializeField] private CutsceneManager cutsceneManager;
         
         #endregion
         
@@ -30,6 +41,11 @@ namespace ATBMI.Cutscene
             
             _isFinished = false;
             _animationState = isRunning ? EntitiesState.Run : EntitiesState.Walk;
+
+            if (type == TargetType.Player)
+            {
+                characterTransform = cutsceneManager.PlayerTransform;
+            }
             _controller = characterTransform.GetComponent<IController>();
         }
         

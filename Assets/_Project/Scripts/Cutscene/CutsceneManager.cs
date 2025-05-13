@@ -1,4 +1,5 @@
 using UnityEngine;
+using ATBMI.Core;
 
 namespace ATBMI.Cutscene
 {
@@ -11,13 +12,19 @@ namespace ATBMI.Cutscene
         private int _currentIndex;
         private CutsceneHandler _currentCutscene;
         
+        public Transform PlayerTransform { get; private set; }
         public static bool IsCutscenePlaying;
+
+        private void Awake()
+        {
+            PlayerTransform = GameObject.FindGameObjectWithTag(GameTag.PLAYER_TAG).transform;
+        }
         
         private void Start()
         {
             InitCutscene();
         }
-
+        
         private void InitCutscene()
         {
             // Stats

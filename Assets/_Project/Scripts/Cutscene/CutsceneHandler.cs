@@ -8,13 +8,13 @@ namespace ATBMI.Cutscene
     [RequireComponent(typeof(BoxCollider2D))]
     public class CutsceneHandler : MonoBehaviour
     {
-        #region Methods
-
+        #region Method
+        
         [Header("Attribute")]
         [SerializeField] private string cutsceneID;
         [SerializeField] private float transitionTime;
         [SerializeField] private List<Cutscene> cutsceneSteps;
-
+        
         private int _currentIndex;
         private bool _isPlaying;
         private bool _isTransitioning;
@@ -24,9 +24,9 @@ namespace ATBMI.Cutscene
         // Reference
         private BoxCollider2D _boxCollider2D;
         public CutsceneManager CutsceneManager { get; set; }
-
+        
         #endregion
-
+        
         #region Methods
         
         // Unity Callbacks
@@ -51,10 +51,9 @@ namespace ATBMI.Cutscene
         {
             if (other.CompareTag(GameTag.PLAYER_TAG))
             {
-                Debug.Log($"execute cutscene {cutsceneID}");
                 _isPlaying = true;
                 SetupCollider(isEnable: false);
-                CutsceneManager.EnterCutscene();
+                Debug.Log($"execute cutscene {cutsceneID}");
             }
         }
         
@@ -83,6 +82,7 @@ namespace ATBMI.Cutscene
             { 
                 _currentCutscene.Execute();
                 _hasExecutingStep = true;
+                CutsceneManager.EnterCutscene();
             }
             
             // Check if finished
@@ -91,6 +91,7 @@ namespace ATBMI.Cutscene
                 if (_currentIndex >= cutsceneSteps.Count - 1)
                 {
                     _isPlaying = false;
+                    _hasExecutingStep = false;
                     CutsceneManager.ExitCutscene();
                     return;
                 }
