@@ -3,61 +3,47 @@ using ATBMI.Core;
 
 namespace ATBMI.Cutscene
 {
-    // TODO: Bikin condition node jika cutscene berjalan untuk NPCs
     public class CutsceneManager : MonoBehaviour
     {
-        [Header("Attribute")] 
-        [SerializeField] private CutsceneHandler[] cutsceneHandlers;
+        #region Fields
         
-        private int _currentIndex;
-        private CutsceneHandler _currentCutscene;
+        // Main
+        public static CutsceneManager Instance;
+        public bool IsCutscenePlaying { get; private set; }
         
-        public Transform PlayerTransform { get; private set; }
-        public static bool IsCutscenePlaying;
+        [Header("Reference")]
+        [SerializeField] private Transform playerTransform;
+        
+        public Transform Player
+        {
+            get
+            {
+                if (playerTransform.CompareTag(GameTag.PLAYER_TAG))
+                    return playerTransform;
+                
+                Debug.Log("player transform is not player!\n check the tag!");
+                return null;
+            }
+        }
+        
+        #endregion
 
+        #region Methods
+        
         private void Awake()
         {
-            PlayerTransform = GameObject.FindGameObjectWithTag(GameTag.PLAYER_TAG).transform;
-        }
-        
-        private void Start()
-        {
-            InitCutscene();
-        }
-        
-        private void InitCutscene()
-        {
-            // Stats
-            _currentIndex = 0;
-            _currentCutscene = cutsceneHandlers[_currentIndex];
-            IsCutscenePlaying = false;
+            if (Instance != null)
+            {
+                Destroy(gameObject);
+                return;
+            }
             
-            // Handlers
-            for (var i = 0; i < cutsceneHandlers.Length; i++)
-            {
-                var cutscene = cutsceneHandlers[i];
-                var isFirstCutscene = i == _currentIndex;
-                
-                cutscene.CutsceneManager = this;
-                cutscene.gameObject.SetActive(isFirstCutscene);
-            }
+            Instance = this;
         }
         
-        public void EnterCutscene()
-        {
-            _currentCutscene.gameObject.SetActive(true);
-            IsCutscenePlaying = true;
-        }
+        public void OnCutscenePlay() => IsCutscenePlaying = true;
+        public void OnCutsceneStop() => IsCutscenePlaying = false;
         
-        public void ExitCutscene()
-        {
-            IsCutscenePlaying = false;
-            _currentCutscene.gameObject.SetActive(false);
-            if (_currentIndex < cutsceneHandlers.Length - 1)
-            {
-                _currentIndex++;
-                _currentCutscene = cutsceneHandlers[_currentIndex];
-            }
-        }
+        #endregion
     }
 }

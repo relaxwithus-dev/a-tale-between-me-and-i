@@ -23,7 +23,7 @@ namespace ATBMI.Cutscene
         
         // Reference
         private BoxCollider2D _boxCollider2D;
-        public CutsceneManager CutsceneManager { get; set; }
+        public CutsceneDirector CutsceneDirector { get; set; }
         
         #endregion
         
@@ -82,7 +82,7 @@ namespace ATBMI.Cutscene
             { 
                 _currentCutscene.Execute();
                 _hasExecutingStep = true;
-                CutsceneManager.EnterCutscene();
+                CutsceneDirector.EnterCutscene();
             }
             
             // Check if finished
@@ -92,7 +92,7 @@ namespace ATBMI.Cutscene
                 {
                     _isPlaying = false;
                     _hasExecutingStep = false;
-                    CutsceneManager.ExitCutscene();
+                    CutsceneDirector.ExitCutscene();
                     return;
                 }
                 

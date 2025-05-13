@@ -61,14 +61,14 @@ namespace ATBMI.Entities.Player
         
         private void FixedUpdate()
         {
-            if (CutsceneManager.IsCutscenePlaying) return;
-            if (!CanMove || DialogueManager.Instance.IsDialoguePlaying) return;
+            if (!CanMove || DialogueManager.Instance.IsDialoguePlaying 
+                         || CutsceneManager.Instance.IsCutscenePlaying) return;
             PlayerMove();
         }
         
         private void Update()
         {
-            if (CutsceneManager.IsCutscenePlaying) return;
+            if (DialogueManager.Instance.IsDialoguePlaying || CutsceneManager.Instance.IsCutscenePlaying) return;
             HandleState();
             LookAt(moveDirection);
         }

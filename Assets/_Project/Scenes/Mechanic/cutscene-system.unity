@@ -169,12 +169,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  targetTransform: {fileID: 0}
   isRunning: 0
-  moveDuration: 3
   easeType: 1
-  characterTransform: {fileID: 2143600229}
+  moveDuration: 3
   targetPoint: {fileID: 176138962}
-  cutsceneManager: {fileID: 963973645}
 --- !u!1 &22903342
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,8 +218,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f9d8a31bb534fa1a85b86b57ff677e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugMode: 1
-  debugText: omke gas
+  type: 0
+  targetTransform: {fileID: 0}
   dialogueText: {fileID: 0}
 --- !u!1 &45234001
 GameObject:
@@ -1424,8 +1423,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f9d8a31bb534fa1a85b86b57ff677e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugMode: 1
-  debugText: omke gas
+  type: 0
+  targetTransform: {fileID: 0}
   dialogueText: {fileID: 0}
 --- !u!1 &729101056
 GameObject:
@@ -1503,8 +1502,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f9d8a31bb534fa1a85b86b57ff677e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugMode: 1
-  debugText: halo bapak jokowi
+  type: 0
+  targetTransform: {fileID: 0}
   dialogueText: {fileID: 0}
 --- !u!1 &884521655
 GameObject:
@@ -2160,8 +2159,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f9d8a31bb534fa1a85b86b57ff677e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugMode: 1
-  debugText: halo bapak jokowi
+  type: 0
+  targetTransform: {fileID: 0}
   dialogueText: {fileID: 0}
 --- !u!1 &1107397325
 GameObject:
@@ -3090,12 +3089,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  targetTransform: {fileID: 0}
   isRunning: 0
-  moveDuration: 3
   easeType: 1
-  characterTransform: {fileID: 2143600229}
+  moveDuration: 3
   targetPoint: {fileID: 94303798}
-  cutsceneManager: {fileID: 963973645}
 --- !u!1001 &2143600227
 PrefabInstance:
   m_ObjectHideFlags: 0
