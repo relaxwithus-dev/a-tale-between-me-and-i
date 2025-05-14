@@ -8,8 +8,6 @@ namespace ATBMI.Entities.NPCs
         [Header("Attribute")] 
         [SerializeField] private float runAwayDuration = 8f;
         [SerializeField] private Transform targetPoint;
-        
-        [Space]
         [SerializeField] private CharacterAnimation characterAnim;
         
         protected override Node SetupTree()

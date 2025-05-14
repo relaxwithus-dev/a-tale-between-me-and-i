@@ -119,6 +119,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -130,8 +143,8 @@ TextureImporter:
         y: 300
         width: 100
         height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -151,8 +164,8 @@ TextureImporter:
         y: 300
         width: 100
         height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -165,15 +178,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ustadz Sprite Sheet_2
+      name: Ustadz Sprite Sheet_10
       rect:
         serializedVersion: 2
-        x: 200
-        y: 300
+        x: 400
+        y: 200
         width: 100
         height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -186,15 +199,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ustadz Sprite Sheet_3
+      name: Ustadz Sprite Sheet_11
       rect:
         serializedVersion: 2
-        x: 300
-        y: 300
+        x: 500
+        y: 200
         width: 100
         height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -207,15 +220,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ustadz Sprite Sheet_4
+      name: Ustadz Sprite Sheet_12
       rect:
         serializedVersion: 2
-        x: 500
-        y: 300
+        x: 600
+        y: 200
         width: 100
         height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -228,15 +241,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ustadz Sprite Sheet_5
+      name: Ustadz Sprite Sheet_13
       rect:
         serializedVersion: 2
-        x: 600
-        y: 300
+        x: 700
+        y: 200
         width: 100
         height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -249,15 +262,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ustadz Sprite Sheet_6
+      name: Ustadz Sprite Sheet_14
       rect:
         serializedVersion: 2
-        x: 700
-        y: 300
+        x: 0
+        y: 100
         width: 100
         height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -270,15 +283,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ustadz Sprite Sheet_7
+      name: Ustadz Sprite Sheet_15
       rect:
         serializedVersion: 2
-        x: 0
-        y: 200
+        x: 100
+        y: 100
         width: 100
         height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -291,15 +304,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ustadz Sprite Sheet_8
+      name: Ustadz Sprite Sheet_16
       rect:
         serializedVersion: 2
-        x: 200
-        y: 200
+        x: 300
+        y: 100
         width: 100
         height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -312,15 +325,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ustadz Sprite Sheet_9
+      name: Ustadz Sprite Sheet_17
       rect:
         serializedVersion: 2
-        x: 300
-        y: 200
+        x: 400
+        y: 100
         width: 100
         height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -333,15 +346,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ustadz Sprite Sheet_10
+      name: Ustadz Sprite Sheet_18
       rect:
         serializedVersion: 2
-        x: 400
-        y: 200
+        x: 500
+        y: 100
         width: 100
         height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -354,15 +367,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ustadz Sprite Sheet_11
+      name: Ustadz Sprite Sheet_19
       rect:
         serializedVersion: 2
-        x: 500
-        y: 200
+        x: 600
+        y: 100
         width: 100
         height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -375,15 +388,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ustadz Sprite Sheet_12
+      name: Ustadz Sprite Sheet_2
       rect:
         serializedVersion: 2
-        x: 600
-        y: 200
+        x: 200
+        y: 300
         width: 100
         height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -396,15 +409,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ustadz Sprite Sheet_13
+      name: Ustadz Sprite Sheet_20
       rect:
         serializedVersion: 2
         x: 700
-        y: 200
+        y: 100
         width: 100
         height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -417,15 +430,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ustadz Sprite Sheet_14
+      name: Ustadz Sprite Sheet_21
       rect:
         serializedVersion: 2
         x: 0
-        y: 100
+        y: 0
         width: 100
         height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -438,15 +451,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ustadz Sprite Sheet_15
+      name: Ustadz Sprite Sheet_22
       rect:
         serializedVersion: 2
         x: 100
-        y: 100
+        y: 0
         width: 100
         height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -459,15 +472,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ustadz Sprite Sheet_16
+      name: Ustadz Sprite Sheet_23
       rect:
         serializedVersion: 2
-        x: 300
-        y: 100
+        x: 200
+        y: 0
         width: 100
         height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -480,15 +493,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ustadz Sprite Sheet_17
+      name: Ustadz Sprite Sheet_3
       rect:
         serializedVersion: 2
-        x: 400
-        y: 100
+        x: 300
+        y: 300
         width: 100
         height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -501,15 +514,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ustadz Sprite Sheet_18
+      name: Ustadz Sprite Sheet_4
       rect:
         serializedVersion: 2
         x: 500
-        y: 100
+        y: 300
         width: 100
         height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -522,15 +535,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ustadz Sprite Sheet_19
+      name: Ustadz Sprite Sheet_5
       rect:
         serializedVersion: 2
         x: 600
-        y: 100
+        y: 300
         width: 100
         height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -543,15 +556,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ustadz Sprite Sheet_20
+      name: Ustadz Sprite Sheet_6
       rect:
         serializedVersion: 2
         x: 700
-        y: 100
+        y: 300
         width: 100
         height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -564,15 +577,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ustadz Sprite Sheet_21
+      name: Ustadz Sprite Sheet_7
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 200
         width: 100
         height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -585,15 +598,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ustadz Sprite Sheet_22
+      name: Ustadz Sprite Sheet_8
       rect:
         serializedVersion: 2
-        x: 100
-        y: 0
+        x: 200
+        y: 200
         width: 100
         height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -606,15 +619,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ustadz Sprite Sheet_23
+      name: Ustadz Sprite Sheet_9
       rect:
         serializedVersion: 2
-        x: 200
-        y: 0
+        x: 300
+        y: 200
         width: 100
         height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -639,28 +652,28 @@ TextureImporter:
     nameFileIdTable:
       Ustadz Sprite Sheet_0: 2039895157
       Ustadz Sprite Sheet_1: -169974253
-      Ustadz Sprite Sheet_10: -1478598435
-      Ustadz Sprite Sheet_11: -1947738365
-      Ustadz Sprite Sheet_12: -631574214
-      Ustadz Sprite Sheet_13: -288647961
-      Ustadz Sprite Sheet_14: -1464497839
-      Ustadz Sprite Sheet_15: -172797090
-      Ustadz Sprite Sheet_16: -838050366
-      Ustadz Sprite Sheet_17: -145189067
-      Ustadz Sprite Sheet_18: 312711961
-      Ustadz Sprite Sheet_19: -2050404266
-      Ustadz Sprite Sheet_2: 688549794
-      Ustadz Sprite Sheet_20: 936946906
-      Ustadz Sprite Sheet_21: 1003187354
-      Ustadz Sprite Sheet_22: -99321409
-      Ustadz Sprite Sheet_23: 114419213
-      Ustadz Sprite Sheet_3: -632419908
-      Ustadz Sprite Sheet_4: -1932033062
-      Ustadz Sprite Sheet_5: -1248953700
-      Ustadz Sprite Sheet_6: 873244627
-      Ustadz Sprite Sheet_7: -1759421921
-      Ustadz Sprite Sheet_8: 135632628
-      Ustadz Sprite Sheet_9: 843555806
+      Ustadz Sprite Sheet_10: 688549794
+      Ustadz Sprite Sheet_11: -632419908
+      Ustadz Sprite Sheet_12: -1932033062
+      Ustadz Sprite Sheet_13: -1248953700
+      Ustadz Sprite Sheet_14: 873244627
+      Ustadz Sprite Sheet_15: -1759421921
+      Ustadz Sprite Sheet_16: 135632628
+      Ustadz Sprite Sheet_17: 843555806
+      Ustadz Sprite Sheet_18: -1478598435
+      Ustadz Sprite Sheet_19: -1947738365
+      Ustadz Sprite Sheet_2: -631574214
+      Ustadz Sprite Sheet_20: -288647961
+      Ustadz Sprite Sheet_21: -1464497839
+      Ustadz Sprite Sheet_22: -172797090
+      Ustadz Sprite Sheet_23: -838050366
+      Ustadz Sprite Sheet_3: -145189067
+      Ustadz Sprite Sheet_4: 312711961
+      Ustadz Sprite Sheet_5: -2050404266
+      Ustadz Sprite Sheet_6: 936946906
+      Ustadz Sprite Sheet_7: 1003187354
+      Ustadz Sprite Sheet_8: -99321409
+      Ustadz Sprite Sheet_9: 114419213
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
