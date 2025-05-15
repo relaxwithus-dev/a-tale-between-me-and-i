@@ -1,0 +1,3 @@
+Tenang, hidup memang keras, tapi setidaknya ijazah kita asli #speaker:Anak Kuliah #expression:A_Anak_Kuliah_Speak
+
+-> END
