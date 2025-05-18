@@ -1,3 +1,5 @@
+using System;
+using ATBMI.Entities.Player;
 using UnityEngine;
 
 namespace ATBMI.Cutscene
@@ -8,7 +10,9 @@ namespace ATBMI.Cutscene
         
         [Header("Attribute")] 
         [SerializeField] private CutsceneHandler[] cutsceneHandlers;
+        
         private CutsceneHandler _currentCutscene;
+        private PlayerController _player;
         
         #endregion
         
@@ -17,7 +21,6 @@ namespace ATBMI.Cutscene
         // Unity Callbacks
         private void OnEnable()
         {
-            ModifyHandlers();
             CutsceneManager.OnCutsceneEnd += ModifyHandlers;
         }
         
@@ -25,16 +28,36 @@ namespace ATBMI.Cutscene
         {
             CutsceneManager.OnCutsceneEnd -= ModifyHandlers;
         }
+
+        private void Start()
+        {
+            // Init player reference
+            var player = CutsceneManager.Instance.Player;
+            _player = player.GetComponent<PlayerController>();
+            
+            // Init handlers
+            ModifyHandlers();
+        }
+
+        // Initialize
+        private void InitDirector()
+        {
+            var player = CutsceneManager.Instance.Player;
+            _player = player.GetComponent<PlayerController>();
+            ModifyHandlers();
+        }
         
         // Core
         public void EnterCutscene(CutsceneHandler handler)
         {
+            _player.StopMovement();
             _currentCutscene = handler;
             CutsceneManager.Instance.EnterCutscene();
         }
         
         public void ExitCutscene()
         {
+            _player.StartMovement();
             _currentCutscene.gameObject.SetActive(false);
             CutsceneManager.Instance.ExitCutscene();
         }
@@ -46,7 +69,6 @@ namespace ATBMI.Cutscene
             {
                 var isActiveCutscene = key && handler.CutsceneKey.id == key.id;
                 
-                Debug.Log(isActiveCutscene);
                 handler.CutsceneDirector ??= this;
                 handler.gameObject.SetActive(isActiveCutscene);
             }

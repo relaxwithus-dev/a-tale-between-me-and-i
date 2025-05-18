@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using ATBMI.Core;
-using ATBMI.Entities;
-using ATBMI.Entities.Player;
 
 namespace ATBMI.Cutscene
 {
@@ -26,7 +24,6 @@ namespace ATBMI.Cutscene
         public CutsceneKeys CutsceneKey => cutsceneKey;
         
         // Reference
-        private PlayerController _player;
         private BoxCollider2D _boxCollider2D;
         public CutsceneDirector CutsceneDirector { get; set; }
         
@@ -57,7 +54,6 @@ namespace ATBMI.Cutscene
             if (other.CompareTag(GameTag.PLAYER_TAG))
             {
                 _isPlaying = true;
-                _player.StopMovement();
                 
                 SetupCollider(isEnable: false);
                 CutsceneDirector.EnterCutscene(this);
@@ -71,9 +67,6 @@ namespace ATBMI.Cutscene
             _isPlaying = false;
             _isTransitioning = false;
             _currentCutscene = cutsceneSteps[_currentIndex];
-            
-            var player = CutsceneManager.Instance.Player;
-            _player = player.GetComponent<PlayerController>();
         }
 
         private void SetupCollider(bool isEnable)
@@ -99,6 +92,7 @@ namespace ATBMI.Cutscene
                 {
                     _isPlaying = false;
                     _hasExecutingStep = false;
+                    
                     CutsceneDirector.ExitCutscene();
                     return;
                 }

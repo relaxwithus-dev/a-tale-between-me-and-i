@@ -3,10 +3,10 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Sirenix.OdinInspector;
+using ATBMI.Managers;
 using ATBMI.Gameplay.Event;
 using ATBMI.Entities.Player;
 using ATBMI.Gameplay.Controller;
-using ATBMI.Managers;
 
 namespace ATBMI.Scene
 {
