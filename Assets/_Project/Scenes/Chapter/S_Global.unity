@@ -514,7 +514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 946851954ab742b8b9b423912ec2f9f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugMode: 1
+  debugMode: 0
   menuScene: {fileID: 11400000, guid: cf397f725c03dc540b8ef3936eaab128, type: 2}
   debugScene: {fileID: 11400000, guid: 79a05091ddeffa64d96ce8ab498fb939, type: 2}
   gameplayObjects:
@@ -524,6 +524,7 @@ MonoBehaviour:
   - {fileID: 674455011}
   - {fileID: 1600726441}
   - {fileID: 502739510}
+  - {fileID: 1567011522}
   player: {fileID: 2143600228}
   fader: {fileID: 623994654}
 --- !u!114 &888167235 stripped
@@ -790,6 +791,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31d0154750344f0bb6c1447b3c7b1474, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  statusList:
+  - chapters: 0
+    status:
+    - key: {fileID: 11400000, guid: 8901a52f7a898a14db7fdedd4d356a65, type: 2}
+      isFinish: 0
+    - key: {fileID: 11400000, guid: c93450105e2f99d46a4b3353ffb76661, type: 2}
+      isFinish: 0
+  - chapters: 1
+    status:
+    - key: {fileID: 11400000, guid: a856dfc0f8557d2459e77870919ce4f3, type: 2}
+      isFinish: 0
   playerTransform: {fileID: 2143600229}
 --- !u!224 &1593010554 stripped
 RectTransform:

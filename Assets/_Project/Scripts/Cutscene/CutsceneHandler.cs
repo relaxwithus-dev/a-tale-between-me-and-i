@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using ATBMI.Core;
 using ATBMI.Entities;
+using ATBMI.Entities.Player;
 
 namespace ATBMI.Cutscene
 {
@@ -12,7 +13,7 @@ namespace ATBMI.Cutscene
         #region Method
         
         [Header("Attribute")]
-        [SerializeField] private string cutsceneID;
+        [SerializeField] private CutsceneKeys cutsceneKey;
         [SerializeField] private float transitionTime;
         [SerializeField] private List<Cutscene> cutsceneSteps;
         
@@ -22,9 +23,10 @@ namespace ATBMI.Cutscene
         private bool _hasExecutingStep;
         
         private Cutscene _currentCutscene;
+        public CutsceneKeys CutsceneKey => cutsceneKey;
         
         // Reference
-        private IController _iController;
+        private PlayerController _player;
         private BoxCollider2D _boxCollider2D;
         public CutsceneDirector CutsceneDirector { get; set; }
         
@@ -37,7 +39,7 @@ namespace ATBMI.Cutscene
         {
             _boxCollider2D = GetComponent<BoxCollider2D>();
         }
-
+        
         private void Start()
         {
             InitAttribute();
@@ -55,26 +57,23 @@ namespace ATBMI.Cutscene
             if (other.CompareTag(GameTag.PLAYER_TAG))
             {
                 _isPlaying = true;
-                _iController.ChangeState(EntitiesState.Idle);
+                _player.StopMovement();
                 
                 SetupCollider(isEnable: false);
-                CutsceneDirector.EnterCutscene();
-                Debug.Log($"execute cutscene {cutsceneID}");
+                CutsceneDirector.EnterCutscene(this);
             }
         }
         
         // Initialize
         private void InitAttribute()
         {
-            gameObject.name = cutsceneID;
-            
             _currentIndex = 0;
             _isPlaying = false;
             _isTransitioning = false;
             _currentCutscene = cutsceneSteps[_currentIndex];
             
             var player = CutsceneManager.Instance.Player;
-            _iController = player.GetComponent<IController>();
+            _player = player.GetComponent<PlayerController>();
         }
 
         private void SetupCollider(bool isEnable)

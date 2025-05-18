@@ -4,49 +4,54 @@ namespace ATBMI.Cutscene
 {
     public class CutsceneDirector : MonoBehaviour
     {
+        #region Fields
+        
         [Header("Attribute")] 
         [SerializeField] private CutsceneHandler[] cutsceneHandlers;
-        
-        private int _currentIndex;
         private CutsceneHandler _currentCutscene;
         
-        private void Start()
+        #endregion
+        
+        #region Methods
+        
+        // Unity Callbacks
+        private void OnEnable()
         {
-            InitCutscene();
+            ModifyHandlers();
+            CutsceneManager.OnCutsceneEnd += ModifyHandlers;
         }
         
-        private void InitCutscene()
+        private void OnDisable()
         {
-            // Stats
-            _currentIndex = 0;
-            _currentCutscene = cutsceneHandlers[_currentIndex];
-            
-            // Handlers
-            for (var i = 0; i < cutsceneHandlers.Length; i++)
-            {
-                var cutscene = cutsceneHandlers[i];
-                var isFirstCutscene = i == _currentIndex;
-                
-                cutscene.CutsceneDirector = this;
-                cutscene.gameObject.SetActive(isFirstCutscene);
-            }
+            CutsceneManager.OnCutsceneEnd -= ModifyHandlers;
         }
         
-        public void EnterCutscene()
+        // Core
+        public void EnterCutscene(CutsceneHandler handler)
         {
-            _currentCutscene.gameObject.SetActive(true);
-            CutsceneManager.Instance.OnCutscenePlay();
+            _currentCutscene = handler;
+            CutsceneManager.Instance.EnterCutscene();
         }
         
         public void ExitCutscene()
         {
-            CutsceneManager.Instance.OnCutsceneStop();
             _currentCutscene.gameObject.SetActive(false);
-            if (_currentIndex < cutsceneHandlers.Length - 1)
+            CutsceneManager.Instance.ExitCutscene();
+        }
+        
+        private void ModifyHandlers()
+        {
+            var key = CutsceneManager.Instance.CurrentKeys;
+            foreach (var handler in cutsceneHandlers)
             {
-                _currentIndex++;
-                _currentCutscene = cutsceneHandlers[_currentIndex];
+                var isActiveCutscene = key && handler.CutsceneKey.id == key.id;
+                
+                Debug.Log(isActiveCutscene);
+                handler.CutsceneDirector ??= this;
+                handler.gameObject.SetActive(isActiveCutscene);
             }
         }
+        
+        #endregion
     }
 }

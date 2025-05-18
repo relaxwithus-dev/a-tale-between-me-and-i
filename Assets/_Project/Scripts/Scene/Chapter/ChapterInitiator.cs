@@ -1,19 +1,26 @@
 using System.Collections;
 using UnityEngine;
+using ATBMI.Cutscene;
 using ATBMI.Gameplay.Controller;
 
 namespace ATBMI.Scene.Chapter
 {
     public class ChapterInitiator : SceneLoader
     {
+        #region Fields
+
         [Header("Initiator")] 
         [SerializeField] private string playerName;
         [SerializeField] private float animateDuration = 3f;
-        [SerializeField] private ChapterViewer.Chapters chapterName;
+        [SerializeField] private Chapters chapterName;
         [SerializeField] private FadeController chapterFader;
         
         // Reference
         private ChapterViewer _chapterViewer;
+        
+        #endregion
+
+        #region Methods
         
         protected override IEnumerator AnimateSceneFade()
         {
@@ -32,8 +39,11 @@ namespace ATBMI.Scene.Chapter
             chapterFader.FadeOut();
             
             yield return new WaitForSeconds(chapterFader.FadeDuration * animateDuration);
-            chapterFader.FadeIn();
+            CutsceneManager.Instance.InitCutscene(chapterName);
             player.InitPlayer(playerName);
+            chapterFader.FadeIn();
         }
+        
+        #endregion
     }
 }

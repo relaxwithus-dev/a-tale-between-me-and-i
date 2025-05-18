@@ -155,16 +155,18 @@ namespace ATBMI.Entities.Player
         public void StopMovement()
         {
             canMove = false;
+            playerState = EntitiesState.Idle;
+            
             moveDirection = Vector2.zero;
             _latestDirection = Vector2.zero;
             PlayerRb.velocity = Vector2.zero;
         }
-
+        
         public void SetTemporaryDirection(Vector2 direction)
         {
             _temporaryDirection = direction;
         }
-
+        
         #endregion
 
         #region State
