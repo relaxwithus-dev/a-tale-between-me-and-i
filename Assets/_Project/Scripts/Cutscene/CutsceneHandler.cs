@@ -56,7 +56,9 @@ namespace ATBMI.Cutscene
             {
                 _isPlaying = true;
                 _iController.ChangeState(EntitiesState.Idle);
+                
                 SetupCollider(isEnable: false);
+                CutsceneDirector.EnterCutscene();
                 Debug.Log($"execute cutscene {cutsceneID}");
             }
         }
@@ -89,7 +91,6 @@ namespace ATBMI.Cutscene
             { 
                 _currentCutscene.Execute();
                 _hasExecutingStep = true;
-                CutsceneDirector.EnterCutscene();
             }
             
             // Check if finished
