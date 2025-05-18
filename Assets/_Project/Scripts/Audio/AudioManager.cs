@@ -9,11 +9,11 @@ namespace ATBMI.Audio
         #region Fields & Properties
         
         [Header("Audio Data")]
-        public Sound[] Musics;
+        [SerializeField] private Sound[] musicCollections;
 
-        [Header("Container")]
-        [SerializeField] private GameObject musicsContainer;
-        [SerializeField] private GameObject soundEffectsContainer;
+        [Space]
+        [SerializeField] private GameObject bgmContainer;
+        [SerializeField] private GameObject sfxContainer;
 
         #endregion
 
@@ -28,9 +28,9 @@ namespace ATBMI.Audio
         // Initialize
         private void InitializeAudio()
         {
-            foreach (var s in Musics)
+            foreach (var s in musicCollections)
             {
-                var container = s.sfx ? soundEffectsContainer : musicsContainer;
+                var container = s.sfx ? sfxContainer : bgmContainer;
                 s.source = container.AddComponent<AudioSource>();
                 s.source.clip = s.clip;
 
@@ -43,7 +43,7 @@ namespace ATBMI.Audio
         // Core 
         public void PlayAudio(Musics music)
         {
-            Sound sound = Array.Find(Musics, sound => sound.name == music.ToString());
+            Sound sound = Array.Find(musicCollections, sound => sound.name == music.ToString());
             if (sound == null)
             {
                 Debug.LogWarning($"Bgm: {music} not found!");
@@ -58,39 +58,39 @@ namespace ATBMI.Audio
 
         public void StopAudio(Musics music)
         { 
-            Sound sound = Array.Find(Musics, sound => sound.name == music.ToString());
+            Sound sound = Array.Find(musicCollections, sound => sound.name == music.ToString());
 
             sound.source.Stop();
         }
         
         public void PauseAudio(Musics music)
         {
-            Sound sound = Array.Find(Musics, sound => sound.name == music.ToString());
+            Sound sound = Array.Find(musicCollections, sound => sound.name == music.ToString());
             sound.source.Pause();
         }
         
         public void SetVolume(Musics music, float value)
         {
-            Sound sound = Array.Find(Musics, sound => sound.name == music.ToString());
+            Sound sound = Array.Find(musicCollections, sound => sound.name == music.ToString());
             sound.source.volume = value;
         }
         
         public float GetVolume(Musics music)
         {
-            Sound sound = Array.Find(Musics, sound => sound.name == music.ToString());
+            Sound sound = Array.Find(musicCollections, sound => sound.name == music.ToString());
             return sound.volume;
         }
 
         public float GetDuration(Musics music)
         {
-            Sound sound = Array.Find(Musics, sound => sound.name == music.ToString());
+            Sound sound = Array.Find(musicCollections, sound => sound.name == music.ToString());
             return sound.clip.length;
         }
 
         // Utilities
         public Sound GetAudio(Musics music)
         {
-            Sound sound = Array.Find(Musics, sound => sound.name == music.ToString());
+            Sound sound = Array.Find(musicCollections, sound => sound.name == music.ToString());
             if (sound == null)
             {
                 Debug.LogWarning($"Bgm: {music} not found!");
@@ -101,7 +101,7 @@ namespace ATBMI.Audio
 
         public bool IsAudioPlaying(Musics music)
         {
-            Sound sound = Array.Find(Musics, sound => sound.name == music.ToString());
+            Sound sound = Array.Find(musicCollections, sound => sound.name == music.ToString());
             return sound.source.isPlaying;
         }
         
