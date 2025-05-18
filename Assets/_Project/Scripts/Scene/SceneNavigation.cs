@@ -142,6 +142,5 @@ namespace ATBMI.Scene
         }
 
         #endregion
-
     }
 }
