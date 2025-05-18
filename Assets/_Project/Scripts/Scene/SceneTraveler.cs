@@ -12,7 +12,6 @@ namespace ATBMI.Scene
     {
         #region Fields & Properties
         
-        [FormerlySerializedAs("locationTarget")]
         [Header("Attribute")] 
         [SerializeField] private LocationData locationData;
         [SerializeField] private TextMeshProUGUI infoTextUI;
@@ -51,7 +50,7 @@ namespace ATBMI.Scene
 
                 if (!sceneAsset)
                 {
-                    Debug.LogWarning("target scene not found");
+                    Debug.LogError("target scene not found");
                     return;
                 }
                 

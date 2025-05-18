@@ -93,8 +93,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f9d8a31bb534fa1a85b86b57ff677e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  targetTransform: {fileID: 0}
   dialogueText: {fileID: 0}
 --- !u!1 &2883208616472174895
 GameObject:
@@ -172,11 +170,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79574070710f4e17872902c00822e9b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  targetTransform: {fileID: 0}
+  targetType: 0
   isRunning: 0
   easeType: 1
   moveDuration: 3
+  targetTransform: {fileID: 0}
   targetPoint: {fileID: 5524614261164752410}
 --- !u!1 &4009197644133201389
 GameObject:
@@ -218,7 +216,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6194357037155808795}
-  - component: {fileID: 5602128107867290674}
+  - component: {fileID: 6172403879919045066}
   m_Layer: 0
   m_Name: Step_3
   m_TagString: Untagged
@@ -241,7 +239,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8113586754202570206}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5602128107867290674
+--- !u!114 &6172403879919045066
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -250,12 +248,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4012764997082880321}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f9d8a31bb534fa1a85b86b57ff677e0, type: 3}
+  m_Script: {fileID: 11500000, guid: 9d151b877e7a4adc9659857f510cf629, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  targetTransform: {fileID: 0}
-  dialogueText: {fileID: 0}
+  locationData: {fileID: 0}
 --- !u!1 &4961615806927742608
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,7 +350,7 @@ MonoBehaviour:
   cutsceneSteps:
   - {fileID: 8412719373307779519}
   - {fileID: 7781454969661223204}
-  - {fileID: 5602128107867290674}
+  - {fileID: 0}
 --- !u!1 &5422380001122400306
 GameObject:
   m_ObjectHideFlags: 0
@@ -399,8 +395,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f9d8a31bb534fa1a85b86b57ff677e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  targetTransform: {fileID: 0}
   dialogueText: {fileID: 0}
 --- !u!1 &5479480923524894058
 GameObject:
@@ -500,7 +494,7 @@ MonoBehaviour:
   cutsceneSteps:
   - {fileID: 5795427391841147879}
   - {fileID: 1975529627013190243}
-  - {fileID: 3317798750610957890}
+  - {fileID: 0}
 --- !u!1 &8258938988549307924
 GameObject:
   m_ObjectHideFlags: 0
@@ -546,11 +540,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79574070710f4e17872902c00822e9b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  targetTransform: {fileID: 0}
+  targetType: 0
   isRunning: 0
   easeType: 1
   moveDuration: 3
+  targetTransform: {fileID: 0}
   targetPoint: {fileID: 8581330069655719468}
 --- !u!1 &8502934700731147839
 GameObject:
@@ -561,7 +555,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5163960933102312730}
-  - component: {fileID: 3317798750610957890}
+  - component: {fileID: 645360927212004792}
   m_Layer: 0
   m_Name: Step_3
   m_TagString: Untagged
@@ -584,7 +578,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7759947147417368377}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3317798750610957890
+--- !u!114 &645360927212004792
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -593,9 +587,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8502934700731147839}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f9d8a31bb534fa1a85b86b57ff677e0, type: 3}
+  m_Script: {fileID: 11500000, guid: 9d151b877e7a4adc9659857f510cf629, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  targetTransform: {fileID: 0}
-  dialogueText: {fileID: 0}
+  locationData: {fileID: 0}

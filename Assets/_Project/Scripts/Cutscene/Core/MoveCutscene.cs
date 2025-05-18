@@ -1,6 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
 using ATBMI.Entities;
+using Sirenix.OdinInspector;
 
 namespace ATBMI.Cutscene
 {
@@ -8,14 +9,22 @@ namespace ATBMI.Cutscene
     {
         #region Fields
         
-        [Header("Stats")]
+        private enum TargetType { Player, Character }
+        
+        [Header("Attribute")]
+        [SerializeField] private TargetType targetType;
         [SerializeField] private bool isRunning;
+        
+        [Header("Animation")]
         [SerializeField] private Ease easeType;
         [SerializeField] private float moveDuration;
+        [SerializeField] [ShowIf("targetType", TargetType.Character)]
+        private Transform targetTransform;
         [SerializeField] private Transform targetPoint;
         
         private bool _isFinished;
         private EntitiesState _animationState;
+        private IController _iController;
         private Tweener _tween;
         
         #endregion
@@ -28,6 +37,10 @@ namespace ATBMI.Cutscene
             
             _isFinished = false;
             _animationState = isRunning ? EntitiesState.Run : EntitiesState.Walk;
+            
+            if (targetType == TargetType.Player)
+                targetTransform = CutsceneManager.Instance.Player;
+            _iController = targetTransform.GetComponent<IController>();
         }
         
         public override void Execute()
@@ -38,13 +51,13 @@ namespace ATBMI.Cutscene
             
             _tween?.Kill(false);
             
-            controller.LookAt(lookPos);
-            controller.ChangeState(_animationState);
+            _iController.LookAt(lookPos);
+            _iController.ChangeState(_animationState);
             _tween = targetTransform.DOMoveX(targetPosX, moveDuration)
                 .SetEase(easeType)
                 .OnComplete(() =>
                 {
-                    controller.ChangeState(EntitiesState.Idle);
+                    _iController.ChangeState(EntitiesState.Idle);
                     _isFinished = true;
                 });
         }
