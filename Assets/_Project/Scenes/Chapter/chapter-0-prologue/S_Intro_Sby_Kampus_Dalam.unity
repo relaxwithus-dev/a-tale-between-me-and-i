@@ -1180,6 +1180,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1338313044}
   - component: {fileID: 1338313046}
+  - component: {fileID: 1338313047}
   m_Layer: 0
   m_Name: Root
   m_TagString: Untagged
@@ -1238,6 +1239,19 @@ MonoBehaviour:
   animateDuration: 3
   chapterName: 0
   chapterFader: {fileID: 1347448480}
+--- !u!114 &1338313047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338313043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb305154a40b4785ba76ed0e55b890bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicName: 2
 --- !u!114 &1347448480 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1704067257611047922, guid: 8bf2c65e84331d549aed9b2f51d6a5d1, type: 3}
@@ -2160,7 +2174,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cutsceneKey: {fileID: 11400000, guid: 8901a52f7a898a14db7fdedd4d356a65, type: 2}
-  cutsceneID: CS_01
   transitionTime: 0.5
   cutsceneSteps:
   - {fileID: 2738122860076076039}

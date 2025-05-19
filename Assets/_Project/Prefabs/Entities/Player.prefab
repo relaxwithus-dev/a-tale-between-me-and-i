@@ -120,7 +120,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 51ed34dd20df0bb43adc8149779c5e25, type: 2}
   - {fileID: 11400000, guid: a4479147af062e844bccc0c81ca3556f, type: 2}
   moveDirection: {x: 0, y: 0}
-  isRight: 1
+  isFacingRight: 0
   canMove: 1
 --- !u!114 &9150364219335177498
 MonoBehaviour:
@@ -1744,6 +1744,7 @@ GameObject:
   - component: {fileID: 4935411794634262675}
   - component: {fileID: 1978572373037677169}
   - component: {fileID: 1572404579505875419}
+  - component: {fileID: 1327927412191974889}
   - component: {fileID: 2256620151847690355}
   m_Layer: 0
   m_Name: Visual
@@ -1852,6 +1853,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95c885c6af955e44cb856a472ac03440, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1327927412191974889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7309970272582802729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c27daa1597464b2d91b9f1cf0f38cfa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2256620151847690355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1864,8 +1877,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db8671f1453ed81498ba07ca079ffd37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 555915339248991424}
-  characterAI: {fileID: 0}
   anim: {fileID: 1978572373037677169}
 --- !u!1 &7316603014524643615
 GameObject:

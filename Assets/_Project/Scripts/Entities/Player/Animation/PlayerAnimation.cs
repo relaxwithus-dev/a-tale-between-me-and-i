@@ -1,11 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using ATBMI.Audio;
 using UnityEngine;
 
 namespace ATBMI.Entities.Player
 {
     [RequireComponent(typeof(Animator))]
+    [RequireComponent(typeof(AnimateEventReceiver))]
     public class PlayerAnimation : MonoBehaviour, IAnimatable
     {
         #region Fields & Properties
@@ -16,6 +18,7 @@ namespace ATBMI.Entities.Player
         
         // Reference
         private PlayerController _playerController;
+        private AnimateEventReceiver _eventReceiver;
         private Animator _playerAnimator;
 
         #endregion
@@ -27,7 +30,12 @@ namespace ATBMI.Entities.Player
             _playerController = GetComponentInParent<PlayerController>();
             _playerAnimator = GetComponent<Animator>();
         }
-
+        
+        private void Start()
+        {
+            _eventReceiver.OnStepDown += () => AudioManager.Instance.PlayAudio(Musics.SFX_Footstep);
+        }
+        
         private void Update()
         {
             AnimationStateHandler();
@@ -110,7 +118,7 @@ namespace ATBMI.Entities.Player
             _animationHashes[animName] = hash;
             return hash;
         }
-
+        
         #endregion
     }
 }
