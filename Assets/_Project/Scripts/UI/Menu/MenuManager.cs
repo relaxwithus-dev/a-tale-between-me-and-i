@@ -1,4 +1,4 @@
-using System;
+using ATBMI.Audio;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -45,9 +45,23 @@ namespace ATBMI.UI.Menu
         }
         
         // Core
-        private void OnPlayButton() => playPanelUI.SetActive(true);
-        private void OnOptionButton() => optionPanelUI.SetActive(true);
-        private void OnExitButton() => Application.Quit();
+        private void OnPlayButton()
+        {
+            AudioManager.Instance.PlayAudio(Musics.SFX_Button);
+            playPanelUI.SetActive(true);
+        }
+
+        private void OnOptionButton()
+        {
+            AudioManager.Instance.PlayAudio(Musics.SFX_Button);
+            optionPanelUI.SetActive(true);
+        }
+
+        private void OnExitButton()
+        {
+            AudioManager.Instance.PlayAudio(Musics.SFX_Button);
+            Application.Quit();
+        }
 
         #endregion
     }

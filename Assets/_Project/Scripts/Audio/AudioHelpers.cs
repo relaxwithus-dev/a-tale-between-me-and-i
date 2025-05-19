@@ -26,7 +26,7 @@ namespace ATBMI.Audio
 
         public static IEnumerator FadeIn(this AudioSource audio, float fadeTime, float targetVolume)
         {
-            var startVolume = 0.2f;
+            const float startVolume = 0.2f;
             audio.volume = 0;
             audio.Play();
             while (audio.volume < targetVolume)

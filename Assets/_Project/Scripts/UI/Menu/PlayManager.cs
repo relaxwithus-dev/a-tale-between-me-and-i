@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using ATBMI.Audio;
 using ATBMI.Scene;
 using ATBMI.Gameplay.Handler;
 
@@ -15,6 +16,9 @@ namespace ATBMI.UI.Menu
         
         [Header("Scene")]
         [SerializeField] private SceneAsset prologueAsset;
+        
+        [Header("Reference")]
+        [SerializeField] private AudioController audioController;
         
         #endregion
 
@@ -38,6 +42,8 @@ namespace ATBMI.UI.Menu
         // Core
         private void OnPlayButton()
         {
+            audioController.FadeAudio(isFadeIn: false);
+            AudioManager.Instance.PlayAudio(Musics.SFX_Button);
             SceneNavigation.Instance.SwitchSceneSection(isToMenu: false, prologueAsset);
         }
 

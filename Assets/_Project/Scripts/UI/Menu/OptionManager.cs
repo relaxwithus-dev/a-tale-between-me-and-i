@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using ATBMI.Audio;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -75,6 +76,7 @@ namespace ATBMI.UI.Menu
         // Core
         private void MoveToNext()
         {
+            AudioManager.Instance.PlayAudio(Musics.SFX_ChangeUI);
             if (_selectedMenuIndex >= headerMenuUI.Length - 1) return;
             
             _selectedMenuIndex++;
@@ -84,6 +86,7 @@ namespace ATBMI.UI.Menu
         
         private void MoveToPrevious()
         {
+            AudioManager.Instance.PlayAudio(Musics.SFX_ChangeUI);
             if (_selectedMenuIndex <= 0) return;
             
             _selectedMenuIndex--;

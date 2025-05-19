@@ -22,7 +22,7 @@ namespace ATBMI.Audio
         {
             OnFadeAudio += FadeAudio;
         }
-
+         
         private void OnDisable()
         {
             OnFadeAudio -= FadeAudio;
@@ -39,7 +39,7 @@ namespace ATBMI.Audio
             OnFadeAudio?.Invoke(isFadeIn, duration);
         }
         
-        private void FadeAudio(bool isFadeIn, float duration)
+        public void FadeAudio(bool isFadeIn, float duration = 0.5f)
         {
             var audio = AudioManager.Instance.GetAudio(musicName);
             
