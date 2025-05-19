@@ -254,34 +254,90 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03f4e2192c37c964591c7b9db98a2350, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicCollections:
+  sounds:
   - name: BGM_MainMenu
-    clip: {fileID: 0}
-    priority: 180
-    volume: 0.65
+    clip: {fileID: 8300000, guid: f6a97e3fa28cef74abccfd573b1b2d04, type: 3}
+    priority: 160
+    volume: 0.7
     pitch: 1
-    loop: 1
+    loop: 0
     sfx: 0
     source: {fileID: 0}
-  - name: BGM_Prologue
-    clip: {fileID: 0}
-    priority: 180
+  - name: BGM_Bali
+    clip: {fileID: 8300000, guid: 033af4ff7c1968643905a10e985f9b0c, type: 3}
+    priority: 160
     volume: 0.65
     pitch: 1
-    loop: 1
+    loop: 0
     sfx: 0
+    source: {fileID: 0}
+  - name: BGM_Surabaya
+    clip: {fileID: 8300000, guid: c3d2050e93b170a4db4cacf060c782d4, type: 3}
+    priority: 160
+    volume: 0.65
+    pitch: 1
+    loop: 0
+    sfx: 0
+    source: {fileID: 0}
+  - name: BGM_Bandung
+    clip: {fileID: 8300000, guid: be4432c3bec830e4babc1d3826796739, type: 3}
+    priority: 160
+    volume: 0.65
+    pitch: 1
+    loop: 0
+    sfx: 0
+    source: {fileID: 0}
+  - name: SFX_Footstep
+    clip: {fileID: 8300000, guid: 050cd444429c173409e1e8c0be51a66d, type: 3}
+    priority: 215
+    volume: 0.9
+    pitch: 1
+    loop: 0
+    sfx: 1
     source: {fileID: 0}
   - name: SFX_Interact
-    clip: {fileID: 0}
-    priority: 220
+    clip: {fileID: 8300000, guid: 2e2023013639c0e4db87003391ed938a, type: 3}
+    priority: 230
     volume: 1
     pitch: 1
     loop: 0
     sfx: 1
     source: {fileID: 0}
-  - name: SFX_Select
-    clip: {fileID: 0}
-    priority: 220
+  - name: SFX_Button
+    clip: {fileID: 8300000, guid: 00007bcd84586ae478143278c54f54c1, type: 3}
+    priority: 230
+    volume: 1
+    pitch: 1
+    loop: 0
+    sfx: 1
+    source: {fileID: 0}
+  - name: SFX_Typing
+    clip: {fileID: 8300000, guid: a7844d5a8bb4c3e44ba05c83bfa017eb, type: 3}
+    priority: 215
+    volume: 0.9
+    pitch: 1
+    loop: 1
+    sfx: 1
+    source: {fileID: 0}
+  - name: SFX_Phone
+    clip: {fileID: 8300000, guid: 9538bd3fff81afe40a491ff617153ba8, type: 3}
+    priority: 230
+    volume: 1
+    pitch: 1
+    loop: 0
+    sfx: 1
+    source: {fileID: 0}
+  - name: SFX_TabPhone
+    clip: {fileID: 8300000, guid: 200bd1d6dc72c29449705a32377cdc94, type: 3}
+    priority: 230
+    volume: 1
+    pitch: 1
+    loop: 0
+    sfx: 1
+    source: {fileID: 0}
+  - name: SFX_ChangeUI
+    clip: {fileID: 8300000, guid: f7f57d4eec9df1d419dded905f931be3, type: 3}
+    priority: 230
     volume: 1
     pitch: 1
     loop: 0
