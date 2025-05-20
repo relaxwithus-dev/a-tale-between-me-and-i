@@ -42,7 +42,7 @@ namespace ATBMI.UI.Menu
         // Core
         private void OnPlayButton()
         {
-            audioController.FadeAudio(isFadeIn: false);
+            AudioEvent.FadeOutAudioEvent();
             AudioManager.Instance.PlayAudio(Musics.SFX_Button);
             SceneNavigation.Instance.SwitchSceneSection(isToMenu: false, prologueAsset);
         }

@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace ATBMI.Audio
@@ -7,12 +6,10 @@ namespace ATBMI.Audio
     {
         #region Fields & Properties
 
-        [Header("Stats")]
+        [Header("Stats")] 
         [SerializeField] private Musics musicName;
+        [SerializeField] private float fadeDuration = 0.5f;
         
-        // Event
-        public static event Action<bool, float> OnFadeAudio;
-
         #endregion
 
         #region Methods
@@ -20,32 +17,34 @@ namespace ATBMI.Audio
         // Unity Callbacks
         private void OnEnable()
         {
-            OnFadeAudio += FadeAudio;
+            AudioEvent.OnFadeInAudio += FadeInAudio;
+            AudioEvent.OnFadeOutAudio += FadeOutAudio;
         }
-         
+        
         private void OnDisable()
         {
-            OnFadeAudio -= FadeAudio;
+            AudioEvent.OnFadeInAudio -= FadeInAudio;
+            AudioEvent.OnFadeOutAudio -= FadeOutAudio;
         }
         
         private void Start()
         {
-            FadeAudioEvent(isFadeIn: true);
+            var currentMusic = AudioManager.Instance.GetAudio(musicName);
+            if (currentMusic.name == musicName.ToString()) return;
+            FadeInAudio();
         }
         
         // Core
-        public static void FadeAudioEvent(bool isFadeIn, float duration = 0.5f)
-        {
-            OnFadeAudio?.Invoke(isFadeIn, duration);
-        }
+        private void FadeInAudio() => FadeAudio(isFadeIn: true);
+        private void FadeOutAudio() => FadeAudio(isFadeIn: false);
         
-        public void FadeAudio(bool isFadeIn, float duration = 0.5f)
+        private void FadeAudio(bool isFadeIn)
         {
-            var audio = AudioManager.Instance.GetAudio(musicName);
+            var musics = AudioManager.Instance.GetAudio(musicName);
             
             StartCoroutine(isFadeIn
-                ? AudioHelpers.FadeIn(audio.source, duration, audio.volume)
-                : AudioHelpers.FadeOut(audio.source, duration));
+                ? musics.source.FadeIn(fadeDuration, musics.volume)
+                : musics.source.FadeOut(fadeDuration));
         }
         
         #endregion

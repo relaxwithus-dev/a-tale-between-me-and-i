@@ -19,6 +19,7 @@ namespace ATBMI.Scene
         // Getter
         public SceneType Type => sceneType;
         public Location Id => location.location;
+        public Region Region => location.region;
         public SceneReference Reference => reference;
         public SceneAsset GetNeighbourById(Location id)
         {
