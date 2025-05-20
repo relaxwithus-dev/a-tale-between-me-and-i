@@ -1,52 +1,79 @@
+using System;
+using ATBMI.Entities.Player;
 using UnityEngine;
 
 namespace ATBMI.Cutscene
 {
     public class CutsceneDirector : MonoBehaviour
     {
+        #region Fields
+        
         [Header("Attribute")] 
         [SerializeField] private CutsceneHandler[] cutsceneHandlers;
         
-        private int _currentIndex;
         private CutsceneHandler _currentCutscene;
+        private PlayerController _player;
         
+        #endregion
+        
+        #region Methods
+        
+        // Unity Callbacks
+        private void OnEnable()
+        {
+            CutsceneManager.OnCutsceneEnd += ModifyHandlers;
+        }
+        
+        private void OnDisable()
+        {
+            CutsceneManager.OnCutsceneEnd -= ModifyHandlers;
+        }
+
         private void Start()
         {
-            InitCutscene();
-        }
-        
-        private void InitCutscene()
-        {
-            // Stats
-            _currentIndex = 0;
-            _currentCutscene = cutsceneHandlers[_currentIndex];
+            // Init player reference
+            var player = CutsceneManager.Instance.Player;
+            _player = player.GetComponent<PlayerController>();
             
-            // Handlers
-            for (var i = 0; i < cutsceneHandlers.Length; i++)
-            {
-                var cutscene = cutsceneHandlers[i];
-                var isFirstCutscene = i == _currentIndex;
-                
-                cutscene.CutsceneDirector = this;
-                cutscene.gameObject.SetActive(isFirstCutscene);
-            }
+            // Init handlers
+            ModifyHandlers();
+        }
+
+        // Initialize
+        private void InitDirector()
+        {
+            var player = CutsceneManager.Instance.Player;
+            _player = player.GetComponent<PlayerController>();
+            ModifyHandlers();
         }
         
-        public void EnterCutscene()
+        // Core
+        public void EnterCutscene(CutsceneHandler handler)
         {
-            _currentCutscene.gameObject.SetActive(true);
-            CutsceneManager.Instance.OnCutscenePlay();
+            _player.StopMovement();
+            _currentCutscene = handler;
+            CutsceneManager.Instance.EnterCutscene();
         }
         
         public void ExitCutscene()
         {
-            CutsceneManager.Instance.OnCutsceneStop();
+            _player.StartMovement();
             _currentCutscene.gameObject.SetActive(false);
-            if (_currentIndex < cutsceneHandlers.Length - 1)
+            CutsceneManager.Instance.ExitCutscene();
+        }
+        
+        private void ModifyHandlers()
+        {
+            var key = CutsceneManager.Instance.CurrentKeys;
+            foreach (var handler in cutsceneHandlers)
             {
-                _currentIndex++;
-                _currentCutscene = cutsceneHandlers[_currentIndex];
+                var isActiveCutscene = key && handler.CutsceneKey.id == key.id;
+                
+                handler.CutsceneDirector ??= this;
+                handler.gameObject.SetActive(isActiveCutscene);
             }
         }
+        
+        #endregion
     }
 }

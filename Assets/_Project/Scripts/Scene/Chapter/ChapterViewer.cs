@@ -5,8 +5,6 @@ namespace ATBMI.Scene.Chapter
 {
     public class ChapterViewer : MonoBehaviour
     {
-        public enum Chapters { Prologue, Chapter_1, Chapter_2, None }
-
         [Header("Attribute")] 
         [SerializeField] private bool isInitializedChapter;
         [SerializeField] private Chapters chapter;

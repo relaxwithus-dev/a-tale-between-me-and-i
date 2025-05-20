@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Sirenix.OdinInspector;
+using ATBMI.Managers;
 using ATBMI.Gameplay.Event;
 using ATBMI.Entities.Player;
 using ATBMI.Gameplay.Controller;
@@ -19,9 +20,6 @@ namespace ATBMI.Scene
         [SerializeField] [ShowIf("debugMode")]
         private SceneAsset debugScene;
         
-        [Space] 
-        [SerializeField] private GameObject[] gameplayObjects;
-
         private AsyncOperation _asyncOperation;
         
         public SceneAsset CurrentScene { get; private set; }
@@ -30,6 +28,7 @@ namespace ATBMI.Scene
         public static SceneNavigation Instance;
         
         [Header("Reference")]
+        [SerializeField] private GameManager gameManager;
         [SerializeField] private PlayerController player;
         [SerializeField] private FadeController fader;
         
@@ -52,7 +51,6 @@ namespace ATBMI.Scene
         
         private void Start()
         {
-            ModifyGameplay(debugMode);
             StartCoroutine(InitSceneAsync(debugMode ? debugScene : menuScene));
         }
         
@@ -70,7 +68,12 @@ namespace ATBMI.Scene
             fader.FadeIn();
             if (debugMode)
             {
+                gameManager.StartGame();
                 DialogueEvents.RegisterDialogueSignPointEvent();
+            }
+            else
+            {
+                gameManager.EndGame();
             }
         }
         
@@ -91,8 +94,8 @@ namespace ATBMI.Scene
             
             var sceneTarget = isToMenu ? menuScene : sceneAsset;
             Action modifyGameplayAction = isToMenu 
-                ? () => ModifyGameplay(false) 
-                : () => ModifyGameplay(true);
+                ? () => gameManager.EndGame() 
+                : () => gameManager.StartGame();
             
             StartCoroutine(SwitchRoutine(sceneTarget, modifyGameplayAction));
         }
@@ -133,15 +136,14 @@ namespace ATBMI.Scene
             _asyncOperation = SceneManager.UnloadSceneAsync(scene);
         }
 
-        private void ModifyGameplay(bool isEnable)
-        {
-            foreach (var obj in gameplayObjects)
-            {
-                obj.SetActive(isEnable);
-            }
-        }
+        // private void ModifyGameplay(bool isEnable)
+        // {
+        //     foreach (var obj in gameplayObjects)
+        //     {
+        //         obj.SetActive(isEnable);
+        //     }
+        // }
 
         #endregion
-
     }
 }

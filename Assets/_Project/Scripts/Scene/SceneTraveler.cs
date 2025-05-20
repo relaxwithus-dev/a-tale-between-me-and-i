@@ -1,9 +1,9 @@
+using ATBMI.Audio;
 using UnityEngine;
 using TMPro;
 using ATBMI.Core;
 using ATBMI.Dialogue;
 using ATBMI.Gameplay.Handler;
-using UnityEngine.Serialization;
 
 namespace ATBMI.Scene
 {
@@ -11,8 +11,7 @@ namespace ATBMI.Scene
     public class SceneTraveler : MonoBehaviour
     {
         #region Fields & Properties
-        
-        [FormerlySerializedAs("locationTarget")]
+
         [Header("Attribute")] 
         [SerializeField] private LocationData locationData;
         [SerializeField] private TextMeshProUGUI infoTextUI;
@@ -46,17 +45,7 @@ namespace ATBMI.Scene
             
             if (GameInputHandler.Instance.IsTapInteract)
             {
-                var currentScene = SceneNavigation.Instance.CurrentScene;
-                var sceneAsset = currentScene.GetNeighbourById(locationData.location);
-
-                if (!sceneAsset)
-                {
-                    Debug.LogWarning("target scene not found");
-                    return;
-                }
-                
-                infoTextUI.gameObject.SetActive(false);
-                SceneNavigation.Instance.SwitchScene(sceneAsset);
+                TravelToTarget();
             }
         }
         
@@ -74,6 +63,25 @@ namespace ATBMI.Scene
             {
                 DisableTravel();
             }
+        }
+        
+        // Core
+        private void TravelToTarget()
+        {
+            var currentScene = SceneNavigation.Instance.CurrentScene;
+            var sceneAsset = currentScene.GetNeighbourById(locationData.location);
+
+            if (!sceneAsset)
+            {
+                Debug.LogError("target scene not found");
+                return;
+            }
+                
+            infoTextUI.gameObject.SetActive(false);
+            if (currentScene.Region == sceneAsset.Region)
+                AudioEvent.FadeOutAudioEvent();
+            
+            SceneNavigation.Instance.SwitchScene(sceneAsset);
         }
         
         // Helper

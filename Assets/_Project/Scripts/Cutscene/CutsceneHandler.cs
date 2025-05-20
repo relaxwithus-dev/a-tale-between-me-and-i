@@ -11,15 +11,17 @@ namespace ATBMI.Cutscene
         #region Method
         
         [Header("Attribute")]
-        [SerializeField] private string cutsceneID;
         [SerializeField] private float transitionTime;
+        [SerializeField] private CutsceneKeys cutsceneKey;
         [SerializeField] private List<Cutscene> cutsceneSteps;
         
         private int _currentIndex;
         private bool _isPlaying;
         private bool _isTransitioning;
         private bool _hasExecutingStep;
+        
         private Cutscene _currentCutscene;
+        public CutsceneKeys CutsceneKey => cutsceneKey;
         
         // Reference
         private BoxCollider2D _boxCollider2D;
@@ -34,7 +36,7 @@ namespace ATBMI.Cutscene
         {
             _boxCollider2D = GetComponent<BoxCollider2D>();
         }
-
+        
         private void Start()
         {
             InitAttribute();
@@ -46,22 +48,21 @@ namespace ATBMI.Cutscene
             if (!_isPlaying || _isTransitioning) return;
             HandleCutsceneFlow();
         }
-
+        
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag(GameTag.PLAYER_TAG))
             {
                 _isPlaying = true;
+                
                 SetupCollider(isEnable: false);
-                Debug.Log($"execute cutscene {cutsceneID}");
+                CutsceneDirector.EnterCutscene(this);
             }
         }
         
         // Initialize
         private void InitAttribute()
         {
-            gameObject.name = cutsceneID;
-            
             _currentIndex = 0;
             _isPlaying = false;
             _isTransitioning = false;
@@ -82,7 +83,6 @@ namespace ATBMI.Cutscene
             { 
                 _currentCutscene.Execute();
                 _hasExecutingStep = true;
-                CutsceneDirector.EnterCutscene();
             }
             
             // Check if finished
@@ -92,6 +92,7 @@ namespace ATBMI.Cutscene
                 {
                     _isPlaying = false;
                     _hasExecutingStep = false;
+                    
                     CutsceneDirector.ExitCutscene();
                     return;
                 }

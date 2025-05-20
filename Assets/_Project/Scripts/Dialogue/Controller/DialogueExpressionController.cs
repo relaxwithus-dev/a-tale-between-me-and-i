@@ -1,5 +1,5 @@
-using ATBMI.Gameplay.Event;
 using UnityEngine;
+using ATBMI.Gameplay.Event;
 
 public class DialogueExpressionController : MonoBehaviour
 {

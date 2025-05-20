@@ -9,8 +9,9 @@ namespace ATBMI.Cutscene
     {
         #region Fields
         
-        [Header("Stats")]
+        [Header("Attribute")]
         [SerializeField] private TextAsset dialogueText;
+        
         
         // Reference
         private DialogueManager _dialogueManager;
@@ -28,13 +29,11 @@ namespace ATBMI.Cutscene
         public override void Execute()
         {
             if (_dialogueManager.IsDialoguePlaying) return;
-            
-            controller.ChangeState(EntitiesState.Idle);
             DialogueEvents.EnterDialogueEvent(dialogueText);
         }
         
         public override bool IsFinished() => !_dialogueManager.IsDialoguePlaying;
-
+        
         #endregion
     }
 }

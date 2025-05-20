@@ -1,21 +1,39 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace ATBMI.Managers
 {
     public class GameManager : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
-        {
+        #region Fields
         
-        }
+        [Header("Components")] 
+        [SerializeField] private bool isGamePlaying;
+        [SerializeField] private GameObject[] gameplayObjects;
+        
+        public bool IsGamePlaying => isGamePlaying;
 
-        // Update is called once per frame
-        void Update()
-        {
+        #endregion
+
+        #region Methods
         
+        public void StartGame()
+        {
+            isGamePlaying = true;
+            foreach (var gameplay in gameplayObjects)
+            {
+                gameplay.SetActive(true);
+            }
         }
+        
+        public void EndGame()
+        {
+            isGamePlaying = false;
+            foreach (var gameplay in gameplayObjects)
+            {
+                gameplay.SetActive(false);
+            }
+        }
+        
+        #endregion
     }
 }

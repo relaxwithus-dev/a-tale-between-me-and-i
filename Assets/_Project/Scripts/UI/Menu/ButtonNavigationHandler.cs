@@ -1,3 +1,4 @@
+using ATBMI.Audio;
 using UnityEngine;
 using UnityEngine.UI;
 using ATBMI.Gameplay.Handler;
@@ -58,11 +59,11 @@ namespace ATBMI.UI.Menu
         private void HandleNavigation()
         {
             if (GameInputHandler.Instance.IsArrowDown)
-                _currentIndex++;
+                ModifyButtonIndex(isArrowDown: true);
             else if (GameInputHandler.Instance.IsArrowUp)
-                _currentIndex--;
+                ModifyButtonIndex(isArrowDown: false);
             else if (GameInputHandler.Instance.IsTapSelect)
-                _selectedButton.onClick.Invoke();
+                OnSelectButton();
             
             _currentIndex = Mathf.Clamp(_currentIndex, MinIndex, buttons.Length - 1);
         }
@@ -74,6 +75,18 @@ namespace ATBMI.UI.Menu
             _selectedButton.transform.GetChild(_arrowChildIndex).gameObject.SetActive(false);
             _selectedButton = buttons[_currentIndex];
             _selectedButton.transform.GetChild(_arrowChildIndex).gameObject.SetActive(true);
+        }
+
+        private void ModifyButtonIndex(bool isArrowDown)
+        {
+            AudioManager.Instance.PlayAudio(Musics.SFX_ChangeUI);
+            _currentIndex +=  isArrowDown ? 1 : -1;
+        }
+        
+        private void OnSelectButton()
+        {
+            AudioManager.Instance.PlayAudio(Musics.SFX_Button);
+            _selectedButton.onClick.Invoke();
         }
         
         #endregion

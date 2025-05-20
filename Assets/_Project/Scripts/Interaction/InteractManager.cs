@@ -1,3 +1,4 @@
+using ATBMI.Audio;
 using UnityEngine;
 using Sirenix.OdinInspector;
 using ATBMI.Dialogue;
@@ -80,6 +81,7 @@ namespace ATBMI.Interaction
                     {
                         DeactivateSign();
                         InteractEvent.InteractedEvent(interact: true);
+                        AudioManager.Instance.PlayAudio(Musics.SFX_Interact);
                         
                         if (target as ItemInteract)
                         {
