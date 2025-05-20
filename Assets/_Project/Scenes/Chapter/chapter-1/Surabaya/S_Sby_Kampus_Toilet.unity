@@ -789,7 +789,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2d5600188a4b88854d4bd523fe97d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locationTarget: {fileID: 11400000, guid: a7a91c9cd0e296044a3273f064eb3d8b, type: 2}
+  locationData: {fileID: 11400000, guid: 9cff0784b0b322a48a241bf37e0cfbd8, type: 2}
   infoTextUI: {fileID: 1039546951}
 --- !u!1 &1039546948
 GameObject:
@@ -1143,10 +1143,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0bd71baf65d494ab60e4edd815b2eeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFirstSpawn: 0
   defaultPoint: {fileID: 1578348361}
   entryPoints:
-  - locationTarget: {fileID: 11400000, guid: a7a91c9cd0e296044a3273f064eb3d8b, type: 2}
+  - locationData: {fileID: 11400000, guid: 9cff0784b0b322a48a241bf37e0cfbd8, type: 2}
     pointFromScene: {fileID: 1061055696}
   confiner: {fileID: 320762905}
 --- !u!1 &1375646168

@@ -1056,7 +1056,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2d5600188a4b88854d4bd523fe97d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locationTarget: {fileID: 11400000, guid: 9cff0784b0b322a48a241bf37e0cfbd8, type: 2}
+  locationData: {fileID: 11400000, guid: 9cff0784b0b322a48a241bf37e0cfbd8, type: 2}
   infoTextUI: {fileID: 1039546951}
 --- !u!1 &1039546948
 GameObject:
@@ -1323,17 +1323,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0bd71baf65d494ab60e4edd815b2eeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFirstSpawn: 0
   defaultPoint: {fileID: 1578348361}
   entryPoints:
-  - locationTarget: {fileID: 11400000, guid: 9cff0784b0b322a48a241bf37e0cfbd8, type: 2}
+  - locationData: {fileID: 11400000, guid: 9cff0784b0b322a48a241bf37e0cfbd8, type: 2}
     pointFromScene: {fileID: 1061055696}
-  - locationTarget: {fileID: 11400000, guid: b8ea39d814811124d9c00fded9fabdbc, type: 2}
+  - locationData: {fileID: 11400000, guid: b8ea39d814811124d9c00fded9fabdbc, type: 2}
     pointFromScene: {fileID: 1243254175}
-  - locationTarget: {fileID: 11400000, guid: b399602dd5f5e8b4badef327d5fa1c91, type: 2}
+  - locationData: {fileID: 11400000, guid: b399602dd5f5e8b4badef327d5fa1c91, type: 2}
     pointFromScene: {fileID: 1637425278}
-  - locationTarget: {fileID: 11400000, guid: ef6d7b2e0a5144648abd271f03243217, type: 2}
-    pointFromScene: {fileID: 2089300828}
   confiner: {fileID: 320762905}
 --- !u!1 &1375646168
 GameObject:
@@ -1680,7 +1677,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2d5600188a4b88854d4bd523fe97d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locationTarget: {fileID: 11400000, guid: b8ea39d814811124d9c00fded9fabdbc, type: 2}
+  locationData: {fileID: 11400000, guid: b8ea39d814811124d9c00fded9fabdbc, type: 2}
   infoTextUI: {fileID: 1039546951}
 --- !u!61 &1689487326
 BoxCollider2D:
@@ -2144,7 +2141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2d5600188a4b88854d4bd523fe97d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locationTarget: {fileID: 11400000, guid: ef6d7b2e0a5144648abd271f03243217, type: 2}
+  locationData: {fileID: 0}
   infoTextUI: {fileID: 1039546951}
 --- !u!61 &1972348991
 BoxCollider2D:
@@ -2375,7 +2372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2d5600188a4b88854d4bd523fe97d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locationTarget: {fileID: 11400000, guid: b399602dd5f5e8b4badef327d5fa1c91, type: 2}
+  locationData: {fileID: 11400000, guid: b399602dd5f5e8b4badef327d5fa1c91, type: 2}
   infoTextUI: {fileID: 1039546951}
 --- !u!61 &2106424748
 BoxCollider2D:

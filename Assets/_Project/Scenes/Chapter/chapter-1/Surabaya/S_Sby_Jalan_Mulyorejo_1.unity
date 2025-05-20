@@ -322,7 +322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2d5600188a4b88854d4bd523fe97d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locationData: {fileID: 0}
+  locationData: {fileID: 11400000, guid: 02069983165afc94287e5669df51ef51, type: 2}
   infoTextUI: {fileID: 1039546951}
 --- !u!61 &208336443
 BoxCollider2D:
@@ -866,7 +866,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2d5600188a4b88854d4bd523fe97d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locationData: {fileID: 0}
+  locationData: {fileID: 11400000, guid: 0d3ce7440b18f29418b3b246fbf39513, type: 2}
   infoTextUI: {fileID: 1039546951}
 --- !u!1 &1039546948
 GameObject:
@@ -1304,7 +1304,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultPoint: {fileID: 1578348361}
   entryPoints:
-  - locationData: {fileID: 11400000, guid: e61c7a3a201f95c44a5e8631b617b6c7, type: 2}
+  - locationData: {fileID: 11400000, guid: 0d3ce7440b18f29418b3b246fbf39513, type: 2}
     pointFromScene: {fileID: 1061055696}
   - locationData: {fileID: 11400000, guid: 35b5343300f8a6949a8e7731ded801f0, type: 2}
     pointFromScene: {fileID: 1243254175}
@@ -1463,7 +1463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2d5600188a4b88854d4bd523fe97d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locationData: {fileID: 0}
+  locationData: {fileID: 11400000, guid: 35b5343300f8a6949a8e7731ded801f0, type: 2}
   infoTextUI: {fileID: 1039546951}
 --- !u!61 &1689487327
 BoxCollider2D:

@@ -668,7 +668,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2d5600188a4b88854d4bd523fe97d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locationTarget: {fileID: 11400000, guid: 6b20dd84a7a688a43af1cf10636d27c3, type: 2}
+  locationData: {fileID: 11400000, guid: 6b20dd84a7a688a43af1cf10636d27c3, type: 2}
   infoTextUI: {fileID: 1039546951}
 --- !u!61 &517806000
 BoxCollider2D:
@@ -1062,7 +1062,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2d5600188a4b88854d4bd523fe97d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locationTarget: {fileID: 11400000, guid: da40938931b95584385940bb1ae4c07d, type: 2}
+  locationData: {fileID: 11400000, guid: da40938931b95584385940bb1ae4c07d, type: 2}
   infoTextUI: {fileID: 1039546951}
 --- !u!1 &1039546948
 GameObject:
@@ -1423,12 +1423,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0bd71baf65d494ab60e4edd815b2eeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFirstSpawn: 0
   defaultPoint: {fileID: 1578348361}
   entryPoints:
-  - locationTarget: {fileID: 11400000, guid: da40938931b95584385940bb1ae4c07d, type: 2}
+  - locationData: {fileID: 11400000, guid: da40938931b95584385940bb1ae4c07d, type: 2}
     pointFromScene: {fileID: 1061055696}
-  - locationTarget: {fileID: 11400000, guid: 6b20dd84a7a688a43af1cf10636d27c3, type: 2}
+  - locationData: {fileID: 11400000, guid: 6b20dd84a7a688a43af1cf10636d27c3, type: 2}
     pointFromScene: {fileID: 1243254175}
   confiner: {fileID: 320762905}
 --- !u!1 &1375646168

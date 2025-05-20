@@ -771,7 +771,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2d5600188a4b88854d4bd523fe97d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locationTarget: {fileID: 11400000, guid: 01cda0f8499ca294abf269a2676aa611, type: 2}
+  locationData: {fileID: 11400000, guid: 01cda0f8499ca294abf269a2676aa611, type: 2}
   infoTextUI: {fileID: 1039546951}
 --- !u!1 &1039546948
 GameObject:
@@ -1126,12 +1126,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0bd71baf65d494ab60e4edd815b2eeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFirstSpawn: 0
   defaultPoint: {fileID: 1578348361}
   entryPoints:
-  - locationTarget: {fileID: 11400000, guid: 01cda0f8499ca294abf269a2676aa611, type: 2}
+  - locationData: {fileID: 11400000, guid: 01cda0f8499ca294abf269a2676aa611, type: 2}
     pointFromScene: {fileID: 1061055696}
-  - locationTarget: {fileID: 11400000, guid: 7034e219a2b233a41b992b2b5202dd14, type: 2}
+  - locationData: {fileID: 11400000, guid: 7034e219a2b233a41b992b2b5202dd14, type: 2}
     pointFromScene: {fileID: 1243254175}
   confiner: {fileID: 320762905}
 --- !u!1 &1375646168
@@ -1255,9 +1254,72 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1777171567}
   m_Father: {fileID: 1338313044}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1777171566
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1743936510}
+    m_Modifications:
+    - target: {fileID: 4291996230028175410, guid: e59b0a48cd306e54c972630e4cf755ff, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291996230028175410, guid: e59b0a48cd306e54c972630e4cf755ff, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291996230028175410, guid: e59b0a48cd306e54c972630e4cf755ff, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291996230028175410, guid: e59b0a48cd306e54c972630e4cf755ff, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291996230028175410, guid: e59b0a48cd306e54c972630e4cf755ff, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291996230028175410, guid: e59b0a48cd306e54c972630e4cf755ff, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291996230028175410, guid: e59b0a48cd306e54c972630e4cf755ff, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291996230028175410, guid: e59b0a48cd306e54c972630e4cf755ff, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291996230028175410, guid: e59b0a48cd306e54c972630e4cf755ff, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291996230028175410, guid: e59b0a48cd306e54c972630e4cf755ff, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6178640880139922672, guid: e59b0a48cd306e54c972630e4cf755ff, type: 3}
+      propertyPath: m_Name
+      value: NPC_Penjual_Telur
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e59b0a48cd306e54c972630e4cf755ff, type: 3}
+--- !u!4 &1777171567 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4291996230028175410, guid: e59b0a48cd306e54c972630e4cf755ff, type: 3}
+  m_PrefabInstance: {fileID: 1777171566}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1783877392
 GameObject:
   m_ObjectHideFlags: 0
@@ -1560,7 +1622,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2d5600188a4b88854d4bd523fe97d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locationTarget: {fileID: 11400000, guid: 7034e219a2b233a41b992b2b5202dd14, type: 2}
+  locationData: {fileID: 11400000, guid: 7034e219a2b233a41b992b2b5202dd14, type: 2}
   infoTextUI: {fileID: 1039546951}
 --- !u!61 &2081251619
 BoxCollider2D:
@@ -1621,7 +1683,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8761454882040402568, guid: df6e2d9f0f8a95a4e810683caed46772, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.19
+      value: -1.39
       objectReference: {fileID: 0}
     - target: {fileID: 8761454882040402568, guid: df6e2d9f0f8a95a4e810683caed46772, type: 3}
       propertyPath: m_LocalPosition.y

@@ -183,16 +183,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0bd71baf65d494ab60e4edd815b2eeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFirstSpawn: 0
   defaultPoint: {fileID: 1912525942}
   entryPoints:
-  - locationTarget: {fileID: 11400000, guid: c2c179364c98fc24ba7c2ecf03b938d9, type: 2}
+  - locationData: {fileID: 11400000, guid: c2c179364c98fc24ba7c2ecf03b938d9, type: 2}
     pointFromScene: {fileID: 1964747212}
-  - locationTarget: {fileID: 11400000, guid: 8ecc0c05d2395e444889e84168e736a4, type: 2}
+  - locationData: {fileID: 11400000, guid: 8ecc0c05d2395e444889e84168e736a4, type: 2}
     pointFromScene: {fileID: 516030384}
-  - locationTarget: {fileID: 11400000, guid: 5be1d275ba50b7444ae7c874246d0169, type: 2}
+  - locationData: {fileID: 11400000, guid: 6819b27e89d654349b11656dba1cc291, type: 2}
     pointFromScene: {fileID: 1428728722}
-  - locationTarget: {fileID: 11400000, guid: 5be1d275ba50b7444ae7c874246d0169, type: 2}
+  - locationData: {fileID: 11400000, guid: 5be1d275ba50b7444ae7c874246d0169, type: 2}
     pointFromScene: {fileID: 4841118}
   confiner: {fileID: 1460671457}
 --- !u!4 &57462156
@@ -489,7 +488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2d5600188a4b88854d4bd523fe97d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locationTarget: {fileID: 11400000, guid: c2c179364c98fc24ba7c2ecf03b938d9, type: 2}
+  locationData: {fileID: 11400000, guid: c2c179364c98fc24ba7c2ecf03b938d9, type: 2}
   infoTextUI: {fileID: 2002430945}
 --- !u!61 &772366764
 BoxCollider2D:
@@ -616,7 +615,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2d5600188a4b88854d4bd523fe97d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locationTarget: {fileID: 11400000, guid: 8ecc0c05d2395e444889e84168e736a4, type: 2}
+  locationData: {fileID: 11400000, guid: 8ecc0c05d2395e444889e84168e736a4, type: 2}
   infoTextUI: {fileID: 2002430945}
 --- !u!61 &892285982
 BoxCollider2D:
@@ -1441,7 +1440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2d5600188a4b88854d4bd523fe97d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locationTarget: {fileID: 11400000, guid: 5be1d275ba50b7444ae7c874246d0169, type: 2}
+  locationData: {fileID: 11400000, guid: 6819b27e89d654349b11656dba1cc291, type: 2}
   infoTextUI: {fileID: 2002430945}
 --- !u!61 &1612211219
 BoxCollider2D:
@@ -1604,7 +1603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2d5600188a4b88854d4bd523fe97d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locationTarget: {fileID: 11400000, guid: 5be1d275ba50b7444ae7c874246d0169, type: 2}
+  locationData: {fileID: 11400000, guid: 5be1d275ba50b7444ae7c874246d0169, type: 2}
   infoTextUI: {fileID: 2002430945}
 --- !u!61 &1771101467
 BoxCollider2D:
