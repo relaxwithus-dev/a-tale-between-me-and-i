@@ -852,11 +852,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4291996230028175410, guid: 0f39b449f4f187e4ea1ecedfb6c275ad, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.086281
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4291996230028175410, guid: 0f39b449f4f187e4ea1ecedfb6c275ad, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.7511365
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 4291996230028175410, guid: 0f39b449f4f187e4ea1ecedfb6c275ad, type: 3}
       propertyPath: m_LocalPosition.z
@@ -893,6 +893,10 @@ PrefabInstance:
     - target: {fileID: 6178640880139922672, guid: 0f39b449f4f187e4ea1ecedfb6c275ad, type: 3}
       propertyPath: m_Name
       value: NPC_Luna
+      objectReference: {fileID: 0}
+    - target: {fileID: 6178640880139922672, guid: 0f39b449f4f187e4ea1ecedfb6c275ad, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1163,7 +1167,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &272835186
 Transform:
   m_ObjectHideFlags: 0
@@ -1199,11 +1203,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4291996230028175410, guid: 82c090cf7487b0f4b96c0635e2692ecb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.3
+      value: 0.47
       objectReference: {fileID: 0}
     - target: {fileID: 4291996230028175410, guid: 82c090cf7487b0f4b96c0635e2692ecb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -24.72
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 4291996230028175410, guid: 82c090cf7487b0f4b96c0635e2692ecb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1240,6 +1244,10 @@ PrefabInstance:
     - target: {fileID: 6178640880139922672, guid: 82c090cf7487b0f4b96c0635e2692ecb, type: 3}
       propertyPath: m_Name
       value: NPC_Ayah_Dewa
+      objectReference: {fileID: 0}
+    - target: {fileID: 6178640880139922672, guid: 82c090cf7487b0f4b96c0635e2692ecb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1805,11 +1813,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4291996230028175410, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4291996230028175410, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.15
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 4291996230028175410, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1846,6 +1854,10 @@ PrefabInstance:
     - target: {fileID: 6178640880139922672, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
       propertyPath: m_Name
       value: NPC_Ibu_Dewa
+      objectReference: {fileID: 0}
+    - target: {fileID: 6178640880139922672, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2996,7 +3008,7 @@ PrefabInstance:
       objectReference: {fileID: 606424647}
     - target: {fileID: 4291996230028175410, guid: f895ee240a37de14b935f27623085632, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.21
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4291996230028175410, guid: f895ee240a37de14b935f27623085632, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3038,6 +3050,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC_Pemabuk
       objectReference: {fileID: 0}
+    - target: {fileID: 6178640880139922672, guid: f895ee240a37de14b935f27623085632, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3058,7 +3074,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4291996230028175410, guid: 62e86d717d49e17409b68e1e34bf7432, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.82
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4291996230028175410, guid: 62e86d717d49e17409b68e1e34bf7432, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3099,6 +3115,10 @@ PrefabInstance:
     - target: {fileID: 6178640880139922672, guid: 62e86d717d49e17409b68e1e34bf7432, type: 3}
       propertyPath: m_Name
       value: NPC_Toko_Kelontong
+      objectReference: {fileID: 0}
+    - target: {fileID: 6178640880139922672, guid: 62e86d717d49e17409b68e1e34bf7432, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3524,7 +3544,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4291996230028175410, guid: c3edcf82606dafe41a94d2d17a927be2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.32
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4291996230028175410, guid: c3edcf82606dafe41a94d2d17a927be2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3566,6 +3586,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC_Bakery
       objectReference: {fileID: 0}
+    - target: {fileID: 6178640880139922672, guid: c3edcf82606dafe41a94d2d17a927be2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3594,11 +3618,11 @@ PrefabInstance:
       objectReference: {fileID: 606424647}
     - target: {fileID: 4291996230028175410, guid: 48a7a4762d62c3d43b034339f78b192d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.8290367
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4291996230028175410, guid: 48a7a4762d62c3d43b034339f78b192d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.595837
+      value: -3.9
       objectReference: {fileID: 0}
     - target: {fileID: 4291996230028175410, guid: 48a7a4762d62c3d43b034339f78b192d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3635,6 +3659,10 @@ PrefabInstance:
     - target: {fileID: 6178640880139922672, guid: 48a7a4762d62c3d43b034339f78b192d, type: 3}
       propertyPath: m_Name
       value: NPC_Wafa_Child
+      objectReference: {fileID: 0}
+    - target: {fileID: 6178640880139922672, guid: 48a7a4762d62c3d43b034339f78b192d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4931,6 +4959,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC_Security
       objectReference: {fileID: 0}
+    - target: {fileID: 6178640880139922672, guid: a60027ca022f1c8489d0890ff2253168, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5135,7 +5167,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4291996230028175410, guid: 343dec192fafe6946b7776753c291ff4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -3.9
       objectReference: {fileID: 0}
     - target: {fileID: 4291996230028175410, guid: 343dec192fafe6946b7776753c291ff4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5172,6 +5204,10 @@ PrefabInstance:
     - target: {fileID: 6178640880139922672, guid: 343dec192fafe6946b7776753c291ff4, type: 3}
       propertyPath: m_Name
       value: NPC_Pak_Ustadz
+      objectReference: {fileID: 0}
+    - target: {fileID: 6178640880139922672, guid: 343dec192fafe6946b7776753c291ff4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9110562728861375730, guid: 343dec192fafe6946b7776753c291ff4, type: 3}
       propertyPath: targetPoint
