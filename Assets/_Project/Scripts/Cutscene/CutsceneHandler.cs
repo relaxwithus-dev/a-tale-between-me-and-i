@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using ATBMI.Core;
+using ATBMI.Audio;
 
 namespace ATBMI.Cutscene
 {
@@ -11,15 +12,18 @@ namespace ATBMI.Cutscene
         #region Method
         
         [Header("Attribute")]
-        [SerializeField] private CutsceneKeys cutsceneKey;
         [SerializeField] private float transitionTime;
+        [SerializeField] private CutsceneKeys cutsceneKey;
+        [SerializeField] private Musics cutsceneMusic =  Musics.None;
         [SerializeField] private List<Cutscene> cutsceneSteps;
         
         private int _currentIndex;
+        private float _musicFadeDuration;
         private bool _isPlaying;
         private bool _isTransitioning;
         private bool _hasExecutingStep;
         
+        private Sound _currentMusic;
         private Cutscene _currentCutscene;
         public CutsceneKeys CutsceneKey => cutsceneKey;
         
@@ -56,6 +60,7 @@ namespace ATBMI.Cutscene
                 _isPlaying = true;
                 
                 SetupCollider(isEnable: false);
+                HandleCutsceneMusic(isPlaying: false);
                 CutsceneDirector.EnterCutscene(this);
             }
         }
@@ -93,6 +98,7 @@ namespace ATBMI.Cutscene
                     _isPlaying = false;
                     _hasExecutingStep = false;
                     
+                    HandleCutsceneMusic(isPlaying: false);
                     CutsceneDirector.ExitCutscene();
                     return;
                 }
@@ -110,6 +116,34 @@ namespace ATBMI.Cutscene
             _isTransitioning = false;
             _hasExecutingStep = false;
             _currentCutscene = cutsceneSteps[_currentIndex];
+        }
+
+        private void HandleCutsceneMusic(bool isPlaying)
+        {
+            if (cutsceneMusic == Musics.None) return;
+            StartCoroutine(isPlaying ? PlayCutsceneMusic() : StopCutsceneMusic());
+        }
+        
+        private IEnumerator PlayCutsceneMusic()
+        {
+            var musics = AudioManager.Instance.GetAudio(cutsceneMusic);
+            if (musics == null)
+            {
+                Debug.LogWarning($"{cutsceneMusic} not found. Check Audio Manager instead!");
+                yield break;
+            }
+            
+            _currentMusic = musics;
+            AudioEvent.FadeOutAudioEvent();
+            yield return new WaitForSeconds(_musicFadeDuration);
+            
+            yield return _currentMusic.source.FadeIn(0.5f, musics.volume);
+        }
+
+        private IEnumerator StopCutsceneMusic()
+        {
+            yield return _currentMusic.source.FadeOut(_musicFadeDuration);
+            AudioEvent.FadeInAudioEvent();
         }
         
         #endregion

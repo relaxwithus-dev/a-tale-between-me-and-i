@@ -1252,6 +1252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicName: 2
+  fadeDuration: 0.5
 --- !u!114 &1347448480 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1704067257611047922, guid: 8bf2c65e84331d549aed9b2f51d6a5d1, type: 3}
@@ -2173,8 +2174,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a14c0d1e7c747bdb5f1db76389e5bed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cutsceneKey: {fileID: 11400000, guid: 8901a52f7a898a14db7fdedd4d356a65, type: 2}
   transitionTime: 0.5
+  cutsceneKey: {fileID: 11400000, guid: 8901a52f7a898a14db7fdedd4d356a65, type: 2}
+  cutsceneMusic: 12
   cutsceneSteps:
   - {fileID: 2738122860076076039}
 --- !u!4 &4311248152228470737

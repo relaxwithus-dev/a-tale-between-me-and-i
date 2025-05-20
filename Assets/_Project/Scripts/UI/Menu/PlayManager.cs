@@ -10,15 +10,12 @@ namespace ATBMI.UI.Menu
     {
         #region Fields & Properties
 
-        [Header("UI")] 
-        [SerializeField] private GameObject playPanelUI;
-        [SerializeField] private Button saveButtonUI;
-        
         [Header("Scene")]
         [SerializeField] private SceneAsset prologueAsset;
         
-        [Header("Reference")]
-        [SerializeField] private AudioController audioController;
+        [Header("UI")] 
+        [SerializeField] private GameObject playPanelUI;
+        [SerializeField] private Button saveButtonUI;
         
         #endregion
 
@@ -27,6 +24,7 @@ namespace ATBMI.UI.Menu
         // Unity Callbacks
         private void Start()
         {
+            playPanelUI.SetActive(false);
             saveButtonUI.onClick.AddListener(OnPlayButton);
         }
         

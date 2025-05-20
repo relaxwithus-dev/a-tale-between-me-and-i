@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace ATBMI.Audio
 {
-    public class AudioController : MonoBehaviour
+    public class AudioHandler : MonoBehaviour
     {
         #region Fields & Properties
 
