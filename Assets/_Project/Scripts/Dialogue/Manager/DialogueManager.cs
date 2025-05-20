@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using ATBMI.Audio;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using TMPro;
@@ -207,12 +208,13 @@ namespace ATBMI.Dialogue
 
             // Process tags before displaying the line
             HandleTags(currentStory.currentTags);
-
+            
             // display char in a line 1 by 1
-            foreach (char letter in line.ToCharArray())
+            foreach (var letter in line.ToCharArray())
             {
                 yield return null;
-
+                AudioManager.Instance.PlayAudio(Musics.SFX_Typing);
+                
                 // if player pressed submit button displayed the line immediately
                 if (isSkippedDialogue)
                 {
