@@ -1,1 +1,0 @@
-Aku tidak ingin berbicara kepadanya!
