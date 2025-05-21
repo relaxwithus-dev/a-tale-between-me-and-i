@@ -1,6 +1,5 @@
-using System;
-using ATBMI.Entities.Player;
 using UnityEngine;
+using ATBMI.Entities.Player;
 
 namespace ATBMI.Cutscene
 {
@@ -36,14 +35,6 @@ namespace ATBMI.Cutscene
             _player = player.GetComponent<PlayerController>();
             
             // Init handlers
-            ModifyHandlers();
-        }
-
-        // Initialize
-        private void InitDirector()
-        {
-            var player = CutsceneManager.Instance.Player;
-            _player = player.GetComponent<PlayerController>();
             ModifyHandlers();
         }
         

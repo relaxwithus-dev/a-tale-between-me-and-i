@@ -23,10 +23,10 @@ namespace ATBMI.Gameplay.Event
         public static event Action<int> AdjustDialogueChoicesUISize;
         public static event Action RegisterDialogueSignPoint;
         public static event Action UnregisterDialogueSignPoint;
-
+        
         // Behaviour events
         public static event Action<bool> PlayerRun;
-
+        
         // Main Event - Caller
         public static void EnterDialogueEvent(TextAsset defaultDialogue) => OnEnterDialogue?.Invoke(defaultDialogue);
         public static void EnterItemDialogueEvent(TextAsset itemDialogue) => OnEnterItemDialogue?.Invoke(itemDialogue);

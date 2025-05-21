@@ -346,7 +346,7 @@ namespace ATBMI.Dialogue
                             // Stop animation between speaker
                             DialogueEvents.StopDialogueAnimEvent(currentSpeakerName);
                         }
-
+                        
                         // TODO: change to other method, change the speaker "player" in ink first
                         // if the player name change, change the method
                         currentSpeakerName = tagValue == "Player" ? "Dewa" : tagValue;

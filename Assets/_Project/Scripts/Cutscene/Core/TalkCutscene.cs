@@ -1,6 +1,5 @@
 using UnityEngine;
 using ATBMI.Dialogue;
-using ATBMI.Entities;
 using ATBMI.Gameplay.Event;
 
 namespace ATBMI.Cutscene
@@ -18,6 +17,16 @@ namespace ATBMI.Cutscene
         #endregion
         
         #region Methods
+
+        private void OnEnable()
+        {
+            DialogueEvents.OnExitDialogue += FinishDialogue;
+        }
+        
+        private void OnDisable()
+        {
+            DialogueEvents.OnExitDialogue -= FinishDialogue;
+        }
         
         protected override void InitOnStart()
         {
@@ -28,7 +37,12 @@ namespace ATBMI.Cutscene
         public override void Execute()
         {
             if (_dialogueManager.IsDialoguePlaying) return;
-            DialogueEvents.EnterDialogueEvent(dialogueText);
+            _dialogueManager.EnterDialogueMode(dialogueText);
+        }
+
+        private void FinishDialogue()
+        {
+            Debug.Log("finish dialogue");
             isFinishStep = true;
         }
         

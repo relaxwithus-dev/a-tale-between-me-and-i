@@ -49,10 +49,10 @@ namespace ATBMI.Cutscene
             var musics = GetMusic(cutsceneMusic);
             if (musics == null) yield break;
             
+            isFinishStep = true;
             _currentMusic = musics;
             yield return _currentMusic.source.FadeOut(_fadeDuration);
             AudioEvent.FadeInAudioEvent();
-            isFinishStep = true;
         }
         
         private Sound GetMusic(Musics music)
