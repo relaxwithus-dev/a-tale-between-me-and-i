@@ -115,7 +115,7 @@ namespace ATBMI
             QuestLogButton questLogButton = CreateButtonIfNotExists(quest);
 
             // set the button color based on quest state
-            questLogButton.SetState(quest.state);
+            // questLogButton.SetState(quest.state);
 
             // Move the button to the appropriate content parent based on quest state
             UpdateTransformParent(questLogButton, quest);

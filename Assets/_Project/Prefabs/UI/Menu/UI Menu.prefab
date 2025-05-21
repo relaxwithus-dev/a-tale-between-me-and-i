@@ -1008,10 +1008,10 @@ RectTransform:
   - {fileID: 4938036993547623200}
   m_Father: {fileID: 68827701561902788}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 902.36096, y: -52.02}
-  m_SizeDelta: {x: 257.8174, y: 104.04}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8997985296953593600
 CanvasRenderer:
@@ -1065,6 +1065,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uIMenuTab: 3
   background: {fileID: 931093151359669657}
+  selectedIconAnim: {fileID: 0}
 --- !u!1 &1080339568923405994
 GameObject:
   m_ObjectHideFlags: 0
@@ -3947,6 +3948,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuUI: {fileID: 5377893048533619556}
+  tabGroup: {fileID: 0}
 --- !u!114 &3596486962584048338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5102,8 +5104,6 @@ MonoBehaviour:
   - {fileID: 2724781032451060395}
   tabIdleColor: {r: 1, g: 1, b: 1, a: 1}
   tabActiveColor: {r: 0.33962262, g: 0.33962262, b: 0.33962262, a: 1}
-  navigateLeftAction: {fileID: 34831030969652570, guid: 4a71f96fdd6e8b045a417e0ff967d2de, type: 3}
-  navigateRightAction: {fileID: -6647803249210042767, guid: 4a71f96fdd6e8b045a417e0ff967d2de, type: 3}
 --- !u!1 &4506853289826225824
 GameObject:
   m_ObjectHideFlags: 0
@@ -6303,10 +6303,10 @@ RectTransform:
   - {fileID: 4346623475499358252}
   m_Father: {fileID: 68827701561902788}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 128.9087, y: -52.02}
-  m_SizeDelta: {x: 257.8174, y: 104.04}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &843081869538315138
 CanvasRenderer:
@@ -6360,6 +6360,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uIMenuTab: 0
   background: {fileID: 8657606324656240744}
+  selectedIconAnim: {fileID: 0}
 --- !u!1 &6299797518218338087
 GameObject:
   m_ObjectHideFlags: 0
@@ -6397,7 +6398,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 253.553, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 507.106, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3144346796252981044
@@ -7337,10 +7338,10 @@ RectTransform:
   - {fileID: 4889359416354851160}
   m_Father: {fileID: 68827701561902788}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 386.72614, y: -52.02}
-  m_SizeDelta: {x: 257.8174, y: 104.04}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2900449893565991865
 CanvasRenderer:
@@ -7394,6 +7395,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uIMenuTab: 1
   background: {fileID: 2383126772392164163}
+  selectedIconAnim: {fileID: 0}
 --- !u!1 &7479553951176640549
 GameObject:
   m_ObjectHideFlags: 0
@@ -8345,8 +8347,8 @@ RectTransform:
   - {fileID: 7326495201854093244}
   m_Father: {fileID: 8314140810345031850}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 253.553, y: 0}
   m_SizeDelta: {x: 507.106, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -8524,10 +8526,10 @@ RectTransform:
   - {fileID: 7660101857521621204}
   m_Father: {fileID: 68827701561902788}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 644.5435, y: -52.02}
-  m_SizeDelta: {x: 257.8174, y: 104.04}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &475153567670269755
 CanvasRenderer:
@@ -8581,6 +8583,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uIMenuTab: 2
   background: {fileID: 6703054269817642380}
+  selectedIconAnim: {fileID: 0}
 --- !u!1 &8346744498313359195
 GameObject:
   m_ObjectHideFlags: 0
