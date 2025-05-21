@@ -19,6 +19,7 @@ namespace ATBMI.Gameplay.Controller
         private readonly int InactivePriority = 0;
         
         public float SwitchDuration { get; private set; }
+        public CinemachineVirtualCamera[] VirtualCameras => virtualCameras;
         public static CameraSwitcher Instance { get; private set; }
 
         #endregion

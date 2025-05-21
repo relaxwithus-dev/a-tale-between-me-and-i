@@ -5,7 +5,6 @@ using Cinemachine;
 using ATBMI.Gameplay.Event;
 using ATBMI.Entities.Player;
 using ATBMI.Gameplay.Controller;
-using ATBMI.Scene.Chapter;
 
 namespace ATBMI.Scene
 {
@@ -33,7 +32,7 @@ namespace ATBMI.Scene
         // Reference
         protected PlayerController player;
         private FadeController _fader;
-        private CinemachineConfiner2D _cameraConfiner;
+        private CinemachineVirtualCamera[] _virtualCameras;
         
         #endregion
 
@@ -43,8 +42,9 @@ namespace ATBMI.Scene
         private void Awake()
         {
             player = FindObjectOfType<PlayerController>();
+            
             _fader = SceneNavigation.Instance.Fader;
-            _cameraConfiner = FindObjectOfType<CinemachineConfiner2D>();
+            _virtualCameras = CameraSwitcher.Instance.VirtualCameras;
         }
         
         private void OnEnable()
@@ -67,8 +67,17 @@ namespace ATBMI.Scene
             }
             
             player.transform.position = entryPoint.position;
-            _cameraConfiner.m_BoundingShape2D = confiner;
-            _cameraConfiner.InvalidateCache();
+            foreach (var vCam in _virtualCameras)
+            {
+                var vConfiner = vCam.GetComponent<CinemachineConfiner2D>();
+                if (vConfiner == null)
+                {
+                    Debug.LogWarning("camera confiner not found!");
+                    break;
+                }
+                vConfiner.m_BoundingShape2D = confiner;
+                vConfiner.InvalidateCache();
+            }
         }
         
         protected virtual IEnumerator AnimateSceneFade()
