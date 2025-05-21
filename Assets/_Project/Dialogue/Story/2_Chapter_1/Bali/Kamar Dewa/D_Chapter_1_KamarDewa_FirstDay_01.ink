@@ -20,6 +20,6 @@ Tusing eling... (Nggak inget...) #speaker:Dewa #expression:A_Dewa_Speak
 Huhhh... #speaker:Dewa #expression:A_Dewa_Speak
 Inggih, Meme Tiang lakar metu saking kamar Nggak inget...) #speaker:Dewa #expression:A_Dewa_Speak
 
-~StartQuest("1") //Start quest besar pertama (pergi ke tebing)
+~StartQuest("2") //Start quest besar pertama (pergi ke tebing)
 
 -> END

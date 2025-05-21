@@ -45,6 +45,6 @@ Tidak ada disini #speaker:Dewa #expression:A_Dewa_Phone_Idle
 Mushola yang disebut tidak ada di maps #speaker:Dewa #expression:A_Dewa_Phone_Idle
 Kalau begitu aku akan coba mencarinya sendiri #speaker:Dewa #expression:A_Dewa_Phone_Out
 
-~StartQuest("4")
+~StartQuest("5") // Start quest besar (Cari Kos)
 
 -> END

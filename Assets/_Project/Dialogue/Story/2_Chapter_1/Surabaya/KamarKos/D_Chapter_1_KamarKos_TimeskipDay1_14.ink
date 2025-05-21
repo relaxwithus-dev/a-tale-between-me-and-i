@@ -14,6 +14,6 @@ Aku harus cepat mandi dan bersiap #speaker:Dewa #expression:A_Dewa_Speak
 
 // Fade Screen
 
-~StartQuest("5")
+~StartQuest("6") // Start quest besar (Hari pertama yang melelahkan)
 
 -> END

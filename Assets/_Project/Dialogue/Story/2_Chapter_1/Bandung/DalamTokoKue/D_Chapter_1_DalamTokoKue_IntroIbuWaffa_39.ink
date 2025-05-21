@@ -59,6 +59,6 @@ Baik bu #speaker:Dewa #expression:A_Dewa_Speak
 Biasanya jam segini dia bermain di lapangan #speaker:Ibu Waffa #expression:A_Ibu_Waffa_Speak
 Kamu harus cepat nak sebelum seuatu terjadi pada dirinya #speaker:Ibu Waffa #expression:A_Ibu_Waffa_Speak
 
-~FinishQuest("7")
+~FinishQuest("8") //Selesai quest besar pertama di Bandung
 
 -> END

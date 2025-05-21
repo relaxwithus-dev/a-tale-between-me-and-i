@@ -10,4 +10,6 @@ Kenapa sepi sekali #speaker:Ratna #expression:A_Ratna_Speak
 Siapa itu? Kenapa ada anak kecil #speaker:Ratna #expression:A_Ratna_Speak
 Hei! Jangan pukul anak itu! #speaker:Ratna #expression:A_Ratna_Speak #Emoji:A_Emoji_Angry
 
+~FinishQuest("1") //Quest besar pertama selesai
+
 -> END

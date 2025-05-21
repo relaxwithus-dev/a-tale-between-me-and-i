@@ -33,6 +33,6 @@ Karena itu masih melayang seperti ingin menunjukkan kita harus kemana setelah in
 
 // Warna melayang muncul
 
-~FinishQuest("9")
+~FinishQuest("10") //Selesai quest besar ketiga di Bandung
 
 -> END

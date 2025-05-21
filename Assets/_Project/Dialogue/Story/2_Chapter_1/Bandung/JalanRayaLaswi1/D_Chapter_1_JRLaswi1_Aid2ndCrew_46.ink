@@ -56,4 +56,6 @@ Kedengarannya asik #speaker:Baba #expression:A_Baba_Child_Speak
 Kalau begitu tunggu apa lagi #speaker:Hasan #expression:A_Hasan_Child_Speak
 Ayo kita pergi ke tempat pertunjukkan!! #speaker:Hasan #expression:A_Hasan_Child_Speak
 
+~FinishQuest("9") //Selesai quest besar kedua di Bandung
+
 -> END

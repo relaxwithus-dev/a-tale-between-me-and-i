@@ -14,4 +14,6 @@ Yaudah, hati hati #speaker:Ratna #expression:A_Ratna_Speak
 Kita gatau mereka orangnya seperti apapun #speaker:Ratna #expression:A_Ratna_Speak
 Jaga ucapanmu juga ya #speaker:Ratna #expression:A_Ratna_Speak
 
+~StartQuest("8") //Mulai quest besar pertama di Bandung
+
 -> END

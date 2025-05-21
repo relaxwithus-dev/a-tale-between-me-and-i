@@ -12,6 +12,6 @@ Tolongg!!! #speaker:Ratna #expression:A_Ratna_Defense
 
 // Kamera panning ke Ratna
 
-~FinishQuest("6")
+~FinishQuest("7") //Finish quest besar terakhir dari Surabaya
 
 -> END

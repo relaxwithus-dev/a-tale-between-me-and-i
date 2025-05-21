@@ -18,6 +18,6 @@ Hahahahaha #speaker:Anak 1 #expression:A_Anak_Kecil_Pembully_1_Speak
 
 // Kamera panning ke Ratna & Dewa
 
-~StartQuest("8")
+~StartQuest("9") //Start quest besar kedua di Bandung
 
 -> END

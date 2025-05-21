@@ -17,4 +17,6 @@ Hmmm... #speaker:Dewa #expression:A_Dewa_Speak
  Malam jani nyak lakar engsap maen game daeng ketoan… (Malam ini aku akan rebahan main game sampai ketiduran…) #speaker:Dewa #expression:A_Dewa_Speak
  Enakne ngoréng dogén… (Enaknya bermalas-malasan…) #speaker:Dewa #expression:A_Dewa_Speak
 
+~FinishQuest("2") //Selesai quest besar kedua (Quest besar pertama di Bali)
+
 -> END

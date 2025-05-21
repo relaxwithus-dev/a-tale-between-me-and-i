@@ -15,7 +15,8 @@ MonoBehaviour:
   <QuestId>k__BackingField: 4
   displayName: Berpamitan dengan orang tua
   shouldBeFinishManually: 0
-  questPrerequisites: []
+  questPrerequisites:
+  - {fileID: 11400000, guid: 2baa0fea1b7429248b7da3eea905bc7f, type: 2}
   questSteps:
   - targetScene: S_Bali_Jalan_1
     questStepPrefab: {fileID: 7625369298513363047, guid: 7c283775e532c754286b2656b2e85f5b, type: 3}

@@ -9,7 +9,6 @@ EXTERNAL FinishQuest(questId)
 // Get item Cat Pasta 1
 ~AddItem("13")
 
-~FinishQuest("8")
 
 Itu kan??? #speaker:Dewa #expression:A_Dewa_Speak
 Jangan bilang aku harus melakukan itu? #speaker:Dewa #expression:A_Dewa_Speak
@@ -26,6 +25,6 @@ Ehhhh…. kamu sudah tau caranya? #speaker:Ratna #expression:A_Ratna_Speak #Emoj
 Gimana itu… gimana itu…. #speaker:Ratna #expression:A_Ratna_Speak
 Aku sudah tidak tahan ada di tempat ini terlalu lama #speaker:Ratna #expression:A_Ratna_Speak
 
-~StartQuest("9")
+~StartQuest("10") //Start quest besar ketiga di Bandung
 
 -> END

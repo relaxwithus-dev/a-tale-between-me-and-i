@@ -10,4 +10,6 @@ Sebuah Kunci? #speaker:Dewa #expression:A_Dewa_Speak
 Kenapa ada kunci disini? #speaker:Dewa #expression:A_Dewa_Speak #Emoji:A_Emoji_Question
 Jangan-jangan… #speaker:Dewa #expression:A_Dewa_Speak
 
+~FinishQuest("11") //Selesai quest besar terakhir dari Bandung
+
 -> END
