@@ -1,4 +1,3 @@
-using ATBMI.Audio;
 using UnityEngine;
 using TMPro;
 using ATBMI.Core;
@@ -8,14 +7,12 @@ using ATBMI.Gameplay.Handler;
 namespace ATBMI.Scene
 {
     [RequireComponent(typeof(Collider2D))]
-    public class SceneTraveler : MonoBehaviour
+    public abstract class Traveler : MonoBehaviour
     {
         #region Fields & Properties
 
         [Header("Attribute")] 
-        [SerializeField] private LocationData locationData;
         [SerializeField] private TextMeshProUGUI infoTextUI;
-        
         private bool _canTravel;
         
         // Reference
@@ -24,15 +21,11 @@ namespace ATBMI.Scene
         #endregion
 
         #region Methods
-
+        
         // Unity Callbacks
         private void Start()
         { 
-            infoTextUI.gameObject.SetActive(false);
-                
-            _collider2D = GetComponent<Collider2D>();
-            _collider2D.isTrigger = true;
-            _collider2D.enabled = true;
+            InitOnStart();
         }
         
         private void Update()
@@ -65,33 +58,26 @@ namespace ATBMI.Scene
             }
         }
         
-        // Core
-        private void TravelToTarget()
+        // Initialize
+        protected virtual void InitOnStart()
         {
-            var currentScene = SceneNavigation.Instance.CurrentScene;
-            var sceneAsset = currentScene.GetNeighbourById(locationData.location);
-
-            if (!sceneAsset)
-            {
-                Debug.LogError("target scene not found");
-                return;
-            }
-                
             infoTextUI.gameObject.SetActive(false);
-            if (currentScene.Region == sceneAsset.Region)
-                AudioEvent.FadeOutAudioEvent();
             
-            SceneNavigation.Instance.SwitchScene(sceneAsset);
+            _collider2D = GetComponent<Collider2D>();
+            _collider2D.isTrigger = true;
+            _collider2D.enabled = true;
         }
         
-        // Helper
+        // Core
+        protected abstract void TravelToTarget();
+        
         private void EnableTravel()
         {
             _canTravel = true;
             infoTextUI.gameObject.SetActive(true);
         }
         
-        private void DisableTravel()
+        protected void DisableTravel()
         {
             _canTravel = false;
             infoTextUI.gameObject.SetActive(false);

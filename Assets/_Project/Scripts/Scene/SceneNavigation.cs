@@ -32,6 +32,7 @@ namespace ATBMI.Scene
         [SerializeField] private PlayerController player;
         [SerializeField] private FadeController fader;
         
+        public PlayerController Player => player;
         public FadeController Fader => fader;
                 
         #endregion
