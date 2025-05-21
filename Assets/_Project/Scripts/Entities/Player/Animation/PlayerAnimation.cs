@@ -28,12 +28,18 @@ namespace ATBMI.Entities.Player
         private void Awake()
         {
             _playerController = GetComponentInParent<PlayerController>();
+            _eventReceiver = GetComponent<AnimateEventReceiver>();
             _playerAnimator = GetComponent<Animator>();
         }
-        
-        private void Start()
+
+        private void OnEnable()
         {
-            _eventReceiver.OnStepDown += () => AudioManager.Instance.PlayAudio(Musics.SFX_Footstep);
+            _eventReceiver.OnStepDown += PlayFootstepSound;
+        }
+        
+        private void OnDisable()
+        {
+            _eventReceiver.OnStepDown -= PlayFootstepSound;
         }
         
         private void Update()
@@ -103,6 +109,8 @@ namespace ATBMI.Entities.Player
         }
         
         // Helpers
+        private void PlayFootstepSound() => AudioManager.Instance.PlayAudio(Musics.SFX_Footstep);
+        
         private void CacheAnimationHash(string animName)
         {
             if (!_animationHashes.ContainsKey(animName))

@@ -12,7 +12,6 @@ namespace ATBMI.Cutscene
         [SerializeField] private float holdDuration;
         [SerializeField] private Transform cameraPoint;
         
-        private bool _isFinished;
         private CameraSwitcher _cameraSwitcher;
         
         #endregion
@@ -22,7 +21,7 @@ namespace ATBMI.Cutscene
         protected override void InitOnStart()
         {
             base.InitOnStart();
-            _isFinished = false;
+            isFinishStep = false;
             _cameraSwitcher = CameraSwitcher.Instance;
         }
         
@@ -30,8 +29,6 @@ namespace ATBMI.Cutscene
         {
             StartCoroutine(SwitchCameraRoutine());
         }
-        
-        public override bool IsFinished() => _isFinished;
         
         private IEnumerator SwitchCameraRoutine()
         {
@@ -41,7 +38,7 @@ namespace ATBMI.Cutscene
             
             _cameraSwitcher.SwitchToMainCamera();
             yield return new WaitForSeconds(switchDuration);
-            _isFinished = true;
+            isFinishStep = true;
         }
         
         #endregion

@@ -22,7 +22,6 @@ namespace ATBMI.Cutscene
         private Transform targetTransform;
         [SerializeField] private Transform targetPoint;
         
-        private bool _isFinished;
         private EntitiesState _animationState;
         private IController _iController;
         private Tweener _tween;
@@ -35,7 +34,7 @@ namespace ATBMI.Cutscene
         {
             base.InitOnStart();
             
-            _isFinished = false;
+            isFinishStep = false;
             _animationState = isRunning ? EntitiesState.Run : EntitiesState.Walk;
             
             if (targetType == TargetType.Player)
@@ -58,11 +57,9 @@ namespace ATBMI.Cutscene
                 .OnComplete(() =>
                 {
                     _iController.ChangeState(EntitiesState.Idle);
-                    _isFinished = true;
+                    isFinishStep = true;
                 });
         }
-        
-        public override bool IsFinished() => _isFinished;
         
         #endregion
     }
