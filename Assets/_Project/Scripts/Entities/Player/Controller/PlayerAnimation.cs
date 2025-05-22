@@ -19,7 +19,7 @@ namespace ATBMI.Entities.Player
         // Reference
         private PlayerController _playerController;
         private AnimateEventReceiver _eventReceiver;
-        private Animator _playerAnimator;
+        private Animator _playerAnim;
 
         #endregion
 
@@ -29,7 +29,7 @@ namespace ATBMI.Entities.Player
         {
             _playerController = GetComponentInParent<PlayerController>();
             _eventReceiver = GetComponent<AnimateEventReceiver>();
-            _playerAnimator = GetComponent<Animator>();
+            _playerAnim = GetComponent<Animator>();
         }
 
         private void OnEnable()
@@ -55,7 +55,7 @@ namespace ATBMI.Entities.Player
         public void InitAnimationHash()
         {
             _animationHashes.Clear();
-            foreach (var clip in _playerAnimator.runtimeAnimatorController.animationClips)
+            foreach (var clip in _playerAnim.runtimeAnimatorController.animationClips)
             {
                 CacheAnimationHash(clip.name);
             }
@@ -68,7 +68,7 @@ namespace ATBMI.Entities.Player
             var state = GetState();
 
             if (state == _currentState) return;
-            _playerAnimator.CrossFade(state, 0, 0);
+            _playerAnim.CrossFade(state, 0, 0);
             _currentState = state;
         }
         
@@ -81,18 +81,19 @@ namespace ATBMI.Entities.Player
                 return false;
             }
 
-            Debug.Log("lesgo set custom animation");
             StartCoroutine(PlayAnimationRoutine(stateName));
             return true;
         }
+        
+        public float GetAnimationTime() => _playerAnim.GetCurrentAnimatorClipInfo(0).Length;
         
         private IEnumerator PlayAnimationRoutine(string stateName)
         {
             _isInteractiveAnimation = true;
             _currentState = GetCachedHash(stateName);
-            _playerAnimator.CrossFade(_currentState, 0, 0);
+            _playerAnim.CrossFade(_currentState, 0, 0);
             
-            yield return new WaitForSeconds(_playerAnimator.GetCurrentAnimatorClipInfo(0).Length);
+            yield return new WaitForSeconds(_playerAnim.GetCurrentAnimatorClipInfo(0).Length);
             _isInteractiveAnimation = false;
         }
         
