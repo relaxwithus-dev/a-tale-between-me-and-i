@@ -11,7 +11,7 @@ Haduh... Bentar, nyak cobak benahin dogen #speaker:Dewa #expression:A_Dewa_Speak
 
 *[Success]
 AKhirne, suba selese dogen (Akhirnya selesai juga) #speaker:Dewa #expression:A_Dewa_Speak
-Ternyata tusing susah lak nyak nyobak lebih serius ernyata tidak susah kalau aku mencobanya lebih serius…) #speaker:Dewa #expression:A_Dewa_Speak
+Ternyata tusing susah lak nyak nyobak lebih serius (ternyata tidak susah kalau aku mencobanya lebih serius…) #speaker:Dewa #expression:A_Dewa_Speak
 
 *[Fail]
 Kenken susah? (Kenapa susah?) #speaker:Dewa #expression:A_Dewa_Speak

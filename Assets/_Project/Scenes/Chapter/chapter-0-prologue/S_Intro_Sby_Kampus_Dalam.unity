@@ -1580,6 +1580,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   infoTextUI: {fileID: 1039546951}
+  travelDuration: 1.5
   targetPoint: {fileID: 1821849627}
   fader: {fileID: 1681635369}
 --- !u!61 &1473440875
@@ -2505,6 +2506,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   infoTextUI: {fileID: 1039546951}
+  travelDuration: 1.5
   targetPoint: {fileID: 199364527}
   fader: {fileID: 1681635369}
 --- !u!1 &1800216584
@@ -2903,7 +2905,6 @@ MonoBehaviour:
   transitionTime: 0.5
   cutsceneKey: {fileID: 11400000, guid: 8901a52f7a898a14db7fdedd4d356a65, type: 2}
   cutsceneSteps:
-  - {fileID: 7374474141986429773}
   - {fileID: 7374474141986429773}
 --- !u!1 &3750125750667615869
 GameObject:

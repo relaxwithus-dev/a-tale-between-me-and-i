@@ -8,4 +8,6 @@ Ibi... Nyak tusing mesiram (Oiya, kemarin... Aku kan belum mandi) #speaker:Dewa 
 Pantes dogen keringat nyak ngalih (Pantes keringetnya banyak) #speaker:Dewa #expression:A_Dewa_Speak
 Nyak lakar mesiram terus makan lah (Aku mau mandi dulu terus makan deh) #speaker:Dewa #expression:A_Dewa_Speak
 
+~StartQuest("4") //Start quest besar kedua di Surabaya
+
 -> END
