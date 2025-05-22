@@ -592,8 +592,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eb82ca0b5d442f38427781b692a26e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minigameManager: {fileID: 2855397642332324853}
   isPlayMinigame: 0
+  closeMinigameDelay: 0.15
+  minigameManager: {fileID: 2855397642332324853}
   mashMaxValue: 100
   initiateMashValue: 50
   sliderSpeed: 7
@@ -1217,8 +1218,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8cad1b38d444127b62842efadc12bbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minigameManager: {fileID: 2855397642332324853}
   isPlayMinigame: 0
+  closeMinigameDelay: 0.15
+  minigameManager: {fileID: 2855397642332324853}
   arrowAttributes:
   - count: 3
     duration: 6
@@ -2888,8 +2890,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8da077eaf0543b6bc5913e6fffed2b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minigameManager: {fileID: 2855397642332324853}
   isPlayMinigame: 0
+  closeMinigameDelay: 0.15
+  minigameManager: {fileID: 2855397642332324853}
   wrongDelayTime: 1
   timingAttributes:
   - duration: 15
@@ -3267,7 +3270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec62e47ff82248efa7f35a4127df17c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDebugMode: 0
+  isDebugMode: 1
   minigameType: 0
   minigameViews:
   - {fileID: 8425988741252772075}

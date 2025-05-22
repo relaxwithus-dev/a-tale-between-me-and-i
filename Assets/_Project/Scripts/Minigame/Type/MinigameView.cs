@@ -10,9 +10,10 @@ namespace ATBMI.Minigame
         #region Global Fields
         
         [Header("View")]
-        [SerializeField] private MinigameManager minigameManager;
         [SerializeField] private bool isPlayMinigame;
-
+        [SerializeField] private float closeMinigameDelay = 0.15f;
+        [SerializeField] private MinigameManager minigameManager;
+        
         protected int playingCount;
         protected const float MAX_SLIDER_VALUE = 1f;
         protected const float MIN_SLIDER_VALUE = 0f;
@@ -53,6 +54,12 @@ namespace ATBMI.Minigame
         protected virtual void ExitMinigame()
         {
             isPlayMinigame = false;
+            StartCoroutine(ExitMinigameRoutine());
+        }
+        
+        private IEnumerator ExitMinigameRoutine()
+        {
+            yield return new WaitForSeconds(closeMinigameDelay);
             _minigameAnimation.CloseMinigame(minigameManager.ExitMinigame);
         }
         
