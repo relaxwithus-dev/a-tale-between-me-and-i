@@ -1,8 +1,10 @@
+using System.Collections;
 using UnityEngine;
 using ATBMI.Gameplay.Handler;
 
 namespace ATBMI.Minigame
 {
+    [RequireComponent(typeof(MinigameAnimation))]
     public class MinigameView : MonoBehaviour
     {
         #region Global Fields
@@ -17,6 +19,7 @@ namespace ATBMI.Minigame
         
         // Reference
         protected GameInputHandler inputHandler;
+        private MinigameAnimation _minigameAnimation;
         
         #endregion
 
@@ -27,7 +30,7 @@ namespace ATBMI.Minigame
         {
             InitOnAwake();
         }
-
+        
         private void Update()
         {
             if (!isPlayMinigame) return;
@@ -38,20 +41,20 @@ namespace ATBMI.Minigame
         protected virtual void InitOnAwake()
         {
             inputHandler = GameInputHandler.Instance;
+            _minigameAnimation = GetComponent<MinigameAnimation>();
         }
         
         // Core
         public virtual void EnterMinigame()
         {
-            isPlayMinigame = true;
+            _minigameAnimation.OpenMinigame(() => isPlayMinigame = true);
         }
         protected virtual void RunMinigame() { }
         protected virtual void ExitMinigame()
         {
             isPlayMinigame = false;
-            minigameManager.ExitMinigame();
+            _minigameAnimation.CloseMinigame(minigameManager.ExitMinigame);
         }
-        
         
         #endregion
     }

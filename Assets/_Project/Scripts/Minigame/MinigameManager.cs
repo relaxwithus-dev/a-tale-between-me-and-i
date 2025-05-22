@@ -10,8 +10,9 @@ namespace ATBMI.Minigame
         #region Fields & Properties
         
         private enum MinigameType { Arrow, Timing, Mash }
-        
-        [Header("Properties")]
+
+        [Header("Properties")] 
+        [SerializeField] private bool isDebugMode;
         [SerializeField] private MinigameType minigameType;
         [SerializeField] [ReadOnly] private MinigameView[] minigameViews;
         
@@ -49,7 +50,16 @@ namespace ATBMI.Minigame
                 view.gameObject.SetActive(false);
             }
         }
-        
+
+        private void Update()
+        {
+            if (!isDebugMode) return;
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                EnterMinigameEvent();
+            }
+        }
+
         // Core
         public static void EnterMinigameEvent() => OnEnterMinigame?.Invoke();
         
@@ -68,7 +78,7 @@ namespace ATBMI.Minigame
             _playerController.StartMovement();
             _selectedView.gameObject.SetActive(false);
         }
-
+        
         private MinigameView GetMinigameView(MinigameType type)
         {
             return type switch
