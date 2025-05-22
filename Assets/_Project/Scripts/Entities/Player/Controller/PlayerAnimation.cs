@@ -1,8 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using ATBMI.Audio;
 using UnityEngine;
+using ATBMI.Audio;
 
 namespace ATBMI.Entities.Player
 {
@@ -72,7 +72,6 @@ namespace ATBMI.Entities.Player
             _currentState = state;
         }
         
-        
         public bool TrySetAnimationState(string state)
         {
             var stateName = _playerController.Data.PlayerAnimationTag + "_" + state;
@@ -82,6 +81,7 @@ namespace ATBMI.Entities.Player
                 return false;
             }
 
+            Debug.Log("lesgo set custom animation");
             StartCoroutine(PlayAnimationRoutine(stateName));
             return true;
         }

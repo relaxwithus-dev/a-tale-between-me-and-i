@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using ATBMI.Core;
 using ATBMI.Dialogue;
+using ATBMI.Entities;
 using ATBMI.Gameplay.Handler;
 
 namespace ATBMI.Scene
@@ -11,11 +12,12 @@ namespace ATBMI.Scene
     {
         #region Fields & Properties
 
-        [Header("Attribute")] 
+        [Header("UI")] 
         [SerializeField] private TextMeshProUGUI infoTextUI;
         private bool _canTravel;
         
         // Reference
+        protected IAnimatable iAnimatable;
         private Collider2D _collider2D;
 
         #endregion
@@ -46,7 +48,7 @@ namespace ATBMI.Scene
         {
             if (other.CompareTag(GameTag.PLAYER_TAG))
             {
-                EnableTravel();
+                EnableTravel(other);
             }
         }
         
@@ -71,15 +73,17 @@ namespace ATBMI.Scene
         // Core
         protected abstract void TravelToTarget();
         
-        private void EnableTravel()
+        private void EnableTravel(Collider2D other)
         {
             _canTravel = true;
+            iAnimatable = other.GetComponentInChildren<IAnimatable>();
             infoTextUI.gameObject.SetActive(true);
         }
         
         protected void DisableTravel()
         {
             _canTravel = false;
+            iAnimatable = null;
             infoTextUI.gameObject.SetActive(false);
         }
         
