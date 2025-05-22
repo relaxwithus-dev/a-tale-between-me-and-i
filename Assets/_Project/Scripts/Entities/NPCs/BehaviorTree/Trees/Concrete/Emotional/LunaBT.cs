@@ -10,9 +10,11 @@ namespace ATBMI.Entities.NPCs
         [SerializeField] private Transform targetPoint;
         [SerializeField] private CharacterAnimation characterAnim;
         
+        private const string AFRAID_STATE = "Afraid";
+        
         protected override Node SetupTree()
         {
-            var defaultTexts = characterAI.Data.GetDefaultDialogues();
+            var fearText = characterAI.Data.GetEmotionDialogues(Emotion.Fear);
             
             Selector tree = new Selector("Luna BT", new List<Node>
             {
@@ -25,9 +27,9 @@ namespace ATBMI.Entities.NPCs
                         new CheckTargetInZone(centerPoint, zoneDetails[0].Radius, layerMask),
                         new EmotionalSelector("Fear and Disgust", characterTraits, new List<Node>
                         {
-                            new TaskRunAway(characterAI, characterAI.Data, runAwayDuration),
-                            new TaskTalk(characterAI, defaultTexts),
-                            new TaskAnimate(characterAnim, "Disgust"),
+                            new TaskRunAway(characterAI, characterAnim, characterAI.Data, runAwayDuration),
+                            new TaskTalk(characterAI, fearText),
+                            new TaskAnimate(characterAnim, AFRAID_STATE),
                             new TaskIdle(characterAI)
                         })
                     })

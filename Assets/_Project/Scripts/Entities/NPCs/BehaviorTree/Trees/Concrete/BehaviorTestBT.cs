@@ -8,7 +8,8 @@ namespace ATBMI.Entities.NPCs
         [Header("Properties")]
         [SerializeField] private float moveStamina;
         [SerializeField] private Transform[] targetPoints;
-                
+        [SerializeField] private CharacterAnimation animation;
+        
         protected override Node SetupTree()
         {
            // Move Target Behavior
@@ -54,7 +55,7 @@ namespace ATBMI.Entities.NPCs
                new Sequence("Run Away", new List<Node>
                {
                    new CheckTargetInZone(centerPoint, zoneDetails[1].Radius, layerMask),
-                   new TaskRunAway(characterAI, characterAI.Data, 8f),
+                   new TaskRunAway(characterAI, animation, characterAI.Data, 8f),
                    new TaskIdle(characterAI)
                }),
                new TaskIdle(characterAI)
@@ -107,13 +108,13 @@ namespace ATBMI.Entities.NPCs
                {
                    new CheckTargetInZone(centerPoint, zoneDetails[0].Radius, layerMask),
                    new CheckDirection(characterAI),
-                   new TaskJumpBack(characterAI, 0.3f, 0.15f),
+                   new TaskJumpBack(characterAI, animation, 0.3f, 0.15f),
                    new TaskIdle(characterAI)
                }),
                new TaskIdle(characterAI)
            });
            
-           return followTree;
+           return pullTree;
         }
     }
 }

@@ -9,9 +9,11 @@ namespace ATBMI.Entities.NPCs
         private readonly CharacterAnimation animation;
         private readonly float offRange;
         
-        private const float OFFSET = 0.5f;
         private Transform _currentTarget;
         private Vector3 _targetPosition;
+        
+        private const float OFFSET = 0.5f;
+        private const string OBSERVE_STATE = "Observe";
         
         private readonly Dictionary<Emotion, (float plan, float risk, (float, float) time)> _factorsObserve = new()
         {
@@ -50,7 +52,7 @@ namespace ATBMI.Entities.NPCs
             _targetPosition = character.transform.position - _currentTarget.transform.position;
             _targetPosition.Normalize();
             character.LookAt(_targetPosition);
-            animation.TrySetAnimationState("Observe");
+            animation.TrySetAnimationState(OBSERVE_STATE);
             
             return NodeStatus.Running;
         }

@@ -1,20 +1,25 @@
+using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 using ATBMI.Data;
 using ATBMI.Interaction;
-using UnityEngine;
 
 namespace ATBMI.Entities.NPCs
 {
     public class TaskRunAway : LeafWeight
     {
         private readonly CharacterAI character;
+        private readonly CharacterAnimation animation;
         private readonly float moveSpeed;
         private readonly float moveTime;
         private readonly float delayTime = 2f;
-                
+
+        private bool _isAnimating;
         private float _currentDelayTime;
         private float _currentMoveTime;
         private Vector3 _targetDirection;
+        
+        private const string SHOCK_STATE = "Shock";
         
         private readonly Dictionary<Emotion, (float plan, float risk, (float, float) time)> _factorsRunAway = new()
         {
@@ -29,9 +34,10 @@ namespace ATBMI.Entities.NPCs
         };
         
         // Constructor
-        public TaskRunAway(CharacterAI character, CharacterData data, float moveTime)
+        public TaskRunAway(CharacterAI character, CharacterAnimation animation, CharacterData data, float moveTime)
         {
             this.character = character;
+            this.animation = animation;
             this.moveTime = moveTime;
             
             moveSpeed = data.GetSpeedByType("Run");
@@ -43,6 +49,9 @@ namespace ATBMI.Entities.NPCs
         {
             if (!TrySetupDirection())
                 return NodeStatus.Failure;
+            
+            if (_isAnimating)
+                return NodeStatus.Running;
             
             if (_currentDelayTime < delayTime)
             { 
@@ -56,6 +65,7 @@ namespace ATBMI.Entities.NPCs
         protected override void Reset()
         {
             base.Reset();
+            _isAnimating = false;
             _currentMoveTime = 0f;
             _currentDelayTime = 0f;
             _targetDirection = Vector3.zero;
@@ -98,11 +108,22 @@ namespace ATBMI.Entities.NPCs
             _targetDirection = target.position - character.transform.position;
             _targetDirection.Normalize();
             character.LookAt(_targetDirection);
+            character.StartCoroutine(AnimateRoutine());
             
             // Opposite direction
             _targetDirection *= -1f;
             InteractEvent.RestrictedEvent(true);
             return true;
+        }
+        
+        private IEnumerator AnimateRoutine()
+        {
+            _isAnimating = true;
+            var duration = animation.GetAnimationTime();
+            animation.TrySetAnimationState(SHOCK_STATE);
+            yield return new WaitForSeconds(duration);
+            
+            _isAnimating = false;
         }
     }
 }
