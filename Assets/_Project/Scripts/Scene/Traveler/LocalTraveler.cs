@@ -8,6 +8,7 @@ namespace ATBMI.Scene
     public class LocalTraveler : Traveler
     {
         // Internal fields
+        [SerializeField] private float travelDuration = 1.5f;
         [SerializeField] private Transform targetPoint;
         [SerializeField] private FadeController fader;
         
@@ -19,12 +20,12 @@ namespace ATBMI.Scene
             base.InitOnStart();
             _player = SceneNavigation.Instance.Player;
         }
-
+        
         protected override void TravelToTarget()
         {
             StartCoroutine(LocalTravelRoutine());
         }
-
+        
         private IEnumerator LocalTravelRoutine()
         {
             fader.FadeOut();
@@ -32,8 +33,11 @@ namespace ATBMI.Scene
             yield return new WaitForSeconds(fader.FadeDuration);
             
             _player.transform.position = targetPoint.position;
-            yield return new WaitForSeconds(fader.FadeDuration);
-            _player.StartMovement();
+            yield return new WaitForSeconds(travelDuration);
+            fader.FadeIn(() =>
+            { 
+                _player.StartMovement();
+            });
         }
     }
 }
