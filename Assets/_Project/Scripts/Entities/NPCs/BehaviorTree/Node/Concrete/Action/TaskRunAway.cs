@@ -13,13 +13,11 @@ namespace ATBMI.Entities.NPCs
         private readonly float moveSpeed;
         private readonly float moveTime;
         private readonly float delayTime = 2f;
-
+        
         private bool _isAnimating;
         private float _currentDelayTime;
         private float _currentMoveTime;
         private Vector3 _targetDirection;
-        
-        private const string SHOCK_STATE = "Shock";
         
         private readonly Dictionary<Emotion, (float plan, float risk, (float, float) time)> _factorsRunAway = new()
         {
@@ -120,7 +118,7 @@ namespace ATBMI.Entities.NPCs
         {
             _isAnimating = true;
             var duration = animation.GetAnimationTime();
-            animation.TrySetAnimationState(SHOCK_STATE);
+            animation.TrySetAnimationState(StateTag.SHOCK_STATE);
             yield return new WaitForSeconds(duration);
             
             _isAnimating = false;

@@ -14,8 +14,6 @@ namespace ATBMI.Entities.NPCs
         
         private Vector3 _jumpTarget;
         
-        private const string SHOCK_STATE = "Shock";
-        
         private readonly Dictionary<Emotion, (float plan, float risk, (float, float) time)> _factorsJumpBack = new()
         {
             { Emotion.Joy, (1, 0.6f, (0.3f, 0.7f)) },
@@ -45,7 +43,7 @@ namespace ATBMI.Entities.NPCs
             if (!TrySetupTarget())
                 return NodeStatus.Failure;
 
-            animation.TrySetAnimationState(SHOCK_STATE);
+            animation.TrySetAnimationState(StateTag.SHOCK_STATE);
             character.transform.DOJump(_jumpTarget, power, 1, duration).SetEase(Ease.OutSine);
             character.LookAt(_jumpTarget);
             

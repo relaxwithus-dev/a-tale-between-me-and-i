@@ -9,9 +9,6 @@ namespace ATBMI.Entities.NPCs
         [SerializeField] private float talkRadius;
         [SerializeField] private CharacterAnimation characterAnim;
         
-        private const string CRY_STATE = "Cry";
-        private const string FEAR_STATE = "Fear";
-        
         protected override Node SetupTree()
         {
             var sadnessTexts = characterAI.Data.GetEmotionDialogues(Emotion.Sadness);
@@ -29,7 +26,7 @@ namespace ATBMI.Entities.NPCs
                         {
                             new SequenceWeight("Talk", new List<Node>
                             {
-                                new TaskAnimate(characterAnim, CRY_STATE),
+                                new TaskAnimate(characterAnim, StateTag.CRY_STATE),
                                 new CheckTargetInArea(centerPoint, talkRadius, layerMask),
                                 new TaskTalk(characterAI, sadnessTexts)
                             }),
@@ -42,7 +39,7 @@ namespace ATBMI.Entities.NPCs
                         new CheckTargetInZone(centerPoint, zoneDetails[1].Radius, layerMask),
                         new EmotionalSelector("Fear", characterTraits, new List<Node>
                         {
-                            new TaskAnimate(characterAnim, FEAR_STATE),
+                            new TaskAnimate(characterAnim, StateTag.FEAR_STATE),
                             new TaskIdle(characterAI)
                         })
                     })

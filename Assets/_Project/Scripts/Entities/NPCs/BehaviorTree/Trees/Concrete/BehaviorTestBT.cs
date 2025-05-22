@@ -8,7 +8,7 @@ namespace ATBMI.Entities.NPCs
         [Header("Properties")]
         [SerializeField] private float moveStamina;
         [SerializeField] private Transform[] targetPoints;
-        [SerializeField] private CharacterAnimation animation;
+        [SerializeField] private CharacterAnimation characterAnim;
         
         protected override Node SetupTree()
         {
@@ -55,7 +55,7 @@ namespace ATBMI.Entities.NPCs
                new Sequence("Run Away", new List<Node>
                {
                    new CheckTargetInZone(centerPoint, zoneDetails[1].Radius, layerMask),
-                   new TaskRunAway(characterAI, animation, characterAI.Data, 8f),
+                   new TaskRunAway(characterAI, characterAnim, characterAI.Data, 8f),
                    new TaskIdle(characterAI)
                }),
                new TaskIdle(characterAI)
@@ -90,13 +90,11 @@ namespace ATBMI.Entities.NPCs
            // Push
            Selector pullTree = new Selector("Pull Tree", new List<Node>
            {
-               new Sequence("Pull", new List<Node>
+               new CheckTargetInZone(centerPoint, zoneDetails[0].Radius, layerMask),
+               new SequenceWeight("Pull",new List<Node>
                {
-                   new CheckTargetInZone(centerPoint, zoneDetails[1].Radius, layerMask),
-                   new TaskMoveToTarget(characterAI, characterAI.Data, isWalk: true),
-                   new TaskPull(characterAI, force: 2f, delay: 0.15f),
-                   new TaskMoveToOrigin(characterAI, characterAI.Data, isWalk: true),
-                   new TaskIdle(characterAI)
+                   new CheckPassed(characterAI, zoneDetails[1].Radius),
+                   new TaskPull(characterAI, force: 2f, 0.15f),
                }),
                new TaskIdle(characterAI)
            });
@@ -108,7 +106,7 @@ namespace ATBMI.Entities.NPCs
                {
                    new CheckTargetInZone(centerPoint, zoneDetails[0].Radius, layerMask),
                    new CheckDirection(characterAI),
-                   new TaskJumpBack(characterAI, animation, 0.3f, 0.15f),
+                   new TaskJumpBack(characterAI, characterAnim, 0.3f, 0.15f),
                    new TaskIdle(characterAI)
                }),
                new TaskIdle(characterAI)

@@ -4,7 +4,6 @@ namespace ATBMI.Entities
     {
         Idle,
         Walk,
-        Run,
-        Speak
+        Run
     }
 }
