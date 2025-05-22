@@ -935,6 +935,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   infoTextUI: {fileID: 1039546951}
+  isRoomTravel: 1
   locationData: {fileID: 11400000, guid: e89399a148995274eb0bce4b04741a59, type: 2}
 --- !u!1 &1039546948
 GameObject:
@@ -1490,6 +1491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   infoTextUI: {fileID: 1039546951}
+  isRoomTravel: 0
   locationData: {fileID: 11400000, guid: 6f73041e6bce8744eb5b843de5d590e1, type: 2}
 --- !u!61 &1689487326
 BoxCollider2D:

@@ -651,6 +651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   infoTextUI: {fileID: 1039546951}
+  travelDuration: 1.5
   targetPoint: {fileID: 2031074627}
   fader: {fileID: 1911934008}
 --- !u!61 &521293621
@@ -1184,6 +1185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   infoTextUI: {fileID: 1039546951}
+  isRoomTravel: 1
   locationData: {fileID: 11400000, guid: 9cff0784b0b322a48a241bf37e0cfbd8, type: 2}
 --- !u!1 &1039546948
 GameObject:
@@ -1805,6 +1807,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   infoTextUI: {fileID: 1039546951}
+  isRoomTravel: 0
   locationData: {fileID: 11400000, guid: b8ea39d814811124d9c00fded9fabdbc, type: 2}
 --- !u!61 &1689487326
 BoxCollider2D:
@@ -2374,6 +2377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   infoTextUI: {fileID: 1039546951}
+  isRoomTravel: 0
   locationData: {fileID: 11400000, guid: ef6d7b2e0a5144648abd271f03243217, type: 2}
 --- !u!61 &1972348991
 BoxCollider2D:
@@ -2636,6 +2640,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   infoTextUI: {fileID: 1039546951}
+  isRoomTravel: 0
   locationData: {fileID: 11400000, guid: b399602dd5f5e8b4badef327d5fa1c91, type: 2}
 --- !u!61 &2106424748
 BoxCollider2D:
@@ -2728,6 +2733,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   infoTextUI: {fileID: 1039546951}
+  travelDuration: 1.5
   targetPoint: {fileID: 530440876}
   fader: {fileID: 1911934008}
 --- !u!61 &2107159348
