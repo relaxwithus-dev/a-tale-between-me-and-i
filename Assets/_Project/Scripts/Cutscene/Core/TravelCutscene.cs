@@ -9,7 +9,6 @@ namespace ATBMI.Cutscene
         
         [Header("Attribute")]
         [SerializeField] private LocationData locationData;
-        private bool _isFinished;
         
         #endregion
 
@@ -27,10 +26,8 @@ namespace ATBMI.Cutscene
             }
             
             SceneNavigation.Instance.SwitchScene(sceneAsset);
-            _isFinished = true;
+            isFinishStep = true;
         }
-        
-        public override bool IsFinished() => _isFinished;
         
         #endregion
     }

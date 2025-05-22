@@ -1,1 +1,0 @@
-Benda yang menarik... #speaker:Security

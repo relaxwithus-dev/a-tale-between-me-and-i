@@ -30,7 +30,7 @@ namespace ATBMI.Audio
         private void Start()
         {
             var currentMusic = AudioManager.Instance.GetAudio(musicName);
-            if (currentMusic.name == musicName.ToString()) return;
+            if (currentMusic.name != musicName.ToString()) return;
             FadeInAudio();
         }
         

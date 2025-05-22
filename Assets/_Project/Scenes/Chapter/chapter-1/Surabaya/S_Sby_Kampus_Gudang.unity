@@ -427,7 +427,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
+  m_LocalScale: {x: 1.4500002, y: 1.4500002, z: 1.4500002}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 786981013}
@@ -1028,8 +1028,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2d5600188a4b88854d4bd523fe97d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locationTarget: {fileID: 11400000, guid: b8ea39d814811124d9c00fded9fabdbc, type: 2}
   infoTextUI: {fileID: 1039546951}
+  isRoomTravel: 0
+  locationData: {fileID: 11400000, guid: b8ea39d814811124d9c00fded9fabdbc, type: 2}
 --- !u!1 &1039546948
 GameObject:
   m_ObjectHideFlags: 0
@@ -1233,10 +1234,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0bd71baf65d494ab60e4edd815b2eeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFirstSpawn: 0
   defaultPoint: {fileID: 1578348361}
   entryPoints:
-  - locationTarget: {fileID: 11400000, guid: b8ea39d814811124d9c00fded9fabdbc, type: 2}
+  - locationData: {fileID: 11400000, guid: b8ea39d814811124d9c00fded9fabdbc, type: 2}
     pointFromScene: {fileID: 1578348361}
   confiner: {fileID: 320762905}
 --- !u!1 &1375646168

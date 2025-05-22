@@ -5,7 +5,7 @@ namespace ATBMI.Inventory
         public readonly int ItemId;
         public InventoryItem(int itemId)
         {
-            this.ItemId = itemId;
+            ItemId = itemId;
         }
     }
 }

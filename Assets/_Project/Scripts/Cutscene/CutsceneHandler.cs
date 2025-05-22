@@ -63,10 +63,18 @@ namespace ATBMI.Cutscene
         // Initialize
         private void InitAttribute()
         {
+            // Stats
             _currentIndex = 0;
             _isPlaying = false;
             _isTransitioning = false;
             _currentCutscene = cutsceneSteps[_currentIndex];
+            
+            // Steps
+            foreach (var step in cutsceneSteps)
+            {
+                var isActive = step == _currentCutscene;
+                step.gameObject.SetActive(isActive);
+            }
         }
 
         private void SetupCollider(bool isEnable)
@@ -110,6 +118,7 @@ namespace ATBMI.Cutscene
             _isTransitioning = false;
             _hasExecutingStep = false;
             _currentCutscene = cutsceneSteps[_currentIndex];
+            _currentCutscene.gameObject.SetActive(true);
         }
         
         #endregion

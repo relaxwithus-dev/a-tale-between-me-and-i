@@ -12,7 +12,6 @@ namespace ATBMI.Cutscene
         [SerializeField] private bool isPlayMusic;
         [SerializeField] private Musics cutsceneMusic = Musics.None;
         
-        private bool _isFinished;
         private float _fadeDuration;
         private Sound _currentMusic;
         
@@ -31,8 +30,6 @@ namespace ATBMI.Cutscene
             
             StartCoroutine(isPlayMusic ? PlayCutsceneMusic() : StopCutsceneMusic());
         }
-
-        public override bool IsFinished() => _isFinished;
         
         private IEnumerator PlayCutsceneMusic()
         {
@@ -44,7 +41,7 @@ namespace ATBMI.Cutscene
             yield return new WaitForSeconds(_fadeDuration);
             
             yield return _currentMusic.source.FadeIn(0.5f, musics.volume);
-            _isFinished = true;
+            isFinishStep = true;
         }
         
         private IEnumerator StopCutsceneMusic()
@@ -52,10 +49,10 @@ namespace ATBMI.Cutscene
             var musics = GetMusic(cutsceneMusic);
             if (musics == null) yield break;
             
+            isFinishStep = true;
             _currentMusic = musics;
             yield return _currentMusic.source.FadeOut(_fadeDuration);
             AudioEvent.FadeInAudioEvent();
-            _isFinished = true;
         }
         
         private Sound GetMusic(Musics music)

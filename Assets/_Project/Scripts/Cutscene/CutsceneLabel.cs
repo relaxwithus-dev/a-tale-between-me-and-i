@@ -4,6 +4,7 @@ namespace ATBMI.Cutscene
     {
         // Prologue
         C_PRLG_01, C_PRLG_02, C_PRLG_03, C_PRLG_04, C_PRLG_05,
+        C_PRLG_06, C_PRLG_07,
         
         // Chapter 1
         C_CHP1_01, C_CHP1_02, C_CHP1_03,C_CHP1_04, C_CHP1_05,

@@ -751,8 +751,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2d5600188a4b88854d4bd523fe97d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locationTarget: {fileID: 11400000, guid: e61c7a3a201f95c44a5e8631b617b6c7, type: 2}
   infoTextUI: {fileID: 1039546951}
+  isRoomTravel: 0
+  locationData: {fileID: 11400000, guid: e61c7a3a201f95c44a5e8631b617b6c7, type: 2}
 --- !u!1 &1039546948
 GameObject:
   m_ObjectHideFlags: 0
@@ -1189,12 +1190,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0bd71baf65d494ab60e4edd815b2eeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFirstSpawn: 0
   defaultPoint: {fileID: 1578348361}
   entryPoints:
-  - locationTarget: {fileID: 11400000, guid: e61c7a3a201f95c44a5e8631b617b6c7, type: 2}
+  - locationData: {fileID: 11400000, guid: e61c7a3a201f95c44a5e8631b617b6c7, type: 2}
     pointFromScene: {fileID: 1061055696}
-  - locationTarget: {fileID: 11400000, guid: ddeb6b1bc35f3a447afac72ec0f88d3d, type: 2}
+  - locationData: {fileID: 11400000, guid: ddeb6b1bc35f3a447afac72ec0f88d3d, type: 2}
     pointFromScene: {fileID: 1243254175}
   confiner: {fileID: 320762905}
 --- !u!1 &1375646168
@@ -1388,8 +1388,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2d5600188a4b88854d4bd523fe97d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locationTarget: {fileID: 11400000, guid: ddeb6b1bc35f3a447afac72ec0f88d3d, type: 2}
   infoTextUI: {fileID: 1039546951}
+  isRoomTravel: 1
+  locationData: {fileID: 11400000, guid: ddeb6b1bc35f3a447afac72ec0f88d3d, type: 2}
 --- !u!61 &1689487326
 BoxCollider2D:
   m_ObjectHideFlags: 0

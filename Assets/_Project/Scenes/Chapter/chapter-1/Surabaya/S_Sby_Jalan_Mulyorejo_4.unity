@@ -354,7 +354,7 @@ Transform:
   m_GameObject: {fileID: 320762904}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.65, z: 0}
+  m_LocalPosition: {x: 15.22, y: 0.65, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -528,7 +528,7 @@ GameObject:
   - component: {fileID: 557535521}
   - component: {fileID: 557535520}
   m_Layer: 0
-  m_Name: Door_PENS
+  m_Name: Door_Kampus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -561,7 +561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2d5600188a4b88854d4bd523fe97d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locationTarget: {fileID: 11400000, guid: ef6d7b2e0a5144648abd271f03243217, type: 2}
+  locationData: {fileID: 11400000, guid: ef6d7b2e0a5144648abd271f03243217, type: 2}
   infoTextUI: {fileID: 1039546951}
 --- !u!61 &557535521
 BoxCollider2D:
@@ -1067,7 +1067,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2d5600188a4b88854d4bd523fe97d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locationTarget: {fileID: 11400000, guid: 0d138062df20a15428c4f06824993940, type: 2}
+  locationData: {fileID: 11400000, guid: 0d138062df20a15428c4f06824993940, type: 2}
   infoTextUI: {fileID: 1039546951}
 --- !u!1 &1039546948
 GameObject:
@@ -1418,14 +1418,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0bd71baf65d494ab60e4edd815b2eeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFirstSpawn: 0
   defaultPoint: {fileID: 1578348361}
   entryPoints:
-  - locationTarget: {fileID: 11400000, guid: 0d138062df20a15428c4f06824993940, type: 2}
+  - locationData: {fileID: 11400000, guid: 0d138062df20a15428c4f06824993940, type: 2}
     pointFromScene: {fileID: 1061055696}
-  - locationTarget: {fileID: 11400000, guid: 9a3f6ca10e0737e4484313d9bd458b95, type: 2}
+  - locationData: {fileID: 11400000, guid: 9a3f6ca10e0737e4484313d9bd458b95, type: 2}
     pointFromScene: {fileID: 1243254175}
-  - locationTarget: {fileID: 11400000, guid: ef6d7b2e0a5144648abd271f03243217, type: 2}
+  - locationData: {fileID: 11400000, guid: ef6d7b2e0a5144648abd271f03243217, type: 2}
     pointFromScene: {fileID: 840846128}
   confiner: {fileID: 320762905}
 --- !u!1 &1375646168
@@ -1535,7 +1534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2d5600188a4b88854d4bd523fe97d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locationTarget: {fileID: 11400000, guid: 9a3f6ca10e0737e4484313d9bd458b95, type: 2}
+  locationData: {fileID: 11400000, guid: 9a3f6ca10e0737e4484313d9bd458b95, type: 2}
   infoTextUI: {fileID: 1039546951}
 --- !u!61 &1689487326
 BoxCollider2D:

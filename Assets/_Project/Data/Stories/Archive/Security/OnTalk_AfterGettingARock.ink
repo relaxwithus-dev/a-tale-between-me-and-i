@@ -1,1 +1,0 @@
-Sebaiknya aku menyembunyikan ini #speaker:Dewa

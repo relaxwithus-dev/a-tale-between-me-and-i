@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2b450a47a515ba40b7e732579b2c69b, type: 3}
   m_Name: Berpamitan
   m_EditorClassIdentifier: 
-  <QuestId>k__BackingField: 3
+  <QuestId>k__BackingField: 4
   displayName: Berpamitan dengan orang tua
   shouldBeFinishManually: 0
-  questPrerequisites: []
+  questPrerequisites:
+  - {fileID: 11400000, guid: 2baa0fea1b7429248b7da3eea905bc7f, type: 2}
   questSteps:
   - targetScene: S_Bali_Jalan_1
     questStepPrefab: {fileID: 7625369298513363047, guid: 7c283775e532c754286b2656b2e85f5b, type: 3}

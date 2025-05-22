@@ -1,0 +1,9 @@
+Kamu ini emang gabisa dibilangin ya! #speaker:Satpam #expression:A_Pak_Satpam_Speak #Emoji:A_Emoji_Angry
+
+Engga pak, ini cuman mau lewat #speaker:Ratna #expression:A_Ratna_Speak
+
+Sudah dibilang jangan berkeliaran, masih saja lewat-lewat! #speaker:Satpam #expression:A_Pak_Satpam_Speak
+
+Eee maaf ya pak, ini mau pergi juga #speaker:Ratna #expression:A_Ratna_Speak
+
+Ya! Pergi sana #speaker:Satpam #expression:A_Pak_Satpam_Speak

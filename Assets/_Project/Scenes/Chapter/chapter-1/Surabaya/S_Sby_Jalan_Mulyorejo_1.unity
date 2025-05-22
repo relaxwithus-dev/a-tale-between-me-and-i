@@ -322,8 +322,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2d5600188a4b88854d4bd523fe97d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locationTarget: {fileID: 11400000, guid: 02069983165afc94287e5669df51ef51, type: 2}
   infoTextUI: {fileID: 1039546951}
+  locationData: {fileID: 11400000, guid: 02069983165afc94287e5669df51ef51, type: 2}
 --- !u!61 &208336443
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -866,8 +866,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2d5600188a4b88854d4bd523fe97d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locationTarget: {fileID: 11400000, guid: 270a7b96ddb157046ba5ad55c6c0df27, type: 2}
   infoTextUI: {fileID: 1039546951}
+  locationData: {fileID: 11400000, guid: 0d3ce7440b18f29418b3b246fbf39513, type: 2}
 --- !u!1 &1039546948
 GameObject:
   m_ObjectHideFlags: 0
@@ -1257,6 +1257,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1338313044}
   - component: {fileID: 1338313045}
+  - component: {fileID: 1338313046}
   m_Layer: 0
   m_Name: Root
   m_TagString: Untagged
@@ -1301,16 +1302,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0bd71baf65d494ab60e4edd815b2eeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFirstSpawn: 0
   defaultPoint: {fileID: 1578348361}
   entryPoints:
-  - locationTarget: {fileID: 11400000, guid: 0d3ce7440b18f29418b3b246fbf39513, type: 2}
+  - locationData: {fileID: 11400000, guid: 0d3ce7440b18f29418b3b246fbf39513, type: 2}
     pointFromScene: {fileID: 1061055696}
-  - locationTarget: {fileID: 11400000, guid: 35b5343300f8a6949a8e7731ded801f0, type: 2}
+  - locationData: {fileID: 11400000, guid: 35b5343300f8a6949a8e7731ded801f0, type: 2}
     pointFromScene: {fileID: 1243254175}
-  - locationTarget: {fileID: 11400000, guid: 02069983165afc94287e5669df51ef51, type: 2}
+  - locationData: {fileID: 11400000, guid: 02069983165afc94287e5669df51ef51, type: 2}
     pointFromScene: {fileID: 1434137554}
+  - locationData: {fileID: 11400000, guid: 270a7b96ddb157046ba5ad55c6c0df27, type: 2}
+    pointFromScene: {fileID: 1243254175}
   confiner: {fileID: 320762905}
+--- !u!114 &1338313046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338313043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb305154a40b4785ba76ed0e55b890bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicName: 2
+  fadeDuration: 0.5
 --- !u!1 &1375646168
 GameObject:
   m_ObjectHideFlags: 0
@@ -1449,8 +1465,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2d5600188a4b88854d4bd523fe97d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locationTarget: {fileID: 11400000, guid: 35b5343300f8a6949a8e7731ded801f0, type: 2}
   infoTextUI: {fileID: 1039546951}
+  locationData: {fileID: 11400000, guid: 35b5343300f8a6949a8e7731ded801f0, type: 2}
 --- !u!61 &1689487327
 BoxCollider2D:
   m_ObjectHideFlags: 0

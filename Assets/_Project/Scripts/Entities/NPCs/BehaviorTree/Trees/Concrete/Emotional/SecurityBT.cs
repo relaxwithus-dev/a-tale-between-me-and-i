@@ -8,9 +8,6 @@ namespace ATBMI.Entities.NPCs
         [Header("Attribute")] 
         [SerializeField] private float pullForce;
         [SerializeField] private float pullDelay;
-        [SerializeField] private float passOffRange;
-        
-        [Space]
         [SerializeField] private CharacterAnimation characterAnim;
         
         protected override Node SetupTree()
@@ -47,7 +44,6 @@ namespace ATBMI.Entities.NPCs
                         new EmotionalSelector("Anticipation", characterTraits, new List<Node>
                         {
                             new TaskObserve(characterAI, characterAnim, zoneDetails[1].Radius),
-                            new TaskAnimate(characterAnim, "Anticipation"),
                             new TaskIdle(characterAI)
                         })
                     })

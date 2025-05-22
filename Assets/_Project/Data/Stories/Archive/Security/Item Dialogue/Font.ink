@@ -1,1 +1,0 @@
-Menarik, tapi untuk apa kau memperlihatkannya kepadaku? #speaker:Security
