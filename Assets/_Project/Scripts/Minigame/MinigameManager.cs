@@ -16,6 +16,7 @@ namespace ATBMI.Minigame
         [SerializeField] private MinigameType minigameType;
         [SerializeField] [ReadOnly] private MinigameView[] minigameViews;
         
+        private bool _isPlayingMinigame;
         private MinigameView _selectedView;
         public static event Action OnEnterMinigame;
         
@@ -54,7 +55,7 @@ namespace ATBMI.Minigame
         private void Update()
         {
             if (!isDebugMode) return;
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) && !_isPlayingMinigame)
             {
                 EnterMinigameEvent();
             }
@@ -68,6 +69,7 @@ namespace ATBMI.Minigame
             _playerController.StopMovement();
             _selectedView.gameObject.SetActive(true);
             _selectedView.EnterMinigame();
+            _isPlayingMinigame = true;
         }
         
         public void ExitMinigame()
@@ -75,6 +77,7 @@ namespace ATBMI.Minigame
             if (!_selectedView)
                 return;
             
+            _isPlayingMinigame = false;
             _playerController.StartMovement();
             _selectedView.gameObject.SetActive(false);
         }

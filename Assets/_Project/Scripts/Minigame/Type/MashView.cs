@@ -66,15 +66,9 @@ namespace ATBMI.Minigame
             ModifySliderValue();
             ModifyTextValue();
 
-            if (_currentValue <= 0) return;
+            if (_currentValue <= 0 || _currentValue >= mashMaxValue) return;
             HandleIncreaseMash();
             HandleDecreaseMash();
-        }
-        
-        protected override void ExitMinigame()
-        {
-            base.ExitMinigame();
-            mashSliderUI.value =  initiateMashValue / mashMaxValue;
         }
         
         private void HandleIncreaseMash()
@@ -88,6 +82,7 @@ namespace ATBMI.Minigame
                 case 1 when inputHandler.IsArrowLeft:
                     _mashCount = 0;
                     _currentValue += _attribute.increase;
+                    _currentValue = Mathf.Min(_currentValue, mashMaxValue);
                     indicatorHandler.ModifyIndicator(_mashCount);
                     break;
             }
@@ -109,17 +104,19 @@ namespace ATBMI.Minigame
             var sliderValue = _currentValue / mashMaxValue;
             mashSliderUI.value = Mathf.Lerp(mashSliderUI.value, sliderValue, sliderSpeed * Time.deltaTime);
             
-            switch (sliderValue)
+            switch (mashSliderUI.value)
             {
                 // Win
                 case >= MAX_SLIDER_VALUE:
                     playingCount = Mathf.Clamp(playingCount + 1, 0, mashAttributes.Length - 1);
                     indicatorHandler.ModifyIndicator(_mashCount, true);
+                    mashSliderUI.value = MAX_SLIDER_VALUE;
                     ExitMinigame();
                     break;
                 // Lose
                 case <= MIN_SLIDER_VALUE:
                     indicatorHandler.ModifyIndicator(_mashCount, true);
+                    mashSliderUI.value = MIN_SLIDER_VALUE;
                     ExitMinigame();
                     break;
             }

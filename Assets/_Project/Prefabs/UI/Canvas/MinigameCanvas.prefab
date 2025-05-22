@@ -234,9 +234,9 @@ RectTransform:
   - {fileID: 7043881314033032345}
   m_Father: {fileID: 4759116864264581834}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 136.66667, y: -140}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 180, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6588592006104045507
@@ -460,7 +460,7 @@ RectTransform:
   m_Father: {fileID: 8254266787010259952}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -593,7 +593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayMinigame: 0
-  closeMinigameDelay: 0.15
+  closeMinigameDelay: 0.2
   minigameManager: {fileID: 2855397642332324853}
   mashMaxValue: 100
   initiateMashValue: 50
@@ -1219,7 +1219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayMinigame: 0
-  closeMinigameDelay: 0.15
+  closeMinigameDelay: 0.2
   minigameManager: {fileID: 2855397642332324853}
   arrowAttributes:
   - count: 3
@@ -1383,8 +1383,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7099912230792591693}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 40, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2217,9 +2217,9 @@ RectTransform:
   - {fileID: 7099912230792591693}
   m_Father: {fileID: 4759116864264581834}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 540, y: -140}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 480, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5818575809030032639
@@ -2311,7 +2311,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 50}
-  m_SizeDelta: {x: 550, y: 180}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &7947467558579346233
 MonoBehaviour:
@@ -2404,9 +2404,9 @@ RectTransform:
   - {fileID: 6075306055357135281}
   m_Father: {fileID: 4759116864264581834}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 943.3333, y: -140}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 180, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5020239166270804735
@@ -2480,9 +2480,9 @@ RectTransform:
   - {fileID: 6235268687256989320}
   m_Father: {fileID: 7390905855075905113}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 125, y: -90}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 250, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6045244920136195951
@@ -2757,9 +2757,9 @@ RectTransform:
   - {fileID: 8079060689424947149}
   m_Father: {fileID: 7390905855075905113}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 425, y: -90}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 250, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8112430190546159800
@@ -2891,19 +2891,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayMinigame: 0
-  closeMinigameDelay: 0.15
+  closeMinigameDelay: 0.2
   minigameManager: {fileID: 2855397642332324853}
   wrongDelayTime: 1
   timingAttributes:
-  - duration: 15
-    minSpeed: 5
-    maxSpeed: 9
   - duration: 12
     minSpeed: 4
     maxSpeed: 6
   - duration: 8
     minSpeed: 2
     maxSpeed: 4
+  - duration: 4
+    minSpeed: 2
+    maxSpeed: 3
   hitAreaRestrictions:
   - {fileID: 2151015766421491391}
   - {fileID: 4946992449482274289}
@@ -3213,7 +3213,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 1
-  m_AdditionalShaderChannelsFlag: 1
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 2
@@ -3270,7 +3270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec62e47ff82248efa7f35a4127df17c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDebugMode: 1
+  isDebugMode: 0
   minigameType: 0
   minigameViews:
   - {fileID: 8425988741252772075}

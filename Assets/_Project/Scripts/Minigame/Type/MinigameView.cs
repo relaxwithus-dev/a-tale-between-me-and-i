@@ -51,7 +51,7 @@ namespace ATBMI.Minigame
             _minigameAnimation.OpenMinigame(() => isPlayMinigame = true);
         }
         protected virtual void RunMinigame() { }
-        protected virtual void ExitMinigame()
+        protected void ExitMinigame()
         {
             isPlayMinigame = false;
             StartCoroutine(ExitMinigameRoutine());
