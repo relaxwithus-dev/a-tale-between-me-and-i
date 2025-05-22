@@ -3,6 +3,7 @@ using UnityEngine;
 using Sirenix.OdinInspector;
 using ATBMI.Audio;
 using ATBMI.Dialogue;
+using ATBMI.Entities;
 using ATBMI.Entities.Player;
 using ATBMI.Gameplay.Handler;
 
@@ -28,8 +29,6 @@ namespace ATBMI.Interaction
         [Header("Reference")]
         [SerializeField] private PlayerAnimation playerAnimation;
         [SerializeField] private InteractHandler interactHandler;
-        
-        private const string TAKE_ITEM_STATE = "Take_Item";
         
         #endregion
 
@@ -124,7 +123,7 @@ namespace ATBMI.Interaction
         private IEnumerator TakeItemRoutine(ItemInteract item)
         {
             var duration = playerAnimation.GetAnimationTime();
-            playerAnimation.TrySetAnimationState(TAKE_ITEM_STATE);
+            playerAnimation.TrySetAnimationState(StateTag.TAKE_ITEM_STATE);
             
             yield return new WaitForSeconds(duration);
             InteractEvent.InteractedEvent(interact: false);
