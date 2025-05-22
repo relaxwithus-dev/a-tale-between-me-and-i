@@ -108,6 +108,7 @@ namespace ATBMI.Scene
             
             onSwitchBegin?.Invoke();
             DialogueEvents.UnregisterDialogueSignPointEvent();
+            QuestEvents.UnregisterNPCsThatHandledByQuestStepEvent();
             
             // Setup latest scene
             if (CurrentScene != null)
@@ -116,6 +117,8 @@ namespace ATBMI.Scene
             StartCoroutine(LoadSceneAsync(sceneAsset.Reference));
             _asyncOperation.allowSceneActivation = true;
             CurrentScene = sceneAsset;
+
+            GameEvents.OnChangeSceneEvent();
             
             UnloadSceneAsync(LatestScene.Reference);
         }
