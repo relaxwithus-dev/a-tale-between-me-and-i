@@ -17,16 +17,16 @@ MonoBehaviour:
   shouldBeFinishManually: 0
   questPrerequisites: []
   questSteps:
-  - targetScene: S_Sby_Kos_Depan
+  - targetScene: S_Sby_Kos
     questStepPrefab: {fileID: 5562992199509801539, guid: d3213a48836c40548b57614828d5499c, type: 3}
     stepStatusText: Tanya kejadian ini ke warga sekitar
   - targetScene: S_Sby_Jalan_Mulyorejo_4
     questStepPrefab: {fileID: 5192617294375031708, guid: 69a2967e082dd824a8ed8bbcdfc0d33e, type: 3}
     stepStatusText: Cari Ratna di kampus
-  - targetScene: S_Sby_Kampus
+  - targetScene: S_Sby_Kampus_Dalam
     questStepPrefab: {fileID: 4202407988036303883, guid: 272a48ebd1f726241932eb5ae956ed55, type: 3}
     stepStatusText: Kejar benda aneh itu!
-  - targetScene: S_Sby_Kampus
+  - targetScene: S_Sby_Kampus_Dalam
     questStepPrefab: {fileID: 7120317082400991667, guid: c7b97a15f948aa343a6b22b71ed8f123, type: 3}
     stepStatusText: Segera bantu Ratna
   rewardItem: []

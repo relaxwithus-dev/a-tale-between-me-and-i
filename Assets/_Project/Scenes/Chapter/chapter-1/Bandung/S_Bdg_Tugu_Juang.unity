@@ -230,8 +230,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2d5600188a4b88854d4bd523fe97d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locationData: {fileID: 11400000, guid: e0fb255a00f7279438ed1d95240c19f8, type: 2}
   infoTextUI: {fileID: 1768302522}
+  locationData: {fileID: 11400000, guid: e0fb255a00f7279438ed1d95240c19f8, type: 2}
 --- !u!61 &262014086
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1345,8 +1345,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2d5600188a4b88854d4bd523fe97d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locationData: {fileID: 11400000, guid: 605f618a14224a646815c5fb79336a69, type: 2}
   infoTextUI: {fileID: 1768302522}
+  locationData: {fileID: 11400000, guid: 605f618a14224a646815c5fb79336a69, type: 2}
 --- !u!61 &1785676285
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1599,6 +1599,8 @@ MonoBehaviour:
     pointFromScene: {fileID: 960217882}
   - locationData: {fileID: 11400000, guid: 605f618a14224a646815c5fb79336a69, type: 2}
     pointFromScene: {fileID: 234610617}
+  - locationData: {fileID: 11400000, guid: a7a91c9cd0e296044a3273f064eb3d8b, type: 2}
+    pointFromScene: {fileID: 745281110}
   confiner: {fileID: 1881757788}
 --- !u!4 &1948981105
 Transform:
