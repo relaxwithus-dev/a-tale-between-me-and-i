@@ -22,9 +22,9 @@ namespace ATBMI.Inventory
 
         public List<InventoryItem> InventoryList { get; set; } = new();
         private readonly Dictionary<int, ItemData> itemDatasDict = new();
-        
+
         public static InventoryManager Instance;
-        
+
         #endregion
 
         private void Awake()
@@ -46,14 +46,14 @@ namespace ATBMI.Inventory
 
         private void Update()
         {
-            if(Input.GetKeyDown(KeyCode.C))
+            if (Input.GetKeyDown(KeyCode.C))
             {
                 AddItemToInventory(1);
                 // AddItemToInventory(2);
                 // AddItemToInventory(3);
             }
 
-            if(Input.GetKeyDown(KeyCode.V))
+            if (Input.GetKeyDown(KeyCode.V))
             {
                 AddItemToInventory(4);
                 // AddItemToInventory(5);
@@ -143,6 +143,12 @@ namespace ATBMI.Inventory
             {
                 Debug.LogError("failed to remove item with id " + itemId);
             }
+        }
+
+        public void ResetInventory()
+        {
+            InventoryList.Clear();
+            PlayerEvents.UpdateInventoryEvent(InventoryList);
         }
     }
 }

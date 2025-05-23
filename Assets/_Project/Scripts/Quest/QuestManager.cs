@@ -13,6 +13,7 @@ namespace ATBMI
         // [Header("Config")]
         // [SerializeField] private bool loadQuestState = true;
         [SerializeField] private QuestInfoListSO questInfoList;
+        [SerializeField] private QuestLogHandler questLogHandler;
         [SerializeField] private GameObject uiQuestPanel;
         [SerializeField] private CanvasGroup uiQuestCanvasGroup;
         [SerializeField] private TextMeshProUGUI uiQuestTitle;
@@ -284,6 +285,17 @@ namespace ATBMI
                 }
 
             }
+        }
+
+        public void ResetQuest()
+        {
+            // Destroy all quest step GameObjects
+            foreach (Transform child in transform)
+            {
+                Destroy(child.gameObject);
+            }
+
+            questLogHandler.ClearQuestLog();
         }
     }
 }
