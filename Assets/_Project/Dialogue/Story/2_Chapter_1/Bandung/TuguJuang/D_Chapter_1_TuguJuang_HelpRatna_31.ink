@@ -1,6 +1,7 @@
 EXTERNAL AddItem(itemId)
 EXTERNAL StartQuest(questId)
 EXTERNAL FinishQuest(questId)
+EXTERNAL EnterMinigame()
 
 // Dewa masuk scene
 
@@ -14,6 +15,8 @@ Tolong kami Dewa… #speaker:Ratna #expression:A_Ratna_Speak
 
 Sepertinya orang ini telah keterlaluan #speaker:Dewa #expression:A_Dewa_Speak
 Aku harus menghentikanmu orang aneh!!! #speaker:Dewa #expression:A_Dewa_Speak #Emoji:A_Emoji_Angry
+
+~EnterMinigame()
 
 // Inisiasi minigame balance
 
