@@ -32,15 +32,15 @@ namespace ATBMI.Entities.Player
             _playerAnim = GetComponent<Animator>();
         }
 
-        // private void OnEnable()
-        // {
-        //     _eventReceiver.OnStepDown += PlayFootstepSound;
-        // }
-        //
-        // private void OnDisable()
-        // {
-        //     _eventReceiver.OnStepDown -= PlayFootstepSound;
-        // }
+        private void OnEnable()
+        {
+            _eventReceiver.OnStepDown += PlayFootstepSound;
+        }
+        
+        private void OnDisable()
+        {
+            _eventReceiver.OnStepDown -= PlayFootstepSound;
+        }
         
         private void Update()
         {

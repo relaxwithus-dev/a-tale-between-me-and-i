@@ -3,6 +3,7 @@ using ATBMI.Enum;
 using ATBMI.Scene;
 using ATBMI.Inventory;
 using ATBMI.Entities.NPCs;
+using ATBMI.Entities.Player;
 using ATBMI.Gameplay.Event;
 
 namespace ATBMI.Interaction
@@ -39,22 +40,16 @@ namespace ATBMI.Interaction
         
         private void OnEnable()
         {
-            InteractEvent.OnInteracted += HandleInteracting;
+            InteractEvent.OnInteracted += HandleInteracted;
         }
         
         private void OnDisable()
         {
-            InteractEvent.OnInteracted -= HandleInteracting;
+            InteractEvent.OnInteracted -= HandleInteracted;
         }
         
         private void Start()
         {
-            if (_characterAI.Data == null)
-            {
-                Debug.LogError($"npc {gameObject.name} data is missing");
-                return;
-            }
-            
             // Stats
             interactAction = InteractAction.Talk;
             isInteracting = false;
@@ -98,7 +93,13 @@ namespace ATBMI.Interaction
         // Helpers
         public Transform GetSignTransform() => signTransform;
         private Transform GetEmojiTransform() => emojiTransform;
-        private void HandleInteracting(bool isInteract) => isInteracting = isInteract;
+        private void HandleInteracted(bool isInteract, PlayerController player)
+        {
+            isInteracting = isInteract;
+            if (player.IsFacingRight == _characterAI.IsFacingRight)
+                _characterAI.Flip();
+        }
+        
         private InteractAction GetAction(string action)
         {
             if (System.Enum.TryParse<InteractAction>(action, out var parsedAction))

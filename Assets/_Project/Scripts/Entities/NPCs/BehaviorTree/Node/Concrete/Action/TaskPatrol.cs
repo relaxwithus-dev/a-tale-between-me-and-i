@@ -65,7 +65,6 @@ namespace ATBMI.Entities.NPCs
         protected override void Reset()
         {
             base.Reset();
-            _currentIndex = 0;
             _currentTime = 0f;
             _isPathCalculated = true;
             _currentTarget = trackedWayPoints[_currentIndex];
