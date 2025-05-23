@@ -1,11 +1,15 @@
+using System.Collections;
 using System.Collections.Generic;
-using ATBMI.Interaction;
 using UnityEngine;
+using ATBMI.Interaction;
 
 namespace ATBMI.Entities.NPCs
 {
     public class TaskPush : TaskForceBase
     {
+        private bool _isPushing;
+        private bool _isDonePushing;
+        
         private readonly Dictionary<Emotion, (float plan, float risk, (float, float) time)> _factorsPush = new()
         {
             { Emotion.Joy, (1, 0.8f, (0.2f, 0.5f)) },
@@ -28,14 +32,36 @@ namespace ATBMI.Entities.NPCs
         // Core
         protected override NodeStatus PerformForce()
         {
-            Vector2 direction = (player.transform.position - character.transform.position).normalized;
+            if (_isPushing)
+                return NodeStatus.Running;
+
+            if (_isDonePushing)
+                return NodeStatus.Success;
             
+            var direction = (player.transform.position - character.transform.position).normalized;
+            character.StartCoroutine(PushRoutine(direction));
+            return NodeStatus.Success;
+        }
+        
+        private IEnumerator PushRoutine(Vector3 direction)
+        {
+            _isPushing = true;
+            animation.TrySetAnimationState(StateTag.PUSH_STATE);
+
+            yield return new WaitForSeconds(0.15f);
             player.StopMovement();
             player.PlayerRb.AddForce(direction * force, ForceMode2D.Impulse);
             player.StartCoroutine(WhenDoneForce());
             
             InteractEvent.RestrictedEvent(true);
-            return NodeStatus.Success;
+            _isDonePushing = true;
+        }
+
+        protected override void Reset()
+        {
+            base.Reset();
+            _isPushing = false;
+            _isDonePushing = false;
         }
     }
 }

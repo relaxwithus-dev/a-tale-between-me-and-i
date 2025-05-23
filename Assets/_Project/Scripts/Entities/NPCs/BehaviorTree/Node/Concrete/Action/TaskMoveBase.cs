@@ -71,7 +71,7 @@ namespace ATBMI.Entities.NPCs
             if (!(_currentTime >= moveDelayTime / 2f))
                 return;
             
-            var direction = character.transform.position - targetPosition;
+            var direction = targetPosition - character.transform.position;
             direction.Normalize();
             character.LookAt(direction);
         }

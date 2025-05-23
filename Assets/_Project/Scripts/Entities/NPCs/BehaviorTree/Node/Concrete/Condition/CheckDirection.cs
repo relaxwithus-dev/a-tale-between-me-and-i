@@ -21,7 +21,7 @@ namespace ATBMI.Entities.NPCs
 
             if (!target.TryGetComponent<PlayerController>(out var player))
                 return LogFailure();
-
+            
             var facingSameDirection = player.IsFacingRight == character.IsFacingRight;
             if ((isDifferentDir && !facingSameDirection) || (!isDifferentDir && facingSameDirection))
                 return LogSuccess();

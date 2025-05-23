@@ -77,6 +77,7 @@ namespace ATBMI.Entities.NPCs
             animation.TrySetAnimationState(StateTag.PULL_STATE);
             player.PlayerRb.AddForce(_pullDirection * force, ForceMode2D.Impulse);
             player.StartCoroutine(WhenDoneForce());
+            
             InteractEvent.RestrictedEvent(false);
             return NodeStatus.Success;
         }

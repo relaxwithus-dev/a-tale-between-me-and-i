@@ -119,11 +119,24 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Drunker Push_0
+      name: Pemabuk_Push_Spritesheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,20 +144,20 @@ TextureImporter:
         width: 100
         height: 100
       alignment: 9
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.4, y: 0.04}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0166c21fd2d50a34b9941909bcb6c516
-      internalID: -151459567
+      spriteID: ea40d80919f63304eb608ba722349025
+      internalID: 1778555587
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drunker Push_1
+      name: Pemabuk_Push_Spritesheet_1
       rect:
         serializedVersion: 2
         x: 100
@@ -152,20 +165,20 @@ TextureImporter:
         width: 100
         height: 100
       alignment: 9
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.4, y: 0.04}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7442e087e8157a14f82e6dd40b10eab2
-      internalID: -993296202
+      spriteID: fa64beeef1fdaca4694c4f21328f05a7
+      internalID: 1388732465
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drunker Push_2
+      name: Pemabuk_Push_Spritesheet_2
       rect:
         serializedVersion: 2
         x: 200
@@ -173,20 +186,20 @@ TextureImporter:
         width: 100
         height: 100
       alignment: 9
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.4, y: 0.04}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d274e9960a45ebd4d81b9cc8125b15e3
-      internalID: -79681959
+      spriteID: b6b951c6e8e4003499534e8710f54b71
+      internalID: -1504977819
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drunker Push_3
+      name: Pemabuk_Push_Spritesheet_3
       rect:
         serializedVersion: 2
         x: 300
@@ -194,20 +207,20 @@ TextureImporter:
         width: 100
         height: 100
       alignment: 9
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.4, y: 0.04}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3cee7f3cf760743409f901979f8fe0df
-      internalID: 554343537
+      spriteID: 7d9e2ef6efbdef24b8cc8bf33887f93e
+      internalID: 457004625
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drunker Push_4
+      name: Pemabuk_Push_Spritesheet_4
       rect:
         serializedVersion: 2
         x: 400
@@ -215,20 +228,20 @@ TextureImporter:
         width: 100
         height: 100
       alignment: 9
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.4, y: 0.04}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bfe79a5964d750e4f884728f5f141b14
-      internalID: 1427496919
+      spriteID: 4f0cbedb4b0bdc94dafb554ffe0d65a4
+      internalID: 468077942
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drunker Push_5
+      name: Pemabuk_Push_Spritesheet_5
       rect:
         serializedVersion: 2
         x: 500
@@ -236,14 +249,14 @@ TextureImporter:
         width: 100
         height: 100
       alignment: 9
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.4, y: 0.04}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3aaee0df5382b814297081e4c9ef00e0
-      internalID: 240150116
+      spriteID: eb87780f51056d243a5e739a315504b4
+      internalID: -1117449289
       vertices: []
       indices: 
       edges: []
@@ -259,12 +272,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Drunker Push_0: -151459567
-      Drunker Push_1: -993296202
-      Drunker Push_2: -79681959
-      Drunker Push_3: 554343537
-      Drunker Push_4: 1427496919
-      Drunker Push_5: 240150116
+      Pemabuk_Push_Spritesheet_0: 1778555587
+      Pemabuk_Push_Spritesheet_1: 1388732465
+      Pemabuk_Push_Spritesheet_2: -1504977819
+      Pemabuk_Push_Spritesheet_3: 457004625
+      Pemabuk_Push_Spritesheet_4: 468077942
+      Pemabuk_Push_Spritesheet_5: -1117449289
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
