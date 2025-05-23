@@ -764,6 +764,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemList: {fileID: 11400000, guid: ecd511338be204c4f93720e86a66a9fa, type: 2}
   uiGetItemPanel: {fileID: 664996269}
+  uiItemCanvasGroup: {fileID: 0}
+  uiItemInfo: {fileID: 0}
 --- !u!4 &502739512
 Transform:
   m_ObjectHideFlags: 0
@@ -1948,7 +1950,10 @@ MonoBehaviour:
   move: Move
   run: Run
   interact: Interact
-  phone: Phone
+  questPhone: QuestPhone
+  inventoryPhone: InventoryPhone
+  mapPhone: MapPhone
+  settingPhone: SettingPhone
   navigate: Navigate
   submit: Submit
   select: Select
