@@ -7,12 +7,12 @@ namespace ATBMI.Entities.NPCs
     {
         [Header("Attribute")]
         [SerializeField] private CharacterAnimation characterAnim;
-
+        
         protected override Node SetupTree()
         {
             var data = characterAI.Data;
-            var defaultTexts = data.GetDefaultDialogues();
             var angerTexts = data.GetEmotionDialogues(Emotion.Anger);
+            var disgustTexts = data.GetEmotionDialogues(Emotion.Disgust);
             
             Selector tree = new Selector("Toko Kelontong BT", new List<Node>
             {
@@ -35,8 +35,8 @@ namespace ATBMI.Entities.NPCs
                         new CheckTargetInZone(centerPoint, zoneDetails[1].Radius, layerMask),
                         new EmotionalSelector("Disgust", characterTraits, new List<Node>
                         {
-                            new TaskAnimate(characterAnim, "Disgust"),
-                            new TaskTalk(characterAI, defaultTexts),
+                            new TaskAnimate(characterAnim, StateTag.DISGUST_STATE),
+                            new TaskTalk(characterAI, disgustTexts),
                             new TaskIdle(characterAI)
                         })
                     })
