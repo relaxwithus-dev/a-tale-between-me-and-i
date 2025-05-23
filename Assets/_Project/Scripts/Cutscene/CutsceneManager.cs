@@ -102,6 +102,16 @@ namespace ATBMI.Cutscene
             OnCutsceneEnd?.Invoke();
             IsCutscenePlaying = false;
         }
+        public void ResetCutscene()
+        {
+            foreach (var status in statusList)
+            {
+                foreach (var key in status.status)
+                {
+                    key.isFinish = false;
+                }
+            }
+        }
         
         #endregion
     }
