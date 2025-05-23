@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 74375895104813849}
   - component: {fileID: -3007955395687769681}
   - component: {fileID: -7211319767479691193}
+  - component: {fileID: -6872034855623821317}
   m_Layer: 0
   m_Name: Q_Ch1_Sby_Kejar_Waffa
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 2543979134074518798}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.3, y: -1.88, z: 0}
+  m_LocalPosition: {x: 1.84, y: -2.71, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -90,3 +91,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-6872034855623821317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2543979134074518798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d899291998e1ae4bbeee4b78fc10c78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnNPC: 1
+  spawnNPCData:
+  - npcPrefab: {fileID: 5100580093370311947, guid: 5ccab1f8c587f2f439c2712e06e3d457, type: 3}
+    spawnPoint: {x: 4.8, y: -3.98}
+    spawnSceneName: {fileID: 11400000, guid: 248780920923581408603c5306205852, type: 2}
+  despawnNPC: 0
+  despawnNPCData: []

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3406035953226148661}
   - component: {fileID: 2754331458347649259}
   - component: {fileID: 1668644932471381126}
+  - component: {fileID: -8634340509555670478}
   m_Layer: 0
   m_Name: Q_Ch1_Bdg_Berdiskusi_Ratna
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 4918882349780945386}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.81, y: -4.8678446, z: 0}
+  m_LocalPosition: {x: 4.41, y: -4.21, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -90,3 +91,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-8634340509555670478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4918882349780945386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d899291998e1ae4bbeee4b78fc10c78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnNPC: 1
+  spawnNPCData:
+  - npcPrefab: {fileID: 5100580093370311947, guid: 8ddb17ab485e94e46be58442f1fcfbd4, type: 3}
+    spawnPoint: {x: 15.02, y: -3.72}
+    spawnSceneName: {fileID: 11400000, guid: e4391ff5afd498c418cbc761769054ef, type: 2}
+  despawnNPC: 1
+  despawnNPCData:
+  - npcToDespawnReference: {fileID: 11400000, guid: 89df7c50692ccf041ab87e4f94ad53c9, type: 2}
+    despawnSceneName: {fileID: 11400000, guid: 639ba6cba5b43a44ab5ab008fc60d017, type: 2}
+  - npcToDespawnReference: {fileID: 11400000, guid: b5f5dc250c27a7e41889bd393871fdce, type: 2}
+    despawnSceneName: {fileID: 11400000, guid: b2745c2c8ffc2b449bc5f30d18464b0d, type: 2}

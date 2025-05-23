@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 573952959053877888}
   - component: {fileID: -942498436829407780}
   - component: {fileID: -5179719288538364810}
+  - component: {fileID: 4223969673090578971}
   m_Layer: 0
   m_Name: Q_Ch1_Bdg_Cari_Tahu_Menyeluruh
   m_TagString: Untagged
@@ -90,3 +91,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &4223969673090578971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3826946851205955813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d899291998e1ae4bbeee4b78fc10c78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnNPC: 1
+  spawnNPCData:
+  - npcPrefab: {fileID: 5100580093370311947, guid: 27fe32d39d185bf48a4393e26ac48b60, type: 3}
+    spawnPoint: {x: -1.83, y: -6.41}
+    spawnSceneName: {fileID: 11400000, guid: 7b183f85bc751064483a5595d7376d40, type: 2}
+  despawnNPC: 1
+  despawnNPCData:
+  - npcToDespawnReference: {fileID: 11400000, guid: d70cd19be227907478c243221becff0a, type: 2}
+    despawnSceneName: {fileID: 11400000, guid: c74b7d917825d254491e3000acf2b7b9, type: 2}

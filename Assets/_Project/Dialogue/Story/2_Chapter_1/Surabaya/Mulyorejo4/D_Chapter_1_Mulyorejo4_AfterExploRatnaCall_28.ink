@@ -12,5 +12,6 @@ Tapi sepertinya warna ini ngarah ke suatu tempat #speaker:Dewa #expression:A_Dew
 Kemana? #speaker:Dewa #expression:A_Dewa_Speak #Emoji:A_Emoji_Question
 ... #speaker:Dewa
 Coba aku ikutin deh #speaker:Dewa #expression:A_Dewa_Speak
+Kayaknya hal itu mengarah ke dalam kampus #speaker:Dewa #expression:A_Dewa_Speak
 
 -> END
