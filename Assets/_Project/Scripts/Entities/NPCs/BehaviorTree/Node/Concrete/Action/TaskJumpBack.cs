@@ -7,6 +7,7 @@ namespace ATBMI.Entities.NPCs
     public class TaskJumpBack : LeafWeight
     {
         private readonly CharacterAI character;
+        private readonly CharacterAnimation animation;
         private readonly float power;
         private readonly float duration;
         private readonly float distance = 0.15f;
@@ -26,9 +27,10 @@ namespace ATBMI.Entities.NPCs
         };
         
         // Constructor
-        public TaskJumpBack(CharacterAI character, float power, float duration)
+        public TaskJumpBack(CharacterAI character, CharacterAnimation animation, float power, float duration)
         {
             this.character = character;
+            this.animation = animation;
             this.power = power;
             this.duration = duration;
             
@@ -40,11 +42,11 @@ namespace ATBMI.Entities.NPCs
         {
             if (!TrySetupTarget())
                 return NodeStatus.Failure;
-            
+
+            animation.TrySetAnimationState(StateTag.SHOCK_STATE);
             character.transform.DOJump(_jumpTarget, power, 1, duration).SetEase(Ease.OutSine);
             character.LookAt(_jumpTarget);
             
-            Debug.Log("Execute Success: TaskJumpBack");
             parentNode.ClearData(TARGET_KEY);
             return NodeStatus.Success;
         }

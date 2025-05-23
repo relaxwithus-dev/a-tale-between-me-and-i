@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using ATBMI.Audio;
+using ATBMI.Entities;
 
 namespace ATBMI.Scene
 {
@@ -12,7 +13,6 @@ namespace ATBMI.Scene
         [SerializeField] private LocationData locationData;
         
         private SceneAsset _currentScene;
-        private const string ENTER_ROOM_STATE = "Enter_Room";
         
         // Core
         protected override void TravelToTarget()
@@ -42,7 +42,7 @@ namespace ATBMI.Scene
         private void HandleDoorAnimation()
         {
             if (!isRoomTravel) return;
-            iAnimatable.TrySetAnimationState(ENTER_ROOM_STATE);
+            iAnimatable.TrySetAnimationState(StateTag.ENTER_ROOM_STATE);
         }
         
         private void HandleAudioTravel(SceneAsset targetScene)

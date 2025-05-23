@@ -9,7 +9,10 @@ namespace ATBMI.Entities.NPCs
         [SerializeField] private float jumpPower = 0.3f;
         [SerializeField] private float jumpDuration = 0.15f;
         [SerializeField] private float talkRadius;
+        
+        [Space]
         [SerializeField] private Transform targetPoint;
+        [SerializeField] private CharacterAnimation characterAnim;
         
         protected override Node SetupTree()
         {
@@ -31,7 +34,7 @@ namespace ATBMI.Entities.NPCs
                             new SequenceWeight("Jump Back",new List<Node>
                             {
                                 new CheckDirection(characterAI),
-                                new TaskJumpBack(characterAI, jumpPower, jumpDuration),
+                                new TaskJumpBack(characterAI, characterAnim, jumpPower, jumpDuration),
                                 new TaskTalk(characterAI, surpriseText)
                             }),
                             new TaskIdle(characterAI)
