@@ -9,8 +9,11 @@ namespace ATBMI
         public int QuestId { get; private set; }  // Store the quest's ID
 
         [SerializeField] private Image background;
-        // [SerializeField] private Image check;
+        [SerializeField] private Image selectedIcon;
         [SerializeField] private TextMeshProUGUI buttonText;
+
+        [SerializeField] private Sprite deselectedStatusBackground;
+        [SerializeField] private Sprite selectedStatusBackground;
 
         public void Initialize(string displayName, int questId)
         {
@@ -41,7 +44,8 @@ namespace ATBMI
         public void Highlight(bool isSelected)
         {
             // TODO: change the highligh selected
-            background.color = isSelected ? Color.green : Color.white; // Change color
+            background.sprite = isSelected ? selectedStatusBackground : deselectedStatusBackground; // Change color
+            selectedIcon.gameObject.SetActive(isSelected);
         }
     }
 }
