@@ -28,7 +28,6 @@ MonoBehaviour:
   emotionDialogues:
   - emotion: 0
     dialogues:
-    - {fileID: 4900000, guid: 2609e98382bb0cb45a536fb502fcfe84, type: 3}
     - {fileID: 4900000, guid: ac7dc06131ff74b44b6a533817b6ec34, type: 3}
   - emotion: 4
     dialogues:
@@ -46,3 +45,4 @@ MonoBehaviour:
     dialogue: {fileID: 4900000, guid: c91dc0bd003452d40818db7c7ce8adcd, type: 3}
   - item: {fileID: 11400000, guid: ea05fb23ff9410a48a11eed044498226, type: 2}
     dialogue: {fileID: 4900000, guid: 67f3d7d62ce1a2240a007f302dde9767, type: 3}
+  defaultItemDialogue: {fileID: 0}

@@ -19,12 +19,10 @@ MonoBehaviour:
   moveSpeeds: []
   defaultDialogues:
   - location: 0
-    dialogues:
-    - {fileID: 4900000, guid: 798c14e5dafc44d4581519c9a8b5ddef, type: 3}
+    dialogues: []
   emotionDialogues:
   - emotion: 1
     dialogues:
-    - {fileID: 4900000, guid: 7c87a7ed31c0618438e1f4c1c1c8a1f9, type: 3}
-    - {fileID: 4900000, guid: 32be1f58853946f4395f15e5577d6488, type: 3}
     - {fileID: 4900000, guid: 24abd90ea2e65b249864fdd1e9a0e323, type: 3}
   itemDialogues: []
+  defaultItemDialogue: {fileID: 0}
