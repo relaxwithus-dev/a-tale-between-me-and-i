@@ -123,6 +123,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &75965030
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 75965031}
+  m_Layer: 0
+  m_Name: Point_7
+  m_TagString: Untagged
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &75965031
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75965030}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3, y: -2.17, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1783877393}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &101541755
 GameObject:
   m_ObjectHideFlags: 0
@@ -1648,6 +1679,8 @@ MonoBehaviour:
     pointFromScene: {fileID: 1243254175}
   - locationData: {fileID: 11400000, guid: b399602dd5f5e8b4badef327d5fa1c91, type: 2}
     pointFromScene: {fileID: 1637425278}
+  - locationData: {fileID: 11400000, guid: c6af1471f44585144981937b109b6040, type: 2}
+    pointFromScene: {fileID: 75965031}
   confiner: {fileID: 320762905}
 --- !u!1 &1375646168
 GameObject:
@@ -2217,6 +2250,7 @@ Transform:
   - {fileID: 2089300828}
   - {fileID: 2031074627}
   - {fileID: 530440876}
+  - {fileID: 75965031}
   m_Father: {fileID: 1338313044}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1800216584
