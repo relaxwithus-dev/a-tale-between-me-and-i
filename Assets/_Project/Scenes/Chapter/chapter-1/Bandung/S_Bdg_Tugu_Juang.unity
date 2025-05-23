@@ -2318,8 +2318,6 @@ MonoBehaviour:
     pointFromScene: {fileID: 234610617}
   - locationData: {fileID: 11400000, guid: a7a91c9cd0e296044a3273f064eb3d8b, type: 2}
     pointFromScene: {fileID: 745281110}
-  - locationData: {fileID: 11400000, guid: e0fb255a00f7279438ed1d95240c19f8, type: 2}
-    pointFromScene: {fileID: 745281110}
   - locationData: {fileID: 11400000, guid: 6819b27e89d654349b11656dba1cc291, type: 2}
     pointFromScene: {fileID: 234610617}
   confiner: {fileID: 1881757788}
@@ -2745,8 +2743,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8da077eaf0543b6bc5913e6fffed2b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minigameManager: {fileID: 2855397642335501123}
   isPlayMinigame: 0
+  closeMinigameDelay: 0.15
+  minigameManager: {fileID: 2855397642335501123}
   wrongDelayTime: 1
   timingAttributes:
   - duration: 15
@@ -2880,6 +2879,7 @@ GameObject:
   - component: {fileID: 5802277231869337768}
   - component: {fileID: 4914147583489820124}
   - component: {fileID: 2398276866120567091}
+  - component: {fileID: 6494872487194919786}
   m_Layer: 5
   m_Name: MashPanel
   m_TagString: Untagged
@@ -3566,8 +3566,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eb82ca0b5d442f38427781b692a26e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minigameManager: {fileID: 2855397642335501123}
   isPlayMinigame: 0
+  closeMinigameDelay: 0.15
+  minigameManager: {fileID: 2855397642335501123}
   mashMaxValue: 100
   initiateMashValue: 50
   sliderSpeed: 7
@@ -3609,6 +3610,7 @@ GameObject:
   - component: {fileID: 69202282486509919}
   - component: {fileID: 4752338725650693613}
   - component: {fileID: 8425988741249501277}
+  - component: {fileID: 8425988741249501278}
   m_Layer: 5
   m_Name: ArrowPanel
   m_TagString: Untagged
@@ -3737,6 +3739,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec62e47ff82248efa7f35a4127df17c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDebugMode: 0
   minigameType: 2
   minigameViews:
   - {fileID: 8425988741249501277}
@@ -5260,6 +5263,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6494872487194919786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 539988889499924265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff11450a9817489d8393929d83d004ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openEase: 0
+  closeEase: 0
+  tweenDuration: 0
+  bounceDuration: 0
+  targetScale: {x: 0, y: 0, z: 0}
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!222 &6541296047176714865
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5376,6 +5397,7 @@ GameObject:
   - component: {fileID: 8084474290186762909}
   - component: {fileID: 3774225959669802646}
   - component: {fileID: 191375178445527270}
+  - component: {fileID: 8084474290186762910}
   m_Layer: 5
   m_Name: BalancePanel
   m_TagString: Untagged
@@ -5979,6 +6001,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6744270646218073159}
   m_CullTransparentMesh: 1
+--- !u!114 &8084474290186762910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6744270646218073159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff11450a9817489d8393929d83d004ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openEase: 0
+  closeEase: 0
+  tweenDuration: 0
+  bounceDuration: 0
+  targetScale: {x: 0, y: 0, z: 0}
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!222 &8112430190551461902
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6047,8 +6087,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8cad1b38d444127b62842efadc12bbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minigameManager: {fileID: 2855397642335501123}
   isPlayMinigame: 0
+  closeMinigameDelay: 0.15
+  minigameManager: {fileID: 2855397642335501123}
   arrowAttributes:
   - count: 3
     duration: 6
@@ -6072,6 +6113,24 @@ MonoBehaviour:
   - {fileID: 151947727160443604}
   - {fileID: 6086434827853578187}
   timeSliderUI: {fileID: 6214131971778662877}
+--- !u!114 &8425988741249501278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2624075054807185092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff11450a9817489d8393929d83d004ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openEase: 0
+  closeEase: 0
+  tweenDuration: 0
+  bounceDuration: 0
+  targetScale: {x: 0, y: 0, z: 0}
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!4 &8505189946737916841
 Transform:
   m_ObjectHideFlags: 0
