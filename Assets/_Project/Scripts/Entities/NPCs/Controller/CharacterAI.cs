@@ -31,7 +31,7 @@ namespace ATBMI.Entities.NPCs
         {
             _characterAnim = GetComponentInChildren<CharacterAnimation>();
         }
-
+        
         private void Start()
         {
             // Init stats
@@ -42,10 +42,12 @@ namespace ATBMI.Entities.NPCs
             characterState = EntitiesState.Idle;
             characterDirection = new Vector2(direction, 0);
         }
-
+        
         // Core
         public void ChangeState(EntitiesState state)
         {
+            if (characterState == state) return;
+            
             characterState = state;
             _characterAnim.TrySetAnimationState(state.ToString());
         }

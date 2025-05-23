@@ -39,7 +39,12 @@ namespace ATBMI.Interaction
         
         private void OnEnable()
         {
-            InteractEvent.OnInteracted += cond => isInteracting = cond;
+            InteractEvent.OnInteracted += HandleInteracting;
+        }
+        
+        private void OnDisable()
+        {
+            InteractEvent.OnInteracted -= HandleInteracting;
         }
         
         private void Start()
@@ -93,6 +98,7 @@ namespace ATBMI.Interaction
         // Helpers
         public Transform GetSignTransform() => signTransform;
         private Transform GetEmojiTransform() => emojiTransform;
+        private void HandleInteracting(bool isInteract) => isInteracting = isInteract;
         private InteractAction GetAction(string action)
         {
             if (System.Enum.TryParse<InteractAction>(action, out var parsedAction))

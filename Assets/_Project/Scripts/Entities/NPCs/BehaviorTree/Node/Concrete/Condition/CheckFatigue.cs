@@ -5,7 +5,6 @@ namespace ATBMI.Entities.NPCs
     public class CheckFatigue : Leaf
     {
         private readonly float stamina;
-        private readonly float multiplier;
         
         private float _currentStamina;
         private bool _isFatigue;
@@ -23,7 +22,7 @@ namespace ATBMI.Entities.NPCs
                 Debug.Log("Execute Success: CheckFatigue");
                 return NodeStatus.Success;
             }
-                          
+            
             Debug.LogWarning("Execute Failure: CheckFatigue");
             return NodeStatus.Failure;
         }
@@ -39,7 +38,7 @@ namespace ATBMI.Entities.NPCs
         {
             if (_isFatigue) return;
             
-            _currentStamina -= Time.deltaTime * multiplier;
+            _currentStamina -= Time.deltaTime;
             if (_currentStamina <= 0)
             {
                 _isFatigue = true;

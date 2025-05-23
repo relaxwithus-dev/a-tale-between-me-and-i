@@ -56,7 +56,8 @@ namespace ATBMI.Entities.NPCs
             yield return new WaitForSeconds(0.3f);
             _isPushing = false;
             _isDonePushing = true;
-            character.ChangeState(EntitiesState.Idle);
+            
+            animation.TrySetAnimationState(StateTag.IDLE_STATE);
             InteractEvent.RestrictedEvent(true);
         }
         

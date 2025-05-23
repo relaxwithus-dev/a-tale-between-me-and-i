@@ -16,12 +16,14 @@ namespace ATBMI.Entities.NPCs
         
         protected override Node SetupTree()
         {
+            var checkFatigue = new CheckFatigue(moveStamina);
+            
             Selector tree = new Selector("Pemabuk BT", new List<Node>
             {
                 new CheckInteracted(characterInteract),
                 new Sequence("Intimate Zone", new List<Node>
                 {
-                    new CheckTargetInZone(centerPoint, zoneDetails[0].Radius, layerMask),
+                    new CheckTargetInZone(centerPoint, zoneDetails[1].Radius, layerMask),
                     new SequenceWeight("Pull",new List<Node>
                     {
                         new CheckDirection(characterAI, isDifferentDir: true),
@@ -29,7 +31,12 @@ namespace ATBMI.Entities.NPCs
                         new TaskPush(characterAI, characterAnim, pushForce, pushDelay),
                         new TaskMoveToOrigin(characterAI, characterAI.Data, isWalk: true)
                     })
-                })
+                }), 
+                new Sequence("Patrol", new List<Node>
+                {
+                    checkFatigue,
+                    new TaskPatrol(characterAI, checkFatigue, wayPoints)
+                }),
             });
             
             return tree;
@@ -38,10 +45,9 @@ namespace ATBMI.Entities.NPCs
         // protected override Node SetupTree()
         // {
         //     var data = characterAI.Data;
+        //     var checkFatigue = new CheckFatigue(moveStamina);
         //     var defaultTexts = data.GetDefaultDialogues();
         //     var angerTexts = data.GetEmotionDialogues(Emotion.Anger);
-        //     
-        //     CheckFatigue checkFatigue = new CheckFatigue(moveStamina);
         //     
         //     Selector tree = new Selector("Pemabuk BT", new List<Node>
         //     {
@@ -51,17 +57,9 @@ namespace ATBMI.Entities.NPCs
         //             // Intimate
         //             new Sequence("Intimate Zone", new List<Node>
         //             {
-        //                 new CheckTargetInZone(centerPoint, zoneDetails[0].Radius, layerMask),
+        //                 new CheckTargetInZone(centerPoint, zoneDetails[1].Radius, layerMask),
         //                 new EmotionalSelector("Anger", characterTraits, new List<Node>
         //                 {
-        //                     new SequenceWeight("Pull",new List<Node>
-        //                     {
-        //                         new CheckDirection(characterAI, isDifferentDir: true),
-        //                         new TaskMoveToTarget(characterAI, data, isWalk: true),
-        //                         new TaskPush(characterAI, characterAnim, pushForce, pushDelay),
-        //                         new TaskTalk(characterAI, angerTexts),
-        //                         new TaskMoveToOrigin(characterAI, data, isWalk: true)
-        //                     }),
         //                     new TaskTalk(characterAI, defaultTexts),
         //                     new TaskIdle(characterAI)
         //                 })
@@ -72,6 +70,14 @@ namespace ATBMI.Entities.NPCs
         //                 new CheckTargetInZone(centerPoint, zoneDetails[1].Radius, layerMask),
         //                 new EmotionalSelector("Anticipation", characterTraits, new List<Node>
         //                 {
+        //                     new SequenceWeight("Pull",new List<Node>
+        //                     {
+        //                         new CheckDirection(characterAI, isDifferentDir: true),
+        //                         new TaskMoveToTarget(characterAI, data, isWalk: true),
+        //                         new TaskPush(characterAI, characterAnim, pushForce, pushDelay),
+        //                         new TaskTalk(characterAI, angerTexts),
+        //                         new TaskMoveToOrigin(characterAI, data, isWalk: true)
+        //                     }),
         //                     new TaskObserve(characterAI, characterAnim, zoneDetails[1].Radius),
         //                     new TaskIdle(characterAI)
         //                 })
