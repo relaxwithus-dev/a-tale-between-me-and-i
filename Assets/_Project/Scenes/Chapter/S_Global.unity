@@ -178,6 +178,9 @@ MonoBehaviour:
   - {fileID: 1567011522}
   - {fileID: 7961258799040391152}
   - {fileID: 4587108546014027043}
+  questManager: {fileID: 1191665814}
+  cutsceneManager: {fileID: 1567011524}
+  inventoryManager: {fileID: 502739511}
 --- !u!1 &56242372
 GameObject:
   m_ObjectHideFlags: 0
@@ -674,7 +677,6 @@ MonoBehaviour:
   debugMode: 0
   menuScene: {fileID: 11400000, guid: cf397f725c03dc540b8ef3936eaab128, type: 2}
   debugScene: {fileID: 11400000, guid: 1433806f8ed633a4b86db92407ca7fe3, type: 2}
-  gameManager: {fileID: 14735333}
   player: {fileID: 2143600228}
   fader: {fileID: 623994654}
 --- !u!114 &888167235 stripped
