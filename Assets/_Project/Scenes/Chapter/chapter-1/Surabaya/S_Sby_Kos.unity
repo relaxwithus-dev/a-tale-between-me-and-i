@@ -1028,7 +1028,7 @@ Transform:
   m_GameObject: {fileID: 812927884}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.07, y: -5.79, z: 0}
+  m_LocalPosition: {x: 0.33, y: -5.79, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1298,6 +1298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   infoTextUI: {fileID: 1039546951}
+  isRoomTravel: 0
   locationData: {fileID: 11400000, guid: e61c7a3a201f95c44a5e8631b617b6c7, type: 2}
 --- !u!1 &1039546948
 GameObject:
@@ -1980,6 +1981,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   infoTextUI: {fileID: 1039546951}
+  isRoomTravel: 0
   locationData: {fileID: 11400000, guid: ddeb6b1bc35f3a447afac72ec0f88d3d, type: 2}
 --- !u!61 &1689487326
 BoxCollider2D:
@@ -2506,7 +2508,7 @@ Transform:
   m_GameObject: {fileID: 4865913735271484927}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.33, y: 0, z: 0}
+  m_LocalPosition: {x: 7.87, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

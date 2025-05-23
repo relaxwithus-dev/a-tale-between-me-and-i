@@ -86,6 +86,7 @@ namespace ATBMI.Minigame
                 {
                     playingCount = Mathf.Clamp(playingCount + 1, 0, timingAttributes.Length - 1);
                     _timingController.StopTimingBar();
+                    Debug.Log("clearring timing bar...");
                     ExitMinigame();
                 }
                 else

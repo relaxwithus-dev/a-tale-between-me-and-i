@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6474250927670974755}
   - component: {fileID: -8260445014234082709}
   - component: {fileID: 5299604286200009970}
+  - component: {fileID: 9210386346362625792}
   m_Layer: 0
   m_Name: Q_Ch1_Bdg_Bantu_Musketir_Kecil
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 5720883642651652588}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.98, y: -4.87, z: 0}
+  m_LocalPosition: {x: -3.95, y: -4.87, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -90,3 +91,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &9210386346362625792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5720883642651652588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d899291998e1ae4bbeee4b78fc10c78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnNPC: 1
+  spawnNPCData:
+  - npcPrefab: {fileID: 5100580093370311947, guid: 716d546d0eac17149b76ffd0d0392635, type: 3}
+    spawnPoint: {x: 2.35, y: -6.53}
+    spawnSceneName: {fileID: 11400000, guid: 4075ccef39870854285d89291cc33ac0, type: 2}
+  - npcPrefab: {fileID: 5100580093370311947, guid: f1834777656f8f54f9b09f0cc381df87, type: 3}
+    spawnPoint: {x: 1.11, y: -6.53}
+    spawnSceneName: {fileID: 11400000, guid: 4075ccef39870854285d89291cc33ac0, type: 2}
+  despawnNPC: 0
+  despawnNPCData: []

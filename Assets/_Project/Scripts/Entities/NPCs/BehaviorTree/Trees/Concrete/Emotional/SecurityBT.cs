@@ -30,7 +30,7 @@ namespace ATBMI.Entities.NPCs
                             new SequenceWeight("Pull",new List<Node>
                             {
                                 new CheckPassed(characterAI, zoneDetails[1].Radius),
-                                new TaskPull(characterAI, pullForce, pullDelay),
+                                new TaskPull(characterAI,characterAnim, pullForce, pullDelay),
                                 new TaskTalk(characterAI, angerTexts)
                             }),
                             new TaskTalk(characterAI, defaultTexts),

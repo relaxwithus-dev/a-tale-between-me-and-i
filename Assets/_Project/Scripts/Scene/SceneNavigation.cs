@@ -17,28 +17,28 @@ namespace ATBMI.Scene
         [Header("Attribute")]
         [SerializeField] private bool debugMode;
         [SerializeField] private SceneAsset menuScene;
-        [SerializeField] [ShowIf("debugMode")]
+        [SerializeField]
+        [ShowIf("debugMode")]
         private SceneAsset debugScene;
-        
+
         private AsyncOperation _asyncOperation;
-        
+
         public SceneAsset CurrentScene { get; private set; }
         public SceneAsset LatestScene { get; private set; }
-        
+
         public static SceneNavigation Instance;
-        
+
         [Header("Reference")]
-        [SerializeField] private GameManager gameManager;
         [SerializeField] private PlayerController player;
         [SerializeField] private FadeController fader;
-        
+
         public PlayerController Player => player;
         public FadeController Fader => fader;
-                
+
         #endregion
-        
+
         #region Methods
-        
+
         // Unity Callbacks
         private void Awake()
         {
@@ -49,41 +49,42 @@ namespace ATBMI.Scene
             }
             Instance = this;
         }
-        
+
         private void Start()
         {
             StartCoroutine(InitSceneAsync(debugMode ? debugScene : menuScene));
         }
-        
+
         // Initialize
         private IEnumerator InitSceneAsync(SceneAsset sceneAsset)
         {
             fader.gameObject.SetActive(true);
             fader.DoFade(1f, 0f);
-            
+
             StartCoroutine(LoadSceneAsync(sceneAsset.Reference));
             _asyncOperation.allowSceneActivation = true;
             CurrentScene = sceneAsset;
-            
+
             yield return new WaitForSeconds(fader.FadeDuration);
             fader.FadeIn();
             if (debugMode)
             {
-                gameManager.StartGame();
-                DialogueEvents.RegisterDialogueSignPointEvent();
+                GameEvents.GameStartEvent();
             }
             else
             {
-                gameManager.EndGame();
+                GameEvents.GameExitEvent();
             }
+            
+            DialogueEvents.RegisterDialogueSignPointEvent();
         }
-        
+
         // Core
         public void SwitchScene(SceneAsset sceneAsset)
         {
             StartCoroutine(SwitchRoutine(sceneAsset));
         }
-        
+
         public void SwitchSceneSection(bool isToMenu, SceneAsset sceneAsset = null)
         {
             // Validate
@@ -92,35 +93,40 @@ namespace ATBMI.Scene
                 Debug.LogWarning("scene asset is null!");
                 return;
             }
-            
+
             var sceneTarget = isToMenu ? menuScene : sceneAsset;
-            Action modifyGameplayAction = isToMenu 
-                ? () => gameManager.EndGame() 
-                : () => gameManager.StartGame();
-            
+            Action modifyGameplayAction = isToMenu
+                ? GameEvents.GameExitEvent
+                : GameEvents.GameStartEvent;
+
             StartCoroutine(SwitchRoutine(sceneTarget, modifyGameplayAction));
         }
-        
+
         private IEnumerator SwitchRoutine(SceneAsset sceneAsset, Action onSwitchBegin = null)
         {
             fader.FadeOut();
             player.StopMovement();
             yield return new WaitForSeconds(fader.FadeDuration);
-            
+
             onSwitchBegin?.Invoke();
             DialogueEvents.UnregisterDialogueSignPointEvent();
-            
+            QuestEvents.UnregisterNPCsThatHandledByQuestStepEvent();
+
             // Setup latest scene
             if (CurrentScene != null)
                 LatestScene = CurrentScene;
-            
+
             StartCoroutine(LoadSceneAsync(sceneAsset.Reference));
             _asyncOperation.allowSceneActivation = true;
             CurrentScene = sceneAsset;
-            
+
+            GameEvents.OnChangeSceneEvent();
+
             UnloadSceneAsync(LatestScene.Reference);
+
+            // fader.FadeIn();
         }
-        
+
         private IEnumerator LoadSceneAsync(SceneReference scene)
         {
             _asyncOperation = SceneManager.LoadSceneAsync(scene, LoadSceneMode.Additive);
@@ -131,7 +137,7 @@ namespace ATBMI.Scene
                     yield return null;
             }
         }
-        
+
         private void UnloadSceneAsync(SceneReference scene)
         {
             _asyncOperation = SceneManager.UnloadSceneAsync(scene);

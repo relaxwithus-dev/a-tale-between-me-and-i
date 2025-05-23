@@ -21,5 +21,15 @@ MonoBehaviour:
   - location: 0
     dialogues:
     - {fileID: 4900000, guid: 53fbf340969d1d44883dc4b46f80142d, type: 3}
-  emotionDialogues: []
-  itemDialogues: []
+  emotionDialogues:
+  - emotion: 7
+    dialogues:
+    - {fileID: 4900000, guid: 91b3b71438b542d40b77d987217b8f1f, type: 3}
+    - {fileID: 4900000, guid: e59e12ffb4f7fa54d8ff30051d003575, type: 3}
+  itemDialogues:
+  - item: {fileID: 11400000, guid: 45b7783996fbcaf4ea92bffd9052f12a, type: 2}
+    dialogue: {fileID: 4900000, guid: be4501f798a9c124baed4d04f4c0f958, type: 3}
+  - item: {fileID: 11400000, guid: 8029d9389f832e842b00764eed911b85, type: 2}
+    dialogue: {fileID: 4900000, guid: e0bdf8cf0f517b74390f1a64f97f4abc, type: 3}
+  - item: {fileID: 11400000, guid: 9dec2905f78da7e42884be5fd632d098, type: 2}
+    dialogue: {fileID: 4900000, guid: 560ddb21ca0f6bc4d967aaf29fd9f7b4, type: 3}

@@ -27,7 +27,8 @@ namespace ATBMI.Entities.NPCs
         };
 
         // Constructor
-        public TaskPull(CharacterAI character, float force, float delay) : base(character, force, delay)
+        public TaskPull(CharacterAI character, CharacterAnimation animation, float force, float delay) 
+            : base(character, animation, force, delay)
         {
             OverrideEmotionFactors(_factorsPull);
         }
@@ -73,16 +74,19 @@ namespace ATBMI.Entities.NPCs
         
         private NodeStatus PullTarget()
         {
+            animation.TrySetAnimationState(StateTag.PULL_STATE);
             player.PlayerRb.AddForce(_pullDirection * force, ForceMode2D.Impulse);
             player.StartCoroutine(WhenDoneForce());
+            
             InteractEvent.RestrictedEvent(false);
             return NodeStatus.Success;
         }
         
         private void HoldTarget()
         {
-            _isHolding = true; 
+            _isHolding = true;
             character.LookAt(_pullDirection);
+            animation.TrySetAnimationState(StateTag.HOLD_STATE);
             
             player.Flip();
             player.StopMovement();

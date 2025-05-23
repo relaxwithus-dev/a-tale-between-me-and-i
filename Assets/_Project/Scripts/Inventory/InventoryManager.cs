@@ -5,6 +5,8 @@ using ATBMI.Data;
 using ATBMI.Gameplay.Event;
 using ATBMI.Interaction;
 using System.Collections;
+using TMPro;
+using DG.Tweening;
 
 namespace ATBMI.Inventory
 {
@@ -15,47 +17,48 @@ namespace ATBMI.Inventory
         [SerializeField] private ItemList itemList;
 
         [SerializeField] private GameObject uiGetItemPanel;
+        [SerializeField] private CanvasGroup uiItemCanvasGroup;
+        [SerializeField] private TextMeshProUGUI uiItemInfo;
 
         public List<InventoryItem> InventoryList { get; set; } = new();
         private readonly Dictionary<int, ItemData> itemDatasDict = new();
-        
+
         public static InventoryManager Instance;
-        
+
         #endregion
 
         private void Awake()
         {
-            if (Instance == null)
-            {
-                Instance = this;
-                DontDestroyOnLoad(gameObject);
-            }
-            else
+            if (Instance != null)
             {
                 Destroy(gameObject);
+                return;
+               
             }
+            
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
 
             PopulateItemDict();
-
             uiGetItemPanel.SetActive(false);
         }
 
-        private void Update()
-        {
-            if(Input.GetKeyDown(KeyCode.C))
-            {
-                AddItemToInventory(1);
-                // AddItemToInventory(2);
-                // AddItemToInventory(3);
-            }
-
-            if(Input.GetKeyDown(KeyCode.V))
-            {
-                AddItemToInventory(4);
-                // AddItemToInventory(5);
-                // AddItemToInventory(6);
-            }
-        }
+        // private void Update()
+        // {
+        //     if (Input.GetKeyDown(KeyCode.C))
+        //     {
+        //         AddItemToInventory(1);
+        //         // AddItemToInventory(2);
+        //         // AddItemToInventory(3);
+        //     }
+        //
+        //     if (Input.GetKeyDown(KeyCode.V))
+        //     {
+        //         AddItemToInventory(4);
+        //         // AddItemToInventory(5);
+        //         // AddItemToInventory(6);
+        //     }
+        // }
 
         private void PopulateItemDict()
         {
@@ -73,22 +76,28 @@ namespace ATBMI.Inventory
             }
         }
 
-        private IEnumerator AnimateUIGetItemPanel()
+        private IEnumerator AnimateUIGetItemPanel(ItemData itemData)
         {
             uiGetItemPanel.SetActive(true);
 
-            yield return new WaitForSeconds(2f);
+            uiItemCanvasGroup.alpha = 0f;
+
+            uiItemInfo.text = itemData.ItemName;
+
+            // Fade in
+            uiItemCanvasGroup.DOFade(1f, 0.5f);
+            yield return new WaitForSeconds(2.5f);
+
+            // Fade out
+            uiItemCanvasGroup.DOFade(0f, 0.5f);
+            yield return new WaitForSeconds(0.5f);
 
             uiGetItemPanel.SetActive(false);
         }
 
         public ItemData GetItemData(int itemId)
         {
-            if (itemDatasDict.TryGetValue(itemId, out ItemData itemData))
-            {
-                return itemData;
-            }
-            return null;
+            return itemDatasDict.GetValueOrDefault(itemId);
         }
 
         public void AddItemToInventory(int itemId, ItemInteract item = null)
@@ -102,7 +111,7 @@ namespace ATBMI.Inventory
                 Debug.Log("add item " + data.ItemName + " " + data.ItemId + " to inventory");
 
                 // TODO: change this method to UI manager
-                StartCoroutine(AnimateUIGetItemPanel());
+                StartCoroutine(AnimateUIGetItemPanel(data));
 
                 // Destroy item
                 if (item != null)
@@ -129,6 +138,17 @@ namespace ATBMI.Inventory
             {
                 Debug.LogError("failed to remove item with id " + itemId);
             }
+        }
+
+        public void ResetInventory()
+        {
+            InventoryList.Clear();
+            PlayerEvents.UpdateInventoryEvent(InventoryList);
+        }
+        
+        public InventoryItem GetInventoryItemById(int itemId)
+        {
+            return InventoryList.FirstOrDefault(x => x.ItemId == itemId);
         }
     }
 }

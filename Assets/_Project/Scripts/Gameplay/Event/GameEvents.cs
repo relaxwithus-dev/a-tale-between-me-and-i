@@ -6,10 +6,12 @@ namespace ATBMI.Gameplay.Event
     {
         // Events
         public static event Action OnGameStart;
-        public static event Action OnGamePause;
+        public static event Action OnGameExit;
+        public static event Action OnChangeScene;
         
         // Caller
         public static void GameStartEvent() => OnGameStart?.Invoke();
-        public static void GamePauseEvent() => OnGamePause?.Invoke();
+        public static void GameExitEvent() => OnGameExit?.Invoke();
+        public static void OnChangeSceneEvent() => OnChangeScene?.Invoke();
     }
 }

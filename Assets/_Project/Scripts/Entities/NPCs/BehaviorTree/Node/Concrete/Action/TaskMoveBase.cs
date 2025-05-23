@@ -35,6 +35,9 @@ namespace ATBMI.Entities.NPCs
             if (_currentTime < moveDelayTime)
             {
                 _currentTime += Time.deltaTime;
+                _targetState = EntitiesState.Idle;
+                character.ChangeState(_targetState);
+                
                 ChangeDirectionToTarget();
                 return NodeStatus.Running;
             }
@@ -71,7 +74,7 @@ namespace ATBMI.Entities.NPCs
             if (!(_currentTime >= moveDelayTime / 2f))
                 return;
             
-            var direction = character.transform.position - targetPosition;
+            var direction = targetPosition - character.transform.position;
             direction.Normalize();
             character.LookAt(direction);
         }

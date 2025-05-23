@@ -8,7 +8,7 @@ namespace ATBMI.Entities.NPCs
         private readonly float offRange;
         
         private const float OFFSET = 0.5f;
-        private const float PASS_OFFSET = 1.3f;
+        private const float PASS_OFFSET = 1.4f;
         
         private Transform _currentTarget;
         private Vector3 _passedPosition;

@@ -21,6 +21,28 @@ MonoBehaviour:
     Speed: 1.3
   - Type: Run
     Speed: 2.7
-  defaultDialogues: []
-  emotionDialogues: []
-  itemDialogues: []
+  defaultDialogues:
+  - location: 0
+    dialogues:
+    - {fileID: 4900000, guid: 826463d000c974d428698a87cd4b9ea7, type: 3}
+  emotionDialogues:
+  - emotion: 0
+    dialogues:
+    - {fileID: 4900000, guid: ac7dc06131ff74b44b6a533817b6ec34, type: 3}
+  - emotion: 4
+    dialogues:
+    - {fileID: 4900000, guid: 3ce597b113b0e4c49ab6491cb4601823, type: 3}
+  - emotion: 1
+    dialogues:
+    - {fileID: 4900000, guid: 6dcf236c1f28b7e458c16067ef1fb615, type: 3}
+  - emotion: 7
+    dialogues:
+    - {fileID: 4900000, guid: 96055116d9e5f5e49a9a56184ffa8d3b, type: 3}
+  itemDialogues:
+  - item: {fileID: 11400000, guid: 619bbf329bb42194389598b5119601c2, type: 2}
+    dialogue: {fileID: 4900000, guid: b5a6131920a29a74c83b7b3d693e41b9, type: 3}
+  - item: {fileID: 11400000, guid: 59f087d466659d3489008b098cb1e1e8, type: 2}
+    dialogue: {fileID: 4900000, guid: c91dc0bd003452d40818db7c7ce8adcd, type: 3}
+  - item: {fileID: 11400000, guid: ea05fb23ff9410a48a11eed044498226, type: 2}
+    dialogue: {fileID: 4900000, guid: 67f3d7d62ce1a2240a007f302dde9767, type: 3}
+  defaultItemDialogue: {fileID: 0}

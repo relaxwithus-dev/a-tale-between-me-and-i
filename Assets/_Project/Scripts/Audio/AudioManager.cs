@@ -8,9 +8,9 @@ namespace ATBMI.Audio
     public class AudioManager : MonoDDOL<AudioManager>
     {
         #region Fields & Properties
-        
+
         [Header("Audio Data")]
-        [SerializeField] [Searchable] private Sound[] sounds;
+        [SerializeField][Searchable] private Sound[] sounds;
 
         [Space]
         [SerializeField] private GameObject bgmContainer;
@@ -25,7 +25,7 @@ namespace ATBMI.Audio
         {
             InitializeAudio();
         }
-        
+
         // Initialize
         private void InitializeAudio()
         {
@@ -40,7 +40,7 @@ namespace ATBMI.Audio
                 s.source.loop = s.loop;
             }
         }
-    
+
         // Core 
         public void PlayAudio(Musics music)
         {
@@ -58,24 +58,24 @@ namespace ATBMI.Audio
         }
 
         public void StopAudio(Musics music)
-        { 
+        {
             Sound sound = Array.Find(sounds, sound => sound.name == music.ToString());
 
             sound.source.Stop();
         }
-        
+
         public void PauseAudio(Musics music)
         {
             Sound sound = Array.Find(sounds, sound => sound.name == music.ToString());
             sound.source.Pause();
         }
-        
+
         public void SetVolume(Musics music, float value)
         {
             Sound sound = Array.Find(sounds, sound => sound.name == music.ToString());
             sound.source.volume = value;
         }
-        
+
         public float GetVolume(Musics music)
         {
             Sound sound = Array.Find(sounds, sound => sound.name == music.ToString());
@@ -105,8 +105,18 @@ namespace ATBMI.Audio
             Sound sound = Array.Find(sounds, sound => sound.name == music.ToString());
             return sound.source.isPlaying;
         }
-        
-        #endregion
 
+        // Set volume across all sounds
+        // TODO: change to better method
+        public void SetMasterVolume(float normalizedVolume)
+        {
+            AudioSource[] bgmSources = bgmContainer.GetComponents<AudioSource>();
+            foreach (AudioSource audio in bgmSources)
+            {
+                audio.volume = normalizedVolume;
+            }
+        }
+
+        #endregion
     }
 }

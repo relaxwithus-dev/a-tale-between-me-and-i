@@ -8,10 +8,10 @@ namespace ATBMI.UI.Ingame
     {
         [SerializeField] private List<TabButton> tabButtons;
         [SerializeField] private List<GameObject> pages;
-        
-        [SerializeField] private Color tabIdleColor;
-        [SerializeField] private Color tabActiveColor;
-        
+
+        // [SerializeField] private Color tabIdleColor;
+        // [SerializeField] private Color tabActiveColor;
+
         private int _currentTabIndex;
         private TabButton _selectedTab;
 
@@ -22,11 +22,8 @@ namespace ATBMI.UI.Ingame
                 Debug.Log("tab buttons is empty!");
                 return;
             }
-            
-            _currentTabIndex = 0;
-            SelectTab(_currentTabIndex);
         }
-        
+
         private void Update()
         {
             if (GameInputHandler.Instance.IsTabLeft)
@@ -49,6 +46,15 @@ namespace ATBMI.UI.Ingame
             SelectTab(_currentTabIndex);
         }
 
+        // private void ResetTabs()
+        // {
+        //     foreach (var tab in tabButtons)
+        //     {
+        //         tab.background.color = tabIdleColor;
+        //         // tab.selectedIcon.SetActive(false);
+        //     }
+        // }
+
         private void SelectTab(int index)
         {
             if (_selectedTab != null)
@@ -57,19 +63,37 @@ namespace ATBMI.UI.Ingame
             _selectedTab = tabButtons[index];
             _selectedTab.Select();
 
-            ResetTabs();
-            _selectedTab.background.color = tabActiveColor;
+            // ResetTabs();
+            // _selectedTab.background.color = tabActiveColor;
+            // _selectedTab.selectedIcon.SetActive(true);
             for (var i = 0; i < pages.Count; i++)
             {
                 pages[i].SetActive(i == index);
             }
+
+            Debug.Log(_selectedTab.gameObject.name);
         }
 
-        private void ResetTabs()
+        public void SelectTabByName(UIMenuTabEnum tab)
         {
-            foreach (var tab in tabButtons)
+            _currentTabIndex = (int)tab;
+
+            switch (tab)
             {
-                tab.background.color = tabIdleColor;
+                case UIMenuTabEnum.Quest:
+                    SelectTab((int)UIMenuTabEnum.Quest);
+                    break;
+                case UIMenuTabEnum.Inventory:
+                    SelectTab((int)UIMenuTabEnum.Inventory);
+                    break;
+                case UIMenuTabEnum.Map:
+                    SelectTab((int)UIMenuTabEnum.Map);
+                    break;
+                case UIMenuTabEnum.Setting:
+                    SelectTab((int)UIMenuTabEnum.Setting);
+                    break;
+                default:
+                    break;
             }
         }
     }

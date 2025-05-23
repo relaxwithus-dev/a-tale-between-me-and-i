@@ -115,7 +115,7 @@ namespace ATBMI
             QuestLogButton questLogButton = CreateButtonIfNotExists(quest);
 
             // set the button color based on quest state
-            questLogButton.SetState(quest.state);
+            // questLogButton.SetState(quest.state);
 
             // Move the button to the appropriate content parent based on quest state
             UpdateTransformParent(questLogButton, quest);
@@ -284,5 +284,29 @@ namespace ATBMI
                 );
             }
         }
+
+        public void ClearQuestLog()
+        {
+            // Destroy all QuestLogButton GameObjects and clear the list
+            foreach (var button in questLogButtons)
+            {
+                if (button != null)
+                    Destroy(button.gameObject);
+            }
+            questLogButtons.Clear();
+
+            // Destroy all QuestStepLog GameObjects and clear the list
+            foreach (var stepLog in questStepLogs)
+            {
+                if (stepLog != null)
+                    Destroy(stepLog.gameObject);
+            }
+            questStepLogs.Clear();
+
+            // Reset selection index and UI state
+            selectedIndex = -1;
+            isQuestLogOpen = false;
+        }
+
     }
 }

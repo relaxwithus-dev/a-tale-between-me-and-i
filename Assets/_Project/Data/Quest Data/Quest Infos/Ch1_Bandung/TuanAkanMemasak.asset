@@ -17,7 +17,7 @@ MonoBehaviour:
   shouldBeFinishManually: 0
   questPrerequisites: []
   questSteps:
-  - targetScene: S_Bdg_Toko_Kelontong
+  - targetScene: S_Bdg_Tugu_Juang
     questStepPrefab: {fileID: 1003646914550813466, guid: 21f624a8a61e47c4b9133faadd96efed, type: 3}
     stepStatusText: Ikuti warna melayang tersebut lagi
   - targetScene: S_Bdg_Toko_Kelontong
@@ -28,16 +28,19 @@ MonoBehaviour:
     stepStatusText: Cari tepung di toko kelontong
   - targetScene: S_Bdg_Jalan_Mekar_Mulya_1
     questStepPrefab: {fileID: 7219820464004067542, guid: df6e2d9f0f8a95a4e810683caed46772, type: 3}
-    stepStatusText: Cari telur di jalan sebelah
+    stepStatusText: 'Cari telur di jalan sebelah
+
+      (Pergi ke Jalan Mekar Mulya
+      1)'
   - targetScene: S_Bdg_Toko_Kelontong
     questStepPrefab: {fileID: 7370954608848588666, guid: b6e2e24a872efb24185b31d2614cc12a, type: 3}
     stepStatusText: Kembali ke Ratna dan Waffa
-  - targetScene: S_Bdg_Dalam_Rumah_Waffa
+  - targetScene: S_Bdg_Toko_Kue_Dalam
     questStepPrefab: {fileID: 2543979134074518798, guid: 9ba4b5e471cf87947a6184634b9985b8, type: 3}
-    stepStatusText: Kejar Waffa!
+    stepStatusText: Ikuti Waffa ke dalam toko kue
   - targetScene: S_Bdg_Dalam_Rumah_Waffa
     questStepPrefab: {fileID: 4924724888794256049, guid: 2d2a7a17f7385954aa5847b20ef5124c, type: 3}
-    stepStatusText: Ambil benda aneh tersebut
+    stepStatusText: Bantu Waffa
   - targetScene: S_Bdg_Rumah_Waffa
     questStepPrefab: {fileID: 4918882349780945386, guid: c80484d28b67e8746bc0f7cb417a17ae, type: 3}
     stepStatusText: Ajak Ratna berdiskusi di depan

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6305018234054418565}
   - component: {fileID: -8482038702790867982}
   - component: {fileID: 4299164158353933482}
+  - component: {fileID: 8803166775491099672}
   m_Layer: 0
   m_Name: Q_Ch1_Bdg_Warna_Melayang_4
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1003646914550813466}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.22, y: -4.86, z: 0}
+  m_LocalPosition: {x: 5.44, y: -5.34, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -90,3 +91,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &8803166775491099672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003646914550813466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d899291998e1ae4bbeee4b78fc10c78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnNPC: 1
+  spawnNPCData:
+  - npcPrefab: {fileID: 5100580093370311947, guid: 8ddb17ab485e94e46be58442f1fcfbd4, type: 3}
+    spawnPoint: {x: 13.92, y: -4.18}
+    spawnSceneName: {fileID: 11400000, guid: 3e52e7e66b654d341870202dbe380b52, type: 2}
+  despawnNPC: 0
+  despawnNPCData: []

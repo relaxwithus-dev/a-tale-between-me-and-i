@@ -1,3 +1,4 @@
-Aghhh... kenapa aku selalu kalah #speaker:Pemabuk #expression:A_Pemabuk_Speak
-Aku yakin kartu tadi udah di setting sama bandar, makanya aku kalah #speaker:Pemabuk #expression:A_Pemabuk_Speak
-Hush... sana minggir anak kecil, biarin aku minum lagi #speaker:Pemabuk #expression:A_Pemabuk_Speak
+Hah?! #speaker:Pemabuk #expression:A_Pemabuk_Speak
+Kau lagi #speaker:Pemabuk #expression:A_Pemabuk_Speak #Emoji:A_Emoji_Angry
+Eh, saya cuman mau lewat aja pak #speaker:Dewa #expression:A_Dewa_Speak
+Yaudah sana lu minggir! #speaker:Pemabuk #expression:A_Pemabuk_Speak

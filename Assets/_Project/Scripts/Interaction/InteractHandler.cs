@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
@@ -56,12 +55,12 @@ namespace ATBMI.Interaction
             HandleNavigation();
             HandleDescription();
         }
-
+        
         #endregion
 
         #region Methods
         
-        // !- Initialize
+        // Initialize
         private void InitScrollSnap()
         {
             scrollSnap.Setup();
@@ -137,14 +136,13 @@ namespace ATBMI.Interaction
             StartCoroutine(CloseInteractOption());
         }
         
-        // !- Core
+        // Core
         public void OpenInteractOption(IInteractable interactable)
         {
             InitItemButtons();
             InitScrollSnap();
             
             _interactable = interactable;
-            playerController.StopMovement();
             optionPanelUI.SetActive(true);
         }
         
@@ -152,10 +150,9 @@ namespace ATBMI.Interaction
         {
             _interactable = null;
             optionPanelUI.SetActive(false);
-            playerController.StartMovement();
             
             yield return new WaitForSeconds(0.05f);
-            InteractEvent.InteractedEvent(interact: false);
+            InteractEvent.InteractedEvent(interact: false, playerController);
         }
 
         private void HandleNavigation()

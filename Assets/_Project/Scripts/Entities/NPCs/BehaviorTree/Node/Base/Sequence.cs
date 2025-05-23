@@ -5,7 +5,7 @@ namespace ATBMI.Entities.NPCs
     public class Sequence : Node
     {
         public Sequence(string nodeName, List<Node> childNodes) : base(nodeName, childNodes) { }
-
+        
         public override NodeStatus Evaluate()
         {
             if (currentChild < childNodes.Count)

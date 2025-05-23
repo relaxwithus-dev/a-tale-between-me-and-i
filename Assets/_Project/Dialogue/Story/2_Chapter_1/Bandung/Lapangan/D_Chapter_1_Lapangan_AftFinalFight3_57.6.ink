@@ -11,7 +11,10 @@ Kita harus semua kenangan yang telah kita lalui ini Ratna #speaker:Dewa #express
 Kita harus menguncinya dengan melukis kenangan-kenangan tersebut #speaker:Dewa #expression:A_Dewa_Speak
 Sekarang ayo kita semua keluar dari sini #speaker:Dewa #expression:A_Dewa_Speak
 
-// Dewa mewarnai dunia yang tidak memiliki warna ke bentuk semula
+Dewa pun menggunakan cat-nya untuk merekatkan kembali dunia ini
+Dan membuat ingatan ini kembali berada di tempatnya lagi
+Dan akan selalu dikenang oleh Waffa
+
 // Trace back to Tugu Juang
 
 -> END
