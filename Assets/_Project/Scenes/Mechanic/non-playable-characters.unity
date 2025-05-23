@@ -1167,7 +1167,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &272835186
 Transform:
   m_ObjectHideFlags: 0
@@ -1652,6 +1652,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemList: {fileID: 11400000, guid: ecd511338be204c4f93720e86a66a9fa, type: 2}
   uiGetItemPanel: {fileID: 0}
+  uiItemCanvasGroup: {fileID: 0}
+  uiItemInfo: {fileID: 0}
 --- !u!4 &502739512
 Transform:
   m_ObjectHideFlags: 0
@@ -4500,7 +4502,10 @@ MonoBehaviour:
   move: Move
   run: Run
   interact: Interact
-  phone: Phone
+  questPhone: QuestPhone
+  inventoryPhone: InventoryPhone
+  mapPhone: MapPhone
+  settingPhone: SettingPhone
   navigate: Navigate
   submit: Submit
   select: Select
