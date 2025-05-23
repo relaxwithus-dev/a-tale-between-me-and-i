@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe195ef6725630241b8ad3ba30b4f8db, type: 3}
-  m_Name: Ibu_Kos
+  m_Name: Anak_Kecil_Sampingan_1
   m_EditorClassIdentifier: 
-  characterName: Ibu Kos
-  animationTag: A_Ibu_Kos
-  type: 2
+  characterName: Darwin
+  animationTag: A_Anak1
+  type: 0
   isIdling: 1
   moveSpeeds: []
   defaultDialogues:
   - location: 0
     dialogues:
-    - {fileID: 4900000, guid: 175dfedfdbf15e54c955c1df754c3f5e, type: 3}
+    - {fileID: 4900000, guid: 4304e56e5d3f8d8499046ae7854799f8, type: 3}
   emotionDialogues: []
   itemDialogues:
   - item: {fileID: 11400000, guid: 3f8819d54fc6acc4daba74e421a47d64, type: 2}
-    dialogue: {fileID: 4900000, guid: 641baabc92c401340860095da11fb49a, type: 3}
+    dialogue: {fileID: 4900000, guid: 9186266c2314baa48b73f87e313d067b, type: 3}
   - item: {fileID: 11400000, guid: 8029d9389f832e842b00764eed911b85, type: 2}
-    dialogue: {fileID: 4900000, guid: 91800d3141c5cb542aeb057b42d8c4d0, type: 3}
+    dialogue: {fileID: 4900000, guid: d2c3a7a25320d654492cc204d8787c5e, type: 3}
   - item: {fileID: 11400000, guid: 787ca494275d9094f8ab9ef148f756b2, type: 2}
-    dialogue: {fileID: 4900000, guid: c76a6f7c3c764fa499f5c48867556c88, type: 3}
+    dialogue: {fileID: 4900000, guid: 4184f1ee94e07e242851b95e4c762c42, type: 3}

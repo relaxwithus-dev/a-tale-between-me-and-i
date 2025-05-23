@@ -17,6 +17,20 @@ MonoBehaviour:
   type: 1
   isIdling: 1
   moveSpeeds: []
-  defaultDialogues: []
-  emotionDialogues: []
-  itemDialogues: []
+  defaultDialogues:
+  - location: 0
+    dialogues:
+    - {fileID: 4900000, guid: ef8fa42daba516e419cfabe7c84e389d, type: 3}
+  emotionDialogues:
+  - emotion: 5
+    dialogues:
+    - {fileID: 4900000, guid: 4d6291ee5179ca24dacf3266c4a6ed30, type: 3}
+    - {fileID: 4900000, guid: 6de5d61d8108aad43bbf69bf50ae6383, type: 3}
+  - emotion: 3
+    dialogues:
+    - {fileID: 4900000, guid: 2b33e3c8310e38c4ca096d5e1b239ae0, type: 3}
+  itemDialogues:
+  - item: {fileID: 11400000, guid: 137e9bd075ddbb441b747f9cde909862, type: 2}
+    dialogue: {fileID: 4900000, guid: c154f0eca862a4840a1ab71e20fa0948, type: 3}
+  - item: {fileID: 11400000, guid: 87b73bfaa5cdb924d9ac166a8dc6a580, type: 2}
+    dialogue: {fileID: 4900000, guid: 2af4e490dd318054f97a8d8925a81484, type: 3}
