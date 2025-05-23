@@ -1,31 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1102 &-9221919468395853899
-AnimatorState:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: A_Pemabuk_Idle_1
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: f2d01c3ae4d5bac4c8788402c218c665, type: 2}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
 --- !u!206 &-7814836143340150075
 BlendTree:
   m_ObjectHideFlags: 1
@@ -77,8 +51,7 @@ AnimatorState:
   m_Name: A_Pemabuk_Angry
   m_Speed: 1
   m_CycleOffset: 0
-  m_Transitions:
-  - {fileID: 4525061136138890508}
+  m_Transitions: []
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -88,7 +61,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: aca7855597c36514ebe505a7b2dd6673, type: 2}
+  m_Motion: {fileID: 7400000, guid: 65cd4030013a840489e7afff3405d276, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -135,6 +108,32 @@ BlendTree:
   m_UseAutomaticThresholds: 1
   m_NormalizedBlendValues: 0
   m_BlendType: 0
+--- !u!1102 &-5546846368489794444
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: A_Pemabuk_Observe
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 02fad742502861c49b94ef4a9d7bd0ee, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!114 &-4939745602487284610
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -286,32 +285,6 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &-44926521343544715
-AnimatorState:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: A_Pemabuk_Angry_Loop
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 65cd4030013a840489e7afff3405d276, type: 2}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
@@ -347,7 +320,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: A_Pemabuk_Idle
+  m_Name: A_Pemabuk_Idles
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -482,50 +455,53 @@ AnimatorStateMachine:
   m_Name: Base Layer
   m_ChildStates:
   - serializedVersion: 1
-    m_State: {fileID: -9221919468395853899}
-    m_Position: {x: 500, y: -20, z: 0}
-  - serializedVersion: 1
     m_State: {fileID: 9128652667307399510}
-    m_Position: {x: 290, y: 190, z: 0}
+    m_Position: {x: 290, y: 260, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2478562436000544107}
-    m_Position: {x: 290, y: 260, z: 0}
+    m_Position: {x: 290, y: 330, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 498607094522068738}
     m_Position: {x: 290, y: 120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8439874708351843259}
-    m_Position: {x: 540, y: 330, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: 503617503258683324}
-    m_Position: {x: 290, y: 330, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: -44926521343544715}
-    m_Position: {x: 540, y: 820, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: -1744178209115153457}
-    m_Position: {x: 290, y: 470, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: 2940310886376245071}
     m_Position: {x: 540, y: 400, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: -3138415091530398256}
+    m_State: {fileID: 503617503258683324}
     m_Position: {x: 290, y: 400, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 5419947969331323363}
-    m_Position: {x: 290, y: 540, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: -6270582455123366283}
+    m_State: {fileID: -1744178209115153457}
     m_Position: {x: 290, y: 610, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: -7231642997871224231}
+    m_State: {fileID: 2940310886376245071}
+    m_Position: {x: 540, y: 470, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -3138415091530398256}
+    m_Position: {x: 290, y: 470, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 5419947969331323363}
     m_Position: {x: 290, y: 680, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 3622207558166426492}
+    m_State: {fileID: -6270582455123366283}
     m_Position: {x: 290, y: 750, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: -7031447988101227146}
+    m_State: {fileID: -7231642997871224231}
     m_Position: {x: 290, y: 820, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 3622207558166426492}
+    m_Position: {x: 290, y: 890, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -7031447988101227146}
+    m_Position: {x: 290, y: 960, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 7600818429894434434}
+    m_Position: {x: 290, y: 1030, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 4862560495436153585}
+    m_Position: {x: 290, y: 190, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -5546846368489794444}
+    m_Position: {x: 290, y: 540, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -536,28 +512,32 @@ AnimatorStateMachine:
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 498607094522068738}
---- !u!1101 &4525061136138890508
-AnimatorStateTransition:
+--- !u!1102 &4862560495436153585
+AnimatorState:
+  serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_Conditions: []
-  m_DstStateMachine: {fileID: 0}
-  m_DstState: {fileID: -44926521343544715}
-  m_Solo: 0
-  m_Mute: 0
-  m_IsExit: 0
-  serializedVersion: 3
-  m_TransitionDuration: 0.25
-  m_TransitionOffset: 0
-  m_ExitTime: 0
-  m_HasExitTime: 1
-  m_HasFixedDuration: 1
-  m_InterruptionSource: 0
-  m_OrderedInterruption: 1
-  m_CanTransitionToSelf: 1
+  m_Name: A_Pemabuk_Idle
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: f2d01c3ae4d5bac4c8788402c218c665, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1102 &5419947969331323363
 AnimatorState:
   serializedVersion: 6
@@ -579,6 +559,32 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 60a87af0cf24e19409e05b6243a5b21e, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1102 &7600818429894434434
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: A_Pemabuk_Push
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: cc874470b86a2004db223bb1d4652a12, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

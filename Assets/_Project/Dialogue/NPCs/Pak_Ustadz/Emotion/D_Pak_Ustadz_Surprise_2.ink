@@ -1,7 +1,7 @@
-Tolong berhenti kalian yang disana #speaker:Pak Ustad #expression:A_Pak_Ustad_Speak
-Ini di depan musholla bukan di lapangan #speaker:Pak Ustad #expression:A_Pak_Ustad_Speak
-Tolong jangan berlarian seperti itu #speaker:Pak Ustad #expression:A_Pak_Ustad_Speak #Emoji:A_Emoji_Angry
+Astaghfirullahaladzim #speaker:Pak Ustad #expression:A_Pak_Ustad_Speak
+Kamu ini hobi ngagetin ya #speaker:Pak Ustad #expression:A_Pak_Ustad_Speak
 
-Ma-maaf Pak... #speaker:Dewa #expression:A_Dewa_Speak #Emoji:A_Emoji_Tears
+Tidak pakk #speaker:Dewa #expression:A_Dewa_Speak
+Iya juga, kayanya saya yang kagetan #speaker:Pak Ustad #expression:A_Pak_Ustad_Speak
 
 -> END

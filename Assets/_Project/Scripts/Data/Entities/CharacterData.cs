@@ -52,6 +52,7 @@ namespace ATBMI.Data
         [SerializeField] [ShowIf("type", CharacterType.Emotion)]
         private List<EmotionDialogues> emotionDialogues;
         [SerializeField] private List<ItemDialogue> itemDialogues;
+        [SerializeField] private TextAsset defaultItemDialogue;
         
         // Stats
         public string CharacterName => characterName;
@@ -103,7 +104,7 @@ namespace ATBMI.Data
         {
             // Try find the dialogue
             var entry = itemDialogues.Find(d => d.item == item);
-            return entry != null ? entry.dialogue : itemDialogues[0].dialogue;
+            return entry != null ? entry.dialogue : defaultItemDialogue;
         }
     }
 }

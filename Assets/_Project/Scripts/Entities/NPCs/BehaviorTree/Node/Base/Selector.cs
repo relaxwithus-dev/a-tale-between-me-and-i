@@ -5,22 +5,20 @@ namespace ATBMI.Entities.NPCs
     public class Selector : Node
     {
         public Selector(string nodeName, List<Node> childNodes) : base(nodeName, childNodes) { }
-
+        
         public override NodeStatus Evaluate()
         {
-            if (currentChild < childNodes.Count)
+            foreach (var node in childNodes)
             {
-                var status = childNodes[currentChild].Evaluate();
+                var status = node.Evaluate();
                 switch (status)
                 {
                     case NodeStatus.Running:
+                        currentChild = childNodes.IndexOf(node);
                         return NodeStatus.Running;
                     case NodeStatus.Success:
                         Reset();
                         return NodeStatus.Success;
-                    default:
-                        currentChild++;
-                        return NodeStatus.Running;
                 }
             }
             

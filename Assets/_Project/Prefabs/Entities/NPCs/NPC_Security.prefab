@@ -256,7 +256,6 @@ MonoBehaviour:
   characterInteract: {fileID: 3736038964476778030}
   pullForce: 2.3
   pullDelay: 0.15
-  passOffRange: 2.5
   characterAnim: {fileID: 1503769504184384528}
 --- !u!4 &4557523409864915204 stripped
 Transform:
@@ -318,16 +317,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7459398586366820653}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a342d506aaf1be4ead129347f1a9f7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   npc: {fileID: 5100580093370311947}
   playerEntryPoint: {fileID: 7098729475346264781}
-  isPlayerInRange: 0
-  isDialogueAboutToStart: 0
-  isExecuted: 0
   manualTriggerRules:
   - {fileID: 11400000, guid: 17777916603fb6449a8e92305c4fb8b0, type: 2}
   - {fileID: 11400000, guid: cd697aa0dcd9f3842a939a724f2a9d10, type: 2}
@@ -336,7 +332,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: efce8ac7319f310438ca3d76178b5c83, type: 2}
   - {fileID: 11400000, guid: 6b14a52c7e988a14b82856b8612c8b06, type: 2}
   isAfterExplosion: 0
-  isRunning: 0
   visitedCount: 0
   isAfterGettingItem: 0
   onTalkedTo_AfterExplosion_WithRunning: {fileID: 4900000, guid: 0c1e82866fb7d2a4b9f2d245c5439fcd, type: 3}

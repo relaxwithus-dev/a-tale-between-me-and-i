@@ -19,6 +19,13 @@ MonoBehaviour:
   moveSpeeds:
   - Type: Walk
     Speed: 1.3
-  defaultDialogues: []
+  defaultDialogues:
+  - location: 0
+    dialogues:
+    - {fileID: 4900000, guid: f0db1a264db99014a8432bb0f7d2aa3e, type: 3}
   emotionDialogues: []
-  itemDialogues: []
+  itemDialogues:
+  - item: {fileID: 11400000, guid: 8e8a3682512abbe4d9ac49fbe00ce974, type: 2}
+    dialogue: {fileID: 4900000, guid: 5727dd38fe086a2408d6bbc5e933246b, type: 3}
+  - item: {fileID: 11400000, guid: 02224b2cda974da4189b91e57083dad4, type: 2}
+    dialogue: {fileID: 4900000, guid: 8c64317a4d6e4d34387360162e9d2bfb, type: 3}

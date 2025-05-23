@@ -33,9 +33,36 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Phone",
+                    "name": "QuestPhone",
                     "type": "Button",
                     "id": "202f6f50-cbaa-48bb-a24b-ec873a5b4326",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Tap(duration=0.01)",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "InventoryPhone",
+                    "type": "Button",
+                    "id": "4d20a804-20e8-401f-8425-94090a0aff37",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Tap(duration=0.01)",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MapPhone",
+                    "type": "Button",
+                    "id": "e3d0ca2b-5e6c-4d55-b5c5-5ac6fe9ad7e5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Tap(duration=0.01)",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SettingPhone",
+                    "type": "Button",
+                    "id": "e2b8033b-a5a0-4f2d-9fe8-357881b548bc",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Tap(duration=0.01)",
@@ -160,7 +187,40 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Phone",
+                    "action": "QuestPhone",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "77b5c0e5-e622-4838-8ef8-245b5fb246f3",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "InventoryPhone",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ea3a9a73-99e1-47a2-a768-82d3146991fe",
+                    "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "MapPhone",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "de47ca0e-30e5-4bd0-a7c0-dee1502ae189",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "SettingPhone",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

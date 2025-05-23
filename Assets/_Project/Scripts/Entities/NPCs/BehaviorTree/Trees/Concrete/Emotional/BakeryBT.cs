@@ -46,7 +46,7 @@ namespace ATBMI.Entities.NPCs
                 }),
                 new TaskIdle(characterAI)
             });
-
+            
             return tree;
         }
     }

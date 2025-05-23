@@ -36,7 +36,7 @@ namespace ATBMI.Entities.NPCs
                     _animationHashes[clipName] = Animator.StringToHash(clipName);
             }
         }
-
+        
         // Core
         public bool TrySetAnimationState(string state)
         {

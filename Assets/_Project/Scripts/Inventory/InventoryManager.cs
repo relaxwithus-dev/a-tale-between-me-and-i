@@ -5,6 +5,8 @@ using ATBMI.Data;
 using ATBMI.Gameplay.Event;
 using ATBMI.Interaction;
 using System.Collections;
+using TMPro;
+using DG.Tweening;
 
 namespace ATBMI.Inventory
 {
@@ -15,6 +17,8 @@ namespace ATBMI.Inventory
         [SerializeField] private ItemList itemList;
 
         [SerializeField] private GameObject uiGetItemPanel;
+        [SerializeField] private CanvasGroup uiItemCanvasGroup;
+        [SerializeField] private TextMeshProUGUI uiItemInfo;
 
         public List<InventoryItem> InventoryList { get; set; } = new();
         private readonly Dictionary<int, ItemData> itemDatasDict = new();
@@ -73,11 +77,21 @@ namespace ATBMI.Inventory
             }
         }
 
-        private IEnumerator AnimateUIGetItemPanel()
+        private IEnumerator AnimateUIGetItemPanel(ItemData itemData)
         {
             uiGetItemPanel.SetActive(true);
 
-            yield return new WaitForSeconds(2f);
+            uiItemCanvasGroup.alpha = 0f;
+
+            uiItemInfo.text = itemData.ItemName;
+
+            // Fade in
+            uiItemCanvasGroup.DOFade(1f, 0.5f);
+            yield return new WaitForSeconds(2.5f);
+
+            // Fade out
+            uiItemCanvasGroup.DOFade(0f, 0.5f);
+            yield return new WaitForSeconds(0.5f);
 
             uiGetItemPanel.SetActive(false);
         }
@@ -102,7 +116,7 @@ namespace ATBMI.Inventory
                 Debug.Log("add item " + data.ItemName + " " + data.ItemId + " to inventory");
 
                 // TODO: change this method to UI manager
-                StartCoroutine(AnimateUIGetItemPanel());
+                StartCoroutine(AnimateUIGetItemPanel(data));
 
                 // Destroy item
                 if (item != null)

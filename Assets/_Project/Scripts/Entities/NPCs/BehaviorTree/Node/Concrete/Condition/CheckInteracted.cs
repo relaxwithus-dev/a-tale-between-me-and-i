@@ -1,6 +1,7 @@
 using ATBMI.Cutscene;
 using ATBMI.Dialogue;
 using ATBMI.Interaction;
+using UnityEngine;
 
 namespace ATBMI.Entities.NPCs
 {

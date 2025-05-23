@@ -16,6 +16,7 @@ namespace ATBMI.Entities.NPCs
         protected override Node SetupTree()
         {
             var defaultTexts = characterAI.Data.GetDefaultDialogues();
+            var joyTexts = characterAI.Data.GetEmotionDialogues(Emotion.Joy);
             
             CheckFatigue checkFatigue = new CheckFatigue(moveStamina);
             
@@ -32,7 +33,7 @@ namespace ATBMI.Entities.NPCs
                             new SequenceWeight("Follow", new List<Node>
                             {
                                 new TaskFollow(characterAI, characterAI.Data, followDuration),
-                                new TaskTalk(characterAI, defaultTexts)
+                                new TaskTalk(characterAI, joyTexts)
                             }),
                             new TaskTalk(characterAI, defaultTexts),
                             new TaskObserve(characterAI, characterAnim, zoneDetails[1].Radius),
