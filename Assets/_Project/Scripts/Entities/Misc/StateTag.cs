@@ -9,5 +9,9 @@ namespace ATBMI.Entities
         public const string FEAR_STATE = "Fear";
         public const string SHOCK_STATE = "Shock";
         public const string AFRAID_STATE = "Afraid";
+        
+        public const string HOLD_STATE = "Hold";
+        public const string PULL_STATE = "Pull";
+        public const string PUSH_STATE = "Push";
     }
 }

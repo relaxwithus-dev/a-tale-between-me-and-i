@@ -19,7 +19,8 @@ namespace ATBMI.Entities.NPCs
         };
         
         // Constructor
-        public TaskPush(CharacterAI character, float force, float delay) : base(character, force, delay)
+        public TaskPush(CharacterAI character, CharacterAnimation animation, float force, float delay) 
+            : base(character, animation, force, delay)
         {
             OverrideEmotionFactors(_factorsPush);
         }
