@@ -9,8 +9,8 @@ namespace ATBMI.UI.Ingame
         [SerializeField] private List<TabButton> tabButtons;
         [SerializeField] private List<GameObject> pages;
 
-        [SerializeField] private Color tabIdleColor;
-        [SerializeField] private Color tabActiveColor;
+        // [SerializeField] private Color tabIdleColor;
+        // [SerializeField] private Color tabActiveColor;
 
         private int _currentTabIndex;
         private TabButton _selectedTab;

@@ -26,10 +26,12 @@ namespace ATBMI.UI.Ingame
         }
 
         //TODO: Change it to dynamically call when input for inventory pressed
-        private void OpenMenu(UIMenuTabEnum tab)
+        public void OpenMenu(UIMenuTabEnum tab)
         {
             UIEvents.OnSelectTabInventoryEvent();
             UIEvents.OnSelectTabQuestEvent();
+
+            UIEvents.OnSelectTabSettingEvent();
 
             menuUI.SetActive(true);
             _isMenuActive = true;
@@ -37,10 +39,12 @@ namespace ATBMI.UI.Ingame
             tabGroup.SelectTabByName(tab);
         }
 
-        private void CloseMenu()
+        public void CloseMenu()
         {
             UIEvents.OnDeselectTabInventoryEvent();
             UIEvents.OnDeselectTabQuestEvent();
+
+            UIEvents.OnDeselectTabSettingEvent();
 
             menuUI.SetActive(false);
             _isMenuActive = false;
