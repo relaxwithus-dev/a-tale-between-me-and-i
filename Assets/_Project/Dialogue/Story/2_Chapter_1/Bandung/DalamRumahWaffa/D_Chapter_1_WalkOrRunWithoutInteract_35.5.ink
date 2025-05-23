@@ -1,6 +1,7 @@
 EXTERNAL AddItem(itemId)
 EXTERNAL StartQuest(questId)
 EXTERNAL FinishQuest(questId)
+EXTERNAL EnterMinigame()
 
 Siapa kalian? #speaker:Pemabuk #expression:A_Pemabuk_Speak
 Beraninya masuk ke rumah orang lain tanpa izin #speaker:Pemabuk #expression:A_Pemabuk_Speak 
@@ -17,5 +18,7 @@ Padahal anak itu tidak melakukan apa-apa #speaker:Ratna #expression:A_Ratna_Spea
 
 BERISIK!!!! #speaker:Pemabuk #expression:A_Pemabuk_Angry #Emoji:A_Emoji_Angry
 Kalian pilih untuk keluar dari sini atau botol ini mendarat di kepala kalian #speaker:Pemabuk #expression:A_Pemabuk_Angry
+
+~EnterMinigame()
 
 -> END

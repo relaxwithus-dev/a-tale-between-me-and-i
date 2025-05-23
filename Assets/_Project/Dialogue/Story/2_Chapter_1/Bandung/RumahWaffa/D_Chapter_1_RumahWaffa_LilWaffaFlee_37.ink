@@ -7,7 +7,8 @@ Kita sudah kehilangan jejaknya #speaker:Ratna #expression:A_Ratna_Speak
 Walaupun badannya kecil, larinya kencang banget #speaker:Ratna #expression:A_Ratna_Speak
 Kita harus pergi ke mana Dewa? #speaker:Ratna #expression:A_Ratna_Speak
 
-Hmmmm... #speaker:Ratna #expression:A_Ratna_Speak
+Sepertinya aku melihat warna tadi muncul kembali #speaker:Dewa #expression:A_Dewa_Speak
+Ikuti Aku Ratna #speaker:Dewa #expression:A_Dewa_Speak
 
 // Warna melayang muncul
 
