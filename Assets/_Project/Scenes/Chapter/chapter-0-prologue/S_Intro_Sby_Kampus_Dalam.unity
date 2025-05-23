@@ -1586,6 +1586,8 @@ MonoBehaviour:
     pointFromScene: {fileID: 1061055696}
   - locationData: {fileID: 11400000, guid: 680a9f6479b985043bd2f4b5df41c194, type: 2}
     pointFromScene: {fileID: 1243254175}
+  - locationData: {fileID: 11400000, guid: ba2deb381211ac74bac7c9db8aa8aba9, type: 2}
+    pointFromScene: {fileID: 1578348361}
   confiner: {fileID: 320762905}
   playerName: Ratna
   animateDuration: 3
@@ -1786,6 +1788,51 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.8045387, y: 3.4698205}
   m_EdgeRadius: 0
+--- !u!1 &1522904600
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1522904601}
+  - component: {fileID: 1522904602}
+  m_Layer: 0
+  m_Name: Step_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1522904601
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522904600}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1652693274}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1522904602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522904600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d151b877e7a4adc9659857f510cf629, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locationData: {fileID: 11400000, guid: ba2deb381211ac74bac7c9db8aa8aba9, type: 2}
 --- !u!1 &1559942261
 GameObject:
   m_ObjectHideFlags: 0
@@ -1985,6 +2032,7 @@ Transform:
   m_Children:
   - {fileID: 1390491910}
   - {fileID: 1974186244}
+  - {fileID: 1522904601}
   m_Father: {fileID: 4606361054440304549}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1652693275
