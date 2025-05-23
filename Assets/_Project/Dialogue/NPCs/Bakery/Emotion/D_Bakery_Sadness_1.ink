@@ -1,5 +1,3 @@
-Mau pergi ke mana kamu? #speaker:Ayah Dewa #expression:A_Ayah_Dewa_Speak
-Kok tidak bilang?! #speaker:Ayah Dewa #expression:A_Ayah_Dewa_Speak #Emoji:A_Emoji_Angry
-
-A-anu pak #speaker:Dewa #expression:A_Dewa_Speak
-Dewa mau jalan-jalan saja #speaker:Dewa #expression:A_Dewa_Speak
+Hmmm, gimana yah #speaker:Bakery #expression:A_Bakery_Speak
+Kamu kenapa kak? #speaker:Dewa #expression:A_Dewa_Speak
+Ohh, gapapa Dewa #speaker:Bakery #expression:A_Bakery_Speak

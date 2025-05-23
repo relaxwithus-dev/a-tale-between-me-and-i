@@ -1,3 +1,6 @@
-Dari mana saja kamu dewa? #speaker:Ayah Dewa #expression:A_Ayah_Dewa_Speak
-Tadi dicariin ibu #speaker:Ayah Dewa #expression:A_Ayah_Dewa_Speak
-Kok pas ayah cariin, kamu malah hilang #speaker:Ayah Dewa #expression:A_Ayah_Dewa_Speak
+Hiksss #speaker:Bakery #expression:A_Bakery_Speak
+Lohh kenapa kak? katanya gapapa #speaker:Dewa #expression:A_Dewa_Speak
+Enggaa Dewa, ini lagi mikirin sesuatu #speaker:Bakery #expression:A_Bakery_Speak
+Cerita ajaa kak #speaker:Dewa #expression:A_Dewa_Speak
+Aku sedih, soalnya tiap hari dengerin curhatan ibu dewa #speaker:Bakery #expression:A_Bakery_Speak
+Bikin hati nyesek banget... #speaker:Bakery #expression:A_Bakery_Speak

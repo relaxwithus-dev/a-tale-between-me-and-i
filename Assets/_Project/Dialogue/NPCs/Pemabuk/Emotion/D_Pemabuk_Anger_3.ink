@@ -1,0 +1,1 @@
+Minggirr!! #speaker:Pemabuk #expression:A_Pemabuk_Speak #Emoji:A_Emoji_Angry
