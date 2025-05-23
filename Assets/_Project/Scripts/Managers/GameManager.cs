@@ -1,4 +1,7 @@
 using UnityEngine;
+using ATBMI.Cutscene;
+using ATBMI.Inventory;
+using ATBMI.Gameplay.Event;
 
 namespace ATBMI.Managers
 {
@@ -9,15 +12,33 @@ namespace ATBMI.Managers
         [Header("Components")] 
         [SerializeField] private bool isGamePlaying;
         [SerializeField] private GameObject[] gameplayObjects;
-        
-        public bool IsGamePlaying => isGamePlaying;
 
+        public bool IsGamePlaying => isGamePlaying;
+        
+        [Header("Reference")] 
+        [SerializeField] private QuestManager questManager;
+        [SerializeField] private CutsceneManager cutsceneManager;
+        [SerializeField] private InventoryManager inventoryManager;
+        
         #endregion
 
         #region Methods
-        
-        public void StartGame()
+
+        private void OnEnable()
         {
+            GameEvents.OnGameStart += StartGame;
+            GameEvents.OnGameExit += ExitGame;
+        }
+
+        private void OnDisable()
+        {
+            GameEvents.OnGameStart -= StartGame;
+            GameEvents.OnGameExit -= ExitGame;
+        }
+
+        private void StartGame()
+        {
+            // Setup gameplay objects
             isGamePlaying = true;
             foreach (var gameplay in gameplayObjects)
             {
@@ -25,13 +46,19 @@ namespace ATBMI.Managers
             }
         }
         
-        public void EndGame()
+        private void ExitGame()
         {
+            // Setup gameplay objects
             isGamePlaying = false;
             foreach (var gameplay in gameplayObjects)
             {
                 gameplay.SetActive(false);
             }
+            
+            // Reset global progression
+            questManager.ResetQuest();
+            cutsceneManager.ResetCutscene();
+            inventoryManager.ResetInventory();
         }
         
         #endregion

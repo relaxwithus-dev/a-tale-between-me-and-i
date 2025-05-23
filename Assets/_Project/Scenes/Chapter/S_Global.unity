@@ -740,6 +740,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questInfoList: {fileID: 11400000, guid: 053abad3451dbd948a7802c589bca6b6, type: 2}
+  questLogHandler: {fileID: 0}
   uiQuestPanel: {fileID: 1966981639}
   uiQuestCanvasGroup: {fileID: 1966981641}
   uiQuestTitle: {fileID: 1153543444}
@@ -946,9 +947,103 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statusList:
   - chapters: 0
-    status: []
+    status:
+    - key: {fileID: 11400000, guid: 8901a52f7a898a14db7fdedd4d356a65, type: 2}
+      isFinish: 0
+    - key: {fileID: 11400000, guid: c93450105e2f99d46a4b3353ffb76661, type: 2}
+      isFinish: 0
+    - key: {fileID: 11400000, guid: 6ad6fcf914fc77142967842ffcdc99e3, type: 2}
+      isFinish: 0
+    - key: {fileID: 11400000, guid: 8129b3d4d3892484ab731f278bce7ba3, type: 2}
+      isFinish: 0
+    - key: {fileID: 11400000, guid: 23d237a32fa724f46854ad9132777cfd, type: 2}
+      isFinish: 0
+    - key: {fileID: 11400000, guid: 861e169f4a5f6ff4bb269589584c64d1, type: 2}
+      isFinish: 0
+    - key: {fileID: 11400000, guid: 4f2837270254784459789fe3347fcd65, type: 2}
+      isFinish: 0
   - chapters: 1
-    status: []
+    status:
+    - key: {fileID: 11400000, guid: a856dfc0f8557d2459e77870919ce4f3, type: 2}
+      isFinish: 0
+    - key: {fileID: 11400000, guid: d4b4b1712e00a474dbb8fe4354337d6d, type: 2}
+      isFinish: 0
+    - key: {fileID: 11400000, guid: b2acb3fccd3dd81419e89a3cbc40a1c4, type: 2}
+      isFinish: 0
+    - key: {fileID: 11400000, guid: 9eb704cbb3dd44b4cb7c2bf8b7a495a8, type: 2}
+      isFinish: 0
+    - key: {fileID: 11400000, guid: 18f4e330c1fd52240ab70aba69178800, type: 2}
+      isFinish: 0
+    - key: {fileID: 11400000, guid: d21a01d7210a40844bed0e8e627cdddd, type: 2}
+      isFinish: 0
+    - key: {fileID: 11400000, guid: 3136d300ca20f1b4087135a244d1d46d, type: 2}
+      isFinish: 0
+    - key: {fileID: 11400000, guid: 6ef7f842cdc29bf4f928456818b753f8, type: 2}
+      isFinish: 0
+    - key: {fileID: 11400000, guid: f1c3168a305c2494c89b1be32ea5390a, type: 2}
+      isFinish: 0
+    - key: {fileID: 11400000, guid: e0bdd2689546a09418adbe1b5ab688f2, type: 2}
+      isFinish: 0
+    - key: {fileID: 11400000, guid: 2e321987942278f49b07153051aa12a8, type: 2}
+      isFinish: 0
+    - key: {fileID: 11400000, guid: 629f5ab8a0675a843a90f461da3b1c8b, type: 2}
+      isFinish: 0
+    - key: {fileID: 11400000, guid: 3141a9f935d03294ca20e3cac7ab420f, type: 2}
+      isFinish: 0
+    - key: {fileID: 11400000, guid: 88b1cd7c0f92bcd4e814ce35c107b234, type: 2}
+      isFinish: 0
+    - key: {fileID: 11400000, guid: ab321b2bb85a7134db68fb2fe4fe5d48, type: 2}
+      isFinish: 0
+    - key: {fileID: 11400000, guid: 5230fb88507a99c4285582899ae7e52a, type: 2}
+      isFinish: 0
+    - key: {fileID: 11400000, guid: 5c0029c4f32317640bb31fb65779b616, type: 2}
+      isFinish: 0
+    - key: {fileID: 11400000, guid: 96581ba758b41934a97a6ef482259a6e, type: 2}
+      isFinish: 0
+    - key: {fileID: 11400000, guid: 4fb15983b9080444cb2fbfe1d3f76556, type: 2}
+      isFinish: 0
+    - key: {fileID: 11400000, guid: bcea3272a3ea86047ac00dfad6140dc5, type: 2}
+      isFinish: 0
+    - key: {fileID: 11400000, guid: e7dc4ccf3c2c78641bb3ec5f85f070dc, type: 2}
+      isFinish: 0
+    - key: {fileID: 11400000, guid: aa5688d919c02504cb64b9f54e12e0e3, type: 2}
+      isFinish: 0
+    - key: {fileID: 11400000, guid: deeddf2a24e48a9448e2d9a0c100c985, type: 2}
+      isFinish: 0
+    - key: {fileID: 11400000, guid: bc4ca4c624555e743ae9af5b1fd3e789, type: 2}
+      isFinish: 0
+    - key: {fileID: 11400000, guid: e4ac14655609d8b44b51cd875118ad2b, type: 2}
+      isFinish: 0
+    - key: {fileID: 11400000, guid: 62f1c7cf96d137046a43facdc4d889bf, type: 2}
+      isFinish: 0
+    - key: {fileID: 11400000, guid: 2aa3a542ddbb3c74dbffc841cc702180, type: 2}
+      isFinish: 0
+    - key: {fileID: 11400000, guid: 787c73ab140b51f47a33d0c227d1d644, type: 2}
+      isFinish: 0
+    - key: {fileID: 11400000, guid: 19a4294cb7ddb034d90947d48932021c, type: 2}
+      isFinish: 0
+    - key: {fileID: 11400000, guid: ab1f2a401faa7bd4cb9f47b8fc748b6b, type: 2}
+      isFinish: 0
+    - key: {fileID: 11400000, guid: 5322639be4fda3744871cfbb0ca0e147, type: 2}
+      isFinish: 0
+    - key: {fileID: 11400000, guid: ad7d77b0a795ab142b51259bf1b21b38, type: 2}
+      isFinish: 0
+    - key: {fileID: 11400000, guid: 6e1dbd43100428045899deb3204abbed, type: 2}
+      isFinish: 0
+    - key: {fileID: 11400000, guid: 2bb43fff03bfc544f909e56f5415046f, type: 2}
+      isFinish: 0
+    - key: {fileID: 11400000, guid: b79dd13af552da54e8e7d549d6ad332c, type: 2}
+      isFinish: 0
+    - key: {fileID: 11400000, guid: bf4d335af7de2744587bff8deb26d0cb, type: 2}
+      isFinish: 0
+    - key: {fileID: 11400000, guid: 9a439fb070af8eb4e8221ce5b562f70b, type: 2}
+      isFinish: 0
+    - key: {fileID: 11400000, guid: 8d56d69cea16d244c8c3ac94135cf6c8, type: 2}
+      isFinish: 0
+    - key: {fileID: 11400000, guid: 389df5590cdc98f489a1a9149bd24e5b, type: 2}
+      isFinish: 0
+    - key: {fileID: 11400000, guid: ceaebb13d5dea8a45861fd303d70aedf, type: 2}
+      isFinish: 0
   playerTransform: {fileID: 2143600229}
 --- !u!1 &1600726441
 GameObject:
@@ -2000,6 +2095,10 @@ PrefabInstance:
     - target: {fileID: 1074257758931034579, guid: 486f5daed683891468edd06c30f627a7, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -26.368992
+      objectReference: {fileID: 0}
+    - target: {fileID: 2700544965201689569, guid: 486f5daed683891468edd06c30f627a7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3157338294764882328, guid: 486f5daed683891468edd06c30f627a7, type: 3}
       propertyPath: m_AnchorMax.x

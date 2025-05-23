@@ -28,7 +28,6 @@ namespace ATBMI.Scene
         public static SceneNavigation Instance;
         
         [Header("Reference")]
-        [SerializeField] private GameManager gameManager;
         [SerializeField] private PlayerController player;
         [SerializeField] private FadeController fader;
         
@@ -69,12 +68,12 @@ namespace ATBMI.Scene
             fader.FadeIn();
             if (debugMode)
             {
-                gameManager.StartGame();
+                GameEvents.GameStartEvent();
                 DialogueEvents.RegisterDialogueSignPointEvent();
             }
             else
             {
-                gameManager.EndGame();
+                GameEvents.GameExitEvent();
             }
         }
         
@@ -95,8 +94,8 @@ namespace ATBMI.Scene
             
             var sceneTarget = isToMenu ? menuScene : sceneAsset;
             Action modifyGameplayAction = isToMenu 
-                ? () => gameManager.EndGame() 
-                : () => gameManager.StartGame();
+                ? GameEvents.GameExitEvent 
+                : GameEvents.GameStartEvent;
             
             StartCoroutine(SwitchRoutine(sceneTarget, modifyGameplayAction));
         }
