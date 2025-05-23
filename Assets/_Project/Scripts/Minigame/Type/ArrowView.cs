@@ -31,7 +31,7 @@ namespace ATBMI.Minigame
         [Header("Attribute")] 
         [SerializeField] private ArrowAttribute[] arrowAttributes;
         [SerializeField] private Arrows[] arrowForms;
-        
+
         private float _elapsedTime;
         private int _currentArrowIndex;
         private ArrowAttribute _attribute;
@@ -86,12 +86,6 @@ namespace ATBMI.Minigame
             
             HandleArrowTime();
             HandleArrowGameplay();
-        }
-        
-        protected override void ExitMinigame()
-        {
-            base.ExitMinigame();
-            ResetArrowImage(isNonActivate: true);
         }
         
         private void HandleArrowGameplay()
