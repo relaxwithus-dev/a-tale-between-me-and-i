@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,6 +72,19 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -84,7 +97,33 @@ TextureImporter:
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
+    textureFormat: 24
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
     textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 24
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -108,7 +147,637 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: UI Minigame and bar universal_0
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 108
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fc7add1f961b944e9f930183ead26f2
+      internalID: -906534463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Minigame and bar universal_1
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 108
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59a39de7e0435e7458d8324c855f36c1
+      internalID: -1899464250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Minigame and bar universal_2
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 108
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5901e513f90218440b8a467332079867
+      internalID: 619201261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Minigame and bar universal_3
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 108
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c4a02de2f9dc8846b08fa8911df2a6e
+      internalID: -154378244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Minigame and bar universal_4
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 113
+        width: 178
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 1, y: 1, z: 1, w: 1}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43db995a356c3ce4d9cc6ed5db92fb53
+      internalID: 1443895075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Minigame and bar universal_5
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 103
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd5853d91d938f949ae50019d1485480
+      internalID: -1326746128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Minigame and bar universal_6
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 93
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 889709c471eb0c9479c5af369b71d6f4
+      internalID: 1512233517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Minigame and bar universal_7
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 93
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdd415af6974eb2419f8eff51a24797f
+      internalID: -177848139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Minigame and bar universal_8
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 90
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b95acb2426ab0c749a1108e58739e27a
+      internalID: -477731576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Minigame and bar universal_9
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 90
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f78e60466b72612459ff113cc5e00a5f
+      internalID: 1893042392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Minigame and bar universal_10
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 82
+        width: 63
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 4, y: 4, z: 4, w: 4}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e08b4f0bad239744ba2a0cd0d6bf9e5
+      internalID: -1644110598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Minigame and bar universal_11
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 82
+        width: 63
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 4, y: 4, z: 4, w: 4}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82752e4f038864f4b9a013bf8efad729
+      internalID: 1973416719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Minigame and bar universal_12
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 52
+        width: 113
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 4, y: 4, z: 4, w: 4}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57c5ccedc8fbd584a9e876951a5ed03a
+      internalID: 194612166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Minigame and bar universal_14
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 56
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 5, y: 5, z: 5, w: 5}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adc38f85ab2b27042a4879dd4530d301
+      internalID: 1187903094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Minigame and bar universal_16
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 44
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 2, y: 2, z: 2, w: 2}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3091662e883ae4418076a3916a3b681
+      internalID: -1958231148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Minigame and bar universal_17
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 44
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 2, y: 2, z: 2, w: 2}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2604f2cbdfb45f645a427cad26832988
+      internalID: 1851479300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Minigame and bar universal_21
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 17
+        width: 112
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 1, y: 1, z: 1, w: 1}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d57b34c625ae68a489ba6efc2d0514e2
+      internalID: 1134460249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Minigame and bar universal_22
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 10
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d5a2e03b3ba000449c312b44603287f
+      internalID: 1238702943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Minigame and bar universal_23
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 10
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27582b45016f5d64baee688e268199e7
+      internalID: -1637900921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Minigame and bar universal_24
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 10
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 600619dc7ecb9184ca10aff238d5fb0b
+      internalID: -373972634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Minigame and bar universal_25
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 10
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45c560b5441b5d44fa6636e56a90adf9
+      internalID: 1422657989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Minigame and bar universal_26
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 110
+        width: 6
+        height: 2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41aba0457775a7c4eb3b07e112592458
+      internalID: -1366272652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Minigame and bar universal_13
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 56
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 5, y: 5, z: 5, w: 5}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97dce5ca62b7bbd488a3d35ce469c3c5
+      internalID: -2083261139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Minigame and bar universal_18
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 33
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 5, y: 5, z: 5, w: 5}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb1f6faa2a13f584486846ddcda66a08
+      internalID: 2004991173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Minigame and bar universal_19
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 33
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 5, y: 5, z: 5, w: 5}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf638833cc87b814e87cae107eb4717b
+      internalID: -487738910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Minigame and bar universal_20
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 56
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 5, y: 5, z: 5, w: 5}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2df9be551e2696842914545b27c8c6e9
+      internalID: -1667310133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Minigame and bar universal_27
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 14
+        width: 6
+        height: 2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7effd1a3722f9e447b034454d1c39eb5
+      internalID: 821496194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Minigame and bar universal_28
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 14
+        width: 6
+        height: 2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7094d7492c267bc4691de4a0138cf27f
+      internalID: -185041274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Minigame and bar universal_29
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 47
+        width: 65
+        height: 1
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3298bd11bbb0a184f965141086649b7d
+      internalID: 1133442783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Minigame and bar universal_15
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 33
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 5, y: 5, z: 5, w: 5}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40923fb2c0b42de4abdfc0310484671b
+      internalID: -441741236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +788,38 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      UI Minigame and bar universal_0: -906534463
+      UI Minigame and bar universal_1: -1899464250
+      UI Minigame and bar universal_10: -1644110598
+      UI Minigame and bar universal_11: 1973416719
+      UI Minigame and bar universal_12: 194612166
+      UI Minigame and bar universal_13: -2083261139
+      UI Minigame and bar universal_14: 1187903094
+      UI Minigame and bar universal_15: -441741236
+      UI Minigame and bar universal_16: -1958231148
+      UI Minigame and bar universal_17: 1851479300
+      UI Minigame and bar universal_18: 2004991173
+      UI Minigame and bar universal_19: -487738910
+      UI Minigame and bar universal_2: 619201261
+      UI Minigame and bar universal_20: -1667310133
+      UI Minigame and bar universal_21: 1134460249
+      UI Minigame and bar universal_22: 1238702943
+      UI Minigame and bar universal_23: -1637900921
+      UI Minigame and bar universal_24: -373972634
+      UI Minigame and bar universal_25: 1422657989
+      UI Minigame and bar universal_26: -1366272652
+      UI Minigame and bar universal_27: 821496194
+      UI Minigame and bar universal_28: -185041274
+      UI Minigame and bar universal_29: 1133442783
+      UI Minigame and bar universal_3: -154378244
+      UI Minigame and bar universal_30: -166902858
+      UI Minigame and bar universal_4: 1443895075
+      UI Minigame and bar universal_5: -1326746128
+      UI Minigame and bar universal_6: 1512233517
+      UI Minigame and bar universal_7: -177848139
+      UI Minigame and bar universal_8: -477731576
+      UI Minigame and bar universal_9: 1893042392
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
