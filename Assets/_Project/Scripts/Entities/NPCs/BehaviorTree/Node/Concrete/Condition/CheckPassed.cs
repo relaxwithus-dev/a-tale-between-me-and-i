@@ -40,7 +40,7 @@ namespace ATBMI.Entities.NPCs
             _currentTarget = null;
             _passedPosition = Vector3.zero;
         }
-
+        
         private bool TrySetupTarget()
         {
             if (_currentTarget != null)

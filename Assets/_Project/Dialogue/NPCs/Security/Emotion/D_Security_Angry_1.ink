@@ -6,7 +6,7 @@ Hei kamu #speaker:Satpam #expression:A_Pak_Satpam_Speak
 
 S-Saya Pak? #speaker:Ratna #expression:A_Ratna_Speak
 
-Di sini area terlarang untuk mahasiswa #speaker:v #expression:A_Pak_Satpam_Speak
+Di sini area terlarang untuk mahasiswa #speaker:Satpam #expression:A_Pak_Satpam_Speak
 Jadi kalau tidak ada kepentingan, kamu harus pergi dari sini #speaker:Satpam #expression:A_Pak_Satpam_Speak
 
 O-Oh... begitu ya pak #speaker:Ratna #expression:A_Ratna_Speak

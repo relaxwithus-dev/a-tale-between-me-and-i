@@ -1,4 +1,4 @@
-Kamu mahasiswa sini?! #speaker:Satpam #expression:A_Pak_Satpam_Anticipation
+Kamu mahasiswa sini?! #speaker:Satpam #expression:A_Pak_Satpam_Speak
 
 Iya Pak #speaker:Ratna #expression:A_Ratna_Speak #Emoji:A_Emoji_Tears
 
