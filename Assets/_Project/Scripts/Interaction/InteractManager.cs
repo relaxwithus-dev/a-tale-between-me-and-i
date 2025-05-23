@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using Sirenix.OdinInspector;
@@ -27,6 +28,7 @@ namespace ATBMI.Interaction
         private Collider2D[] _hitsNonAlloc;
         
         [Header("Reference")]
+        [SerializeField] private PlayerController playerController;
         [SerializeField] private PlayerAnimation playerAnimation;
         [SerializeField] private InteractHandler interactHandler;
         
@@ -37,8 +39,14 @@ namespace ATBMI.Interaction
         // Unity Callbacks
         private void OnEnable()
         {
-            InteractEvent.OnInteracted += cond => isInteracted = cond;
-            InteractEvent.OnRestricted += cond => isRestricted = cond;
+            InteractEvent.OnInteracted += HandleInteracted;
+            InteractEvent.OnRestricted += HandleRestricted;
+        }
+        
+        private void OnDisable()
+        {
+            InteractEvent.OnInteracted -= HandleInteracted;
+            InteractEvent.OnRestricted -= HandleRestricted;
         }
         
         private void Start()
@@ -84,7 +92,7 @@ namespace ATBMI.Interaction
                     if (target != null)
                     {
                         DeactivateSign();
-                        InteractEvent.InteractedEvent(interact: true);
+                        InteractEvent.InteractedEvent(interact: true, playerController);
                         AudioManager.Instance.PlayAudio(Musics.SFX_Interact);
                         
                         if (target is ItemInteract item)
@@ -126,7 +134,7 @@ namespace ATBMI.Interaction
             playerAnimation.TrySetAnimationState(StateTag.TAKE_ITEM_STATE);
             
             yield return new WaitForSeconds(duration);
-            InteractEvent.InteractedEvent(interact: false);
+            InteractEvent.InteractedEvent(interact: false, playerController);
             item.Interact(this);
         }
         
@@ -156,6 +164,16 @@ namespace ATBMI.Interaction
             interactSign.transform.position = Vector3.zero;
             interactSign.SetActive(false);
         }
+
+        private void HandleInteracted(bool isInteract, PlayerController player)
+        {
+            isInteracted = isInteract;
+            if (isInteracted)
+                player.StopMovement();
+            else
+                player.StartMovement();
+        }
+        private void HandleRestricted(bool isRestrict) => isRestricted = isRestrict;
 
         #endregion
     }

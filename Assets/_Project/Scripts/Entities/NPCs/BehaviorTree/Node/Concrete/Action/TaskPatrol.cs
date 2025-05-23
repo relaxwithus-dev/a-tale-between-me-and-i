@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using ATBMI.Data;
 
 namespace ATBMI.Entities.NPCs
 {
@@ -13,14 +12,16 @@ namespace ATBMI.Entities.NPCs
         private readonly CheckFatigue fatigue;
         
         private readonly List<Vector3> wayPoints = new();
+        private readonly List<Vector3> trackedWayPoints = new();
         private readonly float moveDelayTime;
-        private const int MinWayPoints = 2;
         
         private int _currentIndex;
         private float _currentTime;
         private bool _isPathCalculated = true;
         private bool _isValidated;
         private Vector3 _currentTarget;
+        
+        private const int MinWayPoints = 2;
         
         // Constructor
         public TaskPatrol(CharacterAI character, CheckFatigue fatigue, Transform[] wayPoints, float moveDelayTime = 2f)
@@ -32,9 +33,8 @@ namespace ATBMI.Entities.NPCs
             moveSpeed = character.Data.GetSpeedByType(targetState.ToString());
             foreach (var point in wayPoints)
             {
-                var pointPosition = new Vector3(point.localPosition.x, character.transform.localPosition.y, point.localPosition.z);
-                Debug.Log(pointPosition);
-                this.wayPoints.Add(pointPosition);
+                var pointPos = point.localPosition;
+                this.wayPoints.Add(pointPos);
             }
         }
         
@@ -44,13 +44,13 @@ namespace ATBMI.Entities.NPCs
             if (!Validate() && !_isValidated)
                 return NodeStatus.Failure;
 
-            if (_currentIndex >= wayPoints.Count)
+            if (_currentIndex >= trackedWayPoints.Count)
             {
                 Debug.Log("Execute Success: TaskPatrol"); 
                 return NodeStatus.Success;
             }
             
-            _currentTarget = wayPoints[_currentIndex];
+            _currentTarget = trackedWayPoints[_currentIndex];
             if (_currentTime < moveDelayTime && _isPathCalculated)
             {
                 _currentTime += Time.deltaTime;
@@ -65,10 +65,9 @@ namespace ATBMI.Entities.NPCs
         protected override void Reset()
         {
             base.Reset();
-            _currentIndex = 0;
             _currentTime = 0f;
             _isPathCalculated = true;
-            _currentTarget = wayPoints[_currentIndex];
+            _currentTarget = trackedWayPoints[_currentIndex];
         }
         
         private NodeStatus Patrol(Vector3 target)
@@ -84,7 +83,6 @@ namespace ATBMI.Entities.NPCs
                 _currentIndex++;
                 _currentTime = 0f;
                 _isPathCalculated = true;
-                Debug.Log("reach way points");
                 character.ChangeState(EntitiesState.Idle);
             }
             
@@ -102,6 +100,15 @@ namespace ATBMI.Entities.NPCs
         // Helpers
         private bool Validate()
         {
+            if (_isValidated && trackedWayPoints.Count >= wayPoints.Count)
+            {
+                if (!Mathf.Approximately(_currentTarget.y, character.transform.localPosition.y))
+                {
+                    SetupTrackedWayPoints();
+                }
+                return true;
+            }
+            
             if (wayPoints.Count < MinWayPoints)
             {
                 Debug.LogWarning("Execute Failure: TaskPatrol");
@@ -110,7 +117,18 @@ namespace ATBMI.Entities.NPCs
             }
             
             _isValidated = true;
+            SetupTrackedWayPoints();
             return true;
+        }
+        
+        private void SetupTrackedWayPoints()
+        {
+            trackedWayPoints.Clear();
+            foreach (var point in wayPoints)
+            {
+                var pointPosition = new Vector3(point.x, character.transform.localPosition.y, point.z);
+                trackedWayPoints.Add(pointPosition);
+            }
         }
     }
 }

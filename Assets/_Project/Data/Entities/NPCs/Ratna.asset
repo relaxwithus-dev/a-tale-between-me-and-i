@@ -14,13 +14,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Ratna
   animationTag: A_Ratna
-  type: 0
+  type: 1
   isIdling: 0
   moveSpeeds:
   - Type: Walk
     Speed: 1.3
   - Type: Run
     Speed: 2.7
-  defaultDialogues: []
-  emotionDialogues: []
-  itemDialogues: []
+  defaultDialogues:
+  - location: 0
+    dialogues:
+    - {fileID: 4900000, guid: d6e0754dbca251c40a44490e8f6db018, type: 3}
+  emotionDialogues:
+  - emotion: 0
+    dialogues: []
+  - emotion: 2
+    dialogues:
+    - {fileID: 4900000, guid: 4c95eec15983dff48b1441b4cb4d921f, type: 3}
+    - {fileID: 4900000, guid: 8d30dfeaf0189874798c1fc6d494f98f, type: 3}
+    - {fileID: 4900000, guid: 7e73c04574653ee4dab7d1e2f0f29265, type: 3}
+  itemDialogues:
+  - item: {fileID: 11400000, guid: 619bbf329bb42194389598b5119601c2, type: 2}
+    dialogue: {fileID: 4900000, guid: 490076fb08d889c4c882e1b7c03b272b, type: 3}
+  - item: {fileID: 11400000, guid: 3f8819d54fc6acc4daba74e421a47d64, type: 2}
+    dialogue: {fileID: 4900000, guid: 34358000075b47348a23d5c3dc3da097, type: 3}
+  - item: {fileID: 11400000, guid: 8029d9389f832e842b00764eed911b85, type: 2}
+    dialogue: {fileID: 4900000, guid: 3bc33db1785dc1a438d0473838dcea69, type: 3}
+  - item: {fileID: 11400000, guid: 787ca494275d9094f8ab9ef148f756b2, type: 2}
+    dialogue: {fileID: 4900000, guid: afd426a61e583e44aac0401534033619, type: 3}
+  - item: {fileID: 11400000, guid: 137e9bd075ddbb441b747f9cde909862, type: 2}
+    dialogue: {fileID: 4900000, guid: 482920ab719806b4a8d7cdd25094e2cf, type: 3}
+  - item: {fileID: 11400000, guid: 87b73bfaa5cdb924d9ac166a8dc6a580, type: 2}
+    dialogue: {fileID: 4900000, guid: 7db57d78b9b35fd4d91faa7f6b58a70e, type: 3}

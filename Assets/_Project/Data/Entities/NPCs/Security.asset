@@ -22,7 +22,7 @@ MonoBehaviour:
   defaultDialogues:
   - location: 0
     dialogues:
-    - {fileID: 4900000, guid: d2befca78cdf0f74ba22001141d2d928, type: 3}
+    - {fileID: 4900000, guid: e755af4a4c94a744cbde41af5c12811b, type: 3}
   emotionDialogues:
   - emotion: 5
     dialogues:
@@ -33,5 +33,8 @@ MonoBehaviour:
     dialogues:
     - {fileID: 4900000, guid: 2ed49c98253c76f4c9dda894dbd3e1f5, type: 3}
     - {fileID: 4900000, guid: 6dc199ab98214aa43b2a41a45bc3f0d7, type: 3}
-  itemDialogues: []
-  defaultItemDialogue: {fileID: 0}
+  itemDialogues:
+  - item: {fileID: 11400000, guid: 8e8a3682512abbe4d9ac49fbe00ce974, type: 2}
+    dialogue: {fileID: 4900000, guid: 773054ac1a5350d49bd83c6759d4791d, type: 3}
+  - item: {fileID: 11400000, guid: 02224b2cda974da4189b91e57083dad4, type: 2}
+    dialogue: {fileID: 4900000, guid: 386ab4c973c3e9a46a8705063b79378d, type: 3}
