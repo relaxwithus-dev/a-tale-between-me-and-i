@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9129929401966248108}
   - component: {fileID: 5343468300190087441}
   - component: {fileID: 124519450123181820}
+  - component: {fileID: -2907419139867417483}
   m_Layer: 0
   m_Name: Q_Ch1_Bdg_Investigasi_Itu
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 5756402131471883884}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.38, y: -5.46, z: 0}
+  m_LocalPosition: {x: 1, y: -5.46, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -90,3 +91,40 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-2907419139867417483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5756402131471883884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d899291998e1ae4bbeee4b78fc10c78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnNPC: 1
+  spawnNPCData:
+  - npcPrefab: {fileID: 5100580093370311947, guid: 5ccab1f8c587f2f439c2712e06e3d457, type: 3}
+    spawnPoint: {x: 5.67, y: -6.15}
+    spawnSceneName: {fileID: 11400000, guid: b2745c2c8ffc2b449bc5f30d18464b0d, type: 2}
+  - npcPrefab: {fileID: 5100580093370311947, guid: f895ee240a37de14b935f27623085632, type: 3}
+    spawnPoint: {x: 7.28, y: -6.15}
+    spawnSceneName: {fileID: 11400000, guid: b2745c2c8ffc2b449bc5f30d18464b0d, type: 2}
+  - npcPrefab: {fileID: 5100580093370311947, guid: 48a7a4762d62c3d43b034339f78b192d, type: 3}
+    spawnPoint: {x: 4.88, y: -6.15}
+    spawnSceneName: {fileID: 11400000, guid: b2745c2c8ffc2b449bc5f30d18464b0d, type: 2}
+  - npcPrefab: {fileID: 5100580093370311947, guid: b9c0808041603ca41ae99899166dc0dd, type: 3}
+    spawnPoint: {x: 4.35, y: -6.15}
+    spawnSceneName: {fileID: 11400000, guid: b2745c2c8ffc2b449bc5f30d18464b0d, type: 2}
+  - npcPrefab: {fileID: 5100580093370311947, guid: bb83f269e648f8c44b131c976daf764b, type: 3}
+    spawnPoint: {x: 3.73, y: -6.15}
+    spawnSceneName: {fileID: 11400000, guid: b2745c2c8ffc2b449bc5f30d18464b0d, type: 2}
+  despawnNPC: 1
+  despawnNPCData:
+  - npcToDespawnReference: {fileID: 11400000, guid: fbfdd74b74e68e349bfaa9ba55805c32, type: 2}
+    despawnSceneName: {fileID: 11400000, guid: b2745c2c8ffc2b449bc5f30d18464b0d, type: 2}
+  - npcToDespawnReference: {fileID: 11400000, guid: b5f5dc250c27a7e41889bd393871fdce, type: 2}
+    despawnSceneName: {fileID: 11400000, guid: b2745c2c8ffc2b449bc5f30d18464b0d, type: 2}
+  - npcToDespawnReference: {fileID: 11400000, guid: a8625e68edb99c749bd9aa25a0c99a7b, type: 2}
+    despawnSceneName: {fileID: 11400000, guid: b2745c2c8ffc2b449bc5f30d18464b0d, type: 2}

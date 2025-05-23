@@ -19,23 +19,24 @@ MonoBehaviour:
   questSteps:
   - targetScene: S_Bdg_Lapangan_1
     questStepPrefab: {fileID: 1889923810781236652, guid: 2dedbf470eadc8a43a7dcdb3cb63919a, type: 3}
-    stepStatusText: Bantu Waffa kecil
+    stepStatusText: Bantu Waffa kecil di lapangan
   - targetScene: S_Bdg_Jalan_Raya_Laswi_2
     questStepPrefab: {fileID: 7454338811887596156, guid: ca77f71827b6f624888c840c47ab3364, type: 3}
-    stepStatusText: Ikuti para musketir kecil
+    stepStatusText: 'Ikuti para musketir kecil
+
+      (Pergi lewat Jalan Laswi 2)'
   - targetScene: S_Bdg_Jalan_Raya_Laswi_1
     questStepPrefab: {fileID: 5720883642651652588, guid: 621e0ac58b9f60748b68f19e578c3df2, type: 3}
-    stepStatusText: Bantu cari kru pentas
+    stepStatusText: 'Bantu cari kru pentas
+
+      (Kru berada di Jalan Laswi 1)'
   - targetScene: S_Bdg_Musholla
     questStepPrefab: {fileID: 8286873658873835496, guid: 3109e31dd7865714aa86d8a18bffab9c, type: 3}
     stepStatusText: Cari air minum di sekitar musholla
   - targetScene: S_Bdg_Musholla
     questStepPrefab: {fileID: 8842027611129924438, guid: d272df5734681004496bb5912b204d41, type: 3}
     stepStatusText: Ambil air minum dari dalam musholla
-  - targetScene: S_Bdg_Musholla
-    questStepPrefab: {fileID: 6397233839166757682, guid: 4f6b8d4cdd85846498deca0f87aba449, type: 3}
-    stepStatusText: Cari alternatif sumber mata air lain di sekitar
-  - targetScene: S_Bdg_Lapangan_1
+  - targetScene: S_Bdg_Jalan_Raya_Laswi_1
     questStepPrefab: {fileID: 6052034746684241275, guid: f6ebaedf940162f4a8f26bf1b438d8bc, type: 3}
     stepStatusText: Beri air ke kru pentas
   rewardItem:

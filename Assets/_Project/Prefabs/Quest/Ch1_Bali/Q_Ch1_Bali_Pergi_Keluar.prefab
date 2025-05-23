@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7121175244127717336}
   - component: {fileID: -5322026860097989802}
   - component: {fileID: 4960166282581895079}
+  - component: {fileID: 1965891608024542641}
   m_Layer: 0
   m_Name: Q_Ch1_Bali_Pergi_Keluar
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 7625369298513363047}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.86, y: -20.46, z: 0}
+  m_LocalPosition: {x: -23.23, y: -2.22, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -90,3 +91,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fb01d7676b8c394fb1beb8111914801, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1965891608024542641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7625369298513363047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d899291998e1ae4bbeee4b78fc10c78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnNPC: 1
+  spawnNPCData:
+  - npcPrefab: {fileID: 5100580093370311947, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
+    spawnPoint: {x: -17.19, y: -4}
+    spawnSceneName: {fileID: 11400000, guid: 540724bb6742d014a99785f26707a5e4, type: 2}
+  despawnNPC: 0
+  despawnNPCData: []

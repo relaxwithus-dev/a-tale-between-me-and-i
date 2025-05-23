@@ -9,7 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2562767456606991825}
-  - component: {fileID: 7260223214419647271}
+  - component: {fileID: 6416310935063472469}
+  - component: {fileID: 9132530915615190891}
+  - component: {fileID: -5805766364436985680}
   m_Layer: 0
   m_Name: Q_Ch1_Bdg_Ambil_Benda_Itu
   m_TagString: Untagged
@@ -26,13 +28,58 @@ Transform:
   m_GameObject: {fileID: 4924724888794256049}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -2.22, y: -2.27, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7260223214419647271
+--- !u!61 &6416310935063472469
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4924724888794256049}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &9132530915615190891
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,7 +88,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 4924724888794256049}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8930da9850b7624bbf71ad31eebcb2e, type: 3}
+  m_Script: {fileID: 11500000, guid: 0fb01d7676b8c394fb1beb8111914801, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemIds: 10000000
+--- !u!114 &-5805766364436985680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4924724888794256049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d899291998e1ae4bbeee4b78fc10c78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnNPC: 1
+  spawnNPCData:
+  - npcPrefab: {fileID: 5100580093370311947, guid: 5984a0b3d23bffb469791058ac9c4cbc, type: 3}
+    spawnPoint: {x: 4.19, y: -3.595837}
+    spawnSceneName: {fileID: 11400000, guid: 639ba6cba5b43a44ab5ab008fc60d017, type: 2}
+  - npcPrefab: {fileID: 5100580093370311947, guid: 3d20ce6a74020804a81da78d3f1e2a04, type: 3}
+    spawnPoint: {x: 4.99, y: -3.595837}
+    spawnSceneName: {fileID: 11400000, guid: 639ba6cba5b43a44ab5ab008fc60d017, type: 2}
+  despawnNPC: 1
+  despawnNPCData:
+  - npcToDespawnReference: {fileID: 11400000, guid: b5f5dc250c27a7e41889bd393871fdce, type: 2}
+    despawnSceneName: {fileID: 11400000, guid: ff6a8642627fbd0408869078cbcb7570, type: 2}

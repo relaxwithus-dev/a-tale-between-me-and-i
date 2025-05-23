@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 215228761100694945}
   - component: {fileID: -72888941300887327}
+  - component: {fileID: -6572448056113831251}
   m_Layer: 0
   m_Name: Q_Ch1_Bali_Ambil_Mouse
   m_TagString: Untagged
@@ -44,3 +45,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8a26720ddd45b41b353a1af76ba92d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-6572448056113831251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291429303552227604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d899291998e1ae4bbeee4b78fc10c78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnNPC: 0
+  spawnNPCData: []
+  despawnNPC: 1
+  despawnNPCData: []
