@@ -11,7 +11,7 @@ namespace ATBMI.Cutscene
     public class CutsceneManager : MonoBehaviour
     {
         #region Struct
-
+        
         [Serializable]
         private struct CutsceneStatusDetail
         {
