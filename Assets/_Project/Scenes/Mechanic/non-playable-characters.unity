@@ -2890,7 +2890,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4291996230028175410, guid: f895ee240a37de14b935f27623085632, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4291996230028175410, guid: f895ee240a37de14b935f27623085632, type: 3}
       propertyPath: m_LocalRotation.x
@@ -2898,7 +2898,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4291996230028175410, guid: f895ee240a37de14b935f27623085632, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4291996230028175410, guid: f895ee240a37de14b935f27623085632, type: 3}
       propertyPath: m_LocalRotation.z
@@ -2910,27 +2910,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4291996230028175410, guid: f895ee240a37de14b935f27623085632, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4291996230028175410, guid: f895ee240a37de14b935f27623085632, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5100580093370311947, guid: f895ee240a37de14b935f27623085632, type: 3}
-      propertyPath: isFacingRight
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5100580093370311947, guid: f895ee240a37de14b935f27623085632, type: 3}
-      propertyPath: characterDirection.y
-      value: -1
-      objectReference: {fileID: 0}
     - target: {fileID: 6178640880139922672, guid: f895ee240a37de14b935f27623085632, type: 3}
       propertyPath: m_Name
       value: NPC_Pemabuk
-      objectReference: {fileID: 0}
-    - target: {fileID: 6178640880139922672, guid: f895ee240a37de14b935f27623085632, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

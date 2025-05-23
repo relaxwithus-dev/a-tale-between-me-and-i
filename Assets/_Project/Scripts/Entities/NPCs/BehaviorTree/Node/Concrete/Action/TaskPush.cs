@@ -40,7 +40,7 @@ namespace ATBMI.Entities.NPCs
             
             var direction = (player.transform.position - character.transform.position).normalized;
             character.StartCoroutine(PushRoutine(direction));
-            return NodeStatus.Success;
+            return NodeStatus.Running;
         }
         
         private IEnumerator PushRoutine(Vector3 direction)
@@ -48,15 +48,18 @@ namespace ATBMI.Entities.NPCs
             _isPushing = true;
             animation.TrySetAnimationState(StateTag.PUSH_STATE);
 
-            yield return new WaitForSeconds(0.15f);
+            yield return new WaitForSeconds(0.2f);
             player.StopMovement();
             player.PlayerRb.AddForce(direction * force, ForceMode2D.Impulse);
             player.StartCoroutine(WhenDoneForce());
             
-            InteractEvent.RestrictedEvent(true);
+            yield return new WaitForSeconds(0.3f);
+            _isPushing = false;
             _isDonePushing = true;
+            character.ChangeState(EntitiesState.Idle);
+            InteractEvent.RestrictedEvent(true);
         }
-
+        
         protected override void Reset()
         {
             base.Reset();

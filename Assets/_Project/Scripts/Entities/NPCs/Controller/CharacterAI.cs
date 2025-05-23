@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using ATBMI.Data;
 
@@ -12,7 +13,7 @@ namespace ATBMI.Entities.NPCs
         [SerializeField] protected EntitiesState characterState;
         [SerializeField] private Vector2 characterDirection;
         [SerializeField] private bool isFacingRight;
-                
+        
         public CharacterData Data => characterData;
         public EntitiesState State => characterState;
         public Vector2 Direction => characterDirection;
@@ -30,20 +31,29 @@ namespace ATBMI.Entities.NPCs
         {
             _characterAnim = GetComponentInChildren<CharacterAnimation>();
         }
-        
+
+        private void Start()
+        {
+            // Init stats
+            var direction = IsFacingRight ? 1 : -1;
+            var angle = isFacingRight ? 0f : 180f;
+            
+            transform.Rotate(0f, angle, 0f);
+            characterState = EntitiesState.Idle;
+            characterDirection = new Vector2(direction, 0);
+        }
+
         // Core
         public void ChangeState(EntitiesState state)
         {
-            if (state == characterState) 
-                return;
-            
             characterState = state;
             _characterAnim.TrySetAnimationState(state.ToString());
         }
         
         public void LookAt(Vector2 direction)
         {
-            characterDirection = direction.normalized;
+            characterDirection = direction;
+            characterDirection.Normalize();
             if (direction.x > 0 && !isFacingRight || direction.x < 0 && isFacingRight)
                 Flip();
         }

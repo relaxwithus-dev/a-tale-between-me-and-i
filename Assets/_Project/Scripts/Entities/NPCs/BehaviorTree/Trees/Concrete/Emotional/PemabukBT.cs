@@ -56,7 +56,7 @@ namespace ATBMI.Entities.NPCs
         //                 {
         //                     new SequenceWeight("Pull",new List<Node>
         //                     {
-        //                         new CheckDirection(characterAI, isDifferentDir: false),
+        //                         new CheckDirection(characterAI, isDifferentDir: true),
         //                         new TaskMoveToTarget(characterAI, data, isWalk: true),
         //                         new TaskPush(characterAI, characterAnim, pushForce, pushDelay),
         //                         new TaskTalk(characterAI, angerTexts),
