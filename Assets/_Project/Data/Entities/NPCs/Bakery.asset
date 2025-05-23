@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Bakery
   animationTag: A_Bakery
-  type: 1
+  type: 0
   isIdling: 1
   moveSpeeds: []
   defaultDialogues:
@@ -25,4 +25,4 @@ MonoBehaviour:
     dialogues:
     - {fileID: 4900000, guid: 24abd90ea2e65b249864fdd1e9a0e323, type: 3}
   itemDialogues: []
-  defaultItemDialogue: {fileID: 0}
+  defaultItemDialogue: {fileID: 4900000, guid: c1d25bf40d9e3a44f848892566dada24, type: 3}
