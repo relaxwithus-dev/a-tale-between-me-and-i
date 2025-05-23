@@ -47,7 +47,7 @@ namespace ATBMI.Scene
         
         private void HandleAudioTravel(SceneAsset targetScene)
         {
-            if (_currentScene.Region != targetScene.Region) return; 
+            if (_currentScene.Region == targetScene.Region) return; 
             AudioEvent.FadeOutAudioEvent();
         }
     }

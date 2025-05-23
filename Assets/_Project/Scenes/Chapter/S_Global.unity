@@ -794,6 +794,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1395000846}
   - component: {fileID: 1395000847}
+  - component: {fileID: 1395000848}
   m_Layer: 0
   m_Name: SubVirtualCamera
   m_TagString: Untagged
@@ -856,6 +857,21 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 1618883894}
+--- !u!114 &1395000848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395000845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f453f694addf4275988fac205bc91968, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BoundingShape2D: {fileID: 0}
+  m_Damping: 0.5
+  m_MaxWindowSize: -1
 --- !u!4 &1485008760 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2630479222999375114, guid: 7e152498ca8df3d408eadb42c1dcb757, type: 3}
@@ -951,19 +967,19 @@ MonoBehaviour:
   - chapters: 0
     status:
     - key: {fileID: 11400000, guid: 8901a52f7a898a14db7fdedd4d356a65, type: 2}
-      isFinish: 0
+      isFinish: 1
     - key: {fileID: 11400000, guid: c93450105e2f99d46a4b3353ffb76661, type: 2}
-      isFinish: 0
+      isFinish: 1
     - key: {fileID: 11400000, guid: 6ad6fcf914fc77142967842ffcdc99e3, type: 2}
-      isFinish: 0
+      isFinish: 1
     - key: {fileID: 11400000, guid: 8129b3d4d3892484ab731f278bce7ba3, type: 2}
-      isFinish: 0
+      isFinish: 1
     - key: {fileID: 11400000, guid: 23d237a32fa724f46854ad9132777cfd, type: 2}
-      isFinish: 0
+      isFinish: 1
     - key: {fileID: 11400000, guid: 861e169f4a5f6ff4bb269589584c64d1, type: 2}
-      isFinish: 0
+      isFinish: 1
     - key: {fileID: 11400000, guid: 4f2837270254784459789fe3347fcd65, type: 2}
-      isFinish: 0
+      isFinish: 1
   - chapters: 1
     status:
     - key: {fileID: 11400000, guid: a856dfc0f8557d2459e77870919ce4f3, type: 2}
