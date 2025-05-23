@@ -4,16 +4,17 @@ using ATBMI.Scene;
 using ATBMI.Inventory;
 using ATBMI.Entities.NPCs;
 using ATBMI.Gameplay.Event;
+using System;
 
 namespace ATBMI.Interaction
 {
     public class CharacterInteract : MonoBehaviour, IInteractable
     {
         #region Fields & Properties
-        
+
         [Header("Stats")]
         [SerializeField] private bool isInteracting;
-        
+
         [Space]
         [SerializeField] private InteractAction interactAction;
         [SerializeField] private Transform signTransform;
@@ -28,20 +29,20 @@ namespace ATBMI.Interaction
         private CharacterAI _characterAI;
 
         #endregion
-        
+
         #region Methods
-        
+
         // Unity Callbacks
         private void Awake()
         {
             _characterAI = GetComponent<CharacterAI>();
         }
-        
+
         private void OnEnable()
         {
             InteractEvent.OnInteracted += cond => isInteracting = cond;
         }
-        
+
         private void Start()
         {
             if (_characterAI.Data == null)
@@ -49,17 +50,19 @@ namespace ATBMI.Interaction
                 Debug.LogError($"npc {gameObject.name} data is missing");
                 return;
             }
-            
+
             // Stats
             interactAction = InteractAction.Talk;
             isInteracting = false;
             _interactCount = 0;
-            
+
             // Register
             DialogueEvents.RegisterNPCTipTargetEvent(_characterAI.Data.CharacterName, GetSignTransform());
             DialogueEvents.RegisterNPCEmojiTargetEvent(_characterAI.Data.CharacterName, GetEmojiTransform());
+
+            QuestEvents.RegisterThisNPCToHandledByQuestStepEvent(_characterAI);
         }
-        
+
         // TODO: Meet needed, gimana cara cek kalau interacting sudah selesai?
         public void Interact(InteractManager manager, int itemId = 0)
         {
@@ -69,7 +72,7 @@ namespace ATBMI.Interaction
             {
                 var sceneId = SceneNavigation.Instance.CurrentScene.Id;
                 var dialogues = _characterAI.Data.GetDefaultDialogues(sceneId);
-                
+
                 _interactCount = Mathf.Clamp(_interactCount++, 0, dialogues.Length - 1);
                 DialogueEvents.EnterDialogueEvent(dialogues[_interactCount]);
                 characterTraits.InfluenceTraits(InteractAction.Talk);
@@ -80,7 +83,7 @@ namespace ATBMI.Interaction
                 DialogueEvents.EnterItemDialogueEvent(_characterAI.Data.GetItemDialogue(itemData));
             }
         }
-        
+
         public void ChangeStatus(string action)
         {
             var changedAction = GetAction(action);
@@ -89,7 +92,7 @@ namespace ATBMI.Interaction
             if (interactAction == changedAction) return;
             interactAction = changedAction;
         }
-        
+
         // Helpers
         public Transform GetSignTransform() => signTransform;
         private Transform GetEmojiTransform() => emojiTransform;
@@ -108,7 +111,7 @@ namespace ATBMI.Interaction
             }
             return InteractAction.Talk;
         }
-        
+
         #endregion
     }
 }

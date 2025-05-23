@@ -1,4 +1,5 @@
 using System;
+using ATBMI.Entities.NPCs;
 using UnityEngine;
 
 namespace ATBMI.Gameplay.Event
@@ -17,6 +18,11 @@ namespace ATBMI.Gameplay.Event
         public static event Action<int> GetItemQuestStep;
         public static event Action<UIMenuTabEnum> CheckUIMenuTabQuestStep;
 
+        // Additional Quest Event
+        public static event Action InitiateRegisterNPCs;
+        public static event Action<CharacterAI> RegisterThisNPCToHandledByQuestStep;
+        public static event Action UnregisterNPCsThatHandledByQuestStep;
+
         // Main Caller
         public static void StartQuestEvent(int id) => StartQuest?.Invoke(id);
         public static void AdvanceQuestEvent(int id) => AdvanceQuest?.Invoke(id);
@@ -32,5 +38,10 @@ namespace ATBMI.Gameplay.Event
         // Quest Step Caller
         public static void GetItemQuestStepEvent(int itemId) => GetItemQuestStep?.Invoke(itemId);
         public static void CheckUIMenuTabQuestStepEvent(UIMenuTabEnum tab) => CheckUIMenuTabQuestStep?.Invoke(tab);
+
+        // Additional Quest Evenet Caller
+        public static void InitiateRegisterNPCsEvent() => InitiateRegisterNPCs?.Invoke();
+        public static void RegisterThisNPCToHandledByQuestStepEvent(CharacterAI characterAI) => RegisterThisNPCToHandledByQuestStep?.Invoke(characterAI);
+        public static void UnregisterNPCsThatHandledByQuestStepEvent() => UnregisterNPCsThatHandledByQuestStep?.Invoke();
     }
 }

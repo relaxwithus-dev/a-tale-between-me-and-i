@@ -21,7 +21,7 @@ namespace ATBMI
 
         private void CheckUIMenuTab(UIMenuTabEnum tab)
         {
-            if(!isCorrectlyOpenedUIMenuTab && uIMenuTab == tab)
+            if(!isCorrectlyOpenedUIMenuTab && tab == uIMenuTab)
             {
                 isCorrectlyOpenedUIMenuTab = true;
                 UpdateStepState(QuestStepStatusEnum.Finished);

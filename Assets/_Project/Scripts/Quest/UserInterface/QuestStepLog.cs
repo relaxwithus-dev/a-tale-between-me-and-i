@@ -8,7 +8,14 @@ namespace ATBMI
     public class QuestStepLog : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI stepText;
+        [SerializeField] private Image statusBackground;
         [SerializeField] private Image statusIcon; //  To visually indicate step completion
+
+        [Space(10)]
+        [SerializeField] private Sprite incompleteStatusBackground;
+        [SerializeField] private Sprite CompletedStatusBackground;
+        [SerializeField] private Sprite incompleteStatusIcon;
+        [SerializeField] private Sprite CompletedStatusIcon;
 
         public void SetText(string text)
         {
@@ -19,17 +26,17 @@ namespace ATBMI
         {
             switch (status)
             {
-                case QuestStepStatusEnum.Null:
-                    // statusIcon.color = Color.white;
-                    stepText.fontStyle = TMPro.FontStyles.Normal;
-                    break;
                 case QuestStepStatusEnum.In_Progress:
-                    // statusIcon.color = Color.white;
-                    stepText.fontStyle = TMPro.FontStyles.Normal;
+                    statusBackground.sprite = incompleteStatusBackground;
+                    statusIcon.sprite = incompleteStatusIcon;
+                    stepText.fontStyle = FontStyles.Normal;
                     break;
                 case QuestStepStatusEnum.Finished:
-                    // statusIcon.color = Color.green;
-                    stepText.fontStyle = TMPro.FontStyles.Strikethrough;
+                    statusBackground.sprite = CompletedStatusBackground;
+                    statusIcon.sprite = CompletedStatusIcon;
+                    stepText.fontStyle = FontStyles.Strikethrough;
+                    break;
+                default:
                     break;
             }
         }

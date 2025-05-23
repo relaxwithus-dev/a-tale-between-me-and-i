@@ -9,12 +9,12 @@ namespace ATBMI
     {
         public List<QuestInfoSO> QuestInfoList = new();
 
-        private void OnValidate()
-        {
-            #if UNITY_EDITOR
-            QuestInfoList = QuestInfoList.OrderBy(x => x.QuestId).ToList();
-            UnityEditor.EditorUtility.SetDirty(this);
-            #endif
-        }
+        // private void OnValidate()
+        // {
+        //     #if UNITY_EDITOR
+        //     QuestInfoList = QuestInfoList.OrderBy(x => x.QuestId).ToList();
+        //     UnityEditor.EditorUtility.SetDirty(this);
+        //     #endif
+        // }
     }
 }

@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using ATBMI.Gameplay.Event;
 using ATBMI.Inventory;
+using DG.Tweening;
 
 namespace ATBMI
 {
@@ -13,7 +14,9 @@ namespace ATBMI
         // [SerializeField] private bool loadQuestState = true;
         [SerializeField] private QuestInfoListSO questInfoList;
         [SerializeField] private GameObject uiQuestPanel;
-        [SerializeField] private TextMeshProUGUI uiQuestDisplay;
+        [SerializeField] private CanvasGroup uiQuestCanvasGroup;
+        [SerializeField] private TextMeshProUGUI uiQuestTitle;
+        [SerializeField] private TextMeshProUGUI uiQuestStepInfo;
 
         private Dictionary<int, Quest> questDataDict = new();
 
@@ -126,7 +129,7 @@ namespace ATBMI
             {
                 StartQuest(999); // go to market quest id
             }
-            
+
             if (Input.GetKeyDown(KeyCode.H))
             {
                 StartQuest(997); // go to market quest id
@@ -179,6 +182,8 @@ namespace ATBMI
             if (quest.CurrentStepExists())
             {
                 quest.InstantiateCurrentQuestStep(this.transform);
+
+                StartCoroutine(AnimateUIQuestPanel(quest, false));
             }
             // if there are no more steps, then we've finished all of them for this quest
             else
@@ -191,7 +196,7 @@ namespace ATBMI
                 }
             }
         }
-        
+
         private void FinishQuest(int id)
         {
             Quest quest = GetQuestById(id);
@@ -211,7 +216,7 @@ namespace ATBMI
                 Debug.Log("Quest " + quest.info.displayName + " Can't be finished because its state is " + quest.state + ", it should be " + QuestStateEnum.Can_Finish.ToString());
             }
         }
-        
+
         private void ClaimRewards(Quest quest)
         {
             foreach (var reward in quest.info.rewardItem)
@@ -224,16 +229,26 @@ namespace ATBMI
         {
             uiQuestPanel.SetActive(true);
 
+            uiQuestCanvasGroup.alpha = 0f;
+
             if (isFinished)
             {
-                uiQuestDisplay.text = quest.info.displayName + " Selesai";
+                uiQuestTitle.text = quest.info.displayName + " Selesai";
+                uiQuestStepInfo.text = "";
             }
             else
             {
-                uiQuestDisplay.text = quest.info.displayName + " Dimulai";
+                uiQuestTitle.text = quest.info.displayName;
+                uiQuestStepInfo.text = quest.info.questSteps[quest.CurrentQuestStepIndex].stepStatusText;
             }
 
-            yield return new WaitForSeconds(2f);
+            // Fade in
+            uiQuestCanvasGroup.DOFade(1f, 0.5f);
+            yield return new WaitForSeconds(4f);
+
+            // Fade out
+            uiQuestCanvasGroup.DOFade(0f, 0.5f);
+            yield return new WaitForSeconds(0.5f);
 
             uiQuestPanel.SetActive(false);
         }
