@@ -17,16 +17,12 @@ MonoBehaviour:
   shouldBeFinishManually: 0
   questPrerequisites: []
   questSteps:
-  - targetScene: S_Sby_Jalan_Mulyorejo_1
-    questStepPrefab: {fileID: 5702264162522918145, guid: a37826459f5ae604d99c9467f287cc77, type: 3}
-    stepStatusText: Cari tahu ke warga sekitar
-  - targetScene: S_Sby_Kos_Depan
+  - targetScene: S_Sby_Kos
     questStepPrefab: {fileID: 6434662327650409180, guid: 7a053cf26fa488f499160711562e35bf, type: 3}
-    stepStatusText: 'Hari pertama menjadi anak kos
+    stepStatusText: 'Mari cari kos mu
 
-      (Optional: Lihat map pada
-      ponsel)'
-  - targetScene: S_Sby_Kos_Depan
+      (Optional: Lihat map pada ponsel)'
+  - targetScene: S_Sby_Kos
     questStepPrefab: {fileID: 6823625390016188983, guid: af2f17be1a128f0479e511c19f35a6c9, type: 3}
     stepStatusText: Beri impresi yang baik ke Ibu Kos
   rewardItem: []
