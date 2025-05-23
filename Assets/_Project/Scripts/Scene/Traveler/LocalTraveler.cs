@@ -8,6 +8,7 @@ namespace ATBMI.Scene
     public class LocalTraveler : Traveler
     {
         // Internal fields
+        [Header("Attribute")]
         [SerializeField] private float travelDuration = 1.5f;
         [SerializeField] private Transform targetPoint;
         [SerializeField] private FadeController fader;

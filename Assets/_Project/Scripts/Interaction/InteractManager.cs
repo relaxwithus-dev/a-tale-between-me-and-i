@@ -1,7 +1,10 @@
-using ATBMI.Audio;
+using System.Collections;
 using UnityEngine;
 using Sirenix.OdinInspector;
+using ATBMI.Audio;
 using ATBMI.Dialogue;
+using ATBMI.Entities;
+using ATBMI.Entities.Player;
 using ATBMI.Gameplay.Handler;
 
 namespace ATBMI.Interaction
@@ -24,6 +27,7 @@ namespace ATBMI.Interaction
         private Collider2D[] _hitsNonAlloc;
         
         [Header("Reference")]
+        [SerializeField] private PlayerAnimation playerAnimation;
         [SerializeField] private InteractHandler interactHandler;
         
         #endregion
@@ -83,11 +87,10 @@ namespace ATBMI.Interaction
                         InteractEvent.InteractedEvent(interact: true);
                         AudioManager.Instance.PlayAudio(Musics.SFX_Interact);
                         
-                        if (target as ItemInteract)
+                        if (target is ItemInteract item)
                         {
                             if (!target.Validate()) continue;
-                            InteractEvent.InteractedEvent(interact: false);
-                            target.Interact(this);
+                            StartCoroutine(TakeItemRoutine(item));
                         }
                         else
                         {
@@ -115,6 +118,16 @@ namespace ATBMI.Interaction
             }
             
             return closest;
+        }
+
+        private IEnumerator TakeItemRoutine(ItemInteract item)
+        {
+            var duration = playerAnimation.GetAnimationTime();
+            playerAnimation.TrySetAnimationState(StateTag.TAKE_ITEM_STATE);
+            
+            yield return new WaitForSeconds(duration);
+            InteractEvent.InteractedEvent(interact: false);
+            item.Interact(this);
         }
         
         private void ActivateSignAt(Transform target)

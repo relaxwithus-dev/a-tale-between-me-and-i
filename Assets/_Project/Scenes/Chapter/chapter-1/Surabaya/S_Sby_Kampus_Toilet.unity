@@ -789,8 +789,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2d5600188a4b88854d4bd523fe97d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locationData: {fileID: 11400000, guid: 9cff0784b0b322a48a241bf37e0cfbd8, type: 2}
   infoTextUI: {fileID: 1039546951}
+  isRoomTravel: 0
+  locationData: {fileID: 11400000, guid: 9cff0784b0b322a48a241bf37e0cfbd8, type: 2}
 --- !u!1 &1039546948
 GameObject:
   m_ObjectHideFlags: 0

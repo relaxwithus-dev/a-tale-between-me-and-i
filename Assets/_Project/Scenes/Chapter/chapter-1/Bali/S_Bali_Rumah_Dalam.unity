@@ -1013,6 +1013,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   infoTextUI: {fileID: 2014189032}
+  isRoomTravel: 1
   locationData: {fileID: 11400000, guid: ba2deb381211ac74bac7c9db8aa8aba9, type: 2}
 --- !u!1 &1375646168
 GameObject:
@@ -1249,6 +1250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   infoTextUI: {fileID: 2014189032}
+  isRoomTravel: 0
   locationData: {fileID: 11400000, guid: e89399a148995274eb0bce4b04741a59, type: 2}
 --- !u!1 &1881520879
 GameObject:
