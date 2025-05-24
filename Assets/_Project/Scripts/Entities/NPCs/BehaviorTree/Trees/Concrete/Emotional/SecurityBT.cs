@@ -32,9 +32,9 @@ namespace ATBMI.Entities.NPCs
                             {
                                 new CheckPassed(characterAI, zoneDetails[1].Radius),
                                 new TaskPull(characterAI,characterAnim, pullForce, pullDelay),
-                                // new TaskTalk(characterAI, angerTexts)
+                                new TaskTalk(characterAI, angerTexts)
                             }),
-                            // new TaskTalk(characterAI, defaultTexts),
+                            new TaskTalk(characterAI, defaultTexts),
                             new TaskIdle(characterAI)
                         })
                     }),

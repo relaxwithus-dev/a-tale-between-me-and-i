@@ -23,42 +23,42 @@ namespace ATBMI.Scene
         }
     }
     
-    // [CustomEditor(typeof(LocationData))]
-    // public class LocationDataEditor : Editor 
-    // {
-    //     public override void OnInspectorGUI() 
-    //     {
-    //         var selector = (LocationData)target;
-    //         var regionName = selector.region.ToString();
-    //         selector.region = (Region)EditorGUILayout.EnumPopup("Region", selector.region);
-    //
-    //         if (!string.IsNullOrEmpty(regionName))
-    //         {
-    //             var allLocations = System.Enum.GetValues(typeof(Location)).Cast<Location>();
-    //             var filtered = allLocations
-    //                 .Where(loc => loc.ToString().StartsWith(selector.GetRegionAcronym(selector.region) + "_"))
-    //                 .ToArray();
-    //             
-    //             if (filtered.Length > 0) 
-    //             {
-    //                 var currentIndex = System.Array.IndexOf(filtered, selector.location);
-    //                 if (currentIndex == -1) currentIndex = 0;
-    //
-    //                 selector.location = filtered[
-    //                     EditorGUILayout.Popup("Location", currentIndex,
-    //                         filtered.Select(l => l.ToString()).ToArray())
-    //                 ];
-    //             } else 
-    //             {
-    //                 EditorGUILayout.HelpBox("Tidak ada lokasi untuk kota ini.", MessageType.Info);
-    //             }
-    //         } else 
-    //         {
-    //             EditorGUILayout.HelpBox("Masukkan nama kota terlebih dahulu.", MessageType.Warning);
-    //         }
-    //         
-    //         if (GUI.changed)
-    //             EditorUtility.SetDirty(target);
-    //     }
-    // }
+    [CustomEditor(typeof(LocationData))]
+    public class LocationDataEditor : Editor 
+    {
+        public override void OnInspectorGUI() 
+        {
+            var selector = (LocationData)target;
+            var regionName = selector.region.ToString();
+            selector.region = (Region)EditorGUILayout.EnumPopup("Region", selector.region);
+    
+            if (!string.IsNullOrEmpty(regionName))
+            {
+                var allLocations = System.Enum.GetValues(typeof(Location)).Cast<Location>();
+                var filtered = allLocations
+                    .Where(loc => loc.ToString().StartsWith(selector.GetRegionAcronym(selector.region) + "_"))
+                    .ToArray();
+                
+                if (filtered.Length > 0) 
+                {
+                    var currentIndex = System.Array.IndexOf(filtered, selector.location);
+                    if (currentIndex == -1) currentIndex = 0;
+    
+                    selector.location = filtered[
+                        EditorGUILayout.Popup("Location", currentIndex,
+                            filtered.Select(l => l.ToString()).ToArray())
+                    ];
+                } else 
+                {
+                    EditorGUILayout.HelpBox("Tidak ada lokasi untuk kota ini.", MessageType.Info);
+                }
+            } else 
+            {
+                EditorGUILayout.HelpBox("Masukkan nama kota terlebih dahulu.", MessageType.Warning);
+            }
+            
+            if (GUI.changed)
+                EditorUtility.SetDirty(target);
+        }
+    }
 }

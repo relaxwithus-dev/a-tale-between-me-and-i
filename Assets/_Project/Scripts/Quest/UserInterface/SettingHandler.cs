@@ -1,14 +1,13 @@
-using UnityEngine;
-using ATBMI.Gameplay.Handler;
-using TMPro;
-using ATBMI.Scene;
-using System.Collections.Generic;
-using Sirenix.OdinInspector;
-using ATBMI.Audio;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
+using Sirenix.OdinInspector;
+using ATBMI.Scene;
+using ATBMI.Audio;
 using ATBMI.UI.Ingame;
 using ATBMI.Gameplay.Event;
-using System;
+using ATBMI.Gameplay.Handler;
 
 namespace ATBMI
 {
@@ -24,7 +23,7 @@ namespace ATBMI
             [ShowIf("@optionType != InGameSettingEnum.Exit")] public TextMeshProUGUI valueText;
             [ShowIf("@optionType != InGameSettingEnum.Exit")] public GameObject rightArrow;
         }
-
+        
         [SerializeField] private UIMenu uiMenu;
         [SerializeField] private GameObject settingTab;
 
@@ -148,13 +147,10 @@ namespace ATBMI
 
             if (GameInputHandler.Instance.IsTapSubmit && optionOrder[currentSelectionIndex] == InGameSettingEnum.Exit)
             {
+                uiMenu.CloseMenu();
+                GameEvents.GameExitEvent();
                 AudioEvent.FadeOutAudioEvent();
                 AudioManager.Instance.PlayAudio(Musics.SFX_Button);
-
-                uiMenu.CloseMenu();
-
-
-
                 SceneNavigation.Instance.SwitchSceneSection(isToMenu: true);
             }
         }

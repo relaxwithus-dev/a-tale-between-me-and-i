@@ -25,7 +25,7 @@ namespace ATBMI.Entities.NPCs
                         new CheckTargetInZone(centerPoint, zoneDetails[0].Radius, layerMask),
                         new EmotionalSelector("Anger", characterTraits, new List<Node>
                         {
-                            // new TaskTalk(characterAI, angerTexts),
+                            new TaskTalk(characterAI, angerTexts),
                             new TaskIdle(characterAI)
                         })
                     }),
@@ -36,7 +36,7 @@ namespace ATBMI.Entities.NPCs
                         new EmotionalSelector("Disgust", characterTraits, new List<Node>
                         {
                             new TaskAnimate(characterAnim, StateTag.DISGUST_STATE),
-                            // new TaskTalk(characterAI, disgustTexts),
+                            new TaskTalk(characterAI, disgustTexts),
                             new TaskIdle(characterAI)
                         })
                     })

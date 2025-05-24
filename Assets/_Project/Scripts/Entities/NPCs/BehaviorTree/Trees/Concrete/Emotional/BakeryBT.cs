@@ -28,7 +28,7 @@ namespace ATBMI.Entities.NPCs
                             {
                                 new TaskAnimate(characterAnim, StateTag.CRY_STATE),
                                 new CheckTargetInArea(centerPoint, talkRadius, layerMask),
-                                // new TaskTalk(characterAI, sadnessTexts)
+                                new TaskTalk(characterAI, sadnessTexts)
                             }),
                             new TaskIdle(characterAI)
                         })
