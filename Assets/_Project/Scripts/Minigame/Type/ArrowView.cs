@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,6 +21,7 @@ namespace ATBMI.Minigame
         [Serializable]
         private struct ArrowAttribute
         {
+            public int clearTotal;
             public int count;
             public float duration;
         }
@@ -32,8 +34,10 @@ namespace ATBMI.Minigame
         [SerializeField] private ArrowAttribute[] arrowAttributes;
         [SerializeField] private Arrows[] arrowForms;
 
+        private bool _isResetting;
         private float _elapsedTime;
         private int _currentArrowIndex;
+        private int _currentClearCount;
         private ArrowAttribute _attribute;
         
         private readonly List<string> _spawnedArrowNames = new();
@@ -54,6 +58,7 @@ namespace ATBMI.Minigame
             // Initiate attribute
             _elapsedTime = 0f;
             _currentArrowIndex = 0;
+            _currentClearCount = 0;
             _spawnedArrowNames.Clear();
             _attribute = arrowAttributes[playingCount];
             
@@ -90,6 +95,8 @@ namespace ATBMI.Minigame
         
         private void HandleArrowGameplay()
         {
+            if (_isResetting) return;
+            
             var inputName = GetArrowInputName();
             if (!string.IsNullOrEmpty(inputName))
             {
@@ -105,11 +112,45 @@ namespace ATBMI.Minigame
                 }
             }
             
-            // Win
+            // Next clear
             if (_currentArrowIndex >= _attribute.count)
+            {
+                _currentClearCount++;
+                if (_currentClearCount < _attribute.clearTotal) 
+                    StartCoroutine(ReInitiateArrow());
+            }
+            
+            // Win
+            if (_currentClearCount >= _attribute.clearTotal)
             {
                 playingCount = Mathf.Clamp(playingCount + 1, 0, arrowAttributes.Length - 1);
                 ExitMinigame();
+            }
+        }
+        
+        private IEnumerator ReInitiateArrow()
+        {
+            _isResetting = true;
+            yield return new WaitForSeconds(closeMinigameDelay);
+            
+            _isResetting = false;
+            _currentArrowIndex = 0;
+            _spawnedArrowNames.Clear();
+            for (var i = 0; i < _attribute.count; i++)
+            {
+                if (arrowImages.Length < _attribute.count)
+                {
+                    Debug.LogWarning("Arrow image count is less than arrow count!");
+                    break;
+                }
+                
+                var arrow = arrowImages[i];
+                var arrowForm = arrowForms[Random.Range(0, arrowForms.Length)];
+                
+                arrow.color = Color.black;
+                arrow.sprite = arrowForm.form;
+                arrow.gameObject.SetActive(true);
+                _spawnedArrowNames.Add(arrowForm.name);
             }
         }
         
