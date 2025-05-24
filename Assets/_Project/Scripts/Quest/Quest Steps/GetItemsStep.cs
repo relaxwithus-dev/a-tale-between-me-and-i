@@ -74,7 +74,7 @@ namespace ATBMI
                     parts => int.Parse(parts[0]),
                     parts => bool.Parse(parts[1])
                 );
-        
+
             UpdateStepState(IsAllItemsCollected() ? QuestStepStatusEnum.Finished : QuestStepStatusEnum.In_Progress);
         }
     }

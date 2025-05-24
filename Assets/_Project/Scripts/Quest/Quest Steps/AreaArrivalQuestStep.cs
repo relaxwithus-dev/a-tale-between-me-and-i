@@ -15,6 +15,8 @@ namespace ATBMI
                 hasArrived = true;
                 UpdateStepState(QuestStepStatusEnum.Finished);
                 FinishQuestStep();
+
+                Debug.Log("ARRIVED");
             }
         }
 
@@ -35,6 +37,11 @@ namespace ATBMI
             {
                 ArrivedAtTargetArea();
             }
+        }
+
+        public void FinishQuestStepByInk()
+        {
+            ArrivedAtTargetArea();
         }
     }
 }

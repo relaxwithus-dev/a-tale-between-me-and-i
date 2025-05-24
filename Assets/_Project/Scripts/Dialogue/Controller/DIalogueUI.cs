@@ -111,7 +111,7 @@ public class DialogueUI : MonoBehaviour
     {
         if (screenPosition != null && pinPosition != null)
         {
-            // parentRectTransform.position = Camera.main.WorldToScreenPoint(pinPosition.position);
+            parentRectTransform.position = Camera.main.WorldToScreenPoint(pinPosition.position);
             // Debug.Log(pinPosition.position);
         }
 

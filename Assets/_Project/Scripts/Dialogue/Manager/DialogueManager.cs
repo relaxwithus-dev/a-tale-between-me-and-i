@@ -119,7 +119,7 @@ namespace ATBMI.Dialogue
         {
             if (!IsDialoguePlaying) return;
 
-            if (GameInputHandler.Instance.IsTapSubmit)
+            if (GameInputHandler.Instance.IsTapSelect || GameInputHandler.Instance.IsTapSubmit)
             {
                 if (isDialogueDisplaying)
                 {
@@ -216,7 +216,7 @@ namespace ATBMI.Dialogue
                 // if player pressed submit button displayed the line immediately
                 if (isSkippedDialogue)
                 {
-                    Debug.LogWarning("submit button pressed,  the line display immediately!");
+                    // Debug.LogWarning("submit button pressed,  the line display immediately!");
                     dialogueText.maxVisibleCharacters = line.Length;
                     break;
                 }

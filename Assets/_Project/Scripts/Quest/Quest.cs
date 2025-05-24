@@ -59,6 +59,11 @@ namespace ATBMI
             return (currentQuestStepIndex < info.questSteps.Length);
         }
 
+        public bool IsNextStepExists()
+        {
+            return (currentQuestStepIndex +1 < info.questSteps.Length);
+        }
+
         public void InstantiateCurrentQuestStep(Transform parentTransform)
         {
             GameObject questStepPrefab = GetCurrentQuestStepPrefab();
@@ -71,7 +76,7 @@ namespace ATBMI
             }
         }
 
-        private GameObject GetCurrentQuestStepPrefab()
+        public GameObject GetCurrentQuestStepPrefab()
         {
             GameObject questStepPrefab = null;
             if (CurrentStepExists())

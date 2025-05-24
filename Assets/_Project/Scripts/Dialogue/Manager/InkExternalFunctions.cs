@@ -4,6 +4,8 @@ using ATBMI.Inventory;
 using ATBMI.Interaction;
 using ATBMI.Gameplay.Event;
 using ATBMI.Scene.Chapter;
+using System;
+using UnityEngine;
 
 namespace ATBMI.Dialogue
 {
@@ -12,27 +14,29 @@ namespace ATBMI.Dialogue
         // Interact status
         private readonly string TakeItem = "Take";
         private readonly string GiveItem = "Give";
-        
+
         public void Bind(Story story)
         {
             story.BindExternalFunction("AddItem", (string itemId) => AddItem(itemId));
             story.BindExternalFunction("RemoveItem", (string itemId) => RemoveItem(itemId));
             story.BindExternalFunction("StartQuest", (string questId) => StartQuest(questId));
-            story.BindExternalFunction("FinishQuest", (string questId) => FinishQuest(questId));
+            story.BindExternalFunction("AdvancedQuest", (string questId) => AdvancedQuest(questId));
+            story.BindExternalFunction("FinishQuest", (string questId) => FinishQuest(questId)); // ensure the shouldBeFinishManually field on questinfoSO checked
             story.BindExternalFunction("EnterMinigame", EnterMinigame);
             story.BindExternalFunction("UpdateStoryChapter", (string chapter) => UpdateStoryChapter(chapter));
         }
-        
+
         public void Unbind(Story story)
         {
             story.UnbindExternalFunction("AddItem");
             story.UnbindExternalFunction("RemoveItem");
             story.UnbindExternalFunction("StartQuest");
+            story.UnbindExternalFunction("AdvancedQuest");
             story.UnbindExternalFunction("FinishQuest");
             story.UnbindExternalFunction("EnterMinigame");
             story.UnbindExternalFunction("UpdateStoryChapter");
         }
-        
+
         public void AddItem(string itemId) => UpdateItem(itemId, isAdding: true);
         public void RemoveItem(string itemId) => UpdateItem(itemId, isAdding: false);
 
@@ -44,22 +48,49 @@ namespace ATBMI.Dialogue
                 InventoryManager.Instance.AddItemToInventory(id);
             else
                 InventoryManager.Instance.RemoveItemFromInventory(id);
-            
+
             if (InteractObserver.GetInteractable() is CharacterInteract target)
                 target.ChangeStatus(isAdding ? TakeItem : GiveItem);
         }
-        
+
         public void StartQuest(string questId) => UpdateQuest(questId, isStarted: true);
+        public void AdvancedQuest(string questId) => UpdateQuest(questId, isStarted: false);
         public void FinishQuest(string questId) => UpdateQuest(questId, isStarted: false);
 
         private void UpdateQuest(string questId, bool isStarted)
         {
             if (!int.TryParse(questId, out var id)) return;
-            
+
+            Quest quest = QuestManager.Instance.GetQuestById(id);
+
             if (isStarted)
+            {
                 QuestEvents.StartQuestEvent(id);
+            }
             else
-                QuestEvents.FinishQuestEvent(id);
+            {
+                if (quest.IsNextStepExists())
+                {
+                    if (quest.GetCurrentQuestStepPrefab().TryGetComponent<AreaArrivalQuestStep>(out AreaArrivalQuestStep prefabComponent))
+                    {
+                        foreach (Transform child in QuestManager.Instance.transform)
+                        {
+                            if (child.TryGetComponent<AreaArrivalQuestStep>(out AreaArrivalQuestStep instanceComponent))
+                            {
+                                // Compare prefab name
+                                if (child.name.StartsWith(prefabComponent.gameObject.name)) // Unity usually adds (Clone)
+                                {
+                                    instanceComponent.FinishQuestStepByInk();
+                                }
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    QuestEvents.FinishQuestEvent(id); // ensure the shouldBeFinishManually field on questinfoSO checked
+                }
+            }
         }
 
         public void EnterMinigame() => MinigameManager.EnterMinigameEvent();
