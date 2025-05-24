@@ -2,6 +2,8 @@ using UnityEngine;
 using ATBMI.Cutscene;
 using ATBMI.Inventory;
 using ATBMI.Gameplay.Event;
+using ATBMI.Scene;
+using ATBMI.Scene.Chapter;
 
 namespace ATBMI.Managers
 {
@@ -12,7 +14,7 @@ namespace ATBMI.Managers
         [Header("Components")] 
         [SerializeField] private bool isGamePlaying;
         [SerializeField] private GameObject[] gameplayObjects;
-
+        
         public bool IsGamePlaying => isGamePlaying;
         
         [Header("Reference")] 
@@ -59,6 +61,7 @@ namespace ATBMI.Managers
             questManager.ResetQuest();
             cutsceneManager.ResetCutscene();
             inventoryManager.ResetInventory();
+            SceneNavigation.Instance.ChapterName = Chapters.None;
         }
         
         #endregion

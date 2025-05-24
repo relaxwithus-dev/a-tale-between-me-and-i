@@ -18,7 +18,7 @@ namespace ATBMI.Entities.NPCs
                     new CheckTargetInZone(centerPoint, zoneDetails[0].Radius, layerMask),
                     new EmotionalSelector("Anticipation", characterTraits, new List<Node>
                     {
-                        new TaskTalk(characterAI, anticipationTexts),
+                        // new TaskTalk(characterAI, anticipationTexts),
                         new TaskIdle(characterAI)
                     })
                 })
