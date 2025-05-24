@@ -23,6 +23,23 @@ namespace ATBMI.Inventory
         public Image FlagImage => flagImage;
         public TextMeshProUGUI FlagNameText => flagNameText;
 
+        [Space(20)]
+        [Header("References")]
+        [SerializeField] private Image buttonBackgroundImage;
+        [SerializeField] private Image itemBackgroundImage;
+
+        [Header("Button Background Sprite")]
+        [SerializeField] private Sprite buttonBGSpriteSelected;
+        [SerializeField] private Sprite buttonBGSpriteDeselected;
+
+        [Header("Item Background Sprite")]
+        [SerializeField] private Sprite itemBGSpriteSelected;
+        [SerializeField] private Sprite itemBGSpriteDeselected;
+
+        [Header("Text Color")]
+        [SerializeField] private Color textColorSelected;
+        [SerializeField] private Color textColorDeslected;
+
         #endregion
 
         #region Methods
@@ -37,9 +54,22 @@ namespace ATBMI.Inventory
         public void Highlight(bool isSelected)
         {
             // TODO: change the highligh selected
-            flagImage.color = isSelected ? Color.yellow : Color.white; // Change color
+            if (isSelected)
+            {
+                buttonBackgroundImage.sprite = buttonBGSpriteSelected;
+                itemBackgroundImage.sprite = itemBGSpriteSelected;
+
+                flagNameText.color = textColorSelected;
+            }
+            else
+            {
+                buttonBackgroundImage.sprite = buttonBGSpriteDeselected;
+                itemBackgroundImage.sprite = itemBGSpriteDeselected;
+
+                flagNameText.color = textColorDeslected;
+            }
         }
-        
+
         #endregion
     }
 }

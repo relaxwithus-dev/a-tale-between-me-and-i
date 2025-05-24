@@ -19,6 +19,10 @@ namespace ATBMI.Inventory
         [SerializeField] private TextMeshProUGUI itemNameTextUI;
         [SerializeField] private TextMeshProUGUI itemDescriptionTextUI;
 
+        [Header("Rect Transforms")]
+        [SerializeField] private RectTransform scrollRectTransform;
+        [SerializeField] private RectTransform contentRectTransform;
+
         [Header("Input Actions")]
         [SerializeField] private InputActionReference navigateAction; // This is a Vector2 input
 
@@ -136,10 +140,42 @@ namespace ATBMI.Inventory
             selectedIndex = (selectedIndex + direction + _inventoryCreator.InventoryFlags.Count) % _inventoryCreator.InventoryFlags.Count;
 
             // Highlight the new selected element
-            (_inventoryCreator.InventoryFlags[selectedIndex] as InventoryFlag)?.Highlight(true);
+            var selectedFlag = _inventoryCreator.InventoryFlags[selectedIndex] as InventoryFlag;
+            selectedFlag?.Highlight(true);
 
             // Update description
             SetDescription();
+
+            // Update scrolling, pass RectTransform of selected item
+            UpdateScrolling(selectedFlag.transform as RectTransform);
+        }
+
+        private void UpdateScrolling(RectTransform buttonRectTransform)
+        {
+            // calculate the min and max for the selected button
+            float buttonYMin = Mathf.Abs(buttonRectTransform.anchoredPosition.y);
+            float buttonYMax = buttonYMin + buttonRectTransform.rect.height;
+
+            // calculate the min and max for the content area
+            float contentYMin = contentRectTransform.anchoredPosition.y;
+            float contentYMax = contentYMin + scrollRectTransform.rect.height;
+
+            // handle scrolling down
+            if (buttonYMax > contentYMax)
+            {
+                contentRectTransform.anchoredPosition = new Vector2(
+                    contentRectTransform.anchoredPosition.x,
+                    buttonYMax - scrollRectTransform.rect.height
+                );
+            }
+            // handle scrolling up
+            else if (buttonYMin < contentYMin)
+            {
+                contentRectTransform.anchoredPosition = new Vector2(
+                    contentRectTransform.anchoredPosition.x,
+                    buttonYMin
+                );
+            }
         }
 
         private void SetDescription()
