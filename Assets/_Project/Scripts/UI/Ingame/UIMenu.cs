@@ -1,5 +1,6 @@
 using UnityEngine;
 using ATBMI.Gameplay.Event;
+using ATBMI.Entities.Player;
 using ATBMI.Gameplay.Handler;
 
 namespace ATBMI.UI.Ingame
@@ -9,8 +10,12 @@ namespace ATBMI.UI.Ingame
         [Header("UI")]
         [SerializeField] private GameObject menuUI;
         [SerializeField] private TabGroup tabGroup;
+        
         private bool _isMenuActive;
 
+        [Header("Reference")]
+        [SerializeField] private PlayerController playerController;
+        
         private void Update()
         {
             if (GameInputHandler.Instance.IsOpenQuest && !_isMenuActive)
@@ -26,26 +31,26 @@ namespace ATBMI.UI.Ingame
         }
 
         //TODO: Change it to dynamically call when input for inventory pressed
-        public void OpenMenu(UIMenuTabEnum tab)
+        private void OpenMenu(UIMenuTabEnum tab)
         {
-            UIEvents.OnSelectTabInventoryEvent();
             UIEvents.OnSelectTabQuestEvent();
-
             UIEvents.OnSelectTabSettingEvent();
-
-            menuUI.SetActive(true);
-            _isMenuActive = true;
-
+            UIEvents.OnSelectTabInventoryEvent();
+            
+            playerController.StopMovement();
             tabGroup.SelectTabByName(tab);
+            menuUI.SetActive(true);
+            
+            _isMenuActive = true;
         }
 
         public void CloseMenu()
         {
             UIEvents.OnDeselectTabInventoryEvent();
             UIEvents.OnDeselectTabQuestEvent();
-
             UIEvents.OnDeselectTabSettingEvent();
 
+            playerController.StartMovement();
             menuUI.SetActive(false);
             _isMenuActive = false;
         }

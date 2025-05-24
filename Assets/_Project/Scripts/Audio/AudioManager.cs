@@ -8,10 +8,10 @@ namespace ATBMI.Audio
     public class AudioManager : MonoDDOL<AudioManager>
     {
         #region Fields & Properties
-
+        
         [Header("Audio Data")]
         [SerializeField][Searchable] private Sound[] sounds;
-
+        
         [Space]
         [SerializeField] private GameObject bgmContainer;
         [SerializeField] private GameObject sfxContainer;
@@ -99,13 +99,13 @@ namespace ATBMI.Audio
             }
             return sound;
         }
-
+        
         public bool IsAudioPlaying(Musics music)
         {
             Sound sound = Array.Find(sounds, sound => sound.name == music.ToString());
             return sound.source.isPlaying;
         }
-
+        
         // Set volume across all sounds
         // TODO: change to better method
         public void SetMasterVolume(float normalizedVolume)
