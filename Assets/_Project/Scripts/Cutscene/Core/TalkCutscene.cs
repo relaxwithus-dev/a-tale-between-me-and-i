@@ -40,11 +40,7 @@ namespace ATBMI.Cutscene
             _dialogueManager.EnterDialogueMode(dialogueText);
         }
 
-        private void FinishDialogue()
-        {
-            Debug.Log("finish dialogue");
-            isFinishStep = true;
-        }
+        private void FinishDialogue() => isFinishStep = true;
         
         #endregion
     }

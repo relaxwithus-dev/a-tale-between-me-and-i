@@ -44,7 +44,7 @@ namespace ATBMI.Dialogue
                 InventoryManager.Instance.AddItemToInventory(id);
             else
                 InventoryManager.Instance.RemoveItemFromInventory(id);
-
+            
             if (InteractObserver.GetInteractable() is CharacterInteract target)
                 target.ChangeStatus(isAdding ? TakeItem : GiveItem);
         }

@@ -59,7 +59,7 @@ namespace ATBMI.Scene
             var entryPoint = latestScene != null && latestScene.Type == SceneAsset.SceneType.Gameplay
                 ? Array.Find(entryPoints, e => e.locationData.location == latestScene.Id).pointFromScene 
                 : defaultPoint;
-
+            
             if (entryPoint == null)
             {
                 Debug.LogWarning("entry point not found!");

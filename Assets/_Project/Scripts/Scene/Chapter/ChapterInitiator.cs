@@ -24,9 +24,14 @@ namespace ATBMI.Scene.Chapter
         
         protected override IEnumerator AnimateSceneFade()
         {
-            _chapterViewer = ChapterViewer.Instance;
-            if (!_chapterViewer.IsInitializedChapter && chapterName ==  _chapterViewer.Chapter) 
-                yield return AnimateChapterIntro();
+            var currChapter = SceneNavigation.Instance.ChapterName;
+            if (currChapter != chapterName)
+            {
+                _chapterViewer = ChapterViewer.Instance;
+                SceneNavigation.Instance.ChapterName = chapterName;
+                if (!_chapterViewer.IsInitializedChapter && chapterName ==  _chapterViewer.Chapter) 
+                    yield return AnimateChapterIntro();
+            }
             
             yield return base.AnimateSceneFade();
         }

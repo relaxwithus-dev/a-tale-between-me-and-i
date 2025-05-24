@@ -3,10 +3,10 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Sirenix.OdinInspector;
-using ATBMI.Managers;
 using ATBMI.Gameplay.Event;
 using ATBMI.Entities.Player;
 using ATBMI.Gameplay.Controller;
+using ATBMI.Scene.Chapter;
 
 namespace ATBMI.Scene
 {
@@ -23,6 +23,7 @@ namespace ATBMI.Scene
 
         private AsyncOperation _asyncOperation;
 
+        public Chapters ChapterName { get; set; } = Chapters.None;
         public SceneAsset CurrentScene { get; private set; }
         public SceneAsset LatestScene { get; private set; }
 
