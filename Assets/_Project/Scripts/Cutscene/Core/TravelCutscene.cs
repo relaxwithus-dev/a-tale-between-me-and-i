@@ -1,6 +1,5 @@
 using UnityEngine;
 using ATBMI.Scene;
-using ATBMI.Gameplay.Event;
 
 namespace ATBMI.Cutscene
 {
@@ -9,7 +8,6 @@ namespace ATBMI.Cutscene
         #region Fields
         
         [Header("Attribute")]
-        [SerializeField] private bool isToMenu;
         [SerializeField] private LocationData locationData;
         
         #endregion
@@ -17,22 +15,6 @@ namespace ATBMI.Cutscene
         #region Methods
         
         public override void Execute()
-        {
-            if (isToMenu)
-                TravelToMenu();
-            else
-                TravelToLocation();
-            
-            isFinishStep = true;
-        }
-
-        private void TravelToMenu()
-        {
-            GameEvents.GameExitEvent();
-            SceneNavigation.Instance.SwitchSceneSection(isToMenu: true);
-        }
-
-        private void TravelToLocation()
         {
             var currentScene = SceneNavigation.Instance.CurrentScene;
             var sceneAsset = currentScene.GetNeighbourById(locationData.location);
@@ -44,6 +26,7 @@ namespace ATBMI.Cutscene
             }
             
             SceneNavigation.Instance.SwitchScene(sceneAsset);
+            isFinishStep = true;
         }
         
         #endregion

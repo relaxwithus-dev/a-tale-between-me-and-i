@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using ATBMI.Gameplay.Event;
-using ATBMI.Inventory;
+using TMPro;
 using DG.Tweening;
+using ATBMI.Inventory;
+using ATBMI.Gameplay.Event;
 
-namespace ATBMI
+namespace ATBMI.Quest
 {
     public class QuestManager : MonoBehaviour
     {
@@ -19,7 +19,7 @@ namespace ATBMI
         [SerializeField] private TextMeshProUGUI uiQuestTitle;
         [SerializeField] private TextMeshProUGUI uiQuestStepInfo;
 
-        private Dictionary<int, Quest> questDataDict = new();
+        private Dictionary<int, QuestBase> questDataDict = new();
 
         // quest start requirements
         // private Scene whichScene;??
@@ -65,7 +65,7 @@ namespace ATBMI
 
         private void Start()
         {
-            foreach (Quest quest in questDataDict.Values)
+            foreach (QuestBase quest in questDataDict.Values)
             {
                 // initialize any loaded quest steps
                 if (quest.state == QuestStateEnum.In_Progress)
@@ -85,14 +85,14 @@ namespace ATBMI
                 }
                 else
                 {
-                    questDataDict.Add(questInfo.QuestId, new Quest(questInfo)); // TODO: change the new quest into loaded quests
+                    questDataDict.Add(questInfo.QuestId, new QuestBase(questInfo)); // TODO: change the new quest into loaded quests
                 }
             }
         }
 
         private void ChangeQuestState(int id, QuestStateEnum state)
         {
-            Quest quest = GetQuestById(id);
+            QuestBase quest = GetQuestById(id);
             quest.state = state;
 
             QuestEvents.QuestStateChangeEvent(quest);
@@ -126,15 +126,15 @@ namespace ATBMI
         private void Update()
         {
             // Test
-            if (Input.GetKeyDown(KeyCode.G))
-            {
-                StartQuest(999); // go to market quest id
-            }
-
-            if (Input.GetKeyDown(KeyCode.H))
-            {
-                StartQuest(997); // go to market quest id
-            }
+            // if (Input.GetKeyDown(KeyCode.G))
+            // {
+            //     StartQuest(999); // go to market quest id
+            // }
+            //
+            // if (Input.GetKeyDown(KeyCode.H))
+            // {
+            //     StartQuest(997); // go to market quest id
+            // }
 
             // if (Input.GetKeyDown(KeyCode.H))
             // {
@@ -154,7 +154,7 @@ namespace ATBMI
 
         private void StartQuest(int id)
         {
-            Quest quest = GetQuestById(id);
+            QuestBase quest = GetQuestById(id);
 
             if (quest != null && quest.state.Equals(QuestStateEnum.Can_Start))
             {
@@ -174,7 +174,7 @@ namespace ATBMI
 
         private void AdvanceQuest(int id)
         {
-            Quest quest = GetQuestById(id);
+            QuestBase quest = GetQuestById(id);
 
             // move on to the next step
             quest.MoveToNextStep();
@@ -200,7 +200,7 @@ namespace ATBMI
 
         private void FinishQuest(int id)
         {
-            Quest quest = GetQuestById(id);
+            QuestBase quest = GetQuestById(id);
 
             if (quest != null && quest.state.Equals(QuestStateEnum.Can_Finish))
             {
@@ -218,7 +218,7 @@ namespace ATBMI
             }
         }
 
-        private void ClaimRewards(Quest quest)
+        private void ClaimRewards(QuestBase quest)
         {
             foreach (var reward in quest.info.rewardItem)
             {
@@ -226,7 +226,7 @@ namespace ATBMI
             }
         }
 
-        private IEnumerator AnimateUIQuestPanel(Quest quest, bool isFinished)
+        private IEnumerator AnimateUIQuestPanel(QuestBase quest, bool isFinished)
         {
             uiQuestPanel.SetActive(true);
 
@@ -256,14 +256,14 @@ namespace ATBMI
 
         private void QuestStepStateChange(int id, int stepIndex, QuestStepState questStepState)
         {
-            Quest quest = GetQuestById(id);
+            QuestBase quest = GetQuestById(id);
             // quest.StoreQuestStepState(questStepState, stepIndex);
             ChangeQuestState(id, quest.state);
         }
 
-        public Quest GetQuestById(int id)
+        public QuestBase GetQuestById(int id)
         {
-            Quest quest = questDataDict[id];
+            QuestBase quest = questDataDict[id];
             if (quest == null)
             {
                 Debug.LogError("ID not found in the Quest Data Dictionary: " + id);
@@ -289,7 +289,7 @@ namespace ATBMI
 
         public void ResetQuest()
         {
-            foreach (Quest quest in questDataDict.Values)
+            foreach (QuestBase quest in questDataDict.Values)
             {
                 QuestData questData = quest.GetQuestData();
                 

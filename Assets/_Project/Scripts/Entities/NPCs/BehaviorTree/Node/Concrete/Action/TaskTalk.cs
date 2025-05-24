@@ -8,7 +8,7 @@ namespace ATBMI.Entities.NPCs
     {
         private readonly CharacterAI character;
         private readonly TextAsset[] dialogueAssets;
-
+        
         private int _talkCount;
         
         private readonly Dictionary<Emotion, (float plan, float risk, (float, float) time)> _factorsTalk = new()

@@ -1,12 +1,8 @@
-/// for saving the quest data
+using System;
 
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-namespace ATBMI
+namespace ATBMI.Quest
 {
-    [System.Serializable]
+    [Serializable]
     public class QuestData
     {
         public QuestStateEnum state;

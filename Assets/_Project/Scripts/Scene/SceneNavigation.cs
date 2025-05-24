@@ -3,10 +3,10 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Sirenix.OdinInspector;
+using ATBMI.Scene.Chapter;
 using ATBMI.Gameplay.Event;
 using ATBMI.Entities.Player;
 using ATBMI.Gameplay.Controller;
-using ATBMI.Scene.Chapter;
 
 namespace ATBMI.Scene
 {
@@ -17,8 +17,7 @@ namespace ATBMI.Scene
         [Header("Attribute")]
         [SerializeField] private bool debugMode;
         [SerializeField] private SceneAsset menuScene;
-        [SerializeField]
-        [ShowIf("debugMode")]
+        [SerializeField] [ShowIf("debugMode")]
         private SceneAsset debugScene;
 
         private AsyncOperation _asyncOperation;
