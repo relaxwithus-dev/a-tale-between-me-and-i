@@ -9,7 +9,7 @@ using ATBMI.UI.Ingame;
 using ATBMI.Gameplay.Event;
 using ATBMI.Gameplay.Handler;
 
-namespace ATBMI
+namespace ATBMI.Quest
 {
     public class SettingHandler : MonoBehaviour
     {

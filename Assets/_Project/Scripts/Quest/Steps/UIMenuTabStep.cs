@@ -1,8 +1,8 @@
 using System;
-using ATBMI.Gameplay.Event;
 using UnityEngine;
+using ATBMI.Gameplay.Event;
 
-namespace ATBMI
+namespace ATBMI.Quest
 {
     public class UIMenuTabStep : QuestStep
     {

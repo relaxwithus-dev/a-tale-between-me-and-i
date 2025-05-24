@@ -1,8 +1,8 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
-namespace ATBMI
+namespace ATBMI.Quest
 {
     public class QuestLogButton : MonoBehaviour
     {
@@ -17,8 +17,8 @@ namespace ATBMI
 
         public void Initialize(string displayName, int questId)
         {
-            this.buttonText.text = displayName;
-            this.QuestId = questId;
+            buttonText.text = displayName;
+            QuestId = questId;
         }
 
         // public void SetState(QuestStateEnum state)

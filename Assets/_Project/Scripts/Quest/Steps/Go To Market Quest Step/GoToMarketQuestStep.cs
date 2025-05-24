@@ -1,8 +1,8 @@
-using UnityEngine;
 using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace ATBMI
+namespace ATBMI.Quest
 {
     public class GoToMarketQuestStep : QuestStep
     {
@@ -16,7 +16,7 @@ namespace ATBMI
 
                 UpdateStepState(QuestStepStatusEnum.Finished);
 
-                Quest quest = QuestManager.Instance.GetQuestById(questId);
+                QuestBase quest = QuestManager.Instance.GetQuestById(questId);
                 FinishQuestStep();
             }
         }
@@ -28,7 +28,7 @@ namespace ATBMI
         
         protected override void SetQuestStepState(string state)
         {
-            this.hasArrivedAtMarket = Convert.ToBoolean(state);
+            hasArrivedAtMarket = Convert.ToBoolean(state);
         
             if (hasArrivedAtMarket)
             {

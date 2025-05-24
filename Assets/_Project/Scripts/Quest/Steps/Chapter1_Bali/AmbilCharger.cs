@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace ATBMI
+namespace ATBMI.Quest
 {
-    public class AmbilLaptop : MonoBehaviour
+    public class AmbilCharger : MonoBehaviour
     {
         // Start is called before the first frame update
         void Start()

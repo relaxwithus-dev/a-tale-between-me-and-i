@@ -1,14 +1,9 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using ATBMI.Gameplay.Event;
-using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
+using ATBMI.Gameplay.Event;
 
-namespace ATBMI
+namespace ATBMI.Quest
 {
     public class QuestLogHandler : MonoBehaviour
     {
@@ -67,7 +62,7 @@ namespace ATBMI
                 HighlightButton(selectedIndex);
 
                 // Ensure quest steps are shown for the first quest
-                Quest selectedQuest = FindQuestById(questLogButtons[selectedIndex].QuestId);
+                QuestBase selectedQuest = FindQuestById(questLogButtons[selectedIndex].QuestId);
                 if (selectedQuest != null)
                 {
                     UpdateQuestSteps(selectedQuest);
@@ -109,7 +104,7 @@ namespace ATBMI
             return questLogButtons[index];
         }
 
-        private void QuestStateChange(Quest quest)
+        private void QuestStateChange(QuestBase quest)
         {
             // add the button to the scrolling list if not already added
             QuestLogButton questLogButton = CreateButtonIfNotExists(quest);
@@ -124,7 +119,7 @@ namespace ATBMI
             UpdateQuestSteps(quest);
         }
 
-        private QuestLogButton CreateButtonIfNotExists(Quest quest)
+        private QuestLogButton CreateButtonIfNotExists(QuestBase quest)
         {
             // Check if the quest already has a button
             QuestLogButton existingButton = questLogButtons.Find(button => button.QuestId == quest.info.QuestId);
@@ -138,7 +133,7 @@ namespace ATBMI
             return InstantiateQuestLogButton(quest);
         }
 
-        private QuestLogButton InstantiateQuestLogButton(Quest quest)
+        private QuestLogButton InstantiateQuestLogButton(QuestBase quest)
         {
             // Instantiate the quest log button
             QuestLogButton questLogButton = Instantiate(questLogButtonPrefab, activeContentParent.transform)
@@ -152,7 +147,7 @@ namespace ATBMI
             return questLogButton;
         }
 
-        private void UpdateTransformParent(QuestLogButton questLogButton, Quest quest)
+        private void UpdateTransformParent(QuestLogButton questLogButton, QuestBase quest)
         {
             Transform targetParent = (quest.state == QuestStateEnum.Finished) ? completedContentParent.transform : activeContentParent.transform;
 
@@ -168,7 +163,7 @@ namespace ATBMI
             }
         }
 
-        public void UpdateQuestSteps(Quest quest)
+        public void UpdateQuestSteps(QuestBase quest)
         {
             int maxSteps = quest.info.questSteps.Length;
             int currentQuestStepIndex = Mathf.Clamp(quest.CurrentQuestStepIndex, 0, maxSteps); // Prevent out-of-bounds
@@ -210,7 +205,7 @@ namespace ATBMI
             }
         }
 
-        private void InstantiateQuestStepLog(Quest quest, int stepIndex)
+        private void InstantiateQuestStepLog(QuestBase quest, int stepIndex)
         {
             GameObject stepObject = Instantiate(questStepLogPrefab, questStepParent);
             QuestStepLog stepLog = stepObject.GetComponent<QuestStepLog>();
@@ -244,14 +239,14 @@ namespace ATBMI
             UpdateScrolling(GetQuestLogButtonAt(selectedIndex)?.GetComponent<RectTransform>());
 
             // Ensure quest steps are updated based on the new selection
-            Quest selectedQuest = FindQuestById(questLogButtons[selectedIndex].QuestId);
+            QuestBase selectedQuest = FindQuestById(questLogButtons[selectedIndex].QuestId);
             if (selectedQuest != null)
             {
                 UpdateQuestSteps(selectedQuest);
             }
         }
 
-        private Quest FindQuestById(int questId)
+        private QuestBase FindQuestById(int questId)
         {
             return QuestManager.Instance.GetQuestById(questId);
         }

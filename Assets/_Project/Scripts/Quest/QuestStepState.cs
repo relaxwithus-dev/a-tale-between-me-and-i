@@ -1,6 +1,8 @@
-namespace ATBMI
+using System;
+
+namespace ATBMI.Quest
 {
-    [System.Serializable]
+    [Serializable]
     public class QuestStepState
     {
         public string state;
@@ -14,8 +16,8 @@ namespace ATBMI
 
         public QuestStepState()
         {
-            this.state = "";
-            this.status = QuestStepStatusEnum.Null;
+            state = "";
+            status = QuestStepStatusEnum.Null;
         }
     }
 }

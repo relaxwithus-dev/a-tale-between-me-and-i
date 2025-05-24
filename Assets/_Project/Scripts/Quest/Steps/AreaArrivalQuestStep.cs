@@ -1,8 +1,8 @@
-using UnityEngine;
 using System;
+using UnityEngine;
 using ATBMI.Scene;
 
-namespace ATBMI
+namespace ATBMI.Quest
 {
     public class AreaArrivalQuestStep : QuestStep
     {

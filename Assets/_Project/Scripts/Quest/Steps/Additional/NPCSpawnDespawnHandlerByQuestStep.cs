@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
+using Sirenix.OdinInspector;
 using ATBMI.Data;
+using ATBMI.Scene;
 using ATBMI.Entities.NPCs;
 using ATBMI.Gameplay.Event;
-using ATBMI.Scene;
-using Sirenix.OdinInspector;
-using UnityEngine;
 
-namespace ATBMI
+namespace ATBMI.Quest
 {
     [Serializable]
     public struct NpcSpawnData
