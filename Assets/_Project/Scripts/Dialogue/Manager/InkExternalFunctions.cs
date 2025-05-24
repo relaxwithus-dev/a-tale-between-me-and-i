@@ -4,6 +4,7 @@ using ATBMI.Inventory;
 using ATBMI.Interaction;
 using ATBMI.Gameplay.Event;
 using ATBMI.Scene.Chapter;
+using ATBMI.Quest;
 using System;
 using UnityEngine;
 
@@ -61,7 +62,7 @@ namespace ATBMI.Dialogue
         {
             if (!int.TryParse(questId, out var id)) return;
 
-            Quest quest = QuestManager.Instance.GetQuestById(id);
+            QuestBase quest = QuestManager.Instance.GetQuestById(id);
 
             if (isStarted)
             {
