@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using Sirenix.OdinInspector;
@@ -13,7 +12,7 @@ namespace ATBMI.Interaction
     public class InteractManager : MonoBehaviour
     {
         #region Fields & Properties
-
+        
         [Header("Properties")] 
         [SerializeField] private bool isInteracted;
         [SerializeField] private bool isRestricted;
@@ -135,7 +134,7 @@ namespace ATBMI.Interaction
             
             yield return new WaitForSeconds(duration);
             InteractEvent.InteractedEvent(interact: false, playerController);
-            item.Interact(this);
+            item.Interact();
         }
         
         private void ActivateSignAt(Transform target)

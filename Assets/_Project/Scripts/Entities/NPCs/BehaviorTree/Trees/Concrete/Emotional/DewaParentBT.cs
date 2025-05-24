@@ -5,6 +5,8 @@ namespace ATBMI.Entities.NPCs
 {
     public class DewaParentBT : EmoTrees
     {
+        [SerializeField] private CharacterAnimation characterAnim;
+        
         protected override Node SetupTree()
         {
             var data = characterAI.Data;
@@ -18,7 +20,7 @@ namespace ATBMI.Entities.NPCs
                     new CheckTargetInZone(centerPoint, zoneDetails[0].Radius, layerMask),
                     new EmotionalSelector("Anticipation", characterTraits, new List<Node>
                     {
-                        new TaskTalk(characterAI, anticipationTexts),
+                        new TaskTalk(characterAI, characterAnim, anticipationTexts),
                         new TaskIdle(characterAI)
                     })
                 })

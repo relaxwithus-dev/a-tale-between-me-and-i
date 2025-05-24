@@ -33,9 +33,9 @@ namespace ATBMI.Entities.NPCs
                             new SequenceWeight("Follow", new List<Node>
                             {
                                 new TaskFollow(characterAI, characterAI.Data, followDuration),
-                                new TaskTalk(characterAI, joyTexts)
+                                new TaskTalk(characterAI, characterAnim, joyTexts, isState: true)
                             }),
-                            new TaskTalk(characterAI, defaultTexts),
+                            new TaskTalk(characterAI, characterAnim, defaultTexts),
                             new TaskObserve(characterAI, characterAnim, zoneDetails[1].Radius),
                             new TaskIdle(characterAI)
                         })

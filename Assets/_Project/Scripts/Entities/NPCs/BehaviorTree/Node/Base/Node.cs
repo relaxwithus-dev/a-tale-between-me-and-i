@@ -7,8 +7,7 @@ namespace ATBMI.Entities.NPCs
         #region Base Fields
         
         protected Node parentNode;
-        // public readonly string nodeName;
-        public string nodeName;
+        public readonly string nodeName;
         protected readonly List<Node> childNodes = new();
         protected int currentChild;
         
@@ -62,7 +61,7 @@ namespace ATBMI.Entities.NPCs
             _dataContext[key] = value;
         }
         
-        public object GetData(string key)
+        protected object GetData(string key)
         {
             if (_dataContext.TryGetValue(key, out var value))
                 return value;
@@ -96,6 +95,8 @@ namespace ATBMI.Entities.NPCs
             }
             return false;
         }
+
+        public void ClearDataContext() => _dataContext.Clear();
         
         #endregion
         
