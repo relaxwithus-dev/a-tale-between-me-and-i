@@ -257,7 +257,7 @@ namespace ATBMI.Quest
         private void QuestStepStateChange(int id, int stepIndex, QuestStepState questStepState)
         {
             QuestBase quest = GetQuestById(id);
-            // quest.StoreQuestStepState(questStepState, stepIndex);
+            quest.StoreQuestStepState(questStepState, stepIndex);
             ChangeQuestState(id, quest.state);
         }
 
@@ -299,8 +299,6 @@ namespace ATBMI.Quest
                 ChangeQuestState(quest.info.QuestId, QuestStateEnum.Can_Start);
 
                 quest.ResetQuestStep();
-                
-                Debug.Log(quest.info.displayName + " " + questData.questStepIndex + " " + questData.state);
             }
             
             DOTween.Kill(uiQuestPanel);
