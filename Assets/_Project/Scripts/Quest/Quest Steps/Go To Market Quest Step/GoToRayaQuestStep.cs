@@ -26,11 +26,11 @@ namespace ATBMI
         {
             ChangeState(hasArrivedAtRaya.ToString(), stepStatus); // TODO: change to new status
         }
-
+        
         protected override void SetQuestStepState(string state)
         {
             this.hasArrivedAtRaya = Convert.ToBoolean(state);
-
+        
             if (hasArrivedAtRaya)
             {
                 UpdateStepState(QuestStepStatusEnum.Finished);

@@ -257,7 +257,7 @@ namespace ATBMI
         private void QuestStepStateChange(int id, int stepIndex, QuestStepState questStepState)
         {
             Quest quest = GetQuestById(id);
-            quest.StoreQuestStepState(questStepState, stepIndex);
+            // quest.StoreQuestStepState(questStepState, stepIndex);
             ChangeQuestState(id, quest.state);
         }
 
@@ -271,24 +271,41 @@ namespace ATBMI
             return quest;
         }
 
-        private void OnApplicationQuit()
+        // private void OnApplicationQuit()
+        // {
+        //     foreach (Quest quest in questDataDict.Values)
+        //     {
+        //         QuestData questData = quest.GetQuestData();
+        //         Debug.Log(quest.info.QuestId + " " + quest.info.displayName);
+        //         Debug.Log("State = " + questData.state);
+        //         Debug.Log("Index = " + questData.questStepIndex);
+        //         foreach (QuestStepState stepState in questData.questStepStates)
+        //         {
+        //             Debug.Log("Step State = " + stepState.state);
+        //         }
+        //
+        //     }
+        // }
+
+        public void ResetQuest()
         {
             foreach (Quest quest in questDataDict.Values)
             {
                 QuestData questData = quest.GetQuestData();
-                Debug.Log(quest.info.QuestId + " " + quest.info.displayName);
-                Debug.Log("State = " + questData.state);
-                Debug.Log("Index = " + questData.questStepIndex);
-                foreach (QuestStepState stepState in questData.questStepStates)
-                {
-                    Debug.Log("Step State = " + stepState.state);
-                }
+                
+                // questData.state = QuestStateEnum.Can_Start;
+                // questData.questStepIndex = 0;
+                
+                ChangeQuestState(quest.info.QuestId, QuestStateEnum.Can_Start);
 
+                quest.ResetQuestStep();
+                
+                Debug.Log(quest.info.displayName + " " + questData.questStepIndex + " " + questData.state);
             }
-        }
-
-        public void ResetQuest()
-        {
+            
+            DOTween.Kill(uiQuestPanel);
+            uiQuestPanel.SetActive(false);
+            
             // Destroy all quest step GameObjects
             foreach (Transform child in transform)
             {

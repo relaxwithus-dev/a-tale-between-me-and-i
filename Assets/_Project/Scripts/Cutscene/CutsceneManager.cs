@@ -29,6 +29,8 @@ namespace ATBMI.Cutscene
         
         private int _currentIndex;
         private Chapters _currentChapter;
+        private Chapters _latestChapter;
+        
         
         public bool IsCutscenePlaying { get; private set; }
         public CutsceneKeys CurrentKeys { get; private set; }
@@ -47,7 +49,7 @@ namespace ATBMI.Cutscene
         public static CutsceneManager Instance;
         
         // Event
-        public static event Action OnCutsceneEnd;
+        public static event Action OnModifyCutscene;
         
         #endregion
         
@@ -65,17 +67,15 @@ namespace ATBMI.Cutscene
             Instance = this;
         }
         
-        private void Start()
-        {
-            InitCutscene(Chapters.Prologue);
-        }
-        
         // Core
         public void InitCutscene(Chapters chapter)
         {
             _currentIndex = 0;
             _currentChapter = chapter;
+            _latestChapter = _currentChapter;
+            
             CurrentKeys = GetStatusDetail(chapter).status[_currentIndex].key;
+            OnModifyCutscene?.Invoke();
         }
         
         private void UpdateCutscenes()
@@ -99,7 +99,7 @@ namespace ATBMI.Cutscene
         public void ExitCutscene()
         {
             UpdateCutscenes();
-            OnCutsceneEnd?.Invoke();
+            OnModifyCutscene?.Invoke();
             IsCutscenePlaying = false;
         }
         public void ResetCutscene()

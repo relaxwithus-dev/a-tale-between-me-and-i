@@ -22,6 +22,8 @@ namespace ATBMI.Scene
             };
         }
     }
+
+    #if UNITY_EDITOR
     
     [CustomEditor(typeof(LocationData))]
     public class LocationDataEditor : Editor 
@@ -61,4 +63,6 @@ namespace ATBMI.Scene
                 EditorUtility.SetDirty(target);
         }
     }
+    
+    #endif
 }

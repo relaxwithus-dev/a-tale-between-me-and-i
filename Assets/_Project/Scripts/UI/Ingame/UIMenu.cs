@@ -1,3 +1,5 @@
+using ATBMI.Cutscene;
+using ATBMI.Dialogue;
 using UnityEngine;
 using ATBMI.Gameplay.Event;
 using ATBMI.Entities.Player;
@@ -18,6 +20,8 @@ namespace ATBMI.UI.Ingame
         
         private void Update()
         {
+            if (DialogueManager.Instance.IsDialoguePlaying || CutsceneManager.Instance.IsCutscenePlaying) return;
+            
             if (GameInputHandler.Instance.IsOpenQuest && !_isMenuActive)
                 OpenMenu(UIMenuTabEnum.Quest);
             else if (GameInputHandler.Instance.IsOpenInventory && !_isMenuActive)
@@ -33,13 +37,13 @@ namespace ATBMI.UI.Ingame
         //TODO: Change it to dynamically call when input for inventory pressed
         private void OpenMenu(UIMenuTabEnum tab)
         {
+            menuUI.SetActive(true);
+            playerController.StopMovement();
+            tabGroup.SelectTabByName(tab);
+            
             UIEvents.OnSelectTabQuestEvent();
             UIEvents.OnSelectTabSettingEvent();
             UIEvents.OnSelectTabInventoryEvent();
-            
-            playerController.StopMovement();
-            tabGroup.SelectTabByName(tab);
-            menuUI.SetActive(true);
             
             _isMenuActive = true;
         }

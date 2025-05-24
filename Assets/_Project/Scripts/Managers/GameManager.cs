@@ -1,9 +1,10 @@
 using UnityEngine;
+using ATBMI.Scene;
 using ATBMI.Cutscene;
 using ATBMI.Inventory;
 using ATBMI.Gameplay.Event;
-using ATBMI.Scene;
 using ATBMI.Scene.Chapter;
+using DG.Tweening;
 
 namespace ATBMI.Managers
 {

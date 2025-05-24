@@ -49,6 +49,11 @@ namespace ATBMI
             currentQuestStepIndex++;
         }
 
+        public void ResetQuestStep()
+        {
+            currentQuestStepIndex = 0;
+        }
+        
         public bool CurrentStepExists()
         {
             return (currentQuestStepIndex < info.questSteps.Length);
@@ -61,7 +66,8 @@ namespace ATBMI
             {
                 QuestStep questStep = Object.Instantiate<GameObject>(questStepPrefab, parentTransform)
                     .GetComponent<QuestStep>();
-                questStep.InitializeQuestStep(info.QuestId, currentQuestStepIndex, questStepStates[currentQuestStepIndex].state, info.questSteps[currentQuestStepIndex].targetScene);
+                questStep.InitializeQuestStep(info.QuestId, currentQuestStepIndex,
+                    questStepStates[currentQuestStepIndex].state, info.questSteps[currentQuestStepIndex].targetScene);
             }
         }
 
@@ -103,7 +109,7 @@ namespace ATBMI
         public string GetFullStatusText()
         {
             string fullStatus = "";
-
+        
             if (state == QuestStateEnum.Can_Start)
             {
                 fullStatus = "This quest can be started!";
@@ -130,7 +136,7 @@ namespace ATBMI
                     fullStatus += "The quest has been completed!";
                 }
             }
-
+        
             return fullStatus;
         }
     }

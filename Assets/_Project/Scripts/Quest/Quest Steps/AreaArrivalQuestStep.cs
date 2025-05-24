@@ -22,7 +22,7 @@ namespace ATBMI
         {
             ChangeState(hasArrived.ToString(), stepStatus);
         }
-
+        
         protected override void SetQuestStepState(string state)
         {
             hasArrived = Convert.ToBoolean(state);

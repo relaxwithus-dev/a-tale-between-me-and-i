@@ -57,12 +57,10 @@ namespace ATBMI.Dialogue
             if (Instance != null)
             {
                 Destroy(gameObject);
+                return;
             }
-            else
-            {
-                Instance = this;
-            }
-
+            
+            Instance = this;
             inkExternalFunctions = new InkExternalFunctions();
         }
 
@@ -213,7 +211,7 @@ namespace ATBMI.Dialogue
             foreach (var letter in line.ToCharArray())
             {
                 yield return null;
-                AudioManager.Instance.PlayAudio(Musics.SFX_Typing);
+                // AudioManager.Instance.PlayAudio(Musics.SFX_Typing);
                 
                 // if player pressed submit button displayed the line immediately
                 if (isSkippedDialogue)

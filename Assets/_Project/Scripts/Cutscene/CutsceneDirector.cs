@@ -20,12 +20,12 @@ namespace ATBMI.Cutscene
         // Unity Callbacks
         private void OnEnable()
         {
-            CutsceneManager.OnCutsceneEnd += ModifyHandlers;
+            CutsceneManager.OnModifyCutscene += ModifyHandlers;
         }
         
         private void OnDisable()
         {
-            CutsceneManager.OnCutsceneEnd -= ModifyHandlers;
+            CutsceneManager.OnModifyCutscene -= ModifyHandlers;
         }
 
         private void Start()

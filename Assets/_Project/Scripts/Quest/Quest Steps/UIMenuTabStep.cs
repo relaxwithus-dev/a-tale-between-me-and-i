@@ -33,11 +33,11 @@ namespace ATBMI
         {
             ChangeState(isCorrectlyOpenedUIMenuTab.ToString(), stepStatus);
         }
-
+        
         protected override void SetQuestStepState(string state)
         {
             isCorrectlyOpenedUIMenuTab = Convert.ToBoolean(state);
-
+        
             UpdateStepState(isCorrectlyOpenedUIMenuTab ? QuestStepStatusEnum.Finished : QuestStepStatusEnum.In_Progress);
         }
     }

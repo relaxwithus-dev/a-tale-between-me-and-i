@@ -24,6 +24,8 @@ namespace ATBMI.Cutscene
         }
     }
     
+    #if UNITY_EDITOR
+    
     [CustomEditor(typeof(CutsceneKeys))]
     public class CutsceneKeysEditor : Editor 
     {
@@ -62,4 +64,6 @@ namespace ATBMI.Cutscene
                 EditorUtility.SetDirty(target);
         }
     }
+    
+    #endif
 }
