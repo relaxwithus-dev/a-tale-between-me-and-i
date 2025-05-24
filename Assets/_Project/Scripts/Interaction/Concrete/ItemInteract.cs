@@ -25,10 +25,10 @@ namespace ATBMI.Interaction
         
         // Core
         public Transform GetSignTransform() => signTransform;
-        public void Interact(InteractManager manager, int itemId = 0)
+        public void Interact(int itemId = 0)
         {
-            Debug.Log($"take item {itemData.ItemName}");
-            InventoryManager.Instance.AddItemToInventory(itemId, this);
+            var itemIdToCollect = itemId == 0 ? itemData.ItemId : itemId;
+            InventoryManager.Instance.AddItemToInventory(itemIdToCollect, this);
         }
     }
 }

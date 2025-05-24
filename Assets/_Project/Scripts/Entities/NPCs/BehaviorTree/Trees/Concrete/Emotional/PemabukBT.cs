@@ -32,7 +32,7 @@ namespace ATBMI.Entities.NPCs
                         new CheckTargetInZone(centerPoint, zoneDetails[1].Radius, layerMask),
                         new EmotionalSelector("Anger", characterTraits, new List<Node>
                         {
-                            new TaskTalk(characterAI, defaultTexts),
+                            new TaskTalk(characterAI, characterAnim, defaultTexts),
                             new TaskIdle(characterAI)
                         })
                     }),
@@ -47,7 +47,7 @@ namespace ATBMI.Entities.NPCs
                                 new CheckDirection(characterAI, isDifferentDir: true),
                                 new TaskMoveToTarget(characterAI, data, isWalk: true),
                                 new TaskPush(characterAI, characterAnim, pushForce, pushDelay),
-                                new TaskTalk(characterAI, angerTexts),
+                                new TaskTalk(characterAI, characterAnim, angerTexts, isState: true),
                                 new TaskMoveToOrigin(characterAI, data, isWalk: true)
                             }),
                             new TaskObserve(characterAI, characterAnim, zoneDetails[1].Radius),
