@@ -48,8 +48,8 @@ namespace ATBMI.Entities.NPCs
                 Debug.Log("Execute Success: TaskObserve");
                 return NodeStatus.Success;
             }
-            
-            _targetPosition = character.transform.position - _currentTarget.transform.position;
+
+            _targetPosition = _currentTarget.transform.position - character.transform.position;
             _targetPosition.Normalize();
             character.LookAt(_targetPosition);
             animation.TrySetAnimationState(OBSERVE_STATE);

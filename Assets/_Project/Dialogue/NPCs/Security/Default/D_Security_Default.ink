@@ -2,7 +2,7 @@ Kamu mahasiswa sini?! #speaker:Satpam #expression:A_Pak_Satpam_Speak
 
 Iya Pak #speaker:Ratna #expression:A_Ratna_Speak #Emoji:A_Emoji_Tears
 
-Mana kartu mahasiswa mu #speaker:Satpam #expression:A_Pak_Satpam_Speak
+Mana kartu mahasiswamu? #speaker:Satpam #expression:A_Pak_Satpam_Speak
 Kok ga dipakai! #speaker:Satpam #expression:A_Pak_Satpam_Angry #Emoji:A_Emoji_Angry
 
 Aduh, lupa pakai #speaker:Ratna #expression:A_Ratna_Speak

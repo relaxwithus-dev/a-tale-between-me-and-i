@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using ATBMI.Dialogue;
+using ATBMI.Gameplay.Event;
 
 namespace ATBMI.Entities.NPCs
 {

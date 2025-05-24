@@ -85,7 +85,7 @@ namespace ATBMI.Entities.NPCs
         private void HoldTarget()
         {
             _isHolding = true;
-            character.LookAt(_pullDirection);
+            character.LookAt(_holdDirection);
             animation.TrySetAnimationState(StateTag.HOLD_STATE);
             
             player.Flip();

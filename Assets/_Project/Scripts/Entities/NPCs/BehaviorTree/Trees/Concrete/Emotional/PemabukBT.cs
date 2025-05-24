@@ -10,7 +10,7 @@ namespace ATBMI.Entities.NPCs
         [SerializeField] private float pushDelay;
         [SerializeField] private float moveStamina;
         [SerializeField] private Transform[] wayPoints;
-        
+
         [Space]
         [SerializeField] private CharacterAnimation characterAnim;
         

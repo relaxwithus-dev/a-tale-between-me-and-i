@@ -167,10 +167,16 @@ MonoBehaviour:
     m_Bits: 64
   characterInteract: {fileID: 7524296102529034592}
   talkRadius: 2.5
+  signPoint: {fileID: 7367514727967589821}
   characterAnim: {fileID: 1503769504184384528}
 --- !u!4 &6755673961492933830 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 819465445805292157, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+  m_PrefabInstance: {fileID: 6241895453110703803}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7367514727967589821 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3504083410098164486, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
   m_PrefabInstance: {fileID: 6241895453110703803}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &7524296102529034592 stripped

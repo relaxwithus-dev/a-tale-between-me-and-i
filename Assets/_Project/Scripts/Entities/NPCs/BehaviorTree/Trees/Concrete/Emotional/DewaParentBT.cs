@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace ATBMI.Entities.NPCs
 {
@@ -7,7 +8,6 @@ namespace ATBMI.Entities.NPCs
         protected override Node SetupTree()
         {
             var data = characterAI.Data;
-            var defaultTexts = data.GetDefaultDialogues();
             var anticipationTexts = data.GetEmotionDialogues(Emotion.Anticipation);
             
             Selector tree = new Selector("Orang Tua Dewa", new List<Node>
