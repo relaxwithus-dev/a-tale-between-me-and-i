@@ -1341,13 +1341,13 @@ MonoBehaviour:
     duration: 3
   arrowForms:
   - name: Arrow Up
-    form: {fileID: 21300000, guid: 5c87c855171374440b9f5e764acc8405, type: 3}
+    form: {fileID: -154378244, guid: 2dcf8112e179006488fa031f06cc6a24, type: 3}
   - name: Arrow Down
-    form: {fileID: 21300000, guid: 0084c7214dabfef43ae4074bc931271f, type: 3}
+    form: {fileID: 619201261, guid: 2dcf8112e179006488fa031f06cc6a24, type: 3}
   - name: Arrow Left
-    form: {fileID: 21300000, guid: 80996362f1ee3994aa816f4fadfc3c87, type: 3}
+    form: {fileID: -906534463, guid: 2dcf8112e179006488fa031f06cc6a24, type: 3}
   - name: Arrow Right
-    form: {fileID: 21300000, guid: 015d34fd8d49fd547a2545a1fd5b10bf, type: 3}
+    form: {fileID: -1899464250, guid: 2dcf8112e179006488fa031f06cc6a24, type: 3}
   arrowImages:
   - {fileID: 2625992896594314486}
   - {fileID: 9005948097517555939}
@@ -3458,7 +3458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec62e47ff82248efa7f35a4127df17c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDebugMode: 0
+  isDebugMode: 1
   minigameType: 0
   minigameViews:
   - {fileID: 8425988741252772075}
