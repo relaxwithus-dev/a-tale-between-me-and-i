@@ -23,6 +23,7 @@ namespace ATBMI.Scene
 
         private AsyncOperation _asyncOperation;
 
+        public bool IsInitiateComplete { get; private set; }
         public Chapters ChapterName { get; set; } = Chapters.None;
         public SceneAsset CurrentScene { get; private set; }
         public SceneAsset LatestScene { get; private set; }
@@ -61,12 +62,13 @@ namespace ATBMI.Scene
         {
             fader.gameObject.SetActive(true);
             fader.DoFade(1f, 0f);
-
+            
             StartCoroutine(LoadSceneAsync(sceneAsset.Reference));
             _asyncOperation.allowSceneActivation = true;
             CurrentScene = sceneAsset;
-
+            
             yield return new WaitForSeconds(fader.FadeDuration);
+            IsInitiateComplete = true;
             fader.FadeIn();
             if (debugMode)
             {
@@ -94,7 +96,7 @@ namespace ATBMI.Scene
                 Debug.LogWarning("scene asset is null!");
                 return;
             }
-
+            
             var sceneTarget = isToMenu ? menuScene : sceneAsset;
             Action modifyGameplayAction = isToMenu
                 ? GameEvents.GameExitEvent
@@ -102,7 +104,7 @@ namespace ATBMI.Scene
 
             StartCoroutine(SwitchRoutine(sceneTarget, modifyGameplayAction));
         }
-
+        
         private IEnumerator SwitchRoutine(SceneAsset sceneAsset, Action onSwitchBegin = null)
         {
             fader.FadeOut();
@@ -124,10 +126,8 @@ namespace ATBMI.Scene
             GameEvents.OnChangeSceneEvent();
 
             UnloadSceneAsync(LatestScene.Reference);
-
-            // fader.FadeIn();
         }
-
+        
         private IEnumerator LoadSceneAsync(SceneReference scene)
         {
             _asyncOperation = SceneManager.LoadSceneAsync(scene, LoadSceneMode.Additive);

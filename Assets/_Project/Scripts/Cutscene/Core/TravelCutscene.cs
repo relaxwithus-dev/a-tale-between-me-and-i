@@ -16,16 +16,17 @@ namespace ATBMI.Cutscene
         
         public override void Execute()
         {
-            var currentScene = SceneNavigation.Instance.CurrentScene;
-            var sceneAsset = currentScene.GetNeighbourById(locationData.location);
-            
-            if (!sceneAsset)
-            {
-                Debug.LogError("target scene not found");
-                return;
-            }
-            
-            SceneNavigation.Instance.SwitchScene(sceneAsset);
+            // var currentScene = SceneNavigation.Instance.CurrentScene;
+            // var sceneAsset = currentScene.GetNeighbourById(locationData.location);
+            //
+            // if (!sceneAsset)
+            // {
+            //     Debug.LogError("target scene not found");
+            //     return;
+            // }
+            //
+            // SceneNavigation.Instance.SwitchScene(sceneAsset);
+            SceneNavigation.Instance.SwitchSceneSection(isToMenu: true);
             isFinishStep = true;
         }
         

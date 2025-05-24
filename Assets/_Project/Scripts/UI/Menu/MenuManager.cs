@@ -1,4 +1,5 @@
 using ATBMI.Audio;
+using ATBMI.Scene;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -35,6 +36,12 @@ namespace ATBMI.UI.Menu
             menuPanelUI.SetActive(true);
             playPanelUI.SetActive(false);
             optionPanelUI.SetActive(false);
+            
+            var navigation = SceneNavigation.Instance;
+            if (navigation.IsInitiateComplete)
+            {
+                navigation.Fader.FadeIn();
+            }
         }
 
         private void InitButton()
