@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
-using ATBMI.Gameplay.Event;
 using UnityEngine;
+using ATBMI.Gameplay.Event;
 
-namespace ATBMI
+namespace ATBMI.Quest
 {
     public class GetItemsStep : QuestStep
     {

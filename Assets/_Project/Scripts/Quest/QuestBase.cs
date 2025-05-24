@@ -1,19 +1,19 @@
 using UnityEngine;
 
-namespace ATBMI
+namespace ATBMI.Quest
 {
-    public class Quest
+    public class QuestBase
     {
         // static info
         public QuestInfoSO info;
         public int CurrentQuestStepIndex => currentQuestStepIndex;
-
+        
         // state info
         public QuestStateEnum state;
         private int currentQuestStepIndex;
         private QuestStepState[] questStepStates;
 
-        public Quest(QuestInfoSO info)
+        public QuestBase(QuestInfoSO info)
         {
             this.info = info;
             state = QuestStateEnum.Can_Start;
@@ -26,7 +26,7 @@ namespace ATBMI
             }
         }
 
-        public Quest(QuestInfoSO info, QuestStateEnum state, int currentQuestStepIndex, QuestStepState[] questStepStates)
+        public QuestBase(QuestInfoSO info, QuestStateEnum state, int currentQuestStepIndex, QuestStepState[] questStepStates)
         {
             this.info = info;
             this.state = state;

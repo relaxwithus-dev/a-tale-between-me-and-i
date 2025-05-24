@@ -1,9 +1,8 @@
-using ATBMI.Gameplay.Event;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
-namespace ATBMI
+namespace ATBMI.Quest
 {
     public class QuestStepLog : MonoBehaviour
     {
@@ -30,8 +29,6 @@ namespace ATBMI
                 case QuestStepStatusEnum.Finished:
                     statusBackground.sprite = CompletedStatusBackground;
                     stepText.fontStyle = FontStyles.Strikethrough;
-                    break;
-                default:
                     break;
             }
         }

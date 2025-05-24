@@ -1,9 +1,7 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace ATBMI
+namespace ATBMI.Quest
 {
     public class GoToRayaQuestStep : QuestStep
     {
@@ -17,7 +15,7 @@ namespace ATBMI
 
                 UpdateStepState(QuestStepStatusEnum.Finished);
 
-                Quest quest = QuestManager.Instance.GetQuestById(questId);
+                QuestBase quest = QuestManager.Instance.GetQuestById(questId);
                 FinishQuestStep();
             }
         }

@@ -30,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: a24c6ebfe27b7ce4c81af992a0623d80, type: 2}
     - target: {fileID: 1177493690341274544, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: isFacingRight
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1177493690341274544, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: characterDirection.x
@@ -252,7 +252,7 @@ MonoBehaviour:
     m_Bits: 64
   characterInteract: {fileID: 3736038964476778030}
   pullForce: 2.3
-  pullDelay: 0.15
+  pullDelay: 0.2
   characterAnim: {fileID: 1503769504184384528}
 --- !u!4 &4557523409864915204 stripped
 Transform:

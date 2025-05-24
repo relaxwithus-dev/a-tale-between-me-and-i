@@ -1,20 +1,20 @@
 using ATBMI.Gameplay.Event;
 using UnityEngine;
 
-namespace ATBMI
+namespace ATBMI.Quest
 {
     public abstract class QuestStep : MonoBehaviour
     {
         protected int questId;
         protected string targetScene;
-        private bool isFinished = false;
-        private int stepIndex;
+        private bool _isFinished;
+        private int _stepIndex;
 
         public void InitializeQuestStep(int questId, int stepIndex, string questStepState, string gameScene)
         {
             this.questId = questId;
-            this.stepIndex = stepIndex;
-            this.targetScene = gameScene;
+            _stepIndex = stepIndex;
+            targetScene = gameScene;
             if (questStepState != null && questStepState != "")
             {
                 SetQuestStepState(questStepState);
@@ -23,9 +23,9 @@ namespace ATBMI
 
         protected void FinishQuestStep()
         {
-            if (!isFinished)
+            if (!_isFinished)
             {
-                isFinished = true;
+                _isFinished = true;
 
                 QuestEvents.AdvanceQuestEvent(questId);
 
@@ -35,7 +35,7 @@ namespace ATBMI
 
         protected void ChangeState(string newState, QuestStepStatusEnum newStatus)
         {
-            QuestEvents.QuestStepStateChangeEvent(questId, stepIndex, new QuestStepState(newState, newStatus));
+            QuestEvents.QuestStepStateChangeEvent(questId, _stepIndex, new QuestStepState(newState, newStatus));
         }
 
         // to set after loading quest step

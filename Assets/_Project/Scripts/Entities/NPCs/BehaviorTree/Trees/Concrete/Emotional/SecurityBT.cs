@@ -8,7 +8,7 @@ namespace ATBMI.Entities.NPCs
         [Header("Attribute")] 
         [SerializeField] private float pullForce;
         [SerializeField] private float pullDelay;
-
+        
         [SerializeField] private CharacterAnimation characterAnim;
         
         protected override Node SetupTree()

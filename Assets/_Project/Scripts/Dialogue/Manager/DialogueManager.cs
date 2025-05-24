@@ -1,14 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-using ATBMI.Audio;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using TMPro;
 using Ink.Runtime;
-using ATBMI.Interaction;
 using ATBMI.Gameplay.Event;
-using ATBMI.Gameplay.Handler;
 using ATBMI.Entities.Player;
+using ATBMI.Gameplay.Handler;
 
 namespace ATBMI.Dialogue
 {
@@ -136,17 +134,17 @@ namespace ATBMI.Dialogue
         public void EnterDialogueMode(TextAsset inkJSON)
         {
             Debug.Log("Dialogue asset = " + inkJSON.name);
-
+            
             currentStory = new Story(inkJSON.text);
             IsDialoguePlaying = true;
             dialoguePin.SetActive(true);
-
+            
             playerController.StopMovement();
             inkExternalFunctions.Bind(currentStory);
-
+            
             ContinueStory();
         }
-
+        
         private void ContinueStory()
         {
             while (currentStory.canContinue)
@@ -240,10 +238,10 @@ namespace ATBMI.Dialogue
                     // canSkip = true;
                 }
             }
-
+            
             continuePin.SetActive(true);
             DisplayChoices();
-
+            
             canContinueToNextLine = true;
             isSkippedDialogue = false;
             isDialogueDisplaying = false;
@@ -256,7 +254,7 @@ namespace ATBMI.Dialogue
                 choice.SetActive(false);
             }
         }
-
+        
         private void DisplayChoices()
         {
             currentChoices.Clear();
@@ -275,7 +273,7 @@ namespace ATBMI.Dialogue
                 isAnyChoices = false;
             }
         }
-
+        
         private void DisplayChoicesWithInput()
         {
             continuePin.SetActive(false);
