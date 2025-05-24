@@ -11,7 +11,7 @@ namespace ATBMI.UI.Menu
         #region Fields & Properties
 
         [Header("Scene")]
-        [SerializeField] private SceneAsset prologueAsset;
+        [SerializeField] private SceneAsset targetSceneAsset;
         
         [Header("UI")] 
         [SerializeField] private GameObject playPanelUI;
@@ -42,7 +42,7 @@ namespace ATBMI.UI.Menu
         {
             AudioEvent.FadeOutAudioEvent();
             AudioManager.Instance.PlayAudio(Musics.SFX_Button);
-            SceneNavigation.Instance.SwitchSceneSection(isToMenu: false, prologueAsset);
+            SceneNavigation.Instance.SwitchSceneSection(isToMenu: false, targetSceneAsset);
         }
 
         #endregion
