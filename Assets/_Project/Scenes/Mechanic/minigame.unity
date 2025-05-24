@@ -4022,10 +4022,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2855397642332324853, guid: f76c9252671eb8443916f79160062908, type: 3}
-      propertyPath: isDebugMode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7655693740931877281, guid: f76c9252671eb8443916f79160062908, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -4110,22 +4106,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MinigameCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 8425988741252772075, guid: f76c9252671eb8443916f79160062908, type: 3}
-      propertyPath: arrowForms.Array.data[0].form
-      value: 
-      objectReference: {fileID: -154378244, guid: 2dcf8112e179006488fa031f06cc6a24, type: 3}
-    - target: {fileID: 8425988741252772075, guid: f76c9252671eb8443916f79160062908, type: 3}
-      propertyPath: arrowForms.Array.data[1].form
-      value: 
-      objectReference: {fileID: 619201261, guid: 2dcf8112e179006488fa031f06cc6a24, type: 3}
-    - target: {fileID: 8425988741252772075, guid: f76c9252671eb8443916f79160062908, type: 3}
-      propertyPath: arrowForms.Array.data[2].form
-      value: 
-      objectReference: {fileID: -906534463, guid: 2dcf8112e179006488fa031f06cc6a24, type: 3}
-    - target: {fileID: 8425988741252772075, guid: f76c9252671eb8443916f79160062908, type: 3}
-      propertyPath: arrowForms.Array.data[3].form
-      value: 
-      objectReference: {fileID: -1899464250, guid: 2dcf8112e179006488fa031f06cc6a24, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

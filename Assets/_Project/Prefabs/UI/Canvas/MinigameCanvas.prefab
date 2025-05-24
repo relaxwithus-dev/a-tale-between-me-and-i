@@ -629,7 +629,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayMinigame: 0
-  closeMinigameDelay: 0.15
+  closeMinigameDelay: 0.2
   minigameManager: {fileID: 2855397642332324853}
   mashMaxValue: 100
   initiateMashValue: 50
@@ -1330,14 +1330,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayMinigame: 0
-  closeMinigameDelay: 0.15
+  closeMinigameDelay: 0.2
   minigameManager: {fileID: 2855397642332324853}
   arrowAttributes:
-  - count: 3
+  - clearTotal: 3
+    count: 3
     duration: 6
-  - count: 4
+  - clearTotal: 2
+    count: 4
     duration: 4
-  - count: 5
+  - clearTotal: 2
+    count: 5
     duration: 3
   arrowForms:
   - name: Arrow Up
@@ -2914,7 +2917,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayMinigame: 0
-  closeMinigameDelay: 0.15
+  closeMinigameDelay: 0.2
   minigameManager: {fileID: 2855397642332324853}
   wrongDelayTime: 1
   timingAttributes:
@@ -3458,7 +3461,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec62e47ff82248efa7f35a4127df17c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDebugMode: 1
+  isDebugMode: 0
   minigameType: 0
   minigameViews:
   - {fileID: 8425988741252772075}

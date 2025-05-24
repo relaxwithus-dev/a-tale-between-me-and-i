@@ -11,7 +11,7 @@ namespace ATBMI.Minigame
         
         [Header("View")]
         [SerializeField] private bool isPlayMinigame;
-        [SerializeField] private float closeMinigameDelay = 0.15f;
+        [SerializeField] protected float closeMinigameDelay = 0.15f;
         [SerializeField] private MinigameManager minigameManager;
         
         protected int playingCount;
