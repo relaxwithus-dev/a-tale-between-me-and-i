@@ -1,5 +1,5 @@
+using System.Collections;
 using System.Collections.Generic;
-using ATBMI.Interaction;
 using UnityEngine;
 
 namespace ATBMI.Entities.NPCs
@@ -8,6 +8,9 @@ namespace ATBMI.Entities.NPCs
     {
         private readonly float holdForce = 0.9f;
         private readonly float holdTime = 0.3f;
+        
+        private bool _isPull;
+        private bool _isDonePull;
         
         private bool _isHolding;
         private float _currentHoldTime;
@@ -36,11 +39,16 @@ namespace ATBMI.Entities.NPCs
         // Core
         protected override NodeStatus PerformForce()
         {
+            if (_isPull)
+                return NodeStatus.Running;
+            
+            if (_isDonePull)
+                return NodeStatus.Success;
+            
             if (_currentHoldTime < holdTime)
             {
                 if (!_isHolding)
                 {
-                    InteractEvent.RestrictedEvent(true);
                     InitiateDirection();
                     HoldTarget();
                 }
@@ -49,7 +57,8 @@ namespace ATBMI.Entities.NPCs
                 return NodeStatus.Running;
             }
             
-            return PullTarget();
+            character.StartCoroutine(PullRoutine());
+            return NodeStatus.Running;
         }
         
         protected override void Reset()
@@ -72,14 +81,16 @@ namespace ATBMI.Entities.NPCs
             _holdDirection.Normalize();
         }
         
-        private NodeStatus PullTarget()
+        private IEnumerator PullRoutine()
         {
+            _isPull = true;
             animation.TrySetAnimationState(StateTag.PULL_STATE);
             player.PlayerRb.AddForce(_pullDirection * force, ForceMode2D.Impulse);
-            player.StartCoroutine(WhenDoneForce());
+            yield return WhenDoneForce();
             
-            InteractEvent.RestrictedEvent(false);
-            return NodeStatus.Success;
+            _isPull = false;
+            _isDonePull = true;
+            animation.TrySetAnimationState(StateTag.IDLE_STATE);
         }
         
         private void HoldTarget()

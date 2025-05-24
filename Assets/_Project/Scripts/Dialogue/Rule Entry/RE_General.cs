@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using ATBMI.Dialogue;
 using UnityEngine;
 
-namespace ATBMI
+namespace ATBMI.Dialogue
 {
     public class RE_General : RuleEntry
     {

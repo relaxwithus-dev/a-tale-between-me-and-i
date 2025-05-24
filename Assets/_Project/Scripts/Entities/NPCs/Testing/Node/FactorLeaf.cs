@@ -6,7 +6,7 @@ namespace ATBMI.Entities.NPCs
 
         public FactorLeaf(NodeType node, EmotionalFactors factors)
         {
-            nodeName = node.ToString();
+            // nodeName = node.ToString();
             this.factors = factors;
             OverrideEmotionFactors(this.factors.GetFactors(node));
         }

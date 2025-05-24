@@ -8,7 +8,6 @@ namespace ATBMI.Entities.NPCs
         [Header("Attribute")] 
         [SerializeField] private float pullForce;
         [SerializeField] private float pullDelay;
-        
         [SerializeField] private CharacterAnimation characterAnim;
         
         protected override Node SetupTree()
@@ -32,9 +31,9 @@ namespace ATBMI.Entities.NPCs
                             {
                                 new CheckPassed(characterAI, zoneDetails[1].Radius),
                                 new TaskPull(characterAI,characterAnim, pullForce, pullDelay),
-                                new TaskTalk(characterAI, angerTexts)
+                                new TaskTalk(characterAI, characterAnim, angerTexts, isState: true)
                             }),
-                            new TaskTalk(characterAI, defaultTexts),
+                            new TaskTalk(characterAI, characterAnim, defaultTexts),
                             new TaskIdle(characterAI)
                         })
                     }),

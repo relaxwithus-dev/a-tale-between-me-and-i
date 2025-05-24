@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ATBMI.Interaction;
 
 namespace ATBMI.Entities.NPCs
 {
@@ -58,7 +57,6 @@ namespace ATBMI.Entities.NPCs
             _isDonePushing = true;
             
             animation.TrySetAnimationState(StateTag.IDLE_STATE);
-            InteractEvent.RestrictedEvent(true);
         }
         
         protected override void Reset()

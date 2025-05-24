@@ -48,6 +48,7 @@ namespace ATBMI.Entities.NPCs
             if (Physics2D.OverlapCircle(centerPoint.position, radius, targetLayer))
                 return false;
             
+            parentNode.ClearDataContext();
             _latestTarget = null;
             return true;
         }

@@ -6,6 +6,6 @@ namespace ATBMI.Interaction
     {
         public bool Validate() { return true; }
         public Transform GetSignTransform();
-        public void Interact(InteractManager manager, int itemId = 0);
+        public void Interact(int itemId = 0);
     }
 }

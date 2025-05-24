@@ -35,7 +35,7 @@ namespace ATBMI.Entities.NPCs
                             {
                                 new CheckDirection(characterAI),
                                 new TaskJumpBack(characterAI, characterAnim, jumpPower, jumpDuration),
-                                new TaskTalk(characterAI, surpriseText)
+                                new TaskTalk(characterAI, characterAnim, surpriseText, isState: true)
                             }),
                             new TaskIdle(characterAI)
                         })
@@ -49,7 +49,7 @@ namespace ATBMI.Entities.NPCs
                             new SequenceWeight("Talk", new List<Node>
                             {
                                 new CheckTargetInArea(centerPoint, talkRadius, layerMask),
-                                new TaskTalk(characterAI, defaultTexts)
+                                new TaskTalk(characterAI, characterAnim, defaultTexts, isState: true)
                             }),
                             new TaskIdle(characterAI)
                         })

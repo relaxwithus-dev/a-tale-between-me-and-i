@@ -64,7 +64,7 @@ namespace ATBMI.Interaction
         }
 
         // TODO: Meet needed, gimana cara cek kalau interacting sudah selesai?
-        public void Interact(InteractManager manager, int itemId = 0)
+        public void Interact(int itemId = 0)
         {
             isInteracting = true;
             InteractObserver.Observe(this);

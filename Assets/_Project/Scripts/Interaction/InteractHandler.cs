@@ -126,10 +126,10 @@ namespace ATBMI.Interaction
             switch (status)
             {
                 case InteractFlagStatus.Interaction:
-                    _interactable.Interact(interactManager);
+                    _interactable.Interact();
                     break;
                 case InteractFlagStatus.Item:
-                    _interactable.Interact(interactManager, data.ItemId);
+                    _interactable.Interact(data.ItemId);
                     break;
             }
             
@@ -154,7 +154,7 @@ namespace ATBMI.Interaction
             yield return new WaitForSeconds(0.05f);
             InteractEvent.InteractedEvent(interact: false, playerController);
         }
-
+        
         private void HandleNavigation()
         {
             if (GameInputHandler.Instance.IsArrowRight)
