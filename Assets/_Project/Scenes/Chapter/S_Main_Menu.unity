@@ -336,6 +336,7 @@ GameObject:
   m_Component:
   - component: {fileID: 755515066}
   - component: {fileID: 755515067}
+  - component: {fileID: 755515068}
   m_Layer: 0
   m_Name: PlayManager
   m_TagString: Untagged
@@ -373,6 +374,21 @@ MonoBehaviour:
   targetSceneAsset: {fileID: 11400000, guid: 79a05091ddeffa64d96ce8ab498fb939, type: 2}
   playPanelUI: {fileID: 508175945}
   saveButtonUI: {fileID: 27762746}
+--- !u!114 &755515068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 755515065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d99ffc041b494f57ba549aded547f525, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetSceneAsset: {fileID: 11400000, guid: c227c25638dfa404f9b785cf52c28206, type: 2}
+  playPanelUI: {fileID: 508175945}
+  saveButtonUI: {fileID: 3223156902961096665}
 --- !u!1 &1026998473
 GameObject:
   m_ObjectHideFlags: 0
@@ -645,6 +661,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7399e5b30a4ca94cba6044cc34d4852, type: 3}
+--- !u!114 &3223156902961096665 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 856815765875409322, guid: f7399e5b30a4ca94cba6044cc34d4852, type: 3}
+  m_PrefabInstance: {fileID: 3223156902961096664}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
