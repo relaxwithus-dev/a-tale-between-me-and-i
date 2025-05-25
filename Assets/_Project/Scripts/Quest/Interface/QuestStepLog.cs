@@ -22,13 +22,13 @@ namespace ATBMI.Quest
         {
             switch (status)
             {
-                case QuestStepStatusEnum.In_Progress:
-                    statusBackground.sprite = incompleteStatusBackground;
-                    stepText.fontStyle = FontStyles.Normal;
-                    break;
                 case QuestStepStatusEnum.Finished:
                     statusBackground.sprite = CompletedStatusBackground;
                     stepText.fontStyle = FontStyles.Strikethrough;
+                    break;
+                default:
+                    statusBackground.sprite = incompleteStatusBackground;
+                    stepText.fontStyle = FontStyles.Normal;
                     break;
             }
         }

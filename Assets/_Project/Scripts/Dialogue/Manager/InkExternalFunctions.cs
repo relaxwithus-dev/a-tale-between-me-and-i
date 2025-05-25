@@ -1,12 +1,11 @@
+using UnityEngine;
 using Ink.Runtime;
+using ATBMI.Quest;
 using ATBMI.Minigame;
 using ATBMI.Inventory;
 using ATBMI.Interaction;
-using ATBMI.Gameplay.Event;
 using ATBMI.Scene.Chapter;
-using ATBMI.Quest;
-using System;
-using UnityEngine;
+using ATBMI.Gameplay.Event;
 
 namespace ATBMI.Dialogue
 {
@@ -72,11 +71,11 @@ namespace ATBMI.Dialogue
             {
                 if (quest.IsNextStepExists())
                 {
-                    if (quest.GetCurrentQuestStepPrefab().TryGetComponent<AreaArrivalQuestStep>(out AreaArrivalQuestStep prefabComponent))
+                    if (quest.GetCurrentQuestStepPrefab().TryGetComponent<AreaArrivalQuestStep>(out var prefabComponent))
                     {
                         foreach (Transform child in QuestManager.Instance.transform)
                         {
-                            if (child.TryGetComponent<AreaArrivalQuestStep>(out AreaArrivalQuestStep instanceComponent))
+                            if (child.TryGetComponent<AreaArrivalQuestStep>(out var instanceComponent))
                             {
                                 // Compare prefab name
                                 if (child.name.StartsWith(prefabComponent.gameObject.name)) // Unity usually adds (Clone)

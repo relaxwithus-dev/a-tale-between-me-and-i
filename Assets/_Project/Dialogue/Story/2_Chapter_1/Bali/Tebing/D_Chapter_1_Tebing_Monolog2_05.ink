@@ -8,7 +8,7 @@ Capek dogén ulian suba nyapuh dini… (Capek juga habis bersih-bersih tempat in
 Nyak ngadengang dini dogén… (Aku istirahat di sana aja deh…) #speaker:Dewa #expression:A_Dewa_Speak
 Ragane tusing lungsur jauh-jauh, né! (Kamu jangan main terlalu jauh, oke?) #speaker:Dewa #expression:A_Dewa_Speak
 
-Woooff! #speaker:Senang #expression:A_Anjing_Senang
+Woooff! #speaker:Anjing #expression:A_Anjing_Senang
 
 Sebentar malih, nyak lakar lungsur saking tempat ki... (Sebentar lagi aku akan meninggalkan tempat ini…) #speaker:Dewa #expression:A_Dewa_Speak
 Tempat ini... #speaker:Dewa #expression:A_Dewa_Speak
@@ -31,12 +31,12 @@ Siapa "Dia"? #speaker:Dewa #expression:A_Dewa_Speak
 Yang ada di kepalaku cuma... "Dia"? #speaker:Dewa #expression:A_Dewa_Speak
 Kenapa aku tiba tiba lupa?! #speaker:Dewa #expression:A_Dewa_Panik
 
-Wooff.. Woof.. #speaker:Senang #expression:A_Anjing_Speak
+Wooff.. Woof.. #speaker:Anjing #expression:A_Anjing_Speak
 
 Ada apa? #speaker:Dewa #expression:A_Dewa_Speak
 Oh iya, aku harus balik buat makan siang.. #speaker:Dewa #expression:A_Dewa_Speak
 Semoga Meme udah ga marah #speaker:Dewa #expression:A_Dewa_Speak
 
-Woof.. Woof.. #speaker:Senang #expression:A_Anjing_Speak
+Woof.. Woof.. #speaker:Anjing #expression:A_Anjing_Speak
 
 -> END

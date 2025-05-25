@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 3808300153816102766}
   - component: {fileID: 729776787313216441}
   - component: {fileID: 4841988271115003120}
+  - component: {fileID: 8032834415710809474}
+  - component: {fileID: 5993574968604860572}
   m_Layer: 5
   m_Name: Quest Step Log
   m_TagString: Untagged
@@ -53,8 +55,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stepText: {fileID: 707433944605482694}
   statusBackground: {fileID: 4841988271115003120}
-  incompleteStatusBackground: {fileID: 1500538096, guid: 7302c14ba9cd1b94b9e39a7f4cff3c5a, type: 3}
-  CompletedStatusBackground: {fileID: -42342340, guid: 7302c14ba9cd1b94b9e39a7f4cff3c5a, type: 3}
+  incompleteStatusBackground: {fileID: -42342340, guid: 7302c14ba9cd1b94b9e39a7f4cff3c5a, type: 3}
+  CompletedStatusBackground: {fileID: 1500538096, guid: 7302c14ba9cd1b94b9e39a7f4cff3c5a, type: 3}
 --- !u!222 &729776787313216441
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -93,6 +95,52 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8032834415710809474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4184759957665355617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 5
+    m_Right: 0
+    m_Top: 5
+    m_Bottom: 5
+  m_ChildAlignment: 4
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 1
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
+--- !u!114 &5993574968604860572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4184759957665355617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: 18
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!1 &5534176496722335889
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,9 +174,9 @@ RectTransform:
   m_Father: {fileID: 3520676903945662092}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 3.0098038, y: 0.056098938}
-  m_SizeDelta: {x: -19.7507, y: -6.0644}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 137.2489, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6977885127852955350
 CanvasRenderer:

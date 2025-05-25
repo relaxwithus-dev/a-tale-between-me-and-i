@@ -48,15 +48,15 @@ namespace ATBMI.Inventory
         //     if (Input.GetKeyDown(KeyCode.C))
         //     {
         //         AddItemToInventory(1);
-        //         // AddItemToInventory(2);
-        //         // AddItemToInventory(3);
+        //         AddItemToInventory(2);
+        //         AddItemToInventory(3);
         //     }
-        //
+        
         //     if (Input.GetKeyDown(KeyCode.V))
         //     {
         //         AddItemToInventory(4);
-        //         // AddItemToInventory(5);
-        //         // AddItemToInventory(6);
+        //         AddItemToInventory(5);
+        //         AddItemToInventory(6);
         //     }
         // }
 

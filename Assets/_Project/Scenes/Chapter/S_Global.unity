@@ -316,8 +316,8 @@ MonoBehaviour:
     sfx: 1
     source: {fileID: 0}
   - name: SFX_Typing
-    clip: {fileID: 8300000, guid: 754caf4443fb4c248b0181abf3b0be36, type: 3}
-    priority: 215
+    clip: {fileID: 8300000, guid: 7d8e5edcbbd1a3b4593ae275c897c6af, type: 3}
+    priority: 200
     volume: 0.5
     pitch: 1
     loop: 0
@@ -2050,6 +2050,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2142077936193223549, guid: 486f5daed683891468edd06c30f627a7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3968352263372225684, guid: 486f5daed683891468edd06c30f627a7, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2073,6 +2077,10 @@ PrefabInstance:
     - target: {fileID: 3968352263372225684, guid: 486f5daed683891468edd06c30f627a7, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5559354888332400230, guid: 486f5daed683891468edd06c30f627a7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5657666527521785271, guid: 486f5daed683891468edd06c30f627a7, type: 3}
       propertyPath: m_SizeDelta.x

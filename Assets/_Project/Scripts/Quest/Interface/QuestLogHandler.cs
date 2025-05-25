@@ -2,12 +2,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using ATBMI.Gameplay.Event;
+using UnityEngine.UI;
 
 namespace ATBMI.Quest
 {
     public class QuestLogHandler : MonoBehaviour
     {
         [Header("Components")]
+        [SerializeField] private VerticalLayoutGroup contentButton;
         [SerializeField] private GameObject activeContentParent;
         [SerializeField] private GameObject completedContentParent;
         [SerializeField] private Transform questStepParent;
@@ -58,6 +60,8 @@ namespace ATBMI.Quest
         {
             if (questLogButtons.Count > 0)
             {
+                // contentButton.enabled = false;
+
                 selectedIndex = 0;
                 HighlightButton(selectedIndex);
 
