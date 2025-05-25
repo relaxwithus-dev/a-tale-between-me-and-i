@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using ATBMI.Core;
+using ATBMI.Dialogue;
 
 namespace ATBMI.Cutscene
 {
@@ -11,6 +12,7 @@ namespace ATBMI.Cutscene
         #region Method
         
         [Header("Attribute")]
+        [SerializeField] private bool hasConditionToPlay;
         [SerializeField] private float transitionTime;
         [SerializeField] private CutsceneKeys cutsceneKey;
         [SerializeField] private List<Cutscene> cutsceneSteps;
@@ -22,6 +24,11 @@ namespace ATBMI.Cutscene
         
         private Cutscene _currentCutscene;
         public CutsceneKeys CutsceneKey => cutsceneKey;
+        public bool HasConditionToPlay
+        {
+            get => hasConditionToPlay;
+            set => hasConditionToPlay = value;
+        }
         
         // Reference
         private BoxCollider2D _boxCollider2D;
@@ -51,6 +58,9 @@ namespace ATBMI.Cutscene
         
         private void OnTriggerEnter2D(Collider2D other)
         {
+            if (DialogueManager.Instance.IsDialoguePlaying)
+                return;
+            
             if (other.CompareTag(GameTag.PLAYER_TAG))
             {
                 _isPlaying = true;
@@ -76,7 +86,7 @@ namespace ATBMI.Cutscene
                 step.gameObject.SetActive(isActive);
             }
         }
-
+        
         private void SetupCollider(bool isEnable)
         {
             _boxCollider2D.enabled = isEnable;
@@ -84,6 +94,13 @@ namespace ATBMI.Cutscene
         }
         
         // Core
+        public void EnterDirectCutscene()
+        {
+            _isPlaying = true;
+            SetupCollider(isEnable: false);
+            CutsceneDirector.EnterCutscene(this);
+        }
+        
         private void HandleCutsceneFlow()
         {
             // Execute step

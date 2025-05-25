@@ -58,7 +58,7 @@ namespace ATBMI.Cutscene
             var key = CutsceneManager.Instance.CurrentKeys;
             foreach (var handler in cutsceneHandlers)
             {
-                var isActiveCutscene = key && handler.CutsceneKey.id == key.id;
+                var isActiveCutscene = key && handler.CutsceneKey.id == key.id && !handler.HasConditionToPlay;
                 
                 handler.CutsceneDirector ??= this;
                 handler.gameObject.SetActive(isActiveCutscene);

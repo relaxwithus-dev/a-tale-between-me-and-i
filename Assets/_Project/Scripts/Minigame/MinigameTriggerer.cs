@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using ATBMI.Core;
+using ATBMI.Dialogue;
 using ATBMI.Gameplay.Handler;
 
 namespace ATBMI.Minigame
@@ -9,10 +10,11 @@ namespace ATBMI.Minigame
     public class MinigameTriggerer : MonoBehaviour
     {
         #region Fields & Properties
-        
+
         [Header("Attribute")] 
-        [SerializeField] private MinigameManager minigameManager;
+        [SerializeField] private bool isActivateEarly;
         [SerializeField] private TextMeshProUGUI infoTextUI;
+        [SerializeField] private MinigameManager minigameManager;
         
         private bool _canPlayMinigame;
         
@@ -24,43 +26,96 @@ namespace ATBMI.Minigame
         #region Methods
 
         // Unity Callbacks
+        private void OnEnable()
+        {
+            MinigameEvents.OnActivateTrigger += ActivateTrigger;
+            MinigameEvents.OnWinMinigame += DeactivateTrigger;
+        }
+
+        private void OnDisable()
+        {
+            MinigameEvents.OnActivateTrigger -= ActivateTrigger;
+            MinigameEvents.OnWinMinigame -= DeactivateTrigger;
+        }
+        
         private void Start()
-        { 
-            infoTextUI.gameObject.SetActive(false);
-                
-            _collider2D = GetComponent<Collider2D>();
-            _collider2D.isTrigger = true;
-            _collider2D.enabled = true;
+        {
+            InitTriggerer();
         }
         
         private void Update()
         {
             if (!_canPlayMinigame) return;
+            
+            if (DialogueManager.Instance.IsDialoguePlaying || minigameManager.IsPlayingMinigame)
+                DisableTravel();
+            
             if (GameInputHandler.Instance.IsTapInteract)
             {
                 _canPlayMinigame = false;
                 
                 infoTextUI.gameObject.SetActive(false);
-                MinigameManager.EnterMinigameEvent();
+                MinigameEvents.EnterMinigameEvent();
             }
         }
         
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.CompareTag(GameTag.PLAYER_TAG))
+            if (!isActivateEarly)
+                return;
+                
+            if (other.CompareTag(GameTag.PLAYER_TAG) && isActivateEarly)
             {
-                _canPlayMinigame = true;
-                infoTextUI.gameObject.SetActive(true);
+                EnableTravel();
             }
         }
         
         private void OnTriggerExit2D(Collider2D other)
         {
+            if (!isActivateEarly)
+                return;
+            
             if (other.CompareTag(GameTag.PLAYER_TAG))
             {
-                _canPlayMinigame = false;
-                infoTextUI.gameObject.SetActive(false);
+                DisableTravel();
             }
+        }
+        
+        // Initialize
+        private void InitTriggerer()
+        {
+            _collider2D = GetComponent<Collider2D>();
+            _collider2D.isTrigger = true;
+            _collider2D.enabled = true;
+            
+            infoTextUI.gameObject.SetActive(false);
+            gameObject.SetActive(true);
+        }
+
+        private void ActivateTrigger()
+        {
+            InitTriggerer();
+            isActivateEarly = true;
+        }
+
+        private void DeactivateTrigger()
+        {
+            isActivateEarly = false;
+            _collider2D.enabled = false;
+            gameObject.SetActive(false);
+        }
+        
+        // Helpers
+        private void EnableTravel()
+        {
+            _canPlayMinigame = true;
+            infoTextUI.gameObject.SetActive(true);
+        }
+        
+        private void DisableTravel()
+        {
+            _canPlayMinigame = false;
+            infoTextUI.gameObject.SetActive(false);
         }
         
         #endregion

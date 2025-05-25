@@ -86,8 +86,7 @@ namespace ATBMI.Minigame
                 {
                     playingCount = Mathf.Clamp(playingCount + 1, 0, timingAttributes.Length - 1);
                     _timingController.StopTimingBar();
-                    Debug.Log("clearring timing bar...");
-                    ExitMinigame();
+                    ExitMinigame(isWinning: true);
                 }
                 else
                 {
@@ -126,7 +125,7 @@ namespace ATBMI.Minigame
             if (timeSliderUI.value <= MIN_SLIDER_VALUE)
             {
                 timeSliderUI.value = MIN_SLIDER_VALUE;
-                ExitMinigame();
+                ExitMinigame(isWinning: false);
             }
         }
         

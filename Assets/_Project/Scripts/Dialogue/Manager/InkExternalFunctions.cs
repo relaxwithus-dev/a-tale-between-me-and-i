@@ -23,9 +23,10 @@ namespace ATBMI.Dialogue
             story.BindExternalFunction("AdvancedQuest", (string questId) => AdvancedQuest(questId));
             story.BindExternalFunction("FinishQuest", (string questId) => FinishQuest(questId)); // ensure the shouldBeFinishManually field on questinfoSO checked
             story.BindExternalFunction("EnterMinigame", EnterMinigame);
+            story.BindExternalFunction("ActivateMinigameTrigger", ActivateMinigameTrigger);
             story.BindExternalFunction("UpdateStoryChapter", (string chapter) => UpdateStoryChapter(chapter));
         }
-
+        
         public void Unbind(Story story)
         {
             story.UnbindExternalFunction("AddItem");
@@ -34,9 +35,15 @@ namespace ATBMI.Dialogue
             story.UnbindExternalFunction("AdvancedQuest");
             story.UnbindExternalFunction("FinishQuest");
             story.UnbindExternalFunction("EnterMinigame");
+            story.UnbindExternalFunction("ActivateMinigameTrigger");
             story.UnbindExternalFunction("UpdateStoryChapter");
         }
 
+        public void ChangeScene(string sceneId)
+        {
+            
+        }
+        
         public void AddItem(string itemId) => UpdateItem(itemId, isAdding: true);
         public void RemoveItem(string itemId) => UpdateItem(itemId, isAdding: false);
 
@@ -92,9 +99,9 @@ namespace ATBMI.Dialogue
                 }
             }
         }
-
-        public void EnterMinigame() => MinigameManager.EnterMinigameEvent();
+        
+        public void EnterMinigame() => MinigameEvents.EnterMinigameEvent();
+        public void ActivateMinigameTrigger() => MinigameEvents.ActivateTriggerEvent();
         public void UpdateStoryChapter(string chapter) => ChapterViewer.Instance.UpdateChapter(chapter);
-
     }
 }

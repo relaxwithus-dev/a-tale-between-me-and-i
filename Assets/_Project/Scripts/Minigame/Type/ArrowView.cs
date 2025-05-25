@@ -124,7 +124,7 @@ namespace ATBMI.Minigame
             if (_currentClearCount >= _attribute.clearTotal)
             {
                 playingCount = Mathf.Clamp(playingCount + 1, 0, arrowAttributes.Length - 1);
-                ExitMinigame();
+                ExitMinigame(isWinning: true);
             }
         }
         
@@ -163,7 +163,7 @@ namespace ATBMI.Minigame
             if (timeSliderUI.value <= MIN_SLIDER_VALUE)
             {
                 timeSliderUI.value = MIN_SLIDER_VALUE;
-                ExitMinigame();
+                ExitMinigame(isWinning: false);
             }
         }
         
