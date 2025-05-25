@@ -44,7 +44,7 @@ namespace ATBMI.Inventory
             UIEvents.OnSelectTabInventory += OpenInventoryMenu;
             UIEvents.OnDeselectTabInventory += CloseInventoryMenu;
 
-            navigateAction.action.performed += OnNavigate;
+            // navigateAction.action.performed += OnNavigate;
         }
 
         private void OnDisable()
@@ -52,7 +52,19 @@ namespace ATBMI.Inventory
             UIEvents.OnSelectTabInventory -= OpenInventoryMenu;
             UIEvents.OnDeselectTabInventory -= CloseInventoryMenu;
 
-            navigateAction.action.performed -= OnNavigate;
+            // navigateAction.action.performed -= OnNavigate;
+        }
+
+        private void Update()
+        {
+            if (GameInputHandler.Instance.IsArrowDown)
+            {
+                Navigate(-1);
+            }
+            else if (GameInputHandler.Instance.IsArrowUp)
+            {
+                Navigate(1);
+            }
         }
 
         private void OpenInventoryMenu()
@@ -112,19 +124,19 @@ namespace ATBMI.Inventory
             flag.FlagNameText.text = flagName;
         }
 
-        private void OnNavigate(InputAction.CallbackContext context)
-        {
-            Vector2 input = context.ReadValue<Vector2>();
+        // private void OnNavigate(InputAction.CallbackContext context)
+        // {
+        //     Vector2 input = context.ReadValue<Vector2>();
 
-            if (input.y > 0.5f) // Up
-            {
-                Navigate(-1);
-            }
-            else if (input.y < -0.5f) // Down
-            {
-                Navigate(1);
-            }
-        }
+        //     if (input.y > 0.5f) // Up
+        //     {
+
+        //     }
+        //     else if (input.y < -0.5f) // Down
+        //     {
+        //         Navigate(1);
+        //     }
+        // }
 
         private void Navigate(int direction)
         {

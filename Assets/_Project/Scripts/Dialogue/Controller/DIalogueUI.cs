@@ -7,6 +7,7 @@ public class DialogueUI : MonoBehaviour
 {
     [SerializeField] private RectTransform parentRectTransform;
     [SerializeField] private int characterLimit;
+    [SerializeField] private float horizontalOffset = 40f;
 
     private Dictionary<string, List<Transform>> npcTargets = new(); // cache the npc tip target for each npcs
     private LayoutElement layoutElement;
@@ -112,7 +113,6 @@ public class DialogueUI : MonoBehaviour
         if (screenPosition != null && pinPosition != null)
         {
             parentRectTransform.position = Camera.main.WorldToScreenPoint(pinPosition.position);
-            // Debug.Log(pinPosition.position);
         }
 
         if (updateCounter <= 0)
@@ -126,23 +126,18 @@ public class DialogueUI : MonoBehaviour
         // clamp right side
         if (corners[2].x >= Screen.width)
         {
-            // Calculate the difference between the right edge and the screen width
             difference = corners[2].x - Screen.width;
-
-            // Move the RectTransform left by the difference amount
-            rectTransform.position = new Vector3(rectTransform.position.x - difference, rectTransform.position.y, rectTransform.position.z);
+            rectTransform.position = new Vector3(rectTransform.position.x - difference - horizontalOffset, rectTransform.position.y, rectTransform.position.z);
         }
-        if (corners[0].x < 0)
+        else if (corners[0].x < 0)
         {
-            // Calculate the difference between the left edge and the screen width
             difference = 0 - corners[0].x;
-
-            // Move the RectTransform left by the difference amount
-            rectTransform.position = new Vector3(rectTransform.position.x + difference, rectTransform.position.y, rectTransform.position.z);
+            rectTransform.position = new Vector3(rectTransform.position.x + difference + horizontalOffset, rectTransform.position.y, rectTransform.position.z);
         }
 
         updateCounter--;
     }
+
 
     private void OnDestroy()
     {

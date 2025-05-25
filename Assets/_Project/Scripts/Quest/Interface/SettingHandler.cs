@@ -145,7 +145,7 @@ namespace ATBMI.Quest
                 UpdateAllOptions();
             }
 
-            if (GameInputHandler.Instance.IsTapSubmit && optionOrder[currentSelectionIndex] == InGameSettingEnum.Exit)
+            if ((GameInputHandler.Instance.IsTapSelect || GameInputHandler.Instance.IsTapSubmit) && optionOrder[currentSelectionIndex] == InGameSettingEnum.Exit)
             {
                 uiMenu.CloseMenu();
                 GameEvents.GameExitEvent();
