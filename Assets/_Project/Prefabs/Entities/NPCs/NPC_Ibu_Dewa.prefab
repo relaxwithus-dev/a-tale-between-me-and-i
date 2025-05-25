@@ -18,11 +18,11 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: a8692685c00942049be9b11061c175b9, type: 2}
     - target: {fileID: 1177493690341274544, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: isFacingRight
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1177493690341274544, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: characterDirection.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3271371676049430528, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: baseEmotion
@@ -86,7 +86,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7858659317861269129, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10
+      value: 9.85
       objectReference: {fileID: 0}
     - target: {fileID: 7858659317861269129, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_LocalPosition.y

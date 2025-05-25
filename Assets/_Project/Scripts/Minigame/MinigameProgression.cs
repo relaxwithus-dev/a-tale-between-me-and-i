@@ -51,7 +51,7 @@ namespace ATBMI.Minigame
             _isWinning = true;
         }
         private void LoseMinigame() => DialogueManager.Instance.EnterDialogueMode(textAssets[1]);
-
+        
         private void EnterProgression()
         {
             if (!_isWinning) return;

@@ -178,7 +178,7 @@ namespace ATBMI.Dialogue
                 DisplayChoicesWithInput();
             }
         }
-
+        
         private IEnumerator DisplayLine(string line)
         {
             // if (string.IsNullOrWhiteSpace(line))

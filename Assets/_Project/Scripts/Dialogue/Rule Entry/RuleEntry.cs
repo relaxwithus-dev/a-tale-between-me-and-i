@@ -41,7 +41,7 @@ namespace ATBMI.Dialogue
             DialogueEvents.OnExitDialogue += ExitDialogue;
             DialogueEvents.PlayerRun += IsPlayerRun;
         }
-
+        
         private void OnDisable()
         {
             DialogueEvents.OnEnterDialogue -= OnEnterDialogue;
@@ -49,24 +49,22 @@ namespace ATBMI.Dialogue
             DialogueEvents.OnExitDialogue -= ExitDialogue;
             DialogueEvents.PlayerRun -= IsPlayerRun;
         }
-
+        
         public virtual void InitializeRuleEntry()
         {
             isPlayerInRange = false;
             isDialogueAboutToStart = false;
         }
-
+        
         public void ExitDialogue()
         {
             isExecuted = false;
         }
-
+        
         public void EnterDialogueWithInkJson(TextAsset InkJson)
         {
             DialogueManager.Instance.EnterDialogueMode(InkJson);
-
             isDialogueAboutToStart = false;
-
             isExecuted = true;
         }
 
@@ -77,7 +75,7 @@ namespace ATBMI.Dialogue
                 EnterDialogue(this, itemDialogue);
             }
         }
-
+        
         public void EnterDialogue(RuleEntry ruleEntry, TextAsset dialogue)
         {
             if (!isDialogueAboutToStart)

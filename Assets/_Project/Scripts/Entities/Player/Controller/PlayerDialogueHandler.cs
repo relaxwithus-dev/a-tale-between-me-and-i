@@ -37,14 +37,14 @@ namespace ATBMI.Entities.Player
             DialogueEvents.RegisterDialogueSignPoint -= RegisterDialogueSignPoint;
             PlayerEvents.OnMoveToPlayer -= MoveToDialogueEntryPoint;
         }
-
+        
         // Core
         private void RegisterDialogueSignPoint()
         {
             DialogueEvents.RegisterNPCTipTargetEvent(_playerController.Data.name, signTransform);
             DialogueEvents.RegisterNPCEmojiTargetEvent(_playerController.Data.name, emojiTransform);
         }
-
+        
         private void MoveToDialogueEntryPoint(RuleEntry rule, TextAsset ink, float newPositionX, float npcPosX, bool isNpcFacingRight)
         {
             _playerInkJson = ink;
@@ -111,7 +111,7 @@ namespace ATBMI.Entities.Player
 
             // Determine if the NPC should flip
             bool shouldFlip = false;
-
+            
             if (isPlayerStationary)
             {
                 // If the player is stationary, the NPC should face the player

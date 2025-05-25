@@ -111,6 +111,7 @@ namespace ATBMI.Scene
             yield return new WaitForSeconds(fader.FadeDuration);
 
             onSwitchBegin?.Invoke();
+            DialogueEvents.UnregisterDialogueEmojiEvent();
             DialogueEvents.UnregisterDialogueSignPointEvent();
             QuestEvents.UnregisterNPCsThatHandledByQuestStepEvent();
 

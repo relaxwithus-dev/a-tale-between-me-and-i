@@ -12,7 +12,7 @@ Aku bingung #speaker:Dewa #expression:A_Dewa_Speak
 ... #speaker:Dewa
 Kalau dipikir pikir, udah dari kapan aku mimpi ini #speaker:Dewa #expression:A_Dewa_Speak
 Kayaknya... Pas habis lulus SMA #speaker:Dewa #expression:A_Dewa_Speak
-... #speaker:Dew
+... #speaker:Dewa
 Yaudah deh #speaker:Dewa #expression:A_Dewa_Speak
 Palingan bentar lagi mimpi ini bakal selesai #speaker:Dewa #expression:A_Dewa_Speak
 Aku bakal nunggu di sini saja #speaker:Dewa #expression:A_Dewa_Speak

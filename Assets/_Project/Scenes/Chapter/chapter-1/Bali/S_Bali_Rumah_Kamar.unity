@@ -171,6 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a14c0d1e7c747bdb5f1db76389e5bed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasConditionToPlay: 0
   transitionTime: 0.5
   cutsceneKey: {fileID: 11400000, guid: 18f4e330c1fd52240ab70aba69178800, type: 2}
   cutsceneSteps:
@@ -266,6 +267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d151b877e7a4adc9659857f510cf629, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTravelToMenu: 0
   locationData: {fileID: 11400000, guid: 7c28532a8ebaaac45b59a0d2288919cb, type: 2}
 --- !u!1001 &354352515
 PrefabInstance:
@@ -832,6 +834,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a14c0d1e7c747bdb5f1db76389e5bed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasConditionToPlay: 0
   transitionTime: 0.5
   cutsceneKey: {fileID: 11400000, guid: 3136d300ca20f1b4087135a244d1d46d, type: 2}
   cutsceneSteps:
@@ -1089,7 +1092,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1943416215}
   m_Father: {fileID: 454383186}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &729119752
@@ -2142,6 +2146,72 @@ Transform:
   - {fileID: 1858772571}
   m_Father: {fileID: 454383186}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1943416214
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 729101057}
+    m_Modifications:
+    - target: {fileID: 4291996230028175410, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291996230028175410, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291996230028175410, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291996230028175410, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291996230028175410, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291996230028175410, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291996230028175410, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291996230028175410, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291996230028175410, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291996230028175410, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6178640880139922672, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
+      propertyPath: m_Name
+      value: NPC_Ibu_Dewa
+      objectReference: {fileID: 0}
+    - target: {fileID: 6178640880139922672, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
+--- !u!4 &1943416215 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4291996230028175410, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
+  m_PrefabInstance: {fileID: 1943416214}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &698141772246235446
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2216,6 +2286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a14c0d1e7c747bdb5f1db76389e5bed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasConditionToPlay: 0
   transitionTime: 0.5
   cutsceneKey: {fileID: 11400000, guid: a856dfc0f8557d2459e77870919ce4f3, type: 2}
   cutsceneSteps:

@@ -13,7 +13,7 @@ Tapi ragane dogén ngomong "5 menit malih, 5 menit malih"! (Tapi kamu selalu bil
 Lungaang keto jam ne di dingding! (Lihatlah jam di dinding itu!) #speaker:Ibu Dewa #expression:A_Ibu_Dewa_Speak
 Jani suba liwat 5 jam! (Sekarang sudah lewat 5 jam!) #speaker:Ibu Dewa #expression:A_Ibu_Dewa_Speak #Emoji:A_Emoji_Angry
 
-Ma-maaf, Me... (Ma-maaf, Ma…) #speaker:Dewa #expression:A_Dewa_Sedih
+Ma-maaf, Me... (Ma-maaf, Ma…) #speaker:Dewa #expression:A_Dewa_Speak
 
 Becik… Meme nyupat ragane! (Yasudah, Mama maafkan kamu!) #speaker:Ibu Dewa #expression:A_Ibu_Dewa_Speak
 Tapi keto, sarapanne suba adem (Tapi cepat, sarapannya sudah dingin) #speaker:Ibu Dewa #expression:A_Ibu_Dewa_Agree

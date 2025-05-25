@@ -133,7 +133,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4291996230028175410, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10
+      value: 9.85
       objectReference: {fileID: 0}
     - target: {fileID: 4291996230028175410, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -174,10 +174,6 @@ PrefabInstance:
     - target: {fileID: 6178640880139922672, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
       propertyPath: m_Name
       value: Ibu_Dewa_Rumah
-      objectReference: {fileID: 0}
-    - target: {fileID: 6478594235226817692, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1628,6 +1624,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a14c0d1e7c747bdb5f1db76389e5bed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasConditionToPlay: 0
   transitionTime: 0.5
   cutsceneKey: {fileID: 11400000, guid: d4b4b1712e00a474dbb8fe4354337d6d, type: 2}
   cutsceneSteps:

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using ATBMI.Gameplay.Event;
 using UnityEngine;
+using ATBMI.Gameplay.Event;
 
 namespace ATBMI
 {
@@ -17,6 +17,7 @@ namespace ATBMI
         private void OnEnable()
         {
             DialogueEvents.RegisterNPCEmojiTarget += RegisterNPCEmojiTarget;
+            DialogueEvents.UnregisterDialogueEmojiPoint += UnregisterNPCEmojiTarget;
             DialogueEvents.UpdateDialogueEmojiPos += UpdateDialogueEmojiPos;
             DialogueEvents.PlayEmojiAnim += PlayEmojiAnim;
         }
@@ -24,6 +25,7 @@ namespace ATBMI
         private void OnDisable()
         {
             DialogueEvents.RegisterNPCEmojiTarget -= RegisterNPCEmojiTarget;
+            DialogueEvents.UnregisterDialogueEmojiPoint -= UnregisterNPCEmojiTarget;
             DialogueEvents.UpdateDialogueEmojiPos -= UpdateDialogueEmojiPos;
             DialogueEvents.PlayEmojiAnim -= PlayEmojiAnim;
         }
@@ -48,10 +50,15 @@ namespace ATBMI
                 npcEmojiTargets[npcName] = emojiTarget;
             }
         }
+        
+        private void UnregisterNPCEmojiTarget()
+        {
+            npcEmojiTargets.Clear();
+        }
 
         private void UpdateDialogueEmojiPos(string tagValue)
         {
-            if (npcEmojiTargets.TryGetValue(tagValue, out Transform targetPos))
+            if (npcEmojiTargets.TryGetValue(tagValue, out var targetPos))
             {
                 emojiPos = targetPos;
                 screenPosition = Camera.main.WorldToScreenPoint(targetPos.position);
@@ -62,7 +69,7 @@ namespace ATBMI
                 Debug.LogError("NPC " + tagValue + " not found in registered targets!");
             }
         }
-
+        
         private void PlayEmojiAnim(string emojiName)
         {
             anim.gameObject.SetActive(true);
