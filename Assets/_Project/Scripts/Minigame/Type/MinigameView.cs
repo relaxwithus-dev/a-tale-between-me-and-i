@@ -61,6 +61,8 @@ namespace ATBMI.Minigame
         {
             yield return new WaitForSeconds(closeMinigameDelay);
             _minigameAnimation.CloseMinigame(minigameManager.ExitMinigame);
+            
+            yield return new WaitForSeconds(closeMinigameDelay * 2f);
             if (isWinning)
                 MinigameEvents.WinMinigameEvent();
             else
