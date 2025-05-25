@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using TMPro;
 using Ink.Runtime;
+using ATBMI.Audio;
 using ATBMI.Gameplay.Event;
 using ATBMI.Entities.Player;
 using ATBMI.Gameplay.Handler;
@@ -209,7 +210,7 @@ namespace ATBMI.Dialogue
             foreach (var letter in line.ToCharArray())
             {
                 yield return null;
-                // AudioManager.Instance.PlayAudio(Musics.SFX_Typing);
+                AudioManager.Instance.PlayAudio(Musics.SFX_Typing);
                 
                 // if player pressed submit button displayed the line immediately
                 if (isSkippedDialogue)

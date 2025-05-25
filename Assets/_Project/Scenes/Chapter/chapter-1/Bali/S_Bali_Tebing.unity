@@ -1111,7 +1111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8f0bdee7e2c457ba64edbc855b35b43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holdDuration: 3
+  holdDuration: 1
   cameraPoint: {fileID: 748366689}
 --- !u!1 &1031792301
 GameObject:
@@ -2004,6 +2004,9 @@ MonoBehaviour:
   cutsceneSteps:
   - {fileID: 3375231104245674212}
   - {fileID: 9193822968567144372}
+  - {fileID: 953929092}
+  - {fileID: 922452481}
+  - {fileID: 1067698987}
 --- !u!4 &8605617056673793036
 Transform:
   m_ObjectHideFlags: 0
@@ -2032,7 +2035,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8f0bdee7e2c457ba64edbc855b35b43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holdDuration: 3
+  holdDuration: 1
   cameraPoint: {fileID: 811581945106147782}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

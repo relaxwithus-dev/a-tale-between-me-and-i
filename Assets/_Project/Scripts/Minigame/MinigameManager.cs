@@ -16,9 +16,8 @@ namespace ATBMI.Minigame
         [SerializeField] private MinigameType minigameType;
         [SerializeField] [ReadOnly] private MinigameView[] minigameViews;
         
-        private bool _isPlayingMinigame;
         private MinigameView _selectedView;
-        public static event Action OnEnterMinigame;
+        public bool IsPlayingMinigame { get; private set; }
         
         // Reference
         private PlayerController _playerController;
@@ -35,12 +34,12 @@ namespace ATBMI.Minigame
 
         private void OnEnable()
         {
-            OnEnterMinigame += EnterEnterMinigame;
+            MinigameEvents.OnEnterMinigame += EnterEnterMinigame;
         }
-
+        
         private void OnDisable()
         {
-            OnEnterMinigame -= EnterEnterMinigame;
+            MinigameEvents.OnEnterMinigame -= EnterEnterMinigame;
         }
 
         private void Start()
@@ -55,21 +54,19 @@ namespace ATBMI.Minigame
         private void Update()
         {
             if (!isDebugMode) return;
-            if (Input.GetKeyDown(KeyCode.Space) && !_isPlayingMinigame)
+            if (Input.GetKeyDown(KeyCode.Space) && !IsPlayingMinigame)
             {
-                EnterMinigameEvent();
+                EnterEnterMinigame();
             }
         }
 
         // Core
-        public static void EnterMinigameEvent() => OnEnterMinigame?.Invoke();
-        
         private void EnterEnterMinigame()
         {
             _playerController.StopMovement();
             _selectedView.gameObject.SetActive(true);
             _selectedView.EnterMinigame();
-            _isPlayingMinigame = true;
+            IsPlayingMinigame = true;
         }
         
         public void ExitMinigame()
@@ -77,7 +74,7 @@ namespace ATBMI.Minigame
             if (!_selectedView)
                 return;
             
-            _isPlayingMinigame = false;
+            IsPlayingMinigame = false;
             _playerController.StartMovement();
             _selectedView.gameObject.SetActive(false);
         }

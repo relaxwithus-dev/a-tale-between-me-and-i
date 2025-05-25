@@ -1,12 +1,11 @@
+using UnityEngine;
 using Ink.Runtime;
+using ATBMI.Quest;
 using ATBMI.Minigame;
 using ATBMI.Inventory;
 using ATBMI.Interaction;
-using ATBMI.Gameplay.Event;
 using ATBMI.Scene.Chapter;
-using ATBMI.Quest;
-using System;
-using UnityEngine;
+using ATBMI.Gameplay.Event;
 
 namespace ATBMI.Dialogue
 {
@@ -24,9 +23,10 @@ namespace ATBMI.Dialogue
             story.BindExternalFunction("AdvancedQuest", (string questId) => AdvancedQuest(questId));
             story.BindExternalFunction("FinishQuest", (string questId) => FinishQuest(questId)); // ensure the shouldBeFinishManually field on questinfoSO checked
             story.BindExternalFunction("EnterMinigame", EnterMinigame);
+            story.BindExternalFunction("ActivateMinigameTrigger", ActivateMinigameTrigger);
             story.BindExternalFunction("UpdateStoryChapter", (string chapter) => UpdateStoryChapter(chapter));
         }
-
+        
         public void Unbind(Story story)
         {
             story.UnbindExternalFunction("AddItem");
@@ -35,9 +35,15 @@ namespace ATBMI.Dialogue
             story.UnbindExternalFunction("AdvancedQuest");
             story.UnbindExternalFunction("FinishQuest");
             story.UnbindExternalFunction("EnterMinigame");
+            story.UnbindExternalFunction("ActivateMinigameTrigger");
             story.UnbindExternalFunction("UpdateStoryChapter");
         }
 
+        public void ChangeScene(string sceneId)
+        {
+            
+        }
+        
         public void AddItem(string itemId) => UpdateItem(itemId, isAdding: true);
         public void RemoveItem(string itemId) => UpdateItem(itemId, isAdding: false);
 
@@ -72,11 +78,11 @@ namespace ATBMI.Dialogue
             {
                 if (quest.IsNextStepExists())
                 {
-                    if (quest.GetCurrentQuestStepPrefab().TryGetComponent<AreaArrivalQuestStep>(out AreaArrivalQuestStep prefabComponent))
+                    if (quest.GetCurrentQuestStepPrefab().TryGetComponent<AreaArrivalQuestStep>(out var prefabComponent))
                     {
                         foreach (Transform child in QuestManager.Instance.transform)
                         {
-                            if (child.TryGetComponent<AreaArrivalQuestStep>(out AreaArrivalQuestStep instanceComponent))
+                            if (child.TryGetComponent<AreaArrivalQuestStep>(out var instanceComponent))
                             {
                                 // Compare prefab name
                                 if (child.name.StartsWith(prefabComponent.gameObject.name)) // Unity usually adds (Clone)
@@ -93,9 +99,9 @@ namespace ATBMI.Dialogue
                 }
             }
         }
-
-        public void EnterMinigame() => MinigameManager.EnterMinigameEvent();
+        
+        public void EnterMinigame() => MinigameEvents.EnterMinigameEvent();
+        public void ActivateMinigameTrigger() => MinigameEvents.ActivateTriggerEvent();
         public void UpdateStoryChapter(string chapter) => ChapterViewer.Instance.UpdateChapter(chapter);
-
     }
 }

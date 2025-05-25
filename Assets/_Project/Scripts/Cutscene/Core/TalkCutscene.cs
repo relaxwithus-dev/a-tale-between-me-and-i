@@ -11,6 +11,8 @@ namespace ATBMI.Cutscene
         [Header("Attribute")]
         [SerializeField] private TextAsset dialogueText;
         
+        private bool _isStartDialogue;
+        
         // Reference
         private DialogueManager _dialogueManager;
         
@@ -31,17 +33,23 @@ namespace ATBMI.Cutscene
         protected override void InitOnStart()
         {
             base.InitOnStart();
+            _isStartDialogue = false;
             _dialogueManager = DialogueManager.Instance;
         }
         
         public override void Execute()
         {
             if (_dialogueManager.IsDialoguePlaying) return;
+            _isStartDialogue = true;
             _dialogueManager.EnterDialogueMode(dialogueText);
         }
 
-        private void FinishDialogue() => isFinishStep = true;
-        
+        private void FinishDialogue()
+        {
+            if (!_isStartDialogue) return;
+            isFinishStep = true;
+        }
+
         #endregion
     }
 }

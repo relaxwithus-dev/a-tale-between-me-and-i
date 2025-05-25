@@ -62,6 +62,7 @@ namespace ATBMI.Managers
             questManager.ResetQuest();
             cutsceneManager.ResetCutscene();
             inventoryManager.ResetInventory();
+            ChapterViewer.Instance.UpdateChapter("Prologue");
             SceneNavigation.Instance.ChapterName = Chapters.None;
         }
         

@@ -111,13 +111,13 @@ namespace ATBMI.Minigame
                     playingCount = Mathf.Clamp(playingCount + 1, 0, mashAttributes.Length - 1);
                     indicatorHandler.ModifyIndicator(_mashCount, true);
                     mashSliderUI.value = MAX_SLIDER_VALUE;
-                    ExitMinigame();
+                    ExitMinigame(isWinning: true);
                     break;
                 // Lose
                 case <= MIN_SLIDER_VALUE:
                     indicatorHandler.ModifyIndicator(_mashCount, true);
                     mashSliderUI.value = MIN_SLIDER_VALUE;
-                    ExitMinigame();
+                    ExitMinigame(isWinning: false);
                     break;
             }
         }

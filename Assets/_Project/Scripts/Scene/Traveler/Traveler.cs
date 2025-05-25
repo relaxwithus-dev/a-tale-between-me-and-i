@@ -33,10 +33,9 @@ namespace ATBMI.Scene
         private void Update()
         {
             if (!_canTravel) return;
+            
             if (DialogueManager.Instance.IsDialoguePlaying)
-            {
                 DisableTravel();
-            }
             
             if (GameInputHandler.Instance.IsTapInteract)
             {

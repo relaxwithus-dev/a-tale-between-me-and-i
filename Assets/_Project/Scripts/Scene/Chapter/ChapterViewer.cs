@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace ATBMI.Scene.Chapter
@@ -13,7 +12,7 @@ namespace ATBMI.Scene.Chapter
         public Chapters Chapter => chapter;
         
         public static ChapterViewer Instance;
-
+        
         private void Awake()
         {
             if (Instance != null)

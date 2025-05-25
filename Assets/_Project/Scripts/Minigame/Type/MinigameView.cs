@@ -51,16 +51,22 @@ namespace ATBMI.Minigame
             _minigameAnimation.OpenMinigame(() => isPlayMinigame = true);
         }
         protected virtual void RunMinigame() { }
-        protected void ExitMinigame()
+        protected void ExitMinigame(bool isWinning)
         {
             isPlayMinigame = false;
-            StartCoroutine(ExitMinigameRoutine());
+            StartCoroutine(ExitMinigameRoutine(isWinning));
         }
         
-        private IEnumerator ExitMinigameRoutine()
+        private IEnumerator ExitMinigameRoutine(bool isWinning)
         {
             yield return new WaitForSeconds(closeMinigameDelay);
             _minigameAnimation.CloseMinigame(minigameManager.ExitMinigame);
+            
+            yield return new WaitForSeconds(closeMinigameDelay * 2f);
+            if (isWinning)
+                MinigameEvents.WinMinigameEvent();
+            else
+                MinigameEvents.LoseMinigameEvent();
         }
         
         #endregion

@@ -6,7 +6,7 @@ Urgh... #speaker:Dewa
 SUBA JAM SEGINI, NAPI TUSING ADA NGUDANGIN NYAK??? (SUDAH JAM SEGINI TAPI GAADA YANG BANGUNIN AKU???) #speaker:Dewa #expression:A_Dewa_Shock
 MEEEMEEEEE!!! (MAMA!!!) #speaker:Dewa #expression:A_Dewa_Speak #Emoji:A_Emoji_Angry
 
-... #speaker:IbuDewa #Emoji:A_Emoji_Question
+... #speaker:Ibu Dewa #Emoji:A_Emoji_Question
 
 Ehhh… Meme suda di sini… (Ehhh… Mama sudah di sini…) #speaker:Dewa #expression:A_Dewa_Speak
 

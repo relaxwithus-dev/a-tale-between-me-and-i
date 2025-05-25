@@ -175,6 +175,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ibu_Dewa_Rumah
       objectReference: {fileID: 0}
+    - target: {fileID: 6478594235226817692, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1250,7 +1254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   infoTextUI: {fileID: 2014189032}
-  isRoomTravel: 0
+  isRoomTravel: 1
   locationData: {fileID: 11400000, guid: e89399a148995274eb0bce4b04741a59, type: 2}
 --- !u!1 &1881520879
 GameObject:
