@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 using ATBMI.Data;
 using ATBMI.Gameplay.Event;
 using UnityEngine.InputSystem;
+using ATBMI.Minigame;
+using ATBMI.UI.Ingame;
 
 namespace ATBMI.Inventory
 {
@@ -23,8 +25,11 @@ namespace ATBMI.Inventory
         [SerializeField] private RectTransform scrollRectTransform;
         [SerializeField] private RectTransform contentRectTransform;
 
-        [Header("Input Actions")]
-        [SerializeField] private InputActionReference navigateAction; // This is a Vector2 input
+        // [Header("Input Actions")]
+        // [SerializeField] private InputActionReference navigateAction; // This is a Vector2 input
+
+        [Header("References")]
+        [SerializeField] private GameObject inventoryTab;
 
 
         // [Header("Reference")]
@@ -57,6 +62,8 @@ namespace ATBMI.Inventory
 
         private void Update()
         {
+            if (!inventoryTab.activeInHierarchy) return;
+            
             if (GameInputHandler.Instance.IsArrowDown)
             {
                 Navigate(-1);

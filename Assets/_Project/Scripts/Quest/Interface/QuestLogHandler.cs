@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using ATBMI.Gameplay.Event;
 using UnityEngine.UI;
+using ATBMI.Gameplay.Handler;
 
 namespace ATBMI.Quest
 {
@@ -24,8 +25,11 @@ namespace ATBMI.Quest
         [SerializeField] private GameObject questLogButtonPrefab;
         [SerializeField] private GameObject questStepLogPrefab;
 
-        [Header("Input Actions")]
-        [SerializeField] private InputActionReference navigateAction; // This is a Vector2 input
+        // [Header("Input Actions")]
+        // [SerializeField] private InputActionReference navigateAction; // This is a Vector2 input
+
+        [Header("References")]
+        [SerializeField] private GameObject questTab;
 
         // private Button firstSelectedButton;
         private int selectedIndex;
@@ -41,7 +45,7 @@ namespace ATBMI.Quest
         private void OnEnable()
         {
             QuestEvents.QuestStateChange += QuestStateChange;
-            navigateAction.action.performed += OnNavigate;
+            // navigateAction.action.performed += OnNavigate;
 
             UIEvents.OnSelectTabQuest += OpenQuestLog;
             UIEvents.OnDeselectTabQuest += CloseQuestLog;
@@ -50,10 +54,24 @@ namespace ATBMI.Quest
         private void OnDisable()
         {
             QuestEvents.QuestStateChange -= QuestStateChange;
-            navigateAction.action.performed -= OnNavigate;
+            // navigateAction.action.performed -= OnNavigate;
 
             UIEvents.OnSelectTabQuest -= OpenQuestLog;
             UIEvents.OnDeselectTabQuest -= CloseQuestLog;
+        }
+
+        private void Update()
+        {
+            if (!questTab.activeInHierarchy) return;
+
+            if (GameInputHandler.Instance.IsArrowDown)
+            {
+                Navigate(-1);
+            }
+            else if (GameInputHandler.Instance.IsArrowUp)
+            {
+                Navigate(1);
+            }
         }
 
         private void OpenQuestLog()
@@ -217,21 +235,21 @@ namespace ATBMI.Quest
         }
 
 
-        private void OnNavigate(InputAction.CallbackContext context)
-        {
-            if (!isQuestLogOpen) return;
+        // private void OnNavigate(InputAction.CallbackContext context)
+        // {
+        //     if (!isQuestLogOpen) return;
 
-            Vector2 input = context.ReadValue<Vector2>();
+        //     Vector2 input = context.ReadValue<Vector2>();
 
-            if (input.y > 0.5f) // Up
-            {
-                Navigate(-1);
-            }
-            else if (input.y < -0.5f) // Down
-            {
-                Navigate(1);
-            }
-        }
+        //     if (input.y > 0.5f) // Up
+        //     {
+        //         Navigate(-1);
+        //     }
+        //     else if (input.y < -0.5f) // Down
+        //     {
+        //         Navigate(1);
+        //     }
+        // }
 
         private void Navigate(int direction)
         {
