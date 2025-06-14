@@ -227,6 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 672da1285f624dcf86f2bc83bba37392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isKeepArrow: 0
   buttons:
   - {fileID: 1479273275461227858}
   - {fileID: 6267199806071284367}
@@ -1461,9 +1462,9 @@ RectTransform:
   - {fileID: 380047489658868324}
   m_Father: {fileID: 8745034736946408583}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 155, y: -198.75}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 310, y: 132.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4629785982398457149
@@ -1487,7 +1488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1529,7 +1530,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
+    m_DisabledColor: {r: 0.5882353, g: 0.5882353, b: 0.5882353, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -1659,9 +1660,9 @@ RectTransform:
   - {fileID: 45252770205549736}
   m_Father: {fileID: 8745034736946408583}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 155, y: -66.25}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 310, y: 132.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3104474605108083297
@@ -1727,7 +1728,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
+    m_DisabledColor: {r: 0.5882353, g: 0.5882353, b: 0.5882353, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -1741,7 +1742,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 4039401281275604111}
   m_OnClick:
     m_PersistentCalls:
@@ -2047,7 +2048,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 400, y: 0}
-  m_SizeDelta: {x: 310, y: 397.5}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &147709972499533421
 MonoBehaviour:
@@ -2101,6 +2102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 672da1285f624dcf86f2bc83bba37392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isKeepArrow: 0
   buttons:
   - {fileID: 5394509857350778410}
   - {fileID: 856815765875409322}
@@ -7954,9 +7956,9 @@ RectTransform:
   - {fileID: 2961563299470766226}
   m_Father: {fileID: 8745034736946408583}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 155, y: -331.25}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 310, y: 132.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7802691828142033217
@@ -7980,7 +7982,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19960284, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8022,7 +8024,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
+    m_DisabledColor: {r: 0.5882353, g: 0.5882353, b: 0.5882353, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -8497,6 +8499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 672da1285f624dcf86f2bc83bba37392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isKeepArrow: 0
   buttons:
   - {fileID: 2301436647789022148}
   - {fileID: 3842034509813560501}
@@ -8670,6 +8673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 672da1285f624dcf86f2bc83bba37392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isKeepArrow: 1
   buttons:
   - {fileID: 5042418239573896234}
   - {fileID: 5873529836062488407}

@@ -1,7 +1,7 @@
-using ATBMI.Audio;
-using ATBMI.Scene;
 using UnityEngine;
 using UnityEngine.UI;
+using ATBMI.Audio;
+using ATBMI.Scene;
 
 namespace ATBMI.UI.Menu
 {
@@ -18,6 +18,9 @@ namespace ATBMI.UI.Menu
         [SerializeField] private Button playButtonUI;
         [SerializeField] private Button optionButtonUI;
         [SerializeField] private Button exitButtonUI;
+
+        [Header("Reference")]
+        [SerializeField] private ButtonNavigationHandler buttonNavigation;
         
         #endregion
 
@@ -33,9 +36,7 @@ namespace ATBMI.UI.Menu
         // Initialize
         private void InitPanel()
         {
-            menuPanelUI.SetActive(true);
-            playPanelUI.SetActive(false);
-            optionPanelUI.SetActive(false);
+            OpenMenuPanel();
             
             var navigation = SceneNavigation.Instance;
             if (navigation.IsInitiateComplete)
@@ -52,21 +53,33 @@ namespace ATBMI.UI.Menu
         }
         
         // Core
+        public void OpenMenuPanel()
+        {
+            menuPanelUI.SetActive(true);
+            playPanelUI.SetActive(false);
+            optionPanelUI.SetActive(false);
+            
+            buttonNavigation.enabled = true;
+        }
+        
         private void OnPlayButton()
         {
             AudioManager.Instance.PlayAudio(Musics.SFX_Button);
+            buttonNavigation.enabled = false;
             playPanelUI.SetActive(true);
         }
-
+        
         private void OnOptionButton()
         {
             AudioManager.Instance.PlayAudio(Musics.SFX_Button);
+            buttonNavigation.enabled = false;
             optionPanelUI.SetActive(true);
         }
 
         private void OnExitButton()
         {
             AudioManager.Instance.PlayAudio(Musics.SFX_Button);
+            buttonNavigation.enabled = false;
             Application.Quit();
         }
 

@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using ATBMI.Audio;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using ATBMI.Audio;
 using ATBMI.Gameplay.Handler;
 
 namespace ATBMI.UI.Menu
@@ -25,10 +25,13 @@ namespace ATBMI.UI.Menu
         [SerializeField] private Color highlightTextColor;
         [SerializeField] private Color normalTextColor;
 
+        [Header("Reference")]
+        [SerializeField] private MenuManager menuManager;
+        
         #endregion
 
         #region Methods
-
+        
         // Unity Callbacks
         private void Start()
         {
@@ -70,7 +73,7 @@ namespace ATBMI.UI.Menu
             else if (GameInputHandler.Instance.IsTabLeft)
                 MoveToPrevious();
             else if (GameInputHandler.Instance.IsTapBack)
-                optionPanelUI.SetActive(false);
+                CloseOptionPanel();
         }
         
         // Core
@@ -92,6 +95,12 @@ namespace ATBMI.UI.Menu
             _selectedMenuIndex--;
             HighlightMenu(_selectedMenuIndex);
             UnhighlightMenu(_selectedMenuIndex + 1);
+        }
+        
+        private void CloseOptionPanel()
+        {
+            optionPanelUI.SetActive(false);
+            menuManager.OpenMenuPanel();
         }
         
         private void HighlightMenu(int index)

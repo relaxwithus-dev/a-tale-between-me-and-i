@@ -15,7 +15,10 @@ namespace ATBMI.UI.Menu
         
         [Header("UI")] 
         [SerializeField] private GameObject playPanelUI;
-        [SerializeField] private Button saveButtonUI;
+        [SerializeField] private Button[] saveButtonsUI;
+        
+        [Header("Reference")]
+        [SerializeField] private MenuManager menuManager;
         
         #endregion
 
@@ -25,7 +28,15 @@ namespace ATBMI.UI.Menu
         private void Start()
         {
             playPanelUI.SetActive(false);
-            saveButtonUI.onClick.AddListener(OnPlayButton);
+            for (var i = 0; i < saveButtonsUI.Length; i++)
+            {
+                var button = saveButtonsUI[i];
+                
+                button.enabled = true;
+                button.interactable = i == 0;
+                if (button.interactable)
+                    button.onClick.AddListener(() => OnPlayButton(button));
+            }
         }
         
         private void Update()
@@ -34,17 +45,19 @@ namespace ATBMI.UI.Menu
             if (GameInputHandler.Instance.IsTapBack)
             {
                 playPanelUI.SetActive(false);
+                menuManager.OpenMenuPanel();
             }
         }
         
         // Core
-        private void OnPlayButton()
+        private void OnPlayButton(Button btn)
         {
+            btn.enabled = false;
             AudioEvent.FadeOutAudioEvent();
             AudioManager.Instance.PlayAudio(Musics.SFX_Button);
             SceneNavigation.Instance.SwitchSceneSection(isToMenu: false, targetSceneAsset);
         }
-
+        
         #endregion
     }
 }

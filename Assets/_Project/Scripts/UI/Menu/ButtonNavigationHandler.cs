@@ -1,6 +1,6 @@
-using ATBMI.Audio;
 using UnityEngine;
 using UnityEngine.UI;
+using ATBMI.Audio;
 using ATBMI.Gameplay.Handler;
 
 namespace ATBMI.UI.Menu
@@ -9,10 +9,12 @@ namespace ATBMI.UI.Menu
     {
         #region Fields & Properties
 
+        [SerializeField] private bool isKeepArrow;
         [SerializeField] private Button[] buttons;
         
         private int _currentIndex;
 		private int _arrowChildIndex;
+        private bool _isInitAlready;
         private Button _selectedButton;
         
         private readonly int MinIndex = 0;
@@ -22,10 +24,13 @@ namespace ATBMI.UI.Menu
         #region Methods
         
         // Unity Callbacks
-        private void Start()
+        private void OnEnable()
         {
-			_currentIndex = 0;
-			_arrowChildIndex = 0;
+            if (isKeepArrow && _isInitAlready) return;
+            
+            _currentIndex = 0;
+            _arrowChildIndex = 0;
+            _isInitAlready = true;
             
             InitArrowIndicator();
         }
@@ -34,7 +39,6 @@ namespace ATBMI.UI.Menu
         {
             HandleNavigation();
             ModifyArrowIndicator();
-            
         }
         
         // Initialize
