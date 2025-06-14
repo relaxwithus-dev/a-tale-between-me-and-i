@@ -143,7 +143,7 @@ MonoBehaviour:
   m_AssetsPPU: 32
   m_RefResolutionX: 480
   m_RefResolutionY: 270
-  m_UpscaleRT: 1
+  m_UpscaleRT: 0
   m_PixelSnapping: 0
   m_CropFrameX: 0
   m_CropFrameY: 0
@@ -158,7 +158,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8615268909783931585}
   - component: {fileID: 2347391876631092403}
-  - component: {fileID: 2857979685838168442}
+  - component: {fileID: 5508025330186238946}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2857979685838168442
+--- !u!114 &5508025330186238946
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
