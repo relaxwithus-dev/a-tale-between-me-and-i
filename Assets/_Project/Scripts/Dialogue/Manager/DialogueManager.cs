@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,6 +25,7 @@ namespace ATBMI.Dialogue
         [SerializeField] private TextMeshProUGUI dialogueName;
         [SerializeField] private TextMeshProUGUI dialogueText;
         [SerializeField] private GameObject continuePin;
+        [SerializeField] private Color[] dialogueColors;
 
         [Header("Choices UI")]
         [SerializeField] private GameObject dialogueChoicesContainer;
@@ -46,6 +48,7 @@ namespace ATBMI.Dialogue
         private const string SPEAKER_TAG = "speaker";
         private const string EXPRESSION_TAG = "expression";
         private const string EMOJI_TAG = "emoji";
+        private const string COLOR_TAG = "color";
 
         private InkExternalFunctions inkExternalFunctions;
 
@@ -366,6 +369,10 @@ namespace ATBMI.Dialogue
                         // update emoji animation
                         DialogueEvents.PlayEmojiAnimEvent(tagValue);
                         break;
+                    case COLOR_TAG:
+                        var targetColor = GetDialogueColor(tagValue);
+                        dialogueText.color = targetColor;
+                        break;
                     default:
                         Debug.LogWarning("Tag came in but is not currently being handled: " + tag);
                         break;
@@ -382,6 +389,7 @@ namespace ATBMI.Dialogue
             dialoguePin.SetActive(false);
             dialogueName.text = "";
             dialogueText.text = "";
+            dialogueText.color = Color.black;
             
             playerController.StartMovement();
             DialogueEvents.StopDialogueAnimEvent(currentSpeakerName);
@@ -395,6 +403,16 @@ namespace ATBMI.Dialogue
             // }
         }
 
+        private Color GetDialogueColor(string color)
+        {
+            return color switch
+            {
+                "original" => dialogueColors[0],
+                "translate" => dialogueColors[1],
+                _ => throw new ArgumentException($"Invalid dialogue tag: {color}", nameof(color))
+            };
+        }
+        
         public void MakeChoice(int choiceIndex)
         {
             // isAnyChoices = false;

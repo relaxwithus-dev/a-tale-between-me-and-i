@@ -1096,6 +1096,9 @@ MonoBehaviour:
   dialogueName: {fileID: 999284246}
   dialogueText: {fileID: 2127399675}
   continuePin: {fileID: 1648197781}
+  dialogueColors:
+  - {r: 0, g: 0, b: 0, a: 1}
+  - {r: 0.53333336, g: 0.05490196, b: 0.2509804, a: 1}
   dialogueChoicesContainer: {fileID: 1850873403}
 --- !u!4 &1600726443
 Transform:
@@ -1702,6 +1705,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5248542119208873286, guid: 57e723dedf9fa7e4f8a63925045f58e6, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5248542119208873286, guid: 57e723dedf9fa7e4f8a63925045f58e6, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
@@ -1870,12 +1877,40 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8280370392094914291, guid: 57e723dedf9fa7e4f8a63925045f58e6, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8280370392094914291, guid: 57e723dedf9fa7e4f8a63925045f58e6, type: 3}
       propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8280370392094914291, guid: 57e723dedf9fa7e4f8a63925045f58e6, type: 3}
+      propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8280370392094914291, guid: 57e723dedf9fa7e4f8a63925045f58e6, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9026686551723420149, guid: 57e723dedf9fa7e4f8a63925045f58e6, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9026686551723420149, guid: 57e723dedf9fa7e4f8a63925045f58e6, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9026686551723420149, guid: 57e723dedf9fa7e4f8a63925045f58e6, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9026686551723420149, guid: 57e723dedf9fa7e4f8a63925045f58e6, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9026686551723420149, guid: 57e723dedf9fa7e4f8a63925045f58e6, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190080
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
