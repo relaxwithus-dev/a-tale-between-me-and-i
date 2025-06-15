@@ -3,14 +3,13 @@ EXTERNAL StartQuest(questId)
 EXTERNAL FinishQuest(questId)
 
 // Kamera panning ke atas (Scene bersih-bersih)
-
-Capek dogén ulian suba nyapuh dini… (Capek juga habis bersih-bersih tempat ini…) #speaker:Dewa #expression:A_Dewa_Speak
-Nyak ngadengang dini dogén… (Aku istirahat di sana aja deh…) #speaker:Dewa #expression:A_Dewa_Speak
-Ragane tusing lungsur jauh-jauh, né! (Kamu jangan main terlalu jauh, oke?) #speaker:Dewa #expression:A_Dewa_Speak
+Capek dogén ulian suba nyapuh dini... #speaker:Dewa #expression:A_Dewa_Speak #color: translate
+Aku istirahat di sana aja deh... #speaker:Dewa #expression:A_Dewa_Speak
+Kamu jangan main terlalu jauh, oke? #speaker:Dewa #expression:A_Dewa_Speak
 
 Woooff! #speaker:Anjing #expression:A_Anjing_Senang
 
-Sebentar malih, nyak lakar lungsur saking tempat ki... (Sebentar lagi aku akan meninggalkan tempat ini…) #speaker:Dewa #expression:A_Dewa_Speak
+Sebentar lagi aku akan meninggalkan tempat ini #speaker:Dewa #expression:A_Dewa_Speak
 Tempat ini... #speaker:Dewa #expression:A_Dewa_Speak
 Banyak sekali yang terjadi di sini... #speaker:Dewa #expression:A_Dewa_Speak
 Aku pun masih ingat, saat pertama kali dia mengajakku ke sini... #speaker:Dewa #expression:A_Dewa_Speak
