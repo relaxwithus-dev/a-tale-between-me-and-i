@@ -775,8 +775,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2d5600188a4b88854d4bd523fe97d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locationData: {fileID: 11400000, guid: a7a91c9cd0e296044a3273f064eb3d8b, type: 2}
   infoTextUI: {fileID: 1039546951}
+  isRoomTravel: 0
+  locationData: {fileID: 11400000, guid: a7a91c9cd0e296044a3273f064eb3d8b, type: 2}
 --- !u!1 &1039546948
 GameObject:
   m_ObjectHideFlags: 0
@@ -1090,6 +1091,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1514421255}
   - component: {fileID: 1514421256}
+  - component: {fileID: 1514421257}
   m_Layer: 0
   m_Name: Layer_1
   m_TagString: Untagged
@@ -1164,6 +1166,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1514421257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1514421254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65f537a6c88c38641bdd479b96fd1f36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallaxAmountX: 0.2
+  parallaxAmountY: 0
+  isLoop: 0
+  camStartPos: {x: 0, y: 3.6}
 --- !u!1 &1578348360
 GameObject:
   m_ObjectHideFlags: 0
@@ -1240,8 +1258,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2d5600188a4b88854d4bd523fe97d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locationData: {fileID: 11400000, guid: 36c6aed3482eb1e409b35d04853d4d6d, type: 2}
   infoTextUI: {fileID: 1039546951}
+  isRoomTravel: 0
+  locationData: {fileID: 11400000, guid: 36c6aed3482eb1e409b35d04853d4d6d, type: 2}
 --- !u!61 &1689487326
 BoxCollider2D:
   m_ObjectHideFlags: 0

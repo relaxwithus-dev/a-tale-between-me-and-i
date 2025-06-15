@@ -1172,6 +1172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a14c0d1e7c747bdb5f1db76389e5bed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasConditionToPlay: 0
   transitionTime: 0.5
   cutsceneKey: {fileID: 11400000, guid: ab1f2a401faa7bd4cb9f47b8fc748b6b, type: 2}
   cutsceneSteps:
@@ -1436,6 +1437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d151b877e7a4adc9659857f510cf629, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTravelToMenu: 0
   locationData: {fileID: 11400000, guid: c6af1471f44585144981937b109b6040, type: 2}
 --- !u!1 &1739971957
 GameObject:
@@ -1769,6 +1771,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2065175303}
   - component: {fileID: 2065175304}
+  - component: {fileID: 2065175305}
   m_Layer: 0
   m_Name: Layer_1
   m_TagString: Untagged
@@ -1786,8 +1789,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.95, y: 0.95, z: 0.95}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 411585675}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1843,6 +1846,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2065175305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065175302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65f537a6c88c38641bdd479b96fd1f36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallaxAmountX: 0.2
+  parallaxAmountY: 0
+  isLoop: 0
+  camStartPos: {x: 0, y: 3.6}
 --- !u!1 &1837555915949294427
 GameObject:
   m_ObjectHideFlags: 0
@@ -1889,6 +1908,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a14c0d1e7c747bdb5f1db76389e5bed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasConditionToPlay: 0
   transitionTime: 0.5
   cutsceneKey: {fileID: 11400000, guid: 787c73ab140b51f47a33d0c227d1d644, type: 2}
   cutsceneSteps:

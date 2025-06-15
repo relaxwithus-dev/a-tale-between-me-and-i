@@ -5,7 +5,7 @@ using UnityEngine;
 using ATBMI.Data;
 using ATBMI.Dialogue;
 using ATBMI.Gameplay.Event;
-using ATBMI.Gameplay.Handler;
+using ATBMI.Gameplay.Controller;
 
 namespace ATBMI.Entities.Player
 {
@@ -61,14 +61,14 @@ namespace ATBMI.Entities.Player
         
         private void FixedUpdate()
         {
-            if (!CanMove || DialogueManager.Instance.IsDialoguePlaying 
-                         || CutsceneManager.Instance.IsCutscenePlaying) return;
+            // if (!CanMove || DialogueManager.Instance.IsDialoguePlaying 
+            //              || CutsceneManager.Instance.IsCutscenePlaying) return;
             PlayerMove();
         }
         
         private void Update()
         {
-            if (DialogueManager.Instance.IsDialoguePlaying || CutsceneManager.Instance.IsCutscenePlaying) return;
+            // if (DialogueManager.Instance.IsDialoguePlaying || CutsceneManager.Instance.IsCutscenePlaying) return;
             HandleState();
             LookAt(moveDirection);
         }

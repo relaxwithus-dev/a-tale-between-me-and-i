@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
-using ATBMI.Gameplay.Handler;
+using ATBMI.Gameplay.Controller;
 
 namespace ATBMI.UI.Ingame
 {

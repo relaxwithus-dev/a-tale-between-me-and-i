@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using ATBMI.Gameplay.Event;
 using UnityEngine.UI;
-using ATBMI.Gameplay.Handler;
+using ATBMI.Gameplay.Controller;
 
 namespace ATBMI.Quest
 {

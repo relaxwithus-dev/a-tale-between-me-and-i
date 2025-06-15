@@ -697,6 +697,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d151b877e7a4adc9659857f510cf629, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTravelToMenu: 0
   locationData: {fileID: 11400000, guid: 7034e219a2b233a41b992b2b5202dd14, type: 2}
 --- !u!1 &960217881
 GameObject:
@@ -854,6 +855,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d151b877e7a4adc9659857f510cf629, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTravelToMenu: 0
   locationData: {fileID: 11400000, guid: a7a91c9cd0e296044a3273f064eb3d8b, type: 2}
 --- !u!1 &1181016832
 GameObject:
@@ -1008,6 +1010,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a14c0d1e7c747bdb5f1db76389e5bed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasConditionToPlay: 0
   transitionTime: 0.5
   cutsceneKey: {fileID: 11400000, guid: 5322639be4fda3744871cfbb0ca0e147, type: 2}
   cutsceneSteps:
@@ -1151,6 +1154,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1358187852}
   - component: {fileID: 1358187853}
+  - component: {fileID: 1358187854}
   m_Layer: 0
   m_Name: Layer_1
   m_TagString: Untagged
@@ -1225,6 +1229,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1358187854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358187851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65f537a6c88c38641bdd479b96fd1f36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallaxAmountX: 0.2
+  parallaxAmountY: 0
+  isLoop: 0
+  camStartPos: {x: 0, y: 3.6}
 --- !u!1 &1368356935
 GameObject:
   m_ObjectHideFlags: 0
@@ -1307,6 +1327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a14c0d1e7c747bdb5f1db76389e5bed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasConditionToPlay: 0
   transitionTime: 0.5
   cutsceneKey: {fileID: 11400000, guid: ceaebb13d5dea8a45861fd303d70aedf, type: 2}
   cutsceneSteps:
@@ -4853,6 +4874,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a14c0d1e7c747bdb5f1db76389e5bed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasConditionToPlay: 0
   transitionTime: 0.5
   cutsceneKey: {fileID: 11400000, guid: bcea3272a3ea86047ac00dfad6140dc5, type: 2}
   cutsceneSteps:
@@ -6091,11 +6113,14 @@ MonoBehaviour:
   closeMinigameDelay: 0.15
   minigameManager: {fileID: 2855397642335501123}
   arrowAttributes:
-  - count: 3
+  - clearTotal: 0
+    count: 3
     duration: 6
-  - count: 4
+  - clearTotal: 0
+    count: 4
     duration: 4
-  - count: 5
+  - clearTotal: 0
+    count: 5
     duration: 3
   arrowForms:
   - name: Arrow Up

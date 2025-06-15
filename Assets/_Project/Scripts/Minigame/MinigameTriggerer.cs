@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 using ATBMI.Core;
 using ATBMI.Dialogue;
-using ATBMI.Gameplay.Handler;
+using ATBMI.Gameplay.Controller;
 
 namespace ATBMI.Minigame
 {

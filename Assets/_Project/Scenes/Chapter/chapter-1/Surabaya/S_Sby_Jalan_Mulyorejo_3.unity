@@ -406,6 +406,7 @@ GameObject:
   m_Component:
   - component: {fileID: 404239242}
   - component: {fileID: 404239243}
+  - component: {fileID: 404239244}
   m_Layer: 0
   m_Name: Layer_2
   m_TagString: Untagged
@@ -422,7 +423,7 @@ Transform:
   m_GameObject: {fileID: 404239241}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.97, z: 0}
+  m_LocalPosition: {x: 0, y: -4.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -480,6 +481,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &404239244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 404239241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65f537a6c88c38641bdd479b96fd1f36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallaxAmountX: 0.45
+  parallaxAmountY: 0
+  isLoop: 0
+  camStartPos: {x: 0, y: 3.6}
 --- !u!1 &411585674
 GameObject:
   m_ObjectHideFlags: 0
@@ -1601,6 +1618,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1983184679}
   - component: {fileID: 1983184680}
+  - component: {fileID: 1983184681}
   m_Layer: 0
   m_Name: Layer_1
   m_TagString: Untagged
@@ -1675,6 +1693,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1983184681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1983184678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65f537a6c88c38641bdd479b96fd1f36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallaxAmountX: 0.2
+  parallaxAmountY: 0
+  isLoop: 0
+  camStartPos: {x: 0, y: 3.6}
 --- !u!1 &2062641922
 GameObject:
   m_ObjectHideFlags: 0
@@ -1935,6 +1969,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a14c0d1e7c747bdb5f1db76389e5bed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasConditionToPlay: 0
   transitionTime: 0.5
   cutsceneKey: {fileID: 11400000, guid: 3141a9f935d03294ca20e3cac7ab420f, type: 2}
   cutsceneSteps:

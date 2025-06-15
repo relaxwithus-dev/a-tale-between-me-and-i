@@ -302,6 +302,7 @@ GameObject:
   m_Component:
   - component: {fileID: 129758639}
   - component: {fileID: 129758640}
+  - component: {fileID: 129758641}
   m_Layer: 0
   m_Name: Layer_1
   m_TagString: Untagged
@@ -318,9 +319,9 @@ Transform:
   m_GameObject: {fileID: 129758638}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 1.41, z: 0}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 411585675}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -376,6 +377,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &129758641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 129758638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65f537a6c88c38641bdd479b96fd1f36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallaxAmountX: 0.2
+  parallaxAmountY: 0
+  isLoop: 0
+  camStartPos: {x: 0, y: 3.6}
 --- !u!1 &151466605
 GameObject:
   m_ObjectHideFlags: 0
@@ -1597,6 +1614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d151b877e7a4adc9659857f510cf629, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTravelToMenu: 0
   locationData: {fileID: 11400000, guid: c6af1471f44585144981937b109b6040, type: 2}
 --- !u!1 &773715086
 GameObject:
@@ -3477,8 +3495,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8da077eaf0543b6bc5913e6fffed2b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minigameManager: {fileID: 2855397640652339269}
   isPlayMinigame: 0
+  closeMinigameDelay: 0.15
+  minigameManager: {fileID: 2855397640652339269}
   wrongDelayTime: 1
   timingAttributes:
   - duration: 15
@@ -3612,6 +3631,7 @@ GameObject:
   - component: {fileID: 5802277233542276014}
   - component: {fileID: 4914147582482466522}
   - component: {fileID: 2398276864848185909}
+  - component: {fileID: 6494872488068055152}
   m_Layer: 5
   m_Name: MashPanel
   m_TagString: Untagged
@@ -3815,6 +3835,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d151b877e7a4adc9659857f510cf629, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTravelToMenu: 0
   locationData: {fileID: 11400000, guid: 6819b27e89d654349b11656dba1cc291, type: 2}
 --- !u!224 &1064740780000227693
 RectTransform:
@@ -4320,8 +4341,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eb82ca0b5d442f38427781b692a26e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minigameManager: {fileID: 2855397640652339269}
   isPlayMinigame: 0
+  closeMinigameDelay: 0.15
+  minigameManager: {fileID: 2855397640652339269}
   mashMaxValue: 100
   initiateMashValue: 50
   sliderSpeed: 7
@@ -4351,6 +4373,7 @@ GameObject:
   - component: {fileID: 69202280539632217}
   - component: {fileID: 4752338724779130603}
   - component: {fileID: 8425988743066356571}
+  - component: {fileID: 8425988743066356572}
   m_Layer: 5
   m_Name: ArrowPanel
   m_TagString: Untagged
@@ -4479,6 +4502,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec62e47ff82248efa7f35a4127df17c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDebugMode: 0
   minigameType: 2
   minigameViews:
   - {fileID: 8425988743066356571}
@@ -4773,6 +4797,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a14c0d1e7c747bdb5f1db76389e5bed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasConditionToPlay: 0
   transitionTime: 0.5
   cutsceneKey: {fileID: 11400000, guid: 62f1c7cf96d137046a43facdc4d889bf, type: 2}
   cutsceneSteps:
@@ -6035,6 +6060,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6494872488068055152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 539988889834353711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff11450a9817489d8393929d83d004ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openEase: 0
+  closeEase: 0
+  tweenDuration: 0
+  bounceDuration: 0
+  targetScale: {x: 0, y: 0, z: 0}
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!222 &6541296045099682167
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6151,6 +6194,7 @@ GameObject:
   - component: {fileID: 8084474291592837531}
   - component: {fileID: 3774225957592376720}
   - component: {fileID: 191375176504810464}
+  - component: {fileID: 8084474291592837532}
   m_Layer: 5
   m_Name: BalancePanel
   m_TagString: Untagged
@@ -6782,6 +6826,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6744270648024704833}
   m_CullTransparentMesh: 1
+--- !u!114 &8084474291592837532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6744270648024704833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff11450a9817489d8393929d83d004ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openEase: 0
+  closeEase: 0
+  tweenDuration: 0
+  bounceDuration: 0
+  targetScale: {x: 0, y: 0, z: 0}
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &8093628447442828781
 GameObject:
   m_ObjectHideFlags: 0
@@ -6867,14 +6929,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8cad1b38d444127b62842efadc12bbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minigameManager: {fileID: 2855397640652339269}
   isPlayMinigame: 0
+  closeMinigameDelay: 0.15
+  minigameManager: {fileID: 2855397640652339269}
   arrowAttributes:
-  - count: 3
+  - clearTotal: 0
+    count: 3
     duration: 6
-  - count: 4
+  - clearTotal: 0
+    count: 4
     duration: 4
-  - count: 5
+  - clearTotal: 0
+    count: 5
     duration: 3
   arrowForms:
   - name: Arrow Up
@@ -6892,6 +6958,24 @@ MonoBehaviour:
   - {fileID: 151947728298213842}
   - {fileID: 6086434829798227149}
   timeSliderUI: {fileID: 6214131971844788955}
+--- !u!114 &8425988743066356572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2624075056888280514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff11450a9817489d8393929d83d004ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openEase: 0
+  closeEase: 0
+  tweenDuration: 0
+  bounceDuration: 0
+  targetScale: {x: 0, y: 0, z: 0}
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!224 &8509720805861985447
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6999,6 +7083,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a14c0d1e7c747bdb5f1db76389e5bed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasConditionToPlay: 0
   transitionTime: 0.5
   cutsceneKey: {fileID: 11400000, guid: 389df5590cdc98f489a1a9149bd24e5b, type: 2}
   cutsceneSteps:

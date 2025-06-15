@@ -8,7 +8,7 @@ using ATBMI.Data;
 using ATBMI.Enum;
 using ATBMI.Inventory;
 using ATBMI.Entities.Player;
-using ATBMI.Gameplay.Handler;
+using ATBMI.Gameplay.Controller;
 
 namespace ATBMI.Interaction
 {

@@ -7,7 +7,7 @@ using Ink.Runtime;
 using ATBMI.Audio;
 using ATBMI.Gameplay.Event;
 using ATBMI.Entities.Player;
-using ATBMI.Gameplay.Handler;
+using ATBMI.Gameplay.Controller;
 
 namespace ATBMI.Dialogue
 {

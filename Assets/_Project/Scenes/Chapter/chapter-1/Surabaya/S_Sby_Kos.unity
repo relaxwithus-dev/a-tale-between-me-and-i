@@ -489,6 +489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a14c0d1e7c747bdb5f1db76389e5bed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasConditionToPlay: 0
   transitionTime: 0.5
   cutsceneKey: {fileID: 11400000, guid: 629f5ab8a0675a843a90f461da3b1c8b, type: 2}
   cutsceneSteps:
@@ -689,7 +690,6 @@ Transform:
   - {fileID: 1124789133}
   - {fileID: 1499403786}
   - {fileID: 1316449478}
-  - {fileID: 2099961644}
   - {fileID: 320762906}
   m_Father: {fileID: 1338313044}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1051,6 +1051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a14c0d1e7c747bdb5f1db76389e5bed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasConditionToPlay: 0
   transitionTime: 0.5
   cutsceneKey: {fileID: 11400000, guid: 5c0029c4f32317640bb31fb65779b616, type: 2}
   cutsceneSteps:
@@ -1625,6 +1626,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2099961644}
   - {fileID: 101541756}
   - {fileID: 151466606}
   - {fileID: 2095961337}
@@ -1819,6 +1821,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d151b877e7a4adc9659857f510cf629, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTravelToMenu: 0
   locationData: {fileID: 11400000, guid: ddeb6b1bc35f3a447afac72ec0f88d3d, type: 2}
 --- !u!1 &1499403785
 GameObject:
@@ -1830,6 +1833,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1499403786}
   - component: {fileID: 1499403787}
+  - component: {fileID: 1499403788}
   m_Layer: 0
   m_Name: Layer_1
   m_TagString: Untagged
@@ -1904,6 +1908,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1499403788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499403785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65f537a6c88c38641bdd479b96fd1f36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallaxAmountX: 0.2
+  parallaxAmountY: 0
+  isLoop: 0
+  camStartPos: {x: 0, y: 3.6}
 --- !u!1 &1578348360
 GameObject:
   m_ObjectHideFlags: 0
@@ -2356,7 +2376,7 @@ GameObject:
   - component: {fileID: 2099961644}
   - component: {fileID: 2099961645}
   m_Layer: 0
-  m_Name: Layer_3
+  m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2371,11 +2391,11 @@ Transform:
   m_GameObject: {fileID: 2099961643}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.76, y: -2.08, z: 0}
+  m_LocalPosition: {x: 2.76, y: -0.30999994, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 411585675}
+  m_Father: {fileID: 1316449478}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2099961645
 SpriteRenderer:
@@ -2667,6 +2687,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a14c0d1e7c747bdb5f1db76389e5bed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasConditionToPlay: 0
   transitionTime: 0.5
   cutsceneKey: {fileID: 11400000, guid: e0bdd2689546a09418adbe1b5ab688f2, type: 2}
   cutsceneSteps:

@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using ATBMI.Singleton;
 
-namespace ATBMI.Gameplay.Handler
+namespace ATBMI.Gameplay.Controller
 {
     /// <summary>
     /// GameInputHandler buat handle semua input mapping,

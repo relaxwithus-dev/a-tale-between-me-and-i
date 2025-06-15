@@ -7,7 +7,7 @@ using ATBMI.Scene;
 using ATBMI.Audio;
 using ATBMI.UI.Ingame;
 using ATBMI.Gameplay.Event;
-using ATBMI.Gameplay.Handler;
+using ATBMI.Gameplay.Controller;
 
 namespace ATBMI.Quest
 {

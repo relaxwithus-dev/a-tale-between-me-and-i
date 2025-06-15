@@ -5,7 +5,7 @@ using ATBMI.Audio;
 using ATBMI.Dialogue;
 using ATBMI.Entities;
 using ATBMI.Entities.Player;
-using ATBMI.Gameplay.Handler;
+using ATBMI.Gameplay.Controller;
 
 namespace ATBMI.Interaction
 {

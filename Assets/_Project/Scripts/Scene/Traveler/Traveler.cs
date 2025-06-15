@@ -3,7 +3,7 @@ using TMPro;
 using ATBMI.Core;
 using ATBMI.Dialogue;
 using ATBMI.Entities;
-using ATBMI.Gameplay.Handler;
+using ATBMI.Gameplay.Controller;
 
 namespace ATBMI.Scene
 {

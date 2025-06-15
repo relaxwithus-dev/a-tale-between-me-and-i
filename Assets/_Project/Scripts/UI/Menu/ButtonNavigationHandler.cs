@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using ATBMI.Audio;
-using ATBMI.Gameplay.Handler;
+using ATBMI.Gameplay.Controller;
 
 namespace ATBMI.UI.Menu
 {
