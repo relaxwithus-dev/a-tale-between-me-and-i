@@ -9,7 +9,7 @@ Sepertinya belum semua ya #speaker:Waffa #expression:A_Waffa_Speak
 Karena yang terakhir ada disni #speaker:Waffa #expression:A_Waffa_Speak
 
 ??? #speaker:Dewa #expression:A_Dewa_Speak
-Jadi selama ini kamu… #speaker:Dewa #expression:A_Dewa_Speak #Emoji:A_Emoji_Question
+Jadi selama ini kamu… #speaker:Dewa #expression:A_Dewa_Speak #emoji:A_Emoji_Question
 
 Iya seperti yang maneh duga #speaker:Waffa #expression:A_Waffa_Speak
 Aku sudah menunggu maneh dari sini sejak awal #speaker:Waffa #expression:A_Waffa_Speak

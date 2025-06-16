@@ -5,7 +5,7 @@ EXTERNAL FinishQuest(questId)
 Gimana? kamu dapat sesuatu? #speaker:Ratna #expression:A_Ratna_Speak
 
 Bapak tadi menyebutkan sesuatu… #speaker:Dewa #expression:A_Dewa_Speak
-Mis- ro? #speaker:Dewa #expression:A_Dewa_Speak #Emoji:A_Emoji_Question
+Mis- ro? #speaker:Dewa #expression:A_Dewa_Speak #emoji:A_Emoji_Question
 Hmmm.... misro? #speaker:Dewa #expression:A_Dewa_Speak
 Apa kamu tau apa itu misro? #speaker:Dewa #expression:A_Dewa_Speak
 

@@ -22,7 +22,7 @@ Hmmm.... #speaker:Ratna #expression:A_Ratna_Speak
 Oiya.. Waffa kamu tahu tempat yang jual ragi? #speaker:Ratna #expression:A_Ratna_Speak
 
 Ehhh… sebentar biar kupikir dulu #speaker:Waffa Remaja #expression:A_Waffa_Teen_Speak
-!!! #speaker:Waffa Remaja #Emoji:A_Emoji_Lightbulb
+!!! #speaker:Waffa Remaja #emoji:A_Emoji_Lightbulb
 Aku tahu satu tempat #speaker:Waffa Remaja #expression:A_Waffa_Teen_Speak
 Di toko kue tempat ibuku bekerja kalau tidak salah jual ragi untuk umum #speaker:Waffa Remaja #expression:A_Waffa_Teen_Speak
 Ayo kita coba kesana aja #speaker:Waffa Remaja #expression:A_Waffa_Teen_Speak

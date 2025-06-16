@@ -21,9 +21,9 @@ Baba!!! posisi menyerang #speaker:Anak 4 #expression:A_Hasan_Child_Speak
 
 Siap!!! #speaker:Anak 5 #expression:A_Baba_Child_Speak
 
-Tidak mungkin kalian akan men- #speaker:Anak 1 #expression:A_Anak_Kecil_Pembully_1_Speak #Emoji:A_Emoji_Tears
+Tidak mungkin kalian akan men- #speaker:Anak 1 #expression:A_Anak_Kecil_Pembully_1_Speak #emoji:A_Emoji_Tears
 
-Serang!!! #speaker:Anak 4 #expression:A_Hasan_Child_Speak #Emoji:A_Emoji_Angry
+Serang!!! #speaker:Anak 4 #expression:A_Hasan_Child_Speak #emoji:A_Emoji_Angry
 
 // Kamera panning ke atas
 

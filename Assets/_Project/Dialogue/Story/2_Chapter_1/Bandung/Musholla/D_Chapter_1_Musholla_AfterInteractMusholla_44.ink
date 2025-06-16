@@ -7,7 +7,7 @@ Kok sudah gaada disini? #speaker:Dewa #expression:A_Dewa_Speak
 
 Se-sepertinya pak ustadz sudah pergi deh #speaker:Waffa Kecil #expression:A_Waffa_Child_Speak
 Gimana ini kak Dewa #speaker:Waffa Kecil #expression:A_Waffa_Child_Speak
-Kalau begini kita ga bisa dapat air #speaker:Waffa Kecil #expression:A_Waffa_Child_Speak #Emoji:A_Emoji_Tears
+Kalau begini kita ga bisa dapat air #speaker:Waffa Kecil #expression:A_Waffa_Child_Speak #emoji:A_Emoji_Tears
 Dan… dan… para kru… #speaker:Waffa Kecil #expression:A_Waffa_Child_Speak
 
 Tenangkan dulu Waffa #speaker:Dewa #expression:A_Dewa_Speak

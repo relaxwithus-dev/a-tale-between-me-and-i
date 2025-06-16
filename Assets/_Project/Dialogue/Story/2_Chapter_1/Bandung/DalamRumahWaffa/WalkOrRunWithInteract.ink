@@ -7,7 +7,7 @@ Kalian… #speaker:Pemabuk #expression:A_Pemabuk_Speak
 
 Hentikan perbuatanmu!!! #speaker:Ratna #expression:A_Ratna_Shock_In
 Berbuat kasar pada anak kecil seperti itu… #speaker:Ratna #expression:A_Ratna_Speak
-Bukankah kamu sangat keterlaluan!!! #speaker:Ratna #expression:A_Ratna_Speak #Emoji:A_Emoji_Angry
+Bukankah kamu sangat keterlaluan!!! #speaker:Ratna #expression:A_Ratna_Speak #emoji:A_Emoji_Angry
 
 Berisik!!! #speaker:Pemabuk #expression:A_Pemabuk_Angry
 Ini adalah rumahku #speaker:Pemabuk #expression:A_Pemabuk_Speak

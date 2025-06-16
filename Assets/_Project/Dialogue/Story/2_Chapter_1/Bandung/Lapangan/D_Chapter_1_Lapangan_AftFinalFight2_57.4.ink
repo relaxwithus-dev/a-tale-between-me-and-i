@@ -9,7 +9,7 @@ Terimakasih atas segalanya Ayah… #speaker:Waffa #expression:A_Waffa_Speak
 Tuh kan kamu bisa melakukannya kalau mencobanya #speaker:Ratna #expression:A_Ratna_Speak
 Jangan jadi pengecut makanya #speaker:Ratna #expression:A_Ratna_Speak
 
-Kamu ini selalu bisa merusak suasana yang sedang bagus #speaker:Dewa #expression:A_Dewa_Speak #Emoji:A_Emoji_Angry
+Kamu ini selalu bisa merusak suasana yang sedang bagus #speaker:Dewa #expression:A_Dewa_Speak #emoji:A_Emoji_Angry
 
 Ehh? #speaker:Ratna #expression:A_Ratna_Speak
 
@@ -19,7 +19,7 @@ Huh?? #speaker:Ratna #expression:A_Ratna_Speak
 
 Aku sudah siap dengan tinjuku padahal #speaker:Baba #expression:A_Baba_Speak
 
-Hah??? #speaker:Ratna #expression:A_Ratna_Speak #Emoji:A_Emoji_Tears
+Hah??? #speaker:Ratna #expression:A_Ratna_Speak #emoji:A_Emoji_Tears
 
 Pfffttt… Hahahaha… #speaker:Waffa #expression:A_Waffa_Speak
 ... #speaker:Waffa
@@ -32,7 +32,7 @@ Benar bos aku tidak salah memutuskan untuk mengikutimu #speaker:Hasan #expressio
 
 Aku juga #speaker:Baba #expression:A_Baba_Speak
 
-Sekali lagi terimakasih maneh… #speaker:Waffa #expression:A_Waffa_Speak #Emoji:A_Emoji_Love
+Sekali lagi terimakasih maneh… #speaker:Waffa #expression:A_Waffa_Speak #emoji:A_Emoji_Love
 Ngomong-ngomong Dewa #speaker:Waffa #expression:A_Waffa_Speak
 Maneh tahu kan apa yang harus dilakukan dengan ini #speaker:Waffa #expression:A_Waffa_Speak
 

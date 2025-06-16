@@ -17,7 +17,7 @@ Saya masih kurang paham dengan bahasa di sekitar sini #speaker:Dewa #expression:
 
 Ohhhh… kamu bukan dari sini ya? #speaker:Penjaga Toko #expression:A_Toko_Kelontong_Speak
 Bisa kok, saya bisa pakai bahasa Indonesia #speaker:Penjaga Toko #expression:A_Toko_Kelontong_Speak
-Jadi mau cari apa? #speaker:Penjaga Toko #expression:A_Toko_Kelontong_Speak #Emoji:A_Emoji_Question
+Jadi mau cari apa? #speaker:Penjaga Toko #expression:A_Toko_Kelontong_Speak #emoji:A_Emoji_Question
 
 Saya butuh telor, terigu, sama ragi pak… #speaker:Dewa #expression:A_Dewa_Speak
 

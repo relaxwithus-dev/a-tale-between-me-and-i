@@ -26,7 +26,7 @@ Jangan memutuskan hal seenaknya tanpa persetujuanku #speaker:Waffa Remaja #expre
 Kau ini mau dibantu atau tidak? #speaker:Ratna #expression:A_Ratna_Speak
 Dilihat dari apa yang kamu lakukan sampai saat ini #speaker:Ratna #expression:A_Ratna_Speak
 Aku yakin 100% kue yang seharusnya hadiah untuk ulang tahun Ibumu tidak akan pernah ada #speaker:Ratna #expression:A_Ratna_Speak
-Jadi diam dan turuti saja perintahku!!! #speaker:Ratna #expression:A_Ratna_Speak #Emoji:A_Emoji_Angry
+Jadi diam dan turuti saja perintahku!!! #speaker:Ratna #expression:A_Ratna_Speak #emoji:A_Emoji_Angry
 
 O-oke… #speaker:Waffa Remaja #expression:A_Waffa_Teen_Speak
 

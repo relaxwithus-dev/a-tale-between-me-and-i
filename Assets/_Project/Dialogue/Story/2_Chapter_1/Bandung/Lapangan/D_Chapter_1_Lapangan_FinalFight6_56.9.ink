@@ -23,7 +23,7 @@ Dia adalah monster yang akan memburuku untuk seumur hidupku #speaker:Waffa #expr
 Bisa kok #speaker:Waffa Kecil #expression:A_Waffa_Child_Defense
 Lihat, aku saja bisa melawannya #speaker:Waffa Kecil #expression:A_Waffa_Child_Defense
 
-Huh? #speaker:Waffa #Emoji:A_Emoji_Tears
+Huh? #speaker:Waffa #emoji:A_Emoji_Tears
 
 Bukankah orang itu pernah bilang kalau kamu hanya perlu percaya diri lebih dari orang lain percaya padamu? #speaker:Waffa Kecil #expression:A_Waffa_Child_Defense
 

@@ -4,9 +4,9 @@ EXTERNAL FinishQuest(questId)
 
 Nah... kita sampai di toko kue #speaker:Waffa Remaja #expression:A_Waffa_Teen_Speak
 Sebentar.... #speaker:Waffa Remaja #expression:A_Waffa_Teen_Speak
-Ibuku dimana? #speaker:Waffa Remaja #expression:A_Waffa_Teen_Speak #Emoji:A_Emoji_Question
+Ibuku dimana? #speaker:Waffa Remaja #expression:A_Waffa_Teen_Speak #emoji:A_Emoji_Question
 Harusnya jam segini masih ada disini #speaker:Waffa Remaja #expression:A_Waffa_Teen_Speak
-Ibu!!! Ibu!!! #speaker:Waffa Remaja #expression:A_Waffa_Teen_Panic #Emoji:A_Emoji_Tears
+Ibu!!! Ibu!!! #speaker:Waffa Remaja #expression:A_Waffa_Teen_Panic #emoji:A_Emoji_Tears
 Ibu dimana bu!!! #speaker:Waffa Remaja #expression:A_Waffa_Teen_Panic
 
 Tenang dulu Waffa #speaker:Ratna #expression:A_Ratna_Speak

@@ -48,7 +48,7 @@ Kalian bisa melihat orang itu? #speaker:Ibu Waffa #expression:A_Ibu_Waffa_Speak
 Bukan hanya melihat #speaker:Ratna #expression:A_Ratna_Speak
 Dewa tadi bahkan hampir celaka saat mencoba menghentikan orang gila itu memukul Waffa #speaker:Ratna #expression:A_Ratna_Speak
 
-APA?! #speaker:Ibu Waffa #expression:A_Ibu_Waffa_Speak #Emoji:A_Emoji_Tears
+APA?! #speaker:Ibu Waffa #expression:A_Ibu_Waffa_Speak #emoji:A_emoji_Tears
 Pantas saja tadi dia terlihat sangat murung #speaker:Ibu Waffa #expression:A_Ibu_Waffa_Speak
 Nak... apakah Ibu bisa minta tolong? #speaker:Ibu Waffa #expression:A_Ibu_Waffa_Speak
 Tolong kejar Waffa dan hibur dia #speaker:Ibu Waffa #expression:A_Ibu_Waffa_Speak

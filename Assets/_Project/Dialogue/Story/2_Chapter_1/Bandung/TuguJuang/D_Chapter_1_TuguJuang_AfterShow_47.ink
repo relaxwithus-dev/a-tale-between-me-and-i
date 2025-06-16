@@ -17,11 +17,11 @@ Tapi kalau dilihat dari kondisi di sini #speaker:Dewa #expression:A_Dewa_Speak
 Mungkin ini adalah satu-satunya cara untuk keluar dari sini #speaker:Dewa #expression:A_Dewa_Speak
 Maka aku harus melakukannya #speaker:Dewa #expression:A_Dewa_Speak
 
-Ada apa Dewa? #speaker:Ratna #expression:A_Ratna_Speak #Emoji:A_Emoji_Question
+Ada apa Dewa? #speaker:Ratna #expression:A_Ratna_Speak #emoji:A_Emoji_Question
 
 Sepertinya aku sudah menemukan cara untuk keluar dari tempat ini #speaker:Dewa #expression:A_Dewa_Speak
 
-Ehhhh…. kamu sudah tau caranya? #speaker:Ratna #expression:A_Ratna_Speak #Emoji:A_Emoji_Question
+Ehhhh…. kamu sudah tau caranya? #speaker:Ratna #expression:A_Ratna_Speak #emoji:A_Emoji_Question
 Gimana itu… gimana itu…. #speaker:Ratna #expression:A_Ratna_Speak
 Aku sudah tidak tahan ada di tempat ini terlalu lama #speaker:Ratna #expression:A_Ratna_Speak
 

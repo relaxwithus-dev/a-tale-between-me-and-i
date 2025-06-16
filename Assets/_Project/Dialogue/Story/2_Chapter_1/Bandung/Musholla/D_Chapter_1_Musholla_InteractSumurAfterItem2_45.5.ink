@@ -12,7 +12,7 @@ Kamu harus bisa lebih percaya pada dirimu Waffa #speaker:Dewa #expression:A_Dewa
 
 Aku dengar dari Ibumu kalau kamu itu anak yang spesial kan? #speaker:Dewa #expression:A_Dewa_Speak
 
-Aa’ bertemu sama ibuku? #speaker:Waffa Kecil #expression:A_Waffa_Child_Speak #Emoji:A_Emoji_Question
+Aa’ bertemu sama ibuku? #speaker:Waffa Kecil #expression:A_Waffa_Child_Speak #emoji:A_Emoji_Question
 
 Tepat sebelum aku datang di lapangan #speaker:Dewa #expression:A_Dewa_Speak
 Aku bertemu dengan ibumu dan memintanya untuk bercerita tentangmu #speaker:Dewa #expression:A_Dewa_Speak

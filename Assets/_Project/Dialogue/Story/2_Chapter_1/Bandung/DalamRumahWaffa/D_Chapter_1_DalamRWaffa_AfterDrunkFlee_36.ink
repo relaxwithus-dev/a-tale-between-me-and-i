@@ -1,7 +1,7 @@
 // Dewa mendekati anak kecil
 
 Kamu tenang saja tidak perlu takut #speaker:Dewa #expression:A_Dewa_Speak
-Kami hanya ingin bertanya sedikit tentang keadaanmu #speaker:Dewa #expression:A_Dewa_Speak #Emoji:A_Emoji_Love
+Kami hanya ingin bertanya sedikit tentang keadaanmu #speaker:Dewa #expression:A_Dewa_Speak #emoji:A_Emoji_Love
 Apakah tidak masalah? #speaker:Dewa #expression:A_Dewa_Speak
 
 I-iya.... #speaker:Anak Kecil #expression:A_Waffa_Child_Sadness
@@ -22,12 +22,12 @@ Aku kurang paham bahasamu #speaker:Dewa #expression:A_Dewa_Stroking_Head
 Na-namaku… Waffa #speaker:Anak Kecil #expression:A_Waffa_Child_Speak
 
 Dia Waffa yang sama di kampus kita? #speaker:Ratna #expression:A_Ratna_Speak
-Kalau dilihat sih dia sedikit mirip #speaker:Ratna #expression:A_Ratna_Speak #Emoji:A_Emoji_Lightbulb
+Kalau dilihat sih dia sedikit mirip #speaker:Ratna #expression:A_Ratna_Speak #emoji:A_Emoji_Lightbulb
 
 Tolong diam dulu Ratna #speaker:Dewa #expression:A_Dewa_Speak
 
 Kamu beneran Waffa yang hobinya malak orang itu? #speaker:Ratna #expression:A_Ratna_Speak
-Kenapa tubuhmu mengecil? #speaker:Ratna #expression:A_Ratna_Speak #Emoji:A_Emoji_Question
+Kenapa tubuhmu mengecil? #speaker:Ratna #expression:A_Ratna_Speak #emoji:A_Emoji_Question
 Kamu- #speaker:Ratna #expression:A_Ratna_Speak
 
 UWAAHHHHHH... #speaker:Waffa Kecil #expression:A_Waffa_Child_Fear

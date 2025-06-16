@@ -6,7 +6,7 @@ Permisi pak… apakah saya boleh tanya sesuatu? #speaker:Dewa #expression:A_Dewa
 
 Mis… bade naros naon, A? Sro ... #speaker:Penduduk #expression:A_Penduduk_Sunda_1_Speak
 
-Ehhh…? #speaker:Dewa #expression:A_Dewa_Speak #Emoji:A_Emoji_Question
+Ehhh…? #speaker:Dewa #expression:A_Dewa_Speak #emoji:A_Emoji_Question
 Sebentar… itu tadi dia ngomong apa? #speaker:Dewa
 Aku sama sekali belum pernah mendengar bahasa itu… #speaker:Dewa #expression:A_Dewa_Speak
 Apakah para orang disini pakai bahasa daerah mereka? #speaker:Dewa

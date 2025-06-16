@@ -9,7 +9,7 @@ Apa benar kalian kru perlengkapan acara tari di tugu A’? #speaker:Hasan #expre
 Iya dik #speaker:Kru Tradisional 2 #expression:A_Traditional_Crew_2_Speak
 
 Kenapa masih disini? #speaker:Hasan #expression:A_Hasan_Child_Speak
-Teman Aa’ sudah menunggu disana lho #speaker:Hasan #expression:A_Hasan_Child_Speak #Emoji:A_Emoji_Question
+Teman Aa’ sudah menunggu disana lho #speaker:Hasan #expression:A_Hasan_Child_Speak #emoji:A_Emoji_Question
 
 Ini dik kami tersesat tidak tahu harus kemana #speaker:Kru Tradisional 2 #expression:A_Traditional_Crew_2_Speak
 Jadi kami istirahat karena beberapa dari kami sedang kelelahan #speaker:Kru Tradisional 2 #expression:A_Traditional_Crew_2_Speak
@@ -26,10 +26,10 @@ Akan berbahaya jika kita tetap lanjut #speaker:Dewa #expression:A_Dewa_Speak
 Belum lagi jarak kita dengan kru yang satunya juga tidak dekat #speaker:Dewa #expression:A_Dewa_Speak
 
 Aa’ ini… #speaker:Hasan #expression:A_Hasan_Child_Speak
-Orang yang sangat pintar #speaker:Hasan #expression:A_Hasan_Child_Speak #Emoji:A_Emoji_Love
+Orang yang sangat pintar #speaker:Hasan #expression:A_Hasan_Child_Speak #emoji:A_Emoji_Love
 Lebih pintar dari teteh yang itu #speaker:Hasan #expression:A_Hasan_Child_Speak
 
-??? #speaker:Ratna #Emoji:A_Emoji_Angry
+??? #speaker:Ratna #emoji:A_Emoji_Angry
 
 Kalau begitu Aa’ cari air #speaker:Hasan #expression:A_Hasan_Child_Speak
 Biar aku dan yang lain membantu yang disini #speaker:Hasan #expression:A_Hasan_Child_Speak

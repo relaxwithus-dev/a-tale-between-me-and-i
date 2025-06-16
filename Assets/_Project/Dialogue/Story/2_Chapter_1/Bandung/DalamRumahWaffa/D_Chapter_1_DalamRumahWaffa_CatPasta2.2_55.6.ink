@@ -9,14 +9,14 @@ EXTERNAL FinishQuest(questId)
 
 Ibu… #speaker:Waffa Remaja #expression:A_Waffa_Teen_Speak
 IBU!!!!! #speaker:Waffa Remaja #expression:A_Waffa_Teen_Speak
-Tidak… Ibu… bertahanlah Ibu…. #speaker:Waffa Remaja #expression:A_Waffa_Teen_Speak #Emoji:A_Emoji_Tears
+Tidak… Ibu… bertahanlah Ibu…. #speaker:Waffa Remaja #expression:A_Waffa_Teen_Speak #emoji:A_Emoji_Tears
 
 Huh? A-apa yang telah kulakukan… #speaker:Pemabuk #expression_Pemabuk_Speak
-Minggir!!! #speaker:Pemabuk #expression_Pemabuk_Speak #Emoji:A_Emoji_Angry
+Minggir!!! #speaker:Pemabuk #expression_Pemabuk_Speak #emoji:A_Emoji_Angry
 
 // Drunkard pergi dari scene
 
-Ibu… tolong sadarlah Ibu… #speaker:Waffa Remaja #expression:A_Waffa_Teen_Speak #Emoji:A_Emoji_Tears
+Ibu… tolong sadarlah Ibu… #speaker:Waffa Remaja #expression:A_Waffa_Teen_Speak #emoji:A_Emoji_Tears
 Waffa janji tidak akan jadi anak nakal lagi… #speaker:Waffa Remaja #expression:A_Waffa_Teen_Speak
 
 Apa yang harus kita lakukan Dewa #speaker:Ratna #expression:A_Ratna_Speak

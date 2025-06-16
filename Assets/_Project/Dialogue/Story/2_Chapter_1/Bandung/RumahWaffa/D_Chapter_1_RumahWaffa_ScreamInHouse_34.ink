@@ -10,7 +10,7 @@ Di mana itu... #speaker:Dewa #expression:A_Dewa_Speak
 Tunggu... #speaker:Dewa #expression:A_Dewa_Speak
 ???? #speaker:Dewa
 
-Apakah kamu mendengarnya? #speaker:Ratna #expression:A_Ratna_Speak #Emoji:A_Emoji_Question
+Apakah kamu mendengarnya? #speaker:Ratna #expression:A_Ratna_Speak #emoji:A_Emoji_Question
 
 Sangat jelas #speaker:Dewa #expression:A_Dewa_Speak
 Dan sepertinya itu bukanlah sesuatu yang bagus #speaker:Dewa #expression:A_Dewa_Speak

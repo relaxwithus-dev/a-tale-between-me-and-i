@@ -11,7 +11,7 @@ Ke-kenapa dia ada disini… #speaker:Waffa #expression:A_Waffa_Speak
 
 ARRGGHHHH… KAU AKAN KU HABISI!!!! #speaker:Pemabuk #expression:A_Pemabuk_Angry
 
-To… TOLONG!!!! #speaker:Waffa #expression:A_Waffa_Speak #Emoji:A_Emoji_Tears
+To… TOLONG!!!! #speaker:Waffa #expression:A_Waffa_Speak #emoji:A_Emoji_Tears
 
 // Drunkard nyerang
 Arrggh #speaker:Pemabuk #expression:A_Pemabuk_Punch
@@ -24,10 +24,10 @@ Dia lebih kuat dari yang sebelumnya #speaker:Dewa #expression:A_Dewa_Defense
 Wa-Waffa…. #speaker:Dewa #expression:A_Dewa_Defense
 Bisa beri bantuan sedikit disini? #speaker:Dewa #expression:A_Dewa_Defense
 
-Ti-tidak bisa… #speaker:Waffa #expression:A_Waffa_Speak #Emoji:A_Emoji_Tears
+Ti-tidak bisa… #speaker:Waffa #expression:A_Waffa_Speak #emoji:A_Emoji_Tears
 A-aku takut… #speaker:Waffa #expression:A_Waffa_Speak
 
-Hei kenapa kamu malah takut? #speaker:Ratna #expression:A_Ratna_Speak #Emoji:A_Emoji_Angry
+Hei kenapa kamu malah takut? #speaker:Ratna #expression:A_Ratna_Speak #emoji:A_Emoji_Angry
 Bukannya kamu mengaku seorang berandalan paling hebat di kampus? #speaker:Ratna #expression:A_Ratna_Speak
 Kenapa sekarang nyalimu malah tidak ada? #speaker:Ratna #expression:A_Ratna_Speak
 

@@ -11,7 +11,7 @@ Aku sudah cukup merasakan sakit #speaker:WaffaKecil #expression:A_Waffa_Child_Sa
 
 Ayah? #speaker:Ratna #expression:A_Ratna_Shock_In
 Jadi kamu adalah Ayah dari anak ini? #speaker:Ratna #expression:A_Ratna_Shock
-Ayah mana yang tega memukuli anaknya sendiri #speaker:Ratna #expression:A_Ratna_Speak #Emoji:A_Emoji_Angry
+Ayah mana yang tega memukuli anaknya sendiri #speaker:Ratna #expression:A_Ratna_Speak #emoji:A_Emoji_Angry
 
 Tolong berhenti… sudah cukup Ayah… #speaker:WaffaKecil #expression:A_Waffa_Child_Sadness
 

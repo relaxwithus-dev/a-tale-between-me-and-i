@@ -13,7 +13,7 @@ Ibuku bilang air disini semuanya datang langsung dari mata air diatas gunung itu
 Kalau begitu kita bisa mengambil air dari sumur ini #speaker:Dewa #expression:A_Dewa_Speak
 Siapkan gelasnya Waffa #speaker:Dewa #expression:A_Dewa_Speak
 
-Baik kak #speaker:Waffa Kecil #expression:A_Waffa_Child_Speak #Emoji:A_Emoji_Love
+Baik kak #speaker:Waffa Kecil #expression:A_Waffa_Child_Speak #emoji:A_Emoji_Love
 
 ~EnterMinigame()
 

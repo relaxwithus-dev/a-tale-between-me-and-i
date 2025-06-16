@@ -30,7 +30,7 @@ Percaya lebih pada dirimu sendiri dan buktikan kalau kamu bisa melalui seluruh m
 Ingatlah kalau kamu adalah anak kesayangan Ayah #speaker:Ayah Waffa
 
 Baik yah… #speaker:Waffa #expression:A_Waffa_Speak
-Aku akan berubah menjadi anak yang lebih baik #speaker:Waffa #expression:A_Waffa_Speak #Emoji:A_Emoji_Love
+Aku akan berubah menjadi anak yang lebih baik #speaker:Waffa #expression:A_Waffa_Speak #emoji:A_Emoji_Love
 
 Itu baru anak Ayah #speaker:Ayah Waffa
 

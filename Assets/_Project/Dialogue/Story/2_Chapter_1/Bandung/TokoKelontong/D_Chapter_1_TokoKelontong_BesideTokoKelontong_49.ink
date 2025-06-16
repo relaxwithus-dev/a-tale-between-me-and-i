@@ -7,7 +7,7 @@ Dia tadi ingin mencuri sesuatu dari toko itu #speaker:Ratna #expression:A_Ratna_
 Sekarang kamu malah ingin menyelamatkannya #speaker:Ratna #expression:A_Ratna_Speak
 
 Lepaskan #speaker:Lelaki Remaja #expression:A_Waffa_Teen_Speak
-Lepaskan tanganku!!! #speaker:Lelaki Remaja #expression:A_Waffa_Teen_Anger #Emoji:A_Emoji_Angry
+Lepaskan tanganku!!! #speaker:Lelaki Remaja #expression:A_Waffa_Teen_Anger #emoji:A_Emoji_Angry
 
 Ehhh… maaf #speaker:Dewa #expression:A_Dewa_Speak
 
@@ -23,13 +23,13 @@ Memangnya kalian siapa ikut campur urusanku #speaker:Lelaki Remaja #expression:A
 
 Hei kamu ini ya!!! #speaker:Ratna #expression:A_Ratna_Speak
 
-Cukup!!! #speaker:Dewa #expression:A_Dewa_Speak #Emoji:A_Emoji_Angry
+Cukup!!! #speaker:Dewa #expression:A_Dewa_Speak #emoji:A_Emoji_Angry
 Kalian berdua berhenti bicara #speaker:Dewa #expression:A_Dewa_Speak
 Kamu ini Waffa kan? #speaker:Dewa #expression:A_Dewa_Speak
 
 Ehhhh?? #speaker:Ratna #expression:A_Ratna_Speak
 
-Ba-bagaimana kamu bisa tahu? #speaker:Waffa Remaja #expression:A_Waffa_Teen_Speak #Emoji:A_Emoji_Question
+Ba-bagaimana kamu bisa tahu? #speaker:Waffa Remaja #expression:A_Waffa_Teen_Speak #emoji:A_Emoji_Question
 
 Mana mungkin aku tidak ingat wajahmu setelah semua ini #speaker:Dewa #expression:A_Dewa_Speak
 Dan juga tubuhmu tidak jauh berbeda dengan dirimu yang ada di kampus #speaker:Dewa #expression:A_Dewa_Speak

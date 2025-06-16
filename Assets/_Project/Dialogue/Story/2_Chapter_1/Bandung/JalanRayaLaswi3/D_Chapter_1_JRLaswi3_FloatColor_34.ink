@@ -10,7 +10,7 @@ Sebentar… #speaker:Dewa #expression:A_Dewa_Speak
 Apa kamu lihat warna itu Ratna? #speaker:Dewa #expression:A_Dewa_Speak
 Ke mana lagi dia bakal bawa Aku #speaker:Dewa #expression:A_Dewa_Speak
 
-Warna? yang mana? #speaker:Ratna #expression:A_Ratna_Speak #Emoji:A_Emoji_Question
+Warna? yang mana? #speaker:Ratna #expression:A_Ratna_Speak #emoji:A_Emoji_Question
 Bukankah disini ga ada warna sama sekali? #speaker:Ratna #expression:A_Ratna_Speak
 Mana ada warna merah Dewa… #speaker:Ratna #expression:A_Ratna_Speak
 
@@ -25,7 +25,7 @@ Tapi disitu beneran ada warna merah melayang #speaker:Dewa #expression:A_Dewa_Sp
 ... #speaker:Ratna
 Aku tau sekarang udah jauh dari kata aneh dan gak masuk akal #speaker:Ratna #expression:A_Ratna_Speak
 Tapi kamu juga jangan ikut-ikutan aneh juga dong #speaker:Ratna #expression:A_Ratna_Speak
-Apa disini cuma aku yang masih punya akal sehat #speaker:Ratna #expression:A_Ratna_Speak #Emoji:A_Emoji_Angry
+Apa disini cuma aku yang masih punya akal sehat #speaker:Ratna #expression:A_Ratna_Speak #emoji:A_Emoji_Angry
 
 Kamu beneran enggak bisa lihat? #speaker:Dewa #expression:A_Dewa_Speak
 

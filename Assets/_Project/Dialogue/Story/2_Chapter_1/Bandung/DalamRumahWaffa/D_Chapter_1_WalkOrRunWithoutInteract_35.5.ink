@@ -16,7 +16,7 @@ Kami tahu apa yang sedang terjadi disini #speaker:Ratna #expression:A_Ratna_Spea
 Kamu ingin melukai anak itu kan? #speaker:Ratna #expression:A_Ratna_Speak
 Padahal anak itu tidak melakukan apa-apa #speaker:Ratna #expression:A_Ratna_Speak
 
-BERISIK!!!! #speaker:Pemabuk #expression:A_Pemabuk_Angry #Emoji:A_Emoji_Angry
+BERISIK!!!! #speaker:Pemabuk #expression:A_Pemabuk_Angry #emoji:A_Emoji_Angry
 Kalian pilih untuk keluar dari sini atau botol ini mendarat di kepala kalian #speaker:Pemabuk #expression:A_Pemabuk_Angry
 
 ~EnterMinigame()
