@@ -5,7 +5,7 @@ EXTERNAL FinishQuest(questId)
 Sudah? #speaker:Satpam #expression:A_Pak_Satpam_Speak
 
 Sudah Pak #speaker:Ratna #expression:A_Ratna_Speak
-I-ini kuncinya #speaker:Ratna #expression:A_Ratna_Speak #Emoji:A_Emoji_Tears
+I-ini kuncinya #speaker:Ratna #expression:A_Ratna_Speak #emoji:A_Emoji_Tears
 
 Oke #speaker:Satpam #expression:A_Pak_Satpam_Speak
 Kamu tidak membuat gudang berantakan kan? #speaker:Satpam #expression:A_Pak_Satpam_Speak
