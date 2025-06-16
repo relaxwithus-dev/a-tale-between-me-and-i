@@ -188,7 +188,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8349053116910737766, guid: 7031e9c6d16f8ff4385dc1a64c74e0db, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -215,7 +215,11 @@ PrefabInstance:
     - target: {fileID: 955607125761472518, guid: 87b5f96bf7463564a889407712cc7f16, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: d18341da4a87ea047be0b2d6cad45462, type: 2}
+      objectReference: {fileID: 11400000, guid: 559ef0ad4a9825f409e74ec0dc32cdcb, type: 2}
+    - target: {fileID: 955607125761472518, guid: 87b5f96bf7463564a889407712cc7f16, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 955607125761472518, guid: 87b5f96bf7463564a889407712cc7f16, type: 3}
       propertyPath: m_fontSizeBase
       value: 11
@@ -223,7 +227,7 @@ PrefabInstance:
     - target: {fileID: 955607125761472518, guid: 87b5f96bf7463564a889407712cc7f16, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 8163793008609935641, guid: d18341da4a87ea047be0b2d6cad45462, type: 2}
+      objectReference: {fileID: -3112749410884190290, guid: 559ef0ad4a9825f409e74ec0dc32cdcb, type: 2}
     - target: {fileID: 1312714349689020662, guid: 87b5f96bf7463564a889407712cc7f16, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -279,7 +283,7 @@ PrefabInstance:
     - target: {fileID: 3369363121955420436, guid: 87b5f96bf7463564a889407712cc7f16, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: ac69664644ad9ee4cbd30c3e8813164d, type: 2}
+      objectReference: {fileID: 11400000, guid: 559ef0ad4a9825f409e74ec0dc32cdcb, type: 2}
     - target: {fileID: 3369363121955420436, guid: 87b5f96bf7463564a889407712cc7f16, type: 3}
       propertyPath: m_lineSpacing
       value: -15
@@ -291,7 +295,7 @@ PrefabInstance:
     - target: {fileID: 3369363121955420436, guid: 87b5f96bf7463564a889407712cc7f16, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 6710624881214327281, guid: ac69664644ad9ee4cbd30c3e8813164d, type: 2}
+      objectReference: {fileID: -3112749410884190290, guid: 559ef0ad4a9825f409e74ec0dc32cdcb, type: 2}
     - target: {fileID: 3399725761374321867, guid: 87b5f96bf7463564a889407712cc7f16, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
