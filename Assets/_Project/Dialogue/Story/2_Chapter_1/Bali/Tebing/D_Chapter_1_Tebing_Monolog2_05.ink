@@ -3,7 +3,7 @@ EXTERNAL StartQuest(questId)
 EXTERNAL FinishQuest(questId)
 
 // Kamera panning ke atas (Scene bersih-bersih)
-Capek dogén ulian suba nyapuh dini... #speaker:Dewa #expression:A_Dewa_Speak #color: translate
+Capek juga nyapu sebanyak ini #speaker:Dewa #expression:A_Dewa_Speak #color:translate
 Aku istirahat di sana aja deh... #speaker:Dewa #expression:A_Dewa_Speak
 Kamu jangan main terlalu jauh, oke? #speaker:Dewa #expression:A_Dewa_Speak
 

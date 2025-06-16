@@ -2,7 +2,7 @@ EXTERNAL AddItem(itemId)
 EXTERNAL StartQuest(questId)
 EXTERNAL FinishQuest(questId)
 
-Suba lakar budal? #speaker:Ibu Dewa #expression:A_Ibu_Dewa_Speak #color: translate
+Sudah mau berangkat? #speaker:Ibu Dewa #expression:A_Ibu_Dewa_Speak #color:translate
 
 Iya, aku berangkat dulu ya Ma... Pa... #speaker:Dewa #expression:A_Dewa_Speak
 
@@ -15,7 +15,7 @@ Bukannya ada yang ingin Papa sampaikan pada Dewa sebelum dia berangkat? #speaker
 
 Ehh? #speaker:Dewa #expression:A_Dewa_Speak
 
-... #speaker:Bapak Dewa #Emoji:A_Emoji_Angry
+... #speaker:Bapak Dewa #emoji:A_Emoji_Angry
 Lakukan sesukamu #speaker:Bapak Dewa #expression:A_Ayah_Dewa_Speak
 
 // Ayah Dewa masuk ke dalam rumah

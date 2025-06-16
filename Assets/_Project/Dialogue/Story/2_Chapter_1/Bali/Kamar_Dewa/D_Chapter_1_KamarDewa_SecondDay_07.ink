@@ -2,18 +2,18 @@ EXTERNAL AddItem(itemId)
 EXTERNAL StartQuest(questId)
 EXTERNAL FinishQuest(questId)
 
-Urgh... #speaker:Dewa #expression: A_Dewa_Speak #color: translate
+Urgh... #speaker:Dewa #expression: A_Dewa_Speak #color:translate
 SUDAH JAM SEGINI TAPI GAADA YANG BANGUNIN AKU??? #speaker:Dewa #expression:A_Dewa_Shock
-MAMA!!! #speaker:Dewa #expression:A_Dewa_Speak #Emoji:A_Emoji_Angry
+MAMA!!! #speaker:Dewa #expression:A_Dewa_Speak #emoji:A_Emoji_Angry
 
-... #speaker:Ibu Dewa #Emoji:A_Emoji_Question
+... #speaker:Ibu Dewa #emoji:A_Emoji_Question
 
 Ehhh… Mama sudah di sini… #speaker:Dewa #expression:A_Dewa_Speak
 
 Mama dari tadi sudah mencoba membangunkanmu loh... #speaker:Ibu Dewa #expression:A_Ibu_Dewa_Speak
 Tapi kamu tetap tidak mau bangun... #speaker:Ibu Dewa #expression:A_Ibu_Dewa_Speak
 
-Loh, iyakah??? #speaker:Dewa #expression:A_Dewa_Speak #Emoji:A_Emoji_Tears
+Loh, iyakah??? #speaker:Dewa #expression:A_Dewa_Speak #emoji:A_Emoji_Tears
 Hehe... kemarin aku keasyikan main game...  #speaker:Dewa #expression:A_Dewa_Speak
 
 Kalau kebiasaanmu belum berubah, mama jadi khawatir nanti #speaker:Ibu Dewa #expression:A_Ibu_Dewa_Speak

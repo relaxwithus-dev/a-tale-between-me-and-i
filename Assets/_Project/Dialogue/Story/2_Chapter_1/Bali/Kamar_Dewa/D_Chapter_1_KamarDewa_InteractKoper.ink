@@ -2,7 +2,7 @@ EXTERNAL AddItem(itemId)
 EXTERNAL StartQuest(questId)
 EXTERNAL FinishQuest(questId)
 
-Oke, waktunya packing #speaker:Dewa #expression:A_Dewa_Speak
+Oke, waktunya packing #speaker:Dewa #expression:A_Dewa_Speak #color:translate
 
 // Interact Koper
 

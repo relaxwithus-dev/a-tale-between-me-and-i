@@ -3,10 +3,10 @@ EXTERNAL StartQuest(questId)
 EXTERNAL FinishQuest(questId)
 
 Woof... #speaker:Anjing #expression:A_Anjing_Speak
-Ohhhh… Ternyata ragane keto! #speaker:Dewa #expression:A_Dewa_Speak #color: translate
+Ohhhh… Ternyata kamu di sini #speaker:Dewa #expression:A_Dewa_Speak #color:translate
 Mau ikut aku ke tempat biasanya? #speaker:Dewa #expression:A_Dewa_Senang
 
-Woof! #speaker:Anjing #expression:A_Anjing_Speak #Emoji:A_Emoji_Love
+Woof! #speaker:Anjing #expression:A_Anjing_Speak #emoji:A_Emoji_Love
 
 Masih semangat seperti biasanya! #speaker:Dewa #expression:A_Dewa_Speak
 Jangan jauh-jauh dariku oke? #speaker:Dewa #expression:A_Dewa_Speak

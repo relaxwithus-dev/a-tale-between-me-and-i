@@ -2,16 +2,16 @@ EXTERNAL AddItem(itemId)
 EXTERNAL StartQuest(questId)
 EXTERNAL FinishQuest(questId)
 
-Akhirnya metu juga tukang engsap ne! #speaker:Ibu Dewa #expression:A_Ibu_Dewa_Anger #color: translate
+Akhirnya keluar juga tukang tidurnya! #speaker:Ibu Dewa #expression:A_Ibu_Dewa_Anger #color:translate
 Dari tadi pagi susah sekali bangun! #speaker:Ibu Dewa #expression:A_Ibu_Dewa_Speak
 Sarapanmu juga sudah dingin sekarang! #speaker:Ibu Dewa #expression:A_Ibu_Dewa_Speak
 
 Ehh… kalau gitu kenapa nggak dibangunin dari pagi aja, Ma? #speaker:Dewa #expression:A_Dewa_Speak
 
-Hahhh? Mamamu ini sudah mencoba bangunin kamu dari tadi pagi!#speaker:Ibu Dewa #expression:A_Ibu_Dewa_Marah
+Hahhh? Mamamu ini sudah mencoba bangunin kamu dari tadi pagi! #speaker:Ibu Dewa #expression:A_Ibu_Dewa_Marah
 Tapi kamu selalu bilang "5 menit lagi, 5 menit lagi"! #speaker:Ibu Dewa #expression:A_Ibu_Dewa_Marah
 Lihatlah jam di dinding itu! #speaker:Ibu Dewa #expression:A_Ibu_Dewa_Speak
-Sekarang sudah lewat 5 jam! #speaker:Ibu Dewa #expression:A_Ibu_Dewa_Speak #Emoji:A_Emoji_Angry
+Sekarang sudah lewat 5 jam! #speaker:Ibu Dewa #expression:A_Ibu_Dewa_Speak #emoji:A_Emoji_Angry
 
 Ma-maaf, Ma… #speaker:Dewa #expression:A_Dewa_Speak
 
