@@ -1,19 +1,22 @@
-using ATBMI.Gameplay.Event;
 using UnityEngine;
 using ATBMI.Scene;
+using ATBMI.Audio;
+using ATBMI.Gameplay.Event;
 
 namespace ATBMI.Cutscene
 {
     public class TravelCutscene : Cutscene
     {
         #region Fields
-
+        
         [Header("Attribute")] 
         [SerializeField] private bool isTravelToMenu;
         [SerializeField] private LocationData locationData;
         
+        private SceneAsset _currentScene;
+        
         #endregion
-
+        
         #region Methods
         
         public override void Execute()
@@ -25,7 +28,7 @@ namespace ATBMI.Cutscene
             
             isFinishStep = true;
         }
-
+        
         private void TravelToNextScene()
         {
             var currentScene = SceneNavigation.Instance.CurrentScene;
@@ -37,6 +40,7 @@ namespace ATBMI.Cutscene
                 return;
             }
             
+            HandleAudioTravel(sceneAsset);
             SceneNavigation.Instance.SwitchScene(sceneAsset);
             isFinishStep = true;
         }
@@ -45,6 +49,12 @@ namespace ATBMI.Cutscene
         {
             GameEvents.GameExitEvent();
             SceneNavigation.Instance.SwitchSceneSection(isToMenu: true);
+        }
+        
+        private void HandleAudioTravel(SceneAsset targetScene)
+        {
+            if (_currentScene.Region == targetScene.Region) return; 
+            AudioEvent.FadeOutAudioEvent();
         }
         
         #endregion

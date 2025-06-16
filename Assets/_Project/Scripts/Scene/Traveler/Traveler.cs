@@ -70,7 +70,7 @@ namespace ATBMI.Scene
         }
         
         // Core
-        protected abstract void TravelToTarget();
+        public abstract void TravelToTarget();
         
         private void EnableTravel(Collider2D other)
         {

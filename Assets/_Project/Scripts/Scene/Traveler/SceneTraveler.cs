@@ -15,7 +15,7 @@ namespace ATBMI.Scene
         private SceneAsset _currentScene;
         
         // Core
-        protected override void TravelToTarget()
+        public override void TravelToTarget()
         {
             _currentScene = SceneNavigation.Instance.CurrentScene;
             var targetScene = _currentScene.GetNeighbourById(locationData.location);

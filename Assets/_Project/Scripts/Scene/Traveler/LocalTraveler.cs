@@ -22,7 +22,7 @@ namespace ATBMI.Scene
             _player = SceneNavigation.Instance.Player;
         }
         
-        protected override void TravelToTarget()
+        public override void TravelToTarget()
         {
             StartCoroutine(LocalTravelRoutine());
         }
