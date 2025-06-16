@@ -7,7 +7,7 @@ EXTERNAL FinishQuest(questId)
 ~RemoveItem("07")
 
 Arah ke kampus… #speaker:Dewa #expression:A_Dewa_Speak
-Ikut jalan kemarin lalu tinggal belok kan ya? #speaker:Dewa #expression:A_Dewa_Speak #Emoji:A_Emoji_Question
+Ikut jalan kemarin lalu tinggal belok kan ya? #speaker:Dewa #expression:A_Dewa_Speak #emoji:A_Emoji_Question
 
 Mas Dewa… #speaker:Ibu Kos #expression:A_Ibu_Kos_Speak
 

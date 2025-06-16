@@ -6,7 +6,7 @@ EXTERNAL FinishQuest(questId)
 
 Siapa ya yang nelfon malam-malam begini #speaker:Dewa #expression:A_Dewa_Speak
 Ohhh ternyata mama #speaker:Dewa #expression:A_Dewa_Speak
-Halo iya ma ada apa? #speaker:Dewa #expression:A_Dewa_Speak #Emoji:A_Emoji_Question
+Halo iya ma ada apa? #speaker:Dewa #expression:A_Dewa_Speak #emoji:A_Emoji_Question
 
 Mama cuman ingin tahu keadaanmu nak #speaker:Ibu Dewa
 Gimana disana? semuanya baik-baik saja? #speaker:Ibu Dewa

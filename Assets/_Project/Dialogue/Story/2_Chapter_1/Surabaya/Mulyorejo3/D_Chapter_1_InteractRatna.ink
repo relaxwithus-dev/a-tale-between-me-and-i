@@ -12,7 +12,7 @@ A-anu… permisi… #speaker:Ratna #expression:A_Ratna_Speak
 Bolehkah aku tanya sesuatu #speaker:Ratna #expression:A_Ratna_Speak
 
 ??? #speaker:Dewa
-Ehhh… i-iya ada apa? #speaker:Dewa #expression:A_Dewa_Speak #Emoji:A_Emoji_Question
+Ehhh… i-iya ada apa? #speaker:Dewa #expression:A_Dewa_Speak #emoji:A_Emoji_Question
 
 Maaf menganggu tapi kalau boleh tahu…  #speaker:Ratna #expression:A_Ratna_Speak
 Kamu juga mahasiswa di kampus ini? #speaker:Ratna #expression:A_Ratna_Speak
@@ -22,7 +22,7 @@ Aku tidak salah tempat lagi kan? #speaker:Ratna #expression:A_Ratna_Speak
 Tu-tunggu… #speaker:Dewa #expression:A_Dewa_Speak
 
 Ahhh… bicaraku terlalu cepat ya #speaker:Ratna #expression:A_Ratna_Speak
-Maaf… #speaker:Ratna #expression:A_Ratna_Speak #Emoji:A_Emoji_Tears
+Maaf… #speaker:Ratna #expression:A_Ratna_Speak #emoji:A_Emoji_Tears
 
 ... #speaker:Dewa
 Kalau menurut map sih benar ini kampusnya #speaker:Dewa #expression:A_Dewa_Speak

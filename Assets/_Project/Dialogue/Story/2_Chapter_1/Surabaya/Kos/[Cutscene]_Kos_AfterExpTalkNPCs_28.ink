@@ -1,4 +1,4 @@
-Huh... lagi? #speaker:Dewa #expression:A_Dewa_Speak #Emoji:A_Emoji_Question
+Huh... lagi? #speaker:Dewa #expression:A_Dewa_Speak #emoji:A_Emoji_Question
 Apa cuma aku yang bisa denger suara ini!? #speaker:Dewa #expression:A_Dewa_Speak
 Aneh sekali... #speaker:Dewa #expression:A_Dewa_Speak
 Tapi kalo di dengarin lagi... Suaranya dari kampus #speaker:Dewa #expression:A_Dewa_Speak

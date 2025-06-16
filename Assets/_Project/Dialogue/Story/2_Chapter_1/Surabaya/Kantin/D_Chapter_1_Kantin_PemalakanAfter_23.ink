@@ -2,12 +2,12 @@ EXTERNAL AddItem(itemId)
 EXTERNAL StartQuest(questId)
 EXTERNAL FinishQuest(questId)
 
-Jadi rencanamu tadi adalah membawa kating kesini agar dia jadi takut? #speaker:Ratna #expression:A_Ratna_Speak #Emoji:A_Emoji_Question
-Pintar juga ternyata kamu Dewa #speaker:Ratna #expression:A_Ratna_Speak #Emoji:A_Emoji_Lightbulb
+Jadi rencanamu tadi adalah membawa kating kesini agar dia jadi takut? #speaker:Ratna #expression:A_Ratna_Speak #emoji:A_emoji_Question
+Pintar juga ternyata kamu Dewa #speaker:Ratna #expression:A_Ratna_Speak #emoji:A_Emoji_Lightbulb
 
 Sebenarnya…. #speaker:Dewa #expression:A_Dewa_Speak
 
-Kalian juga jangan diam saja disitu!!! #speaker:Kating #expression:A_Kating_Pointing #Emoji:A_Emoji_Angry
+Kalian juga jangan diam saja disitu!!! #speaker:Kating #expression:A_Kating_Pointing #emoji:A_Emoji_Angry
 
 Ehhh? #speaker:Ratna #expression:A_Ratna_Panik
 
@@ -22,7 +22,7 @@ Kalau sudah, akan kuantar kalian ke rombongan #speaker:Kating #expression:A_Kati
 Baik Kak #speaker:Dewa #expression:A_Dewa_Speak
 
 Makasih ya udah mau nolong tadi #speaker:Anak Kuliah #expression:A_Anak_Kuliah_Speak
-Kalau bukan karena kalian uangku tidak akan tersisa untuk bulan ini #speaker:Anak Kuliah #expression:A_Anak_Kuliah_Speak #Emoji:A_Emoji_Love
+Kalau bukan karena kalian uangku tidak akan tersisa untuk bulan ini #speaker:Anak Kuliah #expression:A_Anak_Kuliah_Speak #emoji:A_Emoji_Love
 
 Hehe… tenang saja selama ada yang butuh bantuan, aku akan selalu membantu mereka #speaker:Ratna #expression:A_Ratna_Speak
 

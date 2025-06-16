@@ -10,7 +10,7 @@ EXTERNAL FinishQuest(questId)
 ~FinishQuest("3")
 
 Hm.... #speaker:Dewa #expression:A_Dewa_Speak
-Ini benar lewat sini kan? #speaker:Dewa #expression:A_Dewa_Speak #Emoji:A_Emoji_Question
+Ini benar lewat sini kan? #speaker:Dewa #expression:A_Dewa_Speak #emoji:A_Emoji_Question
 Aku benar-benar tidak tau harus kemana #speaker:Dewa #expression:A_Dewa_Speak
 ... #speaker:Dewa #expression:A_Dewa_Speak
 

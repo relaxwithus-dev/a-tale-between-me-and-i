@@ -5,7 +5,7 @@ EXTERNAL FinishQuest(questId)
 // Timeskip Day 1
 // SFX Alarm: Kring... Kring...
 
-Urgghhh.... #speaker:Dewa #expression:A_Dewa_Speak #Emoji:A_Emoji_Sleepy
+Urgghhh.... #speaker:Dewa #expression:A_Dewa_Speak #emoji:A_Emoji_Sleepy
 Jam berapa ini... #speaker:Dewa #expression:A_Dewa_Speak
 ???? #speaker:Dewa 
 Sudah jam segini???? #speaker:Dewa #expression:A_Dewa_Panik

@@ -13,13 +13,13 @@ Kamu!!! #speaker:Ratna #expression:A_Ratna_Shock
 
 Psst... diam dulu... aku sudah merencanakan sesuatu #speaker:Dewa #expression:A_Dewa_Speak
 
-Ehhhh???? #speaker:Ratna #expression:A_Ratna_Speak #Emoji:A_Emoji_Question
+Ehhhh???? #speaker:Ratna #expression:A_Ratna_Speak #emoji:A_Emoji_Question
 
 Bagus… cepat bawa cewek ini pergi #speaker:Waffa #expression:A_Waffa_Speak
 Dan jangan pernah muncul di hadapanku lagi #speaker:Waffa #expression:A_Waffa_Speak
 Kalau sampai kalian muncul…. maka tinju ini akan mendarat di wajah maneh nanti #speaker:Waffa #expression:A_Waffa_Speak
 
-Seharusnya mereka akan muncul…. sekarang!!! #speaker:Dewa #expression:A_Dewa_Stroking_Head #Emoji:A_Emoji_Lightbulb
+Seharusnya mereka akan muncul…. sekarang!!! #speaker:Dewa #expression:A_Dewa_Stroking_Head #emoji:A_Emoji_Lightbulb
 
 ??? #speaker:Waffa
 

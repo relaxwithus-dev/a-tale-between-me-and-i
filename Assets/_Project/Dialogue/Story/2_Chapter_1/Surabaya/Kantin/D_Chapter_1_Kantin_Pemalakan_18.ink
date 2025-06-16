@@ -14,6 +14,6 @@ Aku juga tidak mengenal siapa mereka #speaker:Dewa #expression:A_Dewa_Speak
 Jadi tidak ada sedikitpun kewajiban bagiku untuk membantu #speaker:Dewa #expression:A_Dewa_Speak
 
 Itu…. itu dia sedang dipalak lho #speaker:Ratna #expression:A_Ratna_Speak
-Tidak bisa dibiarkan #speaker:Ratna #expression:A_Ratna_Speak #Emoji:A_Emoji_Angry
+Tidak bisa dibiarkan #speaker:Ratna #expression:A_Ratna_Speak #emoji:A_Emoji_Angry
 
 -> END
