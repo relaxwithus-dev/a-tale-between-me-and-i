@@ -20,7 +20,7 @@ namespace ATBMI.Interaction
             var inventoryItem = InventoryManager.Instance.GetInventoryItemById(itemId);
             
             isCollected = inventoryItem != null;
-            gameObject.SetActive(isCollected);
+            gameObject.SetActive(!isCollected);
         }
         
         // Core
