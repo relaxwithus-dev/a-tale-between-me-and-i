@@ -66,11 +66,11 @@ namespace ATBMI.Quest
 
             if (GameInputHandler.Instance.IsArrowDown)
             {
-                Navigate(-1);
+                Navigate(1);
             }
             else if (GameInputHandler.Instance.IsArrowUp)
             {
-                Navigate(1);
+                Navigate(-1);
             }
         }
 
@@ -136,6 +136,9 @@ namespace ATBMI.Quest
 
             // Move the button to the appropriate content parent based on quest state
             UpdateTransformParent(questLogButton, quest);
+
+            // Reorder the quest log button index
+            ReorderQuestLogButtonsByHierarchy();
 
             // Update all quest step logs related to this quest
             UpdateQuestSteps(quest);
@@ -301,6 +304,32 @@ namespace ATBMI.Quest
                 );
             }
         }
+
+        public void ReorderQuestLogButtonsByHierarchy()
+        {
+            questLogButtons.Clear();
+
+            // First, collect active quests
+            foreach (Transform child in activeContentParent.transform)
+            {
+                QuestLogButton button = child.GetComponent<QuestLogButton>();
+                if (button != null)
+                {
+                    questLogButtons.Add(button);
+                }
+            }
+
+            // Then, collect completed quests
+            foreach (Transform child in completedContentParent.transform)
+            {
+                QuestLogButton button = child.GetComponent<QuestLogButton>();
+                if (button != null)
+                {
+                    questLogButtons.Add(button);
+                }
+            }
+        }
+
 
         public void ClearQuestLog()
         {

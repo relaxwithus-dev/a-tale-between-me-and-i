@@ -20,29 +20,29 @@ namespace ATBMI.Gameplay.Controller
         [SerializeField] private string move = "Move";
         [SerializeField] private string run = "Run";
         [SerializeField] private string interact = "Interact";
-        [SerializeField] private string questPhone = "QuestPhone";
-        [SerializeField] private string inventoryPhone = "InventoryPhone";
-        [SerializeField] private string mapPhone = "MapPhone";
+        [SerializeField] private string phone = "Phone";
         [SerializeField] private string settingPhone = "SettingPhone";
+        // [SerializeField] private string inventoryPhone = "InventoryPhone";
+        // [SerializeField] private string mapPhone = "MapPhone";
 
         // Input action
         private InputActionAsset _playerActions;
         private InputAction _moveAction;
         private InputAction _runAction;
         private InputAction _interactAction;
-        private InputAction _questPhoneAction;
-        private InputAction _inventoryPhoneAction;
-        private InputAction _mapPhoneAction;
+        private InputAction _phoneAction;
         private InputAction _settingPhoneAction;
+        // private InputAction _inventoryPhoneAction;
+        // private InputAction _mapPhoneAction;
 
         // Action values
         public Vector2 MoveDirection { get; private set; }
         public bool IsPressRun { get; private set; }
         public bool IsTapInteract => _interactAction.WasPressedThisFrame();
-        public bool IsOpenQuest => _questPhoneAction.WasPressedThisFrame();
-        public bool IsOpenInventory => _inventoryPhoneAction.WasPressedThisFrame();
-        public bool IsOpenMap => _mapPhoneAction.WasPressedThisFrame();
+        public bool IsOpenPhone => _phoneAction.WasPressedThisFrame();
         public bool IsOpenSetting=> _settingPhoneAction.WasPressedThisFrame();
+        // public bool IsOpenInventory => _inventoryPhoneAction.WasPressedThisFrame();
+        // public bool IsOpenMap => _mapPhoneAction.WasPressedThisFrame();
         
         [Header("UI Actions Reference")]
         [SerializeField] private string navigate = "Navigate";
@@ -92,10 +92,10 @@ namespace ATBMI.Gameplay.Controller
             _moveAction = _playerActions.FindActionMap(playerMapName).FindAction(move);
             _runAction = _playerActions.FindActionMap(playerMapName).FindAction(run);
             _interactAction = _playerActions.FindActionMap(playerMapName).FindAction(interact);
-            _questPhoneAction = _playerActions.FindActionMap(playerMapName).FindAction(questPhone);
-            _inventoryPhoneAction = _playerActions.FindActionMap(playerMapName).FindAction(inventoryPhone);
-            _mapPhoneAction = _playerActions.FindActionMap(playerMapName).FindAction(mapPhone);
+            _phoneAction = _playerActions.FindActionMap(playerMapName).FindAction(phone);
             _settingPhoneAction = _playerActions.FindActionMap(playerMapName).FindAction(settingPhone);
+            // _inventoryPhoneAction = _playerActions.FindActionMap(playerMapName).FindAction(inventoryPhone);
+            // _mapPhoneAction = _playerActions.FindActionMap(playerMapName).FindAction(mapPhone);
 
             // UI
             _navigateAction = _playerActions.FindActionMap(uiMapName).FindAction(navigate);
@@ -128,7 +128,8 @@ namespace ATBMI.Gameplay.Controller
             _runAction.canceled += OnRunCanceled;
             
             _interactAction.Enable();
-            _questPhoneAction.Enable();
+            _phoneAction.Enable();
+            _settingPhoneAction.Enable();
             
             // UI
             _navigateAction.Enable();
@@ -156,7 +157,8 @@ namespace ATBMI.Gameplay.Controller
             _runAction.canceled -= OnRunCanceled;
             
             _interactAction.Disable();
-            _questPhoneAction.Disable();
+            _phoneAction.Disable();
+            _settingPhoneAction.Disable();
             
             // UI
             _navigateAction.Disable();
