@@ -6,7 +6,7 @@ EXTERNAL FinishQuest(questId)
 
  ~AddItem("1")
 
-#speaker:Ratna #Emoji:A_Emoji_Question
+#speaker:Ratna #emoji:A_Emoji_Question
 
 Ini kan... #speaker:Ratna #expression:A_Ratna_speak
 Kunci untuk gudang kebun #speaker:Ratna #expression:A_Ratna_speak
