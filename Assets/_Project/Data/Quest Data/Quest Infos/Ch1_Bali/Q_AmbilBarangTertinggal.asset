@@ -19,11 +19,5 @@ MonoBehaviour:
   questSteps:
   - targetScene: S_Bali_Rumah_Kamar
     questStepPrefab: {fileID: 7151983779725176322, guid: 9f8ab28758caedd47849d82610a030f0, type: 3}
-    stepStatusText: Ambil laptop
-  - targetScene: S_Bali_Rumah_Kamar
-    questStepPrefab: {fileID: 230253418674576441, guid: 1452bda68ac840f45baad8b6e98e5458, type: 3}
-    stepStatusText: Ambil charger laptop
-  - targetScene: S_Bali_Rumah_Kamar
-    questStepPrefab: {fileID: 1291429303552227604, guid: e9fa8a0e5c172494f88a989edcf81ccb, type: 3}
-    stepStatusText: Ambil mouse
+    stepStatusText: Ambil laptop, charger, dan mouse
   rewardItem: []

@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7775553426096896712}
-  - component: {fileID: -1924141265669186292}
   - component: {fileID: -1014979528893395380}
   m_Layer: 0
   m_Name: Q_Ch1_Bali_Ambil_Laptop
@@ -33,25 +32,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-1924141265669186292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7151983779725176322}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d899291998e1ae4bbeee4b78fc10c78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnNPC: 1
-  spawnNPCData:
-  - npcPrefab: {fileID: 5100580093370311947, guid: b5e681198ef45854c899da44a27b8e1a, type: 3}
-    spawnPoint: {x: -4.5, y: -4.5}
-    spawnSceneName: {fileID: 11400000, guid: ee07507d86c9cc2429237254d53cb96a, type: 2}
-  despawnNPC: 0
-  despawnNPCData: []
 --- !u!114 &-1014979528893395380
 MonoBehaviour:
   m_ObjectHideFlags: 0
