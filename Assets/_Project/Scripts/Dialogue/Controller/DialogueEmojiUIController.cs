@@ -62,7 +62,7 @@ namespace ATBMI
             {
                 emojiPos = targetPos;
                 screenPosition = Camera.main.WorldToScreenPoint(targetPos.position);
-                gameObject.transform.position = screenPosition;
+                gameObject.transform.position = new Vector2(screenPosition.x, screenPosition.y);
             }
             else
             {
