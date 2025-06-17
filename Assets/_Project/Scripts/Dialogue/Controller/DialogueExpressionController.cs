@@ -26,7 +26,7 @@ public class DialogueExpressionController : MonoBehaviour
         stateInfo = anim.GetCurrentAnimatorStateInfo(0);
         // check is there any animation called expressionValue
         hasAnimation = anim.HasState(0, Animator.StringToHash(expression)); 
-
+        
         // play anim
         if (hasAnimation && !stateInfo.IsName(expression))
         {

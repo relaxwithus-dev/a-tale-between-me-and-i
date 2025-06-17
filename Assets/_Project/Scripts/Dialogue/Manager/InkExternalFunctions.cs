@@ -38,11 +38,6 @@ namespace ATBMI.Dialogue
             story.UnbindExternalFunction("ActivateMinigameTrigger");
             story.UnbindExternalFunction("UpdateStoryChapter");
         }
-
-        public void ChangeScene(string sceneId)
-        {
-            
-        }
         
         public void AddItem(string itemId) => UpdateItem(itemId, isAdding: true);
         public void RemoveItem(string itemId) => UpdateItem(itemId, isAdding: false);

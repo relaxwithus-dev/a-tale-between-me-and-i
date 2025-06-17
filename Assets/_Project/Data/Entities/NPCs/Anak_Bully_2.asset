@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe195ef6725630241b8ad3ba30b4f8db, type: 3}
+  m_Name: Anak_Bully_2
+  m_EditorClassIdentifier: 
+  characterName: Anak Bully 2
+  animationTag: A_Anak_Bully_2
+  type: 0
+  isIdling: 1
+  moveSpeeds: []
+  defaultDialogues:
+  - location: 0
+    dialogues:
+    - {fileID: 4900000, guid: 4304e56e5d3f8d8499046ae7854799f8, type: 3}
+  emotionDialogues: []
+  itemDialogues: []
+  defaultItemDialogue: {fileID: 0}

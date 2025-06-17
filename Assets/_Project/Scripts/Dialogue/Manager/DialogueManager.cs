@@ -22,9 +22,9 @@ namespace ATBMI.Dialogue
 
         [Header("Dialogue UI")]
         [SerializeField] private GameObject dialoguePin;
+        [SerializeField] private GameObject continuePin;
         [SerializeField] private TextMeshProUGUI dialogueName;
         [SerializeField] private TextMeshProUGUI dialogueText;
-        [SerializeField] private GameObject continuePin;
         [SerializeField] private Color[] dialogueColors;
 
         [Header("Choices UI")]
