@@ -12,7 +12,7 @@ namespace ATBMI.Stress
         [Header("Data")]
         [SerializeField] private StressData productivityData;
         [SerializeField] private StressData depressionData;
-
+        
         private StressStatus _currentStatus;
         public Productivity ProductivityStatus { get; private set; }
         public Depression DepressionStatus { get; private set; }
@@ -23,8 +23,9 @@ namespace ATBMI.Stress
 
         #endregion
 
-        #region MonoBehaviour Callbacks
+        #region Methods
 
+        // Unity Callbacks
         private void Awake()
         {
             // Component
@@ -41,23 +42,20 @@ namespace ATBMI.Stress
             PlayerEvents.OnStressActive += ActivateStatus;
             PlayerEvents.OnStressInactive += InactiveStatus;
         }
-
+        
         private void OnDisable()
         {
             PlayerEvents.OnStressActive -= ActivateStatus;
             PlayerEvents.OnStressInactive -= InactiveStatus;
         }
 
-        #endregion
-        
-        #region Methods
-
+        // Core
         private void ActivateStatus()
         {
             _currentStatus = Random.value > 0.5f ? ProductivityStatus :  DepressionStatus;
             _currentStatus.PerformStatus();
         }
-
+        
         private void InactiveStatus()
         {
             _currentStatus.ResetStatus();

@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using ATBMI.Gameplay.Event;
@@ -19,17 +20,21 @@ namespace ATBMI.Stress
         [Space] 
         [SerializeField] private Color fullFillColor;
         [SerializeField] private Color endFillColor;
+        [SerializeField] private Sprite[] gaugeIconSprites;
         
         private float _currentStressValue;
         private float _increasedValue;
+        private List<float> _sliderValues = new();
+        
         private bool _isStatusActive;
         private Coroutine _overtimeRoutine;
         
         private const float MAX_SLIDER_VALUE = 1f;
         private const float MIN_SLIDER_VALUE = 0f;
-
+        
         [Header("UI")]
         [SerializeField] private Image gaugeImageUI;
+        [SerializeField] private Image gaugeIconUI;
         
         #endregion
 
@@ -51,25 +56,21 @@ namespace ATBMI.Stress
         private void Start()
         {
             InitGaugeStats();
+            
+            var iconLenght = gaugeIconSprites.Length;
+            var valueDivider = MAX_SLIDER_VALUE / iconLenght;
+            for (var i = iconLenght - 1; i > 0; i--)
+            {
+                _sliderValues.Add(i * valueDivider);
+            }
         }
         
         private void Update()
         {
             if (_isStatusActive) return;
             
-            var currentValue = _currentStressValue / stressValue;
-            gaugeImageUI.fillAmount = Mathf.Lerp(currentValue, MAX_SLIDER_VALUE, gaugeDuration);
-            gaugeImageUI.color = Color.Lerp(endFillColor, fullFillColor, gaugeDuration);
-            
-            if (gaugeImageUI.fillAmount > MAX_SLIDER_VALUE)
-            {
-                _isStatusActive = true;
-                gaugeImageUI.fillAmount = MAX_SLIDER_VALUE;
-                gaugeImageUI.color = fullFillColor;
-                
-                // Activate stress effect
-                StartCoroutine(DecreaseSliderRoutine());
-            }
+            IncreaseGauge();
+            HandleGaugeIcon(gaugeImageUI.fillAmount);
         }
         
         // Initialize
@@ -81,6 +82,7 @@ namespace ATBMI.Stress
             
             gaugeImageUI.fillAmount = MIN_SLIDER_VALUE;
             gaugeImageUI.color = endFillColor;
+            gaugeIconUI.sprite = gaugeIconSprites[0];
         }
         
         // Core
@@ -117,8 +119,25 @@ namespace ATBMI.Stress
             
             _currentStressValue = stressValue;
         }
+
+        private void IncreaseGauge()
+        {
+            var currentValue = _currentStressValue / stressValue;
+            gaugeImageUI.fillAmount = Mathf.Lerp(currentValue, MAX_SLIDER_VALUE, gaugeDuration);
+            gaugeImageUI.color = Color.Lerp(endFillColor, fullFillColor, gaugeDuration);
+            
+            if (gaugeImageUI.fillAmount > MAX_SLIDER_VALUE)
+            {
+                _isStatusActive = true;
+                gaugeImageUI.fillAmount = MAX_SLIDER_VALUE;
+                gaugeImageUI.color = fullFillColor;
+                
+                // Activate stress effect
+                StartCoroutine(DecreaseGaugeRoutine());
+            }
+        }
         
-        private IEnumerator DecreaseSliderRoutine()
+        private IEnumerator DecreaseGaugeRoutine()
         {
             var elapsedTime = 0f;
             PlayerEvents.StressActiveEvent();
@@ -128,6 +147,8 @@ namespace ATBMI.Stress
                 var time = elapsedTime / statusDuration;
                 gaugeImageUI.fillAmount = Mathf.Lerp(MAX_SLIDER_VALUE, MIN_SLIDER_VALUE, time);
                 gaugeImageUI.color = Color.Lerp(endFillColor, fullFillColor, time);
+                
+                HandleGaugeIcon(gaugeImageUI.fillAmount);
                 elapsedTime += Time.deltaTime;
                 yield return null;
             }
@@ -135,7 +156,18 @@ namespace ATBMI.Stress
             InitGaugeStats();
             PlayerEvents.StressInactiveEvent();
         }
-
+        
+        private void HandleGaugeIcon(float value)
+        {
+            gaugeIconUI.sprite = value switch
+            {
+                _ when value >= _sliderValues[2] => gaugeIconSprites[3],
+                _ when value >= _sliderValues[1] => gaugeIconSprites[2],
+                _ when value >= _sliderValues[0] => gaugeIconSprites[1],
+                _ => gaugeIconSprites[0]
+            };
+        }
+        
         #endregion
     }
 }

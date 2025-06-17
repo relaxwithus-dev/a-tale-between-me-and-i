@@ -2394,8 +2394,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8409129018133883097}
-  - component: {fileID: 7122435675325356963}
   - component: {fileID: 5069467626668371840}
+  - component: {fileID: 7122435675325356963}
   m_Layer: 0
   m_Name: Stress
   m_TagString: Untagged
@@ -2418,6 +2418,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8600351667431493300}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5069467626668371840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8797931118578634397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0acb8bb8b8ff3747bc6254c51f95328, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  productivityData: {fileID: 11400000, guid: 0c44d715cdda2d7458716025390730fb, type: 2}
+  depressionData: {fileID: 11400000, guid: 351dd5bf9a76caf4291f29c3ee045c4f, type: 2}
 --- !u!114 &7122435675325356963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2437,21 +2451,13 @@ MonoBehaviour:
   increasedInterval: 0.2
   fullFillColor: {r: 0.16470589, g: 0.7568628, b: 0.5176471, a: 1}
   endFillColor: {r: 0.83921576, g: 0.10196079, b: 0.10196079, a: 1}
+  gaugeIconSprites:
+  - {fileID: 930523087, guid: c9254d81c822ef0488cdb178163df29c, type: 3}
+  - {fileID: -1111550170, guid: c9254d81c822ef0488cdb178163df29c, type: 3}
+  - {fileID: 1027707466, guid: c9254d81c822ef0488cdb178163df29c, type: 3}
+  - {fileID: 684787247, guid: c9254d81c822ef0488cdb178163df29c, type: 3}
   gaugeImageUI: {fileID: 0}
---- !u!114 &5069467626668371840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8797931118578634397}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0acb8bb8b8ff3747bc6254c51f95328, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  productivityData: {fileID: 11400000, guid: 0c44d715cdda2d7458716025390730fb, type: 2}
-  depressionData: {fileID: 11400000, guid: 351dd5bf9a76caf4291f29c3ee045c4f, type: 2}
+  gaugeIconUI: {fileID: 0}
 --- !u!1 &8979506948375242148
 GameObject:
   m_ObjectHideFlags: 0
