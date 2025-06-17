@@ -7,7 +7,7 @@ Perbuatanmu itu benar-benar salah #speaker:Ratna #expression:A_Ratna_Speak
 
 Kenapa ada orang lain yang ikut campur #speaker:Waffa #expression:A_Waffa_Speak
 
-Memalak orang sembarangan #speaker:Ratna #expression:A_Ratna_Marah
+Memalak orang sembarangan #speaker:Ratna #expression:A_Ratna_Speak #emoji:A_Emoji_Angry
 Apakah kamu tidak memikirkan bagaimana kondisi finansial dari anak itu kedepannya? #speaker:Ratna #expression:A_Ratna_Speak
 
 Terus kalau salah memang kenapa? #speaker:Waffa #expression:A_Waffa_Speak
