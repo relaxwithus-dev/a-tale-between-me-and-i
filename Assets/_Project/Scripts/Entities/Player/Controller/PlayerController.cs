@@ -143,9 +143,9 @@ namespace ATBMI.Entities.Player
         public void Flip()
         {
             isFacingRight = !isFacingRight;
-            _playerSr.flipX = !isFacingRight;
+            transform.Rotate(0f, 180f, 0f);
         }
-
+        
         // Helpers
         public void StartMovement()
         {
@@ -190,7 +190,7 @@ namespace ATBMI.Entities.Player
             CurrentStat = GetMoveStats(state);
             CurrentSpeed = CurrentStat.Speed;
         }
-
+        
         private EntitiesState GetState()
         {
             var direction = MoveDirection;
@@ -199,7 +199,7 @@ namespace ATBMI.Entities.Player
             if (direction == Vector2.zero) return EntitiesState.Idle;
             return isRunning ? EntitiesState.Run : EntitiesState.Walk;
         }
-
+        
         private PlayerData.MoveStat GetMoveStats(EntitiesState state)
         {
             if (state == EntitiesState.Idle)
