@@ -9,7 +9,7 @@ namespace ATBMI.Stress
     public class StressGauge : MonoBehaviour
     {
         #region Fields & Property
-
+        
         [Header("Stats")]
         [SerializeField] private float stressValue = 100f;
         [SerializeField] private float statusDuration;
@@ -86,13 +86,21 @@ namespace ATBMI.Stress
         }
         
         // Core
-        private void StressOnce(bool condition, float value)
+        private void StressOnce(bool isIncrease, float value = 0)
         {
+            if (!isIncrease)
+            {
+                var decrease = Random.Range(1f, 65f);
+                value += decrease * -1f;
+            }
+            
             _isStatusActive = false;
-
-            if (!condition)
-                value *= -1f;
             _currentStressValue += value;
+            if (_currentStressValue >= stressValue)
+            {
+                _isStatusActive = true;
+                _currentStressValue = stressValue;
+            }
         }
         
         private void StressOvertime(bool condition)
@@ -119,7 +127,7 @@ namespace ATBMI.Stress
             
             _currentStressValue = stressValue;
         }
-
+        
         private void IncreaseGauge()
         {
             var currentValue = _currentStressValue / stressValue;

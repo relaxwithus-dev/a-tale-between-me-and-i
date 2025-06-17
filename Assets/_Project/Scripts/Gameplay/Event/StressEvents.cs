@@ -1,8 +1,8 @@
 using System;
 
-namespace ATBMI.Stress
+namespace ATBMI.Gameplay.Event
 {
-    public class StressEvents
+    public static class StressEvents
     {
         // Event
         public static event Action<bool> OnStressOvertime;
@@ -10,6 +10,6 @@ namespace ATBMI.Stress
         
         // Caller
         public static void StressOvertimeEvent(bool isAddStress) => OnStressOvertime?.Invoke(isAddStress);
-        public static void StressOnceEvent(bool isAddStress, float value) => OnStressOnce?.Invoke(isAddStress, value);
+        public static void StressOnceEvent(bool isAddStress, float value = 0f) => OnStressOnce?.Invoke(isAddStress, value);
     }
 }

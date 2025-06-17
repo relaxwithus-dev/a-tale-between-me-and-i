@@ -30,7 +30,7 @@ namespace ATBMI.Minigame
             // Minigame
             MinigameEvents.OnWinMinigame -= WinMinigame;
             MinigameEvents.OnLoseMinigame -= LoseMinigame;
-
+            
             // Dialogue
             DialogueEvents.OnExitDialogue -= EnterProgression;
         }
@@ -57,7 +57,7 @@ namespace ATBMI.Minigame
             if (!_isWinning) return;
             StartCoroutine(EnterProgressionRoutine());
         }
-
+        
         private IEnumerator EnterProgressionRoutine()
         {
             yield return new WaitForSeconds(0.5f);

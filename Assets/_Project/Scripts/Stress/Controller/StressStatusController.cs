@@ -1,7 +1,7 @@
 using UnityEngine;
 using ATBMI.Data;
-using ATBMI.Entities.Player;
 using ATBMI.Gameplay.Event;
+using ATBMI.Entities.Player;
 
 namespace ATBMI.Stress
 {
