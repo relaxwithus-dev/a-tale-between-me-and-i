@@ -114,6 +114,7 @@ namespace ATBMI.Scene
             DialogueEvents.UnregisterDialogueEmojiEvent();
             DialogueEvents.UnregisterDialogueSignPointEvent();
             QuestEvents.UnregisterNPCsThatHandledByQuestStepEvent();
+            QuestEvents.UnregisterItemsThatHandledByQuestStepEvent();
 
             // Setup latest scene
             if (CurrentScene != null)

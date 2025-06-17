@@ -64,4 +64,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8930da9850b7624bbf71ad31eebcb2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemIds: 03000000
+  itemIds: 030000000400000005000000
+  spawnItem: 1
+  spawnItemData:
+  - itemPrefab: {fileID: 5638400020762366761, guid: c99a00a463e4dd849b673ce8a1759df6, type: 3}
+    spawnPoint: {x: 2.09, y: -3.72}
+    spawnSceneName: {fileID: 11400000, guid: ee07507d86c9cc2429237254d53cb96a, type: 2}
+  - itemPrefab: {fileID: 5638400020762366761, guid: ceaaade1390b6b94ba48794bfa18764a, type: 3}
+    spawnPoint: {x: 1.09, y: -3.72}
+    spawnSceneName: {fileID: 11400000, guid: ee07507d86c9cc2429237254d53cb96a, type: 2}
+  - itemPrefab: {fileID: 5638400020762366761, guid: 6d80ffbcb170f324b8c16317a89ee37b, type: 3}
+    spawnPoint: {x: 0.09, y: -3.72}
+    spawnSceneName: {fileID: 11400000, guid: ee07507d86c9cc2429237254d53cb96a, type: 2}
+  despawnItem: 0
+  despawnItemData: []

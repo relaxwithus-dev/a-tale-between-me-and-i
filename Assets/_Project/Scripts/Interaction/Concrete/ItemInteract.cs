@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using ATBMI.Data;
 using ATBMI.Inventory;
+using ATBMI.Gameplay.Event;
 
 namespace ATBMI.Interaction
 {
@@ -11,16 +12,20 @@ namespace ATBMI.Interaction
         [SerializeField] private bool isCollected;
         [SerializeField] private ItemData itemData;
         [SerializeField] private Transform signTransform;
-        
+
+        public ItemData Data => itemData;
+
         // Unity Callbacks
         private void Start()
         {
             // Setup item
             var itemId = itemData.ItemId;
-            var inventoryItem = InventoryManager.Instance.GetInventoryItemById(itemId);
+            // var inventoryItem = InventoryManager.Instance.GetInventoryItemById(itemId);
+
+            // isCollected = inventoryItem != null;
+            // gameObject.SetActive(isCollected);
             
-            isCollected = inventoryItem != null;
-            gameObject.SetActive(isCollected);
+            QuestEvents.RegisterThisItemToHandledByQuestStepEvent(this);
         }
         
         // Core
