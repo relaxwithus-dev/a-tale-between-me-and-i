@@ -33,7 +33,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "QuestPhone",
+                    "name": "Phone",
                     "type": "Button",
                     "id": "202f6f50-cbaa-48bb-a24b-ec873a5b4326",
                     "expectedControlType": "Button",
@@ -42,25 +42,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "InventoryPhone",
-                    "type": "Button",
-                    "id": "4d20a804-20e8-401f-8425-94090a0aff37",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Tap(duration=0.01)",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "MapPhone",
-                    "type": "Button",
-                    "id": "e3d0ca2b-5e6c-4d55-b5c5-5ac6fe9ad7e5",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Tap(duration=0.01)",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "SettingPhone",
+                    "name": "Setting",
                     "type": "Button",
                     "id": "e2b8033b-a5a0-4f2d-9fe8-357881b548bc",
                     "expectedControlType": "Button",
@@ -93,31 +75,9 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "up",
-                    "id": "e2062cb9-1b15-46a2-838c-2f8d72a0bdd9",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "320bffee-a40b-4347-ac70-c210eb8bc73a",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "left",
                     "id": "d2581a9b-1d11-4566-b27d-b92aff5fabbc",
-                    "path": "<Keyboard>/a",
+                    "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
@@ -128,7 +88,7 @@
                 {
                     "name": "right",
                     "id": "fcfe95b8-67b9-4526-84b5-5d0bc98d6400",
-                    "path": "<Keyboard>/d",
+                    "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
@@ -161,7 +121,7 @@
                 {
                     "name": "",
                     "id": "81a626da-7eed-43dd-b5b5-6b257e013585",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -182,45 +142,23 @@
                 },
                 {
                     "name": "",
-                    "id": "6cea5067-c867-4b3c-861d-6fd5daac5e2f",
-                    "path": "<Keyboard>/tab",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "QuestPhone",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "77b5c0e5-e622-4838-8ef8-245b5fb246f3",
-                    "path": "<Keyboard>/i",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "InventoryPhone",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ea3a9a73-99e1-47a2-a768-82d3146991fe",
-                    "path": "<Keyboard>/m",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "MapPhone",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "de47ca0e-30e5-4bd0-a7c0-dee1502ae189",
                     "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "SettingPhone",
+                    "action": "Setting",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6cea5067-c867-4b3c-861d-6fd5daac5e2f",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Phone",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -249,18 +187,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Back",
+                    "name": "Close",
                     "type": "Button",
                     "id": "39b8ea9f-3766-4c69-8cab-dbdd8ea596b3",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Tap",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Submit",
-                    "type": "Button",
-                    "id": "94c48d04-bd6a-41ce-a90d-c646523907fa",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Tap",
@@ -271,24 +200,6 @@
                     "type": "PassThrough",
                     "id": "020a6bf6-9dbb-4060-a1f5-34673e45e333",
                     "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "MenuTabLeft",
-                    "type": "Button",
-                    "id": "78ae18da-f2f3-4f62-9988-cfd1fda262cd",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "MenuTabRight",
-                    "type": "Button",
-                    "id": "843da10d-cb2e-4c4e-a473-0b2f84db9502",
-                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -533,40 +444,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Back",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "0b71d94c-2b1d-43c0-8e0e-4da183da6aca",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Submit",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "42e6c9c7-e424-4aec-b81d-9b3297e5b0d6",
-                    "path": "<Keyboard>/q",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "MenuTabLeft",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "bb54eac8-21e7-40b8-aa9e-5811a362d7eb",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MenuTabRight",
+                    "action": "Close",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

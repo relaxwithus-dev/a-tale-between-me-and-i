@@ -72,7 +72,7 @@ namespace ATBMI.UI.Menu
                 MoveToNext();
             else if (GameInputHandler.Instance.IsTabLeft)
                 MoveToPrevious();
-            else if (GameInputHandler.Instance.IsTapBack)
+            else if (GameInputHandler.Instance.IsTapClose)
                 CloseOptionPanel();
         }
         

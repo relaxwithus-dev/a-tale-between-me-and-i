@@ -42,7 +42,7 @@ namespace ATBMI.UI.Menu
         private void Update()
         {
             if (!playPanelUI.activeSelf) return;
-            if (GameInputHandler.Instance.IsTapBack)
+            if (GameInputHandler.Instance.IsTapClose)
             {
                 playPanelUI.SetActive(false);
                 menuManager.OpenMenuPanel();

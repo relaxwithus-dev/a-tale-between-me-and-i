@@ -20,7 +20,6 @@ namespace ATBMI.UI.Ingame
             if (tabButtons.Count < 1)
             {
                 Debug.Log("tab buttons is empty!");
-                return;
             }
         }
 
@@ -77,24 +76,23 @@ namespace ATBMI.UI.Ingame
         public void SelectTabByName(UIMenuTabEnum tab)
         {
             _currentTabIndex = (int)tab;
+            SelectTab(_currentTabIndex);
 
-            switch (tab)
-            {
-                case UIMenuTabEnum.Quest:
-                    SelectTab((int)UIMenuTabEnum.Quest);
-                    break;
-                case UIMenuTabEnum.Inventory:
-                    SelectTab((int)UIMenuTabEnum.Inventory);
-                    break;
-                case UIMenuTabEnum.Map:
-                    SelectTab((int)UIMenuTabEnum.Map);
-                    break;
-                case UIMenuTabEnum.Setting:
-                    SelectTab((int)UIMenuTabEnum.Setting);
-                    break;
-                default:
-                    break;
-            }
+            // switch (tab)
+            // {
+            //     case UIMenuTabEnum.Quest:
+            //         SelectTab((int)UIMenuTabEnum.Quest);
+            //         break;
+            //     case UIMenuTabEnum.Inventory:
+            //         SelectTab((int)UIMenuTabEnum.Inventory);
+            //         break;
+            //     case UIMenuTabEnum.Map:
+            //         SelectTab((int)UIMenuTabEnum.Map);
+            //         break;
+            //     case UIMenuTabEnum.Setting:
+            //         SelectTab((int)UIMenuTabEnum.Setting);
+            //         break;
+            // }
         }
     }
 }
