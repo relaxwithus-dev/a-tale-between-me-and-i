@@ -6,10 +6,12 @@ namespace ATBMI.Stress
 {
     public class Depression : StressStatus
     {
+        // Fields
         private float _finalSpeed;
 
+        // Methods
         public Depression(StressData data, PlayerController player, Animator animator) : base(data, player, animator) { }
-
+        
         public override void PerformStatus()
         {
             base.PerformStatus();

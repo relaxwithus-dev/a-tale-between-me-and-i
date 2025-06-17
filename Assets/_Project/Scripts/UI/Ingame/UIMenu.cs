@@ -15,8 +15,6 @@ namespace ATBMI.UI.Ingame
 
         private bool _isMenuActive;
 
-        public bool IsMenuActive => _isMenuActive;
-
         [Header("Reference")]
         [SerializeField] private PlayerController playerController;
 

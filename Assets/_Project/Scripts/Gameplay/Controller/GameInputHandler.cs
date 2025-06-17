@@ -21,9 +21,7 @@ namespace ATBMI.Gameplay.Controller
         [SerializeField] private string run = "Run";
         [SerializeField] private string interact = "Interact";
         [SerializeField] private string phone = "Phone";
-        [SerializeField] private string settingPhone = "SettingPhone";
-        // [SerializeField] private string inventoryPhone = "InventoryPhone";
-        // [SerializeField] private string mapPhone = "MapPhone";
+        [SerializeField] private string setting = "Setting";
 
         // Input action
         private InputActionAsset _playerActions;
@@ -31,31 +29,26 @@ namespace ATBMI.Gameplay.Controller
         private InputAction _runAction;
         private InputAction _interactAction;
         private InputAction _phoneAction;
-        private InputAction _settingPhoneAction;
-        // private InputAction _inventoryPhoneAction;
-        // private InputAction _mapPhoneAction;
-
+        private InputAction _settingAction;
+        
         // Action values
         public Vector2 MoveDirection { get; private set; }
         public bool IsPressRun { get; private set; }
         public bool IsTapInteract => _interactAction.WasPressedThisFrame();
         public bool IsOpenPhone => _phoneAction.WasPressedThisFrame();
-        public bool IsOpenSetting=> _settingPhoneAction.WasPressedThisFrame();
-        // public bool IsOpenInventory => _inventoryPhoneAction.WasPressedThisFrame();
-        // public bool IsOpenMap => _mapPhoneAction.WasPressedThisFrame();
-        
+        public bool IsOpenSetting => _settingAction.WasPressedThisFrame();
+        public bool IsClosePhone => _phoneAction.WasPressedThisFrame() || _settingAction.WasPressedThisFrame();
+
         [Header("UI Actions Reference")]
         [SerializeField] private string navigate = "Navigate";
-        [SerializeField] private string submit = "Submit";
         [SerializeField] private string select = "Select";
-        [SerializeField] private string back = "Back";
+        [SerializeField] private string close = "Close";
         [SerializeField] private string tabMenu = "TabMenu";
         
         // Input action
         private InputAction _navigateAction;
         private InputAction _selectAction;
-        private InputAction _backAction;
-        private InputAction _submitAction;
+        private InputAction _closeAction;
         private InputAction _tabMenuAction;
         
         // Action values
@@ -72,9 +65,8 @@ namespace ATBMI.Gameplay.Controller
         public bool IsArrowLeft => _isArrowLeft && _navigateAction.WasPressedThisFrame();
         public bool IsArrowRight => _isArrowRight && _navigateAction.WasPressedThisFrame();
         
-        public bool IsTapSubmit => _submitAction.WasPressedThisFrame();
         public bool IsTapSelect => _selectAction.WasPressedThisFrame();
-        public bool IsTapBack => _backAction.WasPressedThisFrame();
+        public bool IsTapClose => _closeAction.WasPressedThisFrame();
         
         public bool IsTabRight => _isTabRight && _tabMenuAction.WasPressedThisFrame();
         public bool IsTabLeft => _isTabLeft && _tabMenuAction.WasPressedThisFrame();
@@ -93,15 +85,12 @@ namespace ATBMI.Gameplay.Controller
             _runAction = _playerActions.FindActionMap(playerMapName).FindAction(run);
             _interactAction = _playerActions.FindActionMap(playerMapName).FindAction(interact);
             _phoneAction = _playerActions.FindActionMap(playerMapName).FindAction(phone);
-            _settingPhoneAction = _playerActions.FindActionMap(playerMapName).FindAction(settingPhone);
-            // _inventoryPhoneAction = _playerActions.FindActionMap(playerMapName).FindAction(inventoryPhone);
-            // _mapPhoneAction = _playerActions.FindActionMap(playerMapName).FindAction(mapPhone);
-
+            _settingAction = _playerActions.FindActionMap(playerMapName).FindAction(setting);
+            
             // UI
             _navigateAction = _playerActions.FindActionMap(uiMapName).FindAction(navigate);
             _selectAction = _playerActions.FindActionMap(uiMapName).FindAction(select);
-            _backAction = _playerActions.FindActionMap(uiMapName).FindAction(back);
-            _submitAction = _playerActions.FindActionMap(uiMapName).FindAction(submit);
+            _closeAction = _playerActions.FindActionMap(uiMapName).FindAction(close);
             _tabMenuAction = _playerActions.FindActionMap(uiMapName).FindAction(tabMenu);
         }
 
@@ -129,7 +118,7 @@ namespace ATBMI.Gameplay.Controller
             
             _interactAction.Enable();
             _phoneAction.Enable();
-            _settingPhoneAction.Enable();
+            _settingAction.Enable();
             
             // UI
             _navigateAction.Enable();
@@ -137,8 +126,7 @@ namespace ATBMI.Gameplay.Controller
             _navigateAction.canceled += OnNavigationCanceled;
             
             _selectAction.Enable();
-            _backAction.Enable();
-            _submitAction.Enable();
+            _closeAction.Enable();
             
             _tabMenuAction.Enable();
             _tabMenuAction.performed += OnMenuPerformed;
@@ -158,7 +146,7 @@ namespace ATBMI.Gameplay.Controller
             
             _interactAction.Disable();
             _phoneAction.Disable();
-            _settingPhoneAction.Disable();
+            _settingAction.Enable();
             
             // UI
             _navigateAction.Disable();
@@ -166,8 +154,7 @@ namespace ATBMI.Gameplay.Controller
             _navigateAction.canceled -= OnNavigationCanceled;
             
             _selectAction.Disable();
-            _backAction.Disable();
-            _submitAction.Disable();
+            _closeAction.Disable();
             
             _tabMenuAction.Disable();
             _tabMenuAction.performed -= OnMenuPerformed;

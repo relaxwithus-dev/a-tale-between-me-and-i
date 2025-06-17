@@ -1,11 +1,10 @@
 using UnityEngine;
+using Sirenix.OdinInspector;
 using ATBMI.Enum;
 using ATBMI.Scene;
 using ATBMI.Inventory;
 using ATBMI.Entities.NPCs;
-using ATBMI.Entities.Player;
 using ATBMI.Gameplay.Event;
-using System;
 
 namespace ATBMI.Interaction
 {
@@ -15,6 +14,7 @@ namespace ATBMI.Interaction
 
         [Header("Stats")]
         [SerializeField] private bool isInteracting;
+        [SerializeField] [MaxValue(40f)] private float stressValue;
 
         [Space]
         [SerializeField] private InteractAction interactAction;
@@ -49,7 +49,6 @@ namespace ATBMI.Interaction
             // Register
             DialogueEvents.RegisterNPCTipTargetEvent(_characterAI.Data.CharacterName, GetSignTransform());
             DialogueEvents.RegisterNPCEmojiTargetEvent(_characterAI.Data.CharacterName, GetEmojiTransform());
-
             QuestEvents.RegisterThisNPCToHandledByQuestStepEvent(_characterAI);
         }
         
@@ -64,8 +63,10 @@ namespace ATBMI.Interaction
                 var dialogues = _characterAI.Data.GetDefaultDialogues(sceneId);
                 
                 _interactCount = Mathf.Clamp(_interactCount++, 0, dialogues.Length - 1);
-                DialogueEvents.EnterDialogueEvent(dialogues[_interactCount]);
                 characterTraits.InfluenceTraits(InteractAction.Talk);
+                
+                DialogueEvents.EnterDialogueEvent(dialogues[_interactCount]);
+                StressEvents.StressOnceEvent(isAddStress: true, stressValue);
             }
             else
             {

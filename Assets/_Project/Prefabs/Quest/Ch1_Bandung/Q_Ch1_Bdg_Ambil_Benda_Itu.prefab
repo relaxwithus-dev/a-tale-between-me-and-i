@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2562767456606991825}
-  - component: {fileID: 6416310935063472469}
   - component: {fileID: 9132530915615190891}
+  - component: {fileID: 6416310935063472469}
   - component: {fileID: -5805766364436985680}
   m_Layer: 0
   m_Name: Q_Ch1_Bdg_Ambil_Benda_Itu
@@ -34,6 +34,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9132530915615190891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4924724888794256049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fb01d7676b8c394fb1beb8111914801, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!61 &6416310935063472469
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -79,18 +91,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &9132530915615190891
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4924724888794256049}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fb01d7676b8c394fb1beb8111914801, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-5805766364436985680
 MonoBehaviour:
   m_ObjectHideFlags: 0

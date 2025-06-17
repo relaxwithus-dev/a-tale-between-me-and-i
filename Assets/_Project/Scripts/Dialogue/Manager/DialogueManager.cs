@@ -121,7 +121,7 @@ namespace ATBMI.Dialogue
         {
             if (!IsDialoguePlaying) return;
 
-            if (GameInputHandler.Instance.IsTapSelect || GameInputHandler.Instance.IsTapSubmit)
+            if (GameInputHandler.Instance.IsTapSelect)
             {
                 if (isDialogueDisplaying)
                 {
