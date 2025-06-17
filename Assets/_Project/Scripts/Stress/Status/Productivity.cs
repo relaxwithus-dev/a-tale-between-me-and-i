@@ -6,18 +6,15 @@ namespace ATBMI.Stress
 {
     public class Productivity : StressStatus
     {
+        // Fields
         private float _finalSpeed;
 
-        public Productivity(StressData data, PlayerController player) : base(data, player)
-        {
-            
-        }
+        // Methods
+        public Productivity(StressData data, PlayerController player) : base(data, player) { }
         
         public override void PerformStatus()
         {
             base.PerformStatus();
-
-            // Speed buff
             var speedBuff = CalculatePercentage(playerController.CurrentSpeed, speedPercentage);
             _finalSpeed = playerController.CurrentSpeed + speedBuff;
             playerController.CurrentSpeed = _finalSpeed;   

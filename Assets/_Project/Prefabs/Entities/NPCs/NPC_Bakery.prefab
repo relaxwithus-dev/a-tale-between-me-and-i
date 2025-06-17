@@ -45,6 +45,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9100000, guid: 70f5013f7061ad0439062706cb5a7bed, type: 2}
     - target: {fileID: 4536252543316230107, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+      propertyPath: stressValue
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4536252543316230107, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: characterTraits
       value: 
       objectReference: {fileID: 8933336138072542907}
@@ -167,16 +171,10 @@ MonoBehaviour:
     m_Bits: 64
   characterInteract: {fileID: 7524296102529034592}
   talkRadius: 2.5
-  signPoint: {fileID: 7367514727967589821}
   characterAnim: {fileID: 1503769504184384528}
 --- !u!4 &6755673961492933830 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 819465445805292157, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
-  m_PrefabInstance: {fileID: 6241895453110703803}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &7367514727967589821 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3504083410098164486, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
   m_PrefabInstance: {fileID: 6241895453110703803}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &7524296102529034592 stripped

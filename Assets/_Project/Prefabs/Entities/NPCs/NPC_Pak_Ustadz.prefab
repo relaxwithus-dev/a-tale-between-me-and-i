@@ -172,7 +172,6 @@ MonoBehaviour:
   jumpDuration: 0.15
   talkRadius: 2.5
   targetPoint: {fileID: 0}
-  signPoint: {fileID: 4557523409864915204}
   characterAnim: {fileID: 0}
 --- !u!4 &4557523409864915204 stripped
 Transform:
@@ -197,6 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInteracting: 0
+  stressValue: 5
   interactAction: 0
   signTransform: {fileID: 4557523409864915204}
   emojiTransform: {fileID: 8540831605420784584}

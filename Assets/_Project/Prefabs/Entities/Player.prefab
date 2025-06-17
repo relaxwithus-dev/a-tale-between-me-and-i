@@ -2394,8 +2394,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8409129018133883097}
-  - component: {fileID: 7122435675325356963}
   - component: {fileID: 5069467626668371840}
+  - component: {fileID: 7122435675325356963}
   m_Layer: 0
   m_Name: Stress
   m_TagString: Untagged
@@ -2418,24 +2418,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8600351667431493300}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7122435675325356963
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8797931118578634397}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f1bebe471ccb8b43b7ff610ce91a269, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stressValue: 100
-  statusDuration: 30
-  slideDuration: 3.5
-  increasedPercent: 2
-  increasedInterval: 0.2
-  sliderUI: {fileID: 0}
 --- !u!114 &5069467626668371840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2450,6 +2432,60 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   productivityData: {fileID: 11400000, guid: 0c44d715cdda2d7458716025390730fb, type: 2}
   depressionData: {fileID: 11400000, guid: 351dd5bf9a76caf4291f29c3ee045c4f, type: 2}
+--- !u!114 &7122435675325356963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8797931118578634397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f1bebe471ccb8b43b7ff610ce91a269, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stressValue: 100
+  statusDuration: 30
+  gaugeDuration: 3.5
+  increasedPercent: 2
+  increasedInterval: 0.2
+  fullFillGradient:
+    serializedVersion: 2
+    key0: {r: 0.16470589, g: 0.75686276, b: 0.5176471, a: 1}
+    key1: {r: 0.9960785, g: 0.82745105, b: 0.12941177, a: 1}
+    key2: {r: 0.8392157, g: 0.101960786, b: 0.101960786, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 32768
+    ctime2: 65535
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: 0
+    m_NumColorKeys: 3
+    m_NumAlphaKeys: 2
+  gaugeIconSprites:
+  - {fileID: 684787247, guid: c9254d81c822ef0488cdb178163df29c, type: 3}
+  - {fileID: 1027707466, guid: c9254d81c822ef0488cdb178163df29c, type: 3}
+  - {fileID: -1111550170, guid: c9254d81c822ef0488cdb178163df29c, type: 3}
+  - {fileID: 930523087, guid: c9254d81c822ef0488cdb178163df29c, type: 3}
+  gaugeImageUI: {fileID: 0}
+  gaugeIconUI: {fileID: 0}
 --- !u!1 &8979506948375242148
 GameObject:
   m_ObjectHideFlags: 0

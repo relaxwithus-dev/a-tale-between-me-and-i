@@ -1,6 +1,6 @@
-using System;
 using UnityEngine;
 using Sirenix.OdinInspector;
+using ATBMI.Gameplay.Event;
 using ATBMI.Entities.Player;
 
 namespace ATBMI.Minigame
@@ -50,7 +50,7 @@ namespace ATBMI.Minigame
                 view.gameObject.SetActive(false);
             }
         }
-
+        
         private void Update()
         {
             if (!isDebugMode) return;
@@ -59,14 +59,16 @@ namespace ATBMI.Minigame
                 EnterEnterMinigame();
             }
         }
-
+        
         // Core
         private void EnterEnterMinigame()
         {
             _playerController.StopMovement();
             _selectedView.gameObject.SetActive(true);
             _selectedView.EnterMinigame();
+            
             IsPlayingMinigame = true;
+            StressEvents.StressOnceEvent(isAddStress: false);
         }
         
         public void ExitMinigame()
