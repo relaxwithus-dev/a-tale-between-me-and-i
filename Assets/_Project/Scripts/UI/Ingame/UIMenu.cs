@@ -1,6 +1,6 @@
+using UnityEngine;
 using ATBMI.Cutscene;
 using ATBMI.Dialogue;
-using UnityEngine;
 using ATBMI.Gameplay.Event;
 using ATBMI.Entities.Player;
 using ATBMI.Gameplay.Controller;
@@ -28,14 +28,10 @@ namespace ATBMI.UI.Ingame
                     OpenMenu(UIMenuTabEnum.Quest);
                 else if (GameInputHandler.Instance.IsOpenSetting)
                     OpenMenu(UIMenuTabEnum.Setting);
-                // else if (GameInputHandler.Instance.IsOpenInventory && !_isMenuActive)
-                //     OpenMenu(UIMenuTabEnum.Inventory);
-                // else if (GameInputHandler.Instance.IsOpenMap && !_isMenuActive)
-                //     OpenMenu(UIMenuTabEnum.Map);
             }
             else
             {
-                if (GameInputHandler.Instance.IsClosePhone || GameInputHandler.Instance.IsOpenPhone)
+                if (GameInputHandler.Instance.IsOpenPhone || GameInputHandler.Instance.IsOpenSetting)
                     CloseMenu();
             }
         }
