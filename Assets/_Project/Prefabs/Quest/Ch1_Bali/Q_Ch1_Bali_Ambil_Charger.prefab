@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2192898818681058818}
-  - component: {fileID: -3149726149305336835}
+  - component: {fileID: 4040053846396694537}
   m_Layer: 0
-  m_Name: AmbilCharger
+  m_Name: Q_Ch1_Bali_Ambil_Charger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-3149726149305336835
+--- !u!114 &4040053846396694537
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,6 +41,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 230253418674576441}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f25a6b852290774ea5e33f1d62fd471, type: 3}
+  m_Script: {fileID: 11500000, guid: a8930da9850b7624bbf71ad31eebcb2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemIds: 04000000

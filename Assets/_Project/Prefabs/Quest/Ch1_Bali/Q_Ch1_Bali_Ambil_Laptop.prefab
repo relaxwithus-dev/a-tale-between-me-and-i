@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7775553426096896712}
-  - component: {fileID: 7918550975341199506}
   - component: {fileID: -1924141265669186292}
+  - component: {fileID: 8869635819301302710}
   m_Layer: 0
   m_Name: Q_Ch1_Bali_Ambil_Laptop
   m_TagString: Untagged
@@ -33,18 +33,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7918550975341199506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7151983779725176322}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: feca12ffdedbf38468dd1dbe15618c3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-1924141265669186292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,3 +52,16 @@ MonoBehaviour:
     spawnSceneName: {fileID: 11400000, guid: ee07507d86c9cc2429237254d53cb96a, type: 2}
   despawnNPC: 0
   despawnNPCData: []
+--- !u!114 &8869635819301302710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7151983779725176322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8930da9850b7624bbf71ad31eebcb2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemIds: 03000000
