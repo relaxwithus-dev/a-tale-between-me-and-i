@@ -2432,10 +2432,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stressValue: 100
   statusDuration: 30
-  slideDuration: 3.5
+  gaugeDuration: 3.5
   increasedPercent: 2
   increasedInterval: 0.2
-  sliderUI: {fileID: 0}
+  fullFillColor: {r: 0.16470589, g: 0.7568628, b: 0.5176471, a: 1}
+  endFillColor: {r: 0.83921576, g: 0.10196079, b: 0.10196079, a: 1}
+  gaugeImageUI: {fileID: 0}
 --- !u!114 &5069467626668371840
 MonoBehaviour:
   m_ObjectHideFlags: 0

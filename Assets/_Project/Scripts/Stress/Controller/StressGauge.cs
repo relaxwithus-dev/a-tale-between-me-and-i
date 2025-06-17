@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,10 +12,14 @@ namespace ATBMI.Stress
         [Header("Stats")]
         [SerializeField] private float stressValue = 100f;
         [SerializeField] private float statusDuration;
-        [SerializeField] private float slideDuration;
+        [SerializeField] private float gaugeDuration;
         [SerializeField] private float increasedPercent;
         [SerializeField] [Range(0.1f, 1f)] private float increasedInterval;
-
+        
+        [Space] 
+        [SerializeField] private Color fullFillColor;
+        [SerializeField] private Color endFillColor;
+        
         private float _currentStressValue;
         private float _increasedValue;
         private bool _isStatusActive;
@@ -26,12 +29,13 @@ namespace ATBMI.Stress
         private const float MIN_SLIDER_VALUE = 0f;
 
         [Header("UI")]
-        [SerializeField] private Slider sliderUI;
-
+        [SerializeField] private Image gaugeImageUI;
+        
         #endregion
 
-        #region MonoBehaviour Callbacks
+        #region Methods
 
+        // Unity Callbacks
         private void OnEnable()
         {
             StressEvents.OnStressOnce += StressOnce;
@@ -43,39 +47,43 @@ namespace ATBMI.Stress
             StressEvents.OnStressOnce -= StressOnce;
             StressEvents.OnStressOvertime -= StressOvertime;
         }
-
+        
         private void Start()
         {
-            InitStressGauge();
-            _increasedValue = stressValue * (increasedPercent / 100f);
+            InitGaugeStats();
         }
-
+        
         private void Update()
         {
             if (_isStatusActive) return;
-
+            
             var currentValue = _currentStressValue / stressValue;
-            sliderUI.value = Mathf.Lerp(currentValue, MAX_SLIDER_VALUE, slideDuration);
-            if (sliderUI.value > MAX_SLIDER_VALUE)
+            gaugeImageUI.fillAmount = Mathf.Lerp(currentValue, MAX_SLIDER_VALUE, gaugeDuration);
+            gaugeImageUI.color = Color.Lerp(endFillColor, fullFillColor, gaugeDuration);
+            
+            if (gaugeImageUI.fillAmount > MAX_SLIDER_VALUE)
             {
-                sliderUI.value = MAX_SLIDER_VALUE;
+                _isStatusActive = true;
+                gaugeImageUI.fillAmount = MAX_SLIDER_VALUE;
+                gaugeImageUI.color = fullFillColor;
+                
+                // Activate stress effect
                 StartCoroutine(DecreaseSliderRoutine());
             }
         }
-
-        #endregion
-
-        #region Methods
-
-        // !- Initialize
-        private void InitStressGauge()
+        
+        // Initialize
+        private void InitGaugeStats()
         {
             _isStatusActive = false;
             _currentStressValue = MIN_SLIDER_VALUE;
-            sliderUI.value = MIN_SLIDER_VALUE;
+            _increasedValue = stressValue * (increasedPercent / 100f);
+            
+            gaugeImageUI.fillAmount = MIN_SLIDER_VALUE;
+            gaugeImageUI.color = endFillColor;
         }
         
-        // !- Core
+        // Core
         private void StressOnce(bool condition, float value)
         {
             _isStatusActive = false;
@@ -109,22 +117,22 @@ namespace ATBMI.Stress
             
             _currentStressValue = stressValue;
         }
-
+        
         private IEnumerator DecreaseSliderRoutine()
         {
             var elapsedTime = 0f;
-            _isStatusActive = true;
             PlayerEvents.StressActiveEvent();
-
+            
             while (elapsedTime < statusDuration)
             {
                 var time = elapsedTime / statusDuration;
-                sliderUI.value = Mathf.Lerp(MAX_SLIDER_VALUE, MIN_SLIDER_VALUE, time);
+                gaugeImageUI.fillAmount = Mathf.Lerp(MAX_SLIDER_VALUE, MIN_SLIDER_VALUE, time);
+                gaugeImageUI.color = Color.Lerp(endFillColor, fullFillColor, time);
                 elapsedTime += Time.deltaTime;
                 yield return null;
             }
-
-            InitStressGauge();
+            
+            InitGaugeStats();
             PlayerEvents.StressInactiveEvent();
         }
 
