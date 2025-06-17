@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 853404065201367634}
   - component: {fileID: -888920015522392296}
   - component: {fileID: 1974337933138690431}
+  - component: {fileID: 3349466700196144161}
   m_Layer: 0
   m_Name: Q_Ch1_Bali_Pergi_Ke_Tebing
   m_TagString: Untagged
@@ -90,3 +91,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fb01d7676b8c394fb1beb8111914801, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3349466700196144161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2670543971913793812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d899291998e1ae4bbeee4b78fc10c78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnNPC: 0
+  spawnNPCData: []
+  despawnNPC: 1
+  despawnNPCData:
+  - npcToDespawnReference: {fileID: 11400000, guid: a8692685c00942049be9b11061c175b9, type: 2}
+    despawnSceneName: {fileID: 11400000, guid: ff6a8642627fbd0408869078cbcb7570, type: 2}
