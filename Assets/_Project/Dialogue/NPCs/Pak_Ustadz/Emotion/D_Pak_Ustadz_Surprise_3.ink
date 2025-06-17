@@ -1,5 +1,5 @@
 Astaghfirullahaladzim #speaker:Pak Ustad #expression:A_Pak_Ustad_Speak
-Waffa #speaker:Pak Ustad #expression:A_Pak_Ustad_Speak #Emoji:A_Emoji_Angry
+Waffa #speaker:Pak Ustad #expression:A_Pak_Ustad_Speak #emoji:A_Emoji_Angry
 Bikin saya terkejut aja #speaker:Pak Ustad #expression:A_Pak_Ustad_Speak
 
 Ma-maaf pak ustadz #speaker:Waffa Kecil #expression:A_Waffa_Child_Speak
