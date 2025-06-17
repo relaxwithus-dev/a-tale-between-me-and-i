@@ -15,8 +15,8 @@ Bukannya ada yang ingin Papa sampaikan pada Dewa sebelum dia berangkat? #speaker
 
 Ehh? #speaker:Dewa #expression:A_Dewa_Speak
 
-... #speaker:Bapak Dewa #emoji:A_Emoji_Angry
-Lakukan sesukamu #speaker:Bapak Dewa #expression:A_Ayah_Dewa_Speak
+... #speaker:Ayah Dewa #emoji:A_Emoji_Angry
+Lakukan sesukamu #speaker:Ayah Dewa #expression:A_Ayah_Dewa_Speak
 
 // Ayah Dewa masuk ke dalam rumah
 
