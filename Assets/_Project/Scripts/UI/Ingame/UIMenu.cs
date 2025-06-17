@@ -35,7 +35,7 @@ namespace ATBMI.UI.Ingame
             }
             else
             {
-                if (GameInputHandler.Instance.IsTapBack || GameInputHandler.Instance.IsOpenPhone)
+                if (GameInputHandler.Instance.IsClosePhone || GameInputHandler.Instance.IsOpenPhone)
                     CloseMenu();
             }
         }
