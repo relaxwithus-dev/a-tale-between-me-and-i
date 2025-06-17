@@ -31,8 +31,8 @@ namespace ATBMI.Cutscene
         
         private void TravelToNextScene()
         {
-            var currentScene = SceneNavigation.Instance.CurrentScene;
-            var sceneAsset = currentScene.GetNeighbourById(locationData.location);
+            _currentScene = SceneNavigation.Instance.CurrentScene;
+            var sceneAsset = _currentScene.GetNeighbourById(locationData.location);
             
             if (!sceneAsset)
             {
