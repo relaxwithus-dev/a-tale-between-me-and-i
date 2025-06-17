@@ -43,22 +43,25 @@ namespace ATBMI.Inventory
             uiGetItemPanel.SetActive(false);
         }
 
-        // private void Update()
-        // {
-        //     if (Input.GetKeyDown(KeyCode.C))
-        //     {
-        //         AddItemToInventory(1);
-        //         AddItemToInventory(2);
-        //         AddItemToInventory(3);
-        //     }
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                AddItemToInventory(1);
+                AddItemToInventory(2);
+                AddItemToInventory(3);
+                AddItemToInventory(4);
+                AddItemToInventory(5);
+                AddItemToInventory(6);
+            }
         
-        //     if (Input.GetKeyDown(KeyCode.V))
-        //     {
-        //         AddItemToInventory(4);
-        //         AddItemToInventory(5);
-        //         AddItemToInventory(6);
-        //     }
-        // }
+            // if (Input.GetKeyDown(KeyCode.V))
+            // {
+            //     AddItemToInventory(4);
+            //     AddItemToInventory(5);
+            //     AddItemToInventory(6);
+            // }
+        }
 
         private void PopulateItemDict()
         {

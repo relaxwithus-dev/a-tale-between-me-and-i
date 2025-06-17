@@ -66,11 +66,11 @@ namespace ATBMI.Inventory
             
             if (GameInputHandler.Instance.IsArrowDown)
             {
-                Navigate(-1);
+                Navigate(1);
             }
             else if (GameInputHandler.Instance.IsArrowUp)
             {
-                Navigate(1);
+                Navigate(-1);
             }
         }
 

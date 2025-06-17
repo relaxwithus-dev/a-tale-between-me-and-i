@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 namespace ATBMI.Quest
 {
@@ -12,6 +13,7 @@ namespace ATBMI.Quest
         [SerializeField] private Image selectedIcon;
         [SerializeField] private TextMeshProUGUI buttonText;
 
+        [SerializeField] private GameObject checkSprite;
         [SerializeField] private Sprite deselectedStatusBackground;
         [SerializeField] private Sprite selectedStatusBackground;
 
@@ -21,25 +23,17 @@ namespace ATBMI.Quest
             QuestId = questId;
         }
 
-        // public void SetState(QuestStateEnum state)
-        // {
-        //     switch (state)
-        //     {
-        //         case QuestStateEnum.Can_Start:
-        //             check.color = Color.red;
-        //             break;
-        //         case QuestStateEnum.In_Progress:
-        //         case QuestStateEnum.Can_Finish:
-        //             check.color = Color.yellow;
-        //             break;
-        //         case QuestStateEnum.Finished:
-        //             check.color = Color.green;
-        //             break;
-        //         default:
-        //             Debug.LogWarning("Quest State not recognized by switch statement: " + state);
-        //             break;
-        //     }
-        // }
+        public void SetState(QuestStateEnum state)
+        {
+            if (state == QuestStateEnum.Finished)
+            {
+                checkSprite.SetActive(true);
+            }
+            else
+            {
+                checkSprite.SetActive(false);
+            }
+        }
 
         public void Highlight(bool isSelected)
         {

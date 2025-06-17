@@ -126,10 +126,19 @@ namespace ATBMI.Quest
         private void Update()
         {
             // Test
-            // if (Input.GetKeyDown(KeyCode.G))
-            // {
-            //     StartQuest(999); // go to market quest id
-            // }
+            if (Input.GetKeyDown(KeyCode.G))
+            {
+                StartQuest(1); // go to market quest id
+                StartQuest(2); // go to market quest id
+                StartQuest(3); // go to market quest id
+                StartQuest(4); // go to market quest id
+                StartQuest(5); // go to market quest id
+                StartQuest(6); // go to market quest id
+                StartQuest(7); // go to market quest id
+                StartQuest(8); // go to market quest id
+                StartQuest(9); // go to market quest id
+                // StartQuest(8); // go to market quest id
+            }
             //
             // if (Input.GetKeyDown(KeyCode.H))
             // {

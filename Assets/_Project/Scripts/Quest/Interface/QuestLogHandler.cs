@@ -11,8 +11,8 @@ namespace ATBMI.Quest
     {
         [Header("Components")]
         [SerializeField] private VerticalLayoutGroup contentButton;
-        [SerializeField] private GameObject activeContentParent;
-        [SerializeField] private GameObject completedContentParent;
+        // [SerializeField] private GameObject activeContentParent;
+        // [SerializeField] private GameObject completedContentParent;
         [SerializeField] private Transform questStepParent;
         // [SerializeField] private QuestLogScrollingList scrollingList;
         // [SerializeField] private TextMeshProUGUI questDisplayNameText;
@@ -66,11 +66,11 @@ namespace ATBMI.Quest
 
             if (GameInputHandler.Instance.IsArrowDown)
             {
-                Navigate(-1);
+                Navigate(1);
             }
             else if (GameInputHandler.Instance.IsArrowUp)
             {
-                Navigate(1);
+                Navigate(-1);
             }
         }
 
@@ -132,10 +132,13 @@ namespace ATBMI.Quest
             QuestLogButton questLogButton = CreateButtonIfNotExists(quest);
 
             // set the button color based on quest state
-            // questLogButton.SetState(quest.state);
+            questLogButton.SetState(quest.state);
 
             // Move the button to the appropriate content parent based on quest state
-            UpdateTransformParent(questLogButton, quest);
+            // UpdateTransformParent(questLogButton, quest);
+
+            // Reorder the quest log button index
+            // ReorderQuestLogButtonsByHierarchy();
 
             // Update all quest step logs related to this quest
             UpdateQuestSteps(quest);
@@ -158,7 +161,7 @@ namespace ATBMI.Quest
         private QuestLogButton InstantiateQuestLogButton(QuestBase quest)
         {
             // Instantiate the quest log button
-            QuestLogButton questLogButton = Instantiate(questLogButtonPrefab, activeContentParent.transform)
+            QuestLogButton questLogButton = Instantiate(questLogButtonPrefab, contentButton.transform)
                 .GetComponent<QuestLogButton>();
 
             questLogButton.Initialize(quest.info.displayName, quest.info.QuestId);
@@ -169,21 +172,21 @@ namespace ATBMI.Quest
             return questLogButton;
         }
 
-        private void UpdateTransformParent(QuestLogButton questLogButton, QuestBase quest)
-        {
-            Transform targetParent = (quest.state == QuestStateEnum.Finished) ? completedContentParent.transform : activeContentParent.transform;
+        // private void UpdateTransformParent(QuestLogButton questLogButton, QuestBase quest)
+        // {
+        //     Transform targetParent = (quest.state == QuestStateEnum.Finished) ? completedContentParent.transform : activeContentParent.transform;
 
-            // Move the button only if its parent needs to change
-            if (questLogButton.transform.parent != targetParent)
-            {
-                int originalIndex = questLogButtons.IndexOf(questLogButton); // Get the original order based on quest start order
+        //     // Move the button only if its parent needs to change
+        //     if (questLogButton.transform.parent != targetParent)
+        //     {
+        //         int originalIndex = questLogButtons.IndexOf(questLogButton); // Get the original order based on quest start order
 
-                questLogButton.transform.SetParent(targetParent, false);
+        //         questLogButton.transform.SetParent(targetParent, false);
 
-                // Maintain order: insert at the correct index instead of pushing to the top
-                questLogButton.transform.SetSiblingIndex(originalIndex + 1); // +1 for completed text on the scene
-            }
-        }
+        //         // Maintain order: insert at the correct index instead of pushing to the top
+        //         questLogButton.transform.SetSiblingIndex(originalIndex + 1); // +1 for completed text on the scene
+        //     }
+        // }
 
         public void UpdateQuestSteps(QuestBase quest)
         {
@@ -256,15 +259,46 @@ namespace ATBMI.Quest
             if (questLogButtons.Count == 0) return;
 
             HighlightButton(selectedIndex, false);
+
             selectedIndex = (selectedIndex + direction + questLogButtons.Count) % questLogButtons.Count;
             HighlightButton(selectedIndex);
-            UpdateScrolling(GetQuestLogButtonAt(selectedIndex)?.GetComponent<RectTransform>());
 
             // Ensure quest steps are updated based on the new selection
             QuestBase selectedQuest = FindQuestById(questLogButtons[selectedIndex].QuestId);
             if (selectedQuest != null)
             {
                 UpdateQuestSteps(selectedQuest);
+            }
+
+            // UpdateScrolling(GetQuestLogButtonAt(selectedIndex)?.GetComponent<RectTransform>());
+            UpdateScrolling(questLogButtons[selectedIndex].transform as RectTransform);
+        }
+
+        private void UpdateScrolling(RectTransform buttonRectTransform)
+        {
+            // calculate the min and max for the selected button
+            float buttonTop = Mathf.Abs(buttonRectTransform.anchoredPosition.y);
+            float buttonBottom = buttonTop + buttonRectTransform.rect.height;
+
+            // calculate the min and max for the content area
+            float contentTop = contentRectTransform.anchoredPosition.y;
+            float contentBottom = contentTop + scrollRectTransform.rect.height;
+
+            // handle scrolling down
+            if (buttonBottom > contentBottom)
+            {
+                contentRectTransform.anchoredPosition = new Vector2(
+                    contentRectTransform.anchoredPosition.x,
+                    buttonBottom - scrollRectTransform.rect.height
+                );
+            }
+            // handle scrolling up
+            else if (buttonTop < contentTop)
+            {
+                contentRectTransform.anchoredPosition = new Vector2(
+                    contentRectTransform.anchoredPosition.x,
+                    buttonTop - 34.34833f // change the value according to the height of the button
+                );
             }
         }
 
@@ -273,34 +307,31 @@ namespace ATBMI.Quest
             return QuestManager.Instance.GetQuestById(questId);
         }
 
+        // public void ReorderQuestLogButtonsByHierarchy()
+        // {
+        //     questLogButtons.Clear();
 
-        private void UpdateScrolling(RectTransform buttonRectTransform)
-        {
-            // calculate the min and max for the selected button
-            float buttonYMin = Mathf.Abs(buttonRectTransform.anchoredPosition.y);
-            float buttonYMax = buttonYMin + buttonRectTransform.rect.height;
+        //     // First, collect active quests
+        //     foreach (Transform child in activeContentParent.transform)
+        //     {
+        //         QuestLogButton button = child.GetComponent<QuestLogButton>();
+        //         if (button != null)
+        //         {
+        //             questLogButtons.Add(button);
+        //         }
+        //     }
 
-            // calculate the min and max for the content area
-            float contentYMin = contentRectTransform.anchoredPosition.y;
-            float contentYMax = contentYMin + scrollRectTransform.rect.height;
+        //     // Then, collect completed quests
+        //     foreach (Transform child in completedContentParent.transform)
+        //     {
+        //         QuestLogButton button = child.GetComponent<QuestLogButton>();
+        //         if (button != null)
+        //         {
+        //             questLogButtons.Add(button);
+        //         }
+        //     }
+        // }
 
-            // handle scrolling down
-            if (buttonYMax > contentYMax)
-            {
-                contentRectTransform.anchoredPosition = new Vector2(
-                    contentRectTransform.anchoredPosition.x,
-                    buttonYMax - scrollRectTransform.rect.height
-                );
-            }
-            // handle scrolling up
-            else if (buttonYMin < contentYMin)
-            {
-                contentRectTransform.anchoredPosition = new Vector2(
-                    contentRectTransform.anchoredPosition.x,
-                    buttonYMin
-                );
-            }
-        }
 
         public void ClearQuestLog()
         {

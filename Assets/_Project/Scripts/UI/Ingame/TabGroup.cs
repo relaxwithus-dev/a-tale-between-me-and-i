@@ -70,7 +70,7 @@ namespace ATBMI.UI.Ingame
                 pages[i].SetActive(i == index);
             }
 
-            Debug.Log(_selectedTab.gameObject.name);
+            // Debug.Log(_selectedTab.gameObject.name);
         }
 
         public void SelectTabByName(UIMenuTabEnum tab)

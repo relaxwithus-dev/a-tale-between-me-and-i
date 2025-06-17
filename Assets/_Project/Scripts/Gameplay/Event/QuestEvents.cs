@@ -1,5 +1,6 @@
 using System;
 using ATBMI.Entities.NPCs;
+using ATBMI.Interaction;
 using ATBMI.Quest;
 using UnityEngine;
 
@@ -23,6 +24,8 @@ namespace ATBMI.Gameplay.Event
         public static event Action InitiateRegisterNPCs;
         public static event Action<CharacterAI> RegisterThisNPCToHandledByQuestStep;
         public static event Action UnregisterNPCsThatHandledByQuestStep;
+        public static event Action<ItemInteract> RegisterThisItemToHandledByQuestStep;
+        public static event Action UnregisterItemsThatHandledByQuestStep;
 
         // Main Caller
         public static void StartQuestEvent(int id) => StartQuest?.Invoke(id);
@@ -44,5 +47,7 @@ namespace ATBMI.Gameplay.Event
         public static void InitiateRegisterNPCsEvent() => InitiateRegisterNPCs?.Invoke();
         public static void RegisterThisNPCToHandledByQuestStepEvent(CharacterAI characterAI) => RegisterThisNPCToHandledByQuestStep?.Invoke(characterAI);
         public static void UnregisterNPCsThatHandledByQuestStepEvent() => UnregisterNPCsThatHandledByQuestStep?.Invoke();
+        public static void RegisterThisItemToHandledByQuestStepEvent(ItemInteract itemInteract) => RegisterThisItemToHandledByQuestStep?.Invoke(itemInteract);
+        public static void UnregisterItemsThatHandledByQuestStepEvent() => UnregisterItemsThatHandledByQuestStep?.Invoke();
     }
 }
