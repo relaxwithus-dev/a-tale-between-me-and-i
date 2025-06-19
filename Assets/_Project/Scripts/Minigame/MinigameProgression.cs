@@ -34,7 +34,7 @@ namespace ATBMI.Minigame
             // Dialogue
             DialogueEvents.OnExitDialogue -= EnterProgression;
         }
-
+        
         private void Start()
         {
             _isWinning = false;
@@ -50,6 +50,7 @@ namespace ATBMI.Minigame
             DialogueManager.Instance.EnterDialogueMode(textAssets[0]);
             _isWinning = true;
         }
+        
         private void LoseMinigame() => DialogueManager.Instance.EnterDialogueMode(textAssets[1]);
         
         private void EnterProgression()

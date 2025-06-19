@@ -156,7 +156,7 @@ namespace ATBMI.Entities.Player
         {
             canMove = false;
             playerState = EntitiesState.Idle;
-            
+                        
             moveDirection = Vector2.zero;
             _latestDirection = Vector2.zero;
             PlayerRb.velocity = Vector2.zero;
