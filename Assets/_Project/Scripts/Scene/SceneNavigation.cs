@@ -115,11 +115,11 @@ namespace ATBMI.Scene
             DialogueEvents.UnregisterDialogueSignPointEvent();
             QuestEvents.UnregisterNPCsThatHandledByQuestStepEvent();
             QuestEvents.UnregisterItemsThatHandledByQuestStepEvent();
-
+            
             // Setup latest scene
             if (CurrentScene != null)
                 LatestScene = CurrentScene;
-
+            
             StartCoroutine(LoadSceneAsync(sceneAsset.Reference));
             _asyncOperation.allowSceneActivation = true;
             CurrentScene = sceneAsset;

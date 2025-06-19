@@ -5,9 +5,9 @@ public class DialogueExpressionController : MonoBehaviour
 {
     [SerializeField] private Animator anim;
 
-    private AnimatorStateInfo stateInfo;
-    private bool hasAnimation;
-
+    private AnimatorStateInfo _stateInfo;
+    private bool _hasAnimation;
+    
     private void OnEnable()
     {
         DialogueEvents.PlayDialogueAnim += PlayDialogueAnim;
@@ -22,18 +22,16 @@ public class DialogueExpressionController : MonoBehaviour
     
     private void PlayDialogueAnim(string speaker, string expression)
     {
-        // get the animation state
-        stateInfo = anim.GetCurrentAnimatorStateInfo(0);
-        // check is there any animation called expressionValue
-        hasAnimation = anim.HasState(0, Animator.StringToHash(expression)); 
+        _stateInfo = anim.GetCurrentAnimatorStateInfo(0);
+        _hasAnimation = anim.HasState(0, Animator.StringToHash(expression)); 
         
-        // play anim
-        if (hasAnimation && !stateInfo.IsName(expression))
+        if (_hasAnimation && !_stateInfo.IsName(expression))
         {
             anim.Play(expression);
         }
     }
     
+    // TODO: Optimize dgn lgsg panggil animation buat set idle
     private void StopDialogueAnim(string speaker)
     {
         anim.Play("A_StopDialogue");

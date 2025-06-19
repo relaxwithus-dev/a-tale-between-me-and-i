@@ -20,9 +20,9 @@ namespace ATBMI.Entities.Player
         private PlayerController _playerController;
         private AnimateEventReceiver _eventReceiver;
         private Animator _playerAnim;
-
+        
         #endregion
-
+        
         #region Unity Methods
         
         private void Awake()
@@ -32,15 +32,15 @@ namespace ATBMI.Entities.Player
             _playerAnim = GetComponent<Animator>();
         }
 
-        // private void OnEnable()
-        // {
-        //     _eventReceiver.OnStepDown += PlayFootstepSound;
-        // }
-        //
-        // private void OnDisable()
-        // {
-        //     _eventReceiver.OnStepDown -= PlayFootstepSound;
-        // }
+        private void OnEnable()
+        {
+            _eventReceiver.OnStepDown += PlayFootstepSound;
+        }
+        
+        private void OnDisable()
+        {
+            _eventReceiver.OnStepDown -= PlayFootstepSound;
+        }
         
         private void Update()
         {
@@ -117,7 +117,7 @@ namespace ATBMI.Entities.Player
             if (!_animationHashes.ContainsKey(animName))
                 _animationHashes[animName] = Animator.StringToHash(animName);
         }
-
+        
         private int GetCachedHash(string animName)
         {
             if (_animationHashes.TryGetValue(animName, out var hash))

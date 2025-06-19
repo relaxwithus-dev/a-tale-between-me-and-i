@@ -42,10 +42,10 @@ namespace ATBMI.Interaction
         private void Start()
         {
             // Stats
-            interactAction = InteractAction.Talk;
-            isInteracting = false;
             _interactCount = 0;
-
+            isInteracting = false;
+            interactAction = InteractAction.Talk;
+            
             // Register
             DialogueEvents.RegisterNPCTipTargetEvent(_characterAI.Data.CharacterName, GetSignTransform());
             DialogueEvents.RegisterNPCEmojiTargetEvent(_characterAI.Data.CharacterName, GetEmojiTransform());

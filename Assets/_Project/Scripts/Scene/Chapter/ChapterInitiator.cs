@@ -45,7 +45,7 @@ namespace ATBMI.Scene.Chapter
             
             yield return new WaitForSeconds(chapterFader.FadeDuration * animateDuration);
             CutsceneManager.Instance.InitCutscene(chapterName);
-            player.InitPlayer(playerName);
+            player.InitPlayerStats(playerName);
             chapterFader.FadeIn();
         }
         

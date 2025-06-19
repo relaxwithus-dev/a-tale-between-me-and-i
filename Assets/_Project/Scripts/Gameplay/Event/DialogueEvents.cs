@@ -37,7 +37,7 @@ namespace ATBMI.Gameplay.Event
         public static void PlayEmojiAnimEvent(string tag) => PlayEmojiAnim?.Invoke(tag);
         public static void RegisterNPCTipTargetEvent(string npcName, Transform tipTarget) => RegisterNPCTipTarget?.Invoke(npcName, tipTarget);
         public static void RegisterNPCEmojiTargetEvent(string npcName, Transform emojiTarget) => RegisterNPCEmojiTarget?.Invoke(npcName, emojiTarget);
-
+        
         // Adjustment Event - Caller
         public static void UpdateDialogueUIPosEvent(string tag) => UpdateDialogueUIPos?.Invoke(tag);
         public static void UpdateDialogueChoicesUIPosEvent() => UpdateDialogueChoicesUIPos?.Invoke();
