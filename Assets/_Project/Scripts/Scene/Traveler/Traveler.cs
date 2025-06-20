@@ -17,7 +17,7 @@ namespace ATBMI.Scene
         private bool _canTravel;
         
         // Reference
-        protected IAnimatable iAnimatable;
+        protected Animatable animatable;
         private Collider2D _collider2D;
 
         #endregion
@@ -70,19 +70,19 @@ namespace ATBMI.Scene
         }
         
         // Core
-        public abstract void TravelToTarget();
+        protected abstract void TravelToTarget();
         
         private void EnableTravel(Collider2D other)
         {
             _canTravel = true;
-            iAnimatable = other.GetComponentInChildren<IAnimatable>();
+            animatable = other.GetComponentInChildren<Animatable>();
             infoTextUI.gameObject.SetActive(true);
         }
         
         protected void DisableTravel()
         {
             _canTravel = false;
-            iAnimatable = null;
+            animatable = null;
             infoTextUI.gameObject.SetActive(false);
         }
         
