@@ -1,8 +1,7 @@
-using ATBMI.Entities.NPCs;
-using System;
-using System.Collections.Generic;
-using ATBMI.Gameplay.Event;
 using UnityEngine;
+using System.Collections.Generic;
+using ATBMI.Entities.NPCs;
+using ATBMI.Gameplay.Event;
 
 namespace ATBMI.Dialogue
 {

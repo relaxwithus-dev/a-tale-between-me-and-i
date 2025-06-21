@@ -1,14 +1,17 @@
 using UnityEngine;
 
-public class VisualCue : MonoBehaviour
+namespace ATBMI.Dialogue
 {
-    public void ActivateVisualCue()
+    public class VisualCue : MonoBehaviour
     {
-        gameObject.SetActive(true);
-    }
+        public void ActivateVisualCue()
+        {
+            gameObject.SetActive(true);
+        }
 
-    public void DeactivateVisualCue()
-    {
-        gameObject.SetActive(false);
+        public void DeactivateVisualCue()
+        {
+            gameObject.SetActive(false);
+        }
     }
 }
