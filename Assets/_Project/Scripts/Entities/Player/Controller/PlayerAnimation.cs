@@ -40,7 +40,6 @@ namespace ATBMI.Entities.Player
             var state = GetState();
             
             if (state == currentState) return;
-            Debug.Log(state);
             animator.CrossFade(state, 0, 0);
             currentState = state;
         }
@@ -87,6 +86,12 @@ namespace ATBMI.Entities.Player
                 EntitiesState.Run => GetCachedHash(animTag + "_Run"),
                 _ => throw new InvalidOperationException("Invalid player state")
             };
+        }
+        
+        protected override void StopDialogueAnim(string speaker)
+        {
+            base.StopDialogueAnim(speaker);
+            _isInteractiveAnimation = false;
         }
     }
 }

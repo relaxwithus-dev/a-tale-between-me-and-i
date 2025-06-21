@@ -54,7 +54,7 @@ namespace ATBMI.Entities.NPCs
             _currentTime = 0f;
             _animationTime = 0f;
         }
-
+        
         private bool TrySetupAnimation()
         {
             if (_animationTime != 0f)

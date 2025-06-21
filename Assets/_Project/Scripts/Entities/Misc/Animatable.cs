@@ -78,6 +78,6 @@ namespace ATBMI.Entities
         }
         
         private void OnPlayDialogue(string speaker, string expression) => TrySetAnimationState(expression);
-        private void StopDialogueAnim(string speaker) => TrySetAnimationState("Idle");
+        protected virtual void StopDialogueAnim(string speaker) => TrySetAnimationState("Idle");
     }
 }
