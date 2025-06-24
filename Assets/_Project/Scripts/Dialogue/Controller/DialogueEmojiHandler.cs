@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using ATBMI.Gameplay.Event;
 
-namespace ATBMI
+namespace ATBMI.Dialogue
 {
-    public class DialogueEmojiUIController : MonoBehaviour
+    public class DialogueEmojiHandler : MonoBehaviour
     {
         [SerializeField] private Animator anim;
 
-        private Dictionary<string, Transform> npcEmojiTargets = new(); // cache the npc emoji target for each npcs
-        private AnimatorStateInfo stateInfo;
-        private Transform emojiPos;
-        private Vector3 screenPosition;
+        private Dictionary<string, Transform> _npcEmojiTargets = new(); // cache the npc emoji target for each npcs
+        private AnimatorStateInfo _stateInfo;
+        private Transform _emojiPos;
+        private Vector3 _screenPosition;
 
         private void OnEnable()
         {
@@ -37,32 +37,32 @@ namespace ATBMI
 
         private void LateUpdate()
         {
-            if (screenPosition != null && emojiPos != null && anim.gameObject.activeSelf)
+            if (_screenPosition != null && _emojiPos != null && anim.gameObject.activeSelf)
             {
-                gameObject.transform.position = Camera.main.WorldToScreenPoint(emojiPos.position);
+                gameObject.transform.position = Camera.main.WorldToScreenPoint(_emojiPos.position);
             }
         }
 
         private void RegisterNPCEmojiTarget(string npcName, Transform emojiTarget)
         {
-            if (!npcEmojiTargets.ContainsKey(npcName))
+            if (!_npcEmojiTargets.ContainsKey(npcName))
             {
-                npcEmojiTargets[npcName] = emojiTarget;
+                _npcEmojiTargets[npcName] = emojiTarget;
             }
         }
         
         private void UnregisterNPCEmojiTarget()
         {
-            npcEmojiTargets.Clear();
+            _npcEmojiTargets.Clear();
         }
 
         private void UpdateDialogueEmojiPos(string tagValue)
         {
-            if (npcEmojiTargets.TryGetValue(tagValue, out var targetPos))
+            if (_npcEmojiTargets.TryGetValue(tagValue, out var targetPos))
             {
-                emojiPos = targetPos;
-                screenPosition = Camera.main.WorldToScreenPoint(targetPos.position);
-                gameObject.transform.position = new Vector2(screenPosition.x, screenPosition.y);
+                _emojiPos = targetPos;
+                _screenPosition = Camera.main.WorldToScreenPoint(targetPos.position);
+                gameObject.transform.position = new Vector2(_screenPosition.x, _screenPosition.y);
             }
             else
             {
@@ -83,8 +83,8 @@ namespace ATBMI
             // Wait for a frame to ensure Animator updates the state info
             yield return null;
 
-            stateInfo = anim.GetCurrentAnimatorStateInfo(0);
-            yield return new WaitForSeconds(stateInfo.length);
+            _stateInfo = anim.GetCurrentAnimatorStateInfo(0);
+            yield return new WaitForSeconds(_stateInfo.length);
 
             anim.gameObject.SetActive(false);
         }

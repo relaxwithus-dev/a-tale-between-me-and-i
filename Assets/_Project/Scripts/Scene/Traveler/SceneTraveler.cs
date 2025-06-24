@@ -15,7 +15,7 @@ namespace ATBMI.Scene
         private SceneAsset _currentScene;
         
         // Core
-        public override void TravelToTarget()
+        protected override void TravelToTarget()
         {
             _currentScene = SceneNavigation.Instance.CurrentScene;
             var targetScene = _currentScene.GetNeighbourById(locationData.location);
@@ -42,7 +42,7 @@ namespace ATBMI.Scene
         private void HandleDoorAnimation()
         {
             if (!isRoomTravel) return;
-            iAnimatable.TrySetAnimationState(StateTag.ENTER_ROOM_STATE);
+            animatable.TrySetAnimationState(StateTag.ENTER_ROOM_STATE);
         }
         
         private void HandleAudioTravel(SceneAsset targetScene)

@@ -136,6 +136,7 @@ namespace ATBMI.Stress
             
             _isStatusActive = false;
             _currentStressValue += value;
+            _currentStressValue = Mathf.Clamp(_currentStressValue, 0f, 100f);
             if (_currentStressValue >= stressValue)
             {
                 _isStatusActive = true;

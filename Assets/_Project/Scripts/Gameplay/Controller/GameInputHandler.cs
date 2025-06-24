@@ -37,7 +37,6 @@ namespace ATBMI.Gameplay.Controller
         public bool IsTapInteract => _interactAction.WasPressedThisFrame();
         public bool IsOpenPhone => _phoneAction.WasPressedThisFrame();
         public bool IsOpenSetting => _settingAction.WasPressedThisFrame();
-        public bool IsClosePhone => _phoneAction.WasPressedThisFrame() || _settingAction.WasPressedThisFrame();
 
         [Header("UI Actions Reference")]
         [SerializeField] private string navigate = "Navigate";

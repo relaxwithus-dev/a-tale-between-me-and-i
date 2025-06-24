@@ -674,7 +674,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 946851954ab742b8b9b423912ec2f9f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugMode: 1
+  debugMode: 0
   menuScene: {fileID: 11400000, guid: cf397f725c03dc540b8ef3936eaab128, type: 2}
   debugScene: {fileID: 11400000, guid: 93a57a46c08052f4fa2bfb097674d61d, type: 2}
   player: {fileID: 2143600228}
@@ -1728,6 +1728,10 @@ PrefabInstance:
     - target: {fileID: 4733539126105911319, guid: 57e723dedf9fa7e4f8a63925045f58e6, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5240478465455198214, guid: 57e723dedf9fa7e4f8a63925045f58e6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5248542119208873286, guid: 57e723dedf9fa7e4f8a63925045f58e6, type: 3}
       propertyPath: m_AnchorMax.y

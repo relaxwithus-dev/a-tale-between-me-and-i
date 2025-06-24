@@ -2,7 +2,7 @@ using ATBMI.Data;
 using ATBMI.Gameplay.Event;
 using UnityEngine;
 
-namespace ATBMI
+namespace ATBMI.Dialogue
 {
     public class ObjectPinRegisterer : MonoBehaviour
     {

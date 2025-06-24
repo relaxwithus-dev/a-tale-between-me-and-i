@@ -9,7 +9,7 @@ Mis… bade naros naon, A? Sro ... #speaker:Penduduk #expression:A_Penduduk_Sund
 Ehhh…? #speaker:Dewa #expression:A_Dewa_Speak #emoji:A_Emoji_Question
 Sebentar… itu tadi dia ngomong apa? #speaker:Dewa
 Aku sama sekali belum pernah mendengar bahasa itu… #speaker:Dewa #expression:A_Dewa_Speak
-Apakah para orang disini pakai bahasa daerah mereka? #speaker:Dewa
+"Berbicara sendiri" Apakah para orang disini pakai bahasa daerah mereka? #speaker:Dewa
 A-anu… bisa diulangi pakai bahasa indonesia pak? #speaker:Dewa #expression:A_Dewa_Speak
 
 Ohhh… Aa' teh bukan dari sini nya? Misro…. #speaker:Penduduk #expression:A_Penduduk_Sunda_1_Speak

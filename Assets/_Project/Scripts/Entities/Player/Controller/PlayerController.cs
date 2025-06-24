@@ -54,11 +54,11 @@ namespace ATBMI.Entities.Player
             _playerAnimation = GetComponentInChildren<PlayerAnimation>();
         }
 
-        private void OnEnable()
+        private void Start()
         {
-            InitPlayer();
+            InitPlayerStats();
         }
-        
+
         private void FixedUpdate()
         {
             if (!CanMove || DialogueManager.Instance.IsDialoguePlaying 
@@ -74,7 +74,7 @@ namespace ATBMI.Entities.Player
         }
         
         // Initialize
-        public void InitPlayer(string playerName = "Dewa")
+        public void InitPlayerStats(string playerName = "Dewa")
         {
             _currentData = Array.Find(playerData, data => data.PlayerName == playerName);
             if (_currentData == null)
@@ -156,7 +156,7 @@ namespace ATBMI.Entities.Player
         {
             canMove = false;
             playerState = EntitiesState.Idle;
-            
+                        
             moveDirection = Vector2.zero;
             _latestDirection = Vector2.zero;
             PlayerRb.velocity = Vector2.zero;

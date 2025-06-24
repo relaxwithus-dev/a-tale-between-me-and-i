@@ -2,6 +2,7 @@ using UnityEngine;
 using Sirenix.OdinInspector;
 using ATBMI.Gameplay.Event;
 using ATBMI.Entities.Player;
+using ATBMI.Gameplay.Controller;
 
 namespace ATBMI.Minigame
 {
@@ -54,7 +55,7 @@ namespace ATBMI.Minigame
         private void Update()
         {
             if (!isDebugMode) return;
-            if (Input.GetKeyDown(KeyCode.Space) && !IsPlayingMinigame)
+            if (GameInputHandler.Instance.IsTapInteract && !IsPlayingMinigame)
             {
                 EnterEnterMinigame();
             }

@@ -1,4 +1,4 @@
-namespace ATBMI
+namespace ATBMI.Dialogue
 {
     public interface IDialogueRule<T>
     {

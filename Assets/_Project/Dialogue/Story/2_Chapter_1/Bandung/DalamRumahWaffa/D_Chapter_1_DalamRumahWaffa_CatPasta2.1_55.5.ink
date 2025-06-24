@@ -7,7 +7,7 @@ EXTERNAL FinishQuest(questId)
 Urrgghhh… kenapa orang ini sangat kuat #speaker:Dewa #expression:A_Dewa_Defense
 Tahan lengannya Waffa #speaker:Dewa #expression:A_Dewa_Defense
 
-Aku sudah mencapai batas… #speaker:Waffa Remaja #expression:A_WafaTeen_Defense
+Aku sudah mencapai batas… #speaker:Waffa Remaja #expression:A_Waffa_Teen_Anger
 
 RARGGHHH… ARRGGHHHH….  #speaker:Pemabuk #expression_Pemabuk_Punch
 
