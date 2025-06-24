@@ -22,7 +22,7 @@ namespace ATBMI.Interaction
         [SerializeField] private TextMeshProUGUI descriptionTextUI;
         [SerializeField] private List<InteractFlag> basicFlags;
         [SerializeField] private Sprite noneSprite;
-        
+
         private IInteractable _interactable;
         private InteractCreator _interactCreator;
 
@@ -47,7 +47,7 @@ namespace ATBMI.Interaction
 
             optionPanelUI.SetActive(false);
         }
-        
+
         private void Update()
         {
             if (_interactable == null) return;
@@ -55,11 +55,16 @@ namespace ATBMI.Interaction
             HandleNavigation();
             HandleDescription();
         }
-        
+
+        private void LateUpdate()
+        {
+            transform.parent.forward = Camera.main.transform.forward;
+        }
+
         #endregion
 
         #region Methods
-        
+
         // Initialize
         private void InitScrollSnap()
         {
@@ -76,13 +81,13 @@ namespace ATBMI.Interaction
                 flags.FlagButton.onClick.AddListener(() => OnButtonClicked(flags));
             }
         }
-        
+
         private void InitItemButtons()
         {
             var flagCount = _interactCreator.InventoryFlags.Count;
             var inventoryCount = InventoryManager.Instance.InventoryList.Count;
             int maxCount = Mathf.Max(flagCount, inventoryCount);
-            
+
             for (int i = 0; i < maxCount; i++)
             {
                 var flags = _interactCreator.InventoryFlags[i] as InteractFlag;
@@ -94,9 +99,9 @@ namespace ATBMI.Interaction
                     var itemData = InventoryManager.Instance.GetItemData(item.ItemId);
 
                     // Setup listener
-                    button.onClick.RemoveAllListeners(); 
+                    button.onClick.RemoveAllListeners();
                     button.onClick.AddListener(() => OnButtonClicked(flags));
-                    
+
                     SetButtonFlags(flags, flagId: i, itemData.name, itemData);
                     SetButtonData(flags, itemData.ItemSprite, interactable: true);
                 }
@@ -119,7 +124,7 @@ namespace ATBMI.Interaction
         {
             flag.SetFlags(flagId, flagName, InteractFlagStatus.Item, data);
         }
-        
+
         private void OnButtonClicked(InteractFlag flag)
         {
             var (status, data) = flag.GetItemFlags();
@@ -132,29 +137,29 @@ namespace ATBMI.Interaction
                     _interactable.Interact(data.ItemId);
                     break;
             }
-            
+
             StartCoroutine(CloseInteractOption());
         }
-        
+
         // Core
         public void OpenInteractOption(IInteractable interactable)
         {
             InitItemButtons();
             InitScrollSnap();
-            
+
             _interactable = interactable;
             optionPanelUI.SetActive(true);
         }
-        
+
         private IEnumerator CloseInteractOption()
         {
             _interactable = null;
             optionPanelUI.SetActive(false);
-            
+
             yield return new WaitForSeconds(0.05f);
             InteractEvent.InteractedEvent(interact: false, playerController);
         }
-        
+
         private void HandleNavigation()
         {
             if (GameInputHandler.Instance.IsArrowRight)
@@ -170,28 +175,28 @@ namespace ATBMI.Interaction
                 InvokeInteract();
             }
         }
-        
+
         private void InvokeInteract()
         {
             var index = scrollSnap.SelectedPanel;
             GetFlags(index)[GetAdjustedIndex(index)].FlagButton.onClick.Invoke();
         }
-        
+
         private void HandleDescription()
         {
             var index = scrollSnap.SelectedPanel;
             descriptionTextUI.text = GetFlags(index)[GetAdjustedIndex(index)].FlagName;
         }
-        
+
         // !- Utilities
         private List<InteractFlag> GetFlags(int index)
         {
-            return index < basicFlags.Count ? 
+            return index < basicFlags.Count ?
                 basicFlags : _interactCreator.InventoryFlags
                                 .OfType<InteractFlag>()
                                 .ToList();
         }
-        
+
         private int GetAdjustedIndex(int index)
         {
             return index < basicFlags.Count ? index : index - basicFlags.Count;

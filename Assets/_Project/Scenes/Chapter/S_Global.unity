@@ -676,7 +676,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugMode: 1
   menuScene: {fileID: 11400000, guid: cf397f725c03dc540b8ef3936eaab128, type: 2}
-  debugScene: {fileID: 11400000, guid: ff6a8642627fbd0408869078cbcb7570, type: 2}
+  debugScene: {fileID: 11400000, guid: 93a57a46c08052f4fa2bfb097674d61d, type: 2}
   player: {fileID: 2143600228}
   fader: {fileID: 623994654}
 --- !u!1 &877907234 stripped
@@ -698,17 +698,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &888167235 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8830153673355373404, guid: 486f5daed683891468edd06c30f627a7, type: 3}
-  m_PrefabInstance: {fileID: 7961258799040391151}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &999284246 stripped
@@ -1136,9 +1125,9 @@ MonoBehaviour:
   playerController: {fileID: 2143600228}
   typingSpeed: 0.04
   dialoguePin: {fileID: 753592707}
+  continuePin: {fileID: 1648197781}
   dialogueName: {fileID: 999284246}
   dialogueText: {fileID: 2127399675}
-  continuePin: {fileID: 1648197781}
   dialogueColors:
   - {r: 0, g: 0, b: 0, a: 1}
   - {r: 0.53333336, g: 0.05490196, b: 0.2509804, a: 1}
@@ -2019,6 +2008,22 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 394483594348525362, guid: 486f5daed683891468edd06c30f627a7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 394483594348525362, guid: 486f5daed683891468edd06c30f627a7, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 394483594348525362, guid: 486f5daed683891468edd06c30f627a7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 394483594348525362, guid: 486f5daed683891468edd06c30f627a7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 574957382624811979, guid: 486f5daed683891468edd06c30f627a7, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2104,6 +2109,22 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1074257758931034579, guid: 486f5daed683891468edd06c30f627a7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1986856699997624506, guid: 486f5daed683891468edd06c30f627a7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1986856699997624506, guid: 486f5daed683891468edd06c30f627a7, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1986856699997624506, guid: 486f5daed683891468edd06c30f627a7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1986856699997624506, guid: 486f5daed683891468edd06c30f627a7, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
@@ -2291,6 +2312,14 @@ PrefabInstance:
       propertyPath: playerController
       value: 
       objectReference: {fileID: 2143600228}
+    - target: {fileID: 7136249125002800190, guid: 486f5daed683891468edd06c30f627a7, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7136249125002800190, guid: 486f5daed683891468edd06c30f627a7, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7279767731111116534, guid: 486f5daed683891468edd06c30f627a7, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

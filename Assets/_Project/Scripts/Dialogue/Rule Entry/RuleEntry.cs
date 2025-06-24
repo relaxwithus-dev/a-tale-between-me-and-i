@@ -1,87 +1,80 @@
-using ATBMI.Entities.NPCs;
-using System;
 using System.Collections.Generic;
-using ATBMI.Gameplay.Event;
 using UnityEngine;
+using ATBMI.Entities.NPCs;
+using ATBMI.Gameplay.Event;
+using Sirenix.OdinInspector;
 
 namespace ATBMI.Dialogue
 {
-    public abstract class RuleEntry : MonoBehaviour
+    public class RuleEntry : MonoBehaviour
     {
-        [Header("Params")]
+        [Header("NPC & Dialogue")]
         public CharacterAI npc;
         public Transform playerEntryPoint;
+        
+        [PropertySpace(15)] public List<DialogueRule> rules;
 
-        private bool isDialogueAboutToStart;
-        private bool isRunning;
+        [PropertySpace(15)]
+        [LabelText("Enable Debug Mode")] public bool debugMode;
+
+        // Debug Group – shown only if debugMode is true
+        [BoxGroup(), ShowIf("debugMode"), LabelText("After Explosion")] public bool isAfterExplosion;
+
+        [BoxGroup(), ShowIf("debugMode"), LabelText("After Getting Item")] public bool isAfterGettingItem;
+
+        [BoxGroup(), ShowIf("debugMode"), LabelText("Is Running")] public bool isRunning;
+
+        [BoxGroup(), ShowIf("debugMode"), LabelText("Visited Count")] public int visitedCount;
+
+        // Internal state
         private bool isPlayerInRange;
+        private bool isDialogueAboutToStart;
         private bool isExecuted;
 
-        public bool IsDialogueAboutToStart { get; set; }
-        public bool IsPlayerInRange => isPlayerInRange;
-        public bool IsExecuted => isExecuted;
-        public bool IsRunning => isRunning;
-
-        #region Dialogue Rules
-        [Space(20)]
-        [Header("On Talk (Manual Trigger Dialogue Rules)")]
-        [Tooltip("Rule Priotiry determined by these dialogue rules index")]
-        public List<DialogueRuleBase> manualTriggerRules;
-
-        [Space(5)]
-        [Header("On Talked To (Auto Trigger Dialogue Rules)")]
-        [Tooltip("Rule Priotiry determined by these dialogue rules index")]
-        public List<DialogueRuleBase> autoTriggerRules;
-        #endregion
-
-        private void OnEnable()
+        #region Unity Events
+        protected virtual void OnEnable()
         {
             DialogueEvents.OnEnterDialogue += OnEnterDialogue;
             DialogueEvents.OnEnterItemDialogue += OnEnterItemDialogue;
             DialogueEvents.OnExitDialogue += ExitDialogue;
-            DialogueEvents.PlayerRun += IsPlayerRun;
+            DialogueEvents.PlayerRun += SetPlayerRun;
         }
-        
-        private void OnDisable()
+
+        protected virtual void OnDisable()
         {
             DialogueEvents.OnEnterDialogue -= OnEnterDialogue;
             DialogueEvents.OnEnterItemDialogue -= OnEnterItemDialogue;
             DialogueEvents.OnExitDialogue -= ExitDialogue;
-            DialogueEvents.PlayerRun -= IsPlayerRun;
+            DialogueEvents.PlayerRun -= SetPlayerRun;
         }
-        
+        #endregion
+
         public virtual void InitializeRuleEntry()
         {
             isPlayerInRange = false;
             isDialogueAboutToStart = false;
-        }
-        
-        public void ExitDialogue()
-        {
-            isExecuted = false;
-        }
-        
-        public void EnterDialogueWithInkJson(TextAsset InkJson)
-        {
-            DialogueManager.Instance.EnterDialogueMode(InkJson);
-            isDialogueAboutToStart = false;
-            isExecuted = true;
+            visitedCount = 0;
         }
 
-        public void OnEnterItemDialogue(TextAsset itemDialogue)
+        private void SetPlayerRun(bool value) => isRunning = value;
+
+        private void ExitDialogue() => isExecuted = false;
+
+        private void OnEnterItemDialogue(TextAsset itemDialogue)
         {
-            if (!isDialogueAboutToStart && IsPlayerInRange)
-            {
+            if (!isDialogueAboutToStart && isPlayerInRange)
                 EnterDialogue(this, itemDialogue);
-            }
         }
-        
-        public void EnterDialogue(RuleEntry ruleEntry, TextAsset dialogue)
+
+        private void OnEnterDialogue(TextAsset defaultDialogue)
         {
-            if (!isDialogueAboutToStart)
+            if (!isDialogueAboutToStart && isPlayerInRange)
             {
-                isDialogueAboutToStart = true;
-                PlayerEvents.MoveToPlayerEvent(ruleEntry, dialogue, ruleEntry.playerEntryPoint.position.x, ruleEntry.transform.position.x, ruleEntry.npc.IsFacingRight);
+                DialogueRule rule = GetValidRule();
+                if (rule != null)
+                    EnterDialogueWithInkJson(rule.dialogue);
+                else
+                    EnterDialogueWithInkJson(defaultDialogue);
             }
         }
 
@@ -91,46 +84,103 @@ namespace ATBMI.Dialogue
             {
                 isPlayerInRange = true;
 
-                foreach (var rule in autoTriggerRules)
-                {
-                    if (rule.Evaluate(this))
-                    {
-                        rule.Execute(this);
-                        break; // Execute only the first valid rule
-                    }
-                }
+                DialogueRule rule = GetValidRule();
+                if (rule != null)
+                    EnterDialogueWithInkJson(rule.dialogue);
             }
         }
 
         public void OnTriggerExit2D(Collider2D other)
         {
             if (other.CompareTag("Player"))
-            {
                 isPlayerInRange = false;
-            }
         }
 
-        public void OnEnterDialogue(TextAsset defaultDialogue)
+        public void EnterDialogueWithInkJson(TextAsset inkJson)
         {
-            if (!isDialogueAboutToStart && IsPlayerInRange)
+            DialogueManager.Instance.EnterDialogueMode(inkJson);
+            isDialogueAboutToStart = false;
+            isExecuted = true;
+        }
+
+        public void EnterDialogue(RuleEntry ruleEntry, TextAsset dialogue)
+        {
+            if (!isDialogueAboutToStart)
             {
-                foreach (var rule in manualTriggerRules)
-                {
-                    if (rule.Evaluate(this))
-                    {
-                        rule.Execute(this);
-                        break; // Execute only the first valid rule
-                    }
-                }
-
-                // TODO: change to default dialogue (use rules if default dialogue > 1, eg. default dialogue ch1, ch2, ch3...)
-                EnterDialogue(this, defaultDialogue);
+                isDialogueAboutToStart = true;
+                PlayerEvents.MoveToPlayerEvent(ruleEntry, dialogue, playerEntryPoint.position.x, transform.position.x, npc.IsFacingRight);
             }
         }
 
-        public void IsPlayerRun(bool isRunning)
+        #region Rule Evaluation
+
+        protected DialogueRule GetValidRule()
         {
-            this.isRunning = isRunning;
+            foreach (var rule in rules)
+            {
+                if (rule.isOnce && rule.hasExecuted)
+                    continue;
+
+                bool allBooleansMatch = rule.booleanConditions.TrueForAll(flag => CheckBooleanCondition(flag));
+                bool allNumericsMatch = rule.numericConditions.TrueForAll(cond => EvaluateNumericCondition(cond));
+
+                if (allBooleansMatch && allNumericsMatch)
+                {
+                    rule.hasExecuted = true;
+
+                    if (RuleContainsVisitedCountCondition(rule))
+                        visitedCount++;
+
+                    return rule;
+                }
+            }
+
+            return null;
         }
+
+        private bool RuleContainsVisitedCountCondition(DialogueRule rule)
+        {
+            foreach (var cond in rule.numericConditions)
+            {
+                if (cond.type == NumericConditionType.VisitedCount &&
+                    (cond.comparison == ComparisonOperator.Equal || cond.comparison == ComparisonOperator.GreaterThan))
+                    return true;
+            }
+            return false;
+        }
+
+        private bool EvaluateNumericCondition(NumericCondition condition)
+        {
+            int currentValue = GetNumericValue(condition.type);
+            return condition.comparison switch
+            {
+                ComparisonOperator.Equal => currentValue == condition.value,
+                ComparisonOperator.GreaterThan => currentValue > condition.value,
+                ComparisonOperator.LessThan => currentValue < condition.value,
+                _ => false
+            };
+        }
+
+        protected virtual int GetNumericValue(NumericConditionType type)
+        {
+            return type switch
+            {
+                NumericConditionType.VisitedCount => visitedCount,
+                _ => 0
+            };
+        }
+
+        protected virtual bool CheckBooleanCondition(RuleFlag flag)
+        {
+            return flag switch
+            {
+                RuleFlag.IsAfterExplosion => isAfterExplosion,
+                RuleFlag.IsAfterGettingItem => isAfterGettingItem,
+                RuleFlag.IsRunning => isRunning,
+                _ => false
+            };
+        }
+
+        #endregion
     }
 }

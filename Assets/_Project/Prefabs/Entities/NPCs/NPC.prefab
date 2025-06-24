@@ -259,6 +259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInteracting: 0
+  stressValue: 0
   interactAction: 0
   signTransform: {fileID: 7611146811407626175}
   emojiTransform: {fileID: 2312752133860158835}
@@ -367,7 +368,7 @@ GameObject:
   - component: {fileID: 6417021305596467340}
   - component: {fileID: 3007679818138177100}
   - component: {fileID: 1941091563492401246}
-  - component: {fileID: 2526292695214129011}
+  - component: {fileID: 3094139910247862195}
   m_Layer: 0
   m_Name: Dialogue
   m_TagString: Untagged
@@ -448,7 +449,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 4403454399528855645}
---- !u!114 &2526292695214129011
+--- !u!114 &3094139910247862195
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -457,13 +458,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 3538335800246146966}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 548c68ed401c0fa49a5e83c35877ab47, type: 3}
+  m_Script: {fileID: 11500000, guid: 03008745bf29140449c0531aa818bf41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   npc: {fileID: 1177493690341274544}
   playerEntryPoint: {fileID: 3754992802670437494}
-  manualTriggerRules: []
-  autoTriggerRules: []
+  rules: []
+  debugMode: 0
+  isAfterExplosion: 0
+  isAfterGettingItem: 0
+  isRunning: 0
+  visitedCount: 0
 --- !u!1 &4269605522653181484
 GameObject:
   m_ObjectHideFlags: 0
