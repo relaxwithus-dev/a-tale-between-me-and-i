@@ -123,43 +123,43 @@ namespace ATBMI.Quest
         // }
 
         // Test
-        private void Update()
-        {
-            // Test
-            if (Input.GetKeyDown(KeyCode.G))
-            {
-                StartQuest(1); // go to market quest id
-                StartQuest(2); // go to market quest id
-                StartQuest(3); // go to market quest id
-                StartQuest(4); // go to market quest id
-                StartQuest(5); // go to market quest id
-                StartQuest(6); // go to market quest id
-                StartQuest(7); // go to market quest id
-                StartQuest(8); // go to market quest id
-                StartQuest(9); // go to market quest id
-                // StartQuest(8); // go to market quest id
-            }
-            //
-            // if (Input.GetKeyDown(KeyCode.H))
-            // {
-            //     StartQuest(997); // go to market quest id
-            // }
+        // private void Update()
+        // {
+        //     // Test
+        //     if (Input.GetKeyDown(KeyCode.G))
+        //     {
+        //         StartQuest(1); // go to market quest id
+        //         StartQuest(2); // go to market quest id
+        //         StartQuest(3); // go to market quest id
+        //         StartQuest(4); // go to market quest id
+        //         StartQuest(5); // go to market quest id
+        //         StartQuest(6); // go to market quest id
+        //         StartQuest(7); // go to market quest id
+        //         StartQuest(8); // go to market quest id
+        //         StartQuest(9); // go to market quest id
+        //         // StartQuest(8); // go to market quest id
+        //     }
+        //     //
+        //     // if (Input.GetKeyDown(KeyCode.H))
+        //     // {
+        //     //     StartQuest(997); // go to market quest id
+        //     // }
 
-            // if (Input.GetKeyDown(KeyCode.H))
-            // {
-            //     FinishQuest(1);
-            // }
+        //     // if (Input.GetKeyDown(KeyCode.H))
+        //     // {
+        //     //     FinishQuest(1);
+        //     // }
 
-            // loop through ALL quests
-            // foreach (Quest quest in questMap.Values)
-            // {
-            //     // if we're now meeting the requirements, switch over to the CAN_START state
-            //     if (quest.state == QuestState.REQUIREMENTS_NOT_MET && CheckRequirementsMet(quest))
-            //     {
-            //         ChangeQuestState(quest.info.id, QuestState.CAN_START);
-            //     }
-            // }
-        }
+        //     // loop through ALL quests
+        //     // foreach (Quest quest in questMap.Values)
+        //     // {
+        //     //     // if we're now meeting the requirements, switch over to the CAN_START state
+        //     //     if (quest.state == QuestState.REQUIREMENTS_NOT_MET && CheckRequirementsMet(quest))
+        //     //     {
+        //     //         ChangeQuestState(quest.info.id, QuestState.CAN_START);
+        //     //     }
+        //     // }
+        // }
 
         private void StartQuest(int id)
         {

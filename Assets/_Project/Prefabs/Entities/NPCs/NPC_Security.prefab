@@ -64,6 +64,30 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3094139910247862195, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+      propertyPath: rules.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3094139910247862195, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+      propertyPath: rules.Array.data[0].isOnce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3094139910247862195, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+      propertyPath: rules.Array.data[0].dialogue
+      value: 
+      objectReference: {fileID: 4900000, guid: 6888ba79e1d20a1438992f0a871e023e, type: 3}
+    - target: {fileID: 3094139910247862195, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+      propertyPath: rules.Array.data[0].booleanConditions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3094139910247862195, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+      propertyPath: rules.Array.data[0].numericConditions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3094139910247862195, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+      propertyPath: rules.Array.data[0].numericConditions.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3271371676049430528, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -203,6 +227,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 3609649175966335719, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
     - {fileID: 4536252543316230107, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

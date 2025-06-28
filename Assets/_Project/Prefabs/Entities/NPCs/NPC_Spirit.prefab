@@ -151,6 +151,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 4536252543316230107, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
     - {fileID: 5381523416003278821, guid: b07313fbb3b1863418a13b118c8167d4, type: 3}
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -181,6 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInteracting: 0
+  stressValue: 0
   interactAction: 0
   signTransform: {fileID: 4557523409864915204}
   emojiTransform: {fileID: 8540831605420784584}
