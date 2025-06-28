@@ -6,7 +6,7 @@ Hei! #speaker:Satpam #expression:A_Pak_Satpam_Speak #emoji:A_Emoji_Anger
 Mau ke mana Kamu! #speaker:Satpam #expression:A_Pak_Satpam_Anger #emoji:A_Emoji_Angry
 Mahasiswa dilarang ke sini! #speaker:Satpam #expression:A_Pak_Satpam_Anger
 
-A... Anu Pak #speaker:Ratna #expression:A_Ratna_Panik
+A... Anu Pak #speaker:Ratna #expression:A_Ratna_Shock_In
 
 Kalau enggak ada kepentingan, sono pergi cepetan! #speaker:Satpam #expression:A_Pak_Satpam_Speak
 
