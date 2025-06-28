@@ -41,7 +41,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8449697497486586027}
   - component: {fileID: 3951506470387915036}
-  - component: {fileID: 7162159160403672366}
   - component: {fileID: 6607273892617412443}
   m_Layer: 7
   m_Name: NPCOld
@@ -114,19 +113,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.4160662, y: 1.8798994}
   m_EdgeRadius: 0
---- !u!114 &7162159160403672366
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1600685547843656959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db8671f1453ed81498ba07ca079ffd37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 8151672167316601920}
 --- !u!114 &6607273892617412443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,43 +127,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npc: {fileID: 0}
   playerEntryPoint: {fileID: 7168104749862052543}
-  manualTriggerRules:
-  - {fileID: 11400000, guid: 17777916603fb6449a8e92305c4fb8b0, type: 2}
-  - {fileID: 11400000, guid: cd697aa0dcd9f3842a939a724f2a9d10, type: 2}
-  - {fileID: 11400000, guid: d7e64c2cc07405a4a81385fe7459d5f6, type: 2}
-  autoTriggerRules:
-  - {fileID: 11400000, guid: efce8ac7319f310438ca3d76178b5c83, type: 2}
-  - {fileID: 11400000, guid: 6b14a52c7e988a14b82856b8612c8b06, type: 2}
+  rules: []
+  debugMode: 0
   isAfterExplosion: 0
-  visitedCount: 0
   isAfterGettingItem: 0
-  onTalkedTo_AfterExplosion_WithRunning: {fileID: 0}
-  isOnce_AfterExplosion_WithRunning: 1
-  onTalkedTo_AfterExplosion_WithRunning_Visited_01: {fileID: 0}
-  isOnce_AfterExplosion_WithRunning_Visited_01: 0
-  onTalkedTo_AfterExplosion_WithRunning_Visited_02: {fileID: 0}
-  isOnce_AfterExplosion_WithRunning_Visited_02: 0
-  onTalkedTo_AfterExplosion_WithRunning_Visited_03: {fileID: 0}
-  isOnce_AfterExplosion_WithRunning_Visited_03: 0
-  onTalk_AfterExplosion_WithWalking_Visited_01: {fileID: 0}
-  isOnce_AfterExplosion_WithWalking_Visited_01: 0
-  onTalk_AfterExplosion_WithWalking_Visited_02: {fileID: 0}
-  isOnce_AfterExplosion_WithWalking_Visited_02: 0
-  onTalkedTo_AfterGettingAnItem: {fileID: 0}
-  isOnce_AfterGettingItem: 0
-  onTalk_AfterGettingAKey: {fileID: 0}
-  isOnce_AfterGettingKey: 0
-  onTalk_AfterGettingARock: {fileID: 0}
-  isOnce_AfterGettingRock: 0
-  isOnce01: 0
-  isOnce02: 0
-  isOnce03: 0
-  isOnce04: 0
-  isOnce05: 0
-  isOnce06: 0
-  isOnce07: 0
-  isOnce08: 0
-  isOnce09: 0
+  isRunning: 0
+  visitedCount: 0
 --- !u!1 &2123592277204726207
 GameObject:
   m_ObjectHideFlags: 0

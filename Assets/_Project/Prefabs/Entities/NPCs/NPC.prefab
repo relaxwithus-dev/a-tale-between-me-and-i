@@ -367,7 +367,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6417021305596467340}
   - component: {fileID: 3007679818138177100}
-  - component: {fileID: 1941091563492401246}
   - component: {fileID: 3094139910247862195}
   m_Layer: 0
   m_Name: Dialogue
@@ -436,19 +435,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.268993, y: 3.2713063}
   m_EdgeRadius: 0
---- !u!114 &1941091563492401246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3538335800246146966}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db8671f1453ed81498ba07ca079ffd37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 4403454399528855645}
 --- !u!114 &3094139910247862195
 MonoBehaviour:
   m_ObjectHideFlags: 0
