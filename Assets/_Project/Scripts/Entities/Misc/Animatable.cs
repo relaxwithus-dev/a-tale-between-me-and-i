@@ -46,8 +46,8 @@ namespace ATBMI.Entities
             DialogueEvents.PlayDialogueAnim += OnPlayDialogue;
             DialogueEvents.StopDialogueAnim += StopDialogueAnim;
         }
-
-        protected virtual void UnsubsEvent()
+        
+        private void UnsubsEvent()
         {
             DialogueEvents.PlayDialogueAnim -= OnPlayDialogue;
             DialogueEvents.StopDialogueAnim -= StopDialogueAnim;
@@ -64,8 +64,10 @@ namespace ATBMI.Entities
         }
         
         // Core
-        public abstract bool TrySetAnimationState(string state, bool isOnce = false);
-        public abstract float GetAnimationTime();
+        public abstract bool TrySetAnimationState(string state, string speaker = "", bool isOnce = false);
+
+        public float GetAnimationTime() => animator.GetCurrentAnimatorClipInfo(0).Length;
+        protected bool CheckMatchSpeaker(string speaker, string name) => speaker != "" && speaker == name;
         
         protected int GetCachedHash(string animName)
         {
@@ -77,7 +79,18 @@ namespace ATBMI.Entities
             return hash;
         }
         
-        private void OnPlayDialogue(string speaker, string expression) => TrySetAnimationState(expression);
-        protected virtual void StopDialogueAnim(string speaker) => TrySetAnimationState("Idle");
+        protected string GetStateName(string state, string tagPrefix)
+        {
+            var stateName = state;
+            if (state.StartsWith(tagPrefix + "_")) return stateName;
+            
+            stateName = tagPrefix + "_" + state;
+            return stateName;
+
+        }
+        
+        // Event
+        private void OnPlayDialogue(string speaker, string expression) => TrySetAnimationState(expression, speaker);
+        protected virtual void StopDialogueAnim(string speaker) => TrySetAnimationState("Idle", speaker);
     }
 }

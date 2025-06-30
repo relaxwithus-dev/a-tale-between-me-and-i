@@ -5,6 +5,7 @@ namespace ATBMI.Entities.NPCs
     public class CharacterAnimation : Animatable
     {
         // Fields
+        private string _charaState;
         private CharacterAI _characterAI;
         
         // Unity Callbacks
@@ -15,9 +16,13 @@ namespace ATBMI.Entities.NPCs
         }
         
         // Core
-        public override bool TrySetAnimationState(string state, bool isOnce = false)
+        public override bool TrySetAnimationState(string state, string speaker = "", bool isOnce = false)
         {
-            var stateName = _characterAI.Data.AnimationTag + "_" + state;
+            var data = _characterAI.Data;
+            if (!CheckMatchSpeaker(speaker, data.CharacterName)) 
+                return false;
+            
+            var stateName = GetStateName(state, data.AnimationTag);
             if (!animationHashes.ContainsKey(stateName))
             {
                 Debug.LogWarning("Animation isn't exists");
@@ -28,7 +33,13 @@ namespace ATBMI.Entities.NPCs
             animator.CrossFade(currentState, 0, 0);
             return true;
         }
-        
-        public override float GetAnimationTime() => animator.GetCurrentAnimatorClipInfo(0).Length;
+
+        protected override void StopDialogueAnim(string speaker)
+        {
+            var data = _characterAI.Data;
+            if (speaker != "" && speaker != data.CharacterName) return;
+            
+            base.StopDialogueAnim(speaker);
+        }
     }
 }

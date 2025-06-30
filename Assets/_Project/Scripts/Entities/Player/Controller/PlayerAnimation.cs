@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using ATBMI.Audio;
+using ATBMI.Data;
 
 namespace ATBMI.Entities.Player
 {
@@ -44,15 +45,13 @@ namespace ATBMI.Entities.Player
             currentState = state;
         }
         
-        public override bool TrySetAnimationState(string state, bool isOnce = false)
+        public override bool TrySetAnimationState(string state, string speaker = "", bool isOnce = false)
         {
-            var stateName = state;
-            var tagPrefix = _playerController.Data.PlayerAnimationTag;
-            if (!state.StartsWith(tagPrefix + "_"))
-            {
-                stateName = tagPrefix + "_" + state;
-            }
+            var data = _playerController.Data;
+            if (!CheckMatchSpeaker(speaker, data.name)) 
+                return false;
             
+            var stateName = GetStateName(state, data.PlayerAnimationTag);
             if (!animationHashes.ContainsKey(stateName))
             {
                 Debug.LogWarning($"animation {stateName} isn't exist");
@@ -62,9 +61,7 @@ namespace ATBMI.Entities.Player
             StartCoroutine(PlayOnceRoutine(stateName, isOnce));
             return true;
         }
-        
-        public override float GetAnimationTime() => animator.GetCurrentAnimatorClipInfo(0).Length;
-        
+
         private IEnumerator PlayOnceRoutine(string stateName, bool isOnce)
         {
             _isInteractiveAnimation = true;
@@ -90,6 +87,9 @@ namespace ATBMI.Entities.Player
         
         protected override void StopDialogueAnim(string speaker)
         {
+            var data = _playerController.Data;
+            if (speaker != "" && speaker != data.PlayerName) return;
+            
             base.StopDialogueAnim(speaker);
             _isInteractiveAnimation = false;
         }
