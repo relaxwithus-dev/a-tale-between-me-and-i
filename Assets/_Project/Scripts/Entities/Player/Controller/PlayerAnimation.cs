@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using UnityEngine;
 using ATBMI.Audio;
-using ATBMI.Data;
 
 namespace ATBMI.Entities.Player
 {

@@ -42,7 +42,7 @@ namespace ATBMI.Scene
         private void HandleDoorAnimation()
         {
             if (!isRoomTravel) return;
-            animatable.TrySetAnimationState(StateTag.ENTER_ROOM_STATE);
+            animatable.TrySetAnimationState(StateTag.ENTER_ROOM_STATE, isOnce: true);
         }
         
         private void HandleAudioTravel(SceneAsset targetScene)

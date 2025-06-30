@@ -25,7 +25,7 @@ namespace ATBMI.Entities.NPCs
             var stateName = GetStateName(state, data.AnimationTag);
             if (!animationHashes.ContainsKey(stateName))
             {
-                Debug.LogWarning("Animation isn't exists");
+                Debug.LogWarning($"animation {stateName} isn't exist");
                 return false;
             }
             

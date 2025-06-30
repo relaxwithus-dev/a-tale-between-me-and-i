@@ -8,8 +8,8 @@ EXTERNAL FinishQuest(questId)
 
 #speaker:Ratna #emoji:A_Emoji_Question
 
-Ini kan... #speaker:Ratna #expression:A_Ratna_speak
-Kunci untuk gudang kebun #speaker:Ratna #expression:A_Ratna_speak
+Ini kan... #speaker:Ratna #expression:A_Ratna_Speak
+Kunci untuk gudang kebun #speaker:Ratna #expression:A_Ratna_Speak
 Mungkin Aku bisa cari alat buat buka pintu di sana #speaker:Ratna #expression:A_Ratna_speak
 
 -> END

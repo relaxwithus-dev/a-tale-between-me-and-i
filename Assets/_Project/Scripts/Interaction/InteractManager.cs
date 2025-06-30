@@ -130,7 +130,7 @@ namespace ATBMI.Interaction
         private IEnumerator TakeItemRoutine(ItemInteract item)
         {
             var duration = playerAnimation.GetAnimationTime();
-            playerAnimation.TrySetAnimationState(StateTag.TAKE_ITEM_STATE);
+            playerAnimation.TrySetAnimationState(StateTag.TAKE_ITEM_STATE, isOnce: true);
             
             yield return new WaitForSeconds(duration);
             InteractEvent.InteractedEvent(interact: false, playerController);

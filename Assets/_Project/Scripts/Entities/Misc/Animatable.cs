@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using ATBMI.Gameplay.Event;
@@ -67,7 +66,7 @@ namespace ATBMI.Entities
         public abstract bool TrySetAnimationState(string state, string speaker = "", bool isOnce = false);
 
         public float GetAnimationTime() => animator.GetCurrentAnimatorClipInfo(0).Length;
-        protected bool CheckMatchSpeaker(string speaker, string name) => speaker != "" && speaker == name;
+        protected bool CheckMatchSpeaker(string speaker, string name) => speaker == "" || speaker.Equals(name);
         
         protected int GetCachedHash(string animName)
         {
